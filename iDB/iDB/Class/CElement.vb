@@ -29,4 +29,19 @@ Public Class CElement
 			m_ID = value
 		End Set
 	End Property
+
+	''' <summary>
+	''' 表示名称
+	''' (DisplayMemberに設定する文字列と同名にする
+	''' </summary>
+	''' <returns></returns>
+	Public Property NAME() As String
+		Get
+			Return m_Name
+		End Get
+		Set(value As String)
+			m_Name = value
+		End Set
+	End Property
+
 End Class
