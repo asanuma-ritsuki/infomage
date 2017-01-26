@@ -1,0 +1,14 @@
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\iDB\bin\Debug\iDB.exe.config
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\iDB\bin\Debug\iDB.exe
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\iDB\bin\Debug\iDB.pdb
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\iDB\bin\Debug\iDB.xml
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\iDB\obj\Debug\iDB.vbprojResolveAssemblyReference.cache
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\iDB\obj\Debug\iDB.Resources.resources
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\iDB\obj\Debug\iDB.vbproj.GenerateResource.Cache
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\iDB\obj\Debug\iDB.exe
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\iDB\obj\Debug\iDB.xml
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\iDB\obj\Debug\iDB.pdb
+C:\GitHub\infomage\iDB\iDB\bin\Debug\iDB.exe.config
+C:\GitHub\infomage\iDB\iDB\obj\Debug\iDB.exe
+C:\GitHub\infomage\iDB\iDB\obj\Debug\iDB.xml
+C:\GitHub\infomage\iDB\iDB\obj\Debug\iDB.pdb
