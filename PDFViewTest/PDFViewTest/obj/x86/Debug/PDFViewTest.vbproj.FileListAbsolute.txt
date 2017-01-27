@@ -1,2 +1,12 @@
 C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\PDFViewTest\bin\x86\Debug\PDFViewTest.exe.config
 C:\GitHub\infomage\PDFViewTest\PDFViewTest\bin\x86\Debug\PDFViewTest.exe.config
+C:\GitHub\infomage\PDFViewTest\PDFViewTest\bin\x86\Debug\PDFViewTest.exe
+C:\GitHub\infomage\PDFViewTest\PDFViewTest\bin\x86\Debug\PDFViewTest.pdb
+C:\GitHub\infomage\PDFViewTest\PDFViewTest\bin\x86\Debug\PDFViewTest.xml
+C:\GitHub\infomage\PDFViewTest\PDFViewTest\obj\x86\Debug\PDFViewTest.vbprojResolveAssemblyReference.cache
+C:\GitHub\infomage\PDFViewTest\PDFViewTest\obj\x86\Debug\PDFViewTest.Form1.resources
+C:\GitHub\infomage\PDFViewTest\PDFViewTest\obj\x86\Debug\PDFViewTest.Resources.resources
+C:\GitHub\infomage\PDFViewTest\PDFViewTest\obj\x86\Debug\PDFViewTest.vbproj.GenerateResource.Cache
+C:\GitHub\infomage\PDFViewTest\PDFViewTest\obj\x86\Debug\PDFViewTest.exe
+C:\GitHub\infomage\PDFViewTest\PDFViewTest\obj\x86\Debug\PDFViewTest.xml
+C:\GitHub\infomage\PDFViewTest\PDFViewTest\obj\x86\Debug\PDFViewTest.pdb
