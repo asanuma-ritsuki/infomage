@@ -12,3 +12,6 @@ C:\GitHub\infomage\iDB\iDB\bin\Debug\iDB.exe.config
 C:\GitHub\infomage\iDB\iDB\obj\Debug\iDB.exe
 C:\GitHub\infomage\iDB\iDB\obj\Debug\iDB.xml
 C:\GitHub\infomage\iDB\iDB\obj\Debug\iDB.pdb
+C:\GitHub\infomage\iDB\iDB\obj\Debug\iDB.vbprojResolveAssemblyReference.cache
+C:\GitHub\infomage\iDB\iDB\obj\Debug\iDB.Resources.resources
+C:\GitHub\infomage\iDB\iDB\obj\Debug\iDB.vbproj.GenerateResource.Cache

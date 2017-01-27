@@ -8,19 +8,312 @@ iDB
 <members>
 <member name="T:iDB.My.Resources.Resources">
 <summary>
-  A strongly-typed resource class, for looking up localized strings, etc.
+  ローカライズされた文字列などを検索するための、厳密に型指定されたリソース クラスです。
 </summary>
 </member>
 <member name="P:iDB.My.Resources.Resources.ResourceManager">
 <summary>
-  Returns the cached ResourceManager instance used by this class.
+  このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
 </summary>
 </member>
 <member name="P:iDB.My.Resources.Resources.Culture">
 <summary>
-  Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
+  厳密に型指定されたこのリソース クラスを使用して、すべての検索リソースに対し、
+  現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
 </summary>
+</member>
+<member name="T:iDB.CElement">
+ <summary>
+ コンボボックスに表示用mの次列と内部IDを保持させるクラス
+ </summary>
+</member>
+<member name="M:iDB.CElement.ToString">
+ <summary>
+ 表示用文字列はToStringをオーバーライドして取得する
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:iDB.CElement.ID">
+ <summary>
+ 実際の値
+ (ValueMemberに設定する文字列と同名にする)
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:iDB.CElement.NAME">
+ <summary>
+ 表示名称
+ (DisplayMemberに設定する文字列と同名にする
+ </summary>
+ <returns></returns>
+</member>
+<member name="T:iDB.clsWinApp">
+ <summary>
+ メインルーチン
+ </summary>
+</member>
+<member name="M:iDB.clsWinApp.OnThreadException(System.Object,System.Threading.ThreadExceptionEventArgs)">
+ <summary>
+ 例外ハンドラ
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:iDB.clsWinApp.CatchException(System.Exception)">
+ <summary>
+ 意図的にキャッチしない例外を全て処理する
+ </summary>
+ <param name="ex"></param>
+</member>
+<member name="M:iDB.SQLProcess.#ctor">
+ <summary>
+ コンストラクタ
+ </summary>
+</member>
+<member name="M:iDB.SQLProcess.Close">
+ <summary>
+ デストラクタ
+ </summary>
+</member>
+<member name="M:iDB.SQLProcess.Initialize">
+ <summary>
+ コネクション確立
+ </summary>
+</member>
+<member name="M:iDB.SQLProcess.DB_SELECT_DATATABLE(System.String)">
+ <summary>
+ SELECT文発行用関数(DATATABLE)
+ </summary>
+ <param name="strSQL"></param>
+ <returns></returns>
+</member>
+<member name="M:iDB.SQLProcess.DB_EXECUTE_SCALAR(System.String)">
+ <summary>
+ SQL文の結果より単一の値を取得
+ </summary>
+ <param name="strSQL"></param>
+ <returns></returns>
+</member>
+<member name="M:iDB.SQLProcess.DB_UPDATE(System.String)">
+ <summary>
+ INSERT、DELETE、UPDATE文発行用関数
+ </summary>
+ <param name="strSQL"></param>
+</member>
+<member name="M:iDB.SQLProcess.DB_SELECT_READER(System.String)">
+ <summary>
+ SELECT文発行用関数(DATA READER)
+ </summary>
+ <param name="strSQL"></param>
+ <returns></returns>
+</member>
+<member name="M:iDB.SQLProcess.DB_SELECT_DATASET(System.String,System.String)">
+ <summary>
+ SELECT文発行用関数(DATASET)
+ </summary>
+ <param name="strSQL"></param>
+ <param name="srcTable"></param>
+ <returns></returns>
+</member>
+<member name="P:iDB.XmlSettings.LocationX">
+ <summary>
+ フォーム位置X
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:iDB.XmlSettings.LocationY">
+ <summary>
+ フォーム位置Y
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:iDB.XmlSettings.SizeX">
+ <summary>
+ サイズ幅
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:iDB.XmlSettings.SizeY">
+ <summary>
+ サイズ高さ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:iDB.XmlSettings.State">
+ <summary>
+ 最大化・最小化状態
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:iDB.XmlSettings.ApplicationName">
+ <summary>
+ アプリケーション名
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:iDB.XmlSettings.DataSource">
+ <summary>
+ DataSource
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:iDB.XmlSettings.InitialCatalog">
+ <summary>
+ InitialCatalog
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:iDB.XmlSettings.UserID">
+ <summary>
+ UserID
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:iDB.XmlSettings.Password">
+ <summary>
+ Password
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:iDB.XmlSettings.LoadFromXmlFile">
+ <summary>
+ 設定をXMLファイルから読み込み復元する
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:iDB.XmlSettings.SaveToXmlFile">
+ <summary>
+ 現在の設定をXMLファイルに保存する
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:iDB.XmlSettings.LoadFromBinaryFile">
+ <summary>
+ 設定をバイナリファイルから読み込み復元する
+ </summary>
+</member>
+<member name="M:iDB.XmlSettings.SaveToBinaryFile">
+ <summary>
+ 現在の設定をバイナリファイルに保存する
+ </summary>
+</member>
+<member name="M:iDB.XmlSettings.LoadFromRegistry">
+ <summary>
+ 設定をレジストリから読み込み復元する
+ </summary>
+</member>
+<member name="M:iDB.XmlSettings.SaveToRegistry">
+ <summary>
+ 現在の設定をレジストリに保存する
+ </summary>
+</member>
+<member name="M:iDB.XmlSettings.Dispose">
+ <summary>
+ インスタンスの内容を保存して解放する
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:iDB.XmlSettings.GetSettingPath">
+ <summary>
+ XMLファイルの保存先を取得する
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:iDB.XmlSettings.GetSettingRegistry">
+ <summary>
+ レジストリの保存先キーを取得する
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:iDB.DefaultModule.IsNull(System.String)">
+ <summary>
+ NULL判定
+ </summary>
+ <param name="text"></param>
+ <returns></returns>
+</member>
+<member name="M:iDB.DefaultModule.OutputLogFile(System.String)">
+ <summary>
+ 例外処理内容をログファイルに書き込む
+ </summary>
+ <param name="strExceptionMessage"></param>
+</member>
+<member name="M:iDB.DefaultModule.GetLinesOfTextFile(System.String)">
+ <summary>
+ ファイルのレコード数をカウントする
+ </summary>
+ <param name="strFileName"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:iDB.DefaultModule.IsShiftJISOnlyText(System.String)">
+ <summary>
+ Shift-JISで表現できるか判別する
+ </summary>
+ <param name="text">対象文字列</param>
+ <returns>TRUE:表現できる、FALSE:表現できない</returns>
+ <remarks></remarks>
+</member>
+<member name="M:iDB.DefaultModule.FileBrowse(System.Windows.Forms.TextBox,System.String)">
+ <summary>
+ ファイルを開くダイアログボックス
+ </summary>
+ <param name="txtFile"></param>
+ <param name="strFilter"></param>
+ <returns>フィルタの記述例：JPEGイメージ(*.jpg)|*.jpg|すべてのファイル(*.*)|*.*</returns>
+</member>
+<member name="M:iDB.DefaultModule.FolderBrowse(System.Windows.Forms.TextBox)">
+ <summary>
+ フォルダを開くコモンダイアログボックスを表示する
+ </summary>
+ <param name="txtFolder"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:iDB.DefaultModule.GetFilesMostDeep(System.String,System.String[])">
+ <summary>
+ 指定した検索パターンに一致するファイルを最下層まで検索し全て返す
+ </summary>
+ <param name="strRootPath">検索を開始する最上層のディレクトリへのパス</param>
+ <param name="strPatterns">パス内のファイル名と対応させる検索文字列の配列</param>
+ <returns>検索パターンに一致したすべてのファイルパス</returns>
+ <remarks></remarks>
+</member>
+<member name="M:iDB.DefaultModule.OutputImportLog(System.Windows.Forms.ListBox,System.String,System.String,System.String)">
+ <summary>
+ リストボックスに表示されている文字列をログファイルとして保存する
+ </summary>
+ <param name="lstResult">対象ListBox</param>
+ <param name="strOutputFolder">出力フォルダ</param>
+ <param name="strSign">ファイル名をわかりやすくするためのサインを指定する</param>
+ <remarks>yyyyMMdd_Import_XXの形式で出力する(XXは数字)</remarks>
+</member>
+<member name="M:iDB.DefaultModule.getBusinessDay(System.DateTime,System.Int32)">
+ <summary>
+ 営業日の日数分日付をずらす
+ </summary>
+ <param name="dtDate"></param>
+ <param name="iDiff"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:iDB.DefaultModule.IsHoliday(System.DateTime)">
+ <summary>
+ 土日祝日判定
+ </summary>
+ <param name="dtDate"></param>
+ <returns></returns>
+ <remarks></remarks>
 </member>
 </members>
 </doc>
