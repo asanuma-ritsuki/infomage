@@ -10,3 +10,8 @@ C:\GitHub\infomage\PDFViewTest\PDFViewTest\obj\x86\Debug\PDFViewTest.vbproj.Gene
 C:\GitHub\infomage\PDFViewTest\PDFViewTest\obj\x86\Debug\PDFViewTest.exe
 C:\GitHub\infomage\PDFViewTest\PDFViewTest\obj\x86\Debug\PDFViewTest.xml
 C:\GitHub\infomage\PDFViewTest\PDFViewTest\obj\x86\Debug\PDFViewTest.pdb
+C:\GitHub\infomage\PDFViewTest\PDFViewTest\bin\x86\Debug\C1.C1Zip.4.dll
+C:\GitHub\infomage\PDFViewTest\PDFViewTest\bin\x86\Debug\C1.Win.C1Themes.4.dll
+C:\GitHub\infomage\PDFViewTest\PDFViewTest\bin\x86\Debug\C1.C1Zip.4.xml
+C:\GitHub\infomage\PDFViewTest\PDFViewTest\bin\x86\Debug\C1.Win.C1Themes.4.xml
+C:\GitHub\infomage\PDFViewTest\PDFViewTest\obj\x86\Debug\PDFViewTest.exe.licenses
