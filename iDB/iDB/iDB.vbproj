@@ -82,6 +82,12 @@
     <Compile Include="Form\LoginMenu\frmLogin.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form\Template\frmTempForm.Designer.vb">
+      <DependentUpon>frmTempForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Template\frmTempForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Module\DefaultModule.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -100,6 +106,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Form\Template\frmTempForm.resx">
+      <DependentUpon>frmTempForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -120,7 +129,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Form\Template\" />
     <Folder Include="Image\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

@@ -28,6 +28,7 @@ Partial Class Form1
 		Me.btnClear = New System.Windows.Forms.Button()
 		Me.Panel1 = New System.Windows.Forms.Panel()
 		Me.C1ThemeController1 = New C1.Win.C1Themes.C1ThemeController()
+		Me.PdfViewer1 = New Apitron.PDF.Controls.PDFViewer()
 		Me.Panel1.SuspendLayout()
 		CType(Me.C1ThemeController1, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
@@ -56,11 +57,11 @@ Partial Class Form1
 		'
 		'WebBrowser1
 		'
-		Me.WebBrowser1.Dock = System.Windows.Forms.DockStyle.Fill
+		Me.WebBrowser1.Dock = System.Windows.Forms.DockStyle.Left
 		Me.WebBrowser1.Location = New System.Drawing.Point(0, 28)
 		Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
 		Me.WebBrowser1.Name = "WebBrowser1"
-		Me.WebBrowser1.Size = New System.Drawing.Size(1008, 701)
+		Me.WebBrowser1.Size = New System.Drawing.Size(507, 701)
 		Me.WebBrowser1.TabIndex = 2
 		'
 		'btnClear
@@ -89,11 +90,27 @@ Partial Class Form1
 		Me.Panel1.TabIndex = 4
 		Me.C1ThemeController1.SetTheme(Me.Panel1, "BeigeOne")
 		'
+		'PdfViewer1
+		'
+		Me.PdfViewer1.AllowDrop = True
+		Me.PdfViewer1.BackColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(161, Byte), Integer), CType(CType(106, Byte), Integer))
+		Me.PdfViewer1.Dock = System.Windows.Forms.DockStyle.Fill
+		Me.PdfViewer1.Document = Nothing
+		Me.PdfViewer1.EnableSearch = True
+		Me.PdfViewer1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(96, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+		Me.PdfViewer1.Location = New System.Drawing.Point(507, 28)
+		Me.PdfViewer1.Name = "PdfViewer1"
+		Me.PdfViewer1.SearchHighlightColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
+		Me.PdfViewer1.Size = New System.Drawing.Size(501, 701)
+		Me.PdfViewer1.TabIndex = 5
+		Me.C1ThemeController1.SetTheme(Me.PdfViewer1, "(default)")
+		'
 		'Form1
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(1008, 729)
+		Me.Controls.Add(Me.PdfViewer1)
 		Me.Controls.Add(Me.WebBrowser1)
 		Me.Controls.Add(Me.Panel1)
 		Me.ForeColor = System.Drawing.Color.FromArgb(CType(CType(96, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
@@ -113,4 +130,5 @@ Partial Class Form1
 	Friend WithEvents btnClear As Button
 	Friend WithEvents Panel1 As Panel
 	Friend WithEvents C1ThemeController1 As C1.Win.C1Themes.C1ThemeController
+	Friend WithEvents PdfViewer1 As Apitron.PDF.Controls.PDFViewer
 End Class

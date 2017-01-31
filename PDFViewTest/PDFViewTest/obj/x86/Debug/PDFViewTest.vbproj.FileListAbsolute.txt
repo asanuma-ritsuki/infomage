@@ -15,3 +15,7 @@ C:\GitHub\infomage\PDFViewTest\PDFViewTest\bin\x86\Debug\C1.Win.C1Themes.4.dll
 C:\GitHub\infomage\PDFViewTest\PDFViewTest\bin\x86\Debug\C1.C1Zip.4.xml
 C:\GitHub\infomage\PDFViewTest\PDFViewTest\bin\x86\Debug\C1.Win.C1Themes.4.xml
 C:\GitHub\infomage\PDFViewTest\PDFViewTest\obj\x86\Debug\PDFViewTest.exe.licenses
+C:\GitHub\infomage\PDFViewTest\PDFViewTest\bin\x86\Debug\Apitron.PDF.Controls.dll
+C:\GitHub\infomage\PDFViewTest\PDFViewTest\bin\x86\Debug\Apitron.PDF.Rasterizer.dll
+C:\GitHub\infomage\PDFViewTest\PDFViewTest\bin\x86\Debug\Apitron.PDF.Controls.xml
+C:\GitHub\infomage\PDFViewTest\PDFViewTest\bin\x86\Debug\Apitron.PDF.Rasterizer.xml

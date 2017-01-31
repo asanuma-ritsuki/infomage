@@ -235,6 +235,19 @@ iDB
  <returns></returns>
  <remarks></remarks>
 </member>
+<member name="T:iDB.DefaultModule.ResultMark">
+ <summary>
+ リストボックス用マーク列挙体
+ </summary>
+</member>
+<member name="M:iDB.DefaultModule.WriteLstResult(System.Windows.Forms.ListBox,System.String,iDB.DefaultModule.ResultMark)">
+ <summary>
+ リストボックスに結果マーク込みで文字列を書き込む
+ </summary>
+ <param name="lstResult"></param>
+ <param name="strLog"></param>
+ <param name="ResultMark"></param>
+</member>
 <member name="M:iDB.DefaultModule.IsNull(System.String)">
  <summary>
  NULL判定

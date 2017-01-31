@@ -4,6 +4,54 @@
 Module DefaultModule
 
 	''' <summary>
+	''' リストボックス用マーク列挙体
+	''' </summary>
+	Public Enum ResultMark
+		InformationMark
+		DoingMark
+		WarningMark
+		ErrorMark
+	End Enum
+
+	''' <summary>
+	''' リストボックスに結果マーク込みで文字列を書き込む
+	''' </summary>
+	''' <param name="lstResult"></param>
+	''' <param name="strLog"></param>
+	''' <param name="ResultMark"></param>
+	Public Sub WriteLstResult(ByVal lstResult As ListBox, ByVal strLog As String, Optional ByVal ResultMark As ResultMark = ResultMark.InformationMark)
+
+		Try
+
+			Dim strMark As String = ""
+
+			Select Case ResultMark
+				Case ResultMark.InformationMark
+					strMark = "○"
+				Case ResultMark.DoingMark
+					strMark = "→"
+				Case ResultMark.WarningMark
+					strMark = "△"
+				Case ResultMark.ErrorMark
+					strMark = "×"
+			End Select
+
+			'時間と文字列をリストボックスに表示
+			lstResult.Items.Add(strMark & Date.Now.ToString("yyyy/MM/dd HH:mm:ss") & vbTab & strLog)
+			'リストボックスの最終行を選択
+			lstResult.SetSelected(lstResult.Items.Count - 1, True)
+			Application.DoEvents()
+
+		Catch ex As Exception
+
+			Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message)
+			MessageBox.Show("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+		End Try
+
+	End Sub
+
+	''' <summary>
 	''' NULL判定
 	''' </summary>
 	''' <param name="text"></param>
