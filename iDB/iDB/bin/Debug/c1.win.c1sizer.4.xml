@@ -1,0 +1,1000 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>C1.Win.C1Sizer.4</name>
+  </assembly>
+  <members>
+    <member name="T:C1.Win.C1Sizer.Border">
+      <summary>角に丸みのある枠線を実装し、枠線の外観を制御するプロパティを公開するクラス。</summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Border.Corners">
+      <summary>コントロールの角の半径を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Border.Thickness">
+      <summary>コントロールの枠線の太さを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Border.Color">
+      <summary>
+        コントロールの枠線を描画するために使用する
+        <see cref="P:C1.Win.C1Sizer.Border.Color" />を取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Sizer.C1SizerEventHandler">
+      <summary>
+        <see cref="T:C1.Win.C1Sizer.C1Sizer" />コントロールの
+        <see cref="E:C1.Win.C1Sizer.C1Sizer.SplitterMoving" />イベントと
+        <see cref="E:C1.Win.C1Sizer.C1Sizer.SplitterMoved" />イベントを処理するメソッドを表します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Sizer.C1SizerEventArgs">
+      <summary>
+        <see cref="T:C1.Win.C1Sizer.C1Sizer" />コントロールの
+        <see cref="E:C1.Win.C1Sizer.C1Sizer.SplitterMoving" />イベントと
+        <see cref="E:C1.Win.C1Sizer.C1Sizer.SplitterMoved" />イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.C1SizerEventArgs.X">
+      <summary>イベントが発生したときのマウスの X 座標を取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.C1SizerEventArgs.Y">
+      <summary>イベントが発生したときのマウスの X 座標を取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.C1SizerEventArgs.Band">
+      <summary>イベントを発生させたテーブル領域（行または列）の参照を取得します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Sizer.AutoSizeEnum">
+      <summary>有効なサイズ変更モードを表します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Sizer.AutoSizeEnum.None">
+      <summary>サイズ変更しません。</summary>
+    </member>
+    <member name="F:C1.Win.C1Sizer.AutoSizeEnum.Grid">
+      <summary>Sizer のグリッドにスナップするように子コントロールをサイズ変更します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Sizer.C1Sizer">
+      <summary>.NET Framework から提供される基本レイアウト機能（Dock プロパティと Anchor プロパティ）を拡張する強力なグリッドレイアウトマネージャを持つコンテナコントロールです。</summary>
+      <remarks>
+        <para>C1Sizer コントロールを使用すると、いくつかのテーブル領域で構成されるグリッドを定義し、それらのテーブル領域にスナップするコントロールを追加できます。C1Sizer コントロールがサイズ変更されると、テーブル領域が自動的に再計算され、内部のコントロールは自動的に新しい位置に移動します。</para>
+        <para>設計時にテーブル領域を設定して、スプリッタとして動作したり、コントロールがサイズ変更されてもサイズが固定されるように調整できます。</para>
+        <para>C1Sizer コンポーネントを使用するためにコードを記述する必要はほとんどありません。ほとんどのアプリケーションでは、次の手順に従います。</para>
+        <para>1) フォームに１つ以上の C1Sizer コントロールを追加し、フォーム全体に収まるように Dock プロパティを設定します。</para>
+        <para>2) グリッドエディタを使用して、設計時にグリッドレイアウトを設定し、グリッドにスナップするコントロールを追加します。</para>
+        <para>グリッドエディタを使用すると、グリッドのテーブル領域の数とサイズ（行と列）を設定できます。また、スプリッタとして動作するテーブル領域やサイズを固定するテーブル領域を指定できます。</para>
+      </remarks>
+    </member>
+    <member name="M:C1.Win.C1Sizer.C1Sizer.#ctor">
+      <summary>
+        <see cref="T:C1.Win.C1Sizer.C1Sizer" />コントロールの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Sizer.C1Sizer.SuspendLayout">
+      <summary>コントロールのレイアウトロジックを一時的に中断します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Sizer.C1Sizer.ResumeLayout">
+      <summary>通常のレイアウトロジックを再開します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Sizer.C1Sizer.ResumeLayout(System.Boolean)">
+      <summary>通常のレイアウトロジックを再開します。オプションとして、強制的に保留中のレイアウト要求のレイアウトが即時に実行されます。</summary>
+      <param name="performLayout">保留中のレイアウト要求を実行する場合は True 。それ以外の場合は False 。</param>
+    </member>
+    <member name="M:C1.Win.C1Sizer.C1Sizer.AddControl(System.Windows.Forms.Control,System.Int32,System.Int32,System.Int32,System.Int32)">
+      <summary>
+        子コントロールを
+        <see cref="T:C1.Win.C1Sizer.C1Sizer" />に追加し、それをグリッド上の指定されたセルに配置します。
+      </summary>
+      <param name="ctl">
+        追加する
+        <see cref="T:System.Windows.Forms.Control" />子。
+      </param>
+      <param name="row">子コントロールが配置される行のインデックス。</param>
+      <param name="col">子コントロールが配置される列のインデックス。</param>
+      <param name="rowSpan">子コントロールがまたがる行数。</param>
+      <param name="colSpan">子コントロールがまたがる列数。</param>
+    </member>
+    <member name="M:C1.Win.C1Sizer.C1Sizer.AddControl(System.Windows.Forms.Control,System.Int32,System.Int32)">
+      <summary>
+        子コントロールを
+        <see cref="T:C1.Win.C1Sizer.C1Sizer" />に追加し、それをグリッド上の指定されたセルに配置します。
+      </summary>
+      <param name="ctl">
+        追加する
+        <see cref="T:System.Windows.Forms.Control" />子。
+      </param>
+      <param name="row">子コントロールが配置される行のインデックス。</param>
+      <param name="col">子コントロールが配置される列のインデックス。</param>
+    </member>
+    <member name="M:C1.Win.C1Sizer.C1Sizer.GetCellBounds(System.Int32,System.Int32,System.Int32,System.Int32)">
+      <summary>グリッド内のセル範囲の境界を取得します。</summary>
+      <param name="row">範囲の最初の行のインデックス。</param>
+      <param name="col">範囲の最初の列のインデックス。</param>
+      <param name="rowSpan">範囲内の行数。</param>
+      <param name="colSpan">範囲内の列数。</param>
+      <returns>
+        セル範囲の境界を含む
+        <see cref="T:System.Drawing.Rectangle" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Sizer.C1Sizer.GetCellBounds(System.Int32,System.Int32)">
+      <summary>グリッド内のセルの範囲を取得します。</summary>
+      <param name="row">セルを含む行のインデックス。</param>
+      <param name="col">セルを含む列のインデックス。</param>
+      <returns>
+        セルの範囲を含む
+        <see cref="T:System.Drawing.Rectangle" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Sizer.C1Sizer.GetCellAtPoint(System.Drawing.Point)">
+      <summary>コントロールのクライアント領域上の指定されたポイントのセルを取得します。</summary>
+      <param name="pt">
+        <see cref="T:System.Drawing.Point" />セル位置を指定する
+        <see cref="T:System.Drawing.Point" />。
+      </param>
+      <returns>
+        X プロパティと Y プロパティが、指定されたポイントのセルの列と行インデックスに対応する
+        <see cref="T:System.Drawing.Point" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Sizer.C1Sizer.GetCellAtPoint(System.Int32,System.Int32)">
+      <summary>コントロールのクライアント領域上の指定されたポイントのセルを取得します。</summary>
+      <param name="x">ポイントの X 座標。</param>
+      <param name="y">ポイントの Y 座標。</param>
+      <returns>
+        X プロパティと Y プロパティが、指定されたポイントのセルの列と行インデックスに対応する
+        <see cref="T:System.Drawing.Point" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Sizer.C1Sizer.GetControlAtCell(System.Int32,System.Int32)">
+      <summary>指定されたグリッドセルで最初のコントロールを取得します。</summary>
+      <param name="row">セルを含む行のインデックス。</param>
+      <param name="col">セルを含む列のインデックス。</param>
+      <returns>セルの最初のコントロール、またはセルが空の場合は null。</returns>
+    </member>
+    <member name="M:C1.Win.C1Sizer.C1Sizer.OnParentChanged(System.EventArgs)">
+      <summary>
+        <see cref="M:System.Windows.Forms.Control.OnParentChanged(System.EventArgs)" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Sizer.C1Sizer.OnPaint(System.Windows.Forms.PaintEventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.Paint" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.Windows.Forms.PaintEventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Sizer.C1Sizer.OnSizeChanged(System.EventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.SizeChanged" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Sizer.C1Sizer.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.MouseDown" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.Windows.Forms.MouseEventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Sizer.C1Sizer.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.MouseUp" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.Windows.Forms.MouseEventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Sizer.C1Sizer.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.MouseMove" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.Windows.Forms.MouseEventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Sizer.C1Sizer.OnMouseLeave(System.EventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.MouseLeave" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Sizer.C1Sizer.OnControlAdded(System.Windows.Forms.ControlEventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.ControlAdded" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.Windows.Forms.ControlEventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Sizer.C1Sizer.OnControlRemoved(System.Windows.Forms.ControlEventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.ControlRemoved" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.Windows.Forms.ControlEventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Sizer.C1Sizer.OnSplitterMoving(C1.Win.C1Sizer.C1SizerEventArgs)">
+      <summary>
+        <see cref="M:C1.Win.C1Sizer.C1Sizer.OnSplitterMoving(C1.Win.C1Sizer.C1SizerEventArgs)" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:C1.Win.C1Sizer.C1SizerEventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Sizer.C1Sizer.OnSplitterMoved(C1.Win.C1Sizer.C1SizerEventArgs)">
+      <summary>
+        <see cref="M:C1.Win.C1Sizer.C1Sizer.OnSplitterMoved(C1.Win.C1Sizer.C1SizerEventArgs)" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:C1.Win.C1Sizer.C1SizerEventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Sizer.C1Sizer.OnPaddingChanged(System.EventArgs)">
+      <summary>埋め込みの変更時にオーバーライドしてコントロールのレイアウトを更新します。</summary>
+      <param name="e">
+        <see cref="T:System.EventArgs" />イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="E:C1.Win.C1Sizer.C1Sizer.SplitterMoving">
+      <summary>レイアウトグリッドで、ユーザーがスプリッタをクリックしてテーブル領域（行または列）のサイズ変更を開始すると発生します。</summary>
+    </member>
+    <member name="E:C1.Win.C1Sizer.C1Sizer.SplitterMoved">
+      <summary>ユーザーがスプリッタバーのドラッグによるテーブル領域（行または列）のサイズ変更を終了すると発生します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.C1Sizer.Grid">
+      <summary>
+        <see cref="T:C1.Win.C1Sizer.C1Sizer" />コントロールのレイアウト情報を含む
+        <see cref="T:C1.Win.C1Sizer.Grid" />オブジェクトへの参照を返します。
+      </summary>
+      <remarks>
+        <para>
+          Grid オブジェクトには、コントロールがサイズ変更されたときに内部レイアウトを調整する方法を決定するテーブル領域（
+          <see cref="T:C1.Win.C1Sizer.Row" />オブジェクトと
+          <see cref="T:C1.Win.C1Sizer.Column" />オブジェクト）のコレクションが含まれます。
+        </para>
+        <para>
+          <see cref="T:C1.Win.C1Sizer.C1Sizer" />コントロールに含まれるすべてのコントロールは、
+          <see cref="T:C1.Win.C1Sizer.Grid" />オブジェクト内の特定のテーブル領域に結び付けられます。
+        </para>
+      </remarks>
+    </member>
+    <member name="P:C1.Win.C1Sizer.C1Sizer.SplitterWidth">
+      <summary>グリッドのテーブル領域間の領域の幅をピクセル単位で取得または設定します。</summary>
+      <remarks>
+        スプリッタ幅は、
+        <see cref="T:C1.Win.C1Sizer.C1Sizer" />コントロールに含まれる隣接するコントロール間の領域を決定します。
+      </remarks>
+    </member>
+    <member name="P:C1.Win.C1Sizer.C1Sizer.AutoSizeMode">
+      <summary>
+        <see cref="T:C1.Win.C1Sizer.C1Sizer" />コントロールのレイアウトモードを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.C1Sizer.Gradient">
+      <summary>
+        グラデーションの色、モード、ブレンド、およびガンマ補正を制御する
+        <see cref="P:C1.Win.C1Sizer.C1Sizer.Gradient" />オブジェクトを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.C1Sizer.Border">
+      <summary>
+        枠線の太さ、色、および角の半径を制御する
+        <see cref="P:C1.Win.C1Sizer.C1Sizer.Border" />オブジェクトを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.C1Sizer.BackColor">
+      <summary>
+        背景をペイントするために使用される
+        <see cref="T:System.Drawing.Color" />を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.C1Sizer.Padding">
+      <summary>コントロールの枠線とそのコンテンツの間の埋め込みを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.C1Sizer.Cursor">
+      <summary>マウスポインタがコントロール上を通過したときに表示されるカーソルを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.C1Sizer.Image">
+      <summary>コントロール内に表示される画像を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.C1Sizer.ImageAlignment">
+      <summary>画像を描画するために使用される配置を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.C1Sizer.ImageScaling">
+      <summary>画像を描画するために使用されるスケールを取得または設定します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Sizer.C1SizerLightEventHandler">
+      <summary>
+        <see cref="T:C1.Win.C1Sizer.C1SizerLight" />コンポーネントの
+        <see cref="E:C1.Win.C1Sizer.C1SizerLight.ResizingFont" />イベントを処理するメソッドを表します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Sizer.C1SizerLightEventArgs">
+      <summary>
+        <see cref="T:C1.Win.C1Sizer.C1SizerLight" />コンポーネントの
+        <see cref="F:C1.Win.C1Sizer.C1SizerLight.ResizingFont" />イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.C1SizerLightEventArgs.Control">
+      <summary>
+        <see cref="T:C1.Win.C1Sizer.C1SizerLight" />コンポーネントがフォントをサイズ変更しようとしているコントロールへの参照を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.C1SizerLightEventArgs.Cancel">
+      <summary>このコントロールのフォントをサイズ変更するかどうかを指定します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Sizer.C1SizerLight">
+      <summary>フォームがサイズ変更されたときにフォーム上のすべてのコントロールをサイズ変更するコンポーネントです。</summary>
+      <remarks>
+        <para>C1SizerLight コンポーネントをフォームに追加すると、フォームのサイズと位置が記録されます。フォームがサイズ変更された場合、C1SizerLight は、フォーム上のすべてのコントロールを同じ割合でサイズ変更するため、どの解像度でもフォームの外観が維持されます。</para>
+        <para>また、C1SizerLight は、フォーム上の全部または一部のコントロールのフォントをサイズ変更することもできます。</para>
+        <para>C1SizerLight コンポーネントを使用するためにコードを記述する必要はほとんどありません。ほとんどのアプリケーションでは、通常どおりにフォームを設計した後で、C1SizerLight コンポーネントをフォームに追加するだけです。これで、フォームがサイズ変更されたときに、フォーム上のすべてのコントロールが自動的にサイズ変更されます。</para>
+        <para>
+          場合によっては、フォームがサイズ変更されたときのフォントサイズの変更方法を制御する必要があります。すべてのフォントがサイズ変更されないようにするには、
+          <see cref="P:C1.Win.C1Sizer.C1SizerLight.ResizeFonts" />プロパティを False に設定します。また、特定のコントロールのフォントサイズを固定するには、
+          <see cref="F:C1.Win.C1Sizer.C1SizerLight.ResizingFont" />イベントを処理します。
+        </para>
+        <para>C1SizerLight コンポーネントは設計時には動作しません。そのため、フォーム上のコントロールのレイアウトに影響しないようにフォームをサイズ変更できます。</para>
+      </remarks>
+    </member>
+    <member name="M:C1.Win.C1Sizer.C1SizerLight.#ctor(System.ComponentModel.IContainer)">
+      <summary>
+        指定された
+        <see cref="T:System.ComponentModel.IContainer" />で
+        <see cref="T:C1.Win.C1Sizer.C1SizerLight" />コンポーネントの新しいインスタンスを初期化します。
+      </summary>
+      <param name="container">このコンポーネントを含む IContainer。</param>
+    </member>
+    <member name="M:C1.Win.C1Sizer.C1SizerLight.#ctor">
+      <summary>
+        <see cref="T:C1.Win.C1Sizer.C1SizerLight" />の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Sizer.C1SizerLight.Dispose(System.Boolean)">
+      <summary>
+        <see cref="T:C1.Win.C1Sizer.C1SizerLight" />で使用されるリソースを解放します。
+      </summary>
+      <param name="disposing">True では、マネージドリソースとアンマネージドリソースが両方とも解放され、 False では、アンマネージドリソースのみが解放されます。</param>
+    </member>
+    <member name="M:C1.Win.C1Sizer.C1SizerLight.GetAutoResize(System.Windows.Forms.Form)">
+      <summary>内部使用のために用意されています。独自に作成したコード内で直接使用することはできません。</summary>
+    </member>
+    <member name="M:C1.Win.C1Sizer.C1SizerLight.SetAutoResize(System.Windows.Forms.Form,System.Boolean)">
+      <summary>内部使用のために用意されています。独自に作成したコード内で直接使用することはできません。</summary>
+    </member>
+    <member name="M:C1.Win.C1Sizer.C1SizerLight.OnResizingFont(C1.Win.C1Sizer.C1SizerLightEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.C1Sizer.C1SizerLight.ResizingFont" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:C1.Win.C1Sizer.C1SizerLightEventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Sizer.C1SizerLight.OnResizingControl(C1.Win.C1Sizer.C1SizerLightEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.C1Sizer.C1SizerLight.ResizingControl" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:C1.Win.C1Sizer.C1SizerLightEventArgs" />。
+      </param>
+    </member>
+    <member name="E:C1.Win.C1Sizer.C1SizerLight.ResizingFont">
+      <summary>
+        フォームのサイズ変更に応じて
+        <see cref="T:C1.Win.C1Sizer.C1SizerLight" />がコントロールのフォントをサイズ変更する前に発生します。
+      </summary>
+      <remarks>
+        <para>
+          デフォルトでは、フォームがサイズ変更されると、
+          <see cref="T:C1.Win.C1Sizer.C1SizerLight" />はフォーム上のすべての子コントロールをサイズ変更するほか、それらのコントロールのフォントも更新します。
+        </para>
+        <para>
+          場合によっては、
+          <see cref="T:C1.Win.C1Sizer.C1SizerLight" />がフォーム上の特定のコントロールのフォントをサイズ変更しないようにする必要があります。たとえば、スクロール可能なコントロールの多くでは、フォントのサイズ変更が不要です。コントロールがサイズ変更されても、ユーザーは、スクロールして内容を表示できるからです。
+        </para>
+      </remarks>
+      <example>
+        たとえば、次のコードでは、
+        <see cref="T:C1.Win.C1Sizer.C1SizerLight" />はボタン以外のコントロールのフォントをサイズ変更しません。
+        <code>private void c1SizerLight1_ResizingFont(object sender, C1SizerLightEventArgs e) { if (!(e.Control is Button)) e.Cancel = true; }</code></example>
+    </member>
+    <member name="E:C1.Win.C1Sizer.C1SizerLight.ResizingControl">
+      <summary>
+        フォームのリサイズに応じて
+        <see cref="T:C1.Win.C1Sizer.C1SizerLight" />が子コントロールのリサイズを開始する前に発生します。
+      </summary>
+      <remarks>
+        <para>デフォルトでは、フォームがリサイズされたとき、フォーム上のすべての子コントロール（ドッキング状態や、C1Sizer コントロール内に含まれるコントロールを除く）がリサイズされます。</para>
+        <para>
+          いくつかのケースにおいて、フォーム上の特定のコントロールに対する
+          <see cref="T:C1.Win.C1Sizer.C1SizerLight" />のリサイズを抑制したい場合があります。例えば、このイベントハンドラによって、特殊なロジックを使用しているフォーム上の特定のコントロールに対してリサイズ処理を抑制することができます。
+        </para>
+      </remarks>
+    </member>
+    <member name="P:C1.Win.C1Sizer.C1SizerLight.Enabled">
+      <summary>
+        フォームがサイズ変更されたときに
+        <see cref="T:C1.Win.C1Sizer.C1SizerLight" />がフォーム上のコントロールをサイズ変更するかどうかを指定します。
+      </summary>
+      <remarks>
+        <para>このプロパティは設計時には動作しません。子コントロールは、実行時にだけ自動的にサイズ変更されます。</para>
+        <para>
+          実行時にコントロールを作成する必要がある場合は、Enabled プロパティを False に設定し、コントロールを作成した後で、設定を True に戻す必要があります。これで、
+          <see cref="T:C1.Win.C1Sizer.C1SizerLight" />は内部レイアウト情報を更新できます。
+        </para>
+      </remarks>
+    </member>
+    <member name="P:C1.Win.C1Sizer.C1SizerLight.ResizeFonts">
+      <summary>
+        <see cref="T:C1.Win.C1Sizer.C1SizerLight" />がコントロール自体に加えてコントロールのフォントもサイズ変更するかどうかを指定します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Sizer.Gradient">
+      <summary>グラデーション背景を実装し、 グラデーションを制御するプロパティを公開するクラス。</summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Gradient.BackColor2">
+      <summary>背景のグラデーションを作成するために使用される二次色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Gradient.Mode">
+      <summary>
+        背景をペイントするために使用される
+        <see cref="T:C1.Win.C1Sizer.GradientMode" />を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Gradient.GammaCorrection">
+      <summary>背景のグラデーションにガンマ補正を適用するかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Gradient.Blend">
+      <summary>
+        背景のグラデーションをペイントするために使用される
+        <see cref="P:C1.Win.C1Sizer.Gradient.Blend" />を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Gradient.Center">
+      <summary>
+        放射状グラデーション背景の中心をパーセント単位で表す
+        <see cref="T:System.Drawing.Point" />を取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Sizer.Grid">
+      <summary>Grid オブジェクトの概要です。</summary>
+    </member>
+    <member name="M:C1.Win.C1Sizer.Grid.Clear">
+      <summary>
+        行と列が１つずつ含まれるように、
+        <see cref="T:C1.Win.C1Sizer.Grid" />オブジェクトをリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Sizer.Grid.AutoGenerate">
+      <summary>
+        <see cref="T:C1.Win.C1Sizer.Grid" />オブジェクトをリセットし、
+        <see cref="T:C1.Win.C1Sizer.C1Sizer" />内の子コントロールに基づいて新しい行と列を作成します。
+      </summary>
+      <remarks>このメソッドをコードから呼び出す必要はほとんどありません。通常は、グリッドデザイナが（設計時に）内部的に使用します。</remarks>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Grid.Sizer">
+      <summary>
+        この
+        <see cref="T:C1.Win.C1Sizer.Grid" />を所有する
+        <see cref="T:C1.Win.C1Sizer.C1Sizer" />コントロールへの参照を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Grid.Rows">
+      <summary>
+        レイアウトグリッド内の行を含む
+        <see cref="T:C1.Win.C1Sizer.RowCollection" />の参照を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Grid.Columns">
+      <summary>
+        レイアウトグリッド内の列を含む
+        <see cref="T:C1.Win.C1Sizer.ColumnCollection" />の参照を取得します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Sizer.BandCollection">
+      <summary>
+        <see cref="T:C1.Win.C1Sizer.RowCollection" />クラスと
+        <see cref="T:C1.Win.C1Sizer.ColumnCollection" />クラスの基本クラスとして機能する抽象クラスです。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Sizer.BandCollection.Insert(System.Int32)">
+      <summary>
+        新しい
+        <see cref="T:C1.Win.C1Sizer.Band" />をコレクション内の指定された位置に挿入します。
+      </summary>
+      <param name="index">新しいテーブル領域を挿入する位置。</param>
+    </member>
+    <member name="M:C1.Win.C1Sizer.BandCollection.Remove(System.Int32)">
+      <summary>
+        コレクションから
+        <see cref="T:C1.Win.C1Sizer.Band" />を削除します。
+      </summary>
+      <param name="index">コレクションから削除するテーブル領域のインデックス。</param>
+    </member>
+    <member name="M:C1.Win.C1Sizer.BandCollection.SetSizes(System.Int32[])">
+      <summary>コレクション内の複数のテーブル領域のサイズを設定します。</summary>
+      <param name="sizes">コレクション内の各テーブル領域の新しいサイズを含むベクタ。</param>
+      <remarks>
+        <para>
+          <see cref="T:C1.Win.C1Sizer.Band" />オブジェクトのサイズを設定するには、
+          <see cref="P:C1.Win.C1Sizer.Band.Size" />プロパティを設定します。ただし、このとき、コレクションが
+          <see cref="T:C1.Win.C1Sizer.C1Sizer" />コントロールのクライアント領域全体に収まるように、他のテーブル領域のサイズが直ちに変更されます。
+        </para>
+        <para>このメソッドを使用すると、１回の呼び出しで複数のテーブル領域のサイズを同時に設定できます。</para>
+        <para>sizes 配列内の負数のサイズはすべて無視され、対応するテーブル領域は現在のサイズを維持します。</para>
+      </remarks>
+    </member>
+    <member name="P:C1.Win.C1Sizer.BandCollection.Count">
+      <summary>コレクション内のテーブル領域の数を取得または設定します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Sizer.RowCollection">
+      <summary>
+        <see cref="T:C1.Win.C1Sizer.Row" />オブジェクトのコレクションです。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.RowCollection.Item(System.Int32)">
+      <summary>
+        コレクション内の指定されたインデックスにある
+        <see cref="T:C1.Win.C1Sizer.Row" />オブジェクトを取得します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Sizer.ColumnCollection">
+      <summary>
+        <see cref="T:C1.Win.C1Sizer.Column" />オブジェクトのコレクションです。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.ColumnCollection.Item(System.Int32)">
+      <summary>
+        コレクション内の指定されたインデックスにある
+        <see cref="T:C1.Win.C1Sizer.Column" />オブジェクトを取得します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Sizer.Band">
+      <summary>
+        <see cref="T:C1.Win.C1Sizer.Row" />クラスと
+        <see cref="T:C1.Win.C1Sizer.Column" />クラスの基本クラスとして機能する抽象クラスです。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Sizer.Band.SetSize(System.Int32,System.Boolean)">
+      <summary>バンドのサイズを設定し、オプションでコレクションがコントロールをフィルするようにその他のバンドを調整します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Band.IsFixedSize">
+      <summary>
+        コントロールがサイズ変更されたときに
+        <see cref="T:C1.Win.C1Sizer.Band" />がサイズを維持するかどうかを指定します。
+      </summary>
+      <remarks>
+        <para>コントロールがサイズ変更されると、常にコントロールのクライアント領域全体に収まるようにレイアウトグリッドが更新されます。そのために、通常は、各テーブル領域がそれぞれの割合を一定にしたまま拡大縮小されます。</para>
+        <para>ただし、あるテーブル領域のサイズを固定し、その他のテーブル領域だけを新しいコントロールのサイズに合わせて拡大縮小することもできます。たとえば、１つの行を固定サイズのヘッダーにして、それがコントロールと一緒にサイズ変更されないようにすることができます。その場合は、IsFixedSize プロパティを True に設定すると、コントロールのサイズが変化してもテーブル領域がサイズ変更されません。</para>
+        <para>
+          IsFixedSize プロパティは、コントロールがサイズ変更されても、テーブル領域をサイズ変更しないようにします。ただし、
+          <see cref="P:C1.Win.C1Sizer.Band.IsSplitter" />プロパティが True に設定されている場合は、ユーザーがマウスを使ってテーブル領域をサイズ変更することを妨げません。
+        </para>
+      </remarks>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Band.IsSplitter">
+      <summary>テーブル領域がスプリッタのように動作するかどうか（実行時にマウスでサイズ変更できるかどうか）を指定します。</summary>
+      <remarks>
+        <para>IsSplitter プロパティは、各行の下と各列の右にあるスプリッタバーを制御します。</para>
+        <para>コレクション内の最後のテーブル領域は常にコントロールの端にあり、マウスを使ってサイズ変更できないため、IsSplitter は最後のテーブル領域には影響しません。</para>
+      </remarks>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Band.Index">
+      <summary>
+        オーナーコレクション内の
+        <see cref="T:C1.Win.C1Sizer.Band" />のインデックスを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Band.Bounds">
+      <summary>
+        親
+        <see cref="T:C1.Win.C1Sizer.C1Sizer" />コントロール内のテーブル領域のサイズと位置を表す
+        <see cref="T:System.Drawing.Rectangle" />を取得します。
+      </summary>
+      <remarks>
+        Bounds プロパティを使用すると、特定のグリッドセルの位置を指定できます。たとえば、次のコードは、レイアウトグリッドのセル（1,1）にボタンコントロールを移動します。
+        <code>Rectangle bounds = Rectangle.Intersect(g.Rows[1].Bounds, g.Columns[1].Bounds); button1.Bounds = bounds;</code></remarks>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Band.Size">
+      <summary>
+        この
+        <see cref="T:C1.Win.C1Sizer.Band" />オブジェクトのサイズを取得または設定します。
+      </summary>
+      <remarks>
+        <para>
+          <see cref="T:C1.Win.C1Sizer.Band" />が
+          <see cref="T:C1.Win.C1Sizer.Row" />オブジェクトである場合、このサイズは行の高さをピクセル単位で表します。
+        </para>
+        <para>
+          <see cref="T:C1.Win.C1Sizer.Band" />が
+          <see cref="T:C1.Win.C1Sizer.Column" />オブジェクトである場合、このサイズは列の幅をピクセル単位で表します。
+        </para>
+      </remarks>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Band.Position">
+      <summary>
+        <see cref="T:C1.Win.C1Sizer.C1Sizer" />グリッド内の
+        <see cref="T:C1.Win.C1Sizer.Band" />の位置を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Band.SizePercent">
+      <summary>テーブル領域のサイズをグリッドの幅または高さに対するパーセント値で取得または設定します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Sizer.Row">
+      <summary>Row オブジェクトの概要です。</summary>
+    </member>
+    <member name="M:C1.Win.C1Sizer.Row.ToString">
+      <summary>
+        <see cref="T:C1.Win.C1Sizer.Row" />オブジェクトの文字列表現を返します。
+      </summary>
+      <returns>
+        <see cref="T:C1.Win.C1Sizer.Row" />オブジェクトの文字列表現。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Sizer.Row.SetSize(System.Int32,System.Boolean)">
+      <summary>
+        <see cref="T:C1.Win.C1Sizer.Row" />のサイズをグリッドの高さのパーセントとして取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Row.Size">
+      <summary>
+        <see cref="T:C1.Win.C1Sizer.Row" />の高さをピクセル単位で取得または設定します。
+      </summary>
+      <remarks>
+        <para>コントロールがサイズ変更されるたびに、行がコントロールの高さ全体に入るように Size プロパティが更新されます。</para>
+        <para>
+          特定の行がフォームと一緒にサイズ変更されないようにするには、
+          <see cref="P:C1.Win.C1Sizer.Band.IsFixedSize" />プロパティを設定します。また、１回の呼び出しで複数の行のサイズを設定するには、
+          <see cref="T:C1.Win.C1Sizer.RowCollection" />クラスの
+          <see cref="M:C1.Win.C1Sizer.BandCollection.SetSizes(System.Int32[])" />メソッドを使用します。
+        </para>
+      </remarks>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Row.Position">
+      <summary>
+        <see cref="T:C1.Win.C1Sizer.C1Sizer" />グリッド内の
+        <see cref="T:C1.Win.C1Sizer.Row" />の位置を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Row.SizePercent">
+      <summary>
+        <see cref="T:C1.Win.C1Sizer.Row" />の高さをグリッドの高さに対するパーセント値で取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Sizer.Column">
+      <summary>Column オブジェクトの概要です。</summary>
+    </member>
+    <member name="M:C1.Win.C1Sizer.Column.ToString">
+      <summary>
+        <see cref="T:C1.Win.C1Sizer.Column" />オブジェクトの文字列形式を返します。
+      </summary>
+      <returns>
+        <see cref="T:C1.Win.C1Sizer.Column" />オブジェクトの文字列形式。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Sizer.Column.SetSize(System.Int32,System.Boolean)">
+      <summary>
+        <see cref="T:C1.Win.C1Sizer.Column" />のサイズをグリッドの幅のパーセントとして取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Column.Size">
+      <summary>
+        <see cref="T:C1.Win.C1Sizer.Column" />の幅をピクセル単位で取得または設定します。
+      </summary>
+      <remarks>
+        <para>コントロールがサイズ変更されるたびに、列がコントロールの幅全体に入るように Size プロパティが更新されます。</para>
+        <para>
+          特定の列がフォームと一緒にサイズ変更されないようにするには、
+          <see cref="P:C1.Win.C1Sizer.Band.IsFixedSize" />プロパティを設定します。また、１回の呼び出しで複数の列のサイズを設定するには、
+          <see cref="T:C1.Win.C1Sizer.ColumnCollection" />クラスの
+          <see cref="M:C1.Win.C1Sizer.BandCollection.SetSizes(System.Int32[])" />メソッドを使用します。
+        </para>
+      </remarks>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Column.Position">
+      <summary>
+        <see cref="T:C1.Win.C1Sizer.C1Sizer" />グリッド内の
+        <see cref="T:C1.Win.C1Sizer.Column" />の位置を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Column.SizePercent">
+      <summary>
+        <see cref="T:C1.Win.C1Sizer.Column" />の幅をグリッドの幅に対するパーセント値で取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Sizer.Splitter">
+      <summary>スプリッタ。</summary>
+    </member>
+    <member name="T:C1.Win.C1Sizer.Strings">
+      <summary>デザイナによって使用される UI 文字列を含む静的クラス。</summary>
+    </member>
+    <member name="T:C1.Win.C1Sizer.Corners">
+      <summary>ユーザーインタフェース（UI）要素と関連付けられた角を表します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Sizer.Corners.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+      <summary>
+        <see cref="T:C1.Win.C1Sizer.Corners" />オブジェクトの新しいインスタンスを初期化します。
+      </summary>
+      <param name="leftTop">左上隅の半径（ピクセル）。</param>
+      <param name="rightTop">右上隅の半径（ピクセル）。</param>
+      <param name="leftBottom">左下隅の半径（ピクセル）。</param>
+      <param name="rightBottom">右下隅の半径（ピクセル）。</param>
+    </member>
+    <member name="M:C1.Win.C1Sizer.Corners.#ctor(System.Int32)">
+      <summary>
+        <see cref="T:C1.Win.C1Sizer.Corners" />オブジェクトの新しいインスタンスを初期化します。
+      </summary>
+      <param name="radius">すべての角の半径（ピクセル）。</param>
+    </member>
+    <member name="M:C1.Win.C1Sizer.Corners.op_Implicit(System.Int32)~C1.Win.C1Sizer.Corners">
+      <summary>
+        <see cref="T:System.Int32" />を
+        <see cref="T:C1.Win.C1Sizer.Corners" />に変換します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Sizer.Corners.GetHashCode">
+      <summary>
+        現在の
+        <see cref="T:C1.Win.C1Sizer.Corners" />のハッシュコードを生成します。
+      </summary>
+      <returns>32 ビット符号付き整数のハッシュコード。</returns>
+    </member>
+    <member name="M:C1.Win.C1Sizer.Corners.Equals(System.Object)">
+      <summary>
+        指定したオブジェクトの値が現在の
+        <see cref="T:C1.Win.C1Sizer.Corners" />と同等かどうかを判定します。
+      </summary>
+      <param name="obj">
+        現在の
+        <see cref="T:C1.Win.C1Sizer.Corners" />と比較するオブジェクト。
+      </param>
+      <returns>
+        ２つの
+        <see cref="T:C1.Win.C1Sizer.Corners" />オブジェクトが同等の場合は true、 そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Sizer.Corners.op_Equality(C1.Win.C1Sizer.Corners,C1.Win.C1Sizer.Corners)">
+      <summary>
+        指定された２つの
+        <see cref="T:C1.Win.C1Sizer.Corners" />オブジェクトが同等かどうかをテストします。
+      </summary>
+      <param name="c1">
+        テストする
+        <see cref="T:C1.Win.C1Sizer.Corners" />。
+      </param>
+      <param name="c2">
+        テストする
+        <see cref="T:C1.Win.C1Sizer.Corners" />。
+      </param>
+      <returns>
+        ２つの
+        <see cref="T:C1.Win.C1Sizer.Corners" />オブジェクトが同等の場合は true、 そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Sizer.Corners.op_Inequality(C1.Win.C1Sizer.Corners,C1.Win.C1Sizer.Corners)">
+      <summary>
+        指定された２つの
+        <see cref="T:C1.Win.C1Sizer.Corners" />オブジェクトが同等でないかどうかをテストします。
+      </summary>
+      <param name="c1">
+        テストする
+        <see cref="T:C1.Win.C1Sizer.Corners" />。
+      </param>
+      <param name="c2">
+        テストする
+        <see cref="T:C1.Win.C1Sizer.Corners" />。
+      </param>
+      <returns>
+        ２つの
+        <see cref="T:C1.Win.C1Sizer.Corners" />オブジェクトが異なる場合は true、 そうでない場合は false。
+      </returns>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Corners.Empty">
+      <summary>
+        幅のない
+        <see cref="T:C1.Win.C1Sizer.Corners" />オブジェクトを提供します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Corners.LeftTop">
+      <summary>左上角の半径を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Corners.RightTop">
+      <summary>右上角の半径を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Corners.LeftBottom">
+      <summary>左下角の半径を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Corners.RightBottom">
+      <summary>右下角の半径を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Corners.IsEmpty">
+      <summary>
+        <see cref="T:C1.Win.C1Sizer.Corners" />オブジェクトが空の場合 true を返します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Sizer.ImageAlignment">
+      <summary>画像の配置を指定します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Sizer.ImageAlignment.LeftTop">
+      <summary>画像は上部で垂直方向に配置され、左側で水平方向に配置されます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Sizer.ImageAlignment.CenterTop">
+      <summary>画像は上部で垂直方向に配置され、中心で水平方向に配置されます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Sizer.ImageAlignment.RightTop">
+      <summary>画像は上部で垂直方向に配置され、右側で水平方向に配置されます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Sizer.ImageAlignment.LeftCenter">
+      <summary>画像は中央部で垂直方向に配置され、左側で水平方向に配置されます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Sizer.ImageAlignment.CenterCenter">
+      <summary>画像は中央部で垂直方向に配置され、中心で水平方向に配置されます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Sizer.ImageAlignment.RightCenter">
+      <summary>画像は中央部で垂直方向に配置され、右側で水平方向に配置されます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Sizer.ImageAlignment.LeftBottom">
+      <summary>画像は下部で垂直方向に配置され、左側で水平方向に配置されます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Sizer.ImageAlignment.CenterBottom">
+      <summary>画像は下部で垂直方向に配置され、中心で水平方向に配置されます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Sizer.ImageAlignment.RightBottom">
+      <summary>画像は下部で垂直方向に配置され、右側で水平方向に配置されます。</summary>
+    </member>
+    <member name="T:C1.Win.C1Sizer.ImageScaling">
+      <summary>画像のスケールを指定します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Sizer.ImageScaling.Clip">
+      <summary>画像の元のサイズを使用し、それを必要に応じて表示領域にクリッピングします。</summary>
+    </member>
+    <member name="F:C1.Win.C1Sizer.ImageScaling.Stretch">
+      <summary>画像を表示領域一杯に引き伸ばします。 このモードは、通常画像の縦横比を変更します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Sizer.ImageScaling.Scale">
+      <summary>画像を表示領域に合うように拡大縮小します。 このモードは、 その縦横比を維持しながら画像のサイズを拡大縮小します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Sizer.ImageScaling.Tile">
+      <summary>画像を表示領域一杯に並べて表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Sizer.ImageScaling.TileStretch">
+      <summary>画像を３列x３行のマトリックスに並べて表示し、表示領域一杯に引き伸ばします。 このモードは、画像の４隅のサイズを保持します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Sizer.ImageScaling.TileStretchHorizontal">
+      <summary>画像を１行の３つの画像に並べて表示し、表示領域一杯に引き伸ばします。 このモードは、画像の左部分と右部分のサイズを保持します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Sizer.ImageScaling.TileStretchVertical">
+      <summary>画像を１列の３つの画像に並べて表示し、表示領域一杯に引き伸ばします。 このモードは、画像の上部分と下部分のサイズを保持します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Sizer.ImageScaling.Hide">
+      <summary>画像を非表示にします。</summary>
+    </member>
+    <member name="T:C1.Win.C1Sizer.GradientMode">
+      <summary>背景のグラデーションモードを指定します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Sizer.GradientMode.None">
+      <summary>グラデーションなし。</summary>
+    </member>
+    <member name="F:C1.Win.C1Sizer.GradientMode.Horizontal">
+      <summary>（左側の BackColor から右側の BackColor2 への）水平グラデーション。</summary>
+    </member>
+    <member name="F:C1.Win.C1Sizer.GradientMode.Vertical">
+      <summary>（上部の BackColor から下部の BackColor2 への）垂直グラデーション。</summary>
+    </member>
+    <member name="F:C1.Win.C1Sizer.GradientMode.DiagonalDown">
+      <summary>（左上の BackColor から右下の BackColor2 への）対角線グラデーション。</summary>
+    </member>
+    <member name="F:C1.Win.C1Sizer.GradientMode.DiagonalUp">
+      <summary>（左下の BackColor から右上の BackColor2 への）対角線グラデーション。</summary>
+    </member>
+    <member name="F:C1.Win.C1Sizer.GradientMode.Radial">
+      <summary>（端の BackColor から中心の BackColor2 への）放射状グラデーション。</summary>
+    </member>
+    <member name="T:C1.Win.C1Sizer.Style">
+      <summary>
+        <para>
+          <see cref="T:C1.Win.C1Sizer.Style" />クラスには、 画面／プリンタ上のコンテンツの外観を決定する表示属性が含まれています。 CSS スタイルで見つかる大部分の要素が含まれます。
+        </para>
+        <para>
+          <see cref="T:C1.Win.C1Sizer.Style" />クラスには、 スタイル設定（フォント、余白など）に基づいてコンテンツ （文字列および画像）を描画および計測するメソッドも含まれています。
+        </para>
+        <para>
+          <see cref="T:C1.Win.C1Sizer.Style" />オブジェクトは、 親スタイルを持たず、親スタイルからの属性を継承しないという意味で階層形式ではありません。 既存のスタイルに基づいて新しいスタイルを作成するには、 元のスタイルをクローンし、 希望する属性を新しいスタイルに適用します。
+        </para>
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Sizer.Style.#ctor">
+      <summary>
+        <see cref="T:C1.Win.C1Sizer.Style" />の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Style.BackBrush">
+      <summary>要素の背景を描画するために使用されるブラシを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Style.BackImage">
+      <summary>要素の背景画像を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Style.BackImageAlignment">
+      <summary>背景画像を描画するために使用される配置を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Style.BackImageScaling">
+      <summary>背景画像を描画するために使用されるスケールを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Style.BorderBrush">
+      <summary>要素の枠線をペイントするために使用するブラシを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Style.Padding">
+      <summary>要素の端とそのコンテンツの間の埋め込みの幅を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Style.Border">
+      <summary>要素の枠線の太さを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Style.BorderColor">
+      <summary>
+        要素の枠線を描画するために使用する
+        <see cref="T:System.Drawing.Color" />を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Style.Corners">
+      <summary>要素の角の半径を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Style.ImageAlignment">
+      <summary>画像を要素内にどのように配置するかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Style.ImageScaling">
+      <summary>画像を要素内にどのように拡大縮小するかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Style.BackColor">
+      <summary>
+        背景をペイントするために使用される
+        <see cref="T:System.Drawing.Color" />を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Style.GradientMode">
+      <summary>
+        背景をペイントするために使用される
+        <see cref="P:C1.Win.C1Sizer.Style.GradientMode" />を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Style.GradientBlend">
+      <summary>
+        背景のグラデーションをペイントするために使用される
+        <see cref="T:System.Drawing.Drawing2D.Blend" />を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Style.GradientCenter">
+      <summary>
+        放射状グラデーション背景の中心をパーセント単位で表す
+        <see cref="T:System.Drawing.PointF" />を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Style.BackColor2">
+      <summary>背景のグラデーションを作成するために使用される二次色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Sizer.Style.GammaCorrection">
+      <summary>背景のグラデーションにガンマ補正を適用するかどうかを取得または設定します。</summary>
+    </member>
+  </members>
+</doc>

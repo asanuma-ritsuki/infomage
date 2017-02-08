@@ -1,0 +1,3252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>C1.Win.C1TouchToolKit.4</name>
+  </assembly>
+  <members>
+    <member name="T:C1.Win.TouchToolKit.AlternativeContentSettings">
+      <summary>ジェスチャズーム中にズーム率を表示する方法を示す設定を表します。</summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.AlternativeContentSettings.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.AlternativeContentSettings" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.AlternativeContentSettings.Font">
+      <summary>ジェスチャズーム中に表示される代替コンテンツプレビューテキストのフォントを取得または設定します。</summary>
+      <value>
+        ジェスチャズーム中に表示される代替コンテンツプレビューテキストのフォントを表す <see cref="P:C1.Win.TouchToolKit.AlternativeContentSettings.Font" /> 値。デフォルトは <see langword="null" /> で、フォームのフォントを使用することを意味します。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.AlternativeContentSettings.ForeColor">
+      <summary>ジェスチャズーム中に表示される代替コンテンツプレビューテキストの色を取得または設定します。</summary>
+      <value>
+        ジェスチャズーム中に表示される代替コンテンツプレビューテキストの色を表す <see cref="T:System.Drawing.Color" /> 値。デフォルトは <see cref="F:System.Drawing.Color.Empty">Color.Empty</see> で、フォームの前景色を使用することを意味します。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.AlternativeContentSettings.Format">
+      <summary>ジェスチャズーム中に表示される代替コンテンツプレビューテキストの書式を取得または設定します。</summary>
+      <value>
+        ジェスチャズーム中に表示される代替コンテンツプレビューテキストの書式を表す <see cref="T:System.String" /> 値。
+      </value>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.AnimationStartingEventArgs">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1Zoom.AnimationStarting">C1Zoom.AnimationStarting</see> イベントおよび <see cref="E:C1.Win.TouchToolKit.C1ZoomPanel.AnimationStarting">C1ZoomPanel.AnimationStarting</see> イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.AnimationStartingEventArgs.Cancel">
+      <summary>このアニメーションがキャンセルされるかどうかを示す値を取得または設定します。</summary>
+      <value>
+        このアニメーションがキャンセルされる場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.AnimationStartingEventArgs.CurrentScrollLocation">
+      <summary>現在のスクロール位置を取得します。</summary>
+      <value>現在のスクロール位置。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.AnimationStartingEventArgs.CurrentZoomFactor">
+      <summary>現在のズーム率を取得します。</summary>
+      <value>現在のズーム率。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.AnimationStartingEventArgs.Duration">
+      <summary>アニメーションの持続時間を取得または設定します。</summary>
+      <value>アニメーションの持続時間。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.AnimationStartingEventArgs.TargetScrollLocation">
+      <summary>目標のスクロール位置を取得します。</summary>
+      <value>目標のスクロール位置。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.AnimationStartingEventArgs.TargetZoomFactor">
+      <summary>目標のズーム率を取得します。</summary>
+      <value>目標のズーム率。</value>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.ComboBoxZoomPolicy">
+      <summary>
+        <see cref="T:System.Windows.Forms.ComboBox" /> 型コントロールのズームポリシーを表します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ComboBoxZoomPolicy.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.ComboBoxZoomPolicy" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ComboBoxZoomPolicy.TargetType">
+      <summary>このポリシーを使用できるコントロール型を示す型を取得します。</summary>
+      <value>
+        このポリシーを使用できるコントロール型を示す <see cref="T:System.Type" /> 型。
+      </value>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ComboBoxZoomPolicy.Initialize(System.Windows.Forms.Control)">
+      <summary>ズームアクションが開始する前にコントロールを初期化します。</summary>
+      <param name="control">指定したコントロール。</param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ComboBoxZoomPolicy.Terminate(System.Windows.Forms.Control)">
+      <summary>ズームアクションが完了した後にコントロールの終了処理を行います。</summary>
+      <param name="control">指定したコントロール。</param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ComboBoxZoomPolicy.ZoomBounds(System.Windows.Forms.Control,C1.Win.TouchToolKit.ZoomBoundsInfo)">
+      <summary>コントロールの境界をズームします。</summary>
+      <param name="control">指定したコントロール。</param>
+      <param name="infos">
+        レイアウトのズームを支援するために <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> によって提供される <see cref="T:C1.Win.TouchToolKit.ZoomBoundsInfo" /> 型の情報。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ComboBoxZoomPolicy.ZoomFont(System.Windows.Forms.Control,C1.Win.TouchToolKit.ZoomFontInfo)">
+      <summary>コントロールのフォントをズームします。</summary>
+      <param name="control">指定したコントロール。</param>
+      <param name="infos">
+        フォントのズームを支援するために <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> によって提供される <see cref="T:C1.Win.TouchToolKit.ZoomFontInfo" /> 型の情報。
+      </param>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.ControlAutoShowingEventArgs">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> クラスの <see cref="E:C1.Win.TouchToolKit.C1Zoom.ControlAutoShowing" /> イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ControlAutoShowingEventArgs.Cancel">
+      <summary>
+        この <see cref="E:C1.Win.TouchToolKit.C1Zoom.ControlAutoShowing">C1Zoom.ControlAutoShowing</see> イベントがキャンセルされるかどうかを示す値を取得または設定します。
+      </summary>
+      <value>
+        現在の自動表示操作がキャンセルされる場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ControlAutoShowingEventArgs.ShowingControl">
+      <summary>表示しようとしているターゲットコントロールを取得します。</summary>
+      <value>表示しようとしているターゲットコントロール。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ControlAutoShowingEventArgs.ShowingReason">
+      <summary>コントロールの自動スクロールの理由を示す値を取得します。</summary>
+      <value>
+        <see cref="P:C1.Win.TouchToolKit.ControlAutoShowingEventArgs.ShowingReason" /> 値の 1 つ。
+      </value>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.ControlBar">
+      <summary>半透明で表示される、オーナーフォームのフローティングウィンドウを表します。ユーザーはこのウィンドウに任意のコントロールを追加できます。</summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ControlBar.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.ControlBar" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ControlBar.Content">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.ControlBar" /> ウィンドウの <see cref="P:C1.Win.TouchToolKit.ControlBar.UserControl" /> 型オブジェクトを示す値を取得または設定します。
+      </summary>
+      <value>
+        <see cref="P:C1.Win.TouchToolKit.ControlBar.UserControl" /> オブジェクトを示す <see cref="T:System.Type" /> 値。デフォルトは null です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ControlBar.DockPosition">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.ControlBar" /> ウィンドウの配置を示す値を取得または設定します。
+      </summary>
+      <value>
+        <see cref="T:System.Drawing.ContentAlignment" /> 値の 1 つ。デフォルトは <see cref="F:System.Drawing.ContentAlignment.MiddleLeft">ContentAlignment.MiddleLeft</see> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ControlBar.Margin">
+      <summary>
+        オーナーフォームのクライアント座標を基準とする、<see cref="T:C1.Win.TouchToolKit.ControlBar" /> ウィンドウの外側マージンを示す値を取得または設定します。
+      </summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.ControlBar" /> ウィンドウの外側マージン（ピクセル単位）を表す <see cref="T:System.Windows.Forms.Padding" /> 値。デフォルトは 0 です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ControlBar.Opacity">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.ControlBar" /> ウィンドウの不透明度を取得または設定します。
+      </summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.ControlBar" /> ウィンドウの不透明度の割合を表す <see cref="T:System.Double" /> 値。デフォルトは 0.5 です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ControlBar.Position">
+      <summary>オーナーフォームのクライアント座標で表された左上隅の位置を表す値を取得または設定します。</summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.ControlBar" /> ウィンドウの位置（ピクセル単位）を表す <see cref="T:System.Drawing.Point" /> 値。デフォルトは 0,0 です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ControlBar.PositionMode">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.ControlBar" /> ウィンドウの配置モードを取得または設定します。
+      </summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.PositionMode" /> 値の 1 つ。デフォルトは <see cref="F:C1.Win.TouchToolKit.PositionMode.Dock">MultiTouch.PositionMode.Dock</see> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ControlBar.TransparencyKey">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.ControlBar" /> ウィンドウの透明を表す色を取得または設定します。
+      </summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.ControlBar" /> ウィンドウに描画されたときに透明になる <see cref="T:System.Drawing.Color" /> 値。デフォルトは Fuchsia です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ControlBar.TransparentBackground">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.ControlBar" /> ウィンドウが透明かどうかを示す値を取得または設定します。
+      </summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.ControlBar" /> ウィンドウが透明な場合は <see langword="true" />。それ以外の場合は <see langword="false" />。デフォルトは <see langword="false" /> です。
+      </value>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ControlBar.Dispose">
+      <summary>アンマネージリソースを解放します。</summary>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.ControlBoundsZoomingEventArgs">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> クラスの <see cref="E:C1.Win.TouchToolKit.C1Zoom.ControlBoundsZooming" /> イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ControlBoundsZoomingEventArgs.ChildrenHandled">
+      <summary>子コントロールのズームロジックがユーザーによって処理されるかどうかを示す値を取得または設定します。</summary>
+      <value>
+        子コントロールのズームロジックがユーザーによって処理される場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ControlBoundsZoomingEventArgs.Handled">
+      <summary>
+        この <see cref="E:C1.Win.TouchToolKit.C1Zoom.ControlBoundsZooming" /> イベントがユーザーによって処理されるかどうかを示す値を取得または設定します。
+      </summary>
+      <value>
+        この <see cref="E:C1.Win.TouchToolKit.C1Zoom.ControlBoundsZooming" /> イベントがユーザーによって処理される場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ControlBoundsZoomingEventArgs.TargetControl">
+      <summary>ズームしようとしているターゲットコントロールを取得します。</summary>
+      <value>ズームしようとしているターゲットコントロール。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ControlBoundsZoomingEventArgs.ZoomBoundsInfo">
+      <summary>現在のズームアクションの情報を取得します。</summary>
+      <value>現在のズームアクションの情報。</value>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.ControlFontZoomingEventArgs">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> クラスの <see cref="E:C1.Win.TouchToolKit.C1Zoom.ControlFontZooming" /> イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ControlFontZoomingEventArgs.ChildrenHandled">
+      <summary>子コントロールのズームロジックがユーザーによって処理されるかどうかを示す値を取得または設定します。</summary>
+      <value>
+        子コントロールのズームロジックがユーザーによって処理される場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ControlFontZoomingEventArgs.Handled">
+      <summary>
+        この <see cref="E:C1.Win.TouchToolKit.C1Zoom.ControlFontZooming" /> イベントがユーザーによって処理されるかどうかを示す値を取得または設定します。
+      </summary>
+      <value>
+        この <see cref="E:C1.Win.TouchToolKit.C1Zoom.ControlBoundsZooming" /> イベントがユーザーによって処理される場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ControlFontZoomingEventArgs.TargetControl">
+      <summary>ズームしようとしているターゲットコントロールを取得します。</summary>
+      <value>ズームしようとしているターゲットコントロール。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ControlFontZoomingEventArgs.ZoomFontInfo">
+      <summary>現在のズームアクションの情報を取得します。</summary>
+      <value>現在のズームアクションの情報。</value>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.ControlZoomPolicy">
+      <summary>コントロールの基本ズームポリシーを表します。</summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ControlZoomPolicy.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.ControlZoomPolicy" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ControlZoomPolicy.TargetType">
+      <summary>このポリシーを使用できるコントロール型を示す型を取得します。</summary>
+      <value>
+        このポリシーを使用できるコントロール型を示す <see cref="T:System.Type" /> 型。
+      </value>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ControlZoomPolicy.CanZoomChildren(System.Windows.Forms.Control)">
+      <summary>子コントロールをズームできるかどうかを返します。</summary>
+      <param name="control">指定したコントロール。</param>
+      <returns>
+        子コントロールをズームできる場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ControlZoomPolicy.ZoomBounds(System.Windows.Forms.Control,C1.Win.TouchToolKit.ZoomBoundsInfo)">
+      <summary>コントロールの境界をズームします。</summary>
+      <param name="control">指定したコントロール。</param>
+      <param name="infos">
+        レイアウトのズームを支援するために <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> によって提供される <see cref="T:C1.Win.TouchToolKit.ZoomBoundsInfo" /> 型の情報。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ControlZoomPolicy.ZoomFont(System.Windows.Forms.Control,C1.Win.TouchToolKit.ZoomFontInfo)">
+      <summary>コントロールのフォントをズームします。</summary>
+      <param name="control">指定したコントロール。</param>
+      <param name="infos">
+        フォントのズームを支援するために <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> によって提供される <see cref="T:C1.Win.TouchToolKit.ZoomFontInfo" /> 型の情報。
+      </param>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.DataGridViewZoomPolicy">
+      <summary>
+        <see cref="T:System.Windows.Forms.DataGridView" /> 型コントロールのズームポリシーを表します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.DataGridViewZoomPolicy.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.DataGridViewZoomPolicy" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.DataGridViewZoomPolicy.TargetType">
+      <summary>このポリシーを使用できるコントロール型を示す型を取得します。</summary>
+      <value>
+        このポリシーを使用できるコントロール型を示す <see cref="T:System.Type" /> 型。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.DataGridViewZoomPolicy.ZoomCellStyleFont">
+      <summary>セルスタイルのフォントをズームするかどうかを示す値を取得または設定します。</summary>
+      <value>
+        セルスタイルのフォントをズームする場合は <see langword="true" />。それ以外の場合は <see langword="false" />。デフォルトは <see langword="true" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.DataGridViewZoomPolicy.ZoomColumnWidth">
+      <summary>列の幅をサイズ変更するかどうかを示す値を取得または設定します。</summary>
+      <value>
+        列の幅をサイズ変更する場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.DataGridViewZoomPolicy.ZoomRowHeight">
+      <summary>行の高さをサイズ変更するかどうかを示す値を取得または設定します。</summary>
+      <value>
+        行の高さをサイズ変更する場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </value>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.DataGridViewZoomPolicy.ZoomBounds(System.Windows.Forms.Control,C1.Win.TouchToolKit.ZoomBoundsInfo)">
+      <summary>コントロールの境界をズームします。</summary>
+      <param name="control">指定したコントロール。</param>
+      <param name="infos">
+        レイアウトのズームを支援するために <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> によって提供される <see cref="T:C1.Win.TouchToolKit.ZoomBoundsInfo" /> 型の情報。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.DataGridViewZoomPolicy.ZoomFont(System.Windows.Forms.Control,C1.Win.TouchToolKit.ZoomFontInfo)">
+      <summary>コントロールのフォントをズームします。</summary>
+      <param name="control">指定したコントロール。</param>
+      <param name="infos">
+        フォントのズームを支援するために <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> によって提供される <see cref="T:C1.Win.TouchToolKit.ZoomFontInfo" /> 型の情報。
+      </param>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.DoubleTappedEventArgs">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1TouchEventProvider.DoubleTapped" /> イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.DoubleTappedEventArgs.PointerDeviceType">
+      <summary>
+        対応する入力イベントを発生させたポインタデバイスの <see cref="T:C1.Win.TouchToolKit.PointerDeviceType" /> を取得します。
+      </summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.PointerDeviceType" /> 値の 1 つ。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.DoubleTappedEventArgs.Position">
+      <summary>ポインタ位置の x および y 座標（コントロール座標）を返します。</summary>
+      <value>ポインタ位置の x および y 座標（コントロール座標）。</value>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.FlowLayoutPanelZoomPolicy">
+      <summary>
+        <see cref="T:System.Windows.Forms.FlowLayoutPanel" /> 型コントロールのズームポリシーを表します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.FlowLayoutPanelZoomPolicy.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.FlowLayoutPanelZoomPolicy" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.FlowLayoutPanelZoomPolicy.TargetType">
+      <summary>このポリシーを使用できるコントロール型を示す型を取得します。</summary>
+      <value>
+        このポリシーを使用できるコントロール型を示す <see cref="T:System.Type" /> 型。
+      </value>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.FlowLayoutPanelZoomPolicy.Initialize(System.Windows.Forms.Control)">
+      <summary>ズームアクションが開始する前にコントロールを初期化します。</summary>
+      <param name="control">指定したコントロール。</param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.FlowLayoutPanelZoomPolicy.Terminate(System.Windows.Forms.Control)">
+      <summary>ズームアクションが完了した後にコントロールの終了処理を行います。</summary>
+      <param name="control">指定したコントロール。</param>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.C1ApplicationZoom">
+      <summary>任意の既存フォームにアタッチすることで、現在のアプリケーション内のすべてのフォームを 2 本指のタッチでズームできるようにするコンポーネントを表します。</summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ApplicationZoom.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1ApplicationZoom" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ApplicationZoom.#ctor(System.ComponentModel.IContainer)">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1ApplicationZoom" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+      <param name="container">
+        <see cref="T:C1.Win.TouchToolKit.C1ApplicationZoom" /> のコンテナーを表す <see cref="T:System.ComponentModel.IContainer" />。
+      </param>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ApplicationZoom.AllowDoubleTapZoom">
+      <summary>
+        ダブルタップによってズームできるかどうかを示す値を取得または設定します。ダブルタップされる前に <see cref="P:C1.Win.TouchToolKit.C1Zoom.ZoomFactor" /> が 2f より小さい場合、ZoomFactor は 2f または <see cref="P:C1.Win.TouchToolKit.C1Zoom.MaxZoomFactor" /> に変更されます。それ以外の場合は 1f に変更されます。
+      </summary>
+      <value>
+        ダブルタップによってズームできる場合は <see langword="true" />。それ以外の場合は <see langword="false" />。デフォルトは <see langword="false" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ApplicationZoom.AllowMouseWheelScroll">
+      <summary>実行できるマウスホイールスクロールのタイプを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ApplicationZoom.AllowMouseWheelZoom">
+      <summary>［Ctrl］キーを押しながらマウスホイールを回すことによってズームできるかどうかを示す値を取得または設定します。</summary>
+      <value>
+        ユーザーがマウスホイールによってズームできる場合は <see langword="true" />。それ以外の場合は <see langword="false" />。デフォルトは <see langword="false" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ApplicationZoom.AllowPanScroll">
+      <summary>パンジェスチャによってフォームをスクロールできるかどうかを示す値を取得または設定します。</summary>
+      <value>
+        パンジェスチャによってフォームをスクロールできる場合は <see langword="true" />。それ以外の場合は <see langword="false" />。デフォルトは <see langword="true" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ApplicationZoom.AllowPinchZoom">
+      <summary>フォームがジェスチャズームを実行できるかどうかを示す値を取得または設定します。</summary>
+      <value>
+        フォームがジェスチャズームを実行できる場合は <see langword="true" />。それ以外の場合は <see langword="false" />。デフォルトは <see langword="true" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ApplicationZoom.AllowResizeByZoom">
+      <summary>フォームをズームするときにフォームをサイズ変更するかどうかを示す値を取得または設定します。</summary>
+      <value>
+        フォームをズームするときにフォームをサイズ変更する場合は <see langword="true" />。それ以外の場合は <see langword="false" />。デフォルトは <see langword="false" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ApplicationZoom.AllowZoomByResize">
+      <summary>フォームをサイズ変更するときにフォームをズームするかどうかを示す値を取得または設定します。</summary>
+      <value>
+        フォームをサイズ変更するときにフォームをズームする場合は <see langword="true" />。それ以外の場合は <see langword="false" />。デフォルトは <see langword="true" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ApplicationZoom.AlternativeContentSettings">
+      <summary>ジェスチャズーム中にズーム率を表示する方法を示す設定を取得します。</summary>
+      <value>
+        ジェスチャズーム中にズーム率を表示する方法を示す <see cref="T:C1.Win.TouchToolKit.AlternativeContentSettings" /> 型の値。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ApplicationZoom.AutoShowControl">
+      <summary>フォーカスを取得したとき、またはタッチキーボードがポップアップしたときにコントロールを自動表示するかどうかを示す値を取得または設定します。</summary>
+      <value>
+        コントロールを自動表示する場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ApplicationZoom.BackColor">
+      <summary>ズームおよびスクロールするときのフォームの空白領域の背景色を取得または設定します。</summary>
+      <value>
+        ズームおよびスクロールするときのフォームの空白領域の背景色を表す <see cref="T:System.Drawing.Color" /> 値。デフォルトは <see cref="F:System.Drawing.Color.Empty">Color.Empty</see> で、フォームの背景色を使用することを意味します。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ApplicationZoom.BackgroundImage">
+      <summary>ズームおよびスクロールするときにフォームの空白領域に表示される背景イメージを取得または設定します。</summary>
+      <value>
+        ズームおよびスクロールするときにフォームの空白領域に表示するイメージを表す <see cref="T:System.Drawing.Image" /> 値。デフォルトは <see langword="null" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ApplicationZoom.BackgroundImageLayout">
+      <summary>
+        <see cref="T:System.Windows.Forms.ImageLayout" /> 列挙体で定義された背景イメージレイアウトを取得または設定します。
+      </summary>
+      <value>
+        <see cref="T:System.Windows.Forms.ImageLayout" /> の値の 1 つ（<see cref="F:System.Windows.Forms.ImageLayout.Center" />、<see cref="F:System.Windows.Forms.ImageLayout.None" />、<see cref="F:System.Windows.Forms.ImageLayout.Stretch" />、<see cref="F:System.Windows.Forms.ImageLayout.Tile" />、<see cref="F:System.Windows.Forms.ImageLayout.Zoom" /> のいずれか）。デフォルト値は <see cref="F:System.Windows.Forms.ImageLayout.Tile" nolink="true" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ApplicationZoom.BoundaryFeedbackMode">
+      <summary>スクロールが終端に達したときの視覚的フィードバックの表示方法を示す値を取得または設定します。</summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.BoundaryFeedbackMode" /> 値の 1 つ。デフォルトは <see cref="F:C1.Win.TouchToolKit.BoundaryFeedbackMode.Split" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ApplicationZoom.ControlBars">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> に含まれる <see cref="T:C1.Win.TouchToolKit.ControlBar" /> のコレクションを取得します。
+      </summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> に含まれる <see cref="T:C1.Win.TouchToolKit.ControlBar" nolink="true" /> のコレクションを表す <see cref="T:C1.Win.TouchToolKit.ControlBar" /> 値のリスト。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ApplicationZoom.DefaultZoomPolicies">
+      <summary>デフォルトのズームポリシーを取得します。</summary>
+      <value>デフォルトのズームポリシー。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ApplicationZoom.FullScreenMode">
+      <summary>オーナーフォームによって使用されるフルスクリーンモードを取得または設定します。</summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.FullScreenMode" /> 値の 1 つ。デフォルトは <see cref="F:C1.Win.TouchToolKit.FullScreenMode.None" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ApplicationZoom.InnerPanelLayoutMode">
+      <summary>InnerPanel のレイアウトモードを取得または設定します。</summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.InnerPanelLayoutMode" /> 値の 1 つ。デフォルトは <see cref="F:C1.Win.TouchToolKit.InnerPanelLayoutMode.None" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ApplicationZoom.IsHorizontalRailEnabled">
+      <summary>水平方向のスクロールレールが有効かどうかを示す値を取得または設定します。</summary>
+      <value>
+        水平方向のスクロールレールを有効にする場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ApplicationZoom.IsVerticalRailEnabled">
+      <summary>垂直方向のスクロールレールが有効かどうかを示す値を取得または設定します。</summary>
+      <value>
+        垂直方向のスクロールレールを有効にする場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ApplicationZoom.KeepAspectRatio">
+      <summary>フォームをサイズ変更するときにアスペクト比を維持するかどうかを示す値を取得または設定します。</summary>
+      <value>
+        フォームをサイズ変更するときにアスペクト比を維持する場合は <see langword="true" />。それ以外の場合は <see langword="false" />。デフォルトは <see langword="false" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ApplicationZoom.MaxZoomFactor">
+      <summary>フォームの最大ズーム率を取得または設定します。</summary>
+      <value>
+        フォームの最大ズーム率を表す <see cref="T:System.Single" /> 値。デフォルトは 4f です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ApplicationZoom.ScrollIndicatorMode">
+      <summary>現在のスクロール位置を示すモードを示す値を取得または設定します。</summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.ScrollIndicatorMode" /> 値の 1 つ。デフォルトは <see cref="F:C1.Win.TouchToolKit.ScrollIndicatorMode.ScrollIndicator" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ApplicationZoom.ZoomPolicies">
+      <summary>
+        カスタムズームポリシーを取得します。<see cref="T:C1.Win.TouchToolKit.C1Zoom" /> はこのリストでズームポリシーを検索します。
+      </summary>
+      <value>
+        カスタム <see cref="T:C1.Win.TouchToolKit.ZoomPolicy" /> のリスト。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ApplicationZoom.ZoomPreviewMode">
+      <summary>ジェスチャズーム中にフォームをプレビューする方法を示す値を取得または設定します。</summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.ZoomPreviewMode" /> 値の 1 つ。デフォルトは <see cref="F:C1.Win.TouchToolKit.ZoomPreviewMode.Bitmap">ZoomPreviewMode.Bitmap</see> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ApplicationZoom.ZoomSnapDistance">
+      <summary>
+        現在のズーム率を <see cref="P:C1.Win.TouchToolKit.C1ApplicationZoom.ZoomSnapPoints" /> に含まれるいずれかのズーム率にスナップさせる最小の間隔を示す値を取得または設定します。
+      </summary>
+      <value>
+        現在のズーム率を <see cref="P:C1.Win.TouchToolKit.C1ApplicationZoom.ZoomSnapPoints" /> に含まれるいずれかのズーム率にスナップさせる最小の間隔を表す <see cref="T:System.Single" /> 値。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ApplicationZoom.ZoomSnapPoints">
+      <summary>ズームが終了するときにそのいずれかの値にズーム率がスナップされるズーム率のグループを取得します。</summary>
+      <value>
+        ズームが終了するときにそのいずれかの値にズーム率がスナップされるズーム率のグループを表す <see cref="T:System.Single" /> 値のリスト。
+      </value>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ApplicationZoom.AboutBox">
+      <summary>製品情報ウィンドウを表示します。</summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ApplicationZoom.Dispose(System.Boolean)">
+      <summary>
+        <see cref="T:System.ComponentModel.Component" /> によって使用されているアンマネージリソースを解放し、オプションでマネージリソースも解放します。
+      </summary>
+      <param name="disposing">マネージリソースとアンマネージリソースを両方とも解放する場合は true。アンマネージリソースのみを解放する場合は false。</param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ApplicationZoom.GetC1Zoom(System.Windows.Forms.Form)">
+      <summary>
+        指定したフォームに関連付けられた <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> を取得します。
+      </summary>
+      <param name="form">フォーム。</param>
+      <returns>
+        指定したフォームに関連付けられた <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> 値。
+      </returns>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ApplicationZoom.OnC1ZoomAttached(C1.Win.TouchToolKit.C1ZoomAttachedEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1ApplicationZoom.C1ZoomAttached" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:C1.Win.TouchToolKit.C1ZoomAttachedEventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ApplicationZoom.OnC1ZoomAttaching(C1.Win.TouchToolKit.C1ZoomAttachingEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1ApplicationZoom.C1ZoomAttaching" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:C1.Win.TouchToolKit.C1ZoomAttachingEventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ApplicationZoom.OnC1ZoomDetached(C1.Win.TouchToolKit.C1ZoomDetachedEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1ApplicationZoom.C1ZoomDetached" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:C1.Win.TouchToolKit.C1ZoomDetachedEventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1ApplicationZoom.C1ZoomAttached">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> コンポーネントが <see cref="T:System.Windows.Forms.Form" /> にアタッチされたときに発生します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1ApplicationZoom.C1ZoomAttaching">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> コンポーネントが <see cref="T:System.Windows.Forms.Form" /> にアタッチされようとしているときに発生します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1ApplicationZoom.C1ZoomDetached">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> コンポーネントが <see cref="T:System.Windows.Forms.Form" /> からデタッチされたときに発生します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.C1Magnify">
+      <summary>任意の既存コントロールにアタッチでき、コントロールを長押ししたときに指の周りの情報を拡大表示する拡大鏡を指の上にポップアップするコンポーネントを表します。</summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1Magnify.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1Magnify" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Magnify.BorderBackground">
+      <summary>拡大鏡の境界線に使用される背景イメージを示す値を取得または設定します。</summary>
+      <value>
+        拡大鏡に使用される背景イメージを表す <see cref="T:System.Drawing.Image" /> 値。デフォルトは <see langword="null" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Magnify.BorderBackgroundMode">
+      <summary>拡大鏡の境界線に使用される背景モードを示す値を取得または設定します。</summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.BorderBackground" /> 値の 1 つ。デフォルトは <see cref="F:C1.Win.TouchToolKit.BorderBackground.Light">MultiTouch.BorderBackground.Light</see> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Magnify.BorderWidth">
+      <summary>拡大鏡の境界線の幅（ピクセル単位）を示す値を取得または設定します。</summary>
+      <value>
+        拡大鏡の境界線の幅（ピクセル単位）を表す <see cref="T:System.Int32" /> 値。デフォルトは 5 です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Magnify.IsHorizontalRailEnabled">
+      <summary>拡大鏡の移動方向を水平に固定するかどうかを示す値を取得または設定します。</summary>
+      <value>
+        拡大鏡の移動方向を水平に固定する場合は <see langword="true" />。それ以外の場合は <see langword="false" />。デフォルトは <see langword="false" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Magnify.IsVerticalRailEnabled">
+      <summary>拡大鏡の移動方向を垂直に固定するかどうかを示す値を取得または設定します。</summary>
+      <value>
+        拡大鏡の移動方向を垂直に固定する場合は <see langword="true" />。それ以外の場合は <see langword="false" />。デフォルトは <see langword="false" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Magnify.MessageWhenClose">
+      <summary>拡大鏡が閉じたときにアタッチコントロールに送信されるメッセージを示す値を取得または設定します。</summary>
+      <value>
+        <see cref="P:C1.Win.TouchToolKit.C1Magnify.MessageWhenClose" /> 値の 1 つ。デフォルトは <see cref="F:C1.Win.TouchToolKit.MessageWhenClose.None">MessageWhenClose.None</see> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Magnify.MessageWhenMove">
+      <summary>拡大鏡が移動しているときにアタッチコントロールに送信されるメッセージを示す値を取得または設定します。</summary>
+      <value>
+        <see cref="P:C1.Win.TouchToolKit.C1Magnify.MessageWhenMove" /> 値の 1 つ。デフォルトは <see cref="F:C1.Win.TouchToolKit.MessageWhenMove.Move">MessageWhenMove.Move</see> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Magnify.PopupDelay">
+      <summary>指でタッチしてから拡大鏡がポップアップするまでの時間（ミリ秒単位）を示す値を取得または設定します。</summary>
+      <value>
+        指でタッチしてから拡大鏡がポップアップするまでの時間（ミリ秒単位）を表す <see cref="T:System.Int32" /> 値。デフォルトは 500 です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Magnify.Shape">
+      <summary>拡大鏡の外観を示す値を取得または設定します。</summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.MagnifierShape" /> 値の 1 つ。デフォルトは <see cref="F:C1.Win.TouchToolKit.MagnifierShape.Circle">MagnifierShape.Circle</see> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Magnify.ShowCursor">
+      <summary>拡大鏡にシステムカーソルが表示されるかどうかを示す値を取得または設定します。</summary>
+      <value>
+        拡大鏡にシステムカーソルが表示される場合は <see langword="true" />。それ以外の場合は <see langword="false" />。デフォルトは <see langword="false" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Magnify.Size">
+      <summary>拡大鏡のサイズ（ピクセル単位）を示す値を取得または設定します。</summary>
+      <value>
+        拡大鏡のサイズ（ピクセル単位）を表す <see cref="P:C1.Win.TouchToolKit.C1Magnify.Size" /> 値。デフォルトは 100,100 です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Magnify.ZoomFactor">
+      <summary>拡大鏡のズーム率を示す値を取得または設定します。</summary>
+      <value>
+        拡大鏡のズーム率を表す <see cref="T:System.Single" /> 値。デフォルトは 2f です。
+      </value>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1Magnify.AboutBox">
+      <summary>製品情報ウィンドウを表示します。</summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1Magnify.CanExtend(System.Object)">
+      <summary>このオブジェクトが指定したオブジェクトにエクステンダープロパティを提供できるかどうかを示します。</summary>
+      <param name="extendee">
+        エクステンダープロパティを受け取る <see cref="T:System.Object" />。
+      </param>
+      <returns>このオブジェクトが指定したオブジェクトにエクステンダープロパティを提供できる場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1Magnify.Dispose(System.Boolean)">
+      <summary>
+        <see cref="T:System.ComponentModel.Component" /> によって使用されているアンマネージリソースを解放し、オプションでマネージリソースも解放します。
+      </summary>
+      <param name="disposing">マネージリソースとアンマネージリソースを両方とも解放する場合は true。アンマネージリソースのみを解放する場合は false。</param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1Magnify.GetEnableMagnifier(System.Windows.Forms.Control)">
+      <summary>
+        指定したコントロールに <see cref="T:C1.Win.TouchToolKit.C1Magnify" /> が関連付けられているかどうかを取得します。
+      </summary>
+      <param name="control">
+        <see cref="T:C1.Win.TouchToolKit.C1Magnify" /> を取得する対象の <see cref="T:System.Windows.Forms.Control" />。
+      </param>
+      <returns>
+        指定したコントロールを長押ししたときに拡大鏡が表示される場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1Magnify.OnClosed(C1.Win.TouchToolKit.MagnifierEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1Magnify.Closed" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:C1.Win.TouchToolKit.MagnifierEventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1Magnify.OnMagnifierShowing(C1.Win.TouchToolKit.MagnifierShowingEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1Magnify.MagnifierShowing" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:C1.Win.TouchToolKit.MagnifierShowingEventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1Magnify.OnMove(C1.Win.TouchToolKit.MagnifierEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1Magnify.Move" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:C1.Win.TouchToolKit.MagnifierEventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1Magnify.SetEnableMagnifier(System.Windows.Forms.Control,System.Boolean)">
+      <summary>
+        指定したコントロールに <see cref="T:C1.Win.TouchToolKit.C1Magnify" /> を関連付けます。
+      </summary>
+      <param name="control">
+        <see cref="T:C1.Win.TouchToolKit.C1Magnify" /> を関連付ける <see cref="T:System.Windows.Forms.Control" />。
+      </param>
+      <param name="value">
+        指定したコントロールに <see cref="T:C1.Win.TouchToolKit.C1Magnify" /> を関連付ける場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </param>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1Magnify.Closed">
+      <summary>拡大鏡が閉じたときに発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1Magnify.MagnifierShowing">
+      <summary>拡大鏡が開くときに発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1Magnify.Move">
+      <summary>拡大鏡が移動しているときに発生します。</summary>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.C1MultiScaleImage">
+      <summary>コントロールのズーム率に応じて異なるイメージを表示できるコントロールを表します。</summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1MultiScaleImage.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1MultiScaleImage" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1MultiScaleImage.Images">
+      <summary>
+        特定のズーム率のときに表示されるイメージを含む <see cref="T:C1.Win.TouchToolKit.ImageItem" /> のグループを取得します。
+      </summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.ImageItem" /> のグループを表す <see cref="T:System.Collections.Generic.IList`1" /> 値。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1MultiScaleImage.ZoomFactor">
+      <summary>コントロールのズーム率を取得または設定します。</summary>
+      <value>
+        コントロールのズーム率を表す <see cref="T:System.Single" /> 値。デフォルトは <b>1f</b> です。
+      </value>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1MultiScaleImage.AboutBox">
+      <summary>製品情報ウィンドウを表示します。</summary>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.C1TouchEventProvider">
+      <summary>任意のコントロールにアタッチでき、対象のコントロールのポインタイベントとマニピュレーションイベントを提供するコンポーネントを表します。</summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1TouchEventProvider.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1TouchEventProvider" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1TouchEventProvider.EnablePenFlicks">
+      <summary>コントロールがペンフリックジェスチャをサポートするかどうかを示す値を取得または設定します。</summary>
+      <value>
+        ペンフリックジェスチャを許可する場合は <see langword="true" />。それ以外の場合は <see langword="false" />。デフォルトは <see langword="true" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1TouchEventProvider.EnablePressAndHold">
+      <summary>コントロールが長押し（右クリック）ジェスチャをサポートするかどうかを示す値を取得または設定します。</summary>
+      <value>
+        長押し（右クリック）ジェスチャを許可する場合は <see langword="true" />。それ以外の場合は <see langword="false" />。デフォルトは <see langword="true" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1TouchEventProvider.ManipulationMode">
+      <summary>
+        ジェスチャに対する <see cref="T:System.Windows.Forms.Control" /> の動作やインタラクションに使用される <see cref="T:C1.Win.TouchToolKit.ManipulationModes" /> 値を取得または設定します。
+      </summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.ManipulationModes" /> 値の 1 つ。デフォルトは <see cref="F:C1.Win.TouchToolKit.ManipulationModes.All" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1TouchEventProvider.MaximunTouches">
+      <summary>システム上のすべてのデジタイザーによってサポートされている接触点の最大数を取得します。</summary>
+      <value>
+        システム上のすべてのデジタイザーによってサポートされている接触点の最大数を示す <see cref="T:System.Int32" /> 値。
+      </value>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1TouchEventProvider.AboutBox">
+      <summary>製品情報ウィンドウを表示します。</summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1TouchEventProvider.CanExtend(System.Object)">
+      <summary>このオブジェクトが指定したオブジェクトにエクステンダープロパティを提供できるかどうかを示します。</summary>
+      <param name="extendee">
+        エクステンダープロパティを受け取る <see cref="T:System.Object" />。
+      </param>
+      <returns>このオブジェクトが指定したオブジェクトにエクステンダープロパティを提供できる場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1TouchEventProvider.Dispose(System.Boolean)">
+      <summary>
+        <see cref="T:System.ComponentModel.Component" /> によって使用されているアンマネージリソースを解放し、オプションでマネージリソースも解放します。
+      </summary>
+      <param name="disposing">マネージリソースとアンマネージリソースを両方とも解放する場合は true。アンマネージリソースのみを解放する場合は false。</param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1TouchEventProvider.GetEnableTouchEvents(System.Windows.Forms.Control)">
+      <summary>
+        指定したコントロールに <see cref="T:C1.Win.TouchToolKit.C1TouchEventProvider" /> が関連付けられているかどうかを取得します。
+      </summary>
+      <param name="control">
+        <see cref="T:C1.Win.TouchToolKit.C1TouchEventProvider" /> を取得する対象の <see cref="T:System.Windows.Forms.Control" />。
+      </param>
+      <returns>
+        指定したコントロールがポインタイベントまたはマニピュレーションイベントを受け取る場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1TouchEventProvider.OnDoubleTapped(C1.Win.TouchToolKit.DoubleTappedEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1TouchEventProvider.DoubleTapped" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:C1.Win.TouchToolKit.DoubleTappedEventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1TouchEventProvider.OnHolding(C1.Win.TouchToolKit.HoldingEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1TouchEventProvider.Holding" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:C1.Win.TouchToolKit.HoldingEventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1TouchEventProvider.OnManipulationCompleted(C1.Win.TouchToolKit.ManipulationCompletedEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1TouchEventProvider.ManipulationCompleted" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:C1.Win.TouchToolKit.ManipulationCompletedEventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1TouchEventProvider.OnManipulationDelta(C1.Win.TouchToolKit.ManipulationDeltaEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1TouchEventProvider.ManipulationDelta" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:C1.Win.TouchToolKit.ManipulationDeltaEventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1TouchEventProvider.OnManipulationInertiaStarting(C1.Win.TouchToolKit.ManipulationInertiaStartingEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1TouchEventProvider.ManipulationInertiaStarting" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:C1.Win.TouchToolKit.ManipulationInertiaStartingEventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1TouchEventProvider.OnManipulationStarted(C1.Win.TouchToolKit.ManipulationStartedEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1TouchEventProvider.ManipulationStarted" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:C1.Win.TouchToolKit.ManipulationStartedEventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1TouchEventProvider.OnManipulationStarting(C1.Win.TouchToolKit.ManipulationStartingEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1TouchEventProvider.ManipulationStarting" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:C1.Win.TouchToolKit.ManipulationStartingEventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1TouchEventProvider.OnPointerCanceled(C1.Win.TouchToolKit.PointerEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1TouchEventProvider.PointerCanceled" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:C1.Win.TouchToolKit.PointerEventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1TouchEventProvider.OnPointerCaptureLost(C1.Win.TouchToolKit.PointerEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1TouchEventProvider.PointerCaptureLost" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:C1.Win.TouchToolKit.PointerEventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1TouchEventProvider.OnPointerEntered(C1.Win.TouchToolKit.PointerEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1TouchEventProvider.PointerEntered" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:C1.Win.TouchToolKit.PointerEventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1TouchEventProvider.OnPointerExited(C1.Win.TouchToolKit.PointerEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1TouchEventProvider.PointerExited" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:C1.Win.TouchToolKit.PointerEventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1TouchEventProvider.OnPointerMoved(C1.Win.TouchToolKit.PointerEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1TouchEventProvider.PointerMoved" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:C1.Win.TouchToolKit.PointerEventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1TouchEventProvider.OnPointerPressed(C1.Win.TouchToolKit.PointerEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1TouchEventProvider.PointerPressed" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:C1.Win.TouchToolKit.PointerEventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1TouchEventProvider.OnPointerReleased(C1.Win.TouchToolKit.PointerEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1TouchEventProvider.PointerReleased" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:C1.Win.TouchToolKit.PointerEventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1TouchEventProvider.OnRightTapped(C1.Win.TouchToolKit.RightTappedEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1TouchEventProvider.RightTapped" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:C1.Win.TouchToolKit.RightTappedEventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1TouchEventProvider.OnTapped(C1.Win.TouchToolKit.TappedEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1TouchEventProvider.Tapped" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:C1.Win.TouchToolKit.TappedEventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1TouchEventProvider.SetEnableTouchEvents(System.Windows.Forms.Control,System.Boolean)">
+      <summary>
+        指定したコントロールに <see cref="T:C1.Win.TouchToolKit.C1TouchEventProvider" /> を関連付けます。
+      </summary>
+      <param name="control">
+        <see cref="T:C1.Win.TouchToolKit.C1TouchEventProvider" /> を関連付ける <see cref="T:System.Windows.Forms.Control" />。
+      </param>
+      <param name="value">
+        指定したコントロールに <see cref="T:C1.Win.TouchToolKit.C1TouchEventProvider" /> を関連付ける場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </param>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1TouchEventProvider.DoubleTapped">
+      <summary>他の方法では処理されないダブルタップ操作が特定のコントロールのヒットテスト領域で起こったときに発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1TouchEventProvider.Holding">
+      <summary>他の方法では処理されないホールド操作が特定のコントロールのヒットテスト領域で起こったときに発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1TouchEventProvider.ManipulationCompleted">
+      <summary>特定のコントロールに対するマニピュレーションが完了したときに発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1TouchEventProvider.ManipulationDelta">
+      <summary>操作中に入力デバイスの位置が変わったときに発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1TouchEventProvider.ManipulationInertiaStarting">
+      <summary>操作中に特定のコントロールに接触していた入力デバイスが離れて慣性運動が開始したときに発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1TouchEventProvider.ManipulationStarted">
+      <summary>入力デバイスが特定のコントロールに対するマニピュレーションを開始したときに発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1TouchEventProvider.ManipulationStarting">
+      <summary>マニピュレーションプロセッサが最初に作成されたときに発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1TouchEventProvider.PointerCanceled">
+      <summary>接触していたポインタが異常な離れ方をしたときに発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1TouchEventProvider.PointerCaptureLost">
+      <summary>特定のコントロールがそれまで保持していたポインタのキャプチャが別のコントロールまたは他の場所に移動したときに発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1TouchEventProvider.PointerEntered">
+      <summary>ポインタが特定のコントロールのヒットテスト領域に入ったときに発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1TouchEventProvider.PointerExited">
+      <summary>ポインタが特定のコントロールのヒットテスト領域から出たときに発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1TouchEventProvider.PointerMoved">
+      <summary>ポインタが特定のコントロールのヒットテスト領域内で移動したときに発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1TouchEventProvider.PointerPressed">
+      <summary>ポインタデバイスが特定のコントロール内でプレスアクションを開始したときに発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1TouchEventProvider.PointerReleased">
+      <summary>
+        直前にプレスアクションを開始したポインタデバイスが、特定のコントロール内にとどまったまま、離されたときに発生します。プレスアクションの最後に <see cref="E:C1.Win.TouchToolKit.C1TouchEventProvider.PointerReleased" /> イベントが発生することは保証されていない点に注意してください。代わりに他のイベントが発生する場合があります。詳細については、「解説」を参照してください。
+      </summary>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1TouchEventProvider.RightTapped">
+      <summary>ポインタが特定のコントロールの上にあるときに右タップの入力が起こったときに発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1TouchEventProvider.Tapped">
+      <summary>他の方法では処理されないタップ操作が特定のコントロールのヒットテスト領域で起こったときに発生します。</summary>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.C1Zoom">
+      <summary>任意の既存フォームにアタッチすることで、フォームを 2 本指のタッチでズームできるようにするコンポーネントを表します。</summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1Zoom.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1Zoom.#ctor(System.ComponentModel.IContainer)">
+      <summary>
+        指定したコンテナーを使用して、<see cref="T:C1.Win.TouchToolKit.C1Zoom" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+      <param name="container">
+        <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> のコンテナーを表す <see cref="T:System.ComponentModel.IContainer" />。
+      </param>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.AllowDoubleTapZoom">
+      <summary>
+        ダブルタップによってズームできるかどうかを示す値を取得または設定します。ダブルタップされる前に <see cref="P:C1.Win.TouchToolKit.C1Zoom.ZoomFactor" /> が 2f より小さい場合、ZoomFactor は 2f または <see cref="P:C1.Win.TouchToolKit.C1Zoom.MaxZoomFactor" /> に変更されます。それ以外の場合は 1f に変更されます。
+      </summary>
+      <value>
+        ダブルタップによってズームできる場合は <see langword="true" />。それ以外の場合は <see langword="false" />。デフォルトは <see langword="false" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.AllowMouseWheelScroll">
+      <summary>実行できるマウスホイールスクロールのタイプを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.AllowMouseWheelZoom">
+      <summary>［Ctrl］キーを押しながらマウスホイールを回すことによってズームできるかどうかを示す値を取得または設定します。</summary>
+      <value>
+        ユーザーがマウスホイールによってズームできる場合は <see langword="true" />。それ以外の場合は <see langword="false" />。デフォルトは <see langword="false" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.AllowPanScroll">
+      <summary>パンジェスチャによってフォームをスクロールできるかどうかを示す値を取得または設定します。</summary>
+      <value>
+        パンジェスチャによってフォームをスクロールできる場合は <see langword="true" />。それ以外の場合は <see langword="false" />。デフォルトは <see langword="true" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.AllowPinchZoom">
+      <summary>フォームがジェスチャズームを実行できるかどうかを示す値を取得または設定します。</summary>
+      <value>
+        フォームがジェスチャズームを実行できる場合は <see langword="true" />。それ以外の場合は <see langword="false" />。デフォルトは <see langword="true" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.AllowResizeByZoom">
+      <summary>フォームをズームするときにフォームをサイズ変更するかどうかを示す値を取得または設定します。</summary>
+      <value>
+        フォームをズームするときにフォームをサイズ変更する場合は <see langword="true" />。それ以外の場合は <see langword="false" />。デフォルトは <see langword="false" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.AllowZoomByResize">
+      <summary>フォームをサイズ変更するときにフォームをズームするかどうかを示す値を取得または設定します。</summary>
+      <value>
+        フォームをサイズ変更するときにフォームをズームする場合は <see langword="true" />。それ以外の場合は <see langword="false" />。デフォルトは <see langword="true" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.AlternativeContentSettings">
+      <summary>ジェスチャズーム中にズーム率を表示する方法を示す設定を取得します。</summary>
+      <value>
+        ジェスチャズーム中にズーム率を表示する方法を示す <see cref="T:C1.Win.TouchToolKit.AlternativeContentSettings" /> 型の値。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.AutoShowControl">
+      <summary>フォーカスを取得したとき、またはタッチキーボードがポップアップしたときにコントロールを自動表示するかどうかを示す値を取得または設定します。</summary>
+      <value>
+        コントロールを自動表示する場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.BackColor">
+      <summary>ズームおよびスクロールするときのフォームの空白領域の背景色を取得または設定します。</summary>
+      <value>
+        ズームおよびスクロールするときのフォームの空白領域の背景色を表す <see cref="T:System.Drawing.Color" /> 値。デフォルトは <see cref="F:System.Drawing.Color.Empty">Color.Empty</see> で、フォームの背景色を使用することを意味します。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.BackgroundImage">
+      <summary>ズームおよびスクロールするときにフォームの空白領域に表示される背景イメージを取得または設定します。</summary>
+      <value>
+        ズームおよびスクロールするときにフォームの空白領域に表示するイメージを表す <see cref="T:System.Drawing.Image" /> 値。デフォルトは <see langword="null" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.BackgroundImageLayout">
+      <summary>
+        <see cref="T:System.Windows.Forms.ImageLayout" /> 列挙体で定義された背景イメージレイアウトを取得または設定します。
+      </summary>
+      <value>
+        <see cref="T:System.Windows.Forms.ImageLayout" /> の値の 1 つ（<see cref="F:System.Windows.Forms.ImageLayout.Center" />、<see cref="F:System.Windows.Forms.ImageLayout.None" />、<see cref="F:System.Windows.Forms.ImageLayout.Stretch" />、<see cref="F:System.Windows.Forms.ImageLayout.Tile" />、<see cref="F:System.Windows.Forms.ImageLayout.Zoom" /> のいずれか）。デフォルト値は <see cref="F:System.Windows.Forms.ImageLayout.Tile" nolink="true" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.BoundaryFeedbackMode">
+      <summary>スクロールが終端に達したときの視覚的フィードバックの表示方法を示す値を取得または設定します。</summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.BoundaryFeedbackMode" /> 値の 1 つ。デフォルトは <see cref="F:C1.Win.TouchToolKit.BoundaryFeedbackMode.Split" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.ControlBars">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> に含まれる <see cref="T:C1.Win.TouchToolKit.ControlBar" /> のコレクションを取得します。
+      </summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> に含まれる <see cref="T:C1.Win.TouchToolKit.ControlBar" nolink="true" /> のコレクションを表す <see cref="T:C1.Win.TouchToolKit.ControlBar" /> 値のリスト。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.Controls">
+      <summary>オーナーフォームの子コントロールを取得します。</summary>
+      <value>
+        オーナーフォームの子コントロールを表す <see cref="T:System.Windows.Forms.Control.ControlCollection" /> 値。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.DefaultZoomPolicies">
+      <summary>デフォルトのズームポリシーを取得します。</summary>
+      <value>デフォルトのズームポリシー。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.FullScreenMode">
+      <summary>オーナーフォームによって使用されるフルスクリーンモードを取得または設定します。</summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.FullScreenMode" /> 値の 1 つ。デフォルトは <see cref="F:C1.Win.TouchToolKit.FullScreenMode.None" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.InnerPanel">
+      <summary>ターゲットフォームの子コントロールを含む内部パネルを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.InnerPanelLayoutMode">
+      <summary>フォームを拡大した後の InnerPanel のレイアウトを取得または設定します。</summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.InnerPanelLayoutMode" /> 値の 1 つ。デフォルトは <see cref="F:C1.Win.TouchToolKit.InnerPanelLayoutMode.None" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.IsHorizontalRailEnabled">
+      <summary>水平方向のスクロールレールが有効かどうかを示す値を取得または設定します。</summary>
+      <value>
+        水平方向のスクロールレールを有効にする場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.IsPanWindowShown">
+      <summary>パンウィンドウが表示されているかどうかを示す値を取得します。</summary>
+      <value>
+        パンウィンドウが表示されている場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.IsVerticalRailEnabled">
+      <summary>垂直方向のスクロールレールが有効かどうかを示す値を取得または設定します。</summary>
+      <value>
+        垂直方向のスクロールレールを有効にする場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.KeepAspectRatio">
+      <summary>フォームをサイズ変更するときにアスペクト比を維持するかどうかを示す値を取得または設定します。</summary>
+      <value>
+        フォームをサイズ変更するときにアスペクト比を維持する場合は <see langword="true" />。それ以外の場合は <see langword="false" />。デフォルトは <see langword="false" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.MaxZoomFactor">
+      <summary>フォームの最大ズーム率を取得または設定します。</summary>
+      <value>
+        フォームの最大ズーム率を表す <see cref="T:System.Single" /> 値。デフォルトは 4f です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.ScrollIndicatorMode">
+      <summary>現在のスクロール位置を示すモードを示す値を取得または設定します。</summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.ScrollIndicatorMode" /> 値の 1 つ。デフォルトは <see cref="F:C1.Win.TouchToolKit.ScrollIndicatorMode.ScrollIndicator" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.ScrollLocation">
+      <summary>フォームのスクロール位置を取得または設定します。</summary>
+      <value>
+        フォームのスクロール位置（ピクセル単位）を表す <see cref="T:System.Drawing.Point" /> 値。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.Site">
+      <summary>
+        <see cref="T:System.ComponentModel.Component" /> の <see cref="T:System.ComponentModel.ISite" /> を取得または設定します。
+      </summary>
+      <value>
+        <see cref="T:System.ComponentModel.Component" /> に関連付けられた <see cref="T:System.ComponentModel.ISite" />。<see cref="T:System.ComponentModel.Component" nolink="true" /> が <see cref="T:System.ComponentModel.IContainer" /> にカプセル化されていない場合、<see cref="T:System.ComponentModel.Component" nolink="true" /> に <see cref="T:System.ComponentModel.ISite" nolink="true" /> が関連付けられていない場合、または <see cref="T:System.ComponentModel.Component" nolink="true" /> がその <see cref="T:System.ComponentModel.IContainer" nolink="true" /> から除去された場合は null。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.ZoomFactor">
+      <summary>フォームのズーム率を取得または設定します。</summary>
+      <value>
+        フォームのズーム率を表す <see cref="T:System.Single" /> 値。デフォルトは <b>1f</b> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.ZoomPolicies">
+      <summary>
+        カスタムズームポリシーを取得します。<see cref="T:C1.Win.TouchToolKit.C1Zoom" /> はこのリストでズームポリシーを検索します。
+      </summary>
+      <value>
+        カスタム <see cref="T:C1.Win.TouchToolKit.ZoomPolicy" /> のリスト。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.ZoomPreviewMode">
+      <summary>ジェスチャズーム中にフォームをプレビューする方法を示す値を取得または設定します。</summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.ZoomPreviewMode" /> 値の 1 つ。デフォルトは <see cref="F:C1.Win.TouchToolKit.ZoomPreviewMode.Bitmap">ZoomPreviewMode.Bitmap</see> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.ZoomSnapDistance">
+      <summary>
+        現在のズーム率を <see cref="P:C1.Win.TouchToolKit.C1Zoom.ZoomSnapPoints" /> に含まれるいずれかのズーム率にスナップさせる最小の間隔を示す値を取得または設定します。
+      </summary>
+      <value>
+        現在のズーム率を <see cref="P:C1.Win.TouchToolKit.C1Zoom.ZoomSnapPoints" /> に含まれるいずれかのズーム率にスナップさせる最小の間隔を表す <see cref="T:System.Single" /> 値。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.ZoomSnapPoints">
+      <summary>ズームが終了するときにそのいずれかの値にズーム率がスナップされるズーム率のグループを取得します。</summary>
+      <value>
+        ズームが終了するときにそのいずれかの値にズーム率がスナップされるズーム率のグループを表す <see cref="T:System.Single" /> 値のリスト。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1Zoom.ZoomTargets">
+      <summary>ズームジェスチャメッセージを受け取ることができるコントロールのコレクションを取得します。</summary>
+      <value>ズームジェスチャメッセージを受け取ることができるコントロールのコレクション。</value>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1Zoom.AboutBox">
+      <summary>製品情報ウィンドウを表示します。</summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1Zoom.BeginAddControls">
+      <summary>このメソッドは、子コントロールコレクションを変更する前に呼び出します。</summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1Zoom.ClosePanWindow">
+      <summary>パンウィンドウを閉じます。</summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1Zoom.Dispose(System.Boolean)">
+      <summary>
+        <see cref="T:System.ComponentModel.Component" /> によって使用されているアンマネージリソースを解放し、オプションでマネージリソースも解放します。
+      </summary>
+      <param name="disposing">マネージリソースとアンマネージリソースを両方とも解放する場合は true。アンマネージリソースのみを解放する場合は false。</param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1Zoom.EndAddControls">
+      <summary>このメソッドは、子コントロールコレクションを変更した後に呼び出します。</summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1Zoom.GetDisplayRectangle(System.Windows.Forms.Control)">
+      <summary>コントロールの表示矩形を取得します。</summary>
+      <param name="control">ターゲットコントロール。</param>
+      <returns>
+        コントロールの表示矩形を表す <see cref="T:System.Drawing.Rectangle" /> 値。
+      </returns>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1Zoom.OnAnimationCompleted(System.EventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1Zoom.AnimationCompleted" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:System.EventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1Zoom.OnAnimationStarting(C1.Win.TouchToolKit.AnimationStartingEventArgs)">
+      <summary>
+        <see cref="E:AnimationStarting" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:C1.Win.TouchToolKit.AnimationStartingEventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1Zoom.OnControlAutoShowing(C1.Win.TouchToolKit.ControlAutoShowingEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1Zoom.ControlAutoShowing" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:C1.Win.TouchToolKit.ControlAutoShowingEventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1Zoom.OnControlBoundsZooming(C1.Win.TouchToolKit.ControlBoundsZoomingEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1Zoom.ControlBoundsZooming" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:C1.Win.TouchToolKit.ControlBoundsZoomingEventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1Zoom.OnControlFontZooming(C1.Win.TouchToolKit.ControlFontZoomingEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1Zoom.ControlFontZooming" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:C1.Win.TouchToolKit.ControlFontZoomingEventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1Zoom.OnManipulationStarting(C1.Win.TouchToolKit.ZoomManipulationStartingEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1Zoom.ManipulationStarting" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:C1.Win.TouchToolKit.ZoomManipulationStartingEventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1Zoom.OnZoomFactorChanged(System.EventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1Zoom.ZoomFactorChanged" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:System.EventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1Zoom.SetScrollLocation(System.Drawing.Point,System.Boolean)">
+      <summary>
+        <see cref="P:C1.Win.TouchToolKit.C1Zoom.ScrollLocation" /> を設定します。<see cref="P:C1.Win.TouchToolKit.C1Zoom.ScrollLocation" nolink="true" /> を変更するときにアニメーションを使用するかどうかを指定できます。
+      </summary>
+      <param name="scrollLocation">スクロール位置。</param>
+      <param name="useAnimation">アニメーションを使用する場合は true。それ以外の場合は false。</param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1Zoom.SetZoomFactor(System.Single,System.Boolean)">
+      <summary>
+        <see cref="P:C1.Win.TouchToolKit.C1Zoom.ZoomFactor" /> を設定します。<see cref="P:C1.Win.TouchToolKit.C1Zoom.ZoomFactor" nolink="true" /> を変更するときにアニメーションを使用するかどうかを指定できます。
+      </summary>
+      <param name="zoomFactor">新しいズーム率。</param>
+      <param name="useAnimation">アニメーションを使用する場合は true。それ以外の場合は false。</param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1Zoom.ShowPanWindow">
+      <summary>パンウィンドウを表示します。</summary>
+      <returns>
+        パンウィンドウを表す <see cref="T:System.Windows.Forms.Form" /> 値。
+      </returns>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1Zoom.ShowPanWindow(System.Windows.Forms.FormStartPosition)">
+      <summary>指定した開始位置でパンウィンドウを表示します。</summary>
+      <param name="startPosition">パンウィンドウの開始位置。</param>
+      <returns>
+        パンウィンドウを表す <see cref="T:System.Windows.Forms.Form" /> 値。
+      </returns>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1Zoom.ShowPanWindow(System.Windows.Forms.FormStartPosition,System.Drawing.Size)">
+      <summary>指定した開始位置とサイズでパンウィンドウを表示します。</summary>
+      <param name="startPosition">パンウィンドウの開始位置。</param>
+      <param name="size">パンウィンドウのサイズ。</param>
+      <returns>
+        パンウィンドウを表す <see cref="T:System.Windows.Forms.Form" /> 値。
+      </returns>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1Zoom.ShowPanWindow(System.Drawing.Point)">
+      <summary>指定した位置でパンウィンドウを表示します。</summary>
+      <param name="location">パンウィンドウの位置。</param>
+      <returns>
+        パンウィンドウを表す <see cref="T:System.Windows.Forms.Form" /> 値。
+      </returns>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1Zoom.ShowPanWindow(System.Drawing.Point,System.Drawing.Size)">
+      <summary>指定した位置とサイズでパンウィンドウを表示します。</summary>
+      <param name="location">パンウィンドウの位置。</param>
+      <param name="size">パンウィンドウのサイズ。</param>
+      <returns>
+        パンウィンドウを表す <see cref="T:System.Windows.Forms.Form" /> 値。
+      </returns>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1Zoom.AnimationCompleted">
+      <summary>アニメーションが完了したときに発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1Zoom.AnimationStarting">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> がアニメーションを開始する前に発生します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1Zoom.ControlAutoShowing">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> がターゲットコントロールの表示を開始する前に発生します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1Zoom.ControlBoundsZooming">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> がターゲットコントロールの境界のズームを開始する前に発生します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1Zoom.ControlFontZooming">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> がターゲットコントロールのフォントのズームを開始する前に発生します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1Zoom.ManipulationStarting">
+      <summary>マニピュレーションプロセッサが最初に作成されたときに発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1Zoom.ZoomFactorChanged">
+      <summary>
+        <see cref="P:C1.Win.TouchToolKit.C1Zoom.ZoomFactor" /> が変更されたときに発生します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.C1ZoomAttachedEventArgs">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1ApplicationZoom" /> クラスの <see cref="E:C1.Win.TouchToolKit.C1ApplicationZoom.C1ZoomAttached" /> イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ZoomAttachedEventArgs.#ctor(C1.Win.TouchToolKit.C1Zoom,System.Windows.Forms.Form)">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1ZoomAttachedEventArgs" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+      <param name="C1Zoom">
+        <see cref="P:C1.Win.TouchToolKit.C1ZoomAttachedEventArgs.Form" /> にアタッチされた <see cref="P:C1.Win.TouchToolKit.C1ZoomAttachedEventArgs.C1Zoom" /> コンポーネント。
+      </param>
+      <param name="form">
+        <see cref="P:C1.Win.TouchToolKit.C1ZoomAttachedEventArgs.GcZoom" /> コンポーネントがアタッチされた <see cref="P:C1.Win.TouchToolKit.C1ZoomAttachedEventArgs.Form" />。
+      </param>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomAttachedEventArgs.Form">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> コンポーネントがアタッチされた <see cref="T:System.Windows.Forms.Form" /> を取得します。
+      </summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> コンポーネントがアタッチされた <see cref="T:System.Windows.Forms.Form" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomAttachedEventArgs.GcZoom">
+      <summary>
+        <see cref="P:C1.Win.TouchToolKit.C1ZoomAttachedEventArgs.Form" /> にアタッチされた <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> コンポーネントを取得します。
+      </summary>
+      <value>
+        <see cref="P:C1.Win.TouchToolKit.C1ZoomAttachedEventArgs.Form" /> にアタッチされた <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> コンポーネント。
+      </value>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.C1ZoomAttachingEventArgs">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1ApplicationZoom" /> クラスの <see cref="E:C1.Win.TouchToolKit.C1ApplicationZoom.C1ZoomAttaching" /> イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ZoomAttachingEventArgs.#ctor(C1.Win.TouchToolKit.C1Zoom,System.Windows.Forms.Form)">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1ZoomAttachingEventArgs" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+      <param name="C1Zoom">
+        <see cref="P:C1.Win.TouchToolKit.C1ZoomAttachingEventArgs.Form" /> にアタッチしようとしている <see cref="P:C1.Win.TouchToolKit.C1ZoomAttachingEventArgs.C1Zoom" /> コンポーネント。
+      </param>
+      <param name="form">
+        <see cref="P:C1.Win.TouchToolKit.C1ZoomAttachingEventArgs.GcZoom" /> コンポーネントがアタッチされようとしている <see cref="P:C1.Win.TouchToolKit.C1ZoomAttachingEventArgs.Form" />。
+      </param>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomAttachingEventArgs.Cancel">
+      <summary>
+        この <see cref="E:C1.Win.TouchToolKit.C1ApplicationZoom.C1ZoomAttaching" /> イベントがキャンセルされるかどうかを示す値を取得または設定します。
+      </summary>
+      <value>
+        現在のアタッチ操作がキャンセルされる場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomAttachingEventArgs.Form">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> コンポーネントがアタッチされようとしている <see cref="T:System.Windows.Forms.Form" /> を取得します。
+      </summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> コンポーネントがアタッチされようとしている <see cref="T:System.Windows.Forms.Form" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomAttachingEventArgs.GcZoom">
+      <summary>
+        <see cref="P:C1.Win.TouchToolKit.C1ZoomAttachingEventArgs.Form" /> にアタッチしようとしている <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> コンポーネントを取得します。
+      </summary>
+      <value>
+        <see cref="P:C1.Win.TouchToolKit.C1ZoomAttachingEventArgs.Form" /> にアタッチしようとしている <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> コンポーネント。
+      </value>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.C1ZoomCommandProvider">
+      <summary>
+        任意の既存 UserControl にアタッチすることで、現在の UserControl 上にあるすべての IButtonControl で <see cref="T:C1.Win.TouchToolKit.ZoomCommands" /> を実行できるようにするコンポーネントを表します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ZoomCommandProvider.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1ZoomCommandProvider" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ZoomCommandProvider.#ctor(System.ComponentModel.IContainer)">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1ZoomCommandProvider" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+      <param name="container">
+        <see cref="T:C1.Win.TouchToolKit.C1ZoomCommandProvider" /> のコンテナーを表す <see cref="T:System.ComponentModel.IContainer" />。
+      </param>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomCommandProvider.OwnerForm">
+      <summary>
+        この <see cref="T:C1.Win.TouchToolKit.ControlBar" /> を所有するフォームを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomCommandProvider.OwnerGcZoom">
+      <summary>
+        この <see cref="T:C1.Win.TouchToolKit.C1ZoomCommandProvider" /> を所有する <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomCommandProvider.Site">
+      <summary>
+        <see cref="T:System.ComponentModel.Component" /> の <see cref="T:System.ComponentModel.ISite" /> を取得または設定します。
+      </summary>
+      <value>
+        <see cref="T:System.ComponentModel.Component" /> に関連付けられた <see cref="T:System.ComponentModel.ISite" />。<see cref="T:System.ComponentModel.Component" nolink="true" /> が <see cref="T:System.ComponentModel.IContainer" /> にカプセル化されていない場合、<see cref="T:System.ComponentModel.Component" nolink="true" /> に <see cref="T:System.ComponentModel.ISite" nolink="true" /> が関連付けられていない場合、または <see cref="T:System.ComponentModel.Component" nolink="true" /> がその <see cref="T:System.ComponentModel.IContainer" nolink="true" /> から除去された場合は null。
+      </value>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ZoomCommandProvider.AboutBox">
+      <summary>製品情報ウィンドウを表示します。</summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ZoomCommandProvider.CanExtend(System.Object)">
+      <summary>このオブジェクトが指定したオブジェクトにエクステンダープロパティを提供できるかどうかを示します。</summary>
+      <param name="extendee">
+        エクステンダープロパティを受け取る <see cref="T:System.Object" />。
+      </param>
+      <returns>
+        このオブジェクトが指定したオブジェクトにエクステンダープロパティを提供できる場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ZoomCommandProvider.Dispose(System.Boolean)">
+      <summary>
+        <see cref="T:System.ComponentModel.Component" /> によって使用されているアンマネージリソースを解放し、オプションでマネージリソースも解放します。
+      </summary>
+      <param name="disposing">マネージリソースとアンマネージリソースを両方とも解放する場合は true。アンマネージリソースのみを解放する場合は false。</param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ZoomCommandProvider.GetZoomCommands(System.Windows.Forms.IButtonControl)">
+      <summary>
+        指定した <see cref="T:System.Windows.Forms.IButtonControl" /> に関連付けれらた <see cref="T:C1.Win.TouchToolKit.C1ZoomCommandProvider" /> を取得します。
+      </summary>
+      <param name="control">
+        <see cref="T:C1.Win.TouchToolKit.C1ZoomCommandProvider" /> を取得する対象の <see cref="T:System.Windows.Forms.IButtonControl" />。
+      </param>
+      <returns>
+        組み込みコマンドを示す <see cref="T:C1.Win.TouchToolKit.ZoomCommands" /> オブジェクト。
+      </returns>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ZoomCommandProvider.SetZoomCommands(System.Windows.Forms.IButtonControl,C1.Win.TouchToolKit.ZoomCommands)">
+      <summary>
+        指定した <see cref="T:System.Windows.Forms.IButtonControl" /> に <see cref="T:C1.Win.TouchToolKit.C1ZoomCommandProvider" /> を関連付けます。
+      </summary>
+      <param name="control">
+        <see cref="T:C1.Win.TouchToolKit.C1ZoomCommandProvider" /> を関連付ける <see cref="T:System.Windows.Forms.IButtonControl" />。
+      </param>
+      <param name="value">
+        <see cref="F:C1.Win.TouchToolKit.ZoomCommands.None">ZoomCommands.None</see> 以外の値を指定した場合、指定した <see cref="T:System.Windows.Forms.IButtonControl" /> に <see cref="T:C1.Win.TouchToolKit.ZoomCommands" /> が関連付けられます。
+      </param>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.C1ZoomDetachedEventArgs">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1ApplicationZoom" /> クラスの <see cref="E:C1.Win.TouchToolKit.C1ApplicationZoom.C1ZoomDetached" /> イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ZoomDetachedEventArgs.#ctor(C1.Win.TouchToolKit.C1Zoom,System.Windows.Forms.Form)">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1ZoomDetachedEventArgs" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+      <param name="C1Zoom">
+        <see cref="P:C1.Win.TouchToolKit.C1ZoomDetachedEventArgs.Form" /> からデタッチされた <see cref="P:C1.Win.TouchToolKit.C1ZoomDetachedEventArgs.C1Zoom" /> コンポーネント。
+      </param>
+      <param name="form">
+        <see cref="P:C1.Win.TouchToolKit.C1ZoomDetachedEventArgs.GcZoom" /> コンポーネントがデタッチされた <see cref="P:C1.Win.TouchToolKit.C1ZoomDetachedEventArgs.Form" />。
+      </param>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomDetachedEventArgs.Form">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> コンポーネントがデタッチされた <see cref="T:System.Windows.Forms.Form" /> を取得します。
+      </summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> コンポーネントがデタッチされた <see cref="T:System.Windows.Forms.Form" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomDetachedEventArgs.GcZoom">
+      <summary>
+        <see cref="P:C1.Win.TouchToolKit.C1ZoomDetachedEventArgs.Form" /> からデタッチされた <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> コンポーネントを取得します。
+      </summary>
+      <value>
+        <see cref="P:C1.Win.TouchToolKit.C1ZoomDetachedEventArgs.Form" /> からデタッチされた <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> コンポーネント。
+      </value>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.C1ZoomPanel">
+      <summary>コントロールのコレクションをグループ化し、それらのコントロールを 2 本指のタッチでズームできるようにするコンポーネントを表します。</summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ZoomPanel.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1ZoomPanel" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomPanel.AllowDoubleTapZoom">
+      <summary>
+        ダブルタップによってズームできるかどうかを示す値を取得または設定します。ダブルタップされる前に <see cref="P:C1.Win.TouchToolKit.C1ZoomPanel.ZoomFactor" /> が 2f より小さい場合、ZoomFactor は 2f または <see cref="P:C1.Win.TouchToolKit.C1ZoomPanel.MaxZoomFactor" /> に変更されます。それ以外の場合は 1f に変更されます。
+      </summary>
+      <value>
+        ダブルタップによってズームできる場合は <see langword="true" />。それ以外の場合は <see langword="false" />。デフォルトは <see langword="false" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomPanel.AllowMouseWheelScroll">
+      <summary>実行できるマウスホイールスクロールのタイプを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomPanel.AllowMouseWheelZoom">
+      <summary>［Ctrl］キーを押しながらマウスホイールを回すことによってズームできるかどうかを示す値を取得または設定します。</summary>
+      <value>
+        ユーザーがマウスホイールによってズームできる場合は <see langword="true" />。それ以外の場合は <see langword="false" />。デフォルトは <see langword="false" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomPanel.AllowPanScroll">
+      <summary>パンジェスチャによってパネルをスクロールできるかどうかを示す値を取得または設定します。</summary>
+      <value>
+        パンジェスチャによってパネルをスクロールできる場合は <see langword="true" />。それ以外の場合は <see langword="false" />。デフォルトは <see langword="true" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomPanel.AllowPinchZoom">
+      <summary>パネルがジェスチャズームを実行できるかどうかを示す値を取得または設定します。</summary>
+      <value>
+        パネルがジェスチャズームを実行できる場合は <see langword="true" />。それ以外の場合は <see langword="false" />。デフォルトは <see langword="true" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomPanel.AlternativeContentSettings">
+      <summary>ジェスチャズーム中にズーム率を表示する方法を示す設定を取得します。</summary>
+      <value>
+        ジェスチャズーム中にズーム率を表示する方法を示す <see cref="T:C1.Win.TouchToolKit.AlternativeContentSettings" /> 型の値。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomPanel.AutoShowControl">
+      <summary>フォーカスを取得したとき、またはタッチキーボードがポップアップしたときにコントロールを自動表示するかどうかを示す値を取得または設定します。</summary>
+      <value>
+        コントロールを自動表示する場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomPanel.BoundaryFeedbackMode">
+      <summary>スクロールが終端に達したときの視覚的フィードバックの表示方法を示す値を取得または設定します。</summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.BoundaryFeedbackMode" /> 値の 1 つ。デフォルトは <see cref="F:C1.Win.TouchToolKit.BoundaryFeedbackMode.Split" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomPanel.DefaultZoomPolicies">
+      <summary>デフォルトのズームポリシーを取得します。</summary>
+      <value>デフォルトのズームポリシー。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomPanel.FeedbackAreaBackColor">
+      <summary>ズームおよびスクロールするときのパネルの空白領域の背景色を取得または設定します。</summary>
+      <value>
+        ズームおよびスクロールするときのパネルの空白領域の背景色を表す <see cref="T:System.Drawing.Color" /> 値。デフォルトは <see cref="F:System.Drawing.Color.Empty">Color.Empty</see> で、パネルの背景色を使用することを意味します。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomPanel.FeedbackAreaBackgroundImage">
+      <summary>ズームおよびスクロールするときにパネルの空白領域に表示される背景イメージを取得または設定します。</summary>
+      <value>
+        ズームおよびスクロールするときにパネルの空白領域に表示するイメージを表す <see cref="T:System.Drawing.Image" /> 値。デフォルトは <see langword="null" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomPanel.FeedbackAreaBackgroundImageLayout">
+      <summary>
+        <see cref="T:System.Windows.Forms.ImageLayout" /> 列挙体で定義された背景イメージレイアウトを取得または設定します。
+      </summary>
+      <value>
+        <see cref="T:System.Windows.Forms.ImageLayout" /> の値の 1 つ（<see cref="F:System.Windows.Forms.ImageLayout.Center" />、<see cref="F:System.Windows.Forms.ImageLayout.None" />、<see cref="F:System.Windows.Forms.ImageLayout.Stretch" />、<see cref="F:System.Windows.Forms.ImageLayout.Tile" />、<see cref="F:System.Windows.Forms.ImageLayout.Zoom" /> のいずれか）。デフォルト値は <see cref="F:System.Windows.Forms.ImageLayout.Tile" nolink="true" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomPanel.InnerControls">
+      <summary>パネルの子コントロールを取得します。</summary>
+      <value>
+        パネルの子コントロールを表す <see cref="T:System.Windows.Forms.Control.ControlCollection" /> 値。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomPanel.InnerPanel">
+      <summary>ターゲットフォームの子コントロールを含む内部パネルを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomPanel.InnerPanelLayoutMode">
+      <summary>InnerPanel のレイアウトモードを取得または設定します。</summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.InnerPanelLayoutMode" /> 値の 1 つ。デフォルトは <see cref="F:C1.Win.TouchToolKit.InnerPanelLayoutMode.None" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomPanel.IsHorizontalRailEnabled">
+      <summary>水平方向のスクロールレールが有効かどうかを示す値を取得または設定します。</summary>
+      <value>
+        水平方向のスクロールレールを有効にする場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomPanel.IsVerticalRailEnabled">
+      <summary>垂直方向のスクロールレールが有効かどうかを示す値を取得または設定します。</summary>
+      <value>
+        垂直方向のスクロールレールを有効にする場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomPanel.MaxZoomFactor">
+      <summary>パネルの最大ズーム率を取得または設定します。</summary>
+      <value>
+        パネルの最大ズーム率を表す <see cref="T:System.Single" /> 値。デフォルトは 4f です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomPanel.ScrollIndicatorMode">
+      <summary>現在のスクロール位置を示すモードを示す値を取得または設定します。</summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.ScrollIndicatorMode" /> 値の 1 つ。デフォルトは <see cref="F:C1.Win.TouchToolKit.ScrollIndicatorMode.ScrollIndicator" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomPanel.ScrollLocation">
+      <summary>パネルのスクロール位置を取得または設定します。</summary>
+      <value>
+        パネルのスクロール位置（ピクセル単位）を表す <see cref="T:System.Drawing.Point" /> 値。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomPanel.Site">
+      <summary>
+        <see cref="T:System.ComponentModel.Component" /> の <see cref="T:System.ComponentModel.ISite" /> を取得または設定します。
+      </summary>
+      <value>
+        <see cref="T:System.ComponentModel.Component" /> に関連付けられた <see cref="T:System.ComponentModel.ISite" />。<see cref="T:System.ComponentModel.Component" nolink="true" /> が <see cref="T:System.ComponentModel.IContainer" /> にカプセル化されていない場合、<see cref="T:System.ComponentModel.Component" nolink="true" /> に <see cref="T:System.ComponentModel.ISite" nolink="true" /> が関連付けられていない場合、または <see cref="T:System.ComponentModel.Component" nolink="true" /> がその <see cref="T:System.ComponentModel.IContainer" nolink="true" /> から除去された場合は null。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomPanel.ZoomFactor">
+      <summary>パネルのズーム率を取得または設定します。</summary>
+      <value>
+        パネルのズーム率を表す <see cref="T:System.Single" /> 値。デフォルトは <b>1f</b> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomPanel.ZoomPolicies">
+      <summary>
+        カスタムズームポリシーを取得します。<see cref="T:C1.Win.TouchToolKit.C1Zoom" /> はこのリストでズームポリシーを検索します。
+      </summary>
+      <value>
+        カスタム <see cref="T:C1.Win.TouchToolKit.ZoomPolicy" /> のリスト。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomPanel.ZoomPreviewMode">
+      <summary>ジェスチャズーム中にパネルをプレビューする方法を示す値を取得または設定します。</summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.ZoomPreviewMode" /> 値の 1 つ。デフォルトは <see cref="F:C1.Win.TouchToolKit.ZoomPreviewMode.Bitmap">ZoomPreviewMode.Bitmap</see> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomPanel.ZoomSnapDistance">
+      <summary>
+        現在のズーム率を <see cref="P:C1.Win.TouchToolKit.C1ZoomPanel.ZoomSnapPoints" /> に含まれるいずれかのズーム率にスナップさせる最小の間隔を示す値を取得または設定します。
+      </summary>
+      <value>
+        現在のズーム率を <see cref="P:C1.Win.TouchToolKit.C1ZoomPanel.ZoomSnapPoints" /> に含まれるいずれかのズーム率にスナップさせる最小の間隔を表す <see cref="T:System.Single" /> 値。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomPanel.ZoomSnapPoints">
+      <summary>ズームが終了するときにそのいずれかの値にズーム率がスナップされるズーム率のグループを取得します。</summary>
+      <value>
+        ズームが終了するときにそのいずれかの値にズーム率がスナップされるズーム率のグループを表す <see cref="T:System.Single" /> 値のリスト。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.C1ZoomPanel.ZoomTargets">
+      <summary>ズームジェスチャメッセージを受け取ることができるコントロールのコレクションを取得します。</summary>
+      <value>ズームジェスチャメッセージを受け取ることができるコントロールのコレクション。</value>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ZoomPanel.AboutBox">
+      <summary>製品情報ウィンドウを表示します。</summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ZoomPanel.BeginAddControls">
+      <summary>このメソッドは、子コントロールコレクションを変更する前に呼び出します。</summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ZoomPanel.Dispose(System.Boolean)">
+      <summary>
+        <see cref="T:System.ComponentModel.Component" /> によって使用されているアンマネージリソースを解放し、オプションでマネージリソースも解放します。
+      </summary>
+      <param name="disposing">マネージリソースとアンマネージリソースを両方とも解放する場合は true。アンマネージリソースのみを解放する場合は false。</param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ZoomPanel.EndAddControls">
+      <summary>このメソッドは、子コントロールコレクションを変更した後に呼び出します。</summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ZoomPanel.GetDisplayRectangle(System.Windows.Forms.Control)">
+      <summary>コントロールの表示矩形を取得します。</summary>
+      <param name="control">ターゲットコントロール。</param>
+      <returns>
+        コントロールの表示矩形を表す <see cref="T:System.Drawing.Rectangle" /> 値。
+      </returns>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ZoomPanel.OnAnimationCompleted(System.EventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1Zoom.AnimationCompleted" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:System.EventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ZoomPanel.OnAnimationStarting(C1.Win.TouchToolKit.AnimationStartingEventArgs)">
+      <summary>
+        <see cref="E:AnimationStarting" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:C1.Win.TouchToolKit.AnimationStartingEventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ZoomPanel.OnControlAutoShowing(C1.Win.TouchToolKit.ControlAutoShowingEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1ZoomPanel.ControlAutoShowing" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:C1.Win.TouchToolKit.ControlAutoShowingEventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ZoomPanel.OnControlBoundsZooming(C1.Win.TouchToolKit.ControlBoundsZoomingEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1ZoomPanel.ControlBoundsZooming" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:C1.Win.TouchToolKit.ControlBoundsZoomingEventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ZoomPanel.OnControlFontZooming(C1.Win.TouchToolKit.ControlFontZoomingEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1ZoomPanel.ControlFontZooming" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:C1.Win.TouchToolKit.ControlFontZoomingEventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ZoomPanel.OnCreateControl">
+      <summary>
+        <see cref="M:System.Windows.Forms.Control.CreateControl" /> イベントを発生させます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ZoomPanel.OnManipulationStarting(C1.Win.TouchToolKit.ZoomManipulationStartingEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1ZoomPanel.ManipulationStarting" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:C1.Win.TouchToolKit.ZoomManipulationStartingEventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ZoomPanel.OnParentChanged(System.EventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.ParentChanged" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:System.EventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ZoomPanel.OnVisibleChanged(System.EventArgs)">
+      <param name="e">
+        イベントデータを含む <see cref="T:System.EventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ZoomPanel.OnZoomFactorChanged(System.EventArgs)">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1ZoomPanel.ZoomFactorChanged" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:System.EventArgs" /> インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ZoomPanel.SetScrollLocation(System.Drawing.Point,System.Boolean)">
+      <summary>
+        <see cref="P:C1.Win.TouchToolKit.C1ZoomPanel.ScrollLocation" /> を設定します。<see cref="P:C1.Win.TouchToolKit.C1ZoomPanel.ScrollLocation" nolink="true" /> を変更するときにアニメーションを使用するかどうかを指定できます。
+      </summary>
+      <param name="scrollLocation">スクロール位置。</param>
+      <param name="useAnimation">アニメーションを使用する場合は true。それ以外の場合は false。</param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.C1ZoomPanel.SetZoomFactor(System.Single,System.Boolean)">
+      <summary>
+        <see cref="P:C1.Win.TouchToolKit.C1ZoomPanel.ZoomFactor" /> を設定します。<see cref="P:C1.Win.TouchToolKit.C1ZoomPanel.ZoomFactor" nolink="true" /> を変更するときにアニメーションを使用するかどうかを指定できます。
+      </summary>
+      <param name="zoomFactor">新しいズーム率。</param>
+      <param name="useAnimation">アニメーションを使用する場合は true。それ以外の場合は false。</param>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1ZoomPanel.AnimationCompleted">
+      <summary>アニメーションが完了したときに発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1ZoomPanel.AnimationStarting">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1ZoomPanel" /> がアニメーションを開始する前に発生します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1ZoomPanel.ControlAutoShowing">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1ZoomPanel" /> がターゲットコントロールの表示を開始する前に発生します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1ZoomPanel.ControlBoundsZooming">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1ZoomPanel" /> がターゲットコントロールの境界のズームを開始する前に発生します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1ZoomPanel.ControlFontZooming">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1ZoomPanel" /> がターゲットコントロールのフォントのズームを開始する前に発生します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1ZoomPanel.ManipulationStarting">
+      <summary>マニピュレーションプロセッサが最初に作成されたときに発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TouchToolKit.C1ZoomPanel.ZoomFactorChanged">
+      <summary>
+        <see cref="P:C1.Win.TouchToolKit.C1ZoomPanel.ZoomFactor" /> が変更されたときに発生します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.HoldingEventArgs">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1TouchEventProvider.Holding" /> イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.HoldingEventArgs.HoldingState">
+      <summary>
+        長押し操作の基礎となる <see cref="T:C1.Win.TouchToolKit.HoldingState" /> を取得します。
+      </summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.HoldingState" /> 値の 1 つ。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.HoldingEventArgs.PointerDeviceType">
+      <summary>
+        対応する入力イベントを発生させたポインタデバイスの <see cref="T:C1.Win.TouchToolKit.PointerDeviceType" /> を取得します。
+      </summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.PointerDeviceType" /> 値の 1 つ。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.HoldingEventArgs.Position">
+      <summary>ポインタ位置の x および y 座標（コントロール座標）を返します。</summary>
+      <value>ポインタ位置の x および y 座標（コントロール座標）。</value>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.ImageItem">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1MultiScaleImage" /> に表示されるイメージを表します。<see cref="P:C1.Win.TouchToolKit.C1MultiScaleImage.ZoomFactor" /> がどの程度のときにそのイメージを表示するかを示すプロパティを持ちます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ImageItem.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.ImageItem" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ImageItem.#ctor(System.Drawing.Image,System.Single)">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.ImageItem" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+      <param name="image">
+        <see cref="T:C1.Win.TouchToolKit.C1MultiScaleImage" /> に表示するイメージを表す <see cref="P:C1.Win.TouchToolKit.ImageItem.Image" /> 値。
+      </param>
+      <param name="zoomFactor">
+        <see cref="P:C1.Win.TouchToolKit.C1MultiScaleImage.ZoomFactor" /> がどの程度のときに <see cref="P:C1.Win.TouchToolKit.ImageItem.Image" /> を表示するかを示す <see cref="T:System.Single" /> 値。
+      </param>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ImageItem.Image">
+      <summary>
+        <see cref="P:C1.Win.TouchToolKit.C1MultiScaleImage.ZoomFactor" /> が <see cref="P:C1.Win.TouchToolKit.ImageItem.ZoomFactor" /> と等しいときに <see cref="T:C1.Win.TouchToolKit.C1MultiScaleImage" /> に表示されるイメージを取得または設定します。
+      </summary>
+      <value>
+        表示するイメージを表す <see cref="P:C1.Win.TouchToolKit.ImageItem.Image" /> 値。デフォルトは <see langword="null" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ImageItem.ZoomFactor">
+      <summary>
+        <see cref="P:C1.Win.TouchToolKit.C1MultiScaleImage.ZoomFactor" /> がどの程度のときに <see cref="P:C1.Win.TouchToolKit.ImageItem.Image" /> を表示するかを示す値を取得または設定します。
+      </summary>
+      <value>
+        <see cref="P:C1.Win.TouchToolKit.C1MultiScaleImage.ZoomFactor" /> がどの程度のときに <see cref="P:C1.Win.TouchToolKit.ImageItem.Image" /> を表示するかを示す <see cref="T:System.Single" /> 値。デフォルトは <b>2f</b> です。
+      </value>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.InertiaExpansionBehavior">
+      <summary>サイズ変更操作の慣性運動中の減速を制御します。このクラスは継承できません。</summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.InertiaExpansionBehavior.DesiredDeceleration">
+      <summary>サイズ変更の減速率を取得または設定します。</summary>
+      <value>サイズ変更の減速率。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.InertiaExpansionBehavior.DesiredExpansion">
+      <summary>慣性運動の終了時点でのコントロールのサイズ変更量を取得または設定します。</summary>
+      <value>慣性運動の終了時点でのコントロールのサイズ変更量。</value>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.InertiaRotationBehavior">
+      <summary>回転操作の慣性運動中の減速を制御します。このクラスは継承できません。</summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.InertiaRotationBehavior.DesiredDeceleration">
+      <summary>回転の減速率（平方ミリ秒あたりの度単位）を取得または設定します。</summary>
+      <value>回転の減速率（平方ミリ秒あたりの度単位）。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.InertiaRotationBehavior.DesiredRotation">
+      <summary>慣性運動の終了時点での回転角度を取得または設定します。</summary>
+      <value>慣性運動の終了時点での回転角度。</value>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.InertiaTranslationBehavior">
+      <summary>平行移動操作の慣性運動中の減速を制御します。このクラスは継承できません。</summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.InertiaTranslationBehavior.DesiredDeceleration">
+      <summary>デバイスに依存しない単位（1 単位は 1/96 インチ）で表された、直線運動の平方ミリ秒あたりの減速率を取得または設定します。</summary>
+      <value>デバイスに依存しない単位（1 単位は 1/96 インチ）で表された、直線運動の平方ミリ秒あたりの減速率。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.InertiaTranslationBehavior.DesiredDisplacement">
+      <summary>慣性運動の終了時点での平行移動量を取得または設定します。</summary>
+      <value>慣性運動の終了時点での平行移動量。</value>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.ListBoxZoomPolicy">
+      <summary>
+        <see cref="T:System.Windows.Forms.ListBox" /> 型コントロールのズームポリシーを表します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ListBoxZoomPolicy.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.ListBoxZoomPolicy" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ListBoxZoomPolicy.TargetType">
+      <summary>このポリシーを使用できるコントロール型を示す型を取得します。</summary>
+      <value>
+        このポリシーを使用できるコントロール型を示す <see cref="T:System.Type" /> 型。
+      </value>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ListBoxZoomPolicy.ZoomBounds(System.Windows.Forms.Control,C1.Win.TouchToolKit.ZoomBoundsInfo)">
+      <summary>コントロールの境界をズームします。</summary>
+      <param name="control">指定したコントロール。</param>
+      <param name="infos">
+        レイアウトのズームを支援するために <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> によって提供される <see cref="T:C1.Win.TouchToolKit.ZoomBoundsInfo" /> 型の情報。
+      </param>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.ListViewZoomPolicy">
+      <summary>
+        <see cref="T:System.Windows.Forms.ListView" /> 型コントロールのズームポリシーを表します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ListViewZoomPolicy.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.ListViewZoomPolicy" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ListViewZoomPolicy.TargetType">
+      <summary>このポリシーを使用できるコントロール型を示す型を取得します。</summary>
+      <value>
+        このポリシーを使用できるコントロール型を示す <see cref="T:System.Type" /> 型。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ListViewZoomPolicy.ZoomColumnWidth">
+      <summary>列の幅をズームするかどうかを示す値を取得または設定します。</summary>
+      <value>
+        列の幅をズームする場合は <see langword="true" />。それ以外の場合は <see langword="false" />。デフォルトは <see langword="true" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ListViewZoomPolicy.ZoomIcon">
+      <summary>項目のアイコンをズームするかどうかを示す値を取得または設定します。</summary>
+      <value>
+        項目のアイコンをズームする場合は <see langword="true" />。それ以外の場合は <see langword="false" />。デフォルトは <see langword="true" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ListViewZoomPolicy.ZoomItemFont">
+      <summary>項目のフォントをズームするかどうかを示す値を取得または設定します。</summary>
+      <value>
+        項目のフォントをズームする場合は <see langword="true" />。それ以外の場合は <see langword="false" />。デフォルトは <see langword="true" /> です。
+      </value>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ListViewZoomPolicy.ZoomBounds(System.Windows.Forms.Control,C1.Win.TouchToolKit.ZoomBoundsInfo)">
+      <summary>コントロールの境界をズームします。</summary>
+      <param name="control">指定したコントロール。</param>
+      <param name="infos">
+        レイアウトのズームを支援するために <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> によって提供される <see cref="T:C1.Win.TouchToolKit.ZoomBoundsInfo" /> 型の情報。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ListViewZoomPolicy.ZoomFont(System.Windows.Forms.Control,C1.Win.TouchToolKit.ZoomFontInfo)">
+      <summary>コントロールのフォントをズームします。</summary>
+      <param name="control">指定したコントロール。</param>
+      <param name="infos">
+        フォントのズームを支援するために <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> によって提供される <see cref="T:C1.Win.TouchToolKit.ZoomFontInfo" /> 型の情報。
+      </param>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.MagnifierEventArgs">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1Magnify.Closed" /> および <see cref="E:C1.Win.TouchToolKit.C1Magnify.Move" /> イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.MagnifierEventArgs.Position">
+      <summary>位置を示す値を取得します。</summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.C1Magnify" /> の位置を表す <see cref="T:System.Drawing.Point" /> 値。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.MagnifierEventArgs.TargetControl">
+      <summary>拡大鏡のターゲットコントロールを取得します。</summary>
+      <value>拡大鏡のターゲットコントロール。</value>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.MagnifierShowingEventArgs">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1Magnify.MagnifierShowing" /> イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.MagnifierShowingEventArgs.Cancel">
+      <summary>
+        この <see cref="E:C1.Win.TouchToolKit.C1Magnify.MagnifierShowing">C1Magnify.MagnifierShowing</see> イベントがキャンセルされるかどうかを示す値を取得または設定します。
+      </summary>
+      <value>
+        拡大鏡の表示操作がキャンセルされる場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </value>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.ManipulationCompletedEventArgs">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1TouchEventProvider.ManipulationCompleted" /> イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ManipulationCompletedEventArgs.Cumulative">
+      <summary>マニピュレーションの開始時点以降の全体的な変更を取得します。</summary>
+      <value>マニピュレーションの開始時点以降の全体的な変更。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ManipulationCompletedEventArgs.IsInertia">
+      <summary>ManipulationCompleted イベントが慣性運動中に発生したかどうかを取得します。</summary>
+      <value>
+        <see cref="E:C1.Win.TouchToolKit.C1TouchEventProvider.ManipulationCompleted" /> イベントが慣性運動中に発生した場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ManipulationCompletedEventArgs.PointerDeviceType">
+      <summary>
+        マニピュレーションに関与したポインタデバイスの <see cref="T:C1.Win.TouchToolKit.PointerDeviceType" /> を取得します。
+      </summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.PointerDeviceType" /> 値の 1 つ。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ManipulationCompletedEventArgs.Position">
+      <summary>完了時のタッチ入力の位置を示す x および y 座標（コントロール座標）を取得します。</summary>
+      <value>完了時のタッチ入力の位置を示す x および y 座標（コントロール座標）。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ManipulationCompletedEventArgs.Velocities">
+      <summary>マニピュレーションに使用された速度を取得します。</summary>
+      <value>マニピュレーションに使用された速度。</value>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.ManipulationDeltaEventArgs">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1TouchEventProvider.ManipulationDelta" /> イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ManipulationDeltaEventArgs.Cumulative">
+      <summary>マニピュレーションの開始時点以降の全体的な変更を取得します。</summary>
+      <value>マニピュレーションの開始時点以降の全体的な変更。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ManipulationDeltaEventArgs.Delta">
+      <summary>
+        現在のマニピュレーションの直近の変更を <see cref="T:C1.Win.TouchToolKit.ManipulationDelta" /> として取得します。
+      </summary>
+      <value>現在のマニピュレーションの直近の変更。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ManipulationDeltaEventArgs.IsInertia">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1TouchEventProvider.ManipulationDelta" /> イベントが慣性運動中に発生したかどうかを取得します。
+      </summary>
+      <value>
+        <see cref="E:C1.Win.TouchToolKit.C1TouchEventProvider.ManipulationDelta" /> イベントが慣性運動中に発生した場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ManipulationDeltaEventArgs.PointerDeviceType">
+      <summary>
+        マニピュレーションに関与したポインタデバイスの <see cref="T:C1.Win.TouchToolKit.PointerDeviceType" /> を取得します。
+      </summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.PointerDeviceType" /> 値の 1 つ。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ManipulationDeltaEventArgs.Position">
+      <summary>マニピュレーションが開始されたときの位置を取得します。</summary>
+      <value>マニピュレーションが開始されたときの位置。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ManipulationDeltaEventArgs.Velocities">
+      <summary>マニピュレーションの直近の変更の速度を取得します。</summary>
+      <value>マニピュレーションの直近の変更の速度。</value>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ManipulationDeltaEventArgs.Complete">
+      <summary>マニピュレーションを慣性運動なしで完了します。</summary>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.ManipulationInertiaStartingEventArgs">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1TouchEventProvider.ManipulationInertiaStarting" /> イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ManipulationInertiaStartingEventArgs.Cumulative">
+      <summary>マニピュレーションの開始時点以降の全体的な変更を取得します。</summary>
+      <value>マニピュレーションの開始時点以降の全体的な変更。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ManipulationInertiaStartingEventArgs.Delta">
+      <summary>
+        現在のマニピュレーションの直近の変更を <see cref="T:C1.Win.TouchToolKit.ManipulationDelta" /> として取得します。
+      </summary>
+      <value>現在のマニピュレーションの直近の変更。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ManipulationInertiaStartingEventArgs.ExpansionBehavior">
+      <summary>慣性による膨張運動の減速率を取得または設定します。</summary>
+      <value>慣性による膨張運動の減速率。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ManipulationInertiaStartingEventArgs.PointerDeviceType">
+      <summary>
+        マニピュレーションに関与したポインタデバイスの <see cref="T:C1.Win.TouchToolKit.PointerDeviceType" /> を取得します。
+      </summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.PointerDeviceType" /> 値の 1 つ。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ManipulationInertiaStartingEventArgs.RotationBehavior">
+      <summary>慣性による回転運動の減速率を取得または設定します。</summary>
+      <value>慣性による回転運動の減速率。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ManipulationInertiaStartingEventArgs.TranslationBehavior">
+      <summary>慣性による平行移動運動の減速率を取得または設定します。</summary>
+      <value>慣性による平行移動運動の減速率。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ManipulationInertiaStartingEventArgs.Velocities">
+      <summary>マニピュレーションの直近の変更の速度を取得します。</summary>
+      <value>マニピュレーションの直近の変更の速度。</value>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.ManipulationPivot">
+      <summary>単一のユーザー入力ポイントで回転がどのように行われるかを指定します。このクラスは継承できません。</summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ManipulationPivot.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.ManipulationPivot" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ManipulationPivot.#ctor(System.Drawing.Point,System.Double)">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.ManipulationPivot" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+      <param name="center">中心。</param>
+      <param name="radius">半径。</param>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ManipulationPivot.Center">
+      <summary>回転操作の中心点を取得または設定します。</summary>
+      <value>回転操作の中心点。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ManipulationPivot.Radius">
+      <summary>回転操作の有効な回転半径を取得または設定します。</summary>
+      <value>ピクセル単位の値。</value>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.ManipulationStartedEventArgs">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1TouchEventProvider.ManipulationStarted" /> イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ManipulationStartedEventArgs.Cumulative">
+      <summary>マニピュレーションの開始時点以降の全体的な変更を取得します。</summary>
+      <value>マニピュレーションの開始時点以降の全体的な変更。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ManipulationStartedEventArgs.PointerCount">
+      <summary>タッチポイントの数を取得します。</summary>
+      <value>
+        タッチポイントの数を表す <see cref="T:System.Int32" /> 値。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ManipulationStartedEventArgs.PointerDeviceType">
+      <summary>
+        マニピュレーションに関与したポインタデバイスの <see cref="T:C1.Win.TouchToolKit.PointerDeviceType" /> を取得します。
+      </summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.PointerDeviceType" /> 値の 1 つ。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ManipulationStartedEventArgs.Position">
+      <summary>マニピュレーションが開始されたときの位置を取得します。</summary>
+      <value>マニピュレーションが開始されたときの位置。</value>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ManipulationStartedEventArgs.Complete">
+      <summary>マニピュレーションを慣性運動なしで完了します。</summary>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.ManipulationStartingEventArgs">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1TouchEventProvider.ManipulationStarting" /> イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ManipulationStartingEventArgs.Mode">
+      <summary>実行できるマニピュレーションのタイプを取得または設定します。</summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.ManipulationModes" /> 値の 1 つ。デフォルトは <see cref="F:C1.Win.TouchToolKit.ManipulationModes.All" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ManipulationStartingEventArgs.Pivot">
+      <summary>単一ポイント操作の中心を表すオブジェクトを取得または設定します。</summary>
+      <value>単一ポイント操作の中心を表すオブジェクト。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ManipulationStartingEventArgs.PointerDeviceType">
+      <summary>
+        マニピュレーションに関与したポインタデバイスの <see cref="T:C1.Win.TouchToolKit.PointerDeviceType" /> を取得します。
+      </summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.PointerDeviceType" /> 値の 1 つ。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ManipulationStartingEventArgs.Position">
+      <summary>マニピュレーションが開始されたときの位置を取得します。</summary>
+      <value>マニピュレーションが開始されたときの位置。</value>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.ManipulationVelocities">
+      <summary>現在のマニピュレーションにおける累積された変換の速度を格納します。</summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ManipulationVelocities.Angular">
+      <summary>回転速度（ミリ秒あたりの度単位）を取得します。</summary>
+      <value>回転速度（ミリ秒あたりの度単位）。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ManipulationVelocities.Expansion">
+      <summary>膨張（または拡大/縮小）速度（ミリ秒あたりの DIP 単位）を取得します。</summary>
+      <value>膨張（または拡大/縮小）速度（ミリ秒あたりの DIP 単位）。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ManipulationVelocities.Linear">
+      <summary>直線速度（ミリ秒あたりの DIP 単位）を取得します。</summary>
+      <value>直線速度（ミリ秒あたりの DIP 単位）。</value>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.MonthCalendarZoomPolicy">
+      <summary>
+        <see cref="T:System.Windows.Forms.MonthCalendar" /> 型コントロールのズームポリシーを表します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.MonthCalendarZoomPolicy.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.MonthCalendarZoomPolicy" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.MonthCalendarZoomPolicy.TargetType">
+      <summary>このポリシーを使用できるコントロール型を示す型を取得します。</summary>
+      <value>
+        このポリシーを使用できるコントロール型を示す <see cref="T:System.Type" /> 型。
+      </value>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.MonthCalendarZoomPolicy.ZoomBounds(System.Windows.Forms.Control,C1.Win.TouchToolKit.ZoomBoundsInfo)">
+      <summary>コントロールの境界をズームします。</summary>
+      <param name="control">指定したコントロール。</param>
+      <param name="infos">
+        レイアウトのズームを支援するために <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> によって提供される <see cref="T:C1.Win.TouchToolKit.ZoomBoundsInfo" /> 型の情報。
+      </param>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.NoZoomFontZoomPolicy">
+      <summary>
+        フォントをズームしないコントロールの基本ズームポリシーを表します。このクラスは <see langword="abstract" /> なので、インスタンス化できません。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.NoZoomFontZoomPolicy.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.NoZoomFontZoomPolicy" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.NoZoomFontZoomPolicy.Initialize(System.Windows.Forms.Control)">
+      <summary>ズームアクションが開始する前にコントロールを初期化します。</summary>
+      <param name="control">指定したコントロール。</param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.NoZoomFontZoomPolicy.Terminate(System.Windows.Forms.Control)">
+      <summary>ズームアクションが完了した後にコントロールの終了処理を行います。</summary>
+      <param name="control">指定したコントロール。</param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.NoZoomFontZoomPolicy.ZoomFont(System.Windows.Forms.Control,C1.Win.TouchToolKit.ZoomFontInfo)">
+      <summary>コントロールのフォントをズームします。</summary>
+      <param name="control">指定したコントロール。</param>
+      <param name="infos">
+        フォントのズームを支援するために <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> によって提供される <see cref="T:C1.Win.TouchToolKit.ZoomFontInfo" /> 型の情報。
+      </param>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.PictureBoxZoomPolicy">
+      <summary>
+        <see cref="T:System.Windows.Forms.PictureBox" /> 型コントロールのズームポリシーを表します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.PictureBoxZoomPolicy.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.PictureBoxZoomPolicy" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.PictureBoxZoomPolicy.TargetType">
+      <summary>このポリシーを使用できるコントロール型を示す型を取得します。</summary>
+      <value>
+        このポリシーを使用できるコントロール型を示す <see cref="T:System.Type" /> 型。
+      </value>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.PictureBoxZoomPolicy.Initialize(System.Windows.Forms.Control)">
+      <summary>ズームアクションが開始する前にコントロールを初期化します。</summary>
+      <param name="control">指定したコントロール。</param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.PictureBoxZoomPolicy.ZoomBounds(System.Windows.Forms.Control,C1.Win.TouchToolKit.ZoomBoundsInfo)">
+      <summary>コントロールの境界をズームします。</summary>
+      <param name="control">指定したコントロール。</param>
+      <param name="infos">
+        レイアウトのズームを支援するために <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> によって提供される <see cref="T:C1.Win.TouchToolKit.ZoomBoundsInfo" /> 型の情報。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.PictureBoxZoomPolicy.ZoomFont(System.Windows.Forms.Control,C1.Win.TouchToolKit.ZoomFontInfo)">
+      <summary>コントロールのフォントをズームします。</summary>
+      <param name="control">指定したコントロール。</param>
+      <param name="infos">
+        フォントのズームを支援するために <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> によって提供される <see cref="T:C1.Win.TouchToolKit.ZoomFontInfo" /> 型の情報。
+      </param>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.PointerEventArgs">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1TouchEventProvider" /> に関連するポインタメッセージイベント（<see cref="E:C1.Win.TouchToolKit.C1TouchEventProvider.PointerPressed" /> など）のイベントデータを提供します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.PointerEventArgs.DeviceType">
+      <summary>
+        ポインタデバイスの <see cref="T:C1.Win.TouchToolKit.PointerDeviceType" /> を取得します。
+      </summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.PointerDeviceType" /> 値の 1 つ。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.PointerEventArgs.ID">
+      <summary>このポインタ参照用のシステム生成識別子を取得します。</summary>
+      <value>システム生成識別子。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.PointerEventArgs.IsInContact">
+      <summary>イベントが報告されたときにポインタデバイスがセンサーまたはデジタイザーに接触していたかどうかを示す値を取得します。</summary>
+      <value>
+        ポインタデバイスが接触していた場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.PointerEventArgs.IsInRange">
+      <summary>イベントが報告されたときにポインタデバイスがセンサーまたはデジタイザーの検出範囲内にあったかどうかを示す値を取得します。</summary>
+      <value>
+        ポインタデバイスが検出範囲内にあった場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.PointerEventArgs.Position">
+      <summary>完了時のタッチ入力の位置を示す x および y 座標（コントロール座標）を取得します。</summary>
+      <value>完了時のタッチ入力の位置を示す x および y 座標（コントロール座標）。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.PointerEventArgs.Properties">
+      <summary>入力ポインタに関する拡張情報を取得します。</summary>
+      <value>入力デバイスによって公開されている拡張プロパティ。</value>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.PointerPointProperties">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.PointerEventArgs" /> オブジェクトの拡張プロパティを提供します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.PointerPointProperties.ContactRect">
+      <summary>（通常はタッチ入力から）接触領域の外接矩形を取得します。</summary>
+      <value>デバイス非依存ピクセル（DIP）単位で表された、接触領域の外接矩形（クライアントウィンドウ座標）。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.PointerPointProperties.ContactRectRaw">
+      <summary>（通常はタッチ入力から）未処理入力（生データ）の外接矩形を取得します。</summary>
+      <value>デバイス非依存ピクセル（DIP）単位で表された、未処理入力の外接矩形。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.PointerPointProperties.IsBarrelButtonPressed">
+      <summary>ペン/スタイラスデバイスのバレルボタンが押されているかどうかを示す値を取得します。</summary>
+      <value>
+        バレルボタンが押されている場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.PointerPointProperties.IsCanceled">
+      <summary>入力がポインタデバイスによってキャンセルされたかどうかを示す値を取得します。</summary>
+      <value>
+        入力がキャンセルされた場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.PointerPointProperties.IsEraser">
+      <summary>入力がデジタイザーの消しゴムからのものかどうかを示す値を取得します。</summary>
+      <value>
+        デジタイザーの消しゴムからの入力である場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.PointerPointProperties.IsInRange">
+      <summary>物理エンティティ（指またはペン）がデジタイザーの範囲内にあるかどうかを示す値を取得します。</summary>
+      <value>
+        範囲内にある場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.PointerPointProperties.IsInverted">
+      <summary>デジタイザーペンが逆向きかどうかを示す値を取得します。</summary>
+      <value>
+        逆向きの場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.PointerPointProperties.IsPrimary">
+      <summary>複数のポインタが登録されているときに入力がプライマリポインタからのものかどうかを示す値を取得します。</summary>
+      <value>
+        プライマリとして指定されたポインタからの入力である場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.PointerPointProperties.Orientation">
+      <summary>ポインタデバイスの主軸（デジタイザーのサーフェイスに対して垂直な z 軸）を中心とする反時計回りの回転角度を取得します。0.0° の値は、デバイスがデジタイザーの上方を向いていることを示します。</summary>
+      <value>回転角度を示す 0.0 ～ 359.0 の値。デフォルト値は 0.0 です。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.PointerPointProperties.Pressure">
+      <summary>ポインタデバイス（通常はペン/スタイラス）がデジタイザーのサーフェイスに与える力を示す値を取得します。</summary>
+      <value>0 ～ 1.0 の値。デフォルト値は 0.5 です。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.PointerPointProperties.TouchConfidence">
+      <summary>ポインタデバイスがタッチ接触を拒否したかどうかを示す値を取得します。</summary>
+      <value>
+        タッチ接触が受け入れられた場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.PointerPointProperties.Twist">
+      <summary>ペンデバイスの主軸を中心とする時計回りの回転角度を取得します（ユーザーが指でペンを回転させる場合など）。</summary>
+      <value>回転角度を示す 0.0 ～ 359.0 の値。デフォルト値は 0.0 です。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.PointerPointProperties.XTilt">
+      <summary>Y-Z 平面と、Y 軸と入力デバイス（通常はペン/スタイラス）の軸を含む平面との平面角を取得します。</summary>
+      <value>この値は、指またはペンがデジタイザーのサーフェイスに対して垂直なときは 0.0、右に傾いているときは 0.0 ～ 179.0、左に傾いているときは 0.0 ～ -179.0 になります。デフォルト値は 0.0 です。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.PointerPointProperties.YTilt">
+      <summary>X-Z 平面と、X 軸と入力デバイス（通常はペン/スタイラス）の軸を含む平面との平面角を取得します。</summary>
+      <value>この値は、指またはペンがデジタイザーのサーフェイスに対して垂直なときは 0.0、ユーザーに向かって傾いているときは 0.0 ～ 179.0、ユーザーから離れる方向に傾いているときは 0.0 ～ -179.0 になります。デフォルト値は 0.0 です。</value>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.PropertyGridZoomPolicy">
+      <summary>
+        <see cref="T:System.Windows.Forms.PropertyGrid" /> 型コントロールのズームポリシーを表します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.PropertyGridZoomPolicy.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.PropertyGridZoomPolicy" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.PropertyGridZoomPolicy.TargetType">
+      <summary>このポリシーを使用できるコントロール型を示す型を取得します。</summary>
+      <value>
+        このポリシーを使用できるコントロール型を示す <see cref="T:System.Type" /> 型。
+      </value>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.PropertyGridZoomPolicy.CanZoomChildren(System.Windows.Forms.Control)">
+      <summary>
+        子コントロールをズームできるかどうかを返します。<see cref="T:C1.Win.TouchToolKit.PropertyGridZoomPolicy" /> では常に <see langword="false" /> を返します。
+      </summary>
+      <param name="control">指定したコントロール。</param>
+      <returns>
+        子コントロールをズームできる場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </returns>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.RightTappedEventArgs">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1TouchEventProvider.RightTapped" /> イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.RightTappedEventArgs.PointerDeviceType">
+      <summary>
+        対応する入力イベントを発生させたポインタデバイスの <see cref="T:C1.Win.TouchToolKit.PointerDeviceType" /> を取得します。
+      </summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.PointerDeviceType" /> 値の 1 つ。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.RightTappedEventArgs.Position">
+      <summary>ポインタ位置の x および y 座標（コントロール座標）を返します。</summary>
+      <value>ポインタ位置の x および y 座標（コントロール座標）。</value>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.SplitContainerZoomPolicy">
+      <summary>
+        <see cref="T:System.Windows.Forms.SplitContainer" /> 型コントロールのズームポリシーを表します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.SplitContainerZoomPolicy.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.SplitContainerZoomPolicy" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.SplitContainerZoomPolicy.TargetType">
+      <summary>このポリシーを使用できるコントロール型を示す型を取得します。</summary>
+      <value>
+        このポリシーを使用できるコントロール型を示す <see cref="T:System.Type" /> 型。
+      </value>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.SplitContainerZoomPolicy.Initialize(System.Windows.Forms.Control)">
+      <summary>ズームアクションが開始する前にコントロールを初期化します。</summary>
+      <param name="control" />
+    </member>
+    <member name="M:C1.Win.TouchToolKit.SplitContainerZoomPolicy.Terminate(System.Windows.Forms.Control)">
+      <summary>ズームアクションが完了した後にコントロールの終了処理を行います。</summary>
+      <param name="control" />
+    </member>
+    <member name="M:C1.Win.TouchToolKit.SplitContainerZoomPolicy.ZoomBounds(System.Windows.Forms.Control,C1.Win.TouchToolKit.ZoomBoundsInfo)">
+      <summary>コントロールの境界をズームします。</summary>
+      <param name="control">指定したコントロール。</param>
+      <param name="infos">
+        レイアウトのズームを支援するために <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> によって提供される <see cref="T:C1.Win.TouchToolKit.ZoomBoundsInfo" /> 型の情報。
+      </param>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.TableLayoutPanelZoomPolicy">
+      <summary>
+        <see cref="T:System.Windows.Forms.TableLayoutPanel" /> 型コントロールのズームポリシーを表します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.TableLayoutPanelZoomPolicy.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.TableLayoutPanelZoomPolicy" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.TableLayoutPanelZoomPolicy.TargetType">
+      <summary>このポリシーを使用できるコントロール型を示す型を取得します。</summary>
+      <value>
+        このポリシーを使用できるコントロール型を示す <see cref="T:System.Type" /> 型。
+      </value>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.TableLayoutPanelZoomPolicy.ZoomBounds(System.Windows.Forms.Control,C1.Win.TouchToolKit.ZoomBoundsInfo)">
+      <summary>コントロールの境界をズームします。</summary>
+      <param name="control">指定したコントロール。</param>
+      <param name="infos">
+        レイアウトのズームを支援するために <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> によって提供される <see cref="T:C1.Win.TouchToolKit.ZoomBoundsInfo" /> 型の情報。
+      </param>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.TappedEventArgs">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1TouchEventProvider.Tapped" /> イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.TappedEventArgs.PointerDeviceType">
+      <summary>
+        対応する入力イベントを発生させたポインタデバイスの <see cref="T:C1.Win.TouchToolKit.PointerDeviceType" /> を取得します。
+      </summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.PointerDeviceType" /> 値の 1 つ。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.TappedEventArgs.Position">
+      <summary>ポインタ位置の x および y 座標（コントロール座標）を返します。</summary>
+      <value>ポインタ位置の x および y 座標（コントロール座標）。</value>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.ToolStripZoomPolicy">
+      <summary>
+        <see cref="T:System.Windows.Forms.ToolStrip" /> 型コントロールのズームポリシーを表します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ToolStripZoomPolicy.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.ToolStripZoomPolicy" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ToolStripZoomPolicy.TargetType">
+      <summary>このポリシーを使用できるコントロール型を示す型を取得します。</summary>
+      <value>
+        このポリシーを使用できるコントロール型を示す <see cref="T:System.Type" /> 型。
+      </value>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ToolStripZoomPolicy.GetChildren(System.Windows.Forms.Control)">
+      <summary>コントロールに含まれるコントロールのコレクションを取得します。</summary>
+      <param name="control">指定したコントロール。</param>
+      <returns>子。</returns>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ToolStripZoomPolicy.Initialize(System.Windows.Forms.Control)">
+      <summary>ズームアクションが開始する前にコントロールを初期化します。</summary>
+      <param name="control">指定したコントロール。</param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ToolStripZoomPolicy.Terminate(System.Windows.Forms.Control)">
+      <summary>ズームアクションが完了した後にコントロールの終了処理を行います。</summary>
+      <param name="control">指定したコントロール。</param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ToolStripZoomPolicy.ZoomBounds(System.Windows.Forms.Control,C1.Win.TouchToolKit.ZoomBoundsInfo)">
+      <summary>コントロールの境界をズームします。</summary>
+      <param name="control">指定したコントロール。</param>
+      <param name="infos">
+        レイアウトのズームを支援するために <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> によって提供される <see cref="T:C1.Win.TouchToolKit.ZoomBoundsInfo" /> 型の情報。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ToolStripZoomPolicy.ZoomFont(System.Windows.Forms.Control,C1.Win.TouchToolKit.ZoomFontInfo)">
+      <summary>コントロールのフォントをズームします。</summary>
+      <param name="control">指定したコントロール。</param>
+      <param name="infos">
+        フォントのズームを支援するために <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> によって提供される <see cref="T:C1.Win.TouchToolKit.ZoomFontInfo" /> 型の情報。
+      </param>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.TouchRoutedEventArgs">
+      <summary>
+        すべてのポインタイベントおよびマニピュレーションイベント引数の基本ロジックを提供します。このクラスは <see langword="abstract" /> なので、インスタンス化できません。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.TouchRoutedEventArgs.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.TouchRoutedEventArgs" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.TouchRoutedEventArgs.Handled">
+      <summary>
+        ルーティングイベントを処理済みとしてマークする値を取得または設定します。<see langword="true" /> に設定すると、同じルート上にあるほとんどのハンドラは同じイベントを再び処理しません。
+      </summary>
+      <value>
+        ルーティングイベントを処理済みとしてマークする場合は <see langword="true" />。ルーティングイベントを未処理のままにする場合は <see langword="false" />。後者の場合は、同じイベントをさらにルーティングできます。デフォルトは <see langword="false" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.TouchRoutedEventArgs.OriginalSource">
+      <summary>イベントを発生させたオブジェクトへの参照を取得します。</summary>
+      <value>イベントを発生させたオブジェクト。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.TouchRoutedEventArgs.TargetControl">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1TouchEventProvider" /> にアタッチされたターゲットコントロールを取得します。
+      </summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.C1TouchEventProvider" /> にアタッチされたターゲットコントロール。
+      </value>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.TreeViewZoomPolicy">
+      <summary>
+        <see cref="T:System.Windows.Forms.TreeView" /> 型コントロールのズームポリシーを表します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.TreeViewZoomPolicy.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.TreeViewZoomPolicy" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.TreeViewZoomPolicy.TargetType">
+      <summary>このポリシーを使用できるコントロール型を示す型を取得します。</summary>
+      <value>
+        このポリシーを使用できるコントロール型を示す <see cref="T:System.Type" /> 型。
+      </value>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.TreeViewZoomPolicy.ZoomBounds(System.Windows.Forms.Control,C1.Win.TouchToolKit.ZoomBoundsInfo)">
+      <summary>コントロールの境界をズームします。</summary>
+      <param name="control">指定したコントロール。</param>
+      <param name="infos">
+        レイアウトのズームを支援するために <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> によって提供される <see cref="T:C1.Win.TouchToolKit.ZoomBoundsInfo" /> 型の情報。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.TreeViewZoomPolicy.ZoomFont(System.Windows.Forms.Control,C1.Win.TouchToolKit.ZoomFontInfo)">
+      <summary>コントロールのフォントをズームします。</summary>
+      <param name="control">指定したコントロール。</param>
+      <param name="infos">
+        フォントのズームを支援するために <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> によって提供される <see cref="T:C1.Win.TouchToolKit.ZoomFontInfo" /> 型の情報。
+      </param>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.ZoomBoundsInfo">
+      <summary>レイアウトをズームするためのヘルパーを表します。位置やサイズに関する情報を提供します。</summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ZoomBoundsInfo.CurrentBounds">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> によって提供された現在の境界を取得します。
+      </summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> によって提供された現在の境界。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ZoomBoundsInfo.CurrentFactor">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> によって提供された現在のズーム率を取得します。
+      </summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> によって提供された現在のズーム率。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ZoomBoundsInfo.TargetFactor">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> によって提供された推奨されるズーム率を取得します。
+      </summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> によって提供された推奨されるズーム率。
+      </value>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ZoomBoundsInfo.Zoom(System.Int32)">
+      <summary>指定した現在の値をズームします。</summary>
+      <param name="currentValue">
+        ズームする <see cref="T:System.Int32" /> 値。
+      </param>
+      <returns>
+        ズーム後の値を表す <see cref="T:System.Int32" /> 値。
+      </returns>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ZoomBoundsInfo.Zoom(System.Double)">
+      <summary>指定した現在の値をズームします。</summary>
+      <param name="currentValue">ズームする倍精度値。</param>
+      <returns>
+        ズーム後の値を表す <see cref="T:System.Double" /> 値。
+      </returns>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ZoomBoundsInfo.Zoom(System.Single)">
+      <summary>指定した現在の値をズームします。</summary>
+      <param name="currentValue">現在の値。</param>
+      <returns>
+        ズーム後の値を表す <see cref="T:System.Single" /> 値。
+      </returns>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ZoomBoundsInfo.Zoom(System.Drawing.RectangleF)">
+      <summary>指定した現在の矩形をズームします。</summary>
+      <param name="currentRectangle">現在の矩形。</param>
+      <returns>
+        ズーム結果を表す <see cref="T:System.Drawing.RectangleF" /> 値。
+      </returns>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ZoomBoundsInfo.Zoom(System.Drawing.Rectangle)">
+      <summary>指定した現在の矩形をズームします。</summary>
+      <param name="currentRectangle">現在の矩形。</param>
+      <returns>
+        ズーム結果を表す <see cref="T:System.Drawing.Rectangle" /> 値。
+      </returns>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ZoomBoundsInfo.Zoom(System.Drawing.Size)">
+      <summary>指定した現在のサイズをズームします。</summary>
+      <param name="currentSize">現在のサイズ。</param>
+      <returns>
+        ズーム結果を表す <see cref="T:System.Drawing.Size" /> 値。
+      </returns>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ZoomBoundsInfo.Zoom(System.Drawing.SizeF)">
+      <summary>指定した現在のサイズをズームします。</summary>
+      <param name="currentSize">現在のサイズ。</param>
+      <returns>
+        ズーム結果を表す <see cref="T:System.Drawing.SizeF" /> 値。
+      </returns>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ZoomBoundsInfo.Zoom(System.Drawing.Point)">
+      <summary>指定した現在のポイントをズームします。</summary>
+      <param name="currentPoint">現在のポイント。</param>
+      <returns>
+        ズーム結果を表す <see cref="T:System.Drawing.Point" /> 値。
+      </returns>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ZoomBoundsInfo.Zoom(System.Drawing.PointF)">
+      <summary>指定した現在のポイントをズームします。</summary>
+      <param name="currentPoint">現在のポイント。</param>
+      <returns>
+        ズーム結果を表す <see cref="T:System.Drawing.PointF" /> 値。
+      </returns>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.ZoomFontInfo">
+      <summary>フォントをサイズ変更するためのヘルパーを表します。フォントに関する情報を提供します。</summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ZoomFontInfo.CurrentFontSize">
+      <summary>現在のコントロールの現在のフォントサイズを取得します。</summary>
+      <value>現在のコントロールの現在のフォントサイズ。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ZoomFontInfo.DeltaFactor">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> によって計算された現在のフォントサイズのズーム率を取得します。
+      </summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> によって計算された現在のフォントサイズのズーム率。
+      </value>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ZoomFontInfo.Zoom(System.Drawing.Font)">
+      <summary>現在のフォントを拡大/縮小します。</summary>
+      <param name="currentFont">現在のフォント。</param>
+      <returns>
+        <see cref="T:C1.Win.TouchToolKit.ZoomFontInfo" /> によって拡大/縮小されたフォント。
+      </returns>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.ZoomManipulationStartingEventArgs">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1Zoom.ManipulationStarting" /> イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ZoomManipulationStartingEventArgs.Mode">
+      <summary>実行できるマニピュレーションのタイプを取得または設定します。</summary>
+      <value>
+        <see cref="T:C1.Win.TouchToolKit.ManipulationModes" /> 値の 1 つ。デフォルトは <see cref="F:C1.Win.TouchToolKit.ManipulationModes.All" /> です。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ZoomManipulationStartingEventArgs.Position">
+      <summary>マニピュレーションが開始されたときの位置を取得します。</summary>
+      <value>マニピュレーションが開始されたときの位置。</value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ZoomManipulationStartingEventArgs.TargetControl">
+      <summary>イベントを発生させたコントロールへの参照を取得します。</summary>
+      <value>イベントを発生させたコントロール。</value>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.ZoomPolicy">
+      <summary>
+        ズームポリシーの基本クラスを実装します。このクラスは <see langword="abstract" /> なので、インスタンス化できません。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ZoomPolicy.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.ZoomPolicy" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ZoomPolicy.Enabled">
+      <summary>このポリシーが有効かどうかを示す値を取得または設定します。</summary>
+      <value>
+        このポリシーが有効な場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </value>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ZoomPolicy.TargetType">
+      <summary>このポリシーを使用できるコントロール型を示す型を取得します。</summary>
+      <value>
+        このポリシーを使用できるコントロール型を示す <see cref="T:System.Type" /> 型。
+      </value>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ZoomPolicy.CanZoom(System.Windows.Forms.Control)">
+      <summary>このインスタンスが指定したコントロールをズームできるかどうかを返します。</summary>
+      <param name="control">指定したコントロール。</param>
+      <returns>
+        このインスタンスが指定したコントロールをズームできる場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ZoomPolicy.CanZoomChildren(System.Windows.Forms.Control)">
+      <summary>子コントロールをズームできるかどうかを返します。</summary>
+      <param name="control">指定したコントロール。</param>
+      <returns>
+        子コントロールをズームできる場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ZoomPolicy.GetChildren(System.Windows.Forms.Control)">
+      <summary>コントロールに含まれるコントロールのコレクションを取得します。</summary>
+      <param name="control">指定したコントロール。</param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ZoomPolicy.Initialize(System.Windows.Forms.Control)">
+      <summary>ズームアクションが開始する前にコントロールを初期化します。</summary>
+      <param name="control">指定したコントロール。</param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ZoomPolicy.ShouldSerializeValue(System.Object,System.String)">
+      <summary>指定したオブジェクトの指定したプロパティの値を永続化する必要があるかどうかを示す値を返します。</summary>
+      <param name="obj">指定したオブジェクト。</param>
+      <param name="propertyName">指定したプロパティの名前。</param>
+      <returns>
+        プロパティの現在の値がそのデフォルト値と異なる場合は <see langword="true" />。それ以外の場合は <see langword="false" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ZoomPolicy.Terminate(System.Windows.Forms.Control)">
+      <summary>ズームアクションが完了した後にコントロールの終了処理を行います。</summary>
+      <param name="control">指定したコントロール。</param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ZoomPolicy.ZoomBounds(System.Windows.Forms.Control,C1.Win.TouchToolKit.ZoomBoundsInfo)">
+      <summary>コントロールの境界をズームします。</summary>
+      <param name="control">指定したコントロール。</param>
+      <param name="infos">
+        レイアウトのズームを支援するために <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> によって提供される <see cref="T:C1.Win.TouchToolKit.ZoomBoundsInfo" /> 型の情報。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ZoomPolicy.ZoomFont(System.Windows.Forms.Control,C1.Win.TouchToolKit.ZoomFontInfo)">
+      <summary>コントロールのフォントをズームします。</summary>
+      <param name="control">指定したコントロール。</param>
+      <param name="infos">
+        フォントのズームを支援するために <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> によって提供される <see cref="T:C1.Win.TouchToolKit.ZoomFontInfo" /> 型の情報。
+      </param>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.ManipulationDelta">
+      <summary>現在のマニピュレーションにおける累積された変換を格納します。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ManipulationDelta.Expansion">
+      <summary>2 回のタッチ接触間の距離の変化を DIP で表した値。たとえば、ある操作中に 2 回の接触の距離が 100 DIP から 200 DIP に変わった場合、Expansion の値は 100.0 になります。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ManipulationDelta.Rotation">
+      <summary>回転角度の変化量（度単位）。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ManipulationDelta.Scale">
+      <summary>2 回のタッチ接触間の距離の変化を比率で表した値。たとえば、ある操作中に 2 回の接触の距離が 100 DIP から 200 DIP に変わった場合、Scale の値は 2.0 になります。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ManipulationDelta.Translation">
+      <summary>x-y 画面座標の変化量（DIP 単位）。</summary>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.BorderBackground">
+      <summary>拡大鏡の境界線の外観を指定します。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.BorderBackground.Light">
+      <summary>境界線の背景色が明るい色になります。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.BorderBackground.Dark">
+      <summary>境界線の背景色が暗い色になります。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.BorderBackground.Custom">
+      <summary>
+        指定したイメージを使用して境界線の背景をレンダリングします。<see cref="P:C1.Win.TouchToolKit.C1Magnify.BorderBackground">C1Magnify.BorderBackground</see> プロパティを参照してください。
+      </summary>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.BoundaryFeedbackMode">
+      <summary>スクロールが終端に達したときの視覚的フィードバックの表示方法を指定します。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.BoundaryFeedbackMode.Standard">
+      <summary>スクロールが終端に達したとき、オーナーフォームが少し移動してからバウンドして元に戻ります。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.BoundaryFeedbackMode.Split">
+      <summary>スクロールが終端に達したとき、コンテンツ領域がさらに少しスクロールしてからバウンドして元に戻ります。</summary>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.FullScreenMode">
+      <summary>フォームウィンドウをフルスクリーンモードで表示する方法を指定します。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.FullScreenMode.None">
+      <summary>フォームはフルスクリーンではありません。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.FullScreenMode.FullScreen">
+      <summary>フォームはフルスクリーンで、タスクバーも表示されません。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.FullScreenMode.FullScreenWithTaskBar">
+      <summary>フォームはフルスクリーンですが、タスクバーは引き続き表示されます。</summary>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.HoldingState">
+      <summary>
+        <see cref="E:C1.Win.TouchToolKit.C1TouchEventProvider.Holding" /> イベントの状態を指定します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.HoldingState.Started">
+      <summary>単一の接触が検出された後、その接触が離されないまま時間しきい値が経過しました。その間、別の接触は検出されず、別のジェスチャも開始されませんでした。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.HoldingState.Completed">
+      <summary>単一の接触が離されました。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.HoldingState.Canceled">
+      <summary>追加の接触が検出され、その後に続くジェスチャ（スライドなど）が検出されました。</summary>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.InnerPanelLayoutMode">
+      <summary>内部パネルでのコンテンツのレイアウトを指定します。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.InnerPanelLayoutMode.None">
+      <summary>フォームのサイズがコンテンツのサイズより大きい場合、コンテンツを左上に維持します。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.InnerPanelLayoutMode.MiddleCenter">
+      <summary>フォームのサイズがコンテンツのサイズより大きい場合、コンテンツを中央に維持します。</summary>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.MagnifierShape">
+      <summary>拡大鏡の外観を指定します。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.MagnifierShape.Circle">
+      <summary>拡大鏡の形状が円形になります。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.MagnifierShape.Rectangle">
+      <summary>拡大鏡の形状が四角形になります。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.MagnifierShape.RoundedRectangle">
+      <summary>拡大鏡の形状が角丸四角形になります。</summary>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.ManipulationModes">
+      <summary>ターゲットコントロールがマニピュレーションイベントをどのように解釈するかを指定します。この列挙体の値を組み合わせて複数のモードを設定できます。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ManipulationModes.All">
+      <summary>すべてのマニピュレーションモードを有効にします。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ManipulationModes.None">
+      <summary>マニピュレーションイベントによるグラフィック操作を行いません。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ManipulationModes.TranslateX">
+      <summary>ターゲットを X 軸方向に平行移動するマニピュレーションアクションを許可します。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ManipulationModes.TranslateY">
+      <summary>ターゲットを Y 軸方向に平行移動するマニピュレーションアクションを許可します。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ManipulationModes.TranslateRailsX">
+      <summary>レールモードを使用してターゲットを X 軸方向に平行移動するマニピュレーションアクションを許可します。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ManipulationModes.TranslateRailsY">
+      <summary>レールモードを使用してターゲットを Y 軸方向に平行移動するマニピュレーションアクションを許可します。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ManipulationModes.Rotate">
+      <summary>ターゲットを回転させるマニピュレーションアクションを許可します。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ManipulationModes.Scale">
+      <summary>ターゲットを拡大/縮小するマニピュレーションアクションを許可します。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ManipulationModes.TranslateInertia">
+      <summary>平行移動アクションに慣性を適用します。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ManipulationModes.RotateInertia">
+      <summary>回転アクションに慣性を適用します。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ManipulationModes.ScaleInertia">
+      <summary>拡大/縮小アクションに慣性を適用します。</summary>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.MessageWhenClose">
+      <summary>拡大鏡を閉じるときのアクションを指定します。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.MessageWhenClose.None">
+      <summary>追加メッセージを生成しません。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.MessageWhenClose.LeftClick">
+      <summary>ターゲットコントロールの左クリックを生成します。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.MessageWhenClose.RightClick">
+      <summary>ターゲットコントロールの右クリックを生成します。</summary>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.MessageWhenMove">
+      <summary>拡大鏡を移動するときのアクションを指定します。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.MessageWhenMove.None">
+      <summary>
+        追加メッセージを生成しません。<see cref="T:C1.Win.TouchToolKit.C1Magnify" /> はデフォルトの移動メッセージをブロックします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.MessageWhenMove.Move">
+      <summary>指が動いたときにマウス移動メッセージを連続的にコントロールに送信します。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.MessageWhenMove.LeftDown">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1Magnify" /> はデフォルトのマウス移動メッセージをブロックし、マウスダウンメッセージを連続的にターゲットコントロールに送信します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.MouseWheelScrollMode">
+      <summary>マウスホイールスクロールのタイプを指定します。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.MouseWheelScrollMode.None">
+      <summary>ホイールによってスクロールしません。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.MouseWheelScrollMode.VerticalScrollByWheel">
+      <summary>ホイールによって垂直方向にスクロールします。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.MouseWheelScrollMode.HorizontalScrollByShiftWheel">
+      <summary>［Shift］キーを押しながらホイールを回すことによって水平方向にスクロールします。</summary>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.PointerDeviceType">
+      <summary>ポインタデバイスのタイプを列挙します。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.PointerDeviceType.Touch">
+      <summary>タッチ対応デバイス</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.PointerDeviceType.Pen">
+      <summary>ペン</summary>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.PositionMode">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.ControlBar" /> ウィンドウの位置モードを指定します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.PositionMode.Dock">
+      <summary>コントロールバーを親フォームにドッキングします。親フォームのサイズを変更すると、コントロールバーの位置が調整されます。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.PositionMode.Floating">
+      <summary>ユーザーがプログラムコードまたは UI のドラッグ操作によってコントロールバーの位置を変更できます。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.PositionMode.Fixed">
+      <summary>プログラムコードによってコントロールバーの位置を変更することは可能ですが、UI のドラッグ操作によって位置を変更することはできません。</summary>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.ScrollIndicatorMode">
+      <summary>現在のスクロール位置を示す方法を指定します。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ScrollIndicatorMode.None">
+      <summary>現在のスクロール位置を示すために何も使用しません。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ScrollIndicatorMode.ScrollBar">
+      <summary>スクロールバーを使用して現在のスクロール位置を示します。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ScrollIndicatorMode.ScrollIndicator">
+      <summary>スクロールインジケーターを使用して現在のスクロール位置を示します。</summary>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.ShowingReason">
+      <summary>自動スクロールによっていつコントロールが表示されるかを示す理由を指定します。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ShowingReason.FocusChanged">
+      <summary>コントロールがフォーカスを取得したときにコントロールを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ShowingReason.ScreenKeyboardShown">
+      <summary>システムのタッチキーボードがポップアップしたときにコントロールを表示します。</summary>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.ZoomCommands">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.C1ZoomCommandProvider" /> コンポーネントの組み込みコマンドを指定します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ZoomCommands.None">
+      <summary>どのコマンドも実行しません（デフォルト値）。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ZoomCommands.ZoomIn">
+      <summary>このコマンドを実行すると、10% ズームインします。現在のズーム率が最大ズーム率に達している場合は何もしません。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ZoomCommands.ZoomOut">
+      <summary>このコマンドを実行すると、10% ズームアウトします。現在のズーム率が最小ズーム率に達している場合は何もしません。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ZoomCommands.ResetZoom">
+      <summary>ズーム倍率を100％に変更します。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ZoomCommands.ScrollLeft">
+      <summary>フォームコンテンツの幅の 1/3 だけ左にスクロールします。フォームがスクロールの終端に達している場合は何もしません。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ZoomCommands.ScrollRight">
+      <summary>フォームコンテンツの幅の 1/3 だけ右にスクロールします。フォームがスクロールの終端に達している場合は何もしません。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ZoomCommands.ScrollUp">
+      <summary>フォームコンテンツの高さの 1/3 だけ上にスクロールします。フォームがスクロールの終端に達している場合は何もしません。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ZoomCommands.ScrollDown">
+      <summary>フォームコンテンツの高さの 1/3 だけ下にスクロールします。フォームがスクロールの終端に達している場合は何もしません。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ZoomCommands.SwitchFullScreen">
+      <summary>フォームをフルスクリーンに変更します。フォームがすでにフルスクリーンになっている場合は、元に戻します。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ZoomCommands.ShowOrHidePreviewWindow">
+      <summary>パンウィンドウを表示します。パンウィンドウがすでに表示されている場合は、パンウィンドウを閉じます。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ZoomCommands.SelectNextControl">
+      <summary>アクティブなコントロールを次に移動します。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ZoomCommands.SelectPreviousControl">
+      <summary>アクティブなコントロールを前に移動します。</summary>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.ZoomManipulationModes">
+      <summary>ターゲットコントロールがマニピュレーションイベントをどのように解釈するかを指定します。この列挙体の値を組み合わせて複数のモードを設定できます。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ZoomManipulationModes.All">
+      <summary>すべてのマニピュレーションモードを有効にします。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ZoomManipulationModes.None">
+      <summary>マニピュレーションイベントによるグラフィック操作を行いません。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ZoomManipulationModes.Pan">
+      <summary>ターゲットを平行移動するマニピュレーションアクションを許可します。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ZoomManipulationModes.Zoom">
+      <summary>ターゲットをズームするマニピュレーションアクションを許可します。</summary>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.ZoomPreviewMode">
+      <summary>ジェスチャズーム中にフォームを表示する方法を指定します。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ZoomPreviewMode.Bitmap">
+      <summary>ズーム中にビットマッププレビューを使用します。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ZoomPreviewMode.NoPreview">
+      <summary>ズーム中にプレビューを表示しません。</summary>
+    </member>
+    <member name="F:C1.Win.TouchToolKit.ZoomPreviewMode.AlternativeContent">
+      <summary>ズーム中に代替コンテンツプレビューを使用します。</summary>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.ScrollableControlZoomPolicy">
+      <summary>スクロールバーを表示するコントロールの基本ズームポリシーを表します。</summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ScrollableControlZoomPolicy.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.ScrollableControlZoomPolicy" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.ScrollableControlZoomPolicy.TargetType">
+      <summary>このポリシーを使用できるコントロール型を示す型を取得します。</summary>
+      <value>
+        このポリシーを使用できるコントロール型を示す <see cref="T:System.Type" /> 型。
+      </value>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ScrollableControlZoomPolicy.Initialize(System.Windows.Forms.Control)">
+      <summary>ズームアクションが開始する前にコントロールを初期化します。</summary>
+      <param name="control">指定したコントロール。</param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ScrollableControlZoomPolicy.Terminate(System.Windows.Forms.Control)">
+      <summary>終わりに指定したコントロール。</summary>
+      <param name="control">コントロール。</param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ScrollableControlZoomPolicy.ZoomBounds(System.Windows.Forms.Control,C1.Win.TouchToolKit.ZoomBoundsInfo)">
+      <summary>コントロールの境界をズームします。</summary>
+      <param name="control">指定したコントロール。</param>
+      <param name="infos">
+        レイアウトのズームを支援するために <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> によって提供される <see cref="T:C1.Win.TouchToolKit.ZoomBoundsInfo" /> 型の情報。
+      </param>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.ScrollableControlZoomPolicy.ZoomFont(System.Windows.Forms.Control,C1.Win.TouchToolKit.ZoomFontInfo)">
+      <summary>コントロールのフォントをズームします。</summary>
+      <param name="control">指定したコントロール。</param>
+      <param name="infos">
+        フォントのズームを支援するために <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> によって提供される <see cref="T:C1.Win.TouchToolKit.ZoomFontInfo" /> 型の情報。
+      </param>
+    </member>
+    <member name="T:C1.Win.TouchToolKit.TabControlZoomPolicy">
+      <summary>
+        <see cref="T:System.Windows.Forms.TabControl" /> 型コントロールのズームポリシーを表します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.TabControlZoomPolicy.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TouchToolKit.TabControlZoomPolicy" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TouchToolKit.TabControlZoomPolicy.TargetType">
+      <summary>このポリシーを使用できるコントロール型を示す型を取得します。</summary>
+      <value>
+        このポリシーを使用できるコントロール型を示す <see cref="T:System.Type" /> 型。
+      </value>
+    </member>
+    <member name="M:C1.Win.TouchToolKit.TabControlZoomPolicy.ZoomBounds(System.Windows.Forms.Control,C1.Win.TouchToolKit.ZoomBoundsInfo)">
+      <summary>コントロールの境界をズームします。</summary>
+      <param name="control">指定したコントロール。</param>
+      <param name="infos">
+        レイアウトのズームを支援するために <see cref="T:C1.Win.TouchToolKit.C1Zoom" /> によって提供される <see cref="T:C1.Win.TouchToolKit.ZoomBoundsInfo" /> 型の情報。
+      </param>
+    </member>
+  </members>
+</doc>

@@ -47,6 +47,15 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="C1.Win.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL" />
+    <Reference Include="c1.win.c1flexgrid.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="c1.win.c1input.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL" />
+    <Reference Include="c1.win.c1list.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=6b24f8f981dbd7bc, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1Ribbon.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="c1.win.c1sizer.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1Themes.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=594a0605db190bb9, processorArchitecture=MSIL" />
+    <Reference Include="c1.win.c1tilecontrol.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="c1.win.c1touchtoolkit.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=5e531fc0479701e7, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -76,10 +85,22 @@
     <Compile Include="Class\clsWinApp.vb" />
     <Compile Include="Class\SQLProcess.vb" />
     <Compile Include="Class\XmlSettings.vb" />
+    <Compile Include="Form\dummy.Designer.vb">
+      <DependentUpon>dummy.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\dummy.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form\LoginMenu\frmLogin.Designer.vb">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </Compile>
     <Compile Include="Form\LoginMenu\frmLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\ManageSide\frmProjectManage.Designer.vb">
+      <DependentUpon>frmProjectManage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\ManageSide\frmProjectManage.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form\Template\frmTempForm.Designer.vb">
@@ -106,9 +127,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Form\dummy.resx">
+      <DependentUpon>dummy.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\LoginMenu\frmLogin.resx">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\ManageSide\frmProjectManage.resx">
+      <DependentUpon>frmProjectManage.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\Template\frmTempForm.resx">
       <DependentUpon>frmTempForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>

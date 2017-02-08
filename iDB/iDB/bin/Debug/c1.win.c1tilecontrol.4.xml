@@ -1,0 +1,3507 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>C1.Win.C1TileControl.4</name>
+  </assembly>
+  <members>
+    <member name="T:C1.Win.C1Tile.C1TileControl">
+      <summary>タイルを含むスクロール可能なサーフェスを表します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.#ctor">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.C1TileControl" /> の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.Dispose(System.Boolean)">
+      <summary>使用されているすべてのリソースをクリーンアップします。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.LoadXml(System.String)">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.C1TileControl" /> のレイアウトを XML ファイルからロードします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.LoadXml(System.IO.Stream)">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.C1TileControl" /> のレイアウトを <see cref="T:System.IO.Stream" /> からロードします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.LoadXml(System.Xml.XmlDocument)">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.C1TileControl" /> のレイアウトを <see cref="T:System.Xml.XmlDocument" /> からロードします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.SaveXml(System.String)">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.C1TileControl" /> のレイアウトを XML ファイルに保存します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.SaveXml(System.String,System.Text.Encoding)">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.C1TileControl" /> のレイアウトを XML ファイルに保存します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.SaveXml(System.IO.Stream)">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.C1TileControl" /> のレイアウトを <see cref="T:System.IO.Stream" /> に保存します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.SaveXml(System.IO.Stream,System.Text.Encoding)">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.C1TileControl" /> のレイアウトを <see cref="T:System.IO.Stream" /> に保存します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.SaveXml(System.Xml.XmlWriter)">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.C1TileControl" /> のレイアウトを <see cref="T:System.Xml.XmlWriter" /> に保存します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.OnFilterItem(C1.Win.C1Tile.FilterItemEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.C1Tile.C1TileControl.FilterItem" /> イベントを発生させます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.OnFormatValue(C1.Win.C1Tile.FormatValueEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.C1Tile.C1TileControl.FormatValue" /> イベントを発生させます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.OnCompareGroups(C1.Win.C1Tile.CompareGroupsEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.C1Tile.C1TileControl.CompareGroups" /> イベントを発生させます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.OnCompareTiles(C1.Win.C1Tile.CompareTilesEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.C1Tile.C1TileControl.CompareTiles" /> イベントを発生させます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.SetDataBinding(System.Object,System.String)">
+      <summary>実行時に DataSource および DataMember プロパティを指定します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.OnBindingContextChanged(System.EventArgs)">
+      <summary>BindingContextChanged イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.ResetPadding">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.C1TileControl.Padding" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.ResetSurfacePadding">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.C1TileControl.SurfacePadding" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.ResetGroupPadding">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.C1TileControl.GroupPadding" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.ResetGroupForeColor">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.C1TileControl.GroupForeColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.ResetTileBackColor">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.C1TileControl.TileBackColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.ResetTileBorderColor">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.C1TileControl.TileBorderColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.ResetTileForeColor">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.C1TileControl.TileForeColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.ResetHotBackColor">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.C1TileControl.HotBackColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.ResetHotForeColor">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.C1TileControl.HotForeColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.ResetHotCheckBackColor">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.C1TileControl.HotCheckBackColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.ResetHotCheckForeColor">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.C1TileControl.HotCheckForeColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.ResetHotBorderColor">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.C1TileControl.HotBorderColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.ResetFocusedBorderColor">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.C1TileControl.FocusedBorderColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.ResetCheckBackColor">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.C1TileControl.CheckBackColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.ResetCheckForeColor">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.C1TileControl.CheckForeColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.ResetCheckBorderColor">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.C1TileControl.CheckBorderColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.ResetCheckMarkColor">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.C1TileControl.CheckMarkColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.ResetCheckWaitingColor">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.C1TileControl.CheckWaitingColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.ResetSBThumbBorderColor">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.C1TileControl.SBThumbBorderColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.ResetSBThumbInnerColor">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.C1TileControl.SBThumbInnerColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.OnTileClicked(C1.Win.C1Tile.TileEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.C1Tile.C1TileControl.TileClicked" /> イベントを発生させます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.OnTileChecked(C1.Win.C1Tile.TileEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.C1Tile.C1TileControl.TileChecked" /> イベントを発生させます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.OnTileUnchecked(C1.Win.C1Tile.TileEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.C1Tile.C1TileControl.TileUnchecked" /> イベントを発生させます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.BeginUpdate">
+      <summary>
+        描画パフォーマンスを維持しながら、<see cref="T:C1.Win.C1Tile.C1TileControl" /> への大量の変更を適用します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.EndUpdate">
+      <summary>
+        <see cref="M:C1.Win.C1Tile.C1TileControl.BeginUpdate" /> の呼び出しによって中断した後に処理を再開します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.ScrollToGroup(C1.Win.C1Tile.Group,System.Boolean)">
+      <summary>
+        サーフェスをスクロールして、指定した <see cref="T:C1.Win.C1Tile.Group" /> を表示します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.ScrollToTile(C1.Win.C1Tile.Tile,System.Boolean)">
+      <summary>
+        サーフェスをスクロールして、指定した <see cref="T:C1.Win.C1Tile.Tile" /> を表示します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.GetTileAt(System.Drawing.Point)">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.C1TileControl" /> のクライアント座標で指定したポイント位置の <see cref="T:C1.Win.C1Tile.Tile" /> を取得します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.UncheckAllTiles">
+      <summary>すべてのタイルからチェックマークを削除します。</summary>
+      <returns>少なくとも１つのタイルがチェックされていなかった場合に true を返します。</returns>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.ClearCache">
+      <summary>内部キャッシュメモリが占めていたメモリを解放します。ただし、ガベージコレクションは強制されません。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.CreateAccessibilityInstance">
+      <summary>C1TileControl のカスタム AccessibleObject を返します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.ScaleControl(System.Drawing.SizeF,System.Windows.Forms.BoundsSpecified)">
+      <summary>コントロールの位置、サイズ、パディング、およびマージンのスケールを調整します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.OnFontChanged(System.EventArgs)">
+      <summary>FontChanged イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.OnBackColorChanged(System.EventArgs)">
+      <summary>BackColorChanged イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.OnBackgroundImageChanged(System.EventArgs)">
+      <summary>BackgroundImageChanged イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.OnRightToLeftChanged(System.EventArgs)">
+      <summary>RightToLeftChanged イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.OnResize(System.EventArgs)">
+      <summary>Resize イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+      <summary>MouseDown イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.OnClick(System.EventArgs)">
+      <summary>Click イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.OnMouseClick(System.Windows.Forms.MouseEventArgs)">
+      <summary>MouseClick イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
+      <summary>MouseUp イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.OnMouseDoubleClick(System.Windows.Forms.MouseEventArgs)">
+      <summary>MouseDoubleClick イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+      <summary>MouseMove イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.OnMouseEnter(System.EventArgs)">
+      <summary>MouseEnter イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.OnMouseLeave(System.EventArgs)">
+      <summary>MouseLeave イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.OnPaint(System.Windows.Forms.PaintEventArgs)">
+      <summary>Paint イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.WndProc(System.Windows.Forms.Message@)">
+      <summary>Windows メッセージを処理します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.IsInputKey(System.Windows.Forms.Keys)">
+      <summary>指定されたキーが通常の入力キーであるか、前処理を必要とする特殊なキーであるかを決定します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+      <summary>KeyDown イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.OnKeyPress(System.Windows.Forms.KeyPressEventArgs)">
+      <summary>KeyPress イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.OnChangeUICues(System.Windows.Forms.UICuesEventArgs)">
+      <summary>ChangeUICues イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.OnGotFocus(System.EventArgs)">
+      <summary>GotFocus イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.OnLostFocus(System.EventArgs)">
+      <summary>LostFocus イベントを発生させます。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.DataSource">
+      <summary>タイルコントロールのデータソースオブジェクトを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.DataMember">
+      <summary>
+        タイルコントロールに連結されている <see cref="P:C1.Win.C1Tile.C1TileControl.DataSource" /> 内の特定のリストを取得または設定します。
+      </summary>
+      <remarks>
+        <para>
+          <see cref="P:C1.Win.C1Tile.C1TileControl.DataSource" /> オブジェクトに複数のデータソースが含まれている場合は、<see cref="P:C1.Win.C1Tile.C1TileControl.DataMember" /> プロパティをそれらのソースの１つに設定する必要があります。
+        </para>
+        <para>たとえば、DataSource が、Customers、Orders、OrderDetails の３つのテーブルを含む DataSet である場合は、これらのテーブルの１つを連結先として指定する必要があります。</para>
+        <para>この DataSet に DataTable が１つだけ含まれる場合は、DataMember プロパティを空の文字列に設定できます。</para>
+      </remarks>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.PropertyMappings">
+      <summary>タイルプロパティマッピングのコレクションを取得します。</summary>
+    </member>
+    <member name="E:C1.Win.C1Tile.C1TileControl.FilterItem">
+      <summary>データソースから項目をロードするときに発生します。これを使用して、必要に応じていくつかの項目をスキップすることができます。</summary>
+    </member>
+    <member name="E:C1.Win.C1Tile.C1TileControl.FormatValue">
+      <summary>データ値をタイルプロパティにマップする必要があるときに発生します。</summary>
+    </member>
+    <member name="E:C1.Win.C1Tile.C1TileControl.CompareGroups">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.C1TileControl" /> 内のグループをソートするときに、２つのグループを比較して並べ替えるために発生します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.C1Tile.C1TileControl.CompareTiles">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Group" /> 内のタイルをソートするときに、２つのタイルを比較して並べ替えるために発生します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.Groups">
+      <summary>タイルグループのコレクションを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.DefaultTemplate">
+      <summary>タイルのデフォルトテンプレートを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.Templates">
+      <summary>カスタムのタイルテンプレートのコレクションを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.CommonImage1">
+      <summary>第１共通画像を取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.CommonImage2">
+      <summary>第２共通画像を取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.CommonImage3">
+      <summary>第３共通画像を取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.PassthroughNavigation">
+      <summary>垂直／水平レイアウトで、現在の行／列の最後のタイルにフォーカスを移動した後、キーボードが次の行／列に移動するかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.ToolTipInitialDelay">
+      <summary>ツールチップを表示するまでの経過時間（ミリ秒）を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.ShowToolTips">
+      <summary>タイルおよび部分的に表示されているグループキャプションにツールチップを表示するかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.CheckedTiles">
+      <summary>表示を ON にしたすべてのタイルの配列を取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.Orientation">
+      <summary>グループを水平または垂直に配列するかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.MaximumRowsOrColumns">
+      <summary>
+        自動レイアウトモードのセル行（水平方向）
+        またはセル列（垂直方向）の最大数を取得または設定します。
+      </summary>
+      <remarks>
+        このプロパティをゼロに設定すると、
+        行／列の数は実際の使用可能なスペースによって決まります。
+      </remarks>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.AutomaticLayout">
+      <summary>
+        タイルを自動または手動で配列するかどうかを取得または設定します。
+        <see cref="P:C1.Win.C1Tile.Tile.LeftCell" /> と <see cref="P:C1.Win.C1Tile.Tile.TopCell" /> プロパティは
+        自動モードで無視されます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.BackImageLayout">
+      <summary>背景画像のレイアウトを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.MovingBackground">
+      <summary>背景画像をタイルと一緒にスクロールするかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.Padding">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.C1TileControl" /> の内部スペースを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.Text">
+      <summary>主キャプションのテキストを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.TextSize">
+      <summary>キャプションテキストのフォントサイズを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.TextBold">
+      <summary>キャプションテキストのフォントが太字かどうかを示す値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.TextX">
+      <summary>テキストキャプションの x 座標を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.TextY">
+      <summary>テキストキャプションの y 座標を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.SurfacePadding">
+      <summary>スクロール可能なサーフェスの内部スペースを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.SurfaceContentAlignment">
+      <summary>スクロール可能なサーフェス上のグループの配置を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.GroupSpacing">
+      <summary>スクロール可能なサーフェス上のグループ間の間隔を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.GroupPadding">
+      <summary>タイルグループの内部スペースを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.GroupFont">
+      <summary>グループキャプションのフォントを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.GroupTextSize">
+      <summary>グループキャプションのフォントサイズを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.GroupTextBold">
+      <summary>グループキャプションのフォントが太字かどうかを示す値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.GroupForeColor">
+      <summary>グループキャプションの前景色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.GroupTextX">
+      <summary>グループキャプションの水平オフセットを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.GroupTextY">
+      <summary>グループキャプションの垂直オフセットを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.ImageList">
+      <summary>タイル上に表示する画像を含む ImageList を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.CellHeight">
+      <summary>１つのタイルセルの高さを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.CellWidth">
+      <summary>１つのタイルセルの幅を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.CellSpacing">
+      <summary>グループ内のタイルセル間の間隔を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.TileBackColor">
+      <summary>タイルのデフォルトの背景色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.TileBorderColor">
+      <summary>タイルの周囲に描画される細い枠線の色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.TileForeColor">
+      <summary>タイルのデフォルトの前景色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.HotBackColor">
+      <summary>
+        タイル上にマウスが置かれたときに、<see cref="P:C1.Win.C1Tile.Tile.BackColor" /> を置き換える色を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.HotForeColor">
+      <summary>
+        タイル上にマウスが置かれ、<see cref="P:C1.Win.C1Tile.C1TileControl.HotBackColor" /> が設定されている場合に、<see cref="P:C1.Win.C1Tile.Tile.ForeColor" /> を置き換える色を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.HotCheckBackColor">
+      <summary>
+        チェックされたタイル上にマウスが置かれたときに、<see cref="P:C1.Win.C1Tile.Tile.BackColor" /> を置き換える色を取得または設定します。
+      </summary>
+      <remarks>
+        <see cref="P:C1.Win.C1Tile.C1TileControl.HotBackColor" /> または <see cref="P:C1.Win.C1Tile.C1TileControl.CheckBackColor" /> のいずれかが設定されていない場合、このプロパティの値は無視されます。
+      </remarks>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.HotCheckForeColor">
+      <summary>
+        チェックされたタイル上にマウスが置かれたときに、<see cref="P:C1.Win.C1Tile.Tile.ForeColor" /> を置き換える色を取得または設定します。
+      </summary>
+      <remarks>
+        <see cref="P:C1.Win.C1Tile.C1TileControl.HotBackColor" /> または <see cref="P:C1.Win.C1Tile.C1TileControl.CheckBackColor" /> のいずれかが設定されていない場合、このプロパティの値は無視されます。
+      </remarks>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.HotBorderColor">
+      <summary>タイル上にマウスが置かれたときのタイルの境界線の色を取得または設定します。</summary>
+      <remarks>
+        <see cref="P:C1.Win.C1Tile.C1TileControl.HotBackColor" /> の値が空である場合、このプロパティは無視されます。
+      </remarks>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.FocusedTile">
+      <summary>キーボードフォーカスがあるタイルを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.FocusedBorderColor">
+      <summary>タイルがキーボードで選択されたときのタイルの境界線の色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.AllowChecking">
+      <summary>スワイプジェスチャまたはマウスの右クリックを使用してユーザーがタイルを ON／OFF できるかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.UncheckTilesOnClick">
+      <summary>タイルをクリックした後で、すべてのタイルがオフかどうかを示す値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.AllowRearranging">
+      <summary>ユーザーがマウスまたはタッチデバイスを使用してタイルを移動できるかどうかを取得または設定します。</summary>
+      <remarks>
+        <see cref="P:C1.Win.C1Tile.C1TileControl.AutomaticLayout" /> プロパティが false に設定されている場合、このプロパティは無効です。
+      </remarks>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.SwipeDistance">
+      <summary>スワイプジェスチャによってタイルを選択する距離を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.SwipeRearrangeDistance">
+      <summary>スワイプジェスチャによってタイルの並べ替えを開始する距離を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.MovingTileOpacity">
+      <summary>ユーザーによって移動されているタイルの不透明度を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.CheckBackColor">
+      <summary>
+        タイルがチェックされている場合に、<see cref="P:C1.Win.C1Tile.Tile.BackColor" /> を置き換える色を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.CheckForeColor">
+      <summary>
+        タイルがチェックされ、<see cref="P:C1.Win.C1Tile.C1TileControl.CheckBackColor" /> が設定されている場合に、<see cref="P:C1.Win.C1Tile.Tile.ForeColor" /> を置き換える色を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.CheckBorderColor">
+      <summary>タイルがチェックされたときのタイルの境界線の色を取得または設定します。</summary>
+      <remarks>
+        <see cref="P:C1.Win.C1Tile.C1TileControl.CheckBackColor" /> の値が空である場合、このプロパティは無視されます。
+      </remarks>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.CheckMarkColor">
+      <summary>ON 状態のタイルのチェックマークの色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.CheckWaitingColor">
+      <summary>予期されたチェックマークの色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.ScrollBarStyle">
+      <summary>デフォルトまたはシステムスクロールバーを表示するかどうかを指定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.ScrollOffset">
+      <summary>スクロール可能な領域の負またはゼロオフセットを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.OffsetLimit">
+      <summary>スクロール領域の負の最小オフセットを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.SBThumbBorderColor">
+      <summary>スクロールバーのつまみ枠線の色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.SBThumbInnerColor">
+      <summary>スクロールバーのつまみ内部の色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.AllowPanningFeedback">
+      <summary>
+        ユーザーがパン可能な領域の最後に到達したときに
+        オーナーフォームが視覚的キューを表示する必要があるかどうかを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.ImeMode">
+      <summary>このプロパティはこのクラスに関与しません。</summary>
+    </member>
+    <member name="E:C1.Win.C1Tile.C1TileControl.TileClicked">
+      <summary>いずれかのタイルがクリックされたときに発生します。</summary>
+    </member>
+    <member name="E:C1.Win.C1Tile.C1TileControl.TileChecked">
+      <summary>いずれかのタイルが ON にされたときに発生します。</summary>
+    </member>
+    <member name="E:C1.Win.C1Tile.C1TileControl.TileUnchecked">
+      <summary>いずれかのタイルが OFF にされたときに発生します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.Cursor">
+      <summary>マウスポインタがコントロールの上にホバーしたときに表示されるカーソルを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.C1TileControl.DefaultSize">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.C1TileControl" /> のデフォルトサイズを取得します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.SlideTransition">
+      <summary>１つのスライドから別のスライドへの移行方法を指定します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.SlideTransition.None">
+      <summary>スライドを直ちに切り替えます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.SlideTransition.PushFromBottom">
+      <summary>新しいスライドを下から上にプッシュします。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.SlideTransition.PushFromTop">
+      <summary>新しいスライドを上から下にプッシュします。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.SlideTransition.PushFromLeft">
+      <summary>新しいスライドを左から右にプッシュします。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.SlideTransition.PushFromRight">
+      <summary>新しいスライドを右から左にプッシュします。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.SlideTransition.Fade">
+      <summary>前のスライドをスムーズにフェードします。</summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.BackImageLayout">
+      <summary>背景画像のレイアウトのさまざまなタイプを定義します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.BackImageLayout.Clip">
+      <summary>画像は、コントロールのクライアント矩形の左上に寄せて配置されます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.BackImageLayout.Tile">
+      <summary>画像は、コントロールのクライアント矩形全体に並べて表示されます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.BackImageLayout.Stretch">
+      <summary>画像は、コントロールのクライアント矩形全体に引き伸ばされます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.BackImageLayout.Zoom">
+      <summary>画像は、コントロールのクライアント矩形内で拡大されます。</summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.ForeImageLayout">
+      <summary>前景画像のレイアウトのさまざまなタイプを定義します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ForeImageLayout.Clip">
+      <summary>画像は必要に応じてクリッピングされます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ForeImageLayout.ClipNoPadding">
+      <summary>画像はそのまま表示されてオーナーのパディングを考慮しません。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ForeImageLayout.Stretch">
+      <summary>使用可能な領域に合わせて画像を引き伸ばします。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ForeImageLayout.ScaleInner">
+      <summary>使用可能な領域に合わせて画像を拡大縮小します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ForeImageLayout.ScaleOuter">
+      <summary>使用可能な領域全体に合わせて画像を拡大縮小します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ForeImageLayout.Tile">
+      <summary>使用可能な領域全体に画像をタイル表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ForeImageLayout.TileStretch">
+      <summary>画像を 3x3 行列にタイル表示し、使用可能な領域に合わせて引き伸ばします。</summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.LayoutOrientation">
+      <summary>グループまたは要素を配列するさまざまな方法を定義します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.LayoutOrientation.Horizontal">
+      <summary>グループまたは要素を水平に積み重ねます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.LayoutOrientation.Vertical">
+      <summary>グループまたは要素を垂直に積み重ねます。</summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.ScrollBarStyle">
+      <summary>スクロールバーのスタイルを定義します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ScrollBarStyle.Default">
+      <summary>スクロールバーは Windows 8 のスタート画面と同じスタイルを使用します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ScrollBarStyle.System">
+      <summary>デフォルトのシステムスクロールバーが表示されます。</summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.SymbolSize">
+      <summary>タイルシンボルの使用可能なサイズを列挙します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.SymbolSize.Image16x16">
+      <summary>シンボルのサイズは 16x16（ピクセル）です。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.SymbolSize.Image24x24">
+      <summary>シンボルのサイズは 24x24（ピクセル）です。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.SymbolSize.Image32x32">
+      <summary>シンボルのサイズは 32x32（ピクセル）です。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.SymbolSize.Image40x40">
+      <summary>シンボルのサイズは 40x40（ピクセル）です。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.SymbolSize.Image48x48">
+      <summary>シンボルのサイズは 48x48（ピクセル）です。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.SymbolSize.Image56x56">
+      <summary>シンボルのサイズは 56x56（ピクセル）です。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.SymbolSize.Image64x64">
+      <summary>シンボルのサイズは 64x64（ピクセル）です。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.SymbolSize.Image80x80">
+      <summary>シンボルのサイズは 80x80（ピクセル）です。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.SymbolSize.Image96x96">
+      <summary>シンボルのサイズは 96x96（ピクセル）です。</summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.TileSymbol">
+      <summary>タイルのシンボルを列挙します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Power">
+      <summary>Power シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Previous">
+      <summary>Previous シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Next">
+      <summary>Next シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Play">
+      <summary>Play シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Pause">
+      <summary>Pause シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Stop">
+      <summary>Stop シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Edit">
+      <summary>Edit シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.EditMirrored">
+      <summary>EditMirrored シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Save">
+      <summary>Save シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Delete">
+      <summary>Delete シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Reject">
+      <summary>Reject シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Trash">
+      <summary>Trash シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Add">
+      <summary>Add シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Remove">
+      <summary>Remove シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Cancel">
+      <summary>Cancel シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Accept">
+      <summary>Accept シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.More">
+      <summary>More シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Redo">
+      <summary>Redo シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Undo">
+      <summary>Undo シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Layout">
+      <summary>Layout シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Home">
+      <summary>Home シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Street">
+      <summary>Street シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Unfavorite">
+      <summary>Unfavorite シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Favorite">
+      <summary>Favorite シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.FavoriteStarEmpty">
+      <summary>FavoriteStarEmpty シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.AddToFavorite">
+      <summary>AddToFavorite シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Help">
+      <summary>Help シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.HelpMirrored">
+      <summary>HelpMirrored シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Settings">
+      <summary>Settings シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Keyboard">
+      <summary>Keyboard シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Backspace">
+      <summary>Backspace シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Cut">
+      <summary>Cut シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Copy">
+      <summary>Copy シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Paste">
+      <summary>Paste シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Filter">
+      <summary>Filter シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Find">
+      <summary>Find シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Results">
+      <summary>Results シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ResultsMirrored">
+      <summary>ResultsMirrored シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.HighPriority">
+      <summary>HighPriority シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Mail">
+      <summary>Mail シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Mail2">
+      <summary>Mail2 シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Read">
+      <summary>Read シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ForwardMail">
+      <summary>ForwardMail シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ForwardMailMirrored">
+      <summary>ForwardMailMirrored シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Reply">
+      <summary>Reply シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ReplyMirrored">
+      <summary>ReplyMirrored シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ReplyAll">
+      <summary>ReplyAll シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ReplyAllMirrored">
+      <summary>ReplyAllMirrored シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Link">
+      <summary>Link シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Attach">
+      <summary>Attach シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Accounts">
+      <summary>Accounts シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ShowBcc">
+      <summary>ShowBcc シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Bcc">
+      <summary>Bcc シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Send">
+      <summary>Send シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Retweet">
+      <summary>Retweet シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Post">
+      <summary>Post シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Tools">
+      <summary>Tools シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Timer">
+      <summary>Timer シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Device">
+      <summary>Device シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.DisconnectNetworkDrive">
+      <summary>DisconnectNetworkDrive シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.MapNetworkDrive">
+      <summary>MapNetworkDrive シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.CloseMetadata">
+      <summary>CloseMetadata シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.CloseMetadataMirrored">
+      <summary>CloseMetadataMirrored シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.OpenMetadata">
+      <summary>OpenMetadata シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.OpemMetadataMirrored">
+      <summary>OpemMetadataMirrored シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.OpenInWeb">
+      <summary>OpenInWeb シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.CategoryAZ">
+      <summary>CategoryAZ シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.SaveLocal">
+      <summary>SaveLocal シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ViewNotifications">
+      <summary>ViewNotifications シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ZoomIn">
+      <summary>ZoomIn シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ZoomNeutral">
+      <summary>ZoomNeutral シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ZoomOut">
+      <summary>ZoomOut シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Bookmarks">
+      <summary>Bookmarks シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.BookmarksMirrored">
+      <summary>BookmarksMirrored シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Pdf">
+      <summary>Pdf シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ProtectedPdf">
+      <summary>ProtectedPdf シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Document">
+      <summary>Document シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Page">
+      <summary>Page シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.OpenFile">
+      <summary>OpenFile シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.MoreOptions">
+      <summary>MoreOptions シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.MoreOptionsMirrored">
+      <summary>MoreOptionsMirrored シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.VideoChat">
+      <summary>VideoChat シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.StartChat">
+      <summary>StartChat シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.LeaveConversation">
+      <summary>LeaveConversation シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Comment">
+      <summary>Comment シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Unpin">
+      <summary>Unpin シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Pin">
+      <summary>Pin シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.UnpinFromTaskbar">
+      <summary>UnpinFromTaskbar シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.PinToTaskbar">
+      <summary>PinToTaskbar シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Volume">
+      <summary>Volume シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.VolumeMute">
+      <summary>VolumeMute シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.AlternateAudioTrack">
+      <summary>AlternateAudioTrack シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ViewAllInfo">
+      <summary>ViewAllInfo シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.BrowseByAlbum">
+      <summary>BrowseByAlbum シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.BrowseByAlbumMirrored">
+      <summary>BrowseByAlbumMirrored シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ViewAllAlbums">
+      <summary>ViewAllAlbums シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Caption">
+      <summary>Caption シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Rename">
+      <summary>Rename シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.SetAsLockScreenImage">
+      <summary>SetAsLockScreenImage シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.SetAsTileImage">
+      <summary>SetAsTileImage シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ExpandTile">
+      <summary>ExpandTile シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ExpandTileMirrored">
+      <summary>ExpandTileMirrored シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ReduceTile">
+      <summary>ReduceTile シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ReduceTileMirrored">
+      <summary>ReduceTileMirrored シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Dock">
+      <summary>Dock シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.DockMirrored">
+      <summary>DockMirrored シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.CharmsBar">
+      <summary>CharmsBar シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.CharmsBarMirrored">
+      <summary>CharmsBarMirrored シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.AppBar">
+      <summary>AppBar シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.PreviewLink">
+      <summary>PreviewLink シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.PostUpdate">
+      <summary>PostUpdate シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.DisableUpdates">
+      <summary>DisableUpdates シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Refresh">
+      <summary>Refresh シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Rotate">
+      <summary>Rotate シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.SelectAll">
+      <summary>SelectAll シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.PortraitLandscape">
+      <summary>PortraitLandscape シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ClearSelection">
+      <summary>ClearSelection シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ClearSelectionMirrored">
+      <summary>ClearSelectionMirrored シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Import">
+      <summary>Import シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ImportMirrored">
+      <summary>ImportMirrored シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ImportAllFiles">
+      <summary>ImportAllFiles シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ImportAllFilesMirrored">
+      <summary>ImportAllFilesMirrored シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Files">
+      <summary>Files シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.SingleFile">
+      <summary>SingleFile シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ShowAllFiles">
+      <summary>ShowAllFiles シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Calendar">
+      <summary>Calendar シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Day">
+      <summary>Day シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Week">
+      <summary>Week シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Month">
+      <summary>Month シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.MonthMirrored">
+      <summary>MonthMirrored シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.CalendarReply">
+      <summary>CalendarReply シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.AllApps">
+      <summary>AllApps シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.AllAppsMirrored">
+      <summary>AllAppsMirrored シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Shop">
+      <summary>Shop シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.OpenNewWindows">
+      <summary>OpenNewWindows シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.OpenWith">
+      <summary>OpenWith シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.OpenWithMirrored">
+      <summary>OpenWithMirrored シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.MoveToFolder">
+      <summary>MoveToFolder シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.OpenFileLocation">
+      <summary>OpenFileLocation シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.AddNewFolder">
+      <summary>AddNewFolder シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.UnsyncFolder">
+      <summary>UnsyncFolder シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.SyncFolder">
+      <summary>SyncFolder シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Placeholder">
+      <summary>Placeholder シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.View">
+      <summary>View シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Unlock">
+      <summary>Unlock シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Lock">
+      <summary>Lock シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.MatchOptions">
+      <summary>MatchOptions シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ClosedCaptionJPN">
+      <summary>ClosedCaptionJPN シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ClosedCaptionEuro">
+      <summary>ClosedCaptionEuro シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ClosedCaption">
+      <summary>ClosedCaption シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Highlight">
+      <summary>Highlight シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.AlignRight">
+      <summary>AlignRight シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.AlignCenter">
+      <summary>AlignCenter シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.AlignLeft">
+      <summary>AlignLeft シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.LeftToRight">
+      <summary>LeftToRight シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.RightToLeft">
+      <summary>RightToLeft シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Font">
+      <summary>Font シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.FontColor">
+      <summary>FontColor シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.FontColorKorean">
+      <summary>FontColorKorean シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.FontStyleKorean">
+      <summary>FontStyleKorean シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.FontSizeDecrease">
+      <summary>FontSizeDecrease シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.FontSizeIncrease">
+      <summary>FontSizeIncrease シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.FontSize">
+      <summary>FontSize シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Italic">
+      <summary>Italic シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ItalicGerman">
+      <summary>ItalicGerman シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ItalicItalian">
+      <summary>ItalicItalian シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ItalicKorean">
+      <summary>ItalicKorean シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ItalicRussian">
+      <summary>ItalicRussian シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ItalicSpanish">
+      <summary>ItalicSpanish シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Bold">
+      <summary>Bold シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.BoldGerman">
+      <summary>BoldGerman シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.BoldItalian">
+      <summary>BoldItalian シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.BoldKorean">
+      <summary>BoldKorean シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.BoldRussian">
+      <summary>BoldRussian シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.BoldSpanish">
+      <summary>BoldSpanish シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Underline">
+      <summary>Underline シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.UnderlineGerman">
+      <summary>UnderlineGerman シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.UnderlineItalian">
+      <summary>UnderlineItalian シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.UnderlineKorean">
+      <summary>UnderlineKorean シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.UnderlineRussian">
+      <summary>UnderlineRussian シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Calculator">
+      <summary>Calculator シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.CellPhone">
+      <summary>CellPhone シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Phone">
+      <summary>Phone シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.HangUp">
+      <summary>HangUp シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Voicemail">
+      <summary>Voicemail シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Microphone">
+      <summary>Microphone シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Library">
+      <summary>Library シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.AddressBook">
+      <summary>AddressBook シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.MapAddress">
+      <summary>MapAddress シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Map">
+      <summary>Map シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Direction">
+      <summary>Direction シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.CurrentLocation">
+      <summary>CurrentLocation シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.BackToWindow">
+      <summary>BackToWindow シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.FullScreen">
+      <summary>FullScreen シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ChooseLikeOrDislike">
+      <summary>ChooseLikeOrDislike シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Dislike">
+      <summary>Dislike シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Like">
+      <summary>Like シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Shuffle">
+      <summary>Shuffle シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.RepeatOnce">
+      <summary>RepeatOnce シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Repeat">
+      <summary>Repeat シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Details">
+      <summary>Details シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.DetailsMirrored">
+      <summary>DetailsMirrored シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Tag">
+      <summary>Tag シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Video">
+      <summary>Video シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.TrimVideo">
+      <summary>TrimVideo シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Camera">
+      <summary>Camera シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Crop">
+      <summary>Crop シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.TakeWebcamPicture">
+      <summary>TakeWebcamPicture シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.UsbCamera">
+      <summary>UsbCamera シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.RotateCamera">
+      <summary>RotateCamera シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.BrowsePhotos">
+      <summary>BrowsePhotos シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.PictureLibrary">
+      <summary>PictureLibrary シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Slideshow">
+      <summary>Slideshow シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.AutoplayStop">
+      <summary>AutoplayStop シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.LightOff">
+      <summary>LightOff シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.LightOn">
+      <summary>LightOn シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ReportHacked">
+      <summary>ReportHacked シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Permissions">
+      <summary>Permissions シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.RunAsOtherUser">
+      <summary>RunAsOtherUser シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.RunAsAdmin">
+      <summary>RunAsAdmin シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.RunAsService">
+      <summary>RunAsService シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.SwitchApps">
+      <summary>SwitchApps シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.TouchPointer">
+      <summary>TouchPointer シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.GoToStart">
+      <summary>GoToStart シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Tiles">
+      <summary>Tiles シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ZeroBars">
+      <summary>ZeroBars シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.OneBar">
+      <summary>OneBar シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.TwoBars">
+      <summary>TwoBars シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ThreeBars">
+      <summary>ThreeBars シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.FourBars">
+      <summary>FourBars シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Digit0">
+      <summary>Digit0 シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Digit1">
+      <summary>Digit1 シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Digit2">
+      <summary>Digit2 シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Digit3">
+      <summary>Digit3 シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Digit4">
+      <summary>Digit4 シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Digit5">
+      <summary>Digit5 シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Digit6">
+      <summary>Digit6 シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Digit7">
+      <summary>Digit7 シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Digit8">
+      <summary>Digit8 シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Digit9">
+      <summary>Digit9 シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.OutlinedHeart">
+      <summary>OutlinedHeart シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.BrokenHeart">
+      <summary>BrokenHeart シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.SolidHeart">
+      <summary>SolidHeart シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.OutlinedStar">
+      <summary>OutlinedStar シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.SolidStar">
+      <summary>SolidStar シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.SBArrowLeft">
+      <summary>SBArrowLeft シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.SBArrowRight">
+      <summary>SBArrowRight シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.SBArrowUp">
+      <summary>SBArrowUp シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.SBArrowDown">
+      <summary>SBArrowDown シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.DisclosureLeft">
+      <summary>DisclosureLeft シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.DisclosureRight">
+      <summary>DisclosureRight シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.DisclosureUp">
+      <summary>DisclosureUp シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.DisclosureDown">
+      <summary>DisclosureDown シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.DisclosureLeft2">
+      <summary>DisclosureLeft2 シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.DisclosureRight2">
+      <summary>DisclosureRight2 シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.DisclosureUp2">
+      <summary>DisclosureUp2 シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.DisclosureDown2">
+      <summary>DisclosureDown2 シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.RemoteDesktopHome">
+      <summary>RemoteDesktopHome シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.MoreDetails">
+      <summary>MoreDetails シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.LessDetails">
+      <summary>LessDetails シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.RemoveSplit">
+      <summary>RemoveSplit シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.SplitHorizontally">
+      <summary>SplitHorizontally シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.SplitVertically">
+      <summary>SplitVertically シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Accessibility">
+      <summary>Accessibility シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.HorizontalDots">
+      <summary>HorizontalDots シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.VerticalDots">
+      <summary>VerticalDots シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.CircleWithSmile">
+      <summary>CircleWithSmile シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.CircleWithBalloon">
+      <summary>CircleWithBalloon シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.CircleWithFood">
+      <summary>CircleWithFood シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.CircleWithWeather">
+      <summary>CircleWithWeather シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.CircleWithPlane">
+      <summary>CircleWithPlane シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.CircleWithHelpDesk">
+      <summary>CircleWithHelpDesk シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.CircleWithChat">
+      <summary>CircleWithChat シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Sync">
+      <summary>Sync シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Sort">
+      <summary>Sort シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Switch">
+      <summary>Switch シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Options">
+      <summary>Options シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Download">
+      <summary>Download シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Upload">
+      <summary>Upload シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Go">
+      <summary>Go シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.GoMirrored">
+      <summary>GoMirrored シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Up">
+      <summary>Up シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Backward">
+      <summary>Backward シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Forward">
+      <summary>Forward シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Shift">
+      <summary>Shift シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Left">
+      <summary>Left シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Right">
+      <summary>Right シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Enter">
+      <summary>Enter シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.BlockContact">
+      <summary>BlockContact シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.AddContact">
+      <summary>AddContact シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Status">
+      <summary>Status シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Presence">
+      <summary>Presence シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.People">
+      <summary>People シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.ContactInfo">
+      <summary>ContactInfo シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.NavigateBackward">
+      <summary>NavigateBackward シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.NavigateForward">
+      <summary>NavigateForward シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.FilledBackward">
+      <summary>FilledBackward シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.FilledForward">
+      <summary>FilledForward シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Circle">
+      <summary>Circle シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.FilledCircle">
+      <summary>FilledCircle シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.CircleWithPlus">
+      <summary>CircleWithPlus シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.CircleWithMinus">
+      <summary>CircleWithMinus シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.CircleWithMultiply">
+      <summary>CircleWithMultiply シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.FilledPlus">
+      <summary>FilledPlus シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.FilledMinus">
+      <summary>FilledMinus シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.FilledMultiply">
+      <summary>FilledMultiply シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.CheckBox">
+      <summary>CheckBox シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.CheckFill">
+      <summary>CheckFill シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.CheckComposite">
+      <summary>CheckComposite シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.CheckReversed">
+      <summary>CheckReversed シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Emoticon">
+      <summary>Emoticon シンボルを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileSymbol.Emoji2">
+      <summary>Emoji2 シンボルを表示します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.ThreeStateBoolean">
+      <summary>
+        値がここで格納されないことを示す状態を
+        追加したブール型を定義します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ThreeStateBoolean.Default">
+      <summary>値を明示的に指定しません。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ThreeStateBoolean.True">
+      <summary>ブール値の true に相当します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ThreeStateBoolean.False">
+      <summary>ブール値の true に相当します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.TextTrimming">
+      <summary>使用可能なスペースに収まらない文字をトリミングする方法を定義します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TextTrimming.None">
+      <summary>トリムなしを指定します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TextTrimming.EndEllipsis">
+      <summary>テキストが最も近い文字にトリムされ、トリムされた行の末尾に省略記号が挿入されるよう指定します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TextTrimming.WordEllipsis">
+      <summary>表示可能な最後の単語でテキストをトリムし、トリムされた行の最後に省略符号を挿入するように指定します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TextTrimming.PathEllipsis">
+      <summary>トリムされた行から中央部分を削除して、省略符号で置き換えます。</summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.BackColorSelector">
+      <summary>
+        テンプレート要素の背景色にバインドされる
+        <see cref="T:C1.Win.C1Tile.Tile" /> オブジェクトのプロパティを定義します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.BackColorSelector.Default">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> のデフォルトの背景色にバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.BackColorSelector.Unbound">
+      <summary>テンプレートで定義されている背景色を表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.BackColorSelector.BackColor1">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> の最初の追加背景色にバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.BackColorSelector.BackColor2">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> の２番目の追加背景色にバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.BackColorSelector.BackColor3">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> の３番目の追加背景色にバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.BackColorSelector.BackColor4">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> の４番目の追加背景色にバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.BackColorSelector.BackColor5">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> の５番目の追加背景色にバインドします。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.ForeColorSelector">
+      <summary>
+        テンプレート要素の前景色にバインドされる
+        <see cref="T:C1.Win.C1Tile.Tile" /> オブジェクトのプロパティを定義します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ForeColorSelector.Default">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> のデフォルトの前景色にバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ForeColorSelector.Unbound">
+      <summary>テンプレートで定義されている前景色を表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ForeColorSelector.ForeColor1">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> の最初の追加前景色にバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ForeColorSelector.ForeColor2">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> の２番目の追加前景色にバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ForeColorSelector.ForeColor3">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> の３番目の追加前景色にバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ForeColorSelector.ForeColor4">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> の４番目の追加前景色にバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ForeColorSelector.ForeColor5">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> の５番目の追加前景色にバインドします。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.ImageSelector">
+      <summary>
+        テンプレート要素の画像にバインドされる
+        <see cref="T:C1.Win.C1Tile.Tile" /> オブジェクトのプロパティを定義します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ImageSelector.Default">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> のデフォルトの画像にバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ImageSelector.Unbound">
+      <summary>テンプレートで定義されている固定画像またはその画像の一部を表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ImageSelector.Symbol">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> で定義されているシンボルにバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ImageSelector.UnboundSymbol">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.ImageElement" /> で指定されているシンボルを表示します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ImageSelector.ImageOrSymbol">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> のデフォルトの画像にバインドします。画像が指定されていない場合は、<see cref="P:C1.Win.C1Tile.Tile.Symbol" /> プロパティにバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ImageSelector.Number">
+      <summary>「バッジ番号」画像にバインドします（行インデックスは０から 100 まで）。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ImageSelector.Stars">
+      <summary>「５スター」画像にバインドします（行インデックスは０から 10 まで）。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ImageSelector.CommonImage1">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.C1TileControl" /> オブジェクト内の最初の一般画像にバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ImageSelector.CommonImage2">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.C1TileControl" /> オブジェクト内の２番目の一般画像にバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ImageSelector.CommonImage3">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.C1TileControl" /> オブジェクト内の３番目の一般画像にバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ImageSelector.Image1">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> の最初の追加画像にバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ImageSelector.Image2">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> の２番目の追加画像にバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ImageSelector.Image3">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> の３番目の追加画像にバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ImageSelector.Image4">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> の４番目の追加画像にバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.ImageSelector.Image5">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> の５番目の追加画像にバインドします。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.IntValueSelector">
+      <summary>
+        テンプレート要素内の整数値にバインドされる
+        <see cref="T:C1.Win.C1Tile.Tile" /> オブジェクトのプロパティを定義します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.IntValueSelector.Default">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.IntValue" /> プロパティに格納されている整数値にバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.IntValueSelector.Unbound">
+      <summary>テンプレート独自の値を使用します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.IntValueSelector.IntValue1">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.IntValue1" /> プロパティに格納されている整数値にバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.IntValueSelector.IntValue2">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.IntValue2" /> プロパティに格納されている整数値にバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.IntValueSelector.IntValue3">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.IntValue3" /> プロパティに格納されている整数値にバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.IntValueSelector.IntValue4">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.IntValue4" /> プロパティに格納されている整数値にバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.IntValueSelector.IntValue5">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.IntValue5" /> プロパティに格納されている整数値にバインドします。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.TileProperty">
+      <summary>データマッピングのターゲットプロパティを指定します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.None">
+      <summary>プロパティが参照されないことを示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.Tag">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.Tag" /> プロパティを参照します（主キーを Tag にマップする必要があります）。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.Template">
+      <summary>
+        （Templates コレクション内のオブジェクト、テンプレート名、またはインデックスとしてマップされた）<see cref="P:C1.Win.C1Tile.Tile.Template" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.Group">
+      <summary>
+        （オブジェクトまたはグループテキストとしてマップされた）<see cref="P:C1.Win.C1Tile.Tile.Group" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.Text">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.Text" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.ToolTipText">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.ToolTipText" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.ShowSlides">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.ShowSlides" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.Visible">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.Visible" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.HorizontalSize">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.HorizontalSize" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.VerticalSize">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.VerticalSize" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.LeftCell">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.LeftCell" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.TopCell">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.TopCell" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.BackColor">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.BackColor" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.ForeColor">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.ForeColor" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.Image">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.Image" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.ImageKey">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.ImageKey" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.ImageIndex">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.ImageIndex" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.Symbol">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.Symbol" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.IntValue">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.IntValue" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.BackColor1">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.BackColor1" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.BackColor2">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.BackColor2" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.BackColor3">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.BackColor3" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.BackColor4">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.BackColor4" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.BackColor5">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.BackColor5" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.ForeColor1">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.ForeColor1" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.ForeColor2">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.ForeColor2" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.ForeColor3">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.ForeColor3" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.ForeColor4">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.ForeColor4" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.ForeColor5">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.ForeColor5" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.Image1">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.Image1" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.Image2">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.Image2" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.Image3">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.Image3" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.Image4">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.Image4" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.Image5">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.Image5" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.IntValue1">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.IntValue1" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.IntValue2">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.IntValue2" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.IntValue3">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.IntValue3" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.IntValue4">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.IntValue4" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.IntValue5">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.IntValue5" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.Text1">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.Text1" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.Text2">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.Text2" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.Text3">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.Text3" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.Text4">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.Text4" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.Text5">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.Text5" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.Text6">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.Text6" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.Text7">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.Text7" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.Text8">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.Text8" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.Text9">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.Text9" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.AccessibleDefaultActionDescription">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.AccessibleDefaultActionDescription" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.AccessibleDescription">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.AccessibleDescription" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.AccessibleName">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.AccessibleName" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TileProperty.AccessibleRole">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.AccessibleRole" /> プロパティを参照します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.TextSelector">
+      <summary>
+        テンプレート要素のテキストにバインドされる
+        <see cref="T:C1.Win.C1Tile.Tile" /> オブジェクトのプロパティを定義します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TextSelector.Default">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> のデフォルトのテキスト文字列にバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TextSelector.Unbound">
+      <summary>テンプレートで定義されている固定テキスト文字列を表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TextSelector.Text1">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> の最初の追加テキスト文字列にバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TextSelector.Text2">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> の２番目の追加テキスト文字列にバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TextSelector.Text3">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> の３番目の追加テキスト文字列にバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TextSelector.Text4">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> の４番目の追加テキスト文字列にバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TextSelector.Text5">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> の５番目の追加テキスト文字列にバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TextSelector.Text6">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> の６番目の追加テキスト文字列にバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TextSelector.Text7">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> の７番目の追加テキスト文字列にバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TextSelector.Text8">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> の８番目の追加テキスト文字列にバインドします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Tile.TextSelector.Text9">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> の９番目の追加テキスト文字列にバインドします。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.CompareGroupsEventArgs">
+      <summary>
+        <see cref="E:C1.Win.C1Tile.C1TileControl.CompareGroups" /> イベントにイベントデータを提供します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.CompareGroupsEventArgs.#ctor">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.CompareGroupsEventArgs" /> の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.CompareGroupsEventArgs.Group1">
+      <summary>比較する最初のグループを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.CompareGroupsEventArgs.Group2">
+      <summary>比較する２番目のグループを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.CompareGroupsEventArgs.Result">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.CompareGroupsEventArgs.Group1" /> と <see cref="P:C1.Win.C1Tile.CompareGroupsEventArgs.Group2" /> の相対値を示す符号付き整数を取得または設定します。値は、０未満（Group1 が Group2 より小さい場合）、０（Group1 と Group2 が等しい場合）、０より大きい（Group1 が Group2 より大きい場合）のいずれかです。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.CompareTilesEventArgs">
+      <summary>
+        <see cref="E:C1.Win.C1Tile.C1TileControl.CompareTiles" /> イベントにイベントデータを提供します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.CompareTilesEventArgs.#ctor">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.CompareTilesEventArgs" /> の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.CompareTilesEventArgs.Tile1">
+      <summary>比較する最初のタイルを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.CompareTilesEventArgs.Tile2">
+      <summary>比較する２番目のタイルを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.CompareTilesEventArgs.Result">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.CompareTilesEventArgs.Tile1" /> と <see cref="P:C1.Win.C1Tile.CompareTilesEventArgs.Tile2" /> の相対値を示す符号付き整数を取得または設定します。値は、０未満（Tile1 が Tile2 より小さい場合）、０（Tile1 と Tile2 が等しい場合）、０より大きい（Tile1 が Tile2 より大きい場合）のいずれかです。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.FilterItemEventArgs">
+      <summary>
+        <see cref="E:C1.Win.C1Tile.C1TileControl.FilterItem" /> イベントにイベントデータを提供します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.FilterItemEventArgs.#ctor">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.FilterItemEventArgs" /> の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.FilterItemEventArgs.Item">
+      <summary>考慮中のデータ項目を取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.FilterItemEventArgs.Skip">
+      <summary>項目をスキップするかどうかを示す値を取得または設定します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.FormatValueEventArgs">
+      <summary>
+        <see cref="E:C1.Win.C1Tile.C1TileControl.FormatValue" /> イベントにイベントデータを提供します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.FormatValueEventArgs.#ctor(C1.Win.C1Tile.PropertyMapping)">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.FormatValueEventArgs" /> の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.FormatValueEventArgs.Mapping">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.PropertyMapping" /> オブジェクトを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.FormatValueEventArgs.TileProperty">
+      <summary>
+        マッピングの対象である <see cref="T:C1.Win.C1Tile.Tile" /> オブジェクトのプロパティを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.FormatValueEventArgs.DestinationType">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.FormatValueEventArgs.Value" /> プロパティのターゲットの型を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.FormatValueEventArgs.Item">
+      <summary>考慮中のデータ項目を取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.FormatValueEventArgs.Value">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> オブジェクトのプロパティに割り当てられる値を取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.TemplatePaintEventHandler">
+      <summary>
+        <see cref="E:C1.Win.C1Tile.Template.Paint" /> イベントを処理するデリゲートを表します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.TemplatePaintEventArgs">
+      <summary>
+        <see cref="E:C1.Win.C1Tile.Template.Paint" /> イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.TemplatePaintEventArgs.#ctor(System.Drawing.Graphics,System.Drawing.Rectangle,C1.Win.C1Tile.Tile)">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.TemplatePaintEventArgs" /> の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.TemplatePaintEventArgs.#ctor(System.Drawing.Graphics,System.Drawing.Rectangle,C1.Win.C1Tile.Tile,C1.Win.C1Tile.Slide)">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.TemplatePaintEventArgs" /> の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.TemplatePaintEventArgs.Tile">
+      <summary>
+        テンプレートのデータを提供する <see cref="P:C1.Win.C1Tile.TemplatePaintEventArgs.Tile" /> オブジェクトを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.TemplatePaintEventArgs.Slide">
+      <summary>
+        現在描画されている <see cref="P:C1.Win.C1Tile.TemplatePaintEventArgs.Slide" /> オブジェクトを取得します。メインテンプレートの場合は null です。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.TileEventArgs">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.C1TileControl" /> イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.TileEventArgs.#ctor(C1.Win.C1Tile.Tile)">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.TileEventArgs" /> の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.TileEventArgs.Tile">
+      <summary>
+        このイベントの影響を受ける <see cref="P:C1.Win.C1Tile.TileEventArgs.Tile" /> オブジェクトを取得します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.ITileControlDesigner">
+      <summary>これはインフラストラクチャインタフェースです。直接使用しないでください。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.ITileControlDesigner.ShowSmartTag">
+      <summary>これはインフラストラクチャメソッドです。直接使用しないでください。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.ITileControlDesigner.SelectComponent(System.ComponentModel.Component)">
+      <summary>これはインフラストラクチャメソッドです。直接使用しないでください。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.ITileControlDesigner.ShowContextMenu">
+      <summary>これはインフラストラクチャメソッドです。直接使用しないでください。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.ITileControlDesigner.DoDefaultAction(C1.Win.C1Tile.Tile)">
+      <summary>これはインフラストラクチャメソッドです。直接使用しないでください。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.ITileControlDesigner.ActiveTile">
+      <summary>これはインフラストラクチャプロパティです。直接使用しないでください。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.ITileControlDesigner.ActiveGroup">
+      <summary>これはインフラストラクチャプロパティです。直接使用しないでください。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.ITileControlDesigner.CanShowSmartTag">
+      <summary>これはインフラストラクチャプロパティです。直接使用しないでください。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.ITileControlDesigner.ChangeService">
+      <summary>これはインフラストラクチャプロパティです。直接使用しないでください。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.ITileControlDesigner.DesignerHost">
+      <summary>これはインフラストラクチャプロパティです。直接使用しないでください。</summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.CommonImage">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.ImageElement" /> から参照できる
+        画像または画像セットを表します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.CommonImage.#ctor(C1.Win.C1Tile.C1TileControl)">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.CommonImage" /> の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.CommonImage.Dispose">
+      <summary>使用されているすべてのリソースをクリーンアップします。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.CommonImage.Image">
+      <summary>画像を取得または設定します。複数の行および／または列で構成できます。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.CommonImage.ImageRows">
+      <summary>複合画像内の行数を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.CommonImage.ImageColumns">
+      <summary>複合画像内の列数を取得または設定します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.MappingLookup">
+      <summary>外部キー値を別のデータテーブルの意味のある値にマップします。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.MappingLookup.DataSource">
+      <summary>ルックアップ対象のデータソースオブジェクトを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.MappingLookup.ValueMember">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.PropertyMapping.DataField" /> の外部キーと一致する値（主キー）のソースとして使用するフィールドを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.MappingLookup.DisplayMember">
+      <summary>意味のある値のソースとして使用するフィールドを取得または設定します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.PropertyMapping">
+      <summary>
+        データソースの項目のプロパティと、それに対応する <see cref="T:C1.Win.C1Tile.Tile" /> コンポーネントのプロパティを関連付けます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.PropertyMapping.#ctor">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.PropertyMapping" /> の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.PropertyMapping.CloneMapping">
+      <summary>
+        現在の <see cref="T:C1.Win.C1Tile.PropertyMapping" /> のコピーを作成します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.PropertyMapping.Clone">
+      <summary>
+        現在のインスタンスのコピーである新しい <see cref="T:C1.Win.C1Tile.PropertyMapping" /> を作成します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.PropertyMapping.ShouldSerializeLookup">
+      <summary>これは内部使用専用です。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.PropertyMapping.TileControl">
+      <summary>
+        オーナー <see cref="T:C1.Win.C1Tile.C1TileControl" /> を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.PropertyMapping.Comment">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.PropertyMapping" /> オブジェクトのコメントを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.PropertyMapping.DataField">
+      <summary>タイルプロパティにマップされるデータソースのフィールドを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.PropertyMapping.Lookup">
+      <summary>ルックアッププロパティをカプセル化します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.PropertyMapping.TileProperty">
+      <summary>
+        マッピングの対象である <see cref="T:C1.Win.C1Tile.Tile" /> オブジェクトのプロパティを取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.ElementCollection">
+      <summary>テンプレート要素のコレクションを表します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.ElementCollection.Clear(System.Boolean)">
+      <summary>すべての要素をコレクションから削除した後、それらの要素を破棄します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.ElementCollection.InsertItem(System.Int32,C1.Win.C1Tile.BaseElement)">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.BaseElement" /> を <see cref="T:C1.Win.C1Tile.ElementCollection" /> 内の指定したインデックス位置に挿入します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.ElementCollection.SetItem(System.Int32,C1.Win.C1Tile.BaseElement)">
+      <summary>
+        指定したインデックス位置の <see cref="T:C1.Win.C1Tile.BaseElement" /> を置き換えます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.ElementCollection.RemoveItem(System.Int32)">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.ElementCollection" /> 内の指定したインデックス位置の項目を削除します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.ElementCollection.ClearItems">
+      <summary>
+        すべての項目を <see cref="T:C1.Win.C1Tile.ElementCollection" /> から削除します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.GroupCollection">
+      <summary>グループのコレクションを表します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.GroupCollection.Contains(System.String)">
+      <summary>
+        指定された名前を持つ <see cref="T:C1.Win.C1Tile.Group" /> がこのコレクションに含まれているかどうかを判定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.GroupCollection.IndexOf(System.String)">
+      <summary>
+        指定された名前を持つ <see cref="T:C1.Win.C1Tile.Group" /> のコレクション内のインデックスを決定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.GroupCollection.Remove(System.String)">
+      <summary>
+        指定された名前を持つ最初に見つかった <see cref="T:C1.Win.C1Tile.Group" /> をコレクションから削除します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.GroupCollection.Clear(System.Boolean)">
+      <summary>すべてのグループをコレクションから削除して、それらのグループを廃棄します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.GroupCollection.InsertItem(System.Int32,C1.Win.C1Tile.Group)">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Group" /> を <see cref="T:C1.Win.C1Tile.GroupCollection" /> 内の指定したインデックス位置に挿入します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.GroupCollection.SetItem(System.Int32,C1.Win.C1Tile.Group)">
+      <summary>
+        指定したインデックス位置の <see cref="T:C1.Win.C1Tile.Group" /> を置き換えます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.GroupCollection.RemoveItem(System.Int32)">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.GroupCollection" /> 内の指定したインデックス位置の項目を削除します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.GroupCollection.ClearItems">
+      <summary>
+        すべての項目を <see cref="T:C1.Win.C1Tile.GroupCollection" /> から削除します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.GroupCollection.Item(System.String)">
+      <summary>
+        コレクション内で指定された名前を持つ最初の <see cref="T:C1.Win.C1Tile.Group" /> を取得します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.MappingCollection">
+      <summary>データマッピングオブジェクトのコレクションを表します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.MappingCollection.Contains(C1.Win.C1Tile.TileProperty)">
+      <summary>
+        指定されたタイルプロパティを持つ <see cref="T:C1.Win.C1Tile.PropertyMapping" /> がこのコレクションに含まれているかどうかを判定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.MappingCollection.IndexOf(C1.Win.C1Tile.TileProperty)">
+      <summary>
+        指定されたタイルプロパティの最初の <see cref="T:C1.Win.C1Tile.PropertyMapping" /> のインデックスを決定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.MappingCollection.Remove(C1.Win.C1Tile.TileProperty)">
+      <summary>
+        指定されたタイルプロパティを持つ最初に見つかった <see cref="T:C1.Win.C1Tile.PropertyMapping" /> をコレクションから削除します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.MappingCollection.InsertItem(System.Int32,C1.Win.C1Tile.PropertyMapping)">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.MappingCollection" /> の指定されたインデックスに <see cref="T:C1.Win.C1Tile.PropertyMapping" /> を挿入します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.MappingCollection.SetItem(System.Int32,C1.Win.C1Tile.PropertyMapping)">
+      <summary>
+        指定されたインデックスにある <see cref="T:C1.Win.C1Tile.PropertyMapping" /> を置き換えます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.MappingCollection.Item(C1.Win.C1Tile.TileProperty)">
+      <summary>
+        指定されたタイルプロパティの最初の <see cref="T:C1.Win.C1Tile.PropertyMapping" /> を取得します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.SlideCollection">
+      <summary>テンプレートスライドのコレクションを表します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.SlideCollection.Clear(System.Boolean)">
+      <summary>コレクションからすべてのスライドを削除し、それらのスライドを破棄します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.SlideCollection.InsertItem(System.Int32,C1.Win.C1Tile.Slide)">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.SlideCollection" /> の指定されたインデックスに <see cref="T:C1.Win.C1Tile.Slide" /> を挿入します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.SlideCollection.SetItem(System.Int32,C1.Win.C1Tile.Slide)">
+      <summary>
+        指定されたインデックスにある <see cref="T:C1.Win.C1Tile.Slide" /> を置き換えます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.SlideCollection.RemoveItem(System.Int32)">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.SlideCollection" /> の指定されたインデックスにある項目を削除します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.SlideCollection.ClearItems">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.SlideCollection" /> からすべての項目を削除します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.TemplateCollection">
+      <summary>タイルテンプレートのコレクションを表します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.TemplateCollection.Contains(System.String)">
+      <summary>
+        指定された名前を持つ <see cref="T:C1.Win.C1Tile.Template" /> がこのコレクションに含まれているかどうかを判定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.TemplateCollection.IndexOf(System.String)">
+      <summary>
+        指定された名前を持つ <see cref="T:C1.Win.C1Tile.Template" /> のコレクション内のインデックスを決定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.TemplateCollection.Remove(System.String)">
+      <summary>
+        指定された名前を持つ最初に見つかった <see cref="T:C1.Win.C1Tile.Template" /> をコレクションから削除します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.TemplateCollection.Clear(System.Boolean)">
+      <summary>すべてのテンプレートをコレクションから削除した後、それらのテンプレートを破棄します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.TemplateCollection.InsertItem(System.Int32,C1.Win.C1Tile.Template)">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Template" /> を <see cref="T:C1.Win.C1Tile.TemplateCollection" /> 内の指定したインデックス位置に挿入します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.TemplateCollection.SetItem(System.Int32,C1.Win.C1Tile.Template)">
+      <summary>
+        指定したインデックス位置の <see cref="T:C1.Win.C1Tile.Template" /> を置き換えます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.TemplateCollection.Item(System.String)">
+      <summary>
+        コレクション内で指定された名前を持つ最初の <see cref="T:C1.Win.C1Tile.Template" /> を取得します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.TileCollection">
+      <summary>タイルのコレクションを表します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.TileCollection.Contains(System.String)">
+      <summary>
+        指定された名前を持つ <see cref="T:C1.Win.C1Tile.Tile" /> がこのコレクションに含まれているかどうかを判定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.TileCollection.IndexOf(System.String)">
+      <summary>
+        指定された名前を持つ <see cref="T:C1.Win.C1Tile.Tile" /> のコレクション内のインデックスを決定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.TileCollection.Remove(System.String)">
+      <summary>
+        指定された名前を持つ最初に見つかった <see cref="T:C1.Win.C1Tile.Tile" /> をコレクションから削除します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.TileCollection.Clear(System.Boolean)">
+      <summary>すべてのタイルをコレクションから削除した後、それらのタイルを破棄します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.TileCollection.InsertItem(System.Int32,C1.Win.C1Tile.Tile)">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> を <see cref="T:C1.Win.C1Tile.TileCollection" /> 内の指定したインデックス位置に挿入します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.TileCollection.SetItem(System.Int32,C1.Win.C1Tile.Tile)">
+      <summary>
+        指定したインデックス位置の <see cref="T:C1.Win.C1Tile.Tile" /> を置き換えます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.TileCollection.RemoveItem(System.Int32)">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.TileCollection" /> 内の指定したインデックス位置の項目を削除します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.TileCollection.ClearItems">
+      <summary>
+        すべての項目を <see cref="T:C1.Win.C1Tile.TileCollection" /> から削除します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.TileCollection.Item(System.String)">
+      <summary>
+        コレクション内で指定された名前を持つ最初の <see cref="T:C1.Win.C1Tile.Tile" /> を取得します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.BaseElement">
+      <summary>すべてのテンプレート要素の基本クラス。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.BaseElement.Dispose(System.Boolean)">
+      <summary>使用されているすべてのリソースをクリーンアップします。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.BaseElement.Dispose">
+      <summary>使用されているすべてのリソースをクリーンアップします。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.BaseElement.CreateInstance">
+      <summary>要素のコピーのインスタンスを作成します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.BaseElement.CopySettingsFrom(C1.Win.C1Tile.BaseElement)">
+      <summary>設定を特定の要素からコピーします。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.BaseElement.Clone">
+      <summary>
+        現在のインスタンスのコピーである新しい <see cref="T:C1.Win.C1Tile.BaseElement" /> を作成します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.BaseElement.ResetMargin">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.BaseElement.Margin" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.BaseElement.Description">
+      <summary>この要素の説明を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.BaseElement.Margin">
+      <summary>要素の外部スペースを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.BaseElement.Alignment">
+      <summary>親の境界内の要素の配置を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.BaseElement.AlignmentOfContents">
+      <summary>要素内のコンテンツの配置を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.BaseElement.FixedWidth">
+      <summary>適切な場合は、コンテンツの固定の幅を取得または設定します。０に設定した場合、幅を動的に計算します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.BaseElement.FixedHeight">
+      <summary>適切な場合は、コンテンツの固定の高さを取得または設定します。０に設定した場合、高さを動的に計算します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.ImageElement">
+      <summary>画像を描画する要素。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.ImageElement.#ctor">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.ImageElement" /> の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.ImageElement.Dispose(System.Boolean)">
+      <summary>使用されているすべてのリソースをクリーンアップします。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.ImageElement.CreateInstance">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.ImageElement" /> 要素のコピーのインスタンスを作成します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.ImageElement.CopySettingsFrom(C1.Win.C1Tile.BaseElement)">
+      <summary>設定を特定の要素からコピーします。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.ImageElement.ResetForeColor">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.ImageElement.ForeColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.ImageElement.Image">
+      <summary>
+        非バインドモードで表示する画像を取得または設定します。
+        複数の部分で構成できます。複合画像の一部分のみを同時に表示できます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.ImageElement.Symbol">
+      <summary>「UnboundSymbol」モードで表示するシンボルを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.ImageElement.ImageSelector">
+      <summary>
+        この要素によって描画される画像のソースとして動作する <see cref="T:C1.Win.C1Tile.Tile" /> オブジェクトの
+        プロパティを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.ImageElement.ImageLayout">
+      <summary>画像レイアウトのタイプを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.ImageElement.ImageRows">
+      <summary>複合画像内の行数を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.ImageElement.ImageColumns">
+      <summary>複合画像内の列数を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.ImageElement.RowIndex">
+      <summary>複合画像内の行のインデックスを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.ImageElement.RowIndexSelector">
+      <summary>
+        複合画像内で行インデックスのソースとして動作する <see cref="T:C1.Win.C1Tile.Tile" /> オブジェクトの
+        プロパティを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.ImageElement.ColumnIndex">
+      <summary>複合画像内の列のインデックスを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.ImageElement.ColumnIndexSelector">
+      <summary>
+        複合画像内で列インデックスのソースとして動作する <see cref="T:C1.Win.C1Tile.Tile" /> オブジェクトの
+        プロパティを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.ImageElement.ForeColor">
+      <summary>シンボル、数字、および星の前景色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.ImageElement.ForeColorSelector">
+      <summary>
+        この要素の前景色のソースとして動作する <see cref="T:C1.Win.C1Tile.Tile" /> オブジェクトの
+        プロパティを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.ImageElement.SymbolSize">
+      <summary>シンボルのサイズを指定する値を取得または設定します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.PanelElement">
+      <summary>他の要素を含むパネル要素。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.PanelElement.#ctor">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.PanelElement" /> の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.PanelElement.Dispose(System.Boolean)">
+      <summary>使用されているすべてのリソースをクリーンアップします。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.PanelElement.CreateInstance">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.PanelElement" /> 要素のコピーのインスタンスを作成します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.PanelElement.CopySettingsFrom(C1.Win.C1Tile.BaseElement)">
+      <summary>設定を特定の要素からコピーします。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.PanelElement.ResetBackColor">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.PanelElement.BackColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.PanelElement.ResetPadding">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.PanelElement.Padding" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.PanelElement.Visible">
+      <summary>パネル要素を表示するかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.PanelElement.VisibleSelector">
+      <summary>
+        パネル要素の表示／非表示を決定するために確認される
+        <see cref="T:C1.Win.C1Tile.Tile" /> オブジェクトの
+        整数プロパティを示す値を取得または設定します（プロパティ値がゼロに等しくない場合）。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.PanelElement.Children">
+      <summary>
+        この <see cref="T:C1.Win.C1Tile.PanelElement" /> に含まれる子の要素のコレクションを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.PanelElement.Orientation">
+      <summary>子の要素を水平または垂直に配列するかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.PanelElement.ChildSpacing">
+      <summary>子の要素間の間隔を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.PanelElement.BackColor">
+      <summary>パネル要素の背景色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.PanelElement.BackColorSelector">
+      <summary>
+        この要素の背景色のソースとして動作する <see cref="T:C1.Win.C1Tile.Tile" /> オブジェクトの
+        プロパティを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.PanelElement.Padding">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.PanelElement" /> の内部スペースを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.PanelElement.Dock">
+      <summary>親の要素にドッキングさせるパネルの枠線を取得または設定します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.TextElement">
+      <summary>テキストを描画する要素。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.TextElement.#ctor">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.TextElement" /> の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.TextElement.Dispose(System.Boolean)">
+      <summary>使用されているすべてのリソースをクリーンアップします。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.TextElement.CreateInstance">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.TextElement" /> 要素のコピーのインスタンスを作成します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.TextElement.CopySettingsFrom(C1.Win.C1Tile.BaseElement)">
+      <summary>設定を特定の要素からコピーします。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.TextElement.ResetForeColor">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.TextElement.ForeColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.TextElement.ResetBackColor">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.TextElement.BackColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.TextElement.Text">
+      <summary>非バインドモードで表示するテキストを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.TextElement.TextSelector">
+      <summary>
+        この要素によって表示されるテキストのソースとして動作する <see cref="T:C1.Win.C1Tile.Tile" /> オブジェクトの
+        プロパティを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.TextElement.ForeColor">
+      <summary>テキスト要素の前景色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.TextElement.ForeColorSelector">
+      <summary>
+        この要素の前景色のソースとして動作する <see cref="T:C1.Win.C1Tile.Tile" /> オブジェクトの
+        プロパティを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.TextElement.BackColor">
+      <summary>テキストの背景色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.TextElement.BackColorSelector">
+      <summary>
+        この要素の背景色のソースとして動作する <see cref="T:C1.Win.C1Tile.Tile" /> オブジェクトの
+        プロパティを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.TextElement.Font">
+      <summary>テキスト要素のフォントを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.TextElement.FontSize">
+      <summary>テキスト要素のフォントサイズを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.TextElement.FontBold">
+      <summary>要素が太字のテキストを表示するかどうかを示す値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.TextElement.FontItalic">
+      <summary>要素が斜体のテキストを表示するかどうかを示す値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.TextElement.FontUnderline">
+      <summary>要素が下線付きのテキストを表示するかどうかを示す値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.TextElement.FontStrikeout">
+      <summary>要素が中央を横切る線を引いたテキストを表示するかどうかを示す値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.TextElement.FontPadding">
+      <summary>テキストの境界四角形にパディングを含めるかどうかを取得または設定します（テキストに背景がある場合のみ）。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.TextElement.MeasureTrailingSpaces">
+      <summary>テキスト境界四角形が各行末に末尾スペースを含めるかどうかを取得または設定します（テキストに背景がある場合のみ）。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.TextElement.DirectionVertical">
+      <summary>テキストを垂直配置するかどうかを取得または設定します（垂直配置する場合は背景色を使用しません）。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.TextElement.RightToLeft">
+      <summary>テキストを右から左に表示するかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.TextElement.SingleLine">
+      <summary>テキストを１行で表示するかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.TextElement.TextTrimming">
+      <summary>使用可能なスペースに収まらない文字をトリミングする方法を取得または設定します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.Localization.Strings">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Localization.Strings" /> クラスには、ローカライズに使用される静的プロパティが含まれます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Localization.Strings.ResourceManager">
+      <summary>
+        ルックアップリソースとして使用される <see cref="P:C1.Win.C1Tile.Localization.Strings.ResourceManager" /> オブジェクト。
+      </summary>
+      <remarks>カスタムコントロールアセンブリ内でリソースを定義する場合は、このプロパティを有効な値に設定します。</remarks>
+    </member>
+    <member name="P:C1.Win.C1Tile.Localization.Strings.UICulture">
+      <summary>
+        フォールバックカルチャとして使用されるデフォルトの <see cref="T:System.Globalization.CultureInfo" /> オブジェクトを返します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.Group">
+      <summary>タイルのグループを表します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Group.#ctor">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Group" /> の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Group.Dispose(System.Boolean)">
+      <summary>使用されているすべてのリソースをクリーンアップします。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Group.OnPaint(System.Windows.Forms.PaintEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.C1Tile.Group.Paint" /> イベントを発生させます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Group.IsDisposed">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Group" /> が破棄されたかどうかを示す値を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Group.Name">
+      <summary>
+        この <see cref="T:C1.Win.C1Tile.Group" /> の一意の名前を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Group.TileControl">
+      <summary>
+        オーナーの <see cref="T:C1.Win.C1Tile.C1TileControl" /> を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Group.Index">
+      <summary>
+        オーナー <see cref="P:C1.Win.C1Tile.C1TileControl.Groups" /> コレクション内のグループのインデックスを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Group.Tag">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Group" /> に関する追加データを含むオブジェクトを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Group.Tiles">
+      <summary>タイルのコレクションを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Group.X">
+      <summary>スクロール可能なサーフェスに相対的なグループの X 座標をピクセル単位で取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Group.Y">
+      <summary>スクロール可能なサーフェスに相対的なグループの Y 座標をピクセル単位で取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Group.Width">
+      <summary>タイルグループの幅をピクセル単位で取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Group.Height">
+      <summary>タイルグループの高さをピクセル単位で取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Group.Text">
+      <summary>グループのタイトルを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Group.Visible">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Group" /> を表示するかどうかを取得または設定します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.C1Tile.Group.Paint">
+      <summary>グループを再描画しているときに発生します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.Slide">
+      <summary>タイルテンプレート内にスライドを定義します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Slide.#ctor">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Slide" /> の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Slide.Dispose">
+      <summary>使用されているリソースをすべてクリーンアップします。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Slide.Clone">
+      <summary>
+        現在のインスタンスのコピーである新しい <see cref="T:C1.Win.C1Tile.Slide" /> を作成します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Slide.ResetDescription">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Slide.Description" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Slide.ResetBackColor">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Slide.BackColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Slide.Template">
+      <summary>
+        オーナー <see cref="P:C1.Win.C1Tile.Slide.Template" /> を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Slide.Elements">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Slide" /> 内の要素のコレクションを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Slide.Description">
+      <summary>
+        この <see cref="T:C1.Win.C1Tile.Slide" /> の説明を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Slide.BackColor">
+      <summary>スライドの背景色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Slide.BackColorSelector">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> オブジェクトのどのプロパティがこのスライドの背景色のソースとなるかを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Slide.Transition">
+      <summary>このスライドへの移行を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Slide.TransitionAcceleration">
+      <summary>移行の加速度（値 &amp;gt; 1.0 の場合）または減速度（値 &amp;lt; 1.0 の場合）を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Slide.TransitionDuration">
+      <summary>このスライドへの移行の時間（ミリ秒単位）を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Slide.AdvanceSlideAfter">
+      <summary>次のスライドに移動するまでの時間（ミリ秒単位）を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Slide.AdvanceVariance">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Slide.AdvanceSlideAfter" /> からの最大許容差（ミリ秒単位）を取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.Template">
+      <summary>タイルのカスタムテンプレートを定義します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Template.#ctor">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Template" /> の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Template.Dispose(System.Boolean)">
+      <summary>使用されているすべてのリソースをクリーンアップします。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Template.CloneTemplate">
+      <summary>
+        現在の <see cref="T:C1.Win.C1Tile.Template" /> のコピーを作成します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Template.Clone">
+      <summary>
+        現在のインスタンスのコピーである新しい <see cref="T:C1.Win.C1Tile.Template" /> を作成します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Template.ResetDescription">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Template.Description" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Template.ResetBackColor">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Template.BackColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Template.ResetPadding">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Template.Padding" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Template.OnPaint(C1.Win.C1Tile.TemplatePaintEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.C1Tile.Template.Paint" /> イベントを発生させます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Template.IsDisposed">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Template" /> が破棄されたかどうかを示す値を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Template.Name">
+      <summary>
+        この <see cref="T:C1.Win.C1Tile.Template" /> の一意の名前を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Template.TileControl">
+      <summary>
+        オーナーの <see cref="T:C1.Win.C1Tile.C1TileControl" /> を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Template.IsDefault">
+      <summary>
+        これが <see cref="T:C1.Win.C1Tile.C1TileControl" /> のデフォルトテンプレートかどうかを示す値を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Template.Enabled">
+      <summary>関連付けられたタイルが有効かどうか（ユーザーがタイルを押したり、チェックしたり、移動することができるかどうか）を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Template.EnabledSelector">
+      <summary>
+        タイルが有効であるかどうかを判定するために、<see cref="T:C1.Win.C1Tile.Tile" /> オブジェクトのどの整数プロパティをチェックするか（そのプロパティ値が０以外の値かどうか）を示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Template.Elements">
+      <summary>テンプレートの要素のコレクションを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Template.TopmostElements">
+      <summary>すべてのスライドの上に表示される要素のコレクションを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Template.Slides">
+      <summary>テンプレートスライドのコレクションを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Template.Description">
+      <summary>
+        この <see cref="T:C1.Win.C1Tile.Template" /> の説明を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Template.BackColor">
+      <summary>このテンプレートで描画されたタイルの背景色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Template.BackColorSelector">
+      <summary>
+        このテンプレートの背景色のソースとして動作する <see cref="T:C1.Win.C1Tile.Tile" /> オブジェクトの
+        プロパティを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Template.Padding">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Template" /> の内部スペースを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Template.DefaultHorizontalSize">
+      <summary>自動生成タイルのデフォルトの幅（セル単位）を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Template.DefaultVerticalSize">
+      <summary>自動生成タイルのデフォルトの高さ（セル単位）を取得または設定します。</summary>
+    </member>
+    <member name="E:C1.Win.C1Tile.Template.Paint">
+      <summary>タイルの描画にテンプレートが使用されるときに発生します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Tile.Tile">
+      <summary>１つのタイルを表します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Tile.#ctor">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Tile.Dispose(System.Boolean)">
+      <summary>使用されているすべてのリソースをクリーンアップします。</summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Tile.ResetBackColor">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.BackColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Tile.ResetForeColor">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.ForeColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Tile.ResetBackColor1">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.BackColor1" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Tile.ResetBackColor2">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.BackColor2" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Tile.ResetBackColor3">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.BackColor3" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Tile.ResetBackColor4">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.BackColor4" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Tile.ResetBackColor5">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.BackColor5" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Tile.ResetForeColor1">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.ForeColor1" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Tile.ResetForeColor2">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.ForeColor2" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Tile.ResetForeColor3">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.ForeColor3" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Tile.ResetForeColor4">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.ForeColor4" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Tile.ResetForeColor5">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.Tile.ForeColor5" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Tile.OnPaint(System.Windows.Forms.PaintEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.C1Tile.Tile.Paint" /> イベントを発生させます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Tile.OnClick(System.EventArgs)">
+      <summary>
+        <see cref="E:C1.Win.C1Tile.Tile.Click" /> イベントを発生させます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Tile.OnCheckedChanged(System.EventArgs)">
+      <summary>
+        <see cref="E:C1.Win.C1Tile.Tile.CheckedChanged" /> イベントを発生させます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Tile.PerformClick">
+      <summary>
+        タイルの <see cref="E:C1.Win.C1Tile.Tile.Click" /> イベントを生成します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Tile.Invalidate">
+      <summary>
+        このタイルを無効にし、<see cref="T:C1.Win.C1Tile.C1TileControl" /> に再描画させます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.Tile.GetBackColor">
+      <summary>タイルの背景色を返します。</summary>
+      <remarks>
+        このメソッドは Color.Empty 値を返すことはありません。
+        指定した <see cref="T:C1.Win.C1Tile.Tile" /> に背景色が設定されていない場合は、
+        オーナーコントロールの <see cref="P:C1.Win.C1Tile.C1TileControl.TileBackColor" /> プロパティから取得されます。
+      </remarks>
+    </member>
+    <member name="M:C1.Win.C1Tile.Tile.GetForeColor">
+      <summary>タイルの前景色を返します。</summary>
+      <remarks>
+        このメソッドは Color.Empty 値を返すことはありません。
+        指定した <see cref="T:C1.Win.C1Tile.Tile" /> に前景色が設定されていない場合は、
+        オーナーコントロールの <see cref="P:C1.Win.C1Tile.C1TileControl.TileForeColor" /> プロパティから取得されます。
+      </remarks>
+    </member>
+    <member name="M:C1.Win.C1Tile.Tile.GetImage">
+      <summary>
+        画像をこの <see cref="T:C1.Win.C1Tile.Tile" /> の <see cref="P:C1.Win.C1Tile.C1TileControl.ImageList" /> または
+        <see cref="P:C1.Win.C1Tile.Tile.Image" /> プロパティから返します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.IsDisposed">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> が破棄されたかどうかを示す値を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.Name">
+      <summary>
+        この <see cref="T:C1.Win.C1Tile.Tile" /> の一意の名前を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.TileControl">
+      <summary>
+        オーナーの <see cref="T:C1.Win.C1Tile.C1TileControl" /> を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.Group">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> のオーナーグループを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.Index">
+      <summary>オーナーグループの Tiles コレクション内のタイルのインデックスを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.Template">
+      <summary>タイルテンプレートを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.Tag">
+      <summary>
+        <see cref="T:C1.Win.C1Tile.Tile" /> に関する追加データを含むオブジェクトを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.X">
+      <summary>オーナーグループに相対的なタイルの X 座標をピクセル単位で取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.Y">
+      <summary>オーナーグループに相対的なタイルの Y 座標をピクセル単位で取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.Width">
+      <summary>タイルの幅をピクセル単位で取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.Height">
+      <summary>タイルの高さをピクセル単位で取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.LeftCell">
+      <summary>タイルの左セルの序数を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.TopCell">
+      <summary>タイルの上セルの序数を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.HorizontalSize">
+      <summary>タイルの幅をセル数で取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.VerticalSize">
+      <summary>タイルの高さをセル数で取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.ShowSlides">
+      <summary>タイルがスライドを表示できるかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.Visible">
+      <summary>タイルを表示するかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.Checked">
+      <summary>タイルが ON かどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.Enabled">
+      <summary>タイルが有効かどうかを示す値を取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.Text">
+      <summary>タイル上のテキストを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.ToolTipText">
+      <summary>タイルのツールチップテキストを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.BackColor">
+      <summary>タイルの背景色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.ForeColor">
+      <summary>タイルの前景色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.Image">
+      <summary>タイルに表示される画像を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.ImageIndex">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.C1TileControl.ImageList" /> 内の画像のインデックスを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.ImageKey">
+      <summary>
+        <see cref="P:C1.Win.C1Tile.C1TileControl.ImageList" /> 内の画像キーを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.Symbol">
+      <summary>タイルに関連付けられたシンボルを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.IntValue">
+      <summary>テンプレート要素で使用可能な整数値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.BackColor1">
+      <summary>タイルの第１追加背景色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.BackColor2">
+      <summary>タイルの第２追加背景色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.BackColor3">
+      <summary>タイルの第３追加背景色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.BackColor4">
+      <summary>タイルの第４追加背景色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.BackColor5">
+      <summary>タイルの第５追加背景色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.ForeColor1">
+      <summary>タイルの第１追加前景色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.ForeColor2">
+      <summary>タイルの第２追加前景色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.ForeColor3">
+      <summary>タイルの第３追加前景色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.ForeColor4">
+      <summary>タイルの第４追加前景色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.ForeColor5">
+      <summary>タイルの第５追加前景色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.Image1">
+      <summary>タイルに表示される第１追加画像を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.Image2">
+      <summary>タイルに表示される第２追加画像を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.Image3">
+      <summary>タイルに表示される第３追加画像を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.Image4">
+      <summary>タイルに表示される第４追加画像を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.Image5">
+      <summary>タイルに表示される第５追加画像を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.Text1">
+      <summary>タイルの第１追加テキスト文字列を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.Text2">
+      <summary>タイルの第２追加テキスト文字列を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.Text3">
+      <summary>タイルの第３追加テキスト文字列を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.Text4">
+      <summary>タイルの第４追加テキスト文字列を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.Text5">
+      <summary>タイルの第５追加テキスト文字列を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.Text6">
+      <summary>タイルの第６追加テキスト文字列を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.Text7">
+      <summary>タイルの第７追加テキスト文字列を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.Text8">
+      <summary>タイルの第８追加テキスト文字列を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.Text9">
+      <summary>タイルの第９追加テキスト文字列を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.IntValue1">
+      <summary>テンプレート要素で使用できる第１追加整数値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.IntValue2">
+      <summary>テンプレート要素で使用できる第２追加整数値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.IntValue3">
+      <summary>テンプレート要素で使用できる第３追加整数値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.IntValue4">
+      <summary>テンプレート要素で使用できる第４追加整数値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.IntValue5">
+      <summary>テンプレート要素で使用できる第５追加整数値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.AccessibleDefaultActionDescription">
+      <summary>ユーザー補助クライアントアプリケーションによって使用されるタイルのデフォルトのアクションの説明を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.AccessibleDescription">
+      <summary>ユーザー補助クライアントアプリケーションによって使用されるタイルの説明を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.AccessibleName">
+      <summary>ユーザー補助クライアントアプリケーションによって使用されるタイルの名前を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.AccessibleRole">
+      <summary>タイルのアクセス可能な役割を取得または設定します。</summary>
+    </member>
+    <member name="E:C1.Win.C1Tile.Tile.Paint">
+      <summary>タイルの再描画時、タイルのテンプレートを描画した後に発生します。</summary>
+    </member>
+    <member name="E:C1.Win.C1Tile.Tile.Click">
+      <summary>項目がクリックされるときに発生します。</summary>
+    </member>
+    <member name="E:C1.Win.C1Tile.Tile.CheckedChanged">
+      <summary>タイルが ON または OFF にされたときに発生します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Tile.Tile.SlideIndex">
+      <summary>
+        タイルに表示されているスライドのインデックスを取得します。タイルがスライドショーモードでない場合は -1。
+      </summary>
+    </member>
+    <member name="E:C1.Win.C1Tile.C1TileControl.TileMoved">
+      <summary>
+        いくつかのタイルが移動したときに発生します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.OnTileMoved(C1.Win.C1Tile.TileEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.C1Tile.C1TileControl.TileMoved" /> イベントを発生させます。
+      </summary>
+    </member>
+  </members>
+</doc>
