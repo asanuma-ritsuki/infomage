@@ -25,6 +25,7 @@ Public Class XmlSettings
 	Private _InitialCatalog As String
 	Private _UserID As String
 	Private _Password As String
+	Private _TablePrefix As String
 
 #End Region
 
@@ -168,6 +169,19 @@ Public Class XmlSettings
 		End Set
 	End Property
 
+	''' <summary>
+	''' INTRA-PDC00接続時の接頭語入出力
+	''' </summary>
+	''' <returns></returns>
+	Public Property TablePrefix() As String
+		Get
+			Return _TablePrefix
+		End Get
+		Set(value As String)
+			_TablePrefix = value
+		End Set
+	End Property
+
 #End Region
 
 #Region "コンストラクタ"
@@ -186,6 +200,7 @@ Public Class XmlSettings
 		_InitialCatalog = "iDB"
 		_UserID = "sa"
 		_Password = "intra_intra"
+		_TablePrefix = "[DailyReport_Test].[dbo]."
 
 	End Sub
 

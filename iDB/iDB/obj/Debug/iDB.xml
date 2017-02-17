@@ -47,6 +47,30 @@ iDB
  </summary>
  <returns></returns>
 </member>
+<member name="M:iDB.LoginUser.GetInstance">
+ <summary>
+ インスタンスを取得する
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:iDB.LoginUser.UserID">
+ <summary>
+ ユーザーIDの入出力
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:iDB.LoginUser.UserName">
+ <summary>
+ ユーザー名の入出力
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:iDB.LoginUser.ManageFlag">
+ <summary>
+ 管理者フラグの入出力
+ </summary>
+ <returns></returns>
+</member>
 <member name="T:iDB.clsWinApp">
  <summary>
  メインルーチン
@@ -183,6 +207,12 @@ iDB
  <returns></returns>
  <remarks></remarks>
 </member>
+<member name="P:iDB.XmlSettings.TablePrefix">
+ <summary>
+ INTRA-PDC00接続時の接頭語入出力
+ </summary>
+ <returns></returns>
+</member>
 <member name="M:iDB.XmlSettings.LoadFromXmlFile">
  <summary>
  設定をXMLファイルから読み込み復元する
@@ -234,6 +264,164 @@ iDB
  </summary>
  <returns></returns>
  <remarks></remarks>
+</member>
+<member name="M:iDB.frmConnectionProperty.btnCancel_Click(System.Object,System.EventArgs)">
+ <summary>
+ キャンセルボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:iDB.frmConnectionProperty.btnOK_Click(System.Object,System.EventArgs)">
+ <summary>
+ OKボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:iDB.frmConnectionProperty.btnTest_Click(System.Object,System.EventArgs)">
+ <summary>
+ 接続テストボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:iDB.frmConnectionProperty.TextBox_Enter(System.Object,System.EventArgs)">
+ <summary>
+ テキストボックスアクティブ時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:iDB.frmConnectionProperty.TextBox_Leave(System.Object,System.EventArgs)">
+ <summary>
+ テキストボックスリーブ時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:iDB.frmConnectionProperty.txt_TextChanged(System.Object,System.EventArgs)">
+ <summary>
+ 接続文字列テキストボックス変更時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:iDB.frmLogin.frmLogin_Load(System.Object,System.EventArgs)">
+ <summary>
+ フォームロード
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:iDB.frmLogin.btnExit_Click(System.Object,System.EventArgs)">
+ <summary>
+ 終了ボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:iDB.frmLogin.btnLogin_Click(System.Object,System.EventArgs)">
+ <summary>
+ ログインボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:iDB.frmLogin.cmbConnectionPlace_SelectedIndexChanged(System.Object,System.EventArgs)">
+ <summary>
+ 接続先変更時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:iDB.frmLogin.cmbSection_SelectedIndexChanged(System.Object,System.EventArgs)">
+ <summary>
+ セクション変更時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:iDB.frmLogin.btnConnectionProperty_Click(System.Object,System.EventArgs)">
+ <summary>
+ 接続設定ボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:iDB.frmLogin.btnUpdateHistory_Click(System.Object,System.EventArgs)">
+ <summary>
+ 更新履歴ボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:iDB.frmLogin.Initialize">
+ <summary>
+ 初期化処理
+ </summary>
+</member>
+<member name="M:iDB.frmLogin.UpdateSection">
+ <summary>
+ 接続先コンボボックスの値変更時に処理する
+ </summary>
+</member>
+<member name="M:iDB.frmLogin.C1TextBox_Enter(System.Object,System.EventArgs)">
+ <summary>
+ テキストボックスエンター時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:iDB.frmLogin.C1TextBox_Leave(System.Object,System.EventArgs)">
+ <summary>
+ テキストボックスリーブ時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="P:iDB.frmTempForm.BackFormID">
+ <summary>
+ 別フォームからこのフォームをNewした時に前画面のフォーム名を格納しておく
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:iDB.frmTempForm.ScreenName">
+ <summary>
+ 画面名の入出力
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:iDB.frmTempForm.UserName">
+ <summary>
+ ユーザー名の入出力
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:iDB.frmTempForm.frmTempForm_Load(System.Object,System.EventArgs)">
+ <summary>
+ フォームロード時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:iDB.frmTempForm.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+ <summary>
+ フォームキーダウンイベント
+ </summary>
+ <param name="e"></param>
+</member>
+<member name="M:iDB.frmTempForm.DisplayLoginUser">
+ <summary>
+ ステータスバーにユーザー名を表示する
+ </summary>
+</member>
+<member name="M:iDB.frmTempForm.Timer1_Tick(System.Object,System.EventArgs)">
+ <summary>
+ ステータスバーに時刻を表示する
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
 </member>
 <member name="T:iDB.DefaultModule.ResultMark">
  <summary>

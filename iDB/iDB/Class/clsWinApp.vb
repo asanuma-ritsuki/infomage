@@ -2,13 +2,14 @@
 Imports System.IO
 Imports System.Globalization
 
+<System.Diagnostics.DebuggerStepThrough()>
 Public Class AppContext
 	Inherits ApplicationContext
 
 	Private Shared instance_ As AppContext = New AppContext
 
 	Private Sub New()
-		MyBase.New
+		MyBase.New()
 	End Sub
 
 	Public Shared Function GetInstance() As AppContext
@@ -25,11 +26,9 @@ Public Class AppContext
 
 		If toHide Then
 			Try
-
 				If Not tempForm Is Nothing Then
 					tempForm.Hide()
 				End If
-
 			Catch ex As Exception
 
 				Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message)
@@ -37,7 +36,6 @@ Public Class AppContext
 
 			End Try
 		Else
-
 			Try
 
 				tempForm.Close()
@@ -55,7 +53,6 @@ Public Class AppContext
 		Cursor.Current = orgCur
 
 	End Sub
-
 End Class
 
 ''' <summary>
