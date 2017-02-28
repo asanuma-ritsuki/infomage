@@ -35,8 +35,7 @@ Partial Class frmLogin
 		Me.btnExit = New C1.Win.C1Input.C1Button()
 		Me.btnLogin = New C1.Win.C1Input.C1Button()
 		Me.cmbUserID = New C1.Win.C1Input.C1ComboBox()
-		Me.cmbSection = New C1.Win.C1Input.C1ComboBox()
-		Me.cmbConnectionPlace = New C1.Win.C1Input.C1ComboBox()
+		Me.cmbGroup = New C1.Win.C1Input.C1ComboBox()
 		Me.Panel1.SuspendLayout()
 		CType(Me.C1Label1, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.C1Label2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -48,8 +47,7 @@ Partial Class frmLogin
 		CType(Me.btnExit, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.btnLogin, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.cmbUserID, System.ComponentModel.ISupportInitialize).BeginInit()
-		CType(Me.cmbSection, System.ComponentModel.ISupportInitialize).BeginInit()
-		CType(Me.cmbConnectionPlace, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.cmbGroup, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
 		'Panel1
@@ -77,13 +75,13 @@ Partial Class frmLogin
 		'C1Label2
 		'
 		Me.C1Label2.BorderStyle = System.Windows.Forms.BorderStyle.None
-		Me.C1Label2.Location = New System.Drawing.Point(13, 57)
+		Me.C1Label2.Location = New System.Drawing.Point(95, 56)
 		Me.C1Label2.Name = "C1Label2"
-		Me.C1Label2.Size = New System.Drawing.Size(76, 26)
+		Me.C1Label2.Size = New System.Drawing.Size(120, 26)
 		Me.C1Label2.TabIndex = 0
 		Me.C1Label2.Tag = Nothing
 		Me.C1Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-		Me.C1Label2.Value = "接続先："
+		Me.C1Label2.Value = "生産グループ："
 		'
 		'txtPassword
 		'
@@ -170,46 +168,28 @@ Partial Class frmLogin
 		Me.cmbUserID.Tag = Nothing
 		Me.cmbUserID.TextDetached = True
 		'
-		'cmbSection
+		'cmbGroup
 		'
-		Me.cmbSection.AllowSpinLoop = False
-		Me.cmbSection.AutoSize = False
-		Me.cmbSection.Cursor = System.Windows.Forms.Cursors.Arrow
-		Me.cmbSection.DropDownStyle = C1.Win.C1Input.DropDownStyle.DropDownList
-		Me.cmbSection.GapHeight = 0
-		Me.cmbSection.ImagePadding = New System.Windows.Forms.Padding(0)
-		Me.cmbSection.ItemsDisplayMember = ""
-		Me.cmbSection.ItemsValueMember = ""
-		Me.cmbSection.Location = New System.Drawing.Point(221, 56)
-		Me.cmbSection.Name = "cmbSection"
-		Me.cmbSection.Size = New System.Drawing.Size(200, 26)
-		Me.cmbSection.TabIndex = 2
-		Me.cmbSection.Tag = Nothing
-		Me.cmbSection.TextDetached = True
-		'
-		'cmbConnectionPlace
-		'
-		Me.cmbConnectionPlace.AllowSpinLoop = False
-		Me.cmbConnectionPlace.AutoSize = False
-		Me.cmbConnectionPlace.Cursor = System.Windows.Forms.Cursors.Arrow
-		Me.cmbConnectionPlace.DropDownStyle = C1.Win.C1Input.DropDownStyle.DropDownList
-		Me.cmbConnectionPlace.GapHeight = 0
-		Me.cmbConnectionPlace.ImagePadding = New System.Windows.Forms.Padding(0)
-		Me.cmbConnectionPlace.ItemsDisplayMember = ""
-		Me.cmbConnectionPlace.ItemsValueMember = ""
-		Me.cmbConnectionPlace.Location = New System.Drawing.Point(95, 56)
-		Me.cmbConnectionPlace.Name = "cmbConnectionPlace"
-		Me.cmbConnectionPlace.Size = New System.Drawing.Size(120, 26)
-		Me.cmbConnectionPlace.TabIndex = 1
-		Me.cmbConnectionPlace.Tag = Nothing
-		Me.cmbConnectionPlace.TextDetached = True
+		Me.cmbGroup.AllowSpinLoop = False
+		Me.cmbGroup.AutoSize = False
+		Me.cmbGroup.Cursor = System.Windows.Forms.Cursors.Arrow
+		Me.cmbGroup.DropDownStyle = C1.Win.C1Input.DropDownStyle.DropDownList
+		Me.cmbGroup.GapHeight = 0
+		Me.cmbGroup.ImagePadding = New System.Windows.Forms.Padding(0)
+		Me.cmbGroup.ItemsDisplayMember = ""
+		Me.cmbGroup.ItemsValueMember = ""
+		Me.cmbGroup.Location = New System.Drawing.Point(221, 56)
+		Me.cmbGroup.Name = "cmbGroup"
+		Me.cmbGroup.Size = New System.Drawing.Size(200, 26)
+		Me.cmbGroup.TabIndex = 2
+		Me.cmbGroup.Tag = Nothing
+		Me.cmbGroup.TextDetached = True
 		'
 		'frmLogin
 		'
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
 		Me.ClientSize = New System.Drawing.Size(472, 234)
-		Me.Controls.Add(Me.cmbConnectionPlace)
-		Me.Controls.Add(Me.cmbSection)
+		Me.Controls.Add(Me.cmbGroup)
 		Me.Controls.Add(Me.cmbUserID)
 		Me.Controls.Add(Me.btnLogin)
 		Me.Controls.Add(Me.btnExit)
@@ -236,8 +216,7 @@ Partial Class frmLogin
 		Me.Controls.SetChildIndex(Me.btnExit, 0)
 		Me.Controls.SetChildIndex(Me.btnLogin, 0)
 		Me.Controls.SetChildIndex(Me.cmbUserID, 0)
-		Me.Controls.SetChildIndex(Me.cmbSection, 0)
-		Me.Controls.SetChildIndex(Me.cmbConnectionPlace, 0)
+		Me.Controls.SetChildIndex(Me.cmbGroup, 0)
 		Me.Panel1.ResumeLayout(False)
 		CType(Me.C1Label1, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.C1Label2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -249,8 +228,7 @@ Partial Class frmLogin
 		CType(Me.btnExit, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.btnLogin, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.cmbUserID, System.ComponentModel.ISupportInitialize).EndInit()
-		CType(Me.cmbSection, System.ComponentModel.ISupportInitialize).EndInit()
-		CType(Me.cmbConnectionPlace, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.cmbGroup, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 
@@ -267,6 +245,5 @@ Partial Class frmLogin
 	Friend WithEvents btnExit As C1.Win.C1Input.C1Button
 	Friend WithEvents btnLogin As C1.Win.C1Input.C1Button
 	Friend WithEvents cmbUserID As C1.Win.C1Input.C1ComboBox
-	Friend WithEvents cmbSection As C1.Win.C1Input.C1ComboBox
-	Friend WithEvents cmbConnectionPlace As C1.Win.C1Input.C1ComboBox
+	Friend WithEvents cmbGroup As C1.Win.C1Input.C1ComboBox
 End Class

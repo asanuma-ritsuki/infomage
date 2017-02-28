@@ -205,7 +205,6 @@ Partial Class frmConnectionProperty
 		Me.txtResult.Size = New System.Drawing.Size(426, 72)
 		Me.txtResult.TabIndex = 9
 		Me.txtResult.Tag = Nothing
-		Me.txtResult.Text = "txtResult"
 		Me.txtResult.TextDetached = True
 		'
 		'frmConnectionProperty

@@ -34,7 +34,7 @@ Partial Class frmTempForm
 		'
 		'C1StatusBar1
 		'
-		Me.C1StatusBar1.AutoSizeElement = C1.Framework.AutoSizeElement.Width
+		'Me.C1StatusBar1.AutoSizeElement = C1.Framework.AutoSizeElement.Width
 		Me.C1StatusBar1.LeftPaneItems.Add(Me.lblScreenName)
 		Me.C1StatusBar1.LeftPaneItems.Add(Me.lblUserName)
 		Me.C1StatusBar1.Location = New System.Drawing.Point(0, 545)

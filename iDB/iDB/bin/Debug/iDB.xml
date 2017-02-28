@@ -328,16 +328,9 @@ iDB
  <param name="sender"></param>
  <param name="e"></param>
 </member>
-<member name="M:iDB.frmLogin.cmbConnectionPlace_SelectedIndexChanged(System.Object,System.EventArgs)">
+<member name="M:iDB.frmLogin.cmbGroup_SelectedIndexChanged(System.Object,System.EventArgs)">
  <summary>
- 接続先変更時
- </summary>
- <param name="sender"></param>
- <param name="e"></param>
-</member>
-<member name="M:iDB.frmLogin.cmbSection_SelectedIndexChanged(System.Object,System.EventArgs)">
- <summary>
- セクション変更時
+ 生産グループ変更時
  </summary>
  <param name="sender"></param>
  <param name="e"></param>
@@ -359,11 +352,6 @@ iDB
 <member name="M:iDB.frmLogin.Initialize">
  <summary>
  初期化処理
- </summary>
-</member>
-<member name="M:iDB.frmLogin.UpdateSection">
- <summary>
- 接続先コンボボックスの値変更時に処理する
  </summary>
 </member>
 <member name="M:iDB.frmLogin.C1TextBox_Enter(System.Object,System.EventArgs)">

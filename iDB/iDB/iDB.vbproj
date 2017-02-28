@@ -51,6 +51,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="C1.Win.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL" />
+    <Reference Include="c1.win.c1command.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL" />
     <Reference Include="c1.win.c1flexgrid.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="c1.win.c1input.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL" />
     <Reference Include="c1.win.c1list.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=6b24f8f981dbd7bc, processorArchitecture=MSIL" />
@@ -107,6 +108,24 @@
     <Compile Include="Form\LoginMenu\frmMainMenu.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form\ManageSide\frmCompare.Designer.vb">
+      <DependentUpon>frmCompare.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\ManageSide\frmCompare.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\ManageSide\frmMasterManage.Designer.vb">
+      <DependentUpon>frmMasterManage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\ManageSide\frmMasterManage.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\ManageSide\frmProjectDetail.Designer.vb">
+      <DependentUpon>frmProjectDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\ManageSide\frmProjectDetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form\ManageSide\frmProjectManage.Designer.vb">
       <DependentUpon>frmProjectManage.vb</DependentUpon>
     </Compile>
@@ -117,6 +136,12 @@
       <DependentUpon>frmUserManage.vb</DependentUpon>
     </Compile>
     <Compile Include="Form\ManageSide\frmUserManage.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\OperationSide\frmImageViewer.Designer.vb">
+      <DependentUpon>frmImageViewer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\OperationSide\frmImageViewer.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form\Template\frmTempForm.Designer.vb">
@@ -151,6 +176,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\LoginMenu\frmMainMenu.resx">
       <DependentUpon>frmMainMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\ManageSide\frmCompare.resx">
+      <DependentUpon>frmCompare.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\ManageSide\frmMasterManage.resx">
+      <DependentUpon>frmMasterManage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\ManageSide\frmProjectDetail.resx">
+      <DependentUpon>frmProjectDetail.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\ManageSide\frmProjectManage.resx">
       <DependentUpon>frmProjectManage.vb</DependentUpon>
