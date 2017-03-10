@@ -6,11 +6,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{320EC896-AC38-4BAF-AF42-FE918BCF0971}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>ImageDBManager.My.MyApplication</StartupObject>
+    <StartupObject>Sub Main</StartupObject>
     <RootNamespace>ImageDBManager</RootNamespace>
     <AssemblyName>ImageDBManager</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <MyType>WindowsForms</MyType>
+    <MyType>WindowsFormsWithCustomSubMain</MyType>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
@@ -47,6 +47,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="C1.Win.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL" />
     <Reference Include="c1.win.c1ribbon.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -75,11 +76,32 @@
   <ItemGroup>
     <Compile Include="Class\CElement.vb" />
     <Compile Include="Class\clsLoginUser.vb" />
+    <Compile Include="Class\clsWinApp.vb" />
+    <Compile Include="Class\SQLProcess.vb" />
+    <Compile Include="Class\XmlSettings.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\LoginMenu\frmConnectionProperty.Designer.vb">
+      <DependentUpon>frmConnectionProperty.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\LoginMenu\frmConnectionProperty.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\LoginMenu\frmLogin.Designer.vb">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\LoginMenu\frmLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\ManageSide\ProjectManage\frmProjectManage.Designer.vb">
+      <DependentUpon>frmProjectManage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\ManageSide\ProjectManage\frmProjectManage.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form\Template\frmTempForm.Designer.vb">
@@ -88,6 +110,7 @@
     <Compile Include="Form\Template\frmTempForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Module\DefaultModule.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -107,6 +130,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\LoginMenu\frmConnectionProperty.resx">
+      <DependentUpon>frmConnectionProperty.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\LoginMenu\frmLogin.resx">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\ManageSide\ProjectManage\frmProjectManage.resx">
+      <DependentUpon>frmProjectManage.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Template\frmTempForm.resx">
       <DependentUpon>frmTempForm.vb</DependentUpon>
@@ -132,15 +164,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Form\LoginMenu\" />
     <Folder Include="Form\ManageSide\Compare\" />
     <Folder Include="Form\ManageSide\Entry\" />
     <Folder Include="Form\ManageSide\MasterData\" />
     <Folder Include="Form\ManageSide\PathSetting\" />
-    <Folder Include="Form\ManageSide\ProjectManage\" />
     <Folder Include="Form\OperationSide\" />
     <Folder Include="Image\" />
-    <Folder Include="Module\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

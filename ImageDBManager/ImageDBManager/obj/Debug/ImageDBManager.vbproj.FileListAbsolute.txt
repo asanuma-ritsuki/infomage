@@ -1,2 +1,20 @@
 C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\ImageDBManager\bin\Debug\ImageDBManager.exe.config
+C:\GitHub\infomage\ImageDBManager\ImageDBManager\obj\Debug\ImageDBManager.Form1.resources
+C:\GitHub\infomage\ImageDBManager\ImageDBManager\obj\Debug\ImageDBManager.frmConnectionProperty.resources
+C:\GitHub\infomage\ImageDBManager\ImageDBManager\obj\Debug\ImageDBManager.frmLogin.resources
+C:\GitHub\infomage\ImageDBManager\ImageDBManager\obj\Debug\ImageDBManager.frmTempForm.resources
+C:\GitHub\infomage\ImageDBManager\ImageDBManager\obj\Debug\ImageDBManager.Resources.resources
+C:\GitHub\infomage\ImageDBManager\ImageDBManager\obj\Debug\ImageDBManager.vbproj.GenerateResource.Cache
+C:\GitHub\infomage\ImageDBManager\ImageDBManager\obj\Debug\ImageDBManager.exe.licenses
+C:\GitHub\infomage\ImageDBManager\ImageDBManager\obj\Debug\ImageDBManager.xml
 C:\GitHub\infomage\ImageDBManager\ImageDBManager\bin\Debug\ImageDBManager.exe.config
+C:\GitHub\infomage\ImageDBManager\ImageDBManager\bin\Debug\ImageDBManager.exe
+C:\GitHub\infomage\ImageDBManager\ImageDBManager\bin\Debug\ImageDBManager.pdb
+C:\GitHub\infomage\ImageDBManager\ImageDBManager\bin\Debug\ImageDBManager.xml
+C:\GitHub\infomage\ImageDBManager\ImageDBManager\bin\Debug\C1.Win.4.dll
+C:\GitHub\infomage\ImageDBManager\ImageDBManager\bin\Debug\c1.win.c1ribbon.4.dll
+C:\GitHub\infomage\ImageDBManager\ImageDBManager\bin\Debug\c1.win.c1ribbon.4.xml
+C:\GitHub\infomage\ImageDBManager\ImageDBManager\obj\Debug\ImageDBManager.exe
+C:\GitHub\infomage\ImageDBManager\ImageDBManager\obj\Debug\ImageDBManager.pdb
+C:\GitHub\infomage\ImageDBManager\ImageDBManager\obj\Debug\ImageDBManager.vbprojResolveAssemblyReference.cache
+C:\GitHub\infomage\ImageDBManager\ImageDBManager\obj\Debug\ImageDBManager.frmProjectManage.resources

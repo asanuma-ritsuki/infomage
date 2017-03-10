@@ -25,10 +25,10 @@ Partial Class frmTempForm
 		Me.components = New System.ComponentModel.Container()
 		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmTempForm))
 		Me.C1StatusBar1 = New C1.Win.C1Ribbon.C1StatusBar()
-		Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
 		Me.lblScreenName = New C1.Win.C1Ribbon.RibbonLabel()
 		Me.lblUserName = New C1.Win.C1Ribbon.RibbonLabel()
 		Me.lblDate = New C1.Win.C1Ribbon.RibbonLabel()
+		Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
 		CType(Me.C1StatusBar1, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
@@ -42,10 +42,6 @@ Partial Class frmTempForm
 		Me.C1StatusBar1.RightPaneItems.Add(Me.lblDate)
 		Me.C1StatusBar1.Size = New System.Drawing.Size(784, 22)
 		Me.C1StatusBar1.VisualStyle = C1.Win.C1Ribbon.VisualStyle.Office2010Silver
-		'
-		'Timer1
-		'
-		Me.Timer1.Interval = 1000
 		'
 		'lblScreenName
 		'
@@ -65,6 +61,10 @@ Partial Class frmTempForm
 		Me.lblDate.SmallImage = CType(resources.GetObject("lblDate.SmallImage"), System.Drawing.Image)
 		Me.lblDate.Text = "Date"
 		'
+		'Timer1
+		'
+		Me.Timer1.Interval = 1000
+		'
 		'frmTempForm
 		'
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -72,6 +72,7 @@ Partial Class frmTempForm
 		Me.Controls.Add(Me.C1StatusBar1)
 		Me.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
 		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+		Me.MaximizeBox = False
 		Me.Name = "frmTempForm"
 		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
 		Me.Text = "frmTempForm"
