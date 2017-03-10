@@ -13,6 +13,21 @@
     <MyType>WindowsFormsWithCustomSubMain</MyType>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -54,6 +69,7 @@
     <Reference Include="c1.win.c1command.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL" />
     <Reference Include="c1.win.c1flexgrid.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="c1.win.c1input.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL" />
+    <Reference Include="c1.win.c1inputpanel.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="c1.win.c1list.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=6b24f8f981dbd7bc, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Ribbon.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="c1.win.c1sizer.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
@@ -102,40 +118,46 @@
     <Compile Include="Form\LoginMenu\frmLogin.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\LoginMenu\frmMainMenu.Designer.vb">
-      <DependentUpon>frmMainMenu.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Form\LoginMenu\frmMainMenu.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form\ManageSide\frmCompare.Designer.vb">
+    <Compile Include="Form\ManageSide\Compare\frmCompare.Designer.vb">
       <DependentUpon>frmCompare.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form\ManageSide\frmCompare.vb">
+    <Compile Include="Form\ManageSide\Compare\frmCompare.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\ManageSide\frmMasterManage.Designer.vb">
+    <Compile Include="Form\ManageSide\Entery\frmItemManage.Designer.vb">
+      <DependentUpon>frmItemManage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\ManageSide\Entery\frmItemManage.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\ManageSide\MasterData\frmMasterManage.Designer.vb">
       <DependentUpon>frmMasterManage.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form\ManageSide\frmMasterManage.vb">
+    <Compile Include="Form\ManageSide\MasterData\frmMasterManage.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\ManageSide\frmProjectDetail.Designer.vb">
+    <Compile Include="Form\ManageSide\ProjectManage\frmProjectDetail.Designer.vb">
       <DependentUpon>frmProjectDetail.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form\ManageSide\frmProjectDetail.vb">
+    <Compile Include="Form\ManageSide\ProjectManage\frmProjectDetail.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\ManageSide\frmProjectManage.Designer.vb">
+    <Compile Include="Form\ManageSide\ProjectManage\frmProjectManage.Designer.vb">
       <DependentUpon>frmProjectManage.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form\ManageSide\frmProjectManage.vb">
+    <Compile Include="Form\ManageSide\ProjectManage\frmProjectManage.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\ManageSide\frmUserManage.Designer.vb">
+    <Compile Include="Form\ManageSide\ProjectManage\frmUserManage.Designer.vb">
       <DependentUpon>frmUserManage.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form\ManageSide\frmUserManage.vb">
+    <Compile Include="Form\ManageSide\ProjectManage\frmUserManage.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\ManageSide\RequiredSetting\frmGetFilePath.Designer.vb">
+      <DependentUpon>frmGetFilePath.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\ManageSide\RequiredSetting\frmGetFilePath.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form\OperationSide\frmImageViewer.Designer.vb">
@@ -174,23 +196,29 @@
     <EmbeddedResource Include="Form\LoginMenu\frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\LoginMenu\frmMainMenu.resx">
-      <DependentUpon>frmMainMenu.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form\ManageSide\frmCompare.resx">
+    <EmbeddedResource Include="Form\ManageSide\Compare\frmCompare.resx">
       <DependentUpon>frmCompare.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\ManageSide\frmMasterManage.resx">
+    <EmbeddedResource Include="Form\ManageSide\Entery\frmItemManage.resx">
+      <DependentUpon>frmItemManage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\ManageSide\MasterData\frmMasterManage.resx">
       <DependentUpon>frmMasterManage.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\ManageSide\frmProjectDetail.resx">
+    <EmbeddedResource Include="Form\ManageSide\ProjectManage\frmProjectDetail.resx">
       <DependentUpon>frmProjectDetail.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\ManageSide\frmProjectManage.resx">
+    <EmbeddedResource Include="Form\ManageSide\ProjectManage\frmProjectManage.resx">
       <DependentUpon>frmProjectManage.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\ManageSide\frmUserManage.resx">
+    <EmbeddedResource Include="Form\ManageSide\ProjectManage\frmUserManage.resx">
       <DependentUpon>frmUserManage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\ManageSide\RequiredSetting\frmGetFilePath.resx">
+      <DependentUpon>frmGetFilePath.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\OperationSide\frmImageViewer.resx">
+      <DependentUpon>frmImageViewer.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Template\frmTempForm.resx">
       <DependentUpon>frmTempForm.vb</DependentUpon>
@@ -224,6 +252,18 @@
     <Content Include="UpdateHistory.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 および x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

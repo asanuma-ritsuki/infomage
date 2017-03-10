@@ -131,10 +131,10 @@ Partial Class frmCompare
 		Me.C1FlexGrid2.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.C1FlexGrid2.ExtendLastCol = True
 		Me.C1FlexGrid2.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-		Me.C1FlexGrid2.Location = New System.Drawing.Point(3, 103)
+		Me.C1FlexGrid2.Location = New System.Drawing.Point(3, 100)
 		Me.C1FlexGrid2.Name = "C1FlexGrid2"
 		Me.C1FlexGrid2.Rows.DefaultSize = 23
-		Me.C1FlexGrid2.Size = New System.Drawing.Size(494, 481)
+		Me.C1FlexGrid2.Size = New System.Drawing.Size(494, 484)
 		Me.C1FlexGrid2.TabIndex = 21
 		'
 		'Panel6
@@ -163,7 +163,7 @@ Partial Class frmCompare
 		Me.Panel5.Controls.Add(Me.cmbCompareTarget01)
 		Me.Panel5.Controls.Add(Me.C1Label4)
 		Me.Panel5.Dock = System.Windows.Forms.DockStyle.Top
-		Me.Panel5.Location = New System.Drawing.Point(3, 23)
+		Me.Panel5.Location = New System.Drawing.Point(3, 20)
 		Me.Panel5.Name = "Panel5"
 		Me.Panel5.Size = New System.Drawing.Size(494, 80)
 		Me.Panel5.TabIndex = 20
@@ -253,10 +253,10 @@ Partial Class frmCompare
 		Me.C1FlexGrid1.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.C1FlexGrid1.ExtendLastCol = True
 		Me.C1FlexGrid1.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-		Me.C1FlexGrid1.Location = New System.Drawing.Point(3, 23)
+		Me.C1FlexGrid1.Location = New System.Drawing.Point(3, 20)
 		Me.C1FlexGrid1.Name = "C1FlexGrid1"
 		Me.C1FlexGrid1.Rows.DefaultSize = 23
-		Me.C1FlexGrid1.Size = New System.Drawing.Size(510, 599)
+		Me.C1FlexGrid1.Size = New System.Drawing.Size(510, 602)
 		Me.C1FlexGrid1.TabIndex = 22
 		'
 		'frmCompare

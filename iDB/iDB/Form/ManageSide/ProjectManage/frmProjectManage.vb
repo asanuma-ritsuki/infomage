@@ -27,6 +27,13 @@ Public Class frmProjectManage
 
 	End Sub
 
+	Private Sub btnProjectDetail_Click(sender As Object, e As EventArgs) Handles btnProjectDetail.Click
+
+		Dim frmNextForm As New frmProjectDetail
+		m_Context.SetNextContext(frmNextForm)
+
+	End Sub
+
 	'Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
 	'	If MessageBox.Show("開始します", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then

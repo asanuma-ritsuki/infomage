@@ -1,0 +1,2 @@
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\ImageDBManager\bin\Debug\ImageDBManager.exe.config
+C:\GitHub\infomage\ImageDBManager\ImageDBManager\bin\Debug\ImageDBManager.exe.config

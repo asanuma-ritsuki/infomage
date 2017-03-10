@@ -139,10 +139,10 @@ Partial Class frmUserManage
 		Me.C1FlexGrid1.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.C1FlexGrid1.ExtendLastCol = True
 		Me.C1FlexGrid1.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-		Me.C1FlexGrid1.Location = New System.Drawing.Point(3, 23)
+		Me.C1FlexGrid1.Location = New System.Drawing.Point(3, 20)
 		Me.C1FlexGrid1.Name = "C1FlexGrid1"
 		Me.C1FlexGrid1.Rows.DefaultSize = 23
-		Me.C1FlexGrid1.Size = New System.Drawing.Size(382, 215)
+		Me.C1FlexGrid1.Size = New System.Drawing.Size(382, 218)
 		Me.C1FlexGrid1.TabIndex = 3
 		'
 		'GroupBox2
@@ -163,10 +163,10 @@ Partial Class frmUserManage
 		Me.C1FlexGrid2.ColumnInfo = resources.GetString("C1FlexGrid2.ColumnInfo")
 		Me.C1FlexGrid2.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.C1FlexGrid2.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-		Me.C1FlexGrid2.Location = New System.Drawing.Point(3, 23)
+		Me.C1FlexGrid2.Location = New System.Drawing.Point(3, 20)
 		Me.C1FlexGrid2.Name = "C1FlexGrid2"
 		Me.C1FlexGrid2.Rows.DefaultSize = 23
-		Me.C1FlexGrid2.Size = New System.Drawing.Size(778, 178)
+		Me.C1FlexGrid2.Size = New System.Drawing.Size(778, 181)
 		Me.C1FlexGrid2.TabIndex = 4
 		'
 		'GroupBox1
@@ -361,11 +361,11 @@ Partial Class frmUserManage
 		'
 		'frmUserManage
 		'
-		Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 19.0!)
-		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
 		Me.ClientSize = New System.Drawing.Size(792, 567)
 		Me.Controls.Add(Me.Panel2)
 		Me.Controls.Add(Me.Panel1)
+		Me.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
 		Me.Name = "frmUserManage"
 		Me.Text = "frmUserManage"
 		Me.UserName = Nothing

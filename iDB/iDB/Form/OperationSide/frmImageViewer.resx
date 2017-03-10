@@ -117,10 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="C1FlexGrid2.ColumnInfo" xml:space="preserve">
-    <value>5,1,0,0,0,115,Columns:0{Name:"No";Caption:"No.";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	1{Width:80;Name:"処理工程";Caption:"処理工程";Style:"DataType:System.String;TextAlign:LeftCenter;";}	2{Width:80;Name:"詳細";Caption:"ロットID";Style:"DataType:System.String;TextAlign:LeftCenter;";}	3{Width:80;Name:"作業者";Caption:"作業者";Style:"DataType:System.String;TextAlign:LeftCenter;";}	4{Width:80;Name:"進捗";Caption:"進捗";Style:"DataType:System.String;TextAlign:LeftCenter;";}	</value>
-  </data>
-  <data name="C1FlexGrid1.ColumnInfo" xml:space="preserve">
-    <value>3,1,0,0,0,115,Columns:0{Name:"No";Caption:"No.";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	1{Name:"処理工程";Caption:"処理工程";Style:"ComboList:""パス取込|マスタデータ|エントリ|コンペア|データ出力"";DataType:System.String;TextAlign:LeftCenter;";}	2{Width:50;Name:"詳細";Caption:"詳細";Style:"DataType:System.String;TextAlign:LeftCenter;";}	</value>
-  </data>
 </root>

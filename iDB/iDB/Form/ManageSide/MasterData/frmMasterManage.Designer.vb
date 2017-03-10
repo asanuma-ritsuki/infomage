@@ -164,10 +164,10 @@ Partial Class frmMasterManage
 		'
 		Me.TabPage1.Controls.Add(Me.C1FlexGrid1)
 		Me.TabPage1.Controls.Add(Me.Panel4)
-		Me.TabPage1.Location = New System.Drawing.Point(4, 28)
+		Me.TabPage1.Location = New System.Drawing.Point(4, 26)
 		Me.TabPage1.Name = "TabPage1"
 		Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-		Me.TabPage1.Size = New System.Drawing.Size(1008, 593)
+		Me.TabPage1.Size = New System.Drawing.Size(1008, 595)
 		Me.TabPage1.TabIndex = 0
 		Me.TabPage1.Text = "項目定義"
 		Me.TabPage1.UseVisualStyleBackColor = True
@@ -184,7 +184,7 @@ Partial Class frmMasterManage
 		Me.C1FlexGrid1.Location = New System.Drawing.Point(392, 3)
 		Me.C1FlexGrid1.Name = "C1FlexGrid1"
 		Me.C1FlexGrid1.Rows.DefaultSize = 23
-		Me.C1FlexGrid1.Size = New System.Drawing.Size(613, 587)
+		Me.C1FlexGrid1.Size = New System.Drawing.Size(613, 589)
 		Me.C1FlexGrid1.TabIndex = 1
 		'
 		'Panel4
@@ -201,7 +201,7 @@ Partial Class frmMasterManage
 		Me.Panel4.Dock = System.Windows.Forms.DockStyle.Left
 		Me.Panel4.Location = New System.Drawing.Point(3, 3)
 		Me.Panel4.Name = "Panel4"
-		Me.Panel4.Size = New System.Drawing.Size(389, 587)
+		Me.Panel4.Size = New System.Drawing.Size(389, 589)
 		Me.Panel4.TabIndex = 17
 		'
 		'txtItem
@@ -308,10 +308,10 @@ Partial Class frmMasterManage
 		Me.TabPage2.Controls.Add(Me.Panel6)
 		Me.TabPage2.Controls.Add(Me.Panel5)
 		Me.TabPage2.Controls.Add(Me.Panel3)
-		Me.TabPage2.Location = New System.Drawing.Point(4, 28)
+		Me.TabPage2.Location = New System.Drawing.Point(4, 26)
 		Me.TabPage2.Name = "TabPage2"
 		Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-		Me.TabPage2.Size = New System.Drawing.Size(1008, 593)
+		Me.TabPage2.Size = New System.Drawing.Size(1008, 595)
 		Me.TabPage2.TabIndex = 1
 		Me.TabPage2.Text = "インポート"
 		Me.TabPage2.UseVisualStyleBackColor = True
@@ -322,7 +322,7 @@ Partial Class frmMasterManage
 		Me.Panel6.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.Panel6.Location = New System.Drawing.Point(313, 79)
 		Me.Panel6.Name = "Panel6"
-		Me.Panel6.Size = New System.Drawing.Size(692, 511)
+		Me.Panel6.Size = New System.Drawing.Size(692, 513)
 		Me.Panel6.TabIndex = 2
 		'
 		'C1FlexGrid3
@@ -337,7 +337,7 @@ Partial Class frmMasterManage
 		Me.C1FlexGrid3.Location = New System.Drawing.Point(0, 0)
 		Me.C1FlexGrid3.Name = "C1FlexGrid3"
 		Me.C1FlexGrid3.Rows.DefaultSize = 23
-		Me.C1FlexGrid3.Size = New System.Drawing.Size(692, 511)
+		Me.C1FlexGrid3.Size = New System.Drawing.Size(692, 513)
 		Me.C1FlexGrid3.TabIndex = 2
 		'
 		'Panel5
@@ -346,7 +346,7 @@ Partial Class frmMasterManage
 		Me.Panel5.Dock = System.Windows.Forms.DockStyle.Left
 		Me.Panel5.Location = New System.Drawing.Point(3, 79)
 		Me.Panel5.Name = "Panel5"
-		Me.Panel5.Size = New System.Drawing.Size(310, 511)
+		Me.Panel5.Size = New System.Drawing.Size(310, 513)
 		Me.Panel5.TabIndex = 1
 		'
 		'C1FlexGrid2
@@ -361,7 +361,7 @@ Partial Class frmMasterManage
 		Me.C1FlexGrid2.Location = New System.Drawing.Point(0, 0)
 		Me.C1FlexGrid2.Name = "C1FlexGrid2"
 		Me.C1FlexGrid2.Rows.DefaultSize = 23
-		Me.C1FlexGrid2.Size = New System.Drawing.Size(310, 511)
+		Me.C1FlexGrid2.Size = New System.Drawing.Size(310, 513)
 		Me.C1FlexGrid2.TabIndex = 2
 		'
 		'Panel3
@@ -417,10 +417,10 @@ Partial Class frmMasterManage
 		'TabPage3
 		'
 		Me.TabPage3.Controls.Add(Me.Panel7)
-		Me.TabPage3.Location = New System.Drawing.Point(4, 28)
+		Me.TabPage3.Location = New System.Drawing.Point(4, 26)
 		Me.TabPage3.Name = "TabPage3"
 		Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-		Me.TabPage3.Size = New System.Drawing.Size(1008, 593)
+		Me.TabPage3.Size = New System.Drawing.Size(1008, 595)
 		Me.TabPage3.TabIndex = 2
 		Me.TabPage3.Text = "インポート済"
 		Me.TabPage3.UseVisualStyleBackColor = True
@@ -431,7 +431,7 @@ Partial Class frmMasterManage
 		Me.Panel7.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.Panel7.Location = New System.Drawing.Point(3, 3)
 		Me.Panel7.Name = "Panel7"
-		Me.Panel7.Size = New System.Drawing.Size(1002, 587)
+		Me.Panel7.Size = New System.Drawing.Size(1002, 589)
 		Me.Panel7.TabIndex = 0
 		'
 		'C1FlexGrid4
@@ -446,16 +446,16 @@ Partial Class frmMasterManage
 		Me.C1FlexGrid4.Location = New System.Drawing.Point(0, 0)
 		Me.C1FlexGrid4.Name = "C1FlexGrid4"
 		Me.C1FlexGrid4.Rows.DefaultSize = 23
-		Me.C1FlexGrid4.Size = New System.Drawing.Size(1002, 587)
+		Me.C1FlexGrid4.Size = New System.Drawing.Size(1002, 589)
 		Me.C1FlexGrid4.TabIndex = 3
 		'
 		'TabPage4
 		'
 		Me.TabPage4.Controls.Add(Me.C1Sizer1)
-		Me.TabPage4.Location = New System.Drawing.Point(4, 28)
+		Me.TabPage4.Location = New System.Drawing.Point(4, 26)
 		Me.TabPage4.Name = "TabPage4"
 		Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-		Me.TabPage4.Size = New System.Drawing.Size(1008, 593)
+		Me.TabPage4.Size = New System.Drawing.Size(1008, 595)
 		Me.TabPage4.TabIndex = 3
 		Me.TabPage4.Text = "画像リンク"
 		Me.TabPage4.UseVisualStyleBackColor = True
@@ -466,20 +466,20 @@ Partial Class frmMasterManage
 		Me.C1Sizer1.Controls.Add(Me.GroupBox2)
 		Me.C1Sizer1.Controls.Add(Me.GroupBox1)
 		Me.C1Sizer1.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.C1Sizer1.GridDefinition = "48.8926746166951:False:False;49.0630323679727:False:False;" & Global.Microsoft.VisualBasic.ChrW(9) & "33.7325349301397:False" &
+		Me.C1Sizer1.GridDefinition = "48.8964346349745:False:False;49.0662139219015:False:False;" & Global.Microsoft.VisualBasic.ChrW(9) & "33.7325349301397:False" &
 	":True;65.0698602794411:False:False;"
 		Me.C1Sizer1.Location = New System.Drawing.Point(3, 3)
 		Me.C1Sizer1.Name = "C1Sizer1"
-		Me.C1Sizer1.Size = New System.Drawing.Size(1002, 587)
+		Me.C1Sizer1.Size = New System.Drawing.Size(1002, 589)
 		Me.C1Sizer1.TabIndex = 0
 		Me.C1Sizer1.Text = "C1Sizer1"
 		'
 		'GroupBox3
 		'
 		Me.GroupBox3.Controls.Add(Me.C1FlexGrid5)
-		Me.GroupBox3.Location = New System.Drawing.Point(346, 295)
+		Me.GroupBox3.Location = New System.Drawing.Point(346, 296)
 		Me.GroupBox3.Name = "GroupBox3"
-		Me.GroupBox3.Size = New System.Drawing.Size(652, 288)
+		Me.GroupBox3.Size = New System.Drawing.Size(652, 289)
 		Me.GroupBox3.TabIndex = 2
 		Me.GroupBox3.TabStop = False
 		Me.GroupBox3.Text = "マスタデータサンプル"
@@ -493,10 +493,10 @@ Partial Class frmMasterManage
 		Me.C1FlexGrid5.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.C1FlexGrid5.ExtendLastCol = True
 		Me.C1FlexGrid5.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-		Me.C1FlexGrid5.Location = New System.Drawing.Point(3, 23)
+		Me.C1FlexGrid5.Location = New System.Drawing.Point(3, 20)
 		Me.C1FlexGrid5.Name = "C1FlexGrid5"
 		Me.C1FlexGrid5.Rows.DefaultSize = 23
-		Me.C1FlexGrid5.Size = New System.Drawing.Size(646, 262)
+		Me.C1FlexGrid5.Size = New System.Drawing.Size(646, 266)
 		Me.C1FlexGrid5.TabIndex = 4
 		'
 		'GroupBox2
@@ -504,7 +504,7 @@ Partial Class frmMasterManage
 		Me.GroupBox2.Controls.Add(Me.C1FlexGrid6)
 		Me.GroupBox2.Location = New System.Drawing.Point(346, 4)
 		Me.GroupBox2.Name = "GroupBox2"
-		Me.GroupBox2.Size = New System.Drawing.Size(652, 287)
+		Me.GroupBox2.Size = New System.Drawing.Size(652, 288)
 		Me.GroupBox2.TabIndex = 1
 		Me.GroupBox2.TabStop = False
 		Me.GroupBox2.Text = "イメージ情報サンプル"
@@ -518,10 +518,10 @@ Partial Class frmMasterManage
 		Me.C1FlexGrid6.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.C1FlexGrid6.ExtendLastCol = True
 		Me.C1FlexGrid6.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-		Me.C1FlexGrid6.Location = New System.Drawing.Point(3, 23)
+		Me.C1FlexGrid6.Location = New System.Drawing.Point(3, 20)
 		Me.C1FlexGrid6.Name = "C1FlexGrid6"
 		Me.C1FlexGrid6.Rows.DefaultSize = 23
-		Me.C1FlexGrid6.Size = New System.Drawing.Size(646, 261)
+		Me.C1FlexGrid6.Size = New System.Drawing.Size(646, 265)
 		Me.C1FlexGrid6.TabIndex = 4
 		'
 		'GroupBox1
@@ -531,7 +531,7 @@ Partial Class frmMasterManage
 		Me.GroupBox1.Controls.Add(Me.GroupBox4)
 		Me.GroupBox1.Location = New System.Drawing.Point(4, 4)
 		Me.GroupBox1.Name = "GroupBox1"
-		Me.GroupBox1.Size = New System.Drawing.Size(338, 579)
+		Me.GroupBox1.Size = New System.Drawing.Size(338, 581)
 		Me.GroupBox1.TabIndex = 0
 		Me.GroupBox1.TabStop = False
 		Me.GroupBox1.Text = "リンク設定"
@@ -540,7 +540,7 @@ Partial Class frmMasterManage
 		'
 		Me.Panel8.Controls.Add(Me.btnCrateLink)
 		Me.Panel8.Dock = System.Windows.Forms.DockStyle.Bottom
-		Me.Panel8.Location = New System.Drawing.Point(3, 538)
+		Me.Panel8.Location = New System.Drawing.Point(3, 540)
 		Me.Panel8.Name = "Panel8"
 		Me.Panel8.Size = New System.Drawing.Size(332, 38)
 		Me.Panel8.TabIndex = 2
@@ -580,6 +580,7 @@ Partial Class frmMasterManage
 		Me.Controls.Add(Me.TabControl1)
 		Me.Controls.Add(Me.Panel2)
 		Me.Controls.Add(Me.Panel1)
+		Me.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
 		Me.Name = "frmMasterManage"
 		Me.Text = "frmMasterManage"
 		Me.UserName = Nothing

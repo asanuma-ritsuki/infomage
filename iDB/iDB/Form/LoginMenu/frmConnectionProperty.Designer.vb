@@ -225,6 +225,7 @@ Partial Class frmConnectionProperty
 		Me.Controls.Add(Me.btnTest)
 		Me.Controls.Add(Me.txtServer)
 		Me.Controls.Add(Me.C1Label1)
+		Me.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
 		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
 		Me.MaximizeBox = False
 		Me.Name = "frmConnectionProperty"

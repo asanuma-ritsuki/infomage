@@ -1,6 +1,6 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmImageViewer
-	Inherits frmTempForm
+Partial Class Form1
+	Inherits System.Windows.Forms.Form
 
 	'フォームがコンポーネントの一覧をクリーンアップするために dispose をオーバーライドします。
 	<System.Diagnostics.DebuggerNonUserCode()> _
@@ -24,16 +24,15 @@ Partial Class frmImageViewer
 	Private Sub InitializeComponent()
 		Me.SuspendLayout()
 		'
-		'frmImageViewer
+		'Form1
 		'
-		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
-		Me.ClientSize = New System.Drawing.Size(792, 567)
-		Me.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-		Me.Name = "frmImageViewer"
-		Me.Text = "frmImageViewer"
-		Me.UserName = Nothing
+		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
+		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+		Me.ClientSize = New System.Drawing.Size(284, 261)
+		Me.Name = "Form1"
+		Me.Text = "Manage"
 		Me.ResumeLayout(False)
-		Me.PerformLayout()
 
 	End Sub
+
 End Class

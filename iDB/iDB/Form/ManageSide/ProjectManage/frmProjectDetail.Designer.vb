@@ -29,7 +29,10 @@ Partial Class frmProjectDetail
 		Me.btnBack = New C1.Win.C1Input.C1Button()
 		Me.Panel3 = New System.Windows.Forms.Panel()
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+		Me.Panel7 = New System.Windows.Forms.Panel()
 		Me.btnMasterManage = New C1.Win.C1Input.C1Button()
+		Me.btnItemManage = New C1.Win.C1Input.C1Button()
+		Me.btnCompare = New C1.Win.C1Input.C1Button()
 		Me.btnRegist = New C1.Win.C1Input.C1Button()
 		Me.C1TextBox7 = New C1.Win.C1Input.C1TextBox()
 		Me.C1Label11 = New C1.Win.C1Input.C1Label()
@@ -62,14 +65,17 @@ Partial Class frmProjectDetail
 		Me.Panel5 = New System.Windows.Forms.Panel()
 		Me.GroupBox2 = New System.Windows.Forms.GroupBox()
 		Me.C1FlexGrid1 = New C1.Win.C1FlexGrid.C1FlexGrid()
-		Me.btnCompare = New C1.Win.C1Input.C1Button()
+		Me.C1Button2 = New C1.Win.C1Input.C1Button()
 		Me.Panel1.SuspendLayout()
 		CType(Me.C1Label1, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.Panel2.SuspendLayout()
 		CType(Me.btnBack, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.Panel3.SuspendLayout()
 		Me.GroupBox1.SuspendLayout()
+		Me.Panel7.SuspendLayout()
 		CType(Me.btnMasterManage, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.btnItemManage, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.btnCompare, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.btnRegist, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.C1TextBox7, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.C1Label11, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -102,7 +108,7 @@ Partial Class frmProjectDetail
 		Me.Panel5.SuspendLayout()
 		Me.GroupBox2.SuspendLayout()
 		CType(Me.C1FlexGrid1, System.ComponentModel.ISupportInitialize).BeginInit()
-		CType(Me.btnCompare, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.C1Button2, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
 		'Panel1
@@ -157,8 +163,7 @@ Partial Class frmProjectDetail
 		'
 		'GroupBox1
 		'
-		Me.GroupBox1.Controls.Add(Me.btnCompare)
-		Me.GroupBox1.Controls.Add(Me.btnMasterManage)
+		Me.GroupBox1.Controls.Add(Me.Panel7)
 		Me.GroupBox1.Controls.Add(Me.btnRegist)
 		Me.GroupBox1.Controls.Add(Me.C1TextBox7)
 		Me.GroupBox1.Controls.Add(Me.C1Label11)
@@ -189,14 +194,44 @@ Partial Class frmProjectDetail
 		Me.GroupBox1.TabStop = False
 		Me.GroupBox1.Text = "案件情報"
 		'
+		'Panel7
+		'
+		Me.Panel7.Controls.Add(Me.C1Button2)
+		Me.Panel7.Controls.Add(Me.btnMasterManage)
+		Me.Panel7.Controls.Add(Me.btnItemManage)
+		Me.Panel7.Controls.Add(Me.btnCompare)
+		Me.Panel7.Dock = System.Windows.Forms.DockStyle.Bottom
+		Me.Panel7.Location = New System.Drawing.Point(3, 584)
+		Me.Panel7.Name = "Panel7"
+		Me.Panel7.Size = New System.Drawing.Size(394, 38)
+		Me.Panel7.TabIndex = 36
+		'
 		'btnMasterManage
 		'
-		Me.btnMasterManage.Location = New System.Drawing.Point(294, 593)
+		Me.btnMasterManage.Location = New System.Drawing.Point(311, 6)
 		Me.btnMasterManage.Name = "btnMasterManage"
-		Me.btnMasterManage.Size = New System.Drawing.Size(100, 26)
+		Me.btnMasterManage.Size = New System.Drawing.Size(80, 26)
 		Me.btnMasterManage.TabIndex = 33
 		Me.btnMasterManage.Text = "マスタ管理"
 		Me.btnMasterManage.UseVisualStyleBackColor = True
+		'
+		'btnItemManage
+		'
+		Me.btnItemManage.Location = New System.Drawing.Point(139, 6)
+		Me.btnItemManage.Name = "btnItemManage"
+		Me.btnItemManage.Size = New System.Drawing.Size(80, 26)
+		Me.btnItemManage.TabIndex = 35
+		Me.btnItemManage.Text = "項目設定"
+		Me.btnItemManage.UseVisualStyleBackColor = True
+		'
+		'btnCompare
+		'
+		Me.btnCompare.Location = New System.Drawing.Point(225, 6)
+		Me.btnCompare.Name = "btnCompare"
+		Me.btnCompare.Size = New System.Drawing.Size(80, 26)
+		Me.btnCompare.TabIndex = 34
+		Me.btnCompare.Text = "コンペア"
+		Me.btnCompare.UseVisualStyleBackColor = True
 		'
 		'btnRegist
 		'
@@ -465,10 +500,10 @@ Partial Class frmProjectDetail
 		Me.C1FlexGrid2.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.C1FlexGrid2.ExtendLastCol = True
 		Me.C1FlexGrid2.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-		Me.C1FlexGrid2.Location = New System.Drawing.Point(3, 23)
+		Me.C1FlexGrid2.Location = New System.Drawing.Point(3, 20)
 		Me.C1FlexGrid2.Name = "C1FlexGrid2"
 		Me.C1FlexGrid2.Rows.DefaultSize = 23
-		Me.C1FlexGrid2.Size = New System.Drawing.Size(394, 561)
+		Me.C1FlexGrid2.Size = New System.Drawing.Size(394, 564)
 		Me.C1FlexGrid2.TabIndex = 3
 		'
 		'Panel6
@@ -541,27 +576,26 @@ Partial Class frmProjectDetail
 		'
 		'C1FlexGrid1
 		'
-		Me.C1FlexGrid1.AllowEditing = False
 		Me.C1FlexGrid1.AllowFiltering = True
 		Me.C1FlexGrid1.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.FixedSingle
 		Me.C1FlexGrid1.ColumnInfo = resources.GetString("C1FlexGrid1.ColumnInfo")
 		Me.C1FlexGrid1.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.C1FlexGrid1.ExtendLastCol = True
 		Me.C1FlexGrid1.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-		Me.C1FlexGrid1.Location = New System.Drawing.Point(3, 23)
+		Me.C1FlexGrid1.Location = New System.Drawing.Point(3, 20)
 		Me.C1FlexGrid1.Name = "C1FlexGrid1"
 		Me.C1FlexGrid1.Rows.DefaultSize = 23
-		Me.C1FlexGrid1.Size = New System.Drawing.Size(210, 599)
+		Me.C1FlexGrid1.Size = New System.Drawing.Size(210, 602)
 		Me.C1FlexGrid1.TabIndex = 2
 		'
-		'btnCompare
+		'C1Button2
 		'
-		Me.btnCompare.Location = New System.Drawing.Point(188, 593)
-		Me.btnCompare.Name = "btnCompare"
-		Me.btnCompare.Size = New System.Drawing.Size(100, 26)
-		Me.btnCompare.TabIndex = 34
-		Me.btnCompare.Text = "コンペア"
-		Me.btnCompare.UseVisualStyleBackColor = True
+		Me.C1Button2.Location = New System.Drawing.Point(53, 6)
+		Me.C1Button2.Name = "C1Button2"
+		Me.C1Button2.Size = New System.Drawing.Size(80, 26)
+		Me.C1Button2.TabIndex = 36
+		Me.C1Button2.Text = "パス取込"
+		Me.C1Button2.UseVisualStyleBackColor = True
 		'
 		'frmProjectDetail
 		'
@@ -586,7 +620,10 @@ Partial Class frmProjectDetail
 		CType(Me.btnBack, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.Panel3.ResumeLayout(False)
 		Me.GroupBox1.ResumeLayout(False)
+		Me.Panel7.ResumeLayout(False)
 		CType(Me.btnMasterManage, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.btnItemManage, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.btnCompare, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.btnRegist, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.C1TextBox7, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.C1Label11, System.ComponentModel.ISupportInitialize).EndInit()
@@ -619,7 +656,7 @@ Partial Class frmProjectDetail
 		Me.Panel5.ResumeLayout(False)
 		Me.GroupBox2.ResumeLayout(False)
 		CType(Me.C1FlexGrid1, System.ComponentModel.ISupportInitialize).EndInit()
-		CType(Me.btnCompare, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.C1Button2, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 
@@ -665,4 +702,7 @@ Partial Class frmProjectDetail
 	Friend WithEvents C1Label12 As C1.Win.C1Input.C1Label
 	Friend WithEvents btnMasterManage As C1.Win.C1Input.C1Button
 	Friend WithEvents btnCompare As C1.Win.C1Input.C1Button
+	Friend WithEvents Panel7 As Panel
+	Friend WithEvents btnItemManage As C1.Win.C1Input.C1Button
+	Friend WithEvents C1Button2 As C1.Win.C1Input.C1Button
 End Class
