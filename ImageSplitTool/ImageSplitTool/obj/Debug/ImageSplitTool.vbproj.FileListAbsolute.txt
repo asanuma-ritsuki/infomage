@@ -1,0 +1,13 @@
+C:\GitHub\infomage\ImageSplitTool\ImageSplitTool\bin\Debug\ImageSplitTool.exe.config
+C:\GitHub\infomage\ImageSplitTool\ImageSplitTool\bin\Debug\ImageSplitTool.exe
+C:\GitHub\infomage\ImageSplitTool\ImageSplitTool\bin\Debug\ImageSplitTool.pdb
+C:\GitHub\infomage\ImageSplitTool\ImageSplitTool\bin\Debug\ImageSplitTool.xml
+C:\GitHub\infomage\ImageSplitTool\ImageSplitTool\bin\Debug\Magick.NET-Q16-AnyCPU.dll
+C:\GitHub\infomage\ImageSplitTool\ImageSplitTool\bin\Debug\Magick.NET-Q16-AnyCPU.xml
+C:\GitHub\infomage\ImageSplitTool\ImageSplitTool\obj\Debug\ImageSplitTool.Form1.resources
+C:\GitHub\infomage\ImageSplitTool\ImageSplitTool\obj\Debug\ImageSplitTool.Resources.resources
+C:\GitHub\infomage\ImageSplitTool\ImageSplitTool\obj\Debug\ImageSplitTool.vbproj.GenerateResource.Cache
+C:\GitHub\infomage\ImageSplitTool\ImageSplitTool\obj\Debug\ImageSplitTool.exe
+C:\GitHub\infomage\ImageSplitTool\ImageSplitTool\obj\Debug\ImageSplitTool.xml
+C:\GitHub\infomage\ImageSplitTool\ImageSplitTool\obj\Debug\ImageSplitTool.pdb
+C:\GitHub\infomage\ImageSplitTool\ImageSplitTool\obj\Debug\ImageSplitTool.vbprojResolveAssemblyReference.cache

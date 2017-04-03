@@ -1,0 +1,1164 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+FujiIS
+</name>
+</assembly>
+<members>
+<member name="T:FujiIS.My.Resources.Resources">
+<summary>
+  ローカライズされた文字列などを検索するための、厳密に型指定されたリソース クラスです。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.ResourceManager">
+<summary>
+  このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.Culture">
+<summary>
+  厳密に型指定されたこのリソース クラスを使用して、すべての検索リソースに対し、
+  現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.account_functions">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.actions_go_first_3_22x22">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.actions_go_last_3_22x22">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.actions_go_next_5_22x22">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.actions_go_previous_5_22x22">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.actions_object_rotate_left_22x22">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.actions_object_rotate_right_22x22">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.arrow_rotate_anticlockwise">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.arrow_rotate_clockwise">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.ArrowBottom">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.ArrowNext">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.ArrowPrev">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.ArrowTop">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.Back">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.bin">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.Clear">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.find">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.link">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.link_add">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.link_break">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.link_delete">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.link_edit">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.link_go">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.link_unchain">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.MoveAll">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.printer">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.resultset_first">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.resultset_last">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.resultset_next">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.resultset_previous">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.RotateLeft">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.RotateRight">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.table_edit">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.table_lightning">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.table_row_delete">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.table_row_insert">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.wrench">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.Zoom">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.ZoomIn">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:FujiIS.My.Resources.Resources.ZoomOut">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="T:FujiIS.CElement">
+ <summary>
+ コンボボックスに表示用mの次列と内部IDを保持させるクラス
+ </summary>
+</member>
+<member name="M:FujiIS.CElement.ToString">
+ <summary>
+ 表示用文字列はToStringをオーバーライドして取得する
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:FujiIS.CElement.ID">
+ <summary>
+ 実際の値
+ (ValueMemberに設定する文字列と同名にする)
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:FujiIS.CElement.NAME">
+ <summary>
+ 表示名称
+ (DisplayMemberに設定する文字列と同名にする
+ </summary>
+ <returns></returns>
+</member>
+<member name="T:FujiIS.clsWinApp">
+ <summary>
+ メインルーチン
+ </summary>
+</member>
+<member name="M:FujiIS.clsWinApp.OnThreadException(System.Object,System.Threading.ThreadExceptionEventArgs)">
+ <summary>
+ 例外ハンドラ
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:FujiIS.clsWinApp.CatchException(System.Exception)">
+ <summary>
+ 意図的にキャッチしない例外を全て処理する
+ </summary>
+ <param name="ex"></param>
+</member>
+<member name="M:FujiIS.SQLProcess.#ctor">
+ <summary>
+ コンストラクタ
+ </summary>
+</member>
+<member name="M:FujiIS.SQLProcess.Close">
+ <summary>
+ デストラクタ
+ </summary>
+</member>
+<member name="M:FujiIS.SQLProcess.Initialize">
+ <summary>
+ コネクション確立
+ </summary>
+</member>
+<member name="M:FujiIS.SQLProcess.DB_SELECT_DATATABLE(System.String)">
+ <summary>
+ SELECT文発行用関数(DATATABLE)
+ </summary>
+ <param name="strSQL"></param>
+ <returns></returns>
+</member>
+<member name="M:FujiIS.SQLProcess.DB_EXECUTE_SCALAR(System.String)">
+ <summary>
+ SQL文の結果より単一の値を取得
+ </summary>
+ <param name="strSQL"></param>
+ <returns></returns>
+</member>
+<member name="M:FujiIS.SQLProcess.DB_UPDATE(System.String)">
+ <summary>
+ INSERT、DELETE、UPDATE文発行用関数
+ </summary>
+ <param name="strSQL"></param>
+</member>
+<member name="M:FujiIS.SQLProcess.DB_SELECT_READER(System.String)">
+ <summary>
+ SELECT文発行用関数(DATA READER)
+ </summary>
+ <param name="strSQL"></param>
+ <returns></returns>
+</member>
+<member name="M:FujiIS.SQLProcess.DB_SELECT_DATASET(System.String,System.String)">
+ <summary>
+ SELECT文発行用関数(DATASET)
+ </summary>
+ <param name="strSQL"></param>
+ <param name="srcTable"></param>
+ <returns></returns>
+</member>
+<member name="P:FujiIS.XmlSettings.LocationX">
+ <summary>
+ フォーム位置X
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:FujiIS.XmlSettings.LocationY">
+ <summary>
+ フォーム位置Y
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:FujiIS.XmlSettings.SizeX">
+ <summary>
+ サイズ幅
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:FujiIS.XmlSettings.SizeY">
+ <summary>
+ サイズ高さ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:FujiIS.XmlSettings.State">
+ <summary>
+ 最大化・最小化状態
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:FujiIS.XmlSettings.ApplicationName">
+ <summary>
+ アプリケーション名
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:FujiIS.XmlSettings.ImagePath">
+ <summary>
+ 画像ファイル親パス
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:FujiIS.XmlSettings.DataSource">
+ <summary>
+ DataSource
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:FujiIS.XmlSettings.InitialCatalog">
+ <summary>
+ InitialCatalog
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:FujiIS.XmlSettings.UserID">
+ <summary>
+ UserID
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:FujiIS.XmlSettings.Password">
+ <summary>
+ Password
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:FujiIS.XmlSettings.TablePrefix">
+ <summary>
+ INTRA-PDC00接続時の接頭語入出力
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:FujiIS.XmlSettings.LoadFromXmlFile">
+ <summary>
+ 設定をXMLファイルから読み込み復元する
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.XmlSettings.SaveToXmlFile">
+ <summary>
+ 現在の設定をXMLファイルに保存する
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.XmlSettings.LoadFromBinaryFile">
+ <summary>
+ 設定をバイナリファイルから読み込み復元する
+ </summary>
+</member>
+<member name="M:FujiIS.XmlSettings.SaveToBinaryFile">
+ <summary>
+ 現在の設定をバイナリファイルに保存する
+ </summary>
+</member>
+<member name="M:FujiIS.XmlSettings.LoadFromRegistry">
+ <summary>
+ 設定をレジストリから読み込み復元する
+ </summary>
+</member>
+<member name="M:FujiIS.XmlSettings.SaveToRegistry">
+ <summary>
+ 現在の設定をレジストリに保存する
+ </summary>
+</member>
+<member name="M:FujiIS.XmlSettings.Dispose">
+ <summary>
+ インスタンスの内容を保存して解放する
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.XmlSettings.GetSettingPath">
+ <summary>
+ XMLファイルの保存先を取得する
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.XmlSettings.GetSettingRegistry">
+ <summary>
+ レジストリの保存先キーを取得する
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmBrowse.frmBrowse_Load(System.Object,System.EventArgs)">
+ <summary>
+ フォームロード時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:FujiIS.frmBrowse.btnBrowse_Click(System.Object,System.EventArgs)">
+ <summary>
+ ブラウズボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:FujiIS.frmBrowse.btnOK_Click(System.Object,System.EventArgs)">
+ <summary>
+ OKボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:FujiIS.frmBrowse.btnCancel_Click(System.Object,System.EventArgs)">
+ <summary>
+ キャンセルボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:FujiIS.frmBrowse.txtImagePath_DragEnter(System.Object,System.Windows.Forms.DragEventArgs)">
+ <summary>
+ DragEnter時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:FujiIS.frmBrowse.txtImagePath_DragDrop(System.Object,System.Windows.Forms.DragEventArgs)">
+ <summary>
+ DragDrop時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:FujiIS.frmEditorMokuji.frmEditorMokuji_Load(System.Object,System.EventArgs)">
+ <summary>
+ フォームロード時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:FujiIS.frmEditorMokuji.txtItemEdit_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+ <summary>
+ 編集テキストボックスキーダウンイベント
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:FujiIS.frmEditorMokuji.btnOK_Click(System.Object,System.EventArgs)">
+ <summary>
+ OKボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:FujiIS.frmEditorMokuji.btnCancel_Click(System.Object,System.EventArgs)">
+ <summary>
+ キャンセルボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:FujiIS.frmEditorMokuji.RegistValue">
+ <summary>
+ 入力値を確定する
+ </summary>
+</member>
+<member name="P:FujiIS.frmMain.ImageProperty.sngZoom">
+ <summary>
+ 画像の祝率を取得及び、設定をする
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:FujiIS.frmMain.ImageProperty.Degrees">
+ <summary>
+ 画像の回転角度を取得及び、設定をする
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:FujiIS.frmMain.ImageProperty.Angle">
+ <summary>
+ 角度×100を取得及び、設定をする
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:FujiIS.frmMain.ImageProperty.Flags">
+ <summary>
+ Rotateコマンド内容を取得及び、設定をする
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:FujiIS.frmMain.ImageProperty.FillColor">
+ <summary>
+ 余白塗りつぶし色を取得及び、設定をする
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:FujiIS.frmMain.ImageProperty.CurrentPage">
+ <summary>
+ 現在のページを取得及び、設定をする
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:FujiIS.frmMain.ImageProperty.TotalPages">
+ <summary>
+ 総ページ数を取得及び、設定をする
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="T:FujiIS.frmMain.GridStyleName">
+ <summary>
+ スタイル列挙体
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="T:FujiIS.frmMain.enumPageMove">
+ <summary>
+ ページ移動列挙体
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="P:FujiIS.frmMain.LinkProcess">
+ <summary>
+ 処理内容
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:FujiIS.frmMain.frmMain_Load(System.Object,System.EventArgs)">
+ <summary>
+ フォームロード時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:FujiIS.frmMain.frmMain_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+ <summary>
+ フォームキーダウンイベント
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks>C1FGridResultのキーダウンイベントも同様の動作とする</remarks>
+</member>
+<member name="M:FujiIS.frmMain.btnBack_Click(System.Object,System.EventArgs)">
+ <summary>
+ 戻るボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.btnStart_Click(System.Object,System.EventArgs)">
+ <summary>
+ 開始ボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.btnAbort_Click(System.Object,System.EventArgs)">
+ <summary>
+ 中断ボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:FujiIS.frmMain.C1FGridResult_EnterCell(System.Object,System.EventArgs)">
+ <summary>
+ FlexGrid EnterCell時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.rivImage_DoubleClick(System.Object,System.EventArgs)">
+ <summary>
+ RasterImageViewerダブルクリック時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.btnFinish_Click(System.Object,System.EventArgs)">
+ <summary>
+ 終了ボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.C1FGridMokuji_DoubleClick(System.Object,System.EventArgs)">
+ <summary>
+ 目次部グリッドダブルクリック時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.C1FGridMokuji_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+ <summary>
+ 目次部グリッドキーダウン時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.C1FGridMokuji_BeforeMouseDown(System.Object,C1.Win.C1FlexGrid.BeforeMouseDownEventArgs)">
+ <summary>
+ 目次部グリッドのマウスクリック前
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.toolReference_Click(System.Object,System.EventArgs)">
+ <summary>
+ [ファイル][参照フォルダ]
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.toolTop_Click(System.Object,System.EventArgs)">
+ <summary>
+ [移動][先頭画像]
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.toolPrev_Click(System.Object,System.EventArgs)">
+ <summary>
+ [移動][前画像]
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.toolNext_Click(System.Object,System.EventArgs)">
+ <summary>
+ [移動][次画像]
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.toolBottom_Click(System.Object,System.EventArgs)">
+ <summary>
+ [移動][最終画像]
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.toolReduction_Click(System.Object,System.EventArgs)">
+ <summary>
+ [表示][縮小]
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.toolMagnification_Click(System.Object,System.EventArgs)">
+ <summary>
+ [表示][拡大]
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.toolFit_Click(System.Object,System.EventArgs)">
+ <summary>
+ [表示][フィット]
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.toolRotateLeft_Click(System.Object,System.EventArgs)">
+ <summary>
+ [表示][左回転]
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.toolRotateRight_Click(System.Object,System.EventArgs)">
+ <summary>
+ [表示][右回転]
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.ToolStripMenuItem1_Click(System.Object,System.EventArgs)">
+ <summary>
+ [編集][リンク設定]
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:FujiIS.frmMain.リンク削除ToolStripMenuItem_Click(System.Object,System.EventArgs)">
+ <summary>
+ [編集][リンク削除]
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:FujiIS.frmMain.btnImageTop_Click(System.Object,System.EventArgs)">
+ <summary>
+ 先頭画像へ
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.btnImagePrev_Click(System.Object,System.EventArgs)">
+ <summary>
+ 前の画像へ
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.btnImageNext_Click(System.Object,System.EventArgs)">
+ <summary>
+ 次の画像へ
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.btnImageBottom_Click(System.Object,System.EventArgs)">
+ <summary>
+ 末尾の画像へ
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.btnRotateLeft_Click(System.Object,System.EventArgs)">
+ <summary>
+ 左へ90度回転
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.btnRotateRight_Click(System.Object,System.EventArgs)">
+ <summary>
+ 右へ90度回転
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.btnReduction_Click(System.Object,System.EventArgs)">
+ <summary>
+ 20％縮小
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.btnMagnification_Click(System.Object,System.EventArgs)">
+ <summary>
+ 20％拡大
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.btnFit_Click(System.Object,System.EventArgs)">
+ <summary>
+ フィット
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.toolSetLink_Click(System.Object,System.EventArgs)">
+ <summary>
+ 目次部コンテキストメニュー[リンク設定]
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.toolDelLink_Click(System.Object,System.EventArgs)">
+ <summary>
+ 目次部コンテキストメニュー[リンク削除]
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.toolInsert_Click(System.Object,System.EventArgs)">
+ <summary>
+ 行の挿入
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.toolDelete_Click(System.Object,System.EventArgs)">
+ <summary>
+ 行の削除
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.toolAdd_Click(System.Object,System.EventArgs)">
+ <summary>
+ 行の追加
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.C1FGridMokuji_AfterDragRow(System.Object,C1.Win.C1FlexGrid.DragRowColEventArgs)">
+ <summary>
+ レコード移動後イベント
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:FujiIS.frmMain.toolManage_Click(System.Object,System.EventArgs)">
+ <summary>
+ 管理画面
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:FujiIS.frmMain.Initialize">
+ <summary>
+ 初期化処理
+ </summary>
+</member>
+<member name="M:FujiIS.frmMain.EnumBookletID">
+ <summary>
+ 冊子IDを列挙し、選択されていた項目を選択し直す
+ </summary>
+</member>
+<member name="M:FujiIS.frmMain.SelectImage(System.Int32)">
+ <summary>
+ FlexGrid選択時に画像をRasterImageViewerに表示する
+ </summary>
+ <param name="iIndex"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.MoveImageTop">
+ <summary>
+ 先頭の画像へ
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.MoveImagePrev">
+ <summary>
+ 前の画像へ
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.MoveImageNext">
+ <summary>
+ 次の画像へ
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.MoveImageBottom">
+ <summary>
+ 末尾の画像へ
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.ImageRotate(System.Int32,System.Boolean)">
+ <summary>
+ 画像を回転する
+ </summary>
+ <param name="degrees">回転角度</param>
+ <param name="degreesCheck">回転時、回転角度を加算するか否か(デフォルト：加算しない)</param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.ChangeBackColor(System.Int32,FujiIS.frmMain.GridStyleName)">
+ <summary>
+ FlexGridの背景色を変更する(1行単位)
+ </summary>
+ <param name="iRow"></param>
+ <param name="iGridStyleName"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.ChangeBackColorMokuji(System.Int32,FujiIS.frmMain.GridStyleName)">
+ <summary>
+ FlexGridの背景色を変更する(1行単位)(目次部)
+ </summary>
+ <param name="iRow"></param>
+ <param name="iGridStyleName"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.ChangeCellBackColor(System.Int32,System.Int32,FujiIS.frmMain.GridStyleName)">
+ <summary>
+ 目次部のグリッドのセルの背景色を変更する
+ </summary>
+ <param name="iRow"></param>
+ <param name="iCol"></param>
+ <param name="iGridStyleName"></param>
+</member>
+<member name="M:FujiIS.frmMain.RunCommand(Leadtools.ImageProcessing.IRasterCommand)">
+ <summary>
+ RasterImageのコマンドを受け取る
+ </summary>
+ <param name="command"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.ConvertRect(Leadtools.LeadRect)">
+ <summary>
+ LeadRectをRectangleに変換する
+ </summary>
+ <param name="rc"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.SearchGrid">
+ <summary>
+ ファイルリストを列挙する
+ </summary>
+</member>
+<member name="M:FujiIS.frmMain.ClearValue">
+ <summary>
+ 値を初期化する
+ </summary>
+</member>
+<member name="M:FujiIS.frmMain.ViewEditorMokuji">
+ <summary>
+ 目次編集エディターを表示する
+ </summary>
+</member>
+<member name="M:FujiIS.frmMain.GridRenumber(C1.Win.C1FlexGrid.C1FlexGrid)">
+ <summary>
+ 連番を振り直す
+ </summary>
+ <param name="C1FGrid"></param>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.frmMain.SetLink">
+ <summary>
+ リンクを設定する
+ </summary>
+</member>
+<member name="M:FujiIS.frmMain.DelLink">
+ <summary>
+ リンクを削除する
+ </summary>
+</member>
+<member name="M:FujiIS.frmMain.NextMokuji">
+ <summary>
+ 次の目次タイトルを選択する
+ </summary>
+</member>
+<member name="M:FujiIS.frmMain.RegistData">
+ <summary>
+ 目次データをデータベースに保存する
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:FujiIS.frmManage.frmManage_Load(System.Object,System.EventArgs)">
+ <summary>
+ フォームロード時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:FujiIS.frmManage.btnOutput_Click(System.Object,System.EventArgs)">
+ <summary>
+ 出力ボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:FujiIS.frmTempForm.frmTempForm_Load(System.Object,System.EventArgs)">
+ <summary>
+ フォームロード時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:FujiIS.frmTempForm.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+ <summary>
+ フォームキーダウンイベント
+ </summary>
+ <param name="e"></param>
+</member>
+<member name="M:FujiIS.frmTempForm.Timer1_Tick(System.Object,System.EventArgs)">
+ <summary>
+ ステータスバーに時刻を表示する
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="T:FujiIS.DefaultModule.ResultMark">
+ <summary>
+ リストボックス用マーク列挙体
+ </summary>
+</member>
+<member name="M:FujiIS.DefaultModule.WriteLstResult(System.Windows.Forms.ListBox,System.String,FujiIS.DefaultModule.ResultMark)">
+ <summary>
+ リストボックスに結果マーク込みで文字列を書き込む
+ </summary>
+ <param name="lstResult"></param>
+ <param name="strLog"></param>
+ <param name="ResultMark"></param>
+</member>
+<member name="M:FujiIS.DefaultModule.IsNull(System.String)">
+ <summary>
+ NULL判定
+ </summary>
+ <param name="text"></param>
+ <returns></returns>
+</member>
+<member name="M:FujiIS.DefaultModule.OutputLogFile(System.String)">
+ <summary>
+ 例外処理内容をログファイルに書き込む
+ </summary>
+ <param name="strExceptionMessage"></param>
+</member>
+<member name="M:FujiIS.DefaultModule.GetLinesOfTextFile(System.String)">
+ <summary>
+ ファイルのレコード数をカウントする
+ </summary>
+ <param name="strFileName"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.DefaultModule.IsShiftJISOnlyText(System.String)">
+ <summary>
+ Shift-JISで表現できるか判別する
+ </summary>
+ <param name="text">対象文字列</param>
+ <returns>TRUE:表現できる、FALSE:表現できない</returns>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.DefaultModule.FileBrowse(System.Windows.Forms.TextBox,System.String)">
+ <summary>
+ ファイルを開くダイアログボックス
+ </summary>
+ <param name="txtFile"></param>
+ <param name="strFilter"></param>
+ <returns>フィルタの記述例：JPEGイメージ(*.jpg)|*.jpg|すべてのファイル(*.*)|*.*</returns>
+</member>
+<member name="M:FujiIS.DefaultModule.FolderBrowse(System.Windows.Forms.TextBox)">
+ <summary>
+ フォルダを開くコモンダイアログボックスを表示する
+ </summary>
+ <param name="txtFolder"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.DefaultModule.GetFilesMostDeep(System.String,System.String[])">
+ <summary>
+ 指定した検索パターンに一致するファイルを最下層まで検索し全て返す
+ </summary>
+ <param name="strRootPath">検索を開始する最上層のディレクトリへのパス</param>
+ <param name="strPatterns">パス内のファイル名と対応させる検索文字列の配列</param>
+ <returns>検索パターンに一致したすべてのファイルパス</returns>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.DefaultModule.OutputImportLog(System.Windows.Forms.ListBox,System.String,System.String,System.String)">
+ <summary>
+ リストボックスに表示されている文字列をログファイルとして保存する
+ </summary>
+ <param name="lstResult">対象ListBox</param>
+ <param name="strOutputFolder">出力フォルダ</param>
+ <param name="strSign">ファイル名をわかりやすくするためのサインを指定する</param>
+ <remarks>yyyyMMdd_Import_XXの形式で出力する(XXは数字)</remarks>
+</member>
+<member name="M:FujiIS.DefaultModule.getBusinessDay(System.DateTime,System.Int32)">
+ <summary>
+ 営業日の日数分日付をずらす
+ </summary>
+ <param name="dtDate"></param>
+ <param name="iDiff"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:FujiIS.DefaultModule.IsHoliday(System.DateTime)">
+ <summary>
+ 土日祝日判定
+ </summary>
+ <param name="dtDate"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+</members>
+</doc>

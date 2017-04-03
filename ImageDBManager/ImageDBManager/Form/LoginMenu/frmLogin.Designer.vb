@@ -55,7 +55,7 @@ Partial Class frmLogin
 		Me.Label1.Size = New System.Drawing.Size(464, 50)
 		Me.Label1.TabIndex = 0
 		Me.Label1.Text = "画像データベースツール(仮)"
-		Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		Me.Label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		'
 		'cmbGroup
 		'

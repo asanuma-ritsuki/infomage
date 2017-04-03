@@ -117,4 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="C1FGridResult.ColumnInfo" xml:space="preserve">
+    <value>11,1,0,0,0,100,Columns:0{Name:"No";Caption:"No.";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	1{Name:"案件ID";Caption:"案件ID";Style:"DataType:System.String;TextAlign:LeftCenter;";}	2{Width:200;Name:"案件名";Caption:"案件名";Style:"DataType:System.String;TextAlign:LeftCenter;";}	3{Name:"作番コード";Caption:"作番コード";Style:"DataType:System.String;TextAlign:LeftCenter;";}	4{Name:"顧客名";Caption:"顧客名";Style:"DataType:System.String;TextAlign:LeftCenter;";}	5{Name:"エンドユーザー";Caption:"エンドユーザー";Style:"DataType:System.String;TextAlign:LeftCenter;";}	6{Name:"納品日";Caption:"納品日";Style:"DataType:System.String;TextAlign:LeftCenter;";}	7{Name:"終了日";Caption:"終了日";Style:"DataType:System.String;TextAlign:LeftCenter;";}	8{Width:200;Name:"備考";Caption:"備考";Style:"DataType:System.String;TextAlign:LeftCenter;";}	9{Name:"登録者";Caption:"登録者";Style:"DataType:System.String;TextAlign:LeftCenter;";}	10{Name:"進捗";Caption:"進捗";Style:"DataType:System.String;TextAlign:LeftCenter;";}	</value>
+  </data>
 </root>

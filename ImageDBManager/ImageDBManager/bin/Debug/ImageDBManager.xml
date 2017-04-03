@@ -354,6 +354,39 @@ ImageDBManager
  ユーザー名コンボボックスの更新
  </summary>
 </member>
+<member name="M:ImageDBManager.frmProjectManage.frmProjectManage_Load(System.Object,System.EventArgs)">
+ <summary>
+ フォームロード時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:ImageDBManager.frmProjectManage.btnExit_Click(System.Object,System.EventArgs)">
+ <summary>
+ 終了ボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:ImageDBManager.frmProjectManage.C1FGridResult_MouseWheel(System.Object,System.Windows.Forms.MouseEventArgs)">
+ <summary>
+ グリッド内マウスホイール動作時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:ImageDBManager.frmProjectManage.SearchGrid">
+ <summary>
+ 案件一覧をグリッドにセットする
+ </summary>
+</member>
+<member name="M:ImageDBManager.frmProjectManage.ChangeBackColor">
+ <summary>
+ 本日、納品予定日の兼ね合いで背景色を変更する
+ </summary>
+ <remarks></remarks>
+</member>
 <member name="P:ImageDBManager.frmTempForm.BackFormID">
  <summary>
  別フォームからこのフォームをNewした時に前画面のフォーム名を格納しておく
@@ -488,6 +521,14 @@ ImageDBManager
  </summary>
  <param name="dtDate"></param>
  <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:ImageDBManager.DefaultModule.OutputCSVFile(C1.Win.C1FlexGrid.C1FlexGrid,System.String)">
+ <summary>
+ 指定CSVファイルにC1FlexGridの内容を保存する
+ </summary>
+ <param name="C1FGridResult"></param>
+ <param name="strFileName"></param>
  <remarks></remarks>
 </member>
 </members>

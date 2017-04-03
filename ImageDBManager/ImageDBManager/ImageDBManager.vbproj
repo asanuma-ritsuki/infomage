@@ -48,6 +48,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="C1.Win.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL" />
+    <Reference Include="c1.win.c1flexgrid.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="c1.win.c1ribbon.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -98,6 +99,30 @@
     <Compile Include="Form\LoginMenu\frmLogin.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form\ManageSide\Compare\frmCompare.Designer.vb">
+      <DependentUpon>frmCompare.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\ManageSide\Compare\frmCompare.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\ManageSide\MasterData\frmMasterImport.Designer.vb">
+      <DependentUpon>frmMasterImport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\ManageSide\MasterData\frmMasterImport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\ManageSide\MasterData\frmMasterManage.Designer.vb">
+      <DependentUpon>frmMasterManage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\ManageSide\MasterData\frmMasterManage.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\ManageSide\ProjectManage\frmProjectDetail.Designer.vb">
+      <DependentUpon>frmProjectDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\ManageSide\ProjectManage\frmProjectDetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form\ManageSide\ProjectManage\frmProjectManage.Designer.vb">
       <DependentUpon>frmProjectManage.vb</DependentUpon>
     </Compile>
@@ -137,6 +162,18 @@
     <EmbeddedResource Include="Form\LoginMenu\frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form\ManageSide\Compare\frmCompare.resx">
+      <DependentUpon>frmCompare.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\ManageSide\MasterData\frmMasterImport.resx">
+      <DependentUpon>frmMasterImport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\ManageSide\MasterData\frmMasterManage.resx">
+      <DependentUpon>frmMasterManage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\ManageSide\ProjectManage\frmProjectDetail.resx">
+      <DependentUpon>frmProjectDetail.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\ManageSide\ProjectManage\frmProjectManage.resx">
       <DependentUpon>frmProjectManage.vb</DependentUpon>
     </EmbeddedResource>
@@ -164,9 +201,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Form\ManageSide\Compare\" />
     <Folder Include="Form\ManageSide\Entry\" />
-    <Folder Include="Form\ManageSide\MasterData\" />
     <Folder Include="Form\ManageSide\PathSetting\" />
     <Folder Include="Form\OperationSide\" />
     <Folder Include="Image\" />

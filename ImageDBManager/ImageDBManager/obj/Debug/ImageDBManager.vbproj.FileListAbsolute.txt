@@ -18,3 +18,7 @@ C:\GitHub\infomage\ImageDBManager\ImageDBManager\obj\Debug\ImageDBManager.exe
 C:\GitHub\infomage\ImageDBManager\ImageDBManager\obj\Debug\ImageDBManager.pdb
 C:\GitHub\infomage\ImageDBManager\ImageDBManager\obj\Debug\ImageDBManager.vbprojResolveAssemblyReference.cache
 C:\GitHub\infomage\ImageDBManager\ImageDBManager\obj\Debug\ImageDBManager.frmProjectManage.resources
+C:\GitHub\infomage\ImageDBManager\ImageDBManager\bin\Debug\c1.win.c1flexgrid.4.dll
+C:\GitHub\infomage\ImageDBManager\ImageDBManager\bin\Debug\c1.win.c1flexgrid.4.xml
+C:\GitHub\infomage\ImageDBManager\ImageDBManager\obj\Debug\ImageDBManager.frmMasterImport.resources
+C:\GitHub\infomage\ImageDBManager\ImageDBManager\obj\Debug\ImageDBManager.frmProjectDetail.resources
