@@ -108,4 +108,106 @@ Public Class Form1
 
 		End Try
 	End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+
+        If MessageBox.Show("ファイルコピーを開始します" & vbNewLine & "よろしいですか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then
+            Exit Sub
+        End If
+
+        Dim strSrcFolder As String = Me.txtInput.Text
+        Dim strOutFolder As String = Me.txtOutput.Text
+
+        Dim strSQL As String = ""
+        Dim sqlProcess As New SQLProcess
+
+        Try
+
+            Using sw As New System.IO.StreamWriter(strOutFolder & "\" & Date.Now.ToString("yyyyMMdd_HHmmss") & "_出力.log", False, System.Text.Encoding.GetEncoding("Shift-JIS"))
+
+                Dim iCount As Integer = 0
+                Dim iCount2 As Integer = 0
+                Dim iCount3 As Integer = 0
+                Dim dt As DataTable = Nothing
+                '広告フォルダをコピー
+                'strSQL = "SELECT フォルダ番号, ファイル名 FROM T_広告振分 "
+                'strSQL &= "WHERE 目次タイトル LIKE '%広告%' AND ファイル名 != '' "
+                'strSQL &= "ORDER BY ID"
+                'dt = sqlProcess.DB_SELECT_DATATABLE(strSQL)
+
+                'For i As Integer = 0 To dt.Rows.Count - 1
+                '    Dim strTargetFile As String = strSrcFolder & "\" & dt.Rows(i)("フォルダ番号") & "\" & dt.Rows(i)("ファイル名") & ".pdf"
+                '    Dim strOutFile As String = strOutFolder & "\01広告\" & dt.Rows(i)("ファイル名") & ".pdf"
+                '    'If Not System.IO.File.Exists(strTargetFile) Then
+                '    '    MessageBox.Show("ファイルが存在しません" & vbNewLine & strTargetFile)
+                '    '    Exit Sub
+                '    'End If
+                '    My.Computer.FileSystem.CopyFile(strTargetFile, strOutFile)
+                '    sw.WriteLine("広告：" & strTargetFile & vbTab & strOutFile)
+                '    iCount += 1
+                'Next
+                ''MessageBox.Show("広告：" & iCount, "確認", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                'sw.WriteLine("==================================================" & vbNewLine)
+                'sw.WriteLine("広告：コピー数：" & iCount & vbNewLine)
+                'sw.WriteLine("==================================================" & vbNewLine)
+
+                strSQL = "SELECT フォルダ番号, ファイル名 FROM T_広告振分 "
+                strSQL &= "WHERE 目次タイトル NOT LIKE '%広告%' AND ファイル名 != '' AND 目次タイトル LIKE '%表紙%' "
+                strSQL &= "ORDER BY ID"
+                dt = sqlProcess.DB_SELECT_DATATABLE(strSQL)
+
+                For i As Integer = 0 To dt.Rows.Count - 1
+                    Dim strTargetFile As String = strSrcFolder & "\" & dt.Rows(i)("フォルダ番号") & "\" & dt.Rows(i)("ファイル名") & ".pdf"
+                    Dim strOutFile As String = strOutFolder & "\02広告以外\01表紙\" & dt.Rows(i)("ファイル名") & ".pdf"
+                    'If Not System.IO.File.Exists(strTargetFile) Then
+                    '    MessageBox.Show("ファイルが存在しません" & vbNewLine & strTargetFile)
+                    '    Exit Sub
+                    'End If
+                    My.Computer.FileSystem.CopyFile(strTargetFile, strOutFile)
+                    sw.WriteLine("広告以外表紙：" & strTargetFile & vbTab & strOutFile)
+                    iCount2 += 1
+                Next
+                'MessageBox.Show("広告以外：" & iCount2, "確認", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                sw.WriteLine("==================================================" & vbNewLine)
+                sw.WriteLine("広告以外：表紙：コピー数：" & iCount2 & vbNewLine)
+                sw.WriteLine("==================================================" & vbNewLine)
+
+                strSQL = "SELECT フォルダ番号, ファイル名 FROM T_広告振分 "
+                strSQL &= "WHERE 目次タイトル NOT LIKE '%広告%' AND ファイル名 != '' AND 目次タイトル NOT LIKE '%表紙%' "
+                strSQL &= "ORDER BY ID"
+                dt = sqlProcess.DB_SELECT_DATATABLE(strSQL)
+
+                For i As Integer = 0 To dt.Rows.Count - 1
+                    Dim strTargetFile As String = strSrcFolder & "\" & dt.Rows(i)("フォルダ番号") & "\" & dt.Rows(i)("ファイル名") & ".pdf"
+                    Dim strOutFile As String = strOutFolder & "\02広告以外\02表紙以外\" & dt.Rows(i)("ファイル名") & ".pdf"
+                    'If Not System.IO.File.Exists(strTargetFile) Then
+                    '    MessageBox.Show("ファイルが存在しません" & vbNewLine & strTargetFile)
+                    '    Exit Sub
+                    'End If
+                    My.Computer.FileSystem.CopyFile(strTargetFile, strOutFile)
+                    sw.WriteLine("広告以外表紙以外：" & strTargetFile & vbTab & strOutFile)
+                    iCount3 += 1
+                Next
+                'MessageBox.Show("広告以外：" & iCount2, "確認", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                sw.WriteLine("==================================================" & vbNewLine)
+                sw.WriteLine("広告以外：表紙以外：コピー数：" & iCount3 & vbNewLine)
+                sw.WriteLine("==================================================" & vbNewLine)
+
+                MessageBox.Show("全てのファイルをコピーしました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            End Using
+
+        Catch ex As Exception
+
+            Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message)
+            MessageBox.Show("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        Finally
+
+            sqlProcess.Close()
+
+        End Try
+
+    End Sub
+
 End Class

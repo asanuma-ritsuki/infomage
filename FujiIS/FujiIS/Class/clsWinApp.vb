@@ -110,8 +110,8 @@ Public Class clsWinApp
 		End If
 
 		Dim context As AppContext = AppContext.GetInstance
-		context.MainForm = New frmMain
-		Application.Run(context)
+        context.MainForm = New Form1
+        Application.Run(context)
 
 	End Sub
 

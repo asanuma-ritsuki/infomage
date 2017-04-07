@@ -43,6 +43,66 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="C1.C1Excel.4.dll" size="579560">
+      <assemblyIdentity name="C1.C1Excel.4" version="4.0.20163.226" publicKeyToken="79882D576C6336DA" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>JQrFlyDRfMCRBd7bdQqFtmkQQI2kPk9BKtemf6a/aks=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="C1.C1Pdf.4.dll" size="550888">
+      <assemblyIdentity name="C1.C1Pdf.4" version="4.0.20163.226" publicKeyToken="79882D576C6336DA" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>9hqmFJ2aut15eTqkkzP+VDtbIP61JFj1Sfbyln0uuG0=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="C1.C1Report.4.dll" size="5114344">
+      <assemblyIdentity name="C1.C1Report.4" version="4.0.20163.226" publicKeyToken="594A0605DB190BB9" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>d3UbWv8rdKh+NuwB7JMpxVDqcT701Uxqoz0P6QulERQ=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="C1.C1Word.4.dll" size="792552">
+      <assemblyIdentity name="C1.C1Word.4" version="4.0.20163.226" publicKeyToken="79882D576C6336DA" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>Ly/Kg6+6S8OIiPqoJzVax2VpDzl6An37+GImGifa0as=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="C1.C1Zip.4.dll" size="92648">
+      <assemblyIdentity name="C1.C1Zip.4" version="4.0.20163.226" publicKeyToken="79882D576C6336DA" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>FZ2oLPckIrUaoI58j+3WIXOOWb6nekWX20xVLkK4yfM=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="C1.Win.4.dll" size="497632">
       <assemblyIdentity name="C1.Win.4" version="4.0.20163.226" publicKeyToken="944AE1EA0E47CA04" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -51,6 +111,42 @@
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
         <dsig:DigestValue>txAdajOjZirgQXMKC28cZ6s7ZRpxPFJOTm6IP7vcOhI=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="C1.Win.BarCode.4.dll" size="552432">
+      <assemblyIdentity name="C1.Win.BarCode.4" version="4.0.20163.226" publicKeyToken="79882D576C6336DA" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>Qg+pfj6NJ7a30CFIPltkKAYlJ7ogXYLFAJd1LeXyNTQ=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="C1.Win.C1Document.4.dll" size="1099768">
+      <assemblyIdentity name="C1.Win.C1Document.4" version="4.0.20163.226" publicKeyToken="944AE1EA0E47CA04" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>YMpbLMtRangVIiTW7gtxV83vG0GTD75A7iZ7eekn/ng=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="C1.Win.C1DX.4.dll" size="824808">
+      <assemblyIdentity name="C1.Win.C1DX.4" version="4.0.20163.226" publicKeyToken="944AE1EA0E47CA04" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>MrB4aShoVd/1lpRhPNUps/xUi6hrVnT9H1kSusY+OSs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -67,6 +163,18 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="C1.Win.C1Report.4.dll" size="1266160">
+      <assemblyIdentity name="C1.Win.C1Report.4" version="4.0.20163.226" publicKeyToken="41780E2FC605E636" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>yE3C6owhPwaMckMtVYADDLEH6P+IfMrdI8Jg2xGErBk=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="c1.win.c1ribbon.4.dll" size="3044336">
       <assemblyIdentity name="C1.Win.C1Ribbon.4" version="4.0.20163.226" publicKeyToken="79882D576C6336DA" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -79,14 +187,38 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FujiIS.exe" size="160176">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="C1.Win.FlexChart.4.dll" size="351736">
+      <assemblyIdentity name="C1.Win.FlexChart.4" version="4.0.20163.226" publicKeyToken="3AA2920C09E0AEFD" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>4F5AxtFMhCGNB8FpEeQsv6eMRduseJxA7TXlV53PpZs=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="C1.Win.ImportServices.4.dll" size="3030016">
+      <assemblyIdentity name="C1.Win.ImportServices.4" version="4.0.20163.226" publicKeyToken="944AE1EA0E47CA04" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>URkrLJWpxZuGTHza9oFJtdxY1htxiZysAAzPDg/G+Hs=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FujiIS.exe" size="163248">
       <assemblyIdentity name="FujiIS" version="1.0.0.4" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>mbHzxkOYL/fRg3R2jqyivwj0NFN5IHiCR5UgNyu6PzE=</dsig:DigestValue>
+        <dsig:DigestValue>6W7grMWuuwl3+AVVcWUXO/JDEG+Jzk8cry5RA0Rt1DU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

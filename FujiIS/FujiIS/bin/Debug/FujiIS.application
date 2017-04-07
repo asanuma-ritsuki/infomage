@@ -14,14 +14,14 @@
     <framework targetVersion="4.5.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="FujiIS.exe.manifest" size="13055">
+    <dependentAssembly dependencyType="install" codebase="FujiIS.exe.manifest" size="20631">
       <assemblyIdentity name="FujiIS.exe" version="1.0.0.5" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>+Azzhj+uP4Jr7x9hk5FcUXHBzwLgO4jmoyL22es06QQ=</dsig:DigestValue>
+        <dsig:DigestValue>rGPg/Sil1fgAgU+e7upCaIJ9zfbK/L7sb0ZsWsSB7W0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

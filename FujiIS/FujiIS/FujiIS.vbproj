@@ -81,9 +81,17 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="C1.C1Pdf.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=79882d576c6336da" />
+    <Reference Include="C1.C1Report.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=594a0605db190bb9" />
+    <Reference Include="C1.C1Zip.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=79882d576c6336da" />
     <Reference Include="C1.Win.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.BarCode.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=79882d576c6336da" />
+    <Reference Include="C1.Win.C1Document.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04" />
+    <Reference Include="C1.Win.C1DX.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04" />
     <Reference Include="C1.Win.C1FlexGrid.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1Report.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=41780e2fc605e636, processorArchitecture=MSIL" />
     <Reference Include="c1.win.c1ribbon.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.ImportServices.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04" />
     <Reference Include="Leadtools, Version=17.5.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907" />
     <Reference Include="Leadtools.Codecs, Version=17.5.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907" />
     <Reference Include="Leadtools.Codecs.Cmp, Version=17.5.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86" />

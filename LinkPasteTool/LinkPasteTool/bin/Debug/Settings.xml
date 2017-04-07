@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<XmlSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <LocationX>473</LocationX>
+  <LocationY>261</LocationY>
+  <SizeX>1581</SizeX>
+  <SizeY>1190</SizeY>
+  <State>0</State>
+  <LocEntryX>1918</LocEntryX>
+  <LocEntryY>610</LocEntryY>
+  <SizeEntryX>1228</SizeEntryX>
+  <SizeEntryY>712</SizeEntryY>
+  <ApplicationName>雄松堂 府県統計資料 リンク付けツール</ApplicationName>
+  <ImagePath>C:\開発\雄松堂_府県統計資料\2_image\01北海道</ImagePath>
+  <DataSource>INTRA-PDC00\INTRASQL</DataSource>
+  <InitialCatalog>YuShoDoPS</InitialCatalog>
+  <UserID>sa</UserID>
+  <Password>intra_intra</Password>
+  <TablePrefix>[DailyReport_Test].[dbo].</TablePrefix>
+</XmlSettings>
