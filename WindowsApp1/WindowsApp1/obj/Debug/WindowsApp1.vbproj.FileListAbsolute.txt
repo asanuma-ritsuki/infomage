@@ -1,0 +1,11 @@
+C:\GitHub\infomage\WindowsApp1\WindowsApp1\bin\Debug\WindowsApp1.exe.config
+C:\GitHub\infomage\WindowsApp1\WindowsApp1\bin\Debug\WindowsApp1.exe
+C:\GitHub\infomage\WindowsApp1\WindowsApp1\bin\Debug\WindowsApp1.pdb
+C:\GitHub\infomage\WindowsApp1\WindowsApp1\bin\Debug\WindowsApp1.xml
+C:\GitHub\infomage\WindowsApp1\WindowsApp1\obj\Debug\WindowsApp1.vbprojResolveAssemblyReference.cache
+C:\GitHub\infomage\WindowsApp1\WindowsApp1\obj\Debug\WindowsApp1.Form1.resources
+C:\GitHub\infomage\WindowsApp1\WindowsApp1\obj\Debug\WindowsApp1.Resources.resources
+C:\GitHub\infomage\WindowsApp1\WindowsApp1\obj\Debug\WindowsApp1.vbproj.GenerateResource.Cache
+C:\GitHub\infomage\WindowsApp1\WindowsApp1\obj\Debug\WindowsApp1.exe
+C:\GitHub\infomage\WindowsApp1\WindowsApp1\obj\Debug\WindowsApp1.xml
+C:\GitHub\infomage\WindowsApp1\WindowsApp1\obj\Debug\WindowsApp1.pdb

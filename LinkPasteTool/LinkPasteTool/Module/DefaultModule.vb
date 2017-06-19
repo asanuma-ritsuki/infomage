@@ -1,7 +1,7 @@
 ﻿Imports System.Text
-'Imports C1.Win.C1FlexGrid
+Imports C1.Win.C1FlexGrid
 
-<System.Diagnostics.DebuggerStepThrough()>
+'<System.Diagnostics.DebuggerStepThrough()>
 Module DefaultModule
 
     ''' <summary>
@@ -361,56 +361,121 @@ Module DefaultModule
 
     End Function
 
-    '''' <summary>
-    '''' 指定CSVファイルにC1FlexGridの内容を保存する
-    '''' </summary>
-    '''' <param name="C1FGridResult"></param>
-    '''' <param name="strFileName"></param>
-    '''' <remarks></remarks>
-    '<System.Diagnostics.DebuggerStepThrough()>
-    'Public Sub OutputCSVFile(ByVal C1FGridResult As C1FlexGrid, ByVal strFileName As String)
+	''' <summary>
+	''' 指定CSVファイルにC1FlexGridの内容を保存する
+	''' </summary>
+	''' <param name="C1FGridResult"></param>
+	''' <param name="strFileName"></param>
+	''' <remarks></remarks>
+	<System.Diagnostics.DebuggerStepThrough()>
+	Public Sub OutputCSVFile(ByVal C1FGridResult As C1FlexGrid, ByVal strFileName As String)
 
-    '	Try
+		Try
 
-    '		'SaveFileDialogクラスのインスタンスを作成
-    '		Dim sfd As New SaveFileDialog()
-    '		'ファイル名の初期値を指定する
-    '		sfd.FileName = strFileName
-    '		'フォルダの初期値を指定する
-    '		'sfd.InitialDirectory = "C:\"
-    '		'[ファイルの種類]に表示される選択肢を指定する
-    '		sfd.Filter = "CSVファイル(*.csv;*.txt)|*.csv;*.txt|すべてのファイル(*.*)|*.*"
-    '		'[ファイルの種類]の初期値をインデックスで指定する
-    '		sfd.FilterIndex = 1
-    '		'タイトルを設定する
-    '		sfd.Title = "CSVファイルの保存"
-    '		'ダイアログボックスを閉じる前に現在のディレクトリを復元できるようにする
-    '		sfd.RestoreDirectory = True
-    '		'既に存在するファイル名を指定したとき警告する
-    '		'デフォルトでTrueなので指定する必要はない
-    '		sfd.OverwritePrompt = True
+			'SaveFileDialogクラスのインスタンスを作成
+			Dim sfd As New SaveFileDialog()
+			'ファイル名の初期値を指定する
+			sfd.FileName = strFileName
+			'フォルダの初期値を指定する
+			'sfd.InitialDirectory = "C:\"
+			'[ファイルの種類]に表示される選択肢を指定する
+			sfd.Filter = "CSVファイル(*.csv;*.txt)|*.csv;*.txt|すべてのファイル(*.*)|*.*"
+			'[ファイルの種類]の初期値をインデックスで指定する
+			sfd.FilterIndex = 1
+			'タイトルを設定する
+			sfd.Title = "CSVファイルの保存"
+			'ダイアログボックスを閉じる前に現在のディレクトリを復元できるようにする
+			sfd.RestoreDirectory = True
+			'既に存在するファイル名を指定したとき警告する
+			'デフォルトでTrueなので指定する必要はない
+			sfd.OverwritePrompt = True
 
-    '		'ダイアログを表示する
-    '		If sfd.ShowDialog() = DialogResult.OK Then
-    '			'OKボタンがクリックされたとき
-    '			Dim iRow As Integer = C1FGridResult.Rows.Count
-    '			Dim iCurrent As Integer = 0
-    '			Dim iCount As Integer = 0
-    '			Dim strWriteLine As String = ""
+			'ダイアログを表示する
+			If sfd.ShowDialog() = DialogResult.OK Then
+				'OKボタンがクリックされたとき
+				'Dim iRow As Integer = C1FGridResult.Rows.Count
+				'Dim iCurrent As Integer = 0
+				'Dim iCount As Integer = 0
+				'Dim strWriteLine As String = ""
 
-    '			C1FGridResult.SaveGrid(sfd.FileName, FileFormatEnum.TextTab, FileFlags.IncludeFixedCells + FileFlags.VisibleOnly, System.Text.Encoding.GetEncoding("Shift-JIS"))
+				C1FGridResult.SaveGrid(sfd.FileName, FileFormatEnum.TextTab, FileFlags.IncludeFixedCells + FileFlags.VisibleOnly, System.Text.Encoding.GetEncoding("Shift-JIS"))
 
-    '			MessageBox.Show(C1FGridResult.Rows.Count - 1 & "件出力しました。", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information)
+				MessageBox.Show(C1FGridResult.Rows.Count & "件出力しました。", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-    '		End If
+			End If
 
-    '	Catch ex As Exception
+		Catch ex As Exception
 
-    '		Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message)
-    '		MessageBox.Show("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+			Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message)
+			MessageBox.Show("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
-    '	End Try
+		End Try
 
-    'End Sub
+	End Sub
+
+	''' <summary>
+	''' コンボボックスにDATATABLEの値をセットする
+	''' </summary>
+	''' <param name="cmb">対象コンボボックス</param>
+	''' <param name="dt">DATATABLE(カラム0＝ID、カラム1＝NAME)</param>
+	''' <param name="IsAll">全て項目を追加するか</param>
+	Public Sub SetComboValue(ByVal cmb As ComboBox, ByVal dt As DataTable, Optional ByVal IsAll As Boolean = True)
+
+		Dim elm() As CElement = Nothing
+		If IsAll Then
+			ReDim Preserve elm(0)
+			elm(0) = New CElement
+			elm(0).ID = "0"
+			elm(0).NAME = "全て"
+
+			For iRow As Integer = 0 To dt.Rows.Count - 1
+				ReDim Preserve elm(iRow + 1)
+				elm(iRow + 1) = New CElement
+				elm(iRow + 1).ID = dt.Rows(iRow)(0)
+				elm(iRow + 1).NAME = dt.Rows(iRow)(1)
+			Next
+
+		Else
+			'「全て」なし
+			For iRow As Integer = 0 To dt.Rows.Count - 1
+				ReDim Preserve elm(iRow)
+				elm(iRow) = New CElement
+				elm(iRow).ID = dt.Rows(iRow)(0)
+				elm(iRow).NAME = dt.Rows(iRow)(1)
+			Next
+
+		End If
+
+
+		cmb.DisplayMember = "NAME"
+		cmb.ValueMember = "ID"
+		cmb.DataSource = elm
+
+		cmb.SelectedIndex = -1
+
+	End Sub
+
+	''' <summary>
+	''' コントロールの使用可否を切り替える
+	''' </summary>
+	''' <param name="frmForm">対象フォーム</param>
+	''' <param name="ControlEnabled">True：使用可能、False：使用不可</param>
+	''' <remarks></remarks>
+	<System.Diagnostics.DebuggerStepThrough()>
+	Public Sub EnableControls(ByVal frmForm As Form, ByVal ControlEnabled As Boolean)
+
+		Try
+			For Each oControl As Control In frmForm.Controls
+				oControl.Enabled = ControlEnabled
+			Next
+
+		Catch ex As Exception
+
+			Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message)
+			MessageBox.Show("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+		End Try
+
+	End Sub
 
 End Module

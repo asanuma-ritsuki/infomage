@@ -22,27 +22,35 @@ Public Class XmlSettings
     Private _LocEntryX As Integer   'エントリフォーム位置X
     Private _LocEntryY As Integer   'エントリフォーム位置Y
     Private _SizeEntryX As Integer  'エントリフォーム幅
-    Private _SizeEntryY As Integer  'エントリフォーム高さ
+	Private _SizeEntryY As Integer  'エントリフォーム高さ
+	Private _LocManageX As Integer  '管理フォーム位置X
+	Private _LocManageY As Integer  '管理フォーム位置Y
+	Private _SizeManageX As Integer '管理フォーム幅
+	Private _SizeManageY As Integer '管理フォーム高さ
+	Private _StateManage As Integer '管理フォーム最大化・最小化状態
 
-    'イメージ関連
-    Private _ImagePath As String    '画像ファイル親パス
+	'イメージ関連
+	Private _ImagePath As String    '画像ファイル親パス
 
     'SQLServer接続用
     Private _DataSource As String
     Private _InitialCatalog As String
     Private _UserID As String
     Private _Password As String
-    Private _TablePrefix As String
+	Private _TablePrefix As String
+
+	'出力関連
+	Private _OutputFolder As String '出力フォルダ
 
 #End Region
 
 #Region "プロパティ"
 
-    ''' <summary>
-    ''' フォーム位置X
-    ''' </summary>
-    ''' <returns></returns>
-    Public Property LocationX() As Integer
+	''' <summary>
+	''' フォーム位置X
+	''' </summary>
+	''' <returns></returns>
+	Public Property LocationX() As Integer
         Get
             Return _LocationX
         End Get
@@ -142,24 +150,89 @@ Public Class XmlSettings
         End Set
     End Property
 
-    ''' <summary>
-    ''' エントリフォーム高さ
-    ''' </summary>
-    ''' <returns></returns>
-    Public Property SizeEntryY() As Integer
-        Get
-            Return _SizeEntryY
-        End Get
-        Set(value As Integer)
-            _SizeEntryY = value
-        End Set
-    End Property
+	''' <summary>
+	''' エントリフォーム高さ
+	''' </summary>
+	''' <returns></returns>
+	Public Property SizeEntryY() As Integer
+		Get
+			Return _SizeEntryY
+		End Get
+		Set(value As Integer)
+			_SizeEntryY = value
+		End Set
+	End Property
 
-    ''' <summary>
-    ''' アプリケーション名
-    ''' </summary>
-    ''' <returns></returns>
-    Public Property ApplicationName() As String
+	''' <summary>
+	''' 管理フォーム位置X
+	''' </summary>
+	''' <returns></returns>
+	Public Property LocManageX() As Integer
+		Get
+			Return _LocManageX
+		End Get
+		Set(value As Integer)
+			_LocManageX = value
+		End Set
+	End Property
+
+	''' <summary>
+	''' 管理フォーム位置Y
+	''' </summary>
+	''' <returns></returns>
+	Public Property LocManageY() As Integer
+		Get
+			Return _LocManageY
+		End Get
+		Set(value As Integer)
+			_LocManageY = value
+		End Set
+	End Property
+
+	''' <summary>
+	''' 管理フォーム幅
+	''' </summary>
+	''' <returns></returns>
+	Public Property SizeManageX() As Integer
+		Get
+			Return _SizeManageX
+		End Get
+		Set(value As Integer)
+			_SizeManageX = value
+		End Set
+	End Property
+
+	''' <summary>
+	''' 管理フォーム高さ
+	''' </summary>
+	''' <returns></returns>
+	Public Property SizeManageY() As Integer
+		Get
+			Return _SizeManageY
+		End Get
+		Set(value As Integer)
+			_SizeManageY = value
+		End Set
+	End Property
+
+	''' <summary>
+	''' 管理フォーム最大化・最小化状態
+	''' </summary>
+	''' <returns></returns>
+	Public Property StateManage() As Integer
+		Get
+			Return _StateManage
+		End Get
+		Set(value As Integer)
+			_StateManage = value
+		End Set
+	End Property
+
+	''' <summary>
+	''' アプリケーション名
+	''' </summary>
+	''' <returns></returns>
+	Public Property ApplicationName() As String
         Get
             Return _ApplicationName
         End Get
@@ -168,26 +241,39 @@ Public Class XmlSettings
         End Set
     End Property
 
-    ''' <summary>
-    ''' 画像ファイル親パス
-    ''' </summary>
-    ''' <returns></returns>
-    Public Property ImagePath() As String
-        Get
-            Return _ImagePath
-        End Get
-        Set(value As String)
-            _ImagePath = value
-        End Set
-    End Property
+	''' <summary>
+	''' 画像ファイル親パス
+	''' </summary>
+	''' <returns></returns>
+	Public Property ImagePath() As String
+		Get
+			Return _ImagePath
+		End Get
+		Set(value As String)
+			_ImagePath = value
+		End Set
+	End Property
 
-    ''' <summary>
-    ''' DataSource
-    ''' </summary>
-    ''' <value></value>
-    ''' <returns></returns>
-    ''' <remarks></remarks>
-    Public Property DataSource() As String
+	''' <summary>
+	''' 出力フォルダ
+	''' </summary>
+	''' <returns></returns>
+	Public Property OutputFolder() As String
+		Get
+			Return _OutputFolder
+		End Get
+		Set(value As String)
+			_OutputFolder = value
+		End Set
+	End Property
+
+	''' <summary>
+	''' DataSource
+	''' </summary>
+	''' <value></value>
+	''' <returns></returns>
+	''' <remarks></remarks>
+	Public Property DataSource() As String
         Get
             Return _DataSource
         End Get
@@ -271,11 +357,11 @@ Public Class XmlSettings
         _SizeEntryY = 400
         _ApplicationName = "雄松堂 府県統計資料 リンク付けツール"
 
-        'イメージ関連
-        _ImagePath = "\\hydra\01_制作Gr\04_スポット案件\20170201_161241005_富士フィルムIS\11_image"
+		'イメージ関連
+		_ImagePath = "\\192.168.1.210\02_スチールGr\02_スポット案件\2013-2016_141032021_雄松堂_府県統計資料\99_Entry\01_image"
 
-        'SQLServer接続用
-        _DataSource = "INTRA-PDC00\INTRASQL"
+		'SQLServer接続用
+		_DataSource = "INTRA-PDC00\INTRASQL"
         _InitialCatalog = "YuShoDoPS"
         _UserID = "sa"
         _Password = "intra_intra"

@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <XmlSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <LocationX>473</LocationX>
-  <LocationY>261</LocationY>
-  <SizeX>1581</SizeX>
-  <SizeY>1190</SizeY>
+  <LocationX>69</LocationX>
+  <LocationY>21</LocationY>
+  <SizeX>1954</SizeX>
+  <SizeY>1255</SizeY>
   <State>0</State>
-  <LocEntryX>1918</LocEntryX>
-  <LocEntryY>610</LocEntryY>
-  <SizeEntryX>1228</SizeEntryX>
-  <SizeEntryY>712</SizeEntryY>
+  <LocEntryX>317</LocEntryX>
+  <LocEntryY>881</LocEntryY>
+  <SizeEntryX>1412</SizeEntryX>
+  <SizeEntryY>395</SizeEntryY>
+  <LocManageX>776</LocManageX>
+  <LocManageY>604</LocManageY>
+  <SizeManageX>1306</SizeManageX>
+  <SizeManageY>1006</SizeManageY>
+  <StateManage>2</StateManage>
   <ApplicationName>雄松堂 府県統計資料 リンク付けツール</ApplicationName>
-  <ImagePath>C:\開発\雄松堂_府県統計資料\2_image\01北海道</ImagePath>
+  <ImagePath>\\192.168.1.210\02_スチールGr\02_スポット案件\2013-2016_141032021_雄松堂_府県統計資料\99_Entry\01_image</ImagePath>
+  <OutputFolder>C:\開発\雄松堂_府県統計\Out</OutputFolder>
   <DataSource>INTRA-PDC00\INTRASQL</DataSource>
   <InitialCatalog>YuShoDoPS</InitialCatalog>
   <UserID>sa</UserID>

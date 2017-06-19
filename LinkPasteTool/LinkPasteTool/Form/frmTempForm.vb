@@ -15,13 +15,14 @@ Public Class frmTempForm
     End Enum
 
     Protected m_Context As AppContext = AppContext.GetInstance
-    Private m_BackFormID As String = "frmMainMenu"
+	Protected m_LoginUser As LoginUser = LoginUser.GetInstance
+	Private m_BackFormID As String = "frmMainMenu"
 
 #End Region
 
 #Region "WIN32API"
 
-    Protected Overrides Sub WndProc(ByRef m As Message)
+	Protected Overrides Sub WndProc(ByRef m As Message)
 
         '閉じるボタン使用不可
         Const WM_SYSCOMMAND As Integer = &H112

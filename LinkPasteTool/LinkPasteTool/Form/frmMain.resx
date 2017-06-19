@@ -120,11 +120,14 @@
   <metadata name="MenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="C1FGridFlag.ColumnInfo" xml:space="preserve">
-    <value>3,1,0,0,0,100,Columns:0{Width:30;Name:"No";Caption:"No.";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	1{Width:80;Name:"ファイル名";Caption:"ファイル名";Style:"DataType:System.String;TextAlign:LeftCenter;";}	2{Name:"フラグ";Caption:"フラグ";Style:"DataType:System.String;TextAlign:LeftCenter;";}	</value>
-  </data>
   <data name="C1FGridResult.ColumnInfo" xml:space="preserve">
-    <value>4,1,0,0,0,100,Columns:0{Width:30;Name:"No";Caption:"No.";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	1{Width:140;Name:"ファイル名";Caption:"ファイル名";Style:"DataType:System.String;TextAlign:LeftCenter;";}	2{Width:140;Name:"パス";Caption:"パス";Visible:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	3{Name:"リンク";Caption:"リンク";Visible:False;Style:"DataType:System.Boolean;TextAlign:LeftCenter;ImageAlign:CenterCenter;";}	</value>
+    <value>6,1,0,0,0,100,Columns:0{Width:30;Name:"No";Caption:"No.";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	1{Width:140;Name:"ファイル名";Caption:"ファイル名";Style:"DataType:System.String;TextAlign:LeftCenter;";}	2{Width:140;Name:"パス";Caption:"パス";Visible:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	3{Name:"リンク";Caption:"リンク";Visible:False;Style:"DataType:System.Boolean;TextAlign:LeftCenter;ImageAlign:CenterCenter;";}	4{Name:"削除";Caption:"削除";Visible:False;Style:"DataType:System.Boolean;TextAlign:LeftCenter;ImageAlign:CenterCenter;";}	5{Name:"フラグID";Caption:"フラグID";Visible:False;Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	</value>
+  </data>
+  <metadata name="ContextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>132, 17</value>
+  </metadata>
+  <data name="C1FGridFlag.ColumnInfo" xml:space="preserve">
+    <value>7,1,0,0,0,100,Columns:0{Width:30;Name:"No";Caption:"No.";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	1{Width:50;Name:"種別";Caption:"種別";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	2{Width:80;Name:"ファイル名";Caption:"ファイル名";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	3{Width:80;Name:"レコード番号";Caption:"レコード番号";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	4{Name:"フラグ";Caption:"フラグ";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	5{Width:50;Name:"確認";Caption:"確認";Style:"DataType:System.Boolean;TextAlign:LeftCenter;ImageAlign:CenterCenter;";}	6{Name:"種別ID";Caption:"種別ID";Visible:False;Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	</value>
   </data>
   <data name="C1FGridDoc.ColumnInfo" xml:space="preserve">
     <value>3,1,0,0,0,100,Columns:0{Width:30;Name:"No";Caption:"No.";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	1{Width:80;Name:"項目名";Caption:"項目名";Style:"DataType:System.String;TextAlign:LeftCenter;";}	2{Name:"内容";Caption:"内容";Style:"DataType:System.String;TextAlign:LeftCenter;";}	</value>

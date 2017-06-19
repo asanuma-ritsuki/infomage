@@ -1,0 +1,62 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+JP_Output
+</name>
+</assembly>
+<members>
+<member name="P:JP_Output.My.Resources.Resources.ResourceManager">
+	<summary>
+  このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
+</summary>
+</member><member name="P:JP_Output.My.Resources.Resources.Culture">
+	<summary>
+  厳密に型指定されたこのリソース クラスを使用して、すべての検索リソースに対し、
+  現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
+</summary>
+</member><member name="P:JP_Output.My.Resources.Resources.leaflet_driver">
+	<summary>
+  leaflet に類似しているローカライズされた文字列を検索します。
+</summary>
+</member><member name="P:JP_Output.My.Resources.Resources.result_driver">
+	<summary>
+  result に類似しているローカライズされた文字列を検索します。
+</summary>
+</member><member name="P:JP_Output.My.Resources.Resources.sentlist_driver">
+	<summary>
+  sentlist に類似しているローカライズされた文字列を検索します。
+</summary>
+</member><member name="T:JP_Output.My.Resources.Resources">
+	<summary>
+  ローカライズされた文字列などを検索するための、厳密に型指定されたリソース クラスです。
+</summary>
+</member><member name="M:JP_Output.frmPrint.frmKekka_hyou_Load(System.Object,System.EventArgs)">
+	<summary>
+ ロード時
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:JP_Output.frmPrint.btnStart_Click(System.Object,System.EventArgs)">
+	<summary>
+ 印刷開始
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:JP_Output.frmPrint.SetDefaultPrinter(System.String)">
+	<summary>
+ 「通常使うプリンタ」に設定する
+ </summary>
+	<param name="printerName">プリンタ名</param>
+</member><member name="M:JP_Output.frmPrint.C1FlexReport1_LongOperation(System.Object,C1.Win.LongOperationEventArgs)">
+	<summary>
+ 印刷終了時イベント
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

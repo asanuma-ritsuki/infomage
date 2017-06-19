@@ -1,0 +1,14 @@
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\WindowsApp2\bin\Debug\WindowsApp2.exe.config
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\WindowsApp2\bin\Debug\WindowsApp2.exe
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\WindowsApp2\bin\Debug\WindowsApp2.pdb
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\WindowsApp2\bin\Debug\WindowsApp2.xml
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\WindowsApp2\bin\Debug\C1.Win.C1FlexGrid.4.dll
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\WindowsApp2\bin\Debug\C1.Win.C1FlexGrid.4.xml
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\WindowsApp2\obj\Debug\WindowsApp2.vbprojResolveAssemblyReference.cache
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\WindowsApp2\obj\Debug\WindowsApp2.Form1.resources
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\WindowsApp2\obj\Debug\WindowsApp2.Resources.resources
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\WindowsApp2\obj\Debug\WindowsApp2.vbproj.GenerateResource.Cache
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\WindowsApp2\obj\Debug\WindowsApp2.exe.licenses
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\WindowsApp2\obj\Debug\WindowsApp2.exe
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\WindowsApp2\obj\Debug\WindowsApp2.xml
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\WindowsApp2\obj\Debug\WindowsApp2.pdb

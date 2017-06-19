@@ -107,6 +107,16 @@ LinkPasteTool
   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
 </summary>
 </member>
+<member name="P:LinkPasteTool.My.Resources.Resources.cross">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:LinkPasteTool.My.Resources.Resources.database_go">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
 <member name="P:LinkPasteTool.My.Resources.Resources.find">
 <summary>
   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
@@ -158,6 +168,16 @@ LinkPasteTool
 </summary>
 </member>
 <member name="P:LinkPasteTool.My.Resources.Resources.MoveAll">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:LinkPasteTool.My.Resources.Resources.picture_add">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:LinkPasteTool.My.Resources.Resources.picture_delete">
 <summary>
   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
 </summary>
@@ -269,6 +289,30 @@ LinkPasteTool
  <summary>
  表示名称
  (DisplayMemberに設定する文字列と同名にする
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:LinkPasteTool.LoginUser.GetInstance">
+ <summary>
+ インスタンスを取得する
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:LinkPasteTool.LoginUser.UserID">
+ <summary>
+ ユーザーIDの入出力
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:LinkPasteTool.LoginUser.User">
+ <summary>
+ 作業者の入出力
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:LinkPasteTool.LoginUser.BackFormID">
+ <summary>
+ 遷移先のフォーム名の入出力
  </summary>
  <returns></returns>
 </member>
@@ -394,6 +438,36 @@ LinkPasteTool
  </summary>
  <returns></returns>
 </member>
+<member name="P:LinkPasteTool.XmlSettings.LocManageX">
+ <summary>
+ 管理フォーム位置X
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:LinkPasteTool.XmlSettings.LocManageY">
+ <summary>
+ 管理フォーム位置Y
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:LinkPasteTool.XmlSettings.SizeManageX">
+ <summary>
+ 管理フォーム幅
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:LinkPasteTool.XmlSettings.SizeManageY">
+ <summary>
+ 管理フォーム高さ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:LinkPasteTool.XmlSettings.StateManage">
+ <summary>
+ 管理フォーム最大化・最小化状態
+ </summary>
+ <returns></returns>
+</member>
 <member name="P:LinkPasteTool.XmlSettings.ApplicationName">
  <summary>
  アプリケーション名
@@ -403,6 +477,12 @@ LinkPasteTool
 <member name="P:LinkPasteTool.XmlSettings.ImagePath">
  <summary>
  画像ファイル親パス
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:LinkPasteTool.XmlSettings.OutputFolder">
+ <summary>
+ 出力フォルダ
  </summary>
  <returns></returns>
 </member>
@@ -496,6 +576,32 @@ LinkPasteTool
  <returns></returns>
  <remarks></remarks>
 </member>
+<member name="M:LinkPasteTool.frmAbortDialog.frmImageFlagDialog_Load(System.Object,System.EventArgs)">
+ <summary>
+ フォームロード時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmAbortDialog.btnOK_Click(System.Object,System.EventArgs)">
+ <summary>
+ OKボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmAbortDialog.btnCancel_Click(System.Object,System.EventArgs)">
+ <summary>
+ キャンセルボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmAbortDialog.Initialize">
+ <summary>
+ 初期化処理
+ </summary>
+</member>
 <member name="M:LinkPasteTool.frmBrowse.frmBrowse_Load(System.Object,System.EventArgs)">
  <summary>
  フォームロード時
@@ -538,11 +644,84 @@ LinkPasteTool
  <param name="sender"></param>
  <param name="e"></param>
 </member>
-<member name="T:LinkPasteTool.frmEntry.GridStyleName">
+<member name="M:LinkPasteTool.frmEditorMokuji.frmEditorMokuji_Load(System.Object,System.EventArgs)">
  <summary>
- スタイル列挙体
+ フォームロード時
  </summary>
- <remarks></remarks>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmEditorMokuji.txtItemEdit_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+ <summary>
+ 編集テキストボックスキーダウンイベント
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmEditorMokuji.btnOK_Click(System.Object,System.EventArgs)">
+ <summary>
+ OKボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmEditorMokuji.btnCancel_Click(System.Object,System.EventArgs)">
+ <summary>
+ キャンセルボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmEditorMokuji.RegistValue">
+ <summary>
+ 入力値を確定する
+ </summary>
+</member>
+<member name="M:LinkPasteTool.frmEditorRemarks.frmEditorRemarks_Load(System.Object,System.EventArgs)">
+ <summary>
+ フォームロード時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmEditorRemarks.txtItemEdit_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+ <summary>
+ 編集テキストボックスキーダウンイベント
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmEditorRemarks.btnOK_Click(System.Object,System.EventArgs)">
+ <summary>
+ OKボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmEditorRemarks.btnCancel_Click(System.Object,System.EventArgs)">
+ <summary>
+ キャンセルボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmEditorRemarks.cmbFlag_SelectedIndexChanged(System.Object,System.EventArgs)">
+ <summary>
+ フラグ内容インデックス変更時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmEditorRemarks.RegistValue">
+ <summary>
+ 入力値を確定する
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:LinkPasteTool.frmEditorRemarks.Initialize">
+ <summary>
+ 初期化処理
+ </summary>
 </member>
 <member name="M:LinkPasteTool.frmEntry.frmEntry_Load(System.Object,System.EventArgs)">
  <summary>
@@ -624,6 +803,13 @@ LinkPasteTool
 <member name="M:LinkPasteTool.frmEntry.C1FGridMokuji_AfterDragRow(System.Object,C1.Win.C1FlexGrid.DragRowColEventArgs)">
  <summary>
  レコード移動後イベント
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmEntry.C1FGridMokuji_EnterCell(System.Object,System.EventArgs)">
+ <summary>
+ 目次部グリッドのセル変更時
  </summary>
  <param name="sender"></param>
  <param name="e"></param>
@@ -726,89 +912,89 @@ LinkPasteTool
  <param name="sender"></param>
  <param name="e"></param>
 </member>
-<member name="M:LinkPasteTool.frmEntry.ChangeBackColorMokuji(System.Int32,LinkPasteTool.frmEntry.GridStyleName)">
- <summary>
- FlexGridの背景色を変更する(1行単位)(目次部)
- </summary>
- <param name="iRow"></param>
- <param name="iGridStyleName"></param>
- <remarks></remarks>
-</member>
-<member name="M:LinkPasteTool.frmEntry.ChangeCellBackColor(System.Int32,System.Int32,LinkPasteTool.frmEntry.GridStyleName)">
- <summary>
- 目次部のグリッドのセルの背景色を変更する
- </summary>
- <param name="iRow"></param>
- <param name="iCol"></param>
- <param name="iGridStyleName"></param>
-</member>
 <member name="M:LinkPasteTool.frmEntry.ViewEditorMokuji">
  <summary>
  目次編集エディターを表示する
  </summary>
 </member>
-<member name="M:LinkPasteTool.frmEntry.GridRenumber(C1.Win.C1FlexGrid.C1FlexGrid)">
+<member name="T:LinkPasteTool.frmImageFlagDialog.GridStyleName">
  <summary>
- 連番を振り直す
- </summary>
- <param name="C1FGrid"></param>
- <remarks></remarks>
-</member>
-<member name="M:LinkPasteTool.frmEntry.MoveImageTop">
- <summary>
- 先頭画像へ
- </summary>
-</member>
-<member name="M:LinkPasteTool.frmEntry.MoveImagePrev">
- <summary>
- 前の画像へ
+ スタイル列挙体
  </summary>
  <remarks></remarks>
 </member>
-<member name="M:LinkPasteTool.frmEntry.MoveImageNext">
+<member name="M:LinkPasteTool.frmImageFlagDialog.frmImageFlagDialog_Load(System.Object,System.EventArgs)">
  <summary>
- 次の画像へ
+ フォームロード時
  </summary>
- <remarks></remarks>
+ <param name="sender"></param>
+ <param name="e"></param>
 </member>
-<member name="M:LinkPasteTool.frmEntry.MoveImageBottom">
+<member name="M:LinkPasteTool.frmImageFlagDialog.btnOK_Click(System.Object,System.EventArgs)">
  <summary>
- 末尾の画像へ
+ OKボタン押下時
  </summary>
- <remarks></remarks>
+ <param name="sender"></param>
+ <param name="e"></param>
 </member>
-<member name="M:LinkPasteTool.frmEntry.SetLink">
+<member name="M:LinkPasteTool.frmImageFlagDialog.btnCancel_Click(System.Object,System.EventArgs)">
  <summary>
- リンクを設定する
+ キャンセルボタン押下時
  </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
 </member>
-<member name="M:LinkPasteTool.frmEntry.DelLink">
+<member name="M:LinkPasteTool.frmImageFlagDialog.Initialize">
  <summary>
- リンクを削除する
- </summary>
-</member>
-<member name="M:LinkPasteTool.frmEntry.SetLinkTo">
- <summary>
- リンク終りをセットする
- </summary>
-</member>
-<member name="M:LinkPasteTool.frmEntry.DelLinkTo">
- <summary>
- リンク終りを削除する
+ 初期化処理
  </summary>
 </member>
-<member name="M:LinkPasteTool.frmEntry.NextMokuji">
+<member name="M:LinkPasteTool.frmImageFlagDialog.RegistValue">
  <summary>
- 次の目次タイトルを選択する
+ 入力値を確定する
  </summary>
+ <returns></returns>
 </member>
-<member name="M:LinkPasteTool.frmEntry.ChangeBackColor(System.Int32,LinkPasteTool.frmEntry.GridStyleName)">
+<member name="M:LinkPasteTool.frmImageFlagDialog.ChangeBackColor(System.Int32,LinkPasteTool.frmImageFlagDialog.GridStyleName)">
  <summary>
  FlexGridの背景色を変更する(1行単位)
  </summary>
  <param name="iRow"></param>
  <param name="iGridStyleName"></param>
  <remarks></remarks>
+</member>
+<member name="M:LinkPasteTool.frmLogin.frmLogin_Load(System.Object,System.EventArgs)">
+ <summary>
+ フォームロード時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmLogin.btnOK_Click(System.Object,System.EventArgs)">
+ <summary>
+ OKボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmLogin.btnExit_Click(System.Object,System.EventArgs)">
+ <summary>
+ 終了ボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmLogin.cmbUser_SelectedIndexChanged(System.Object,System.EventArgs)">
+ <summary>
+ ユーザー名コンボボックスインデックス変更時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmLogin.Initialize">
+ <summary>
+ 初期化処理
+ </summary>
 </member>
 <member name="P:LinkPasteTool.frmMain.ImageProperty.sngZoom">
  <summary>
@@ -866,6 +1052,18 @@ LinkPasteTool
  <returns></returns>
  <remarks></remarks>
 </member>
+<member name="P:LinkPasteTool.frmMain.iAbortID">
+ <summary>
+中断時のフラグIDのやり取り
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:LinkPasteTool.frmMain.Password">
+ <summary>
+ パスワードのやり取り
+ </summary>
+ <returns></returns>
+</member>
 <member name="T:LinkPasteTool.frmMain.GridStyleName">
  <summary>
  スタイル列挙体
@@ -881,6 +1079,18 @@ LinkPasteTool
 <member name="P:LinkPasteTool.frmMain.LinkProcess">
  <summary>
  処理内容
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:LinkPasteTool.frmMain.IsAdmin">
+ <summary>
+ 管理者かどうかのフラグの入出力
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:LinkPasteTool.frmMain.ManageID">
+ <summary>
+ 管理IDの入出力
  </summary>
  <returns></returns>
 </member>
@@ -945,6 +1155,13 @@ LinkPasteTool
  <param name="sender"></param>
  <param name="e"></param>
  <remarks></remarks>
+</member>
+<member name="M:LinkPasteTool.frmMain.C1FGridFlag_DoubleClick(System.Object,System.EventArgs)">
+ <summary>
+ フラグ情報グリッドダブルクリック時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
 </member>
 <member name="M:LinkPasteTool.frmMain.toolBack_Click(System.Object,System.EventArgs)">
  <summary>
@@ -1170,6 +1387,27 @@ LinkPasteTool
  <param name="sender"></param>
  <param name="e"></param>
 </member>
+<member name="M:LinkPasteTool.frmMain.C1FGridResult_BeforeMouseDown(System.Object,C1.Win.C1FlexGrid.BeforeMouseDownEventArgs)">
+ <summary>
+ ファイル情報グリッドのマウスクリック前
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmMain.menuDelImage_Click(System.Object,System.EventArgs)">
+ <summary>
+ コンテキストメニュー[削除フラグ設定]
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmMain.menuSetImage_Click(System.Object,System.EventArgs)">
+ <summary>
+ コンテキストメニュー[削除フラグ削除]
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
 <member name="M:LinkPasteTool.frmMain.Initialize">
  <summary>
  初期化処理
@@ -1192,44 +1430,12 @@ LinkPasteTool
  <param name="iIndex"></param>
  <remarks></remarks>
 </member>
-<member name="M:LinkPasteTool.frmMain.MoveImageTop">
- <summary>
- 先頭の画像へ
- </summary>
- <remarks></remarks>
-</member>
-<member name="M:LinkPasteTool.frmMain.MoveImagePrev">
- <summary>
- 前の画像へ
- </summary>
- <remarks></remarks>
-</member>
-<member name="M:LinkPasteTool.frmMain.MoveImageNext">
- <summary>
- 次の画像へ
- </summary>
- <remarks></remarks>
-</member>
-<member name="M:LinkPasteTool.frmMain.MoveImageBottom">
- <summary>
- 末尾の画像へ
- </summary>
- <remarks></remarks>
-</member>
 <member name="M:LinkPasteTool.frmMain.ImageRotate(System.Int32,System.Boolean)">
  <summary>
  画像を回転する
  </summary>
  <param name="degrees">回転角度</param>
  <param name="degreesCheck">回転時、回転角度を加算するか否か(デフォルト：加算しない)</param>
- <remarks></remarks>
-</member>
-<member name="M:LinkPasteTool.frmMain.ChangeBackColor(System.Int32,LinkPasteTool.frmMain.GridStyleName)">
- <summary>
- FlexGridの背景色を変更する(1行単位)
- </summary>
- <param name="iRow"></param>
- <param name="iGridStyleName"></param>
  <remarks></remarks>
 </member>
 <member name="M:LinkPasteTool.frmMain.RunCommand(Leadtools.ImageProcessing.IRasterCommand)">
@@ -1252,34 +1458,9 @@ LinkPasteTool
  ファイルリストを列挙する
  </summary>
 </member>
-<member name="M:LinkPasteTool.frmMain.ClearValue">
+<member name="M:LinkPasteTool.frmMain.ClearValue(System.Boolean)">
  <summary>
  値を初期化する
- </summary>
-</member>
-<member name="M:LinkPasteTool.frmMain.SetLink">
- <summary>
- リンクを設定する
- </summary>
-</member>
-<member name="M:LinkPasteTool.frmMain.DelLink">
- <summary>
- リンクを削除する
- </summary>
-</member>
-<member name="M:LinkPasteTool.frmMain.SetLinkTo">
- <summary>
- リンク終りをセットする
- </summary>
-</member>
-<member name="M:LinkPasteTool.frmMain.DelLinkTo">
- <summary>
- リンク終りを削除する
- </summary>
-</member>
-<member name="M:LinkPasteTool.frmMain.NextMokuji">
- <summary>
- 次の目次タイトルを選択する
  </summary>
 </member>
 <member name="M:LinkPasteTool.frmMain.RegistData">
@@ -1288,12 +1469,301 @@ LinkPasteTool
  </summary>
  <returns></returns>
 </member>
-<member name="M:LinkPasteTool.frmMain.GridRenumber(C1.Win.C1FlexGrid.C1FlexGrid)">
+<member name="M:LinkPasteTool.frmMain.Restart">
  <summary>
- 連番を振り直す
+ 中断中のフォルダを再開させる
  </summary>
- <param name="C1FGrid"></param>
+</member>
+<member name="M:LinkPasteTool.frmMain.AdminStart">
+ <summary>
+ 管理者側の開始動作
+ </summary>
+</member>
+<member name="T:LinkPasteTool.frmManage.GridStyleName">
+ <summary>
+ スタイル列挙体
+ </summary>
  <remarks></remarks>
+</member>
+<member name="M:LinkPasteTool.frmManage.frmManage_Load(System.Object,System.EventArgs)">
+ <summary>
+ フォームロード時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmManage.btnContentsBrowse_Click(System.Object,System.EventArgs)">
+ <summary>
+ ブラウズボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmManage.btnContentsSearch_Click(System.Object,System.EventArgs)">
+ <summary>
+ 目次データ検索ボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmManage.btnContentsImport_Click(System.Object,System.EventArgs)">
+ <summary>
+ 目次インポートボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmManage.C1FGridContents_BeforeMouseDown(System.Object,C1.Win.C1FlexGrid.BeforeMouseDownEventArgs)">
+ <summary>
+ グリッドマウンスダウン前
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmManage.C1FGridContents_ValidateEdit(System.Object,C1.Win.C1FlexGrid.ValidateEditEventArgs)">
+ <summary>
+ セル単位の編集データ検証時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmManage.btnContentsUpdate_Click(System.Object,System.EventArgs)">
+ <summary>
+ 更新ボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmManage.btnContentsCSVOutput_Click(System.Object,System.EventArgs)">
+ <summary>
+ CSV出力ボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmManage.btnManageBrowse_Click(System.Object,System.EventArgs)">
+ <summary>
+ ブラウズボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmManage.btnManageSearch_Click(System.Object,System.EventArgs)">
+ <summary>
+ 管理表検索ボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmManage.btnManageImport_Click(System.Object,System.EventArgs)">
+ <summary>
+ 管理表インポートボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmManage.btnCSVOutput_Click(System.Object,System.EventArgs)">
+ <summary>
+ CSV出力ボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmManage.btnImageSearch_Click(System.Object,System.EventArgs)">
+ <summary>
+ 検索ボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmManage.C1FGridImage_BeforeMouseDown(System.Object,C1.Win.C1FlexGrid.BeforeMouseDownEventArgs)">
+ <summary>
+ グリッドマウスダウン前
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmManage.btnOutputUpdate_Click(System.Object,System.EventArgs)">
+ <summary>
+ 更新ボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmManage.cmbOutputPrefecture_SelectedIndexChanged(System.Object,System.EventArgs)">
+ <summary>
+ 県名コンボボックスインデックス変更時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmManage.cmbOutputFlag_SelectedIndexChanged(System.Object,System.EventArgs)">
+ <summary>
+ フラグコンボボックスインデックス変更時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmManage.cmbOutputUpdateFlag_SelectedIndexChanged(System.Object,System.EventArgs)">
+ <summary>
+ 変更フラグコンボボックスインデックス変更時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmManage.C1FGridOutputFrom_DoubleClick(System.Object,System.EventArgs)">
+ <summary>
+ FROMグリッドダブルクリック時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmManage.btnOutputMove_Click(System.Object,System.EventArgs)">
+ <summary>
+ 全レコード移動ボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmManage.btnOutputClear_Click(System.Object,System.EventArgs)">
+ <summary>
+ TOグリッドクリアボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmManage.btnOutputFolderBrowse_Click(System.Object,System.EventArgs)">
+ <summary>
+ フォルダブラウズボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmManage.btnOutputSrcFolderBrowse_Click(System.Object,System.EventArgs)">
+ <summary>
+ 参照フォルダブラウズボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmManage.btnOutput_Click(System.Object,System.EventArgs)">
+ <summary>
+ 出力ボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmManage.OutputImage(System.String,System.Boolean)">
+ <summary>
+ イメージ出力
+ </summary>
+ <param name="strLogFile"></param>
+ <param name="DoNotExport"></param>
+ <returns>エクセル出力のみのときはDoNotExportをTrueにしてT_出力ファイルのみ更新する</returns>
+</member>
+<member name="M:LinkPasteTool.frmManage.OutputExcel(System.String)">
+ <summary>
+ エクセル出力
+ </summary>
+ <param name="strLogFile"></param>
+ <returns></returns>
+</member>
+<member name="M:LinkPasteTool.frmManage.btnSummaryUpdate_Click(System.Object,System.EventArgs)">
+ <summary>
+ 更新ボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmManage.btnSummaryCSCOutput_Click(System.Object,System.EventArgs)">
+ <summary>
+ CSV出力ボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmManage.Initialize">
+ <summary>
+ 初期化処理
+ </summary>
+</member>
+<member name="M:LinkPasteTool.frmManage.txtFile_DragEnter(System.Object,System.Windows.Forms.DragEventArgs)">
+ <summary>
+ ファイルテキストボックスドラッグエンター時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmManage.txtFile_DragDrop(System.Object,System.Windows.Forms.DragEventArgs)">
+ <summary>
+ ファイルテキストボックスドラッグドロップ時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmManage.txtFolder_DragEnter(System.Object,System.Windows.Forms.DragEventArgs)">
+ <summary>
+ フォルダドラッグエンター時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmManage.txtFolderDrop(System.Object,System.Windows.Forms.DragEventArgs)">
+ <summary>
+ フォルダドラッグドロップ時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmManage.InitializeSummary">
+ <summary>
+ 集計タブの初期化
+ </summary>
+</member>
+<member name="M:LinkPasteTool.frmManage.ContentsSearch">
+ <summary>
+ 目次データ検索時
+ </summary>
+</member>
+<member name="M:LinkPasteTool.frmManage.ImageSearch">
+ <summary>
+ 画像タブ検索
+ </summary>
+</member>
+<member name="M:LinkPasteTool.frmManage.OutputUpdate">
+ <summary>
+ フラグ集計更新
+ </summary>
+</member>
+<member name="M:LinkPasteTool.frmManage.InitializeOutput">
+ <summary>
+ 出力タブの初期化
+ </summary>
+</member>
+<member name="M:LinkPasteTool.frmManage.MoveRecord(System.Int32)">
+ <summary>
+ 出力タブのFROMグリッドからTOグリッドへレコードを移動させる
+ </summary>
+ <param name="iIndex"></param>
+</member>
+<member name="M:LinkPasteTool.frmManage.MoveAllRecord">
+ <summary>
+ 出力タブのFROMグリッドから全てのフォルダをTOグリッドに移動する
+ </summary>
+</member>
+<member name="M:LinkPasteTool.frmManage.WriteExcelFile(System.String,System.String,System.Data.DataTable)">
+ <summary>
+ データテーブルの内容を書き込んで指定されたエクセルファイル名で保存する
+ </summary>
+ <param name="strTemplate">テンプレートエクセルファイル</param>
+ <param name="strSaveFile">保存ファイル名のパス</param>
+ <param name="dt">データが格納されたデータテーブル</param>
+ <returns></returns>
+</member>
+<member name="M:LinkPasteTool.frmManage.PrefectureSelect">
+ <summary>
+ 県名コンボボックスの値をもとに検索結果をグリッドFROMにセットする
+ </summary>
 </member>
 <member name="M:LinkPasteTool.frmTempForm.frmTempForm_Load(System.Object,System.EventArgs)">
  <summary>
@@ -1311,6 +1781,27 @@ LinkPasteTool
 <member name="M:LinkPasteTool.frmTempForm.Timer1_Tick(System.Object,System.EventArgs)">
  <summary>
  ステータスバーに時刻を表示する
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmToManageDialog.frmToManageDialog_Load(System.Object,System.EventArgs)">
+ <summary>
+ フォームロード時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmToManageDialog.btnOK_Click(System.Object,System.EventArgs)">
+ <summary>
+ OKボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmToManageDialog.btnCancel_Click(System.Object,System.EventArgs)">
+ <summary>
+ キャンセルボタン押下時
  </summary>
  <param name="sender"></param>
  <param name="e"></param>
@@ -1407,6 +1898,111 @@ LinkPasteTool
  <param name="dtDate"></param>
  <returns></returns>
  <remarks></remarks>
+</member>
+<member name="M:LinkPasteTool.DefaultModule.OutputCSVFile(C1.Win.C1FlexGrid.C1FlexGrid,System.String)">
+ <summary>
+ 指定CSVファイルにC1FlexGridの内容を保存する
+ </summary>
+ <param name="C1FGridResult"></param>
+ <param name="strFileName"></param>
+ <remarks></remarks>
+</member>
+<member name="M:LinkPasteTool.DefaultModule.SetComboValue(System.Windows.Forms.ComboBox,System.Data.DataTable,System.Boolean)">
+ <summary>
+ コンボボックスにDATATABLEの値をセットする
+ </summary>
+ <param name="cmb">対象コンボボックス</param>
+ <param name="dt">DATATABLE(カラム0＝ID、カラム1＝NAME)</param>
+ <param name="IsAll">全て項目を追加するか</param>
+</member>
+<member name="M:LinkPasteTool.DefaultModule.EnableControls(System.Windows.Forms.Form,System.Boolean)">
+ <summary>
+ コントロールの使用可否を切り替える
+ </summary>
+ <param name="frmForm">対象フォーム</param>
+ <param name="ControlEnabled">True：使用可能、False：使用不可</param>
+ <remarks></remarks>
+</member>
+<member name="T:LinkPasteTool.LinkPasteProcess.GridStyleName">
+ <summary>
+ スタイル列挙体
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:LinkPasteTool.LinkPasteProcess.SetLink(C1.Win.C1FlexGrid.C1FlexGrid,C1.Win.C1FlexGrid.C1FlexGrid,LinkPasteTool.LinkPasteProcess.LinkFromTo)">
+ <summary>
+ ファイルリスト、目次グリッドの選択業をもとにリンク設定を行う
+ </summary>
+ <param name="C1FGridResult">ファイルリストのグリッド</param>
+ <param name="C1FGridMokuji">目次部のグリッド</param>
+ <param name="LinkPlace">リンク始めかリンク終りを指定</param>
+</member>
+<member name="M:LinkPasteTool.LinkPasteProcess.DelLink(C1.Win.C1FlexGrid.C1FlexGrid,C1.Win.C1FlexGrid.C1FlexGrid,LinkPasteTool.LinkPasteProcess.LinkFromTo)">
+ <summary>
+ リンクを削除する
+ </summary>
+ <param name="C1FGridResult">ファイルリストのグリッド</param>
+ <param name="C1FGridMokuji">目次部のグリッド</param>
+ <param name="LinkPlace">リンク始めかリンク終りを指定</param>
+</member>
+<member name="M:LinkPasteTool.LinkPasteProcess.ChangeBackColor(C1.Win.C1FlexGrid.C1FlexGrid,System.Int32,LinkPasteTool.LinkPasteProcess.GridStyleName)">
+ <summary>
+ FlexGridの背景色を変更する(1行単位)
+ </summary>
+ <param name="iRow"></param>
+ <param name="iGridStyleName"></param>
+ <remarks></remarks>
+</member>
+<member name="M:LinkPasteTool.LinkPasteProcess.ChangeCellBackColor(C1.Win.C1FlexGrid.C1FlexGrid,System.Int32,System.Int32,LinkPasteTool.LinkPasteProcess.GridStyleName)">
+ <summary>
+ 単一セルの背景色を変更する
+ </summary>
+ <param name="C1FG"></param>
+ <param name="iRow"></param>
+ <param name="iCol"></param>
+ <param name="iGridStyleName"></param>
+</member>
+<member name="M:LinkPasteTool.LinkPasteProcess.GridRenumber(C1.Win.C1FlexGrid.C1FlexGrid)">
+ <summary>
+ グリッドの連番を振り直す
+ </summary>
+ <param name="C1FG"></param>
+</member>
+<member name="M:LinkPasteTool.LinkPasteProcess.MoveImageTop(C1.Win.C1FlexGrid.C1FlexGrid)">
+ <summary>
+ 先頭画像へ
+ </summary>
+ <param name="C1FG"></param>
+</member>
+<member name="M:LinkPasteTool.LinkPasteProcess.MoveImagePrev(C1.Win.C1FlexGrid.C1FlexGrid)">
+ <summary>
+ 前の画像へ
+ </summary>
+ <param name="C1FG"></param>
+</member>
+<member name="M:LinkPasteTool.LinkPasteProcess.MoveImageNext(C1.Win.C1FlexGrid.C1FlexGrid)">
+ <summary>
+ 次の画像へ
+ </summary>
+ <param name="C1FG"></param>
+</member>
+<member name="M:LinkPasteTool.LinkPasteProcess.MoveImageBottom(C1.Win.C1FlexGrid.C1FlexGrid)">
+ <summary>
+ 末尾の画像へ
+ </summary>
+ <param name="C1FG"></param>
+</member>
+<member name="M:LinkPasteTool.LinkPasteProcess.NextMokuji(C1.Win.C1FlexGrid.C1FlexGrid)">
+ <summary>
+ 目次レコードを1レコードすすめる
+ </summary>
+ <param name="C1FG"></param>
+</member>
+<member name="M:LinkPasteTool.LinkPasteProcess.PrevMokuji(C1.Win.C1FlexGrid.C1FlexGrid)">
+ <summary>
+ 目次レコードを1レコード戻す
+ </summary>
+ <param name="C1FG"></param>
 </member>
 </members>
 </doc>

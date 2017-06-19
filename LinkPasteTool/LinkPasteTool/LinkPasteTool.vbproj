@@ -13,6 +13,27 @@
     <MyType>WindowsFormsWithCustomSubMain</MyType>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>\\192.168.1.210\99_システムGr\02_toolbox_案件用\141032021_雄松堂_府県統計\setup\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>データ精査ツール</ProductName>
+    <PublisherName>Infomage</PublisherName>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>15</ApplicationRevision>
+    <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -72,11 +93,29 @@
   <PropertyGroup>
     <ApplicationIcon>book_link.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>C6CE93BF8B8B80AF31EE99E125CC3E4CEEDC55C3</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>LinkPasteTool_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="C1.C1Excel.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.C1Pdf.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=79882d576c6336da" />
+    <Reference Include="C1.DataEngine.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=79882d576c6336da" />
     <Reference Include="C1.Win.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04" />
+    <Reference Include="C1.Win.C1Chart.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=a22e16972c085838" />
+    <Reference Include="C1.Win.C1Command.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=e808566f358766d8" />
     <Reference Include="C1.Win.C1FlexGrid.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1Input.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a" />
     <Reference Include="C1.Win.C1Ribbon.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
-    <Reference Include="C1.WPF.C1Report.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=594a0605db190bb9, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.FlexPivot.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="Leadtools, Version=17.5.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907" />
     <Reference Include="Leadtools.Codecs, Version=17.5.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907" />
     <Reference Include="Leadtools.Codecs.Cmp, Version=17.5.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86" />
@@ -116,6 +155,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\CElement.vb" />
+    <Compile Include="Class\clsLoginUser.vb" />
     <Compile Include="Class\clsWinApp.vb" />
     <Compile Include="Class\SQLProcess.vb" />
     <Compile Include="Class\XmlSettings.vb" />
@@ -124,6 +164,12 @@
     </Compile>
     <Compile Include="Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmAbortDialog.Designer.vb">
+      <DependentUpon>frmAbortDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmAbortDialog.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form\frmBrowse.Designer.vb">
@@ -138,10 +184,28 @@
     <Compile Include="Form\frmEditorMokuji.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form\frmEditorRemarks.Designer.vb">
+      <DependentUpon>frmEditorRemarks.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmEditorRemarks.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form\frmEntry.Designer.vb">
       <DependentUpon>frmEntry.vb</DependentUpon>
     </Compile>
     <Compile Include="Form\frmEntry.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmImageFlagDialog.Designer.vb">
+      <DependentUpon>frmImageFlagDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmImageFlagDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmLogin.Designer.vb">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmLogin.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form\frmMain.Designer.vb">
@@ -162,7 +226,14 @@
     <Compile Include="Form\frmTempForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form\frmToManageDialog.Designer.vb">
+      <DependentUpon>frmToManageDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmToManageDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Module\DefaultModule.vb" />
+    <Compile Include="Module\LinkPasteProcess.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -180,14 +251,26 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Form\frmAbortDialog.resx">
+      <DependentUpon>frmAbortDialog.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\frmBrowse.resx">
       <DependentUpon>frmBrowse.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\frmEditorMokuji.resx">
       <DependentUpon>frmEditorMokuji.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmEditorRemarks.resx">
+      <DependentUpon>frmEditorRemarks.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\frmEntry.resx">
       <DependentUpon>frmEntry.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmImageFlagDialog.resx">
+      <DependentUpon>frmImageFlagDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmLogin.resx">
+      <DependentUpon>frmLogin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
@@ -198,6 +281,9 @@
     <EmbeddedResource Include="Form\frmTempForm.resx">
       <DependentUpon>frmTempForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmToManageDialog.resx">
+      <DependentUpon>frmToManageDialog.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -207,12 +293,15 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="LEAD175ImgSuite.lic">
+    <None Include="Image\cross.png" />
+    <None Include="Image\database_go.png" />
+    <Content Include="LEAD175ImgSuite.lic">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="LEAD175PDFRead.lic">
+    </Content>
+    <Content Include="LEAD175PDFRead.lic">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
+    <None Include="LinkPasteTool_TemporaryKey.pfx" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -223,10 +312,26 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <Content Include="Template\Template.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 および x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="book_link.ico" />
+    <None Include="Resources\picture_add.png" />
+    <None Include="Resources\picture_delete.png" />
     <None Include="Image\ZoomOut.png" />
     <None Include="Image\ZoomIn.png" />
     <None Include="Image\Zoom.png" />

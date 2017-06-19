@@ -1,0 +1,19 @@
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CreateShortcut\bin\Debug\CreateShortcut.exe.config
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CreateShortcut\bin\Debug\CreateShortcut.exe
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CreateShortcut\bin\Debug\CreateShortcut.pdb
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CreateShortcut\bin\Debug\CreateShortcut.xml
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CreateShortcut\obj\Debug\CreateShortcut.vbprojResolveAssemblyReference.cache
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CreateShortcut\obj\Debug\Interop.IWshRuntimeLibrary.dll
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CreateShortcut\obj\Debug\CreateShortcut.vbproj.ResolveComReference.cache
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CreateShortcut\obj\Debug\CreateShortcut.Form1.resources
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CreateShortcut\obj\Debug\CreateShortcut.Resources.resources
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CreateShortcut\obj\Debug\CreateShortcut.vbproj.GenerateResource.Cache
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CreateShortcut\obj\Debug\CreateShortcut.exe
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CreateShortcut\obj\Debug\CreateShortcut.xml
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CreateShortcut\obj\Debug\CreateShortcut.pdb
+C:\GitHub\infomage\CreateShortcut\CreateShortcut\bin\Debug\CreateShortcut.exe.config
+C:\GitHub\infomage\CreateShortcut\CreateShortcut\obj\Debug\Interop.IWshRuntimeLibrary.dll
+C:\GitHub\infomage\CreateShortcut\CreateShortcut\obj\Debug\CreateShortcut.vbproj.ResolveComReference.cache
+C:\GitHub\infomage\CreateShortcut\CreateShortcut\obj\Debug\CreateShortcut.exe
+C:\GitHub\infomage\CreateShortcut\CreateShortcut\obj\Debug\CreateShortcut.xml
+C:\GitHub\infomage\CreateShortcut\CreateShortcut\obj\Debug\CreateShortcut.pdb

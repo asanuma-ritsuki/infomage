@@ -1,0 +1,1137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>C1.Win.FlexPivot.4</name>
+  </assembly>
+  <members>
+    <member name="T:C1.Win.FlexPivot.C1BasePanel">
+      <summary>
+        <see cref="T:C1.Win.FlexPivot.C1FlexPivotPage" />と
+        <see cref="T:C1.Win.FlexPivot.C1FlexPivotPanel" />の基本クラスです。
+      </summary>
+    </member>
+    <member name="T:C1.Win.FlexPivot.ChartType">
+      <summary>表示するチャートのタイプを指定します。</summary>
+    </member>
+    <member name="F:C1.Win.FlexPivot.ChartType.Bar">
+      <summary>系列は、横棒で表されます。</summary>
+    </member>
+    <member name="F:C1.Win.FlexPivot.ChartType.Column">
+      <summary>系列は、縦棒で表されます。</summary>
+    </member>
+    <member name="F:C1.Win.FlexPivot.ChartType.Area">
+      <summary>系列は、塗りつぶし多角形で表されます。</summary>
+    </member>
+    <member name="F:C1.Win.FlexPivot.ChartType.Line">
+      <summary>系列は、データポイントにシンボルを持つ多角形で表されます。</summary>
+    </member>
+    <member name="F:C1.Win.FlexPivot.ChartType.Scatter">
+      <summary>系列は、シンボルの集まりで表されます。</summary>
+    </member>
+    <member name="T:C1.Win.FlexPivot.ShowLegend">
+      <summary>凡例を表示するかどうかを指定します。</summary>
+    </member>
+    <member name="F:C1.Win.FlexPivot.ShowLegend.Automatic">
+      <summary>2 つ以上の系列がある場合に、凡例を表示します。</summary>
+    </member>
+    <member name="F:C1.Win.FlexPivot.ShowLegend.Always">
+      <summary>常に凡例を表示します。</summary>
+    </member>
+    <member name="F:C1.Win.FlexPivot.ShowLegend.Never">
+      <summary>凡例を表示しません。</summary>
+    </member>
+    <member name="T:C1.Win.FlexPivot.C1FlexPivotChart">
+      <summary>FlexPivot データを視覚化するためのカスタムチャートコントロール。</summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotChart.#ctor">
+      <summary>
+        <see cref="T:C1.Win.FlexPivot.C1FlexPivotChart" />の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotChart.ChartTitle">
+      <summary>C1FlexPivotChart のタイトルを設定します。</summary>
+      <remarks>ChartTitle が設定されていない（または null に設定されている）場合、C1FlexPivotChart は、 現在のビューのタイトルを使用します。</remarks>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotChart.ChartType">
+      <summary>チャートタイプ（横棒グラフ、縦棒グラフ、折れ線グラフ、面グラフなど）を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotChart.Stacked">
+      <summary>系列を縦に並べるか横に並べるかを判定する値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotChart.ShowLegend">
+      <summary>チャートに各系列を説明する凡例を含めるかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotChart.ShowTitle">
+      <summary>チャートのデータの上にタイトルを含めるかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotChart.ShowGridLines">
+      <summary>X 軸方向のグリッド線をチャートに含めるかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotChart.ColorGeneration">
+      <summary>データ系列に使用する配色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotChart.PropBag">
+      <summary>デフォルト値と属性を変更するためにオーバーライドされます。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotChart.ToolTip">
+      <summary>デフォルト値と属性を変更するためにオーバーライドされます。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotChart.BackColor">
+      <summary>デフォルト値と属性を変更するためにオーバーライドされます。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotChart.DataSource">
+      <summary>
+        このチャートのデータを提供する
+        <see cref="T:C1.Win.FlexPivot.C1FlexPivotPanel" />を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotChart.MaxSeries">
+      <summary>チャートに表示されるデータ系列の最大数を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotChart.MaxPoints">
+      <summary>各系列に表示されるポイントの最大数を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotChart.ChartTotals">
+      <summary>チャートに合計だけを含めるかどうかを取得または設定します。</summary>
+      <remarks>
+        <para>このプロパティを使用すると、データソース内の各列に 1 つの系列ではなく、 合計だけを含むサマリーチャートを作成できます。</para>
+        <para>これは、作成するビューに含まれる値の数が多く、デフォルトの詳細チャートでは密集しすぎて読み取りが困難な 場合に役立ちます。</para>
+      </remarks>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotChart.Update">
+      <summary>チャートが非表示の場合も再構築します。</summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotChart.OnVisibleChanged(System.EventArgs)">
+      <summary>チャートが表示に切り替わるとき、チャートを更新するためにオーバーライドされます。</summary>
+      <param name="e">
+        イベントデータを提供する
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotChart.WriteXml(System.String)">
+      <summary>コントロール設定を XML ファイルに保存します。</summary>
+      <param name="path">保存するファイルの名前。</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotChart.WriteXml(System.Xml.XmlWriter)">
+      <summary>
+        コントロール設定を
+        <see cref="T:System.Xml.XmlWriter" />に保存します。
+      </summary>
+      <param name="xw">
+        コントロール設定を保存する
+        <see cref="T:System.Xml.XmlWriter" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotChart.ReadXml(System.String)">
+      <summary>ファイルからコントロール設定を読み込みます。</summary>
+      <param name="path">コントロール設定を含むファイルの名前。</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotChart.ReadXml(System.Xml.XmlReader)">
+      <summary>
+        <see cref="T:System.Xml.XmlReader" />からコントロール設定を読み込みます。
+      </summary>
+      <param name="xr">
+        コントロール設定を含む
+        <see cref="T:System.Xml.XmlReader" />。
+      </param>
+    </member>
+    <member name="T:C1.Win.FlexPivot.C1FlexPivotGrid">
+      <summary>FlexPivot データを視覚化するためのカスタムグリッドコントロール。</summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotGrid.#ctor">
+      <summary>
+        <see cref="T:C1.Win.FlexPivot.C1FlexPivotGrid" />の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.DataSource">
+      <summary>
+        このグリッドにデータを提供する
+        <see cref="T:C1.Win.FlexPivot.C1FlexPivotPanel" />を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.DataMember">
+      <summary>
+        分析する
+        <see cref="P:C1.Win.FlexPivot.C1FlexPivotGrid.DataSource" />オブジェクト内の特定リストを取得または設定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotGrid.GetDetail(System.Int32,System.Int32)">
+      <summary>
+        FlexPivot セルによって表される生レコードを含む
+        <see cref="T:System.Data.DataTable" />を取得します。
+      </summary>
+      <param name="row">FlexPivot セルが含まれる行のインデックス。</param>
+      <param name="col">FlexPivot セルが含まれる列のインデックス。</param>
+      <returns>
+        特定の FlexPivot セルによって表される生レコードを含む
+        <see cref="T:System.Data.DataTable" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotGrid.CollapseAllCols">
+      <summary>小計グループのすべての列を折りたたみます。</summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotGrid.CollapseAllRows">
+      <summary>小計グループのすべての行を折りたたみます。</summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotGrid.ExpandAllCols">
+      <summary>小計グループのすべての列を展開します。</summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotGrid.ExpandAllRows">
+      <summary>小計グループのすべての行を展開します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.ShowDetailOnRightClick">
+      <summary>ユーザーがセルを右クリックしたときに、グリッドが詳細レコードを含むポップアップを 表示するかどうかを判定する値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.CollapsibleSubtotals">
+      <summary>ユーザーがグリッドで小計グループの折りたたみと展開が可能かどうかを判定する値を 取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.SubtotalBackground">
+      <summary>合計を含むセルの背景の描画に使用する色を取得または設定します。</summary>
+      <remarks>
+        このプロパティを
+        <b>Color.Empty</b>（デフォルト値）に設定すると、小計の 背景色が現在の
+        <see cref="P:C1.Win.FlexPivot.C1FlexPivotGrid.VisualStyle" />に一致するように自動的に変更されます。
+      </remarks>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotGrid.OnOwnerDrawCell(C1.Win.C1FlexGrid.OwnerDrawCellEventArgs)">
+      <summary>条件付き書式設定を適用するためにオーバーライドされます。</summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:C1.Win.C1FlexGrid.OwnerDrawCellEventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotGrid.EndInit">
+      <summary>小計のカスタムスタイルを作成するためにオーバーライドされます。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.AllowSorting">
+      <summary>列ヘッダーをクリックしてグリッドをソートできるかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.AutoResize">
+      <summary>デフォルト値と属性を変更するためにオーバーライドされます。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.AllowMergingFixed">
+      <summary>デフォルト値と属性を変更するためにオーバーライドされます。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.AllowDragging">
+      <summary>デフォルト値と属性を変更するためにオーバーライドされます。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.AutoSearch">
+      <summary>デフォルト値と属性を変更するためにオーバーライドされます。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.AllowEditing">
+      <summary>デフォルト値と属性を変更するためにオーバーライドされます。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.EditOptions">
+      <summary>デフォルト値と属性を変更するためにオーバーライドされます。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.AutoClipboard">
+      <summary>デフォルト値と属性を変更するためにオーバーライドされます。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.ClipboardCopyMode">
+      <summary>デフォルト値と属性を変更するためにオーバーライドされます。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.AllowAddNew">
+      <summary>デフォルト値と属性を変更するためにオーバーライドされます。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.AllowDelete">
+      <summary>デフォルト値と属性を変更するためにオーバーライドされます。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.AllowFreezing">
+      <summary>デフォルト値と属性を変更するためにオーバーライドされます。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.VisualStyle">
+      <summary>デフォルト値を変更するためにオーバーライドされます。</summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotGrid.OnDataRefresh(System.ComponentModel.ListChangedEventArgs)">
+      <summary>グリッドがソートされるとき、ヘッダーを更新するためにオーバーライドされます。</summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.ComponentModel.ListChangedEventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotGrid.OnBeforeSort(C1.Win.C1FlexGrid.SortColEventArgs)">
+      <summary>ソートの 3 つの状態（昇順、降順、なし）を提供するためにオーバーライドされます。</summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:C1.Win.C1FlexGrid.SortColEventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotGrid.OnAfterSort(C1.Win.C1FlexGrid.SortColEventArgs)">
+      <summary>ソート後に行と列のヘッダーを更新するためにオーバーライドされます。</summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:C1.Win.C1FlexGrid.SortColEventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotGrid.OnAfterResizeColumn(C1.Win.C1FlexGrid.RowColEventArgs)">
+      <summary>すべてのデータ列を一様にサイズ変更するためにオーバーライドされます。</summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:C1.Win.C1FlexGrid.RowColEventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotGrid.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+      <summary>ユーザーがセルを右クリックして、小計行/列を折りたたむ/展開するとき、詳細セルを 表示するためにオーバーライドされます。</summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.Windows.Forms.MouseEventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotGrid.OnFontChanged(System.EventArgs)">
+      <summary>合計のセルスタイルを更新するためにオーバーライドされます。</summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="T:C1.Win.FlexPivot.C1FlexPivotPage">
+      <summary>Olap アプリケーションに完全なユーザーインタフェースを提供します。</summary>
+      <remarks>
+        <para>
+          コントロールは、左側に
+          <see cref="T:C1.Win.FlexPivot.C1FlexPivotPanel" />、 右側にタブ付きコンテンツ領域を含みます。
+        </para>
+        <para>
+          ユーザーは、
+          <see cref="T:C1.Win.FlexPivot.C1FlexPivotPanel" />を使用して、 Olap 分析に含めるフィールドを選択およびカスタマイズできます。
+        </para>
+        <para>
+          タブ付きコンテンツ領域は、3 つのページ （Olap 分析を示す
+          <see cref="T:C1.Win.FlexPivot.C1FlexPivotGrid" />および
+          <see cref="T:C1.Win.FlexPivot.C1FlexPivotChart" />と、生データを示すプレーングリッド） から成ります。
+        </para>
+        <para>
+          コントロールは、よく使用されるコマンドもカスタマイズ可能な
+          <see cref="T:System.Windows.Forms.ToolStrip" />として提供します。
+        </para>
+      </remarks>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPage.#ctor">
+      <summary>
+        <see cref="T:C1.Win.FlexPivot.C1FlexPivotPage" />の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.DataSource">
+      <summary>分析されるデータを含むオブジェクトを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.DataMember">
+      <summary>
+        分析する
+        <see cref="P:C1.Win.FlexPivot.C1FlexPivotPage.DataSource" />オブジェクト内の特定リストを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.ShowTotalsRows">
+      <summary>小計または総計を含む列が FlexPivot 出力テーブルに含まれるかどうかを判定する値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.ShowTotalsColumns">
+      <summary>小計または総計を含む列が FlexPivot 出力テーブルに含まれるかどうかを判定する値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.ShowZeros">
+      <summary>小計または総計を含む列が FlexPivot 出力テーブルに含まれるかどうかを判定する値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.ShowRawData">
+      <summary>生データを示すタブをページに含めるかどうかを判定する値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.ShowDetailOnRightClick">
+      <summary>FlexPivot グリッドが右クリックされたときに、 クリックされたセルによって表される生レコードをコントロールが表示するかどうかを判定する値を 取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.VisualStyle">
+      <summary>グリッドの外観を決定する値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.ChartType">
+      <summary>作成するチャートのタイプを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.Palette">
+      <summary>データ系列に使用する配色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.ShowTitle">
+      <summary>チャートにタイトルを含めるかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.ShowLegend">
+      <summary>チャートに凡例を含めるかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.ShowGridLines">
+      <summary>X 軸方向のグリッド線をチャートに含めるかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.Stacked">
+      <summary>系列を縦に並べるか横に並べるかを判定する値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.ChartTotals">
+      <summary>
+        <see cref="P:C1.Win.FlexPivot.C1FlexPivotPage.FlexPivotChart" />が合計だけを表示するかどうかを判定する値を 取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.Document">
+      <summary>
+        現在のビューのレンダリングに使用する
+        <see cref="T:C1.Win.FlexPivot.C1FlexPivotPrintDocument" />を 取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.ShortcutsEnabled">
+      <summary>ページが自動的に ショートカットキー（ビューを保存するための Ctrl+S、ビューを開くための Ctrl+O、 元に戻すための Ctrl+Y、やり直すための Ctrl+Z など）を処理するかどうかを判定する値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.ShowUndoRedo">
+      <summary>ツールバーに［元に戻す］/［やり直し］ボタンを含めるかどうかを判定する値を 取得または設定します。</summary>
+    </member>
+    <member name="E:C1.Win.FlexPivot.C1FlexPivotPage.Updating">
+      <summary>
+        <see cref="P:C1.Win.FlexPivot.C1FlexPivotPage.FlexPivotPanel" />が出力 FlexPivot テーブルの更新を開始する前に発生します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPage.OnUpdating(System.EventArgs)">
+      <summary>
+        <see cref="E:C1.Win.FlexPivot.C1FlexPivotPage.Updating" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="E:C1.Win.FlexPivot.C1FlexPivotPage.Updated">
+      <summary>
+        <see cref="P:C1.Win.FlexPivot.C1FlexPivotPage.FlexPivotPanel" />が FlexPivot 分析を終了すると発生します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPage.OnUpdated(System.EventArgs)">
+      <summary>
+        <see cref="E:C1.Win.FlexPivot.C1FlexPivotPage.Updated" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="E:C1.Win.FlexPivot.C1FlexPivotPage.LoadedFields">
+      <summary>
+        <see cref="P:C1.Win.FlexPivot.C1FlexPivotPage.FlexPivotPanel" />が現在の DataSource のフィールドのロードを終了すると発生します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPage.OnLoadedFields(System.EventArgs)">
+      <summary>
+        <see cref="E:C1.Win.FlexPivot.C1FlexPivotPage.LoadedFields" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="E:C1.Win.FlexPivot.C1FlexPivotPage.ViewDefinitionChanged">
+      <summary>ビュー定義が変更され、出力テーブルが更新される前に発生します。</summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPage.OnViewDefinitionChanged(System.EventArgs)">
+      <summary>
+        <see cref="E:C1.Win.FlexPivot.C1FlexPivotPage.ViewDefinitionChanged" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="E:C1.Win.FlexPivot.C1FlexPivotPage.DataSourceChanged">
+      <summary>データソースが変更されたときに発生します。</summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPage.OnDataSourceChanged(System.EventArgs)">
+      <summary>
+        <see cref="E:C1.Win.FlexPivot.C1FlexPivotPage.DataSourceChanged" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="E:C1.Win.FlexPivot.C1FlexPivotPage.DataEngineConnectionChanged">
+      <summary>データエンジンテーブルが接続されたときに発生します。</summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPage.OnDataEngineConnectionChanged(System.EventArgs)">
+      <summary>
+        <see cref="E:C1.Win.FlexPivot.C1FlexPivotPage.DataEngineConnectionChanged" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPage.OnFontChanged(System.EventArgs)">
+      <summary>ツールバーおよびステータスバーのサイズとフォントを更新するためにオーバーライドされます。</summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.FlexPivotPanel">
+      <summary>
+        ページの左にドッキングした
+        <see cref="T:C1.Win.FlexPivot.C1FlexPivotPanel" />を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.FlexPivotEngine">
+      <summary>
+        ページに含まれる
+        <see cref="T:C1.FlexPivot.C1FlexPivotEngine" />を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.TabControl">
+      <summary>
+        <see cref="P:C1.Win.FlexPivot.C1FlexPivotPage.FlexPivotGrid" />コントロールと
+        <see cref="P:C1.Win.FlexPivot.C1FlexPivotPage.FlexPivotChart" />コントロールを表示する
+        <see cref="P:C1.Win.FlexPivot.C1FlexPivotPage.TabControl" />を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.ToolBar">
+      <summary>
+        ページの上部にドッキングした
+        <see cref="T:C1.Win.C1Command.C1ToolBar" />を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.CommandOpen">
+      <summary>
+        FlexPivot ビューファイルを開くために使用する
+        <see cref="T:C1.Win.C1Command.C1Command" />を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.CommandSave">
+      <summary>
+        FlexPivot ビューファイルを保存するために使用する
+        <see cref="T:C1.Win.C1Command.C1Command" />を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.MenuGrid">
+      <summary>
+        グリッドオプションの制御に使用する
+        <see cref="T:C1.Win.C1Command.C1CommandMenu" />を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.MenuChart">
+      <summary>
+        チャートオプションの制御に使用する
+        <see cref="T:C1.Win.C1Command.C1CommandMenu" />を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.MenuReport">
+      <summary>
+        レポートオプションの制御に使用する
+        <see cref="T:C1.Win.C1Command.C1CommandMenu" />を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.LabelStatus">
+      <summary>
+        ページの下部にドッキングされたステータスストリップの 左側に表示される
+        <see cref="T:System.Windows.Forms.ToolStripStatusLabel" />を取得します。
+      </summary>
+      <example>
+        以下のコードは、
+        <b>_c1FlexPivotPage</b>と呼ぶ
+        <see cref="T:C1.Win.FlexPivot.C1FlexPivotPage" />の下部にステータスメッセージを表示するシンプルなメソッドを実装します。
+        <code>// ステータスメッセージを表示します void ShowStatus(string msg) { _c1FlexPivotPage.LabelStatus.Text = msg; }</code></example>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.LabelSelection">
+      <summary>
+        ページの下部にドッキングされたステータスストリップの 右側に表示される
+        <see cref="T:System.Windows.Forms.ToolStripStatusLabel" />を取得します。
+      </summary>
+      <remarks>
+        <para>
+          デフォルトでは、ユーザーが
+          <see cref="P:C1.Win.FlexPivot.C1FlexPivotPage.FlexPivotGrid" />または
+          <see cref="P:C1.Win.FlexPivot.C1FlexPivotPage.RawDataGrid" />で 選択範囲を変更すると、このラベルのテキストが自動的に 更新されます。
+        </para>
+        <para>
+          この動作を変更してカスタムメッセージを表示するには、
+          <see cref="P:C1.Win.FlexPivot.C1FlexPivotPage.ShowSelectionStatus" />プロパティを false に設定し、テキストを直接
+          <see cref="P:C1.Win.FlexPivot.C1FlexPivotPage.LabelStatus" />コントロールに割り当てます。
+        </para>
+      </remarks>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.ShowSelectionStatus">
+      <summary>
+        ユーザーがグリッドの範囲を選択したときに、選択されたセルの合計を表示するために、コントロールが 自動的に
+        <see cref="P:C1.Win.FlexPivot.C1FlexPivotPage.LabelSelection" />のコンテンツを設定する かどうかを決定する値を取得または 設定します。
+      </summary>
+      <remarks>
+        選択範囲のメッセージをカスタマイズする場合は、このプロパティを false に設定し、
+        <see cref="P:C1.Win.FlexPivot.C1FlexPivotPage.LabelStatus" />のテキストを 表示するカスタムメッセージに設定します。
+      </remarks>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.FlexPivotGrid">
+      <summary>
+        FlexPivot の結果を表示するために使用する
+        <see cref="T:C1.Win.FlexPivot.C1FlexPivotGrid" />を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.FlexPivotChart">
+      <summary>
+        FlexPivot の結果を表示するために使用する
+        <see cref="T:C1.Win.FlexPivot.C1FlexPivotChart" />を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.RawDataGrid">
+      <summary>
+        生データの表示に使用する
+        <see cref="T:C1.Win.C1FlexGrid.C1FlexGrid" />を取得します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPage.Dispose(System.Boolean)">
+      <summary>使用されているリソースをすべてクリーンアップします。</summary>
+      <param name="disposing">マネージリソースを破棄する場合は true、そうでない場合は false。</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPage.ProcessCmdKey(System.Windows.Forms.Message@,System.Windows.Forms.Keys)">
+      <summary>ショートカットキーを処理するためにオーバーライドされます。</summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPage.WriteXml(System.String)">
+      <summary>コントロール設定を XML ファイルに保存します。</summary>
+      <param name="path">保存するファイルの名前。</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPage.WriteXml(System.Xml.XmlWriter)">
+      <summary>
+        コントロール設定を
+        <see cref="T:System.Xml.XmlWriter" />に保存します。
+      </summary>
+      <param name="xw">
+        コントロール設定を保存する
+        <see cref="T:System.Xml.XmlWriter" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPage.ReadXml(System.String)">
+      <summary>ファイルからコントロール設定を読み込みます。</summary>
+      <param name="path">コントロール設定を含むファイルの名前。</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPage.ReadXml(System.Xml.XmlReader)">
+      <summary>
+        <see cref="T:System.Xml.XmlReader" />からコントロール設定を読み込みます。
+      </summary>
+      <param name="xr">
+        コントロール設定を含む
+        <see cref="T:System.Xml.XmlReader" />。
+      </param>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.ViewDefinition">
+      <summary>FlexPivot ビュー定義を XML 文字列として取得または設定します。</summary>
+    </member>
+    <member name="T:C1.Win.FlexPivot.C1FlexPivotPanel">
+      <summary>通常のデータテーブルを Olap ピボットテーブルに対話式に変換するためのユーザーインタフェース を提供します。</summary>
+      <remarks>
+        <para>Olap ピボットテーブルは、データを 1 つ以上のディメンションにグループ化します。これらのディメンションは、 グリッド内の行と列によって表され、データはグリッドセルに格納されます。</para>
+        <para>
+          <see cref="P:C1.Win.FlexPivot.C1FlexPivotPanel.DataSource" />プロパティを使用してソーステーブルを設定し、次に
+          <see cref="P:C1.Win.FlexPivot.C1FlexPivotPanel.FlexPivotTable" />プロパティを使用して出力テーブルを取得します。
+        </para>
+        <para>
+          <see cref="T:C1.Win.FlexPivot.C1FlexPivotGrid" />を使用して出力データを表示する場合は、グリッドの
+          <see cref="P:C1.Win.FlexPivot.C1FlexPivotGrid.DataSource" />プロパティを適切な
+          <b>C1FlexPivotPanel</b>に設定します。
+        </para>
+      </remarks>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPanel.#ctor">
+      <summary>
+        <see cref="T:C1.Win.FlexPivot.C1FlexPivotPanel" />の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPanel.DataSource">
+      <summary>分析されるデータを含むオブジェクトを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPanel.DataMember">
+      <summary>
+        分析する
+        <see cref="P:C1.Win.FlexPivot.C1FlexPivotPanel.DataSource" />オブジェクト内の特定リストを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPanel.ViewDefinition">
+      <summary>FlexPivot ビュー定義を含む XML 文字列を取得または設定します。</summary>
+      <remarks>
+        <para>このプロパティは通常、現在のビューをアプリケーション設定として存続させるために使用されます。 そのため、ビューはセッションをまたいで維持されます。</para>
+      </remarks>
+      <example>
+        以下のコードは、アプリケーションの開始時にアプリケーション設定から FlexPivot ビューをロードし、 アプリケーションの終了時に元の場所に設定を保存します。
+        <code>public Form1() { InitializeComponent(); // データを FlexPivot パネルに割り当てます _c1FlexPivotPanel.DataSource = GetDataTable(); // デフォルトビューをロード/作成します try { _c1FlexPivotPanel.ViewDefinition = Properties.Settings.Default.FlexPivotView; } catch { } } // このビューをデフォルトとして保存します void _btnSaveAsDefault_Click(object sender, EventArgs e) { try { Properties.Settings.Default.FlexPivotView = _c1FlexPivotPanel.ViewDefinition; Properties.Settings.Default.Save(); } catch (Exception x) { MessageBox.Show(x.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); } }</code></example>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPanel.ShowTotalsRows">
+      <summary>小計または総計を含む列が FlexPivot 出力テーブルに含まれるかどうかを判定する値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPanel.ShowTotalsColumns">
+      <summary>小計または総計を含む列が FlexPivot 出力テーブルに含まれるかどうかを判定する値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPanel.ShowZeros">
+      <summary>小計または総計を含む列が FlexPivot 出力テーブルに含まれるかどうかを判定する値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPanel.FlexPivotTable">
+      <summary>
+        FlexPivot 分析の出力を含む
+        <see cref="T:System.Data.DataTable" />への参照を 取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPanel.FlexPivotDefaultView">
+      <summary>
+        データを
+        <see cref="P:C1.Win.FlexPivot.C1FlexPivotPanel.FlexPivotTable" />に公開する デフォルトの
+        <see cref="T:System.ComponentModel.IBindingList" />を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPanel.FlexPivotEngine">
+      <summary>
+        この
+        <see cref="T:C1.Win.FlexPivot.C1FlexPivotPanel" />の FlexPivot 分析を実行する
+        <see cref="T:C1.FlexPivot.C1FlexPivotEngine" />への参照を取得します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.FlexPivot.C1FlexPivotPanel.Updating">
+      <summary>
+        <see cref="P:C1.Win.FlexPivot.C1FlexPivotPanel.FlexPivotEngine" />が出力 FlexPivot テーブルの更新を開始する前に発生します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPanel.OnUpdating(System.EventArgs)">
+      <summary>
+        <see cref="E:C1.Win.FlexPivot.C1FlexPivotPanel.Updating" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="E:C1.Win.FlexPivot.C1FlexPivotPanel.Updated">
+      <summary>
+        <see cref="P:C1.Win.FlexPivot.C1FlexPivotPanel.FlexPivotEngine" />が FlexPivot 分析を終了すると発生します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPanel.OnUpdated(System.EventArgs)">
+      <summary>
+        <see cref="E:C1.Win.FlexPivot.C1FlexPivotPanel.Updated" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="E:C1.Win.FlexPivot.C1FlexPivotPanel.LoadedFields">
+      <summary>
+        <see cref="P:C1.Win.FlexPivot.C1FlexPivotPanel.FlexPivotEngine" />が現在の DataSource のフィールドのロードを終了すると発生します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPanel.OnLoadedFields(System.EventArgs)">
+      <summary>
+        <see cref="E:C1.Win.FlexPivot.C1FlexPivotPanel.LoadedFields" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="E:C1.Win.FlexPivot.C1FlexPivotPanel.ViewDefinitionChanged">
+      <summary>ビュー定義が変更され、出力テーブルが更新される前に発生します。</summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPanel.OnViewDefinitionChanged(System.EventArgs)">
+      <summary>
+        <see cref="E:C1.Win.FlexPivot.C1FlexPivotPanel.ViewDefinitionChanged" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="E:C1.Win.FlexPivot.C1FlexPivotPanel.DataSourceChanged">
+      <summary>データソースが変更されたときに発生します。</summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPanel.OnDataSourceChanged(System.EventArgs)">
+      <summary>
+        <see cref="E:C1.Win.FlexPivot.C1FlexPivotPanel.DataSourceChanged" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="E:C1.Win.FlexPivot.C1FlexPivotPanel.DataEngineConnectionChanged">
+      <summary>データエンジンテーブルが接続されたときに発生します。</summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPanel.OnDataEngineConnectionChanged(System.EventArgs)">
+      <summary>
+        <see cref="E:C1.Win.FlexPivot.C1FlexPivotPanel.DataEngineConnectionChanged" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPanel.OnFontChanged(System.EventArgs)">
+      <summary>コンテキストメニューのフォントを更新するためにオーバーライドされます。</summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPanel.Dispose(System.Boolean)">
+      <summary>使用されているリソースをすべてクリーンアップします。</summary>
+      <param name="disposing">マネージリソースを破棄する場合は true、そうでない場合は false。</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPanel.ConnectCube(System.String,System.String)">
+      <summary>キューブデータソースに接続します。</summary>
+      <param name="cubeName">キューブデータソースの名前。</param>
+      <param name="connectionString">キューブデータソースの接続文字列。</param>
+    </member>
+    <member name="T:C1.Win.FlexPivot.Localization.Strings">
+      <summary>
+        <see cref="T:C1.Win.FlexPivot.Localization.Strings" />クラスには、ローカライズに使用される静的プロパティが含まれます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.Localization.Strings.ResourceManager">
+      <summary>
+        ルックアップリソースとして使用される
+        <see cref="P:C1.Win.FlexPivot.Localization.Strings.ResourceManager" />オブジェクト。
+      </summary>
+      <remarks>カスタムコントロールアセンブリ内でリソースを定義する場合は、 このプロパティを有効な値に設定します。</remarks>
+    </member>
+    <member name="P:C1.Win.FlexPivot.Localization.Strings.UICulture">
+      <summary>
+        フォールバックカルチャとして使用されるデフォルトの
+        <see cref="T:System.Globalization.CultureInfo" />オブジェクトを返します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.FlexPivot.C1FlexPivotPrintPreviewDialog">
+      <summary>
+        <see cref="T:System.Drawing.Printing.PrintDocument" />オブジェクトのプレビューおよび印刷に使用するダイアログボックスを表します。
+      </summary>
+      <remarks>
+        このダイアログは標準の
+        <see cref="T:System.Windows.Forms.PrintPreviewDialog" />と同じですが、 プリンタボタンやページ設定ボタン、
+        <see cref="T:System.Windows.Forms.ToolStrip" />コントロール基づく使いやすい UI、組み込みの PDF エクスポートなどの追加オプションを提供します。
+      </remarks>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintPreviewDialog.#ctor">
+      <summary>
+        <see cref="T:C1.Win.FlexPivot.C1FlexPivotPrintPreviewDialog" />の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintPreviewDialog.#ctor(System.Windows.Forms.Control)">
+      <summary>
+        <see cref="T:C1.Win.FlexPivot.C1FlexPivotPrintPreviewDialog" />の新しいインスタンスを初期化します。
+      </summary>
+      <param name="parentForm">このダイアログの初期サイズを定義する親フォーム。</param>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintPreviewDialog.Document">
+      <summary>
+        プレビューする
+        <see cref="T:System.Drawing.Printing.PrintDocument" />を取得または設定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintPreviewDialog.ApplyTheme(System.Object)">
+      <summary>ダイアログテーマを変更します。</summary>
+      <param name="theme">適用するテーマ。</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintPreviewDialog.OnShown(System.EventArgs)">
+      <summary>最初のアクティブ化が行われるまではドキュメントをプレビューコントロールに割り当てないようにするために オーバーライドされます。</summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintPreviewDialog.OnFormClosing(System.Windows.Forms.FormClosingEventArgs)">
+      <summary>フォームを閉じるとき、継続中のプレビューをキャンセルするためにオーバーライドされます。</summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.Windows.Forms.FormClosingEventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintPreviewDialog.OnFontChanged(System.EventArgs)">
+      <summary>ツールバーのサイズを更新するためにオーバーライドされます。</summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintPreviewDialog.Dispose(System.Boolean)">
+      <summary>使用されているリソースをすべてクリーンアップします。</summary>
+      <param name="disposing">マネージリソースを破棄する場合は true、そうでない場合は false。</param>
+    </member>
+    <member name="T:C1.Win.FlexPivot.C1FlexPivotPrintDocument">
+      <summary>
+        現在の FlexPivot ビューの情報を含む
+        <see cref="T:System.Drawing.Printing.PrintDocument" />を表します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintDocument.#ctor">
+      <summary>
+        <see cref="T:C1.Win.FlexPivot.C1FlexPivotPrintDocument" />の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintDocument.#ctor(C1.Win.FlexPivot.C1FlexPivotPage)">
+      <summary>
+        <see cref="T:C1.Win.FlexPivot.C1FlexPivotPrintDocument" />の新しいインスタンスを初期化します。
+      </summary>
+      <param name="page">
+        このドキュメントを所有する
+        <see cref="T:C1.Win.FlexPivot.C1FlexPivotPage" />。
+      </param>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.FlexPivotGrid">
+      <summary>
+        <see cref="T:C1.Win.FlexPivot.C1FlexPivotGrid" />をレポートに表示する
+        <see cref="T:C1.Win.FlexPivot.C1FlexPivotGrid" />を 取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.ShowGrid">
+      <summary>
+        レポートに
+        <see cref="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.FlexPivotGrid" />を表示するかどうかを判定する値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.GridOptions">
+      <summary>
+        <see cref="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.FlexPivotGrid" />のレンダリング時に使用するオプションを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.FlexPivotChart">
+      <summary>
+        FlexPivot チャートをレポートに表示する
+        <see cref="T:C1.Win.FlexPivot.C1FlexPivotChart" />を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.ChartFillsPage">
+      <summary>
+        <see cref="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.FlexPivotChart" />でページを満たすか、 元のアスペクト比を維持するかを判定する値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.ShowChart">
+      <summary>
+        レポートに
+        <see cref="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.FlexPivotChart" />を表示するかどうかを判定する値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.RawDataGrid">
+      <summary>
+        レポートの生データを含む
+        <see cref="T:C1.Win.C1FlexGrid.C1FlexGrid" />を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.RawDataOptions">
+      <summary>
+        <see cref="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.RawDataGrid" />をレンダリングするために使用されるオプションを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.ShowRawData">
+      <summary>
+        レポートに
+        <see cref="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.RawDataGrid" />を表示するかどうかを判定する値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.FlexPivotEngine">
+      <summary>
+        このドキュメントの生成に使用するデータとパラメータを含む
+        <see cref="T:C1.FlexPivot.C1FlexPivotEngine" />を 取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.HeaderText">
+      <summary>レポートのヘッダーとして使用する文字列を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.HeaderSeparator">
+      <summary>ヘッダーの下にセパレータを描画するかどうかを示す値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.HeaderFont">
+      <summary>
+        レポートのヘッダーのレンダリングに使用する
+        <see cref="T:System.Drawing.Font" />を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.FooterText">
+      <summary>レポートのフッターとして使用する文字列を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.FooterSeparator">
+      <summary>フッターの上にセパレータを描画するかどうかを示す値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.FooterFont">
+      <summary>
+        レポートのフッターのレンダリングに使用する
+        <see cref="T:System.Drawing.Font" />を取得または設定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintDocument.GetCurrentPage">
+      <summary>現在印刷中のページ番号を取得します。</summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintDocument.GetViewTitle">
+      <summary>現在のビューの状態を表す文字列を取得します。</summary>
+      <remarks>
+        <para>
+          <see cref="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.HeaderText" />プロパティまたは
+          <see cref="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.FooterText" />プロパティの
+          <b>$[viewTitle]</b>タグを使用して、
+          <b>ViewTitle</b>を ドキュメントのヘッダーまたはフッターに表示します。
+        </para>
+      </remarks>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintDocument.ShowOptions(System.Object)">
+      <summary>ページ設定、ヘッダーやフッター、コンテンツのスケーリングなど、 ユーザーがドキュメントのさまざまなオプションを設定できるダイアログボックスを表示します。</summary>
+      <param name="theme">適用するテーマ。</param>
+      <returns>
+        <see cref="T:System.Windows.Forms.DialogResult" />
+      </returns>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintDocument.WriteXml(System.Xml.XmlWriter)">
+      <summary>
+        ドキュメント設定を
+        <see cref="T:System.Xml.XmlWriter" />に保存します。
+      </summary>
+      <param name="xw">
+        ドキュメント設定を保存する
+        <see cref="T:System.Xml.XmlWriter" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintDocument.WriteXml(System.String)">
+      <summary>ドキュメント設定を XML ファイルに保存します。</summary>
+      <param name="path">保存するファイルの名前。</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintDocument.ReadXml(System.Xml.XmlReader)">
+      <summary>
+        <see cref="T:System.Xml.XmlReader" />からドキュメント設定を読み込みます。
+      </summary>
+      <param name="xr">
+        ドキュメント設定を含む
+        <see cref="T:System.Xml.XmlReader" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintDocument.ReadXml(System.String)">
+      <summary>ファイルからドキュメント設定を読み込みます。</summary>
+      <param name="path">ドキュメント設定を含むファイルの名前。</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintDocument.OnBeginPrint(System.Drawing.Printing.PrintEventArgs)">
+      <summary>
+        <see cref="E:System.Drawing.Printing.PrintDocument.BeginPrint" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.Drawing.Printing.PrintEventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintDocument.OnPrintPage(System.Drawing.Printing.PrintPageEventArgs)">
+      <summary>
+        <see cref="E:System.Drawing.Printing.PrintDocument.PrintPage" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.Drawing.Printing.PrintPageEventArgs" />。
+      </param>
+    </member>
+    <member name="T:C1.Win.FlexPivot.PrintDocumentOptions">
+      <summary>
+        ユーザーは、
+        <see cref="T:C1.Win.FlexPivot.C1FlexPivotPrintDocument" />でオプションを表示および編集できます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.PrintDocumentOptions.#ctor">
+      <summary>
+        <see cref="T:C1.Win.FlexPivot.PrintDocumentOptions" />の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.PrintDocumentOptions.Document">
+      <summary>
+        この
+        <see cref="T:C1.Win.FlexPivot.PrintDocumentOptions" />によって編集されている
+        <see cref="T:C1.Win.FlexPivot.C1FlexPivotPrintDocument" />を 取得または設定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.PrintDocumentOptions.ApplyTheme(System.Object)">
+      <summary>ダイアログテーマを変更します。</summary>
+      <param name="theme">適用するテーマ。</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.PrintDocumentOptions.OnFontChanged(System.EventArgs)">
+      <summary>ツールバーのサイズを更新するためにオーバーライドされます。</summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.PrintDocumentOptions.Dispose(System.Boolean)">
+      <summary>使用されているリソースをすべてクリーンアップします。</summary>
+      <param name="disposing">マネージリソースを破棄する場合は true、そうでない場合は false。</param>
+    </member>
+    <member name="T:C1.Win.FlexPivot.C1FlexPivotFieldDialog">
+      <summary>
+        <see cref="T:C1.FlexPivot.C1FlexPivotField" />オブジェクトのプロパティの編集に使用するダイアログボックスを表します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotFieldDialog.#ctor">
+      <summary>
+        <see cref="T:C1.Win.FlexPivot.C1FlexPivotFieldDialog" />の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotFieldDialog.#ctor(C1.FlexPivot.C1FlexPivotField)">
+      <summary>
+        <see cref="T:C1.Win.FlexPivot.C1FlexPivotFieldDialog" />の新しいインスタンスを初期化します。
+      </summary>
+      <param name="field">
+        このダイアログで編集される
+        <see cref="T:C1.FlexPivot.C1FlexPivotField" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotFieldDialog.OnActivated(System.EventArgs)">
+      <summary>フォームがアクティブになるとき、フォーカスをフィルタエディタに設定するためにオーバーライドされます。</summary>
+      <param name="e">
+        イベントデータを提供する
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotFieldDialog.OnFontChanged(System.EventArgs)">
+      <summary>ツールバーのサイズを更新するためにオーバーライドされます。</summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotFieldDialog.Dispose(System.Boolean)">
+      <summary>使用されているリソースをすべてクリーンアップします。</summary>
+      <param name="disposing">マネージリソースを破棄する場合は true、そうでない場合は false。</param>
+    </member>
+    <member name="T:C1.Win.FlexPivot.CustomFilterDialog">
+      <summary>
+        <see cref="T:C1.FlexPivot.C1FlexPivotFilter" />内のカスタム条件の編集に使用する ダイアログボックスを表します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.CustomFilterDialog.#ctor">
+      <summary>
+        <see cref="T:C1.Win.FlexPivot.CustomFilterDialog" />の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.CustomFilterDialog.#ctor(C1.FlexPivot.C1FlexPivotFilter)">
+      <summary>
+        <see cref="T:C1.Win.FlexPivot.CustomFilterDialog" />の新しいインスタンスを初期化します。
+      </summary>
+      <param name="filter">
+        このダイアログで編集される
+        <see cref="T:C1.FlexPivot.C1FlexPivotFilter" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.CustomFilterDialog.OnActivated(System.EventArgs)">
+      <summary>フォームがアクティブになるとき、フォーカスを初期化するためにオーバーライドされます。</summary>
+      <param name="e">
+        イベントデータを提供する
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.CustomFilterDialog.Dispose(System.Boolean)">
+      <summary>使用されているリソースをすべてクリーンアップします。</summary>
+      <param name="disposing">マネージリソースを破棄する場合は true、そうでない場合は false。</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotChart.Dispose(System.Boolean)">
+      <summary>使用されているリソースをすべてクリーンアップします。</summary>
+      <param name="disposing">マネージリソースを破棄する場合は true、そうでない場合は false。</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotGrid.Dispose(System.Boolean)">
+      <summary>FlexPivotPanel イベントを登録解除するためにオーバーライドされます。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.RawGridLimit">
+      <summary>C1 DataEngine への接続時に表示する最大の生データ行数を取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPanel.ConnectDataEngine(System.String)">
+      <summary>C1.DataEngine テーブルに接続します。</summary>
+      <param name="tableName">接続先のテーブル名。</param>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPanel.Workspace">
+      <summary>コントロールに関連付けられた DataEngine 作業領域を取得または設定します。</summary>
+      <remarks>コントロールが他の場所で作成された作業領域を使用しない限り、このプロパティを設定する必要はありません。デフォルトでは、コントロールが独自の作業領域を作成します。</remarks>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.TotalsBeforeData">
+      <summary>通常のデータ行およびデータ列の前または後に行および列の合計を表示するかどうかを決定する値を取得または設定します。この値が true に設定されている場合、データ行の上部に合計行が、通常のデータ列の左側に合計列が表示されます。</summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPanel.TotalsBeforeData">
+      <summary>通常のデータ行およびデータ列の前または後に行および列の合計を表示するかどうかを決定する値を取得または設定します。この値が true に設定されている場合、データ行の上部に合計行が、通常のデータ列の左側に合計列が表示されます。</summary>
+    </member>
+  </members>
+</doc>

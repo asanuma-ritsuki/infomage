@@ -236,11 +236,11 @@
 			Exit Sub
 		End If
 
-		If MessageBox.Show("データの情報収集を開始します" & vbNewLine & "よろしいですか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then
-			Exit Sub
-		End If
+        If MessageBox.Show("データの出力を開始します" & vbNewLine & "よろしいですか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then
+            Exit Sub
+        End If
 
-		Dim strSQL As String = ""
+        Dim strSQL As String = ""
 		Dim sqlProcess As New SQLProcess
 
 		Try

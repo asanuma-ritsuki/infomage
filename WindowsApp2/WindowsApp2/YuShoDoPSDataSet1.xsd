@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="YuShoDoPSDataSet1" targetNamespace="http://tempuri.org/YuShoDoPSDataSet1.xsd" xmlns:mstns="http://tempuri.org/YuShoDoPSDataSet1.xsd" xmlns="http://tempuri.org/YuShoDoPSDataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="YuShoDoPSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="YuShoDoPSConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WindowsApp2.My.MySettings.GlobalReference.Default.YuShoDoPSConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="T_目次DUPTableAdapter" GeneratorDataComponentClassName="T_目次DUPTableAdapter" Name="T_目次DUP" UserDataComponentName="T_目次DUPTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="YuShoDoPSConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT                      T_目次DUP.管理ID, T_目次DUP.連番, T_目次DUP.レコード番号, T_目次DUP.表示用, T_目次DUP.行番号, 
+                                      T_目次DUP.県名, T_目次DUP.資料名, T_目次DUP.副題, T_目次DUP.対象年, T_目次DUP.刊行者名, 
+                                      T_目次DUP.刊行年月, T_目次DUP.分類1, T_目次DUP.分類2, T_目次DUP.分類番号, T_目次DUP.項目, T_目次DUP.番号1, 
+                                      T_目次DUP.タイトル1, T_目次DUP.番号2, T_目次DUP.タイトル2, T_目次DUP.番号3, T_目次DUP.タイトル3, 
+                                      T_目次DUP.番号4, T_目次DUP.タイトル4, T_目次DUP.番号5, T_目次DUP.タイトル5, T_目次DUP.フォルダ名, 
+                                      T_目次DUP.リンク, T_目次DUP.リンクTO, T_目次DUP.備考, T_目次DUP.フラグID, M_管理表DUP.M番号, 
+                                      M_管理表DUP.県名 AS Expr1, M_管理表DUP.仮フォルダ, M_管理表DUP.納品フォルダ, 
+                                      M_管理表DUP.エクセルファイル名, M_管理表DUP.スキャン, M_管理表DUP.レコード
+FROM                         T_目次DUP INNER JOIN
+                                      M_管理表DUP ON T_目次DUP.管理ID = M_管理表DUP.管理ID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="管理ID" DataSetColumn="管理ID" />
+              <Mapping SourceColumn="連番" DataSetColumn="連番" />
+              <Mapping SourceColumn="レコード番号" DataSetColumn="レコード番号" />
+              <Mapping SourceColumn="表示用" DataSetColumn="表示用" />
+              <Mapping SourceColumn="行番号" DataSetColumn="行番号" />
+              <Mapping SourceColumn="県名" DataSetColumn="県名" />
+              <Mapping SourceColumn="資料名" DataSetColumn="資料名" />
+              <Mapping SourceColumn="副題" DataSetColumn="副題" />
+              <Mapping SourceColumn="対象年" DataSetColumn="対象年" />
+              <Mapping SourceColumn="刊行者名" DataSetColumn="刊行者名" />
+              <Mapping SourceColumn="刊行年月" DataSetColumn="刊行年月" />
+              <Mapping SourceColumn="分類1" DataSetColumn="分類1" />
+              <Mapping SourceColumn="分類2" DataSetColumn="分類2" />
+              <Mapping SourceColumn="分類番号" DataSetColumn="分類番号" />
+              <Mapping SourceColumn="項目" DataSetColumn="項目" />
+              <Mapping SourceColumn="番号1" DataSetColumn="番号1" />
+              <Mapping SourceColumn="タイトル1" DataSetColumn="タイトル1" />
+              <Mapping SourceColumn="番号2" DataSetColumn="番号2" />
+              <Mapping SourceColumn="タイトル2" DataSetColumn="タイトル2" />
+              <Mapping SourceColumn="番号3" DataSetColumn="番号3" />
+              <Mapping SourceColumn="タイトル3" DataSetColumn="タイトル3" />
+              <Mapping SourceColumn="番号4" DataSetColumn="番号4" />
+              <Mapping SourceColumn="タイトル4" DataSetColumn="タイトル4" />
+              <Mapping SourceColumn="番号5" DataSetColumn="番号5" />
+              <Mapping SourceColumn="タイトル5" DataSetColumn="タイトル5" />
+              <Mapping SourceColumn="フォルダ名" DataSetColumn="フォルダ名" />
+              <Mapping SourceColumn="リンク" DataSetColumn="リンク" />
+              <Mapping SourceColumn="リンクTO" DataSetColumn="リンクTO" />
+              <Mapping SourceColumn="備考" DataSetColumn="備考" />
+              <Mapping SourceColumn="フラグID" DataSetColumn="フラグID" />
+              <Mapping SourceColumn="M番号" DataSetColumn="M番号" />
+              <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
+              <Mapping SourceColumn="仮フォルダ" DataSetColumn="仮フォルダ" />
+              <Mapping SourceColumn="納品フォルダ" DataSetColumn="納品フォルダ" />
+              <Mapping SourceColumn="エクセルファイル名" DataSetColumn="エクセルファイル名" />
+              <Mapping SourceColumn="スキャン" DataSetColumn="スキャン" />
+              <Mapping SourceColumn="レコード" DataSetColumn="レコード" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="YuShoDoPSDataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="YuShoDoPSDataSet1" msprop:Generator_UserDSName="YuShoDoPSDataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="T_目次DUP" msprop:Generator_TableClassName="T_目次DUPDataTable" msprop:Generator_TableVarName="tableT_目次DUP" msprop:Generator_RowChangedName="T_目次DUPRowChanged" msprop:Generator_TablePropName="T_目次DUP" msprop:Generator_RowDeletingName="T_目次DUPRowDeleting" msprop:Generator_RowChangingName="T_目次DUPRowChanging" msprop:Generator_RowEvHandlerName="T_目次DUPRowChangeEventHandler" msprop:Generator_RowDeletedName="T_目次DUPRowDeleted" msprop:Generator_RowClassName="T_目次DUPRow" msprop:Generator_UserTableName="T_目次DUP" msprop:Generator_RowEvArgName="T_目次DUPRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="管理ID" msprop:Generator_ColumnVarNameInTable="column管理ID" msprop:Generator_ColumnPropNameInRow="管理ID" msprop:Generator_ColumnPropNameInTable="管理IDColumn" msprop:Generator_UserColumnName="管理ID" type="xs:int" />
+              <xs:element name="連番" msprop:Generator_ColumnVarNameInTable="column連番" msprop:Generator_ColumnPropNameInRow="連番" msprop:Generator_ColumnPropNameInTable="連番Column" msprop:Generator_UserColumnName="連番" type="xs:int" />
+              <xs:element name="レコード番号" msprop:Generator_ColumnVarNameInTable="columnレコード番号" msprop:Generator_ColumnPropNameInRow="レコード番号" msprop:Generator_ColumnPropNameInTable="レコード番号Column" msprop:Generator_UserColumnName="レコード番号">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="表示用" msprop:Generator_ColumnVarNameInTable="column表示用" msprop:Generator_ColumnPropNameInRow="表示用" msprop:Generator_ColumnPropNameInTable="表示用Column" msprop:Generator_UserColumnName="表示用" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="行番号" msprop:Generator_ColumnVarNameInTable="column行番号" msprop:Generator_ColumnPropNameInRow="行番号" msprop:Generator_ColumnPropNameInTable="行番号Column" msprop:Generator_UserColumnName="行番号" type="xs:int" minOccurs="0" />
+              <xs:element name="県名" msprop:Generator_ColumnVarNameInTable="column県名" msprop:Generator_ColumnPropNameInRow="県名" msprop:Generator_ColumnPropNameInTable="県名Column" msprop:Generator_UserColumnName="県名" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="資料名" msprop:Generator_ColumnVarNameInTable="column資料名" msprop:Generator_ColumnPropNameInRow="資料名" msprop:Generator_ColumnPropNameInTable="資料名Column" msprop:Generator_UserColumnName="資料名" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="副題" msprop:Generator_ColumnVarNameInTable="column副題" msprop:Generator_ColumnPropNameInRow="副題" msprop:Generator_ColumnPropNameInTable="副題Column" msprop:Generator_UserColumnName="副題" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="対象年" msprop:Generator_ColumnVarNameInTable="column対象年" msprop:Generator_ColumnPropNameInRow="対象年" msprop:Generator_ColumnPropNameInTable="対象年Column" msprop:Generator_UserColumnName="対象年" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="刊行者名" msprop:Generator_ColumnVarNameInTable="column刊行者名" msprop:Generator_ColumnPropNameInRow="刊行者名" msprop:Generator_ColumnPropNameInTable="刊行者名Column" msprop:Generator_UserColumnName="刊行者名" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="刊行年月" msprop:Generator_ColumnVarNameInTable="column刊行年月" msprop:Generator_ColumnPropNameInRow="刊行年月" msprop:Generator_ColumnPropNameInTable="刊行年月Column" msprop:Generator_UserColumnName="刊行年月" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="分類1" msprop:Generator_ColumnVarNameInTable="column分類1" msprop:Generator_ColumnPropNameInRow="分類1" msprop:Generator_ColumnPropNameInTable="分類1Column" msprop:Generator_UserColumnName="分類1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="分類2" msprop:Generator_ColumnVarNameInTable="column分類2" msprop:Generator_ColumnPropNameInRow="分類2" msprop:Generator_ColumnPropNameInTable="分類2Column" msprop:Generator_UserColumnName="分類2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="分類番号" msprop:Generator_ColumnVarNameInTable="column分類番号" msprop:Generator_ColumnPropNameInRow="分類番号" msprop:Generator_ColumnPropNameInTable="分類番号Column" msprop:Generator_UserColumnName="分類番号" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="項目" msprop:Generator_ColumnVarNameInTable="column項目" msprop:Generator_ColumnPropNameInRow="項目" msprop:Generator_ColumnPropNameInTable="項目Column" msprop:Generator_UserColumnName="項目" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="番号1" msprop:Generator_ColumnVarNameInTable="column番号1" msprop:Generator_ColumnPropNameInRow="番号1" msprop:Generator_ColumnPropNameInTable="番号1Column" msprop:Generator_UserColumnName="番号1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="タイトル1" msprop:Generator_ColumnVarNameInTable="columnタイトル1" msprop:Generator_ColumnPropNameInRow="タイトル1" msprop:Generator_ColumnPropNameInTable="タイトル1Column" msprop:Generator_UserColumnName="タイトル1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="番号2" msprop:Generator_ColumnVarNameInTable="column番号2" msprop:Generator_ColumnPropNameInRow="番号2" msprop:Generator_ColumnPropNameInTable="番号2Column" msprop:Generator_UserColumnName="番号2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="タイトル2" msprop:Generator_ColumnVarNameInTable="columnタイトル2" msprop:Generator_ColumnPropNameInRow="タイトル2" msprop:Generator_ColumnPropNameInTable="タイトル2Column" msprop:Generator_UserColumnName="タイトル2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="番号3" msprop:Generator_ColumnVarNameInTable="column番号3" msprop:Generator_ColumnPropNameInRow="番号3" msprop:Generator_ColumnPropNameInTable="番号3Column" msprop:Generator_UserColumnName="番号3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="タイトル3" msprop:Generator_ColumnVarNameInTable="columnタイトル3" msprop:Generator_ColumnPropNameInRow="タイトル3" msprop:Generator_ColumnPropNameInTable="タイトル3Column" msprop:Generator_UserColumnName="タイトル3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="番号4" msprop:Generator_ColumnVarNameInTable="column番号4" msprop:Generator_ColumnPropNameInRow="番号4" msprop:Generator_ColumnPropNameInTable="番号4Column" msprop:Generator_UserColumnName="番号4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="タイトル4" msprop:Generator_ColumnVarNameInTable="columnタイトル4" msprop:Generator_ColumnPropNameInRow="タイトル4" msprop:Generator_ColumnPropNameInTable="タイトル4Column" msprop:Generator_UserColumnName="タイトル4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="番号5" msprop:Generator_ColumnVarNameInTable="column番号5" msprop:Generator_ColumnPropNameInRow="番号5" msprop:Generator_ColumnPropNameInTable="番号5Column" msprop:Generator_UserColumnName="番号5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="タイトル5" msprop:Generator_ColumnVarNameInTable="columnタイトル5" msprop:Generator_ColumnPropNameInRow="タイトル5" msprop:Generator_ColumnPropNameInTable="タイトル5Column" msprop:Generator_UserColumnName="タイトル5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="フォルダ名" msprop:Generator_ColumnVarNameInTable="columnフォルダ名" msprop:Generator_ColumnPropNameInRow="フォルダ名" msprop:Generator_ColumnPropNameInTable="フォルダ名Column" msprop:Generator_UserColumnName="フォルダ名" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="リンク" msprop:Generator_ColumnVarNameInTable="columnリンク" msprop:Generator_ColumnPropNameInRow="リンク" msprop:Generator_ColumnPropNameInTable="リンクColumn" msprop:Generator_UserColumnName="リンク" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="リンクTO" msprop:Generator_ColumnVarNameInTable="columnリンクTO" msprop:Generator_ColumnPropNameInRow="リンクTO" msprop:Generator_ColumnPropNameInTable="リンクTOColumn" msprop:Generator_UserColumnName="リンクTO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="備考" msprop:Generator_ColumnVarNameInTable="column備考" msprop:Generator_ColumnPropNameInRow="備考" msprop:Generator_ColumnPropNameInTable="備考Column" msprop:Generator_UserColumnName="備考" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="フラグID" msprop:Generator_ColumnVarNameInTable="columnフラグID" msprop:Generator_ColumnPropNameInRow="フラグID" msprop:Generator_ColumnPropNameInTable="フラグIDColumn" msprop:Generator_UserColumnName="フラグID" type="xs:int" minOccurs="0" />
+              <xs:element name="M番号" msprop:Generator_ColumnVarNameInTable="columnM番号" msprop:Generator_ColumnPropNameInRow="M番号" msprop:Generator_ColumnPropNameInTable="M番号Column" msprop:Generator_UserColumnName="M番号" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Expr1" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" msprop:Generator_UserColumnName="Expr1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="仮フォルダ" msprop:Generator_ColumnVarNameInTable="column仮フォルダ" msprop:Generator_ColumnPropNameInRow="仮フォルダ" msprop:Generator_ColumnPropNameInTable="仮フォルダColumn" msprop:Generator_UserColumnName="仮フォルダ" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="納品フォルダ" msprop:Generator_ColumnVarNameInTable="column納品フォルダ" msprop:Generator_ColumnPropNameInRow="納品フォルダ" msprop:Generator_ColumnPropNameInTable="納品フォルダColumn" msprop:Generator_UserColumnName="納品フォルダ">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="エクセルファイル名" msprop:Generator_ColumnVarNameInTable="columnエクセルファイル名" msprop:Generator_ColumnPropNameInRow="エクセルファイル名" msprop:Generator_ColumnPropNameInTable="エクセルファイル名Column" msprop:Generator_UserColumnName="エクセルファイル名" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="スキャン" msprop:Generator_ColumnVarNameInTable="columnスキャン" msprop:Generator_ColumnPropNameInRow="スキャン" msprop:Generator_ColumnPropNameInTable="スキャンColumn" msprop:Generator_UserColumnName="スキャン" type="xs:int" minOccurs="0" />
+              <xs:element name="レコード" msprop:Generator_ColumnVarNameInTable="columnレコード" msprop:Generator_ColumnPropNameInRow="レコード" msprop:Generator_ColumnPropNameInTable="レコードColumn" msprop:Generator_UserColumnName="レコード" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:T_目次DUP" />
+      <xs:field xpath="mstns:管理ID" />
+      <xs:field xpath="mstns:連番" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

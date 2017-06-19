@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<XmlSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <LocationX>0</LocationX>
+  <LocationY>0</LocationY>
+  <SizeX>800</SizeX>
+  <SizeY>600</SizeY>
+  <State>0</State>
+  <ApplicationName>富士フィルムISリンク付けツール</ApplicationName>
+  <ImagePath>\\hydra\01_制作Gr\04_スポット案件\20170201_161241005_富士フィルムIS\41_納品\image</ImagePath>
+  <DataSource>INTRA-PDC00\INTRASQL</DataSource>
+  <InitialCatalog>FujiIS</InitialCatalog>
+  <UserID>sa</UserID>
+  <Password>intra_intra</Password>
+  <TablePrefix>[DailyReport_Test].[dbo].</TablePrefix>
+</XmlSettings>
