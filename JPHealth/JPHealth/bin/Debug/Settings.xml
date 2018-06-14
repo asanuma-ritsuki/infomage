@@ -14,15 +14,16 @@
   <SizeManageX>0</SizeManageX>
   <SizeManageY>0</SizeManageY>
   <StateManage>0</StateManage>
-  <ApplicationName>雄松堂 府県統計資料 リンク付けツール</ApplicationName>
-  <ImportFromFolder>C:\JPTemp\01_Import</ImportFromFolder>
+  <ApplicationName>JP健診 就業判定票発送業務支援ツール</ApplicationName>
+  <ImportFromFolder>C:\JPTemp\01_Import\20180612</ImportFromFolder>
   <ImportToFolder>C:\JPTemp\02_Out</ImportToFolder>
   <ImportLogFolder>C:\JPTemp\03_Log</ImportLogFolder>
-  <ZipPassword>kenkan</ZipPassword>
+  <ZipPassword>Jp-Mbp@</ZipPassword>
   <DataDupe>重複レコード</DataDupe>
   <DataRequired>必須項目不備</DataRequired>
   <DataDigit>桁数不備</DataDigit>
   <DataShiftJIS>データ不備(SJISで表現できない)</DataShiftJIS>
+  <DataExceed>文字数超過</DataExceed>
   <SJISErrorCheck>?,？,･,・</SJISErrorCheck>
   <ImagePath>\\192.168.1.210\02_スチールGr\02_スポット案件\2013-2016_141032021_雄松堂_府県統計資料\99_Entry\01_image</ImagePath>
   <DataSource>INTRA-PDC00\INTRASQL</DataSource>
@@ -31,5 +32,29 @@
   <Password>intra_intra</Password>
   <TablePrefix>[DailyReport_Test].[dbo].</TablePrefix>
   <CheckupList>50</CheckupList>
-  <LeafletList>11</LeafletList>
+  <LeafletList>15</LeafletList>
+  <Printer_Header>EPSON LP-S2000</Printer_Header>
+  <Printer_Label>EPSON LP-S2000</Printer_Label>
+  <Printer_Sentlist>EPSON LP-S2000</Printer_Sentlist>
+  <Printer_SentLeaflet>EPSON LP-S2000</Printer_SentLeaflet>
+  <Printer_Result>EPSON LP-S2000</Printer_Result>
+  <Printer_Leaflet>EPSON LP-S2000</Printer_Leaflet>
+  <HeaderTray>0</HeaderTray>
+  <LabelTray>0</LabelTray>
+  <SentlistTray>0</SentlistTray>
+  <SentLeafletTray>0</SentLeafletTray>
+  <ResultTray>0</ResultTray>
+  <LeafletTray>0</LeafletTray>
+  <PDFPath>E:\JPTemp\04_PDF</PDFPath>
+  <VariousOutputFolder>C:\JPTemp\05_各種出力</VariousOutputFolder>
+  <ExcelDataIncomplete>01_テンプレート_データ不備内容_yyyyMMdd.xlsx</ExcelDataIncomplete>
+  <ExcelWeightCount>02_テンプレート_重量ヘッダ単位件数_yyyyMMdd.xlsx</ExcelWeightCount>
+  <ExcelFacilityCount>03_テンプレート_就業判定票_施設別件数_yyyyMMdd.xlsx</ExcelFacilityCount>
+  <ExcelCheckupTargetList>04_テンプレート_XXXXX_就業判定票 対象者一覧_yyyyMMdd.xlsx</ExcelCheckupTargetList>
+  <ExcelOfficeList>05_テンプレート_発送先事業所一覧_yyyyMMdd.xlsx</ExcelOfficeList>
+  <ExcelSuccession>06_テンプレート_後納票_yyyyMMdd.xlsx</ExcelSuccession>
+  <ExcelWorkOrder>07_テンプレート_作業票_yyyyMMdd.xlsx</ExcelWorkOrder>
+  <ExcelPassword>kenkan</ExcelPassword>
+  <OfficeCSV>C:\開発\MSiC\JP健診2017\20180412_次年度変更分\201806_仕様変更_ﾘｰﾌﾚｯﾄ文言変更及び一覧フッター追加\Group_20180517.csv</OfficeCSV>
+  <BackupFolder>E:\JPTemp\06_バックアップ</BackupFolder>
 </XmlSettings>

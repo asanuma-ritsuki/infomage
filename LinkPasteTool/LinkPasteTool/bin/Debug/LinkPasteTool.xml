@@ -644,6 +644,49 @@ LinkPasteTool
  <param name="sender"></param>
  <param name="e"></param>
 </member>
+<member name="M:LinkPasteTool.frmConnectionProperty.frmConnectionProperty_Load(System.Object,System.EventArgs)">
+ <summary>
+ フォームロード時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmConnectionProperty.btnCancel_Click(System.Object,System.EventArgs)">
+ <summary>
+ キャンセルボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmConnectionProperty.btnOK_Click(System.Object,System.EventArgs)">
+ <summary>
+ OKボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmConnectionProperty.btnTest_Click(System.Object,System.EventArgs)">
+ <summary>
+ 接続テストボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:LinkPasteTool.frmConnectionProperty.TextBox_Enter(System.Object,System.EventArgs)">
+ <summary>
+ TextBoxアクティブ時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:LinkPasteTool.frmConnectionProperty.txt_TextChanged(System.Object,System.EventArgs)">
+ <summary>
+ テキストボックス値変更時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
 <member name="M:LinkPasteTool.frmEditorMokuji.frmEditorMokuji_Load(System.Object,System.EventArgs)">
  <summary>
  フォームロード時
@@ -995,6 +1038,13 @@ LinkPasteTool
  <summary>
  初期化処理
  </summary>
+</member>
+<member name="M:LinkPasteTool.frmLogin.menuExit_Click(System.Object,System.EventArgs)">
+ <summary>
+ ツールメニュー[ファイル][終了]
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
 </member>
 <member name="P:LinkPasteTool.frmMain.ImageProperty.sngZoom">
  <summary>

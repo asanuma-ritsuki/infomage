@@ -1,34 +1,42 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmImport
-	Inherits frmTempForm
+    Inherits frmTempForm
 
-	'フォームがコンポーネントの一覧をクリーンアップするために dispose をオーバーライドします。
-	<System.Diagnostics.DebuggerNonUserCode()>
-	Protected Overrides Sub Dispose(ByVal disposing As Boolean)
-		Try
-			If disposing AndAlso components IsNot Nothing Then
-				components.Dispose()
-			End If
-		Finally
-			MyBase.Dispose(disposing)
-		End Try
-	End Sub
+    'フォームがコンポーネントの一覧をクリーンアップするために dispose をオーバーライドします。
+    <System.Diagnostics.DebuggerNonUserCode()>
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
 
-	'Windows フォーム デザイナーで必要です。
-	Private components As System.ComponentModel.IContainer
+    'Windows フォーム デザイナーで必要です。
+    Private components As System.ComponentModel.IContainer
 
-	'メモ: 以下のプロシージャは Windows フォーム デザイナーで必要です。
-	'Windows フォーム デザイナーを使用して変更できます。  
-	'コード エディターを使って変更しないでください。
-	<System.Diagnostics.DebuggerStepThrough()>
-	Private Sub InitializeComponent()
+    'メモ: 以下のプロシージャは Windows フォーム デザイナーで必要です。
+    'Windows フォーム デザイナーを使用して変更できます。  
+    'コード エディターを使って変更しないでください。
+    <System.Diagnostics.DebuggerStepThrough()>
+    Private Sub InitializeComponent()
 		Me.Panel1 = New System.Windows.Forms.Panel()
-		Me.txtLotID = New System.Windows.Forms.TextBox()
-		Me.btnPrint = New System.Windows.Forms.Button()
+		Me.btnOutWorkOrder = New System.Windows.Forms.Button()
 		Me.btnDeleteTest = New System.Windows.Forms.Button()
 		Me.btnClose = New System.Windows.Forms.Button()
+		Me.cmbLotID = New System.Windows.Forms.ComboBox()
+		Me.Label5 = New System.Windows.Forms.Label()
+		Me.btnPrintPreparation = New System.Windows.Forms.Button()
+		Me.btnDelete2 = New System.Windows.Forms.Button()
 		Me.Panel2 = New System.Windows.Forms.Panel()
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+		Me.chkReProcess = New System.Windows.Forms.CheckBox()
+		Me.Label6 = New System.Windows.Forms.Label()
+		Me.dtpSendDate = New System.Windows.Forms.DateTimePicker()
+		Me.txtPasswordDate = New System.Windows.Forms.TextBox()
+		Me.Label4 = New System.Windows.Forms.Label()
 		Me.btnLogFolderBrowse = New System.Windows.Forms.Button()
 		Me.txtLogFolder = New System.Windows.Forms.TextBox()
 		Me.Label3 = New System.Windows.Forms.Label()
@@ -49,53 +57,87 @@ Partial Class frmImport
 		'
 		'Panel1
 		'
-		Me.Panel1.Controls.Add(Me.txtLotID)
-		Me.Panel1.Controls.Add(Me.btnPrint)
+		Me.Panel1.Controls.Add(Me.btnOutWorkOrder)
 		Me.Panel1.Controls.Add(Me.btnDeleteTest)
 		Me.Panel1.Controls.Add(Me.btnClose)
+		Me.Panel1.Controls.Add(Me.cmbLotID)
+		Me.Panel1.Controls.Add(Me.Label5)
+		Me.Panel1.Controls.Add(Me.btnPrintPreparation)
 		Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-		Me.Panel1.Location = New System.Drawing.Point(0, 489)
+		Me.Panel1.Location = New System.Drawing.Point(0, 490)
 		Me.Panel1.Name = "Panel1"
-		Me.Panel1.Size = New System.Drawing.Size(784, 50)
+		Me.Panel1.Size = New System.Drawing.Size(784, 34)
 		Me.Panel1.TabIndex = 1
 		'
-		'txtLotID
+		'btnOutWorkOrder
 		'
-		Me.txtLotID.AllowDrop = True
-		Me.txtLotID.ImeMode = System.Windows.Forms.ImeMode.Disable
-		Me.txtLotID.Location = New System.Drawing.Point(174, 13)
-		Me.txtLotID.Name = "txtLotID"
-		Me.txtLotID.Size = New System.Drawing.Size(213, 24)
-		Me.txtLotID.TabIndex = 32
-		Me.txtLotID.Text = "20170615162052"
-		'
-		'btnPrint
-		'
-		Me.btnPrint.Location = New System.Drawing.Point(93, 12)
-		Me.btnPrint.Name = "btnPrint"
-		Me.btnPrint.Size = New System.Drawing.Size(75, 26)
-		Me.btnPrint.TabIndex = 31
-		Me.btnPrint.Text = "インポート"
-		Me.btnPrint.UseVisualStyleBackColor = True
+		Me.btnOutWorkOrder.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.btnOutWorkOrder.Location = New System.Drawing.Point(402, 5)
+		Me.btnOutWorkOrder.Name = "btnOutWorkOrder"
+		Me.btnOutWorkOrder.Size = New System.Drawing.Size(85, 26)
+		Me.btnOutWorkOrder.TabIndex = 36
+		Me.btnOutWorkOrder.Text = "作業票出力"
+		Me.btnOutWorkOrder.UseVisualStyleBackColor = True
 		'
 		'btnDeleteTest
 		'
-		Me.btnDeleteTest.Location = New System.Drawing.Point(12, 15)
+		Me.btnDeleteTest.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.btnDeleteTest.Location = New System.Drawing.Point(508, 5)
 		Me.btnDeleteTest.Name = "btnDeleteTest"
-		Me.btnDeleteTest.Size = New System.Drawing.Size(75, 23)
+		Me.btnDeleteTest.Size = New System.Drawing.Size(75, 25)
 		Me.btnDeleteTest.TabIndex = 30
-		Me.btnDeleteTest.Text = "削除"
+		Me.btnDeleteTest.Text = "削除対象"
 		Me.btnDeleteTest.UseVisualStyleBackColor = True
 		'
 		'btnClose
 		'
 		Me.btnClose.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.btnClose.Location = New System.Drawing.Point(697, 13)
+		Me.btnClose.Location = New System.Drawing.Point(697, 5)
 		Me.btnClose.Name = "btnClose"
 		Me.btnClose.Size = New System.Drawing.Size(75, 25)
 		Me.btnClose.TabIndex = 29
 		Me.btnClose.Text = "閉じる"
 		Me.btnClose.UseVisualStyleBackColor = True
+		'
+		'cmbLotID
+		'
+		Me.cmbLotID.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.cmbLotID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+		Me.cmbLotID.FormattingEnabled = True
+		Me.cmbLotID.Location = New System.Drawing.Point(119, 5)
+		Me.cmbLotID.Name = "cmbLotID"
+		Me.cmbLotID.Size = New System.Drawing.Size(196, 25)
+		Me.cmbLotID.TabIndex = 34
+		'
+		'Label5
+		'
+		Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.Label5.Location = New System.Drawing.Point(8, 6)
+		Me.Label5.Name = "Label5"
+		Me.Label5.Size = New System.Drawing.Size(105, 20)
+		Me.Label5.TabIndex = 33
+		Me.Label5.Text = "インポート日時："
+		Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		'
+		'btnPrintPreparation
+		'
+		Me.btnPrintPreparation.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.btnPrintPreparation.Location = New System.Drawing.Point(321, 5)
+		Me.btnPrintPreparation.Name = "btnPrintPreparation"
+		Me.btnPrintPreparation.Size = New System.Drawing.Size(75, 26)
+		Me.btnPrintPreparation.TabIndex = 31
+		Me.btnPrintPreparation.Text = "印刷準備"
+		Me.btnPrintPreparation.UseVisualStyleBackColor = True
+		'
+		'btnDelete2
+		'
+		Me.btnDelete2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.btnDelete2.Location = New System.Drawing.Point(697, 82)
+		Me.btnDelete2.Name = "btnDelete2"
+		Me.btnDelete2.Size = New System.Drawing.Size(75, 25)
+		Me.btnDelete2.TabIndex = 35
+		Me.btnDelete2.Text = "完全削除"
+		Me.btnDelete2.UseVisualStyleBackColor = True
 		'
 		'Panel2
 		'
@@ -103,11 +145,17 @@ Partial Class frmImport
 		Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
 		Me.Panel2.Location = New System.Drawing.Point(0, 0)
 		Me.Panel2.Name = "Panel2"
-		Me.Panel2.Size = New System.Drawing.Size(784, 119)
+		Me.Panel2.Size = New System.Drawing.Size(784, 144)
 		Me.Panel2.TabIndex = 2
 		'
 		'GroupBox1
 		'
+		Me.GroupBox1.Controls.Add(Me.chkReProcess)
+		Me.GroupBox1.Controls.Add(Me.btnDelete2)
+		Me.GroupBox1.Controls.Add(Me.Label6)
+		Me.GroupBox1.Controls.Add(Me.dtpSendDate)
+		Me.GroupBox1.Controls.Add(Me.txtPasswordDate)
+		Me.GroupBox1.Controls.Add(Me.Label4)
 		Me.GroupBox1.Controls.Add(Me.btnLogFolderBrowse)
 		Me.GroupBox1.Controls.Add(Me.txtLogFolder)
 		Me.GroupBox1.Controls.Add(Me.Label3)
@@ -121,10 +169,54 @@ Partial Class frmImport
 		Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
 		Me.GroupBox1.Name = "GroupBox1"
-		Me.GroupBox1.Size = New System.Drawing.Size(784, 119)
+		Me.GroupBox1.Size = New System.Drawing.Size(784, 144)
 		Me.GroupBox1.TabIndex = 0
 		Me.GroupBox1.TabStop = False
 		Me.GroupBox1.Text = "インポート設定"
+		'
+		'chkReProcess
+		'
+		Me.chkReProcess.AutoSize = True
+		Me.chkReProcess.Location = New System.Drawing.Point(697, 115)
+		Me.chkReProcess.Name = "chkReProcess"
+		Me.chkReProcess.Size = New System.Drawing.Size(66, 21)
+		Me.chkReProcess.TabIndex = 37
+		Me.chkReProcess.Text = "再処理"
+		Me.chkReProcess.UseVisualStyleBackColor = True
+		'
+		'Label6
+		'
+		Me.Label6.Location = New System.Drawing.Point(12, 114)
+		Me.Label6.Name = "Label6"
+		Me.Label6.Size = New System.Drawing.Size(130, 20)
+		Me.Label6.TabIndex = 36
+		Me.Label6.Text = "発送日："
+		Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		'
+		'dtpSendDate
+		'
+		Me.dtpSendDate.Location = New System.Drawing.Point(148, 113)
+		Me.dtpSendDate.Name = "dtpSendDate"
+		Me.dtpSendDate.Size = New System.Drawing.Size(142, 24)
+		Me.dtpSendDate.TabIndex = 35
+		'
+		'txtPasswordDate
+		'
+		Me.txtPasswordDate.AllowDrop = True
+		Me.txtPasswordDate.ImeMode = System.Windows.Forms.ImeMode.Disable
+		Me.txtPasswordDate.Location = New System.Drawing.Point(546, 113)
+		Me.txtPasswordDate.Name = "txtPasswordDate"
+		Me.txtPasswordDate.Size = New System.Drawing.Size(95, 24)
+		Me.txtPasswordDate.TabIndex = 26
+		'
+		'Label4
+		'
+		Me.Label4.Location = New System.Drawing.Point(410, 114)
+		Me.Label4.Name = "Label4"
+		Me.Label4.Size = New System.Drawing.Size(130, 20)
+		Me.Label4.TabIndex = 27
+		Me.Label4.Text = "パスワード用日付："
+		Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
 		'
 		'btnLogFolderBrowse
 		'
@@ -173,7 +265,7 @@ Partial Class frmImport
 		'
 		'btnImport
 		'
-		Me.btnImport.Location = New System.Drawing.Point(697, 81)
+		Me.btnImport.Location = New System.Drawing.Point(697, 21)
 		Me.btnImport.Name = "btnImport"
 		Me.btnImport.Size = New System.Drawing.Size(75, 26)
 		Me.btnImport.TabIndex = 23
@@ -220,9 +312,9 @@ Partial Class frmImport
 		'
 		Me.Panel3.Controls.Add(Me.lstResult)
 		Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.Panel3.Location = New System.Drawing.Point(0, 119)
+		Me.Panel3.Location = New System.Drawing.Point(0, 144)
 		Me.Panel3.Name = "Panel3"
-		Me.Panel3.Size = New System.Drawing.Size(784, 370)
+		Me.Panel3.Size = New System.Drawing.Size(784, 346)
 		Me.Panel3.TabIndex = 3
 		'
 		'lstResult
@@ -232,14 +324,14 @@ Partial Class frmImport
 		Me.lstResult.ItemHeight = 17
 		Me.lstResult.Location = New System.Drawing.Point(0, 0)
 		Me.lstResult.Name = "lstResult"
-		Me.lstResult.Size = New System.Drawing.Size(784, 370)
+		Me.lstResult.Size = New System.Drawing.Size(784, 346)
 		Me.lstResult.TabIndex = 0
 		'
 		'frmImport
 		'
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
 		Me.CaptionDisplayMode = JPHealth.frmTempForm.StatusDisplayMode.ShowAll
-		Me.ClientSize = New System.Drawing.Size(784, 561)
+		Me.ClientSize = New System.Drawing.Size(784, 546)
 		Me.Controls.Add(Me.Panel3)
 		Me.Controls.Add(Me.Panel2)
 		Me.Controls.Add(Me.Panel1)
@@ -248,12 +340,12 @@ Partial Class frmImport
 		Me.MaximizeBox = False
 		Me.Name = "frmImport"
 		Me.ShowInTaskbar = False
+		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
 		Me.Text = "frmImport"
 		Me.Controls.SetChildIndex(Me.Panel1, 0)
 		Me.Controls.SetChildIndex(Me.Panel2, 0)
 		Me.Controls.SetChildIndex(Me.Panel3, 0)
 		Me.Panel1.ResumeLayout(False)
-		Me.Panel1.PerformLayout()
 		Me.Panel2.ResumeLayout(False)
 		Me.GroupBox1.ResumeLayout(False)
 		Me.GroupBox1.PerformLayout()
@@ -264,22 +356,30 @@ Partial Class frmImport
 	End Sub
 
 	Friend WithEvents Panel1 As Panel
-	Friend WithEvents Panel2 As Panel
-	Friend WithEvents GroupBox1 As GroupBox
-	Friend WithEvents Panel3 As Panel
-	Friend WithEvents btnDeleteTest As Button
-	Friend WithEvents btnClose As Button
-	Friend WithEvents btnLogFolderBrowse As Button
-	Friend WithEvents txtLogFolder As TextBox
-	Friend WithEvents Label3 As Label
-	Friend WithEvents btnImportToBrowse As Button
-	Friend WithEvents btnImportFromBrowse As Button
-	Friend WithEvents btnImport As Button
-	Friend WithEvents txtImportTo As TextBox
-	Friend WithEvents Label2 As Label
-	Friend WithEvents txtImportFrom As TextBox
-	Friend WithEvents Label1 As Label
-	Friend WithEvents lstResult As ListBox
-	Friend WithEvents txtLotID As TextBox
-	Friend WithEvents btnPrint As Button
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents btnDeleteTest As Button
+    Friend WithEvents btnClose As Button
+    Friend WithEvents btnLogFolderBrowse As Button
+    Friend WithEvents txtLogFolder As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents btnImportToBrowse As Button
+    Friend WithEvents btnImportFromBrowse As Button
+    Friend WithEvents btnImport As Button
+    Friend WithEvents txtImportTo As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents txtImportFrom As TextBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents lstResult As ListBox
+    Friend WithEvents btnPrintPreparation As Button
+    Friend WithEvents txtPasswordDate As TextBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents cmbLotID As ComboBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents dtpSendDate As DateTimePicker
+    Friend WithEvents btnDelete2 As Button
+    Friend WithEvents chkReProcess As CheckBox
+    Friend WithEvents btnOutWorkOrder As Button
 End Class

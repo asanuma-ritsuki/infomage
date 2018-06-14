@@ -175,5 +175,24 @@
 		End Try
 	End Sub
 
+    ''' <summary>
+    ''' ツールメニュー[ファイル][終了]
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub menuExit_Click(sender As Object, e As EventArgs) Handles menuExit.Click
+
+        If MessageBox.Show("アプリケーションを終了します" & vbNewLine & "よろしいですか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+            Application.Exit()
+        End If
+    End Sub
+
+    Private Sub menuConnection_Click(sender As Object, e As EventArgs) Handles menuConnection.Click
+
+        Dim f As New frmConnectionProperty
+        f.ShowDialog(Me)
+
+    End Sub
+
 #End Region
 End Class

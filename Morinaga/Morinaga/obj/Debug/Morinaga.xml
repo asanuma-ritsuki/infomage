@@ -1,0 +1,293 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Morinaga
+</name>
+</assembly>
+<members>
+<member name="T:Morinaga.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:Morinaga.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:Morinaga.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="M:Morinaga.CSVParser.#ctor(System.String,System.Text.Encoding)">
+ <summary>
+ コンストラクタ
+ </summary>
+ <param name="filename"></param>
+ <param name="enc"></param>
+</member>
+<member name="M:Morinaga.CSVParser.Close">
+ <summary>
+ ストリームを閉じる
+ </summary>
+</member>
+<member name="P:Morinaga.CSVParser.Delimiter">
+ <summary>
+ 区切り文字
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:Morinaga.CSVParser.LineNumber">
+ <summary>
+ 現在処理中のCSVデータのレコード番号
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:Morinaga.CSVParser.HasFieldsEnclosedInQuotes">
+ <summary>
+ フィールドを引用符("")で囲み、改行文字、区切り文字を含めることが出来るか
+ フィールドを引用符で囲まない場合は、このクラスを使用してはいけない
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:Morinaga.CSVParser.TrimWhiteSpace">
+ <summary>
+ フィールドの前後からスペースを削除するか
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:Morinaga.CSVParser.EndOfData">
+ <summary>
+ データの終りか
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:Morinaga.CSVParser.ReadFields">
+ <summary>
+ 1行読み込み
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:Morinaga.CSVParser.ReadForStateBeginning(System.String,System.String)">
+ <summary>
+ 初回入力待ち状態での Read
+ "ABC","D""EF","GHI"
+ ^
+ </summary>
+ <param name="row">現在の列の値</param>
+ <param name="nextChar">次の1文字</param>
+ <returns></returns>
+</member>
+<member name="M:Morinaga.CSVParser.ReadForStateWaitInput(System.String,System.String)">
+ <summary>
+ 入力待ち状態での Read
+ ReadForStateBeginning()と同じ、分かりやすくするために記述？
+ "ABC","D""EF","GHI"
+ ^
+ </summary>
+ <param name="row">現在の列の値</param>
+ <param name="nextChar">次の1文字</param>
+ <returns></returns>
+</member>
+<member name="M:Morinaga.CSVParser.ReadForStateFindQuote(System.String,System.String)">
+ <summary>
+ 引用符を発見した状態での Read
+ "ABC","D""EF","GHI"
+  ^
+ </summary>
+ <param name="row">現在の列の値</param>
+ <param name="nextChar">次の1文字</param>
+ <returns></returns>
+</member>
+<member name="M:Morinaga.CSVParser.ReadForStateFindQuoteDouble(System.String,System.String)">
+ <summary>
+ 引用符の連続を発見した状態での Read
+ "ABC","D""EF","GHI"
+		   ^
+ </summary>
+ <param name="row">現在の列の値</param>
+ <param name="nextChar">次の1文字</param>
+ <returns></returns>
+</member>
+<member name="M:Morinaga.CSVParser.ReadForStateInQuote(System.String,System.String)">
+ <summary>
+ 引用符の中で入力待ち状態での Read
+ </summary>
+ <param name="row">現在の列の値</param>
+ <param name="nextChar">次の1文字</param>
+ <returns></returns>
+</member>
+<member name="M:Morinaga.CSVParser.ReadForStateFindQuoteInQuote(System.String,System.String)">
+ <summary>
+ 引用符の中で引用符を発見した状態での Read
+ "ABC","D""EF","GHI"
+	  ^  ^		  ^
+ </summary>
+ <param name="row">現在の列の値</param>
+ <param name="nextChar">次の1文字</param>
+ <returns></returns>
+</member>
+<member name="T:Morinaga.CSVParser.State">
+ <summary>
+ 読込み状態
+ </summary>
+</member>
+<member name="F:Morinaga.CSVParser.State.None">
+ <summary>読み込み開始前</summary>
+</member>
+<member name="F:Morinaga.CSVParser.State.Beginning">
+ <summary>初期状態の入力待ち</summary>
+</member>
+<member name="F:Morinaga.CSVParser.State.WaitInput">
+ <summary>入力待ち</summary>
+</member>
+<member name="F:Morinaga.CSVParser.State.FindQuote">
+ <summary>引用符を発見</summary>
+</member>
+<member name="F:Morinaga.CSVParser.State.FindQuoteDouble">
+ <summary>引用符の連続を発見</summary>
+</member>
+<member name="F:Morinaga.CSVParser.State.InQuote">
+ <summary>引用符の中で入力待ち</summary>
+</member>
+<member name="F:Morinaga.CSVParser.State.FindQuoteInQuote">
+ <summary>引用符の中で引用符を発見</summary>
+</member>
+<member name="F:Morinaga.CSVParser.State.FindComma">
+ <summary>カンマを発見</summary>
+</member>
+<member name="F:Morinaga.CSVParser.State.FindCr">
+ <summary>Cr を発見</summary>
+</member>
+<member name="F:Morinaga.CSVParser.State.FindCrLf">
+ <summary>CrLf を発見</summary>
+</member>
+<member name="F:Morinaga.CSVParser.State.InvalidChar">
+ <summary>無効な文字を発見</summary>
+</member>
+<member name="T:Morinaga.DefaultModule.ResultMark">
+ <summary>
+ リストボックス用マーク列挙体
+ </summary>
+</member>
+<member name="M:Morinaga.DefaultModule.WriteLstResult(System.Windows.Forms.ListBox,System.String,Morinaga.DefaultModule.ResultMark)">
+ <summary>
+ リストボックスに結果マーク込みで文字列を書き込む
+ </summary>
+ <param name="lstResult"></param>
+ <param name="strLog"></param>
+ <param name="ResultMark"></param>
+</member>
+<member name="M:Morinaga.DefaultModule.IsNull(System.String)">
+ <summary>
+ NULL判定
+ </summary>
+ <param name="text"></param>
+ <returns></returns>
+</member>
+<member name="M:Morinaga.DefaultModule.OutputLogFile(System.String)">
+ <summary>
+ 例外処理内容をログファイルに書き込む
+ </summary>
+ <param name="strExceptionMessage"></param>
+</member>
+<member name="M:Morinaga.DefaultModule.GetLinesOfTextFile(System.String)">
+ <summary>
+ ファイルのレコード数をカウントする
+ </summary>
+ <param name="strFileName"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:Morinaga.DefaultModule.IsShiftJISOnlyText(System.String)">
+ <summary>
+ Shift-JISで表現できるか判別する
+ </summary>
+ <param name="text">対象文字列</param>
+ <returns>TRUE:表現できる、FALSE:表現できない</returns>
+ <remarks></remarks>
+</member>
+<member name="M:Morinaga.DefaultModule.FileBrowse(System.Windows.Forms.TextBox,System.String)">
+ <summary>
+ ファイルを開くダイアログボックス
+ </summary>
+ <param name="txtFile"></param>
+ <param name="strFilter"></param>
+ <returns>フィルタの記述例：JPEGイメージ(*.jpg)|*.jpg|すべてのファイル(*.*)|*.*</returns>
+</member>
+<member name="M:Morinaga.DefaultModule.FolderBrowse(System.Windows.Forms.TextBox)">
+ <summary>
+ フォルダを開くコモンダイアログボックスを表示する
+ </summary>
+ <param name="txtFolder"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:Morinaga.DefaultModule.GetFilesMostDeep(System.String,System.String[])">
+ <summary>
+ 指定した検索パターンに一致するファイルを最下層まで検索し全て返す
+ </summary>
+ <param name="strRootPath">検索を開始する最上層のディレクトリへのパス</param>
+ <param name="strPatterns">パス内のファイル名と対応させる検索文字列の配列</param>
+ <returns>検索パターンに一致したすべてのファイルパス</returns>
+ <remarks></remarks>
+</member>
+<member name="M:Morinaga.DefaultModule.OutputImportLog(System.Windows.Forms.ListBox,System.String,System.String,System.String)">
+ <summary>
+ リストボックスに表示されている文字列をログファイルとして保存する
+ </summary>
+ <param name="lstResult">対象ListBox</param>
+ <param name="strOutputFolder">出力フォルダ</param>
+ <param name="strSign">ファイル名をわかりやすくするためのサインを指定する</param>
+ <remarks>yyyyMMdd_Import_XXの形式で出力する(XXは数字)</remarks>
+</member>
+<member name="M:Morinaga.DefaultModule.OutputCSVFile(C1.Win.C1FlexGrid.C1FlexGrid,System.String)">
+ <summary>
+ 指定CSVファイルにC1FlexGridの内容を保存する
+ </summary>
+ <param name="C1FGridResult"></param>
+ <param name="strFileName"></param>
+ <remarks></remarks>
+</member>
+<member name="M:Morinaga.DefaultModule.EnableControls(System.Windows.Forms.Form,System.Boolean)">
+ <summary>
+ コントロールの使用可否を切り替える
+ </summary>
+ <param name="frmForm">対象フォーム</param>
+ <param name="ControlEnabled">True：使用可能、False：使用不可</param>
+ <remarks></remarks>
+</member>
+<member name="M:Morinaga.DefaultModule.GetBusinessYear(System.String)">
+ <summary>
+ 日付から年度を求める
+ </summary>
+ <param name="strDate"></param>
+ <returns></returns>
+</member>
+<member name="M:Morinaga.DefaultModule.GetAge(System.DateTime,System.DateTime)">
+ <summary>
+ 満年齢を求める
+ </summary>
+ <param name="dtDate"></param>
+ <returns></returns>
+</member>
+<member name="M:Morinaga.DefaultModule.PeriodCheck(System.String,System.Int32)">
+ <summary>
+ 小数点以下を指定された順位まで付与する
+ NULLの場合は空文字を返す
+ </summary>
+ <param name="strValue"></param>
+ <param name="iPoint"></param>
+ <returns></returns>
+</member>
+<member name="M:Morinaga.DefaultModule.SetPrinters(System.Windows.Forms.ComboBox)">
+ <summary>
+ コンピュータにインストールされているプリンタを取得して該当コンボボックスにセットする
+ </summary>
+ <param name="cmbComboBox"></param>
+</member>
+</members>
+</doc>

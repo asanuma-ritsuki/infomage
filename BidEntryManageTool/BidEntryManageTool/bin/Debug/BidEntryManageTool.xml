@@ -1,0 +1,2016 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+BidEntryManageTool
+</name>
+</assembly>
+<members>
+<member name="T:BidEntryManageTool.My.Resources.Resources">
+<summary>
+  ローカライズされた文字列などを検索するための、厳密に型指定されたリソース クラスです。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.ResourceManager">
+<summary>
+  このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.Culture">
+<summary>
+  厳密に型指定されたこのリソース クラスを使用して、すべての検索リソースに対し、
+  現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources._error">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.accept_button">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.access_exports">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.access_imports">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.add">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.address_block">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.after_delete">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.after_insert">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.after_update">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.aol_messenger">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.application_add">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.application_cascade">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.application_control_bar">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.application_delete">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.application_double">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.application_edit">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.application_error">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.application_form">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.application_form_add">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.application_form_delete">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.application_form_edit">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.application_form_magnify">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.application_from_storage">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.application_get">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.application_go">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.application_home">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.application_key">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.application_lightning">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.application_link">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.arrow_rotate_anticlockwise">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.arrow_rotate_clockwise">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.bin">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.bin_closed">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.bin_empty">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.bin_recycle">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.book">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.book_add">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.book_addresses">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.book_delete">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.book_edit">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.book_error">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.book_go">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.book_keeping">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.book_key">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.book_link">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.book_next">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.book_open">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.book_picture">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.book_previous">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.book_spelling">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.border_color">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.bullet_arrow_bottom">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.bullet_arrow_down">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.bullet_arrow_left">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.bullet_arrow_left_2">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.bullet_arrow_right">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.bullet_arrow_right_2">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.bullet_arrow_top">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.bullet_arrow_up">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.candy_cane">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.clock">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.clock_15">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.clock_45">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.clock_add">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.clock_delete">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.clock_edit">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.clock_error">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.clock_go">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.clock_history_frame">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.clock_link">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.clock_moon_phase">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.clock_pause">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.clock_play">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.clock_red">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.clock_select_remain">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.clock_stop">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.cog">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.cog_add">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.cog_delete">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.cog_edit">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.cog_error">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.cog_go">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.column_one">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.column_right">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.column_single">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.column_tree">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.column_two">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.comment">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.comment_add">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.comment_box">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.comment_delete">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.comment_edit">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.compare">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.curriculum_vitae">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.database">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.database_access">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.database_add">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.database_black">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.database_blue">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.database_cleanup">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.database_connect">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.database_delete">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.database_edit">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.database_error">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.database_gear">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.database_green">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.database_key">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.database_lightning">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.database_link">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.database_make_mde_file">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.database_red">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.database_refresh">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.database_repeat">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.database_repeat_delete">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.database_repeat_entry">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.database_repeat_insert">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.database_save">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.database_server">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.database_table">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.database_yellow">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.delete">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.document_copies">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.document_green">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.document_layout">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.document_page">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.document_page_last">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.document_page_next">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.document_page_previous">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.door_in">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.door_open">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.door_out">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.emotion_adore">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.emotion_whew">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.envelope">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.envelope_string">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.envelopes">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.error_add">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.error_checking">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.error_delete">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.error_go">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.error_log">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.excel_exports">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.excel_imports">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.exclamation">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.export_excel">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.file_publish_excel_services">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.file_publish_sharepoint">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.file_publish_slides">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_add">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_bell">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_black">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_blue">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_brick">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_bug">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_camera">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_database">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_delete">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_edit">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_error">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_explorer">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_feed">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_find">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_go">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_green">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_heart">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_image">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_key">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_lightbulb">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_link">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_page">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_page_white">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_palette">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_picture">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_red">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_search">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_stand">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_star">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_table">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_torn">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_user">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_vertical_document">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_vertical_open">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_vertical_rename">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_vertical_torn">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_vertical_zipper">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folder_wrench">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folders">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.folders_explorer">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.google_webmaster_tools">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.house">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.house_go">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.house_link">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.house_one">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.house_two">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.livejournal">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.pepper">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.poo">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.rainbow">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.resultset_first">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.resultset_last">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.resultset_next">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.resultset_previous">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.stickman">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="P:BidEntryManageTool.My.Resources.Resources.xfn">
+<summary>
+  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+</summary>
+</member>
+<member name="T:BidEntryManageTool.CElement">
+ <summary>
+ コンボボックスに表示用mの次列と内部IDを保持させるクラス
+ </summary>
+</member>
+<member name="M:BidEntryManageTool.CElement.ToString">
+ <summary>
+ 表示用文字列はToStringをオーバーライドして取得する
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.CElement.ID">
+ <summary>
+ 実際の値
+ (ValueMemberに設定する文字列と同名にする)
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.CElement.NAME">
+ <summary>
+ 表示名称
+ (DisplayMemberに設定する文字列と同名にする
+ </summary>
+ <returns></returns>
+</member>
+<member name="T:BidEntryManageTool.clsWinApp">
+ <summary>
+ メインルーチン
+ </summary>
+</member>
+<member name="M:BidEntryManageTool.clsWinApp.OnThreadException(System.Object,System.Threading.ThreadExceptionEventArgs)">
+ <summary>
+ 例外ハンドラ
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:BidEntryManageTool.clsWinApp.CatchException(System.Exception)">
+ <summary>
+ 意図的にキャッチしない例外を全て処理する
+ </summary>
+ <param name="ex"></param>
+</member>
+<member name="M:BidEntryManageTool.CSVParser.#ctor(System.String,System.Text.Encoding)">
+ <summary>
+ コンストラクタ
+ </summary>
+ <param name="filename"></param>
+ <param name="enc"></param>
+</member>
+<member name="M:BidEntryManageTool.CSVParser.Close">
+ <summary>
+ ストリームを閉じる
+ </summary>
+</member>
+<member name="P:BidEntryManageTool.CSVParser.Delimiter">
+ <summary>
+ 区切り文字
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.CSVParser.LineNumber">
+ <summary>
+ 現在処理中のCSVデータのレコード番号
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.CSVParser.HasFieldsEnclosedInQuotes">
+ <summary>
+ フィールドを引用符("")で囲み、改行文字、区切り文字を含めることが出来るか
+ フィールドを引用符で囲まない場合は、このクラスを使用してはいけない
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.CSVParser.TrimWhiteSpace">
+ <summary>
+ フィールドの前後からスペースを削除するか
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.CSVParser.EndOfData">
+ <summary>
+ データの終りか
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:BidEntryManageTool.CSVParser.ReadFields">
+ <summary>
+ 1行読み込み
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:BidEntryManageTool.CSVParser.ReadForStateBeginning(System.String,System.String)">
+ <summary>
+ 初回入力待ち状態での Read
+ "ABC","D""EF","GHI"
+ ^
+ </summary>
+ <param name="row">現在の列の値</param>
+ <param name="nextChar">次の1文字</param>
+ <returns></returns>
+</member>
+<member name="M:BidEntryManageTool.CSVParser.ReadForStateWaitInput(System.String,System.String)">
+ <summary>
+ 入力待ち状態での Read
+ ReadForStateBeginning()と同じ、分かりやすくするために記述？
+ "ABC","D""EF","GHI"
+ ^
+ </summary>
+ <param name="row">現在の列の値</param>
+ <param name="nextChar">次の1文字</param>
+ <returns></returns>
+</member>
+<member name="M:BidEntryManageTool.CSVParser.ReadForStateFindQuote(System.String,System.String)">
+ <summary>
+ 引用符を発見した状態での Read
+ "ABC","D""EF","GHI"
+  ^
+ </summary>
+ <param name="row">現在の列の値</param>
+ <param name="nextChar">次の1文字</param>
+ <returns></returns>
+</member>
+<member name="M:BidEntryManageTool.CSVParser.ReadForStateFindQuoteDouble(System.String,System.String)">
+ <summary>
+ 引用符の連続を発見した状態での Read
+ "ABC","D""EF","GHI"
+		   ^
+ </summary>
+ <param name="row">現在の列の値</param>
+ <param name="nextChar">次の1文字</param>
+ <returns></returns>
+</member>
+<member name="M:BidEntryManageTool.CSVParser.ReadForStateInQuote(System.String,System.String)">
+ <summary>
+ 引用符の中で入力待ち状態での Read
+ </summary>
+ <param name="row">現在の列の値</param>
+ <param name="nextChar">次の1文字</param>
+ <returns></returns>
+</member>
+<member name="M:BidEntryManageTool.CSVParser.ReadForStateFindQuoteInQuote(System.String,System.String)">
+ <summary>
+ 引用符の中で引用符を発見した状態での Read
+ "ABC","D""EF","GHI"
+	  ^  ^		  ^
+ </summary>
+ <param name="row">現在の列の値</param>
+ <param name="nextChar">次の1文字</param>
+ <returns></returns>
+</member>
+<member name="T:BidEntryManageTool.CSVParser.State">
+ <summary>
+ 読込み状態
+ </summary>
+</member>
+<member name="F:BidEntryManageTool.CSVParser.State.None">
+ <summary>読み込み開始前</summary>
+</member>
+<member name="F:BidEntryManageTool.CSVParser.State.Beginning">
+ <summary>初期状態の入力待ち</summary>
+</member>
+<member name="F:BidEntryManageTool.CSVParser.State.WaitInput">
+ <summary>入力待ち</summary>
+</member>
+<member name="F:BidEntryManageTool.CSVParser.State.FindQuote">
+ <summary>引用符を発見</summary>
+</member>
+<member name="F:BidEntryManageTool.CSVParser.State.FindQuoteDouble">
+ <summary>引用符の連続を発見</summary>
+</member>
+<member name="F:BidEntryManageTool.CSVParser.State.InQuote">
+ <summary>引用符の中で入力待ち</summary>
+</member>
+<member name="F:BidEntryManageTool.CSVParser.State.FindQuoteInQuote">
+ <summary>引用符の中で引用符を発見</summary>
+</member>
+<member name="F:BidEntryManageTool.CSVParser.State.FindComma">
+ <summary>カンマを発見</summary>
+</member>
+<member name="F:BidEntryManageTool.CSVParser.State.FindCr">
+ <summary>Cr を発見</summary>
+</member>
+<member name="F:BidEntryManageTool.CSVParser.State.FindCrLf">
+ <summary>CrLf を発見</summary>
+</member>
+<member name="F:BidEntryManageTool.CSVParser.State.InvalidChar">
+ <summary>無効な文字を発見</summary>
+</member>
+<member name="M:BidEntryManageTool.SQLProcess.#ctor">
+ <summary>
+ コンストラクタ
+ </summary>
+</member>
+<member name="M:BidEntryManageTool.SQLProcess.Close">
+ <summary>
+ デストラクタ
+ </summary>
+</member>
+<member name="M:BidEntryManageTool.SQLProcess.Initialize">
+ <summary>
+ コネクション確立
+ </summary>
+</member>
+<member name="M:BidEntryManageTool.SQLProcess.DB_SELECT_DATATABLE(System.String)">
+ <summary>
+ SELECT文発行用関数(DATATABLE)
+ </summary>
+ <param name="strSQL"></param>
+ <returns></returns>
+</member>
+<member name="M:BidEntryManageTool.SQLProcess.DB_EXECUTE_SCALAR(System.String)">
+ <summary>
+ SQL文の結果より単一の値を取得
+ </summary>
+ <param name="strSQL"></param>
+ <returns></returns>
+</member>
+<member name="M:BidEntryManageTool.SQLProcess.DB_UPDATE(System.String)">
+ <summary>
+ INSERT、DELETE、UPDATE文発行用関数
+ </summary>
+ <param name="strSQL"></param>
+</member>
+<member name="M:BidEntryManageTool.SQLProcess.DB_SELECT_READER(System.String)">
+ <summary>
+ SELECT文発行用関数(DATA READER)
+ </summary>
+ <param name="strSQL"></param>
+ <returns></returns>
+</member>
+<member name="M:BidEntryManageTool.SQLProcess.DB_SELECT_DATASET(System.String,System.String)">
+ <summary>
+ SELECT文発行用関数(DATASET)
+ </summary>
+ <param name="strSQL"></param>
+ <param name="srcTable"></param>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.LocationX">
+ <summary>
+ フォーム位置X
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.LocationY">
+ <summary>
+ フォーム位置Y
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.SizeX">
+ <summary>
+ サイズ幅
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.SizeY">
+ <summary>
+ サイズ高さ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.State">
+ <summary>
+ 最大化・最小化状態
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.LocEntryX">
+ <summary>
+ エントリフォーム位置X
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.LocEntryY">
+ <summary>
+ エントリフォーム位置Y
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.SizeEntryX">
+ <summary>
+ エントリフォーム幅
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.SizeEntryY">
+ <summary>
+ エントリフォーム高さ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.LocManageX">
+ <summary>
+ 管理フォーム位置X
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.LocManageY">
+ <summary>
+ 管理フォーム位置Y
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.SizeManageX">
+ <summary>
+ 管理フォーム幅
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.SizeManageY">
+ <summary>
+ 管理フォーム高さ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.StateManage">
+ <summary>
+ 管理フォーム最大化・最小化状態
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.ApplicationName">
+ <summary>
+ アプリケーション名
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.ImportFromFolder">
+ <summary>
+ インポート元フォルダ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.ImportToFolder">
+ <summary>
+ 保存先フォルダ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.ImportLogFolder">
+ <summary>
+ ログ保存先フォルダ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.ZipPassword">
+ <summary>
+ ZIP解凍用パスワード
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.DataDupe">
+ <summary>
+ 重複レコード
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.DataRequired">
+ <summary>
+ 必須項目不備
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.DataDigit">
+ <summary>
+ 桁数不備
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.DataShiftJIS">
+ <summary>
+ データ不備(SJISで表現できない)
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.DataExceed">
+ <summary>
+ 文字数超過
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.SJISErrorCheck">
+ <summary>
+ SJISで表現できない文言
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.ImagePath">
+ <summary>
+ 画像ファイル親パス
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.OutputFolder">
+ <summary>
+ 出力フォルダ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.DataSource">
+ <summary>
+ DataSource
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.InitialCatalog">
+ <summary>
+ InitialCatalog
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.UserID">
+ <summary>
+ UserID
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.Password">
+ <summary>
+ Password
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.TablePrefix">
+ <summary>
+ INTRA-PDC00接続時の接頭語入出力
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.CheckupList">
+ <summary>
+ 対象者一覧1ページあたりの件数
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.LeafletList">
+ <summary>
+ 保健指導対象者名簿1ページあたりの件数
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.Printer_Label">
+ <summary>
+ プリンタドライバ名(ラベル)
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.Printer_Sentlist">
+ <summary>
+ プリンタドライバ名(対象者一覧)の入出力
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.Printer_SentLeaflet">
+ <summary>
+ プリンタドライバ名(保健指導対象者名簿)
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.Printer_Result">
+ <summary>
+ プリンタドライバ名(判定票)
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.Printer_Leaflet">
+ <summary>
+ プリンタドライバ名(リーフレット)
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.HeaderTray">
+ <summary>
+ 重量ヘッダ給紙トレイ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.LabelTray">
+ <summary>
+ ラベル給紙トレイ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.SentlistTray">
+ <summary>
+ 対象者一覧給紙トレイ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.SentLeafletTray">
+ <summary>
+ 保健指導対象者名簿給紙トレイ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.ResultTray">
+ <summary>
+ 判定票給紙トレイ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.LeafletTray">
+ <summary>
+ リーフレット給紙トレイ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.PDFPath">
+ <summary>
+ PDF出力先フォルダ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.VariousOutputFolder">
+ <summary>
+ 各種出力フォルダ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.ExcelDataIncomplete">
+ <summary>
+ データ不備内容
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.ExcelWeightCount">
+ <summary>
+ 重量ヘッダ単位件数
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.ExcelFacilityCount">
+ <summary>
+ 就業判定票_施設別件数
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.ExcelCheckupTargetList">
+ <summary>
+ 就業判定票_対象者一覧
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.ExcelOfficeList">
+ <summary>
+ 発送先事業所一覧
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.ExcelSuccession">
+ <summary>
+ 後納票
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.ExcelWorkOrder">
+ <summary>
+ 作業票
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.ExcelPassword">
+ <summary>
+ エクセルパスワード
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.OfficeCSV">
+ <summary>
+ 局所マスタCSVフルパス
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:BidEntryManageTool.XmlSettings.BackupFolder">
+ <summary>
+ バックアップフォルダ
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:BidEntryManageTool.XmlSettings.LoadFromXmlFile">
+ <summary>
+ 設定をXMLファイルから読み込み復元する
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:BidEntryManageTool.XmlSettings.SaveToXmlFile">
+ <summary>
+ 現在の設定をXMLファイルに保存する
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:BidEntryManageTool.XmlSettings.LoadFromBinaryFile">
+ <summary>
+ 設定をバイナリファイルから読み込み復元する
+ </summary>
+</member>
+<member name="M:BidEntryManageTool.XmlSettings.SaveToBinaryFile">
+ <summary>
+ 現在の設定をバイナリファイルに保存する
+ </summary>
+</member>
+<member name="M:BidEntryManageTool.XmlSettings.LoadFromRegistry">
+ <summary>
+ 設定をレジストリから読み込み復元する
+ </summary>
+</member>
+<member name="M:BidEntryManageTool.XmlSettings.SaveToRegistry">
+ <summary>
+ 現在の設定をレジストリに保存する
+ </summary>
+</member>
+<member name="M:BidEntryManageTool.XmlSettings.Dispose">
+ <summary>
+ インスタンスの内容を保存して解放する
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:BidEntryManageTool.XmlSettings.GetSettingPath">
+ <summary>
+ XMLファイルの保存先を取得する
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:BidEntryManageTool.XmlSettings.GetSettingRegistry">
+ <summary>
+ レジストリの保存先キーを取得する
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:BidEntryManageTool.frmConnectionProperty.frmConnectionProperty_Load(System.Object,System.EventArgs)">
+ <summary>
+ フォームロード時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:BidEntryManageTool.frmConnectionProperty.btnCancel_Click(System.Object,System.EventArgs)">
+ <summary>
+ キャンセルボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:BidEntryManageTool.frmConnectionProperty.btnOK_Click(System.Object,System.EventArgs)">
+ <summary>
+ OKボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:BidEntryManageTool.frmConnectionProperty.btnTest_Click(System.Object,System.EventArgs)">
+ <summary>
+ 接続テストボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:BidEntryManageTool.frmConnectionProperty.TextBox_Enter(System.Object,System.EventArgs)">
+ <summary>
+ TextBoxアクティブ時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:BidEntryManageTool.frmConnectionProperty.txt_TextChanged(System.Object,System.EventArgs)">
+ <summary>
+ テキストボックス値変更時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:BidEntryManageTool.frmMainMenu.frmMainMenu_Load(System.Object,System.EventArgs)">
+ <summary>
+ フォームロード時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:BidEntryManageTool.frmMainMenu.menuExit_Click(System.Object,System.EventArgs)">
+ <summary>
+ [ファイル][終了]
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:BidEntryManageTool.frmMainMenu.menuConnection_Click(System.Object,System.EventArgs)">
+ <summary>
+ [ツール][接続設定]
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:BidEntryManageTool.frmMainMenu.btnOperation_Click(System.Object,System.EventArgs)">
+ <summary>
+ 運用画面ボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:BidEntryManageTool.frmMainMenu.btnMaintenance_Click(System.Object,System.EventArgs)">
+ <summary>
+ 各種メンテナンスボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:BidEntryManageTool.frmMainMenu.btnExit_Click(System.Object,System.EventArgs)">
+ <summary>
+ 終了ボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:BidEntryManageTool.frmOperation.frmOperation_Load(System.Object,System.EventArgs)">
+ <summary>
+ フォームロード時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:BidEntryManageTool.frmOperation.frmOperation_FormClosing(System.Object,System.Windows.Forms.FormClosingEventArgs)">
+ <summary>
+ フォームクロージング
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:BidEntryManageTool.frmOperation.btnBack_Click(System.Object,System.EventArgs)">
+ <summary>
+ 戻るボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:BidEntryManageTool.frmOperation.cmbPrefectures_SelectedIndexChanged(System.Object,System.EventArgs)">
+ <summary>
+ 都道府県コンボボックス値変更時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:BidEntryManageTool.frmOperation.cmbTrader_SelectedIndexChanged(System.Object,System.EventArgs)">
+ <summary>
+ 業者コンボボックス値変更時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:BidEntryManageTool.frmOperation.C1FGridResult_RowColChange(System.Object,System.EventArgs)">
+ <summary>
+ 業者グリッドセル移動時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:BidEntryManageTool.frmOperation.SearchTrader">
+ <summary>
+ 業者一覧を特定条件でグリッドに表示する
+ </summary>
+</member>
+<member name="M:BidEntryManageTool.frmOperation.SearchMuni">
+ <summary>
+ 自治体一覧を特定条件でグリッドに表示する
+ </summary>
+</member>
+<member name="T:BidEntryManageTool.DefaultModule.ResultMark">
+ <summary>
+ リストボックス用マーク列挙体
+ </summary>
+</member>
+<member name="M:BidEntryManageTool.DefaultModule.WriteLstResult(System.Windows.Forms.ListBox,System.String,BidEntryManageTool.DefaultModule.ResultMark)">
+ <summary>
+ リストボックスに結果マーク込みで文字列を書き込む
+ </summary>
+ <param name="lstResult"></param>
+ <param name="strLog"></param>
+ <param name="ResultMark"></param>
+</member>
+<member name="M:BidEntryManageTool.DefaultModule.IsNull(System.String)">
+ <summary>
+ NULL判定
+ </summary>
+ <param name="text"></param>
+ <returns></returns>
+</member>
+<member name="M:BidEntryManageTool.DefaultModule.OutputLogFile(System.String)">
+ <summary>
+ 例外処理内容をログファイルに書き込む
+ </summary>
+ <param name="strExceptionMessage"></param>
+</member>
+<member name="M:BidEntryManageTool.DefaultModule.GetLinesOfTextFile(System.String)">
+ <summary>
+ ファイルのレコード数をカウントする
+ </summary>
+ <param name="strFileName"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:BidEntryManageTool.DefaultModule.IsShiftJISOnlyText(System.String)">
+ <summary>
+ Shift-JISで表現できるか判別する
+ </summary>
+ <param name="text">対象文字列</param>
+ <returns>TRUE:表現できる、FALSE:表現できない</returns>
+ <remarks></remarks>
+</member>
+<member name="M:BidEntryManageTool.DefaultModule.FileBrowse(System.Windows.Forms.TextBox,System.String)">
+ <summary>
+ ファイルを開くダイアログボックス
+ </summary>
+ <param name="txtFile"></param>
+ <param name="strFilter"></param>
+ <returns>フィルタの記述例：JPEGイメージ(*.jpg)|*.jpg|すべてのファイル(*.*)|*.*</returns>
+</member>
+<member name="M:BidEntryManageTool.DefaultModule.FolderBrowse(System.Windows.Forms.TextBox)">
+ <summary>
+ フォルダを開くコモンダイアログボックスを表示する
+ </summary>
+ <param name="txtFolder"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:BidEntryManageTool.DefaultModule.GetFilesMostDeep(System.String,System.String[])">
+ <summary>
+ 指定した検索パターンに一致するファイルを最下層まで検索し全て返す
+ </summary>
+ <param name="strRootPath">検索を開始する最上層のディレクトリへのパス</param>
+ <param name="strPatterns">パス内のファイル名と対応させる検索文字列の配列</param>
+ <returns>検索パターンに一致したすべてのファイルパス</returns>
+ <remarks></remarks>
+</member>
+<member name="M:BidEntryManageTool.DefaultModule.OutputImportLog(System.Windows.Forms.ListBox,System.String,System.String,System.String)">
+ <summary>
+ リストボックスに表示されている文字列をログファイルとして保存する
+ </summary>
+ <param name="lstResult">対象ListBox</param>
+ <param name="strOutputFolder">出力フォルダ</param>
+ <param name="strSign">ファイル名をわかりやすくするためのサインを指定する</param>
+ <remarks>yyyyMMdd_Import_XXの形式で出力する(XXは数字)</remarks>
+</member>
+<member name="M:BidEntryManageTool.DefaultModule.OutputCSVFile(C1.Win.C1FlexGrid.C1FlexGrid,System.String)">
+ <summary>
+ 指定CSVファイルにC1FlexGridの内容を保存する
+ </summary>
+ <param name="C1FGridResult"></param>
+ <param name="strFileName"></param>
+ <remarks></remarks>
+</member>
+<member name="M:BidEntryManageTool.DefaultModule.SetComboValue(System.Windows.Forms.ComboBox,System.Data.DataTable,System.Boolean,System.Boolean)">
+ <summary>
+ コンボボックスにDATATABLEの値をセットする
+ </summary>
+ <param name="cmb">対象コンボボックス</param>
+ <param name="dt">DATATABLE(カラム0＝ID、カラム1＝NAME)</param>
+ <param name="IsAll">全て項目を追加するか</param>
+</member>
+<member name="M:BidEntryManageTool.DefaultModule.EnableControls(System.Windows.Forms.Form,System.Boolean)">
+ <summary>
+ コントロールの使用可否を切り替える
+ </summary>
+ <param name="frmForm">対象フォーム</param>
+ <param name="ControlEnabled">True：使用可能、False：使用不可</param>
+ <remarks></remarks>
+</member>
+<member name="M:BidEntryManageTool.DefaultModule.GetBusinessYear(System.String)">
+ <summary>
+ 日付から年度を求める
+ </summary>
+ <param name="strDate"></param>
+ <returns></returns>
+</member>
+<member name="M:BidEntryManageTool.DefaultModule.getBusinessDay(System.DateTime,System.Int32)">
+ <summary>
+ 営業日の日数分日付をずらす
+ </summary>
+ <param name="dtDate"></param>
+ <param name="iDiff"></param>
+ <returns></returns>
+</member>
+<member name="M:BidEntryManageTool.DefaultModule.IsHoliday(System.DateTime)">
+ <summary>
+ 土日祝日判定
+ </summary>
+ <param name="dtDate"></param>
+ <returns>TRUE：土日祝日、FALSE：平日</returns>
+</member>
+<member name="M:BidEntryManageTool.DefaultModule.GetAge(System.DateTime,System.DateTime)">
+ <summary>
+ 満年齢を求める
+ </summary>
+ <param name="dtDate"></param>
+ <returns></returns>
+</member>
+<member name="M:BidEntryManageTool.DefaultModule.PeriodCheck(System.String,System.Int32)">
+ <summary>
+ 小数点以下を指定された順位まで付与する
+ NULLの場合は空文字を返す
+ </summary>
+ <param name="strValue"></param>
+ <param name="iPoint"></param>
+ <returns></returns>
+</member>
+<member name="M:BidEntryManageTool.DefaultModule.SetPrinters(System.Windows.Forms.ComboBox)">
+ <summary>
+ コンピュータにインストールされているプリンタを取得して該当コンボボックスにセットする
+ </summary>
+ <param name="cmbComboBox"></param>
+</member>
+<member name="M:BidEntryManageTool.ExcelProcess.WriteExcelFile(BidEntryManageTool.ExcelProcess.ExcelOutputCategory,System.String,System.Data.DataTable,System.String,System.Data.DataTable,System.Data.DataTable,System.Data.DataTable,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+ <summary>
+ DATATABLEの内容を指定テンプレートに書き込んで指定エクセルファイルに出力する
+ </summary>
+ <param name="enumCategory"></param>
+ <param name="strSaveFile"></param>
+ <param name="dt"></param>
+ <param name="strOutputDate"></param>
+ <param name="dtCheckup"></param>
+ <param name="dtLeaflet"></param>
+ <param name="dt2">後納票出力時に2シート目のDATATABLEを保持する</param>
+ <param name="iFacilityCount"></param>
+ <param name="iCheckupDefect"></param>
+ <param name="iLeafDefect"></param>
+ <param name="iLeafDupe"></param>
+ <param name="iTargetList"></param>
+ <returns></returns>
+</member>
+<member name="T:BidEntryManageTool.frmTempForm.StatusDisplayMode">
+ <summary>
+ ステータスバーの表示形式
+ </summary>
+</member>
+<member name="M:BidEntryManageTool.frmTempForm.frmTempForm_Load(System.Object,System.EventArgs)">
+ <summary>
+ フォームロード時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:BidEntryManageTool.frmTempForm.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+ <summary>
+ フォームキーダウンイベント
+ </summary>
+ <param name="e"></param>
+</member>
+<member name="M:BidEntryManageTool.frmTempForm.Timer1_Tick(System.Object,System.EventArgs)">
+ <summary>
+ ステータスバーに時刻を表示する
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+</members>
+</doc>

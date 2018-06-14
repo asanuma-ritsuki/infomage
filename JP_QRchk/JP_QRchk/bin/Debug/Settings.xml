@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<XmlSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <LocationX>0</LocationX>
+  <LocationY>0</LocationY>
+  <SizeX>0</SizeX>
+  <SizeY>0</SizeY>
+  <State>0</State>
+  <LoginCategory>0</LoginCategory>
+  <DataSource>intra-pdc00\intrasql</DataSource>
+  <InitialCatalog>JPHealth</InitialCatalog>
+  <UserID>sa</UserID>
+  <Password>intra_intra</Password>
+</XmlSettings>

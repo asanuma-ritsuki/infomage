@@ -1,0 +1,563 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+CheckImage
+</name>
+</assembly>
+<members>
+<member name="T:CheckImage.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:CheckImage.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:CheckImage.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:CheckImage.CElement">
+ <summary>
+ コンボボックスに表示用mの次列と内部IDを保持させるクラス
+ </summary>
+</member>
+<member name="M:CheckImage.CElement.ToString">
+ <summary>
+ 表示用文字列はToStringをオーバーライドして取得する
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CheckImage.CElement.ID">
+ <summary>
+ 実際の値
+ (ValueMemberに設定する文字列と同名にする)
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CheckImage.CElement.NAME">
+ <summary>
+ 表示名称
+ (DisplayMemberに設定する文字列と同名にする
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:CheckImage.CSVParser.#ctor(System.String,System.Text.Encoding)">
+ <summary>
+ コンストラクタ
+ </summary>
+ <param name="filename"></param>
+ <param name="enc"></param>
+</member>
+<member name="M:CheckImage.CSVParser.Close">
+ <summary>
+ ストリームを閉じる
+ </summary>
+</member>
+<member name="P:CheckImage.CSVParser.Delimiter">
+ <summary>
+ 区切り文字
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CheckImage.CSVParser.LineNumber">
+ <summary>
+ 現在処理中のCSVデータのレコード番号
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CheckImage.CSVParser.HasFieldsEnclosedInQuotes">
+ <summary>
+ フィールドを引用符("")で囲み、改行文字、区切り文字を含めることが出来るか
+ フィールドを引用符で囲まない場合は、このクラスを使用してはいけない
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CheckImage.CSVParser.TrimWhiteSpace">
+ <summary>
+ フィールドの前後からスペースを削除するか
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CheckImage.CSVParser.EndOfData">
+ <summary>
+ データの終りか
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:CheckImage.CSVParser.ReadFields">
+ <summary>
+ 1行読み込み
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:CheckImage.CSVParser.ReadForStateBeginning(System.String,System.String)">
+ <summary>
+ 初回入力待ち状態での Read
+ "ABC","D""EF","GHI"
+ ^
+ </summary>
+ <param name="row">現在の列の値</param>
+ <param name="nextChar">次の1文字</param>
+ <returns></returns>
+</member>
+<member name="M:CheckImage.CSVParser.ReadForStateWaitInput(System.String,System.String)">
+ <summary>
+ 入力待ち状態での Read
+ ReadForStateBeginning()と同じ、分かりやすくするために記述？
+ "ABC","D""EF","GHI"
+ ^
+ </summary>
+ <param name="row">現在の列の値</param>
+ <param name="nextChar">次の1文字</param>
+ <returns></returns>
+</member>
+<member name="M:CheckImage.CSVParser.ReadForStateFindQuote(System.String,System.String)">
+ <summary>
+ 引用符を発見した状態での Read
+ "ABC","D""EF","GHI"
+  ^
+ </summary>
+ <param name="row">現在の列の値</param>
+ <param name="nextChar">次の1文字</param>
+ <returns></returns>
+</member>
+<member name="M:CheckImage.CSVParser.ReadForStateFindQuoteDouble(System.String,System.String)">
+ <summary>
+ 引用符の連続を発見した状態での Read
+ "ABC","D""EF","GHI"
+		   ^
+ </summary>
+ <param name="row">現在の列の値</param>
+ <param name="nextChar">次の1文字</param>
+ <returns></returns>
+</member>
+<member name="M:CheckImage.CSVParser.ReadForStateInQuote(System.String,System.String)">
+ <summary>
+ 引用符の中で入力待ち状態での Read
+ </summary>
+ <param name="row">現在の列の値</param>
+ <param name="nextChar">次の1文字</param>
+ <returns></returns>
+</member>
+<member name="M:CheckImage.CSVParser.ReadForStateFindQuoteInQuote(System.String,System.String)">
+ <summary>
+ 引用符の中で引用符を発見した状態での Read
+ "ABC","D""EF","GHI"
+	  ^  ^		  ^
+ </summary>
+ <param name="row">現在の列の値</param>
+ <param name="nextChar">次の1文字</param>
+ <returns></returns>
+</member>
+<member name="T:CheckImage.CSVParser.State">
+ <summary>
+ 読込み状態
+ </summary>
+</member>
+<member name="F:CheckImage.CSVParser.State.None">
+ <summary>読み込み開始前</summary>
+</member>
+<member name="F:CheckImage.CSVParser.State.Beginning">
+ <summary>初期状態の入力待ち</summary>
+</member>
+<member name="F:CheckImage.CSVParser.State.WaitInput">
+ <summary>入力待ち</summary>
+</member>
+<member name="F:CheckImage.CSVParser.State.FindQuote">
+ <summary>引用符を発見</summary>
+</member>
+<member name="F:CheckImage.CSVParser.State.FindQuoteDouble">
+ <summary>引用符の連続を発見</summary>
+</member>
+<member name="F:CheckImage.CSVParser.State.InQuote">
+ <summary>引用符の中で入力待ち</summary>
+</member>
+<member name="F:CheckImage.CSVParser.State.FindQuoteInQuote">
+ <summary>引用符の中で引用符を発見</summary>
+</member>
+<member name="F:CheckImage.CSVParser.State.FindComma">
+ <summary>カンマを発見</summary>
+</member>
+<member name="F:CheckImage.CSVParser.State.FindCr">
+ <summary>Cr を発見</summary>
+</member>
+<member name="F:CheckImage.CSVParser.State.FindCrLf">
+ <summary>CrLf を発見</summary>
+</member>
+<member name="F:CheckImage.CSVParser.State.InvalidChar">
+ <summary>無効な文字を発見</summary>
+</member>
+<member name="P:CheckImage.XmlSettings.LocationX">
+ <summary>
+ フォーム位置X
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CheckImage.XmlSettings.LocationY">
+ <summary>
+ フォーム位置Y
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CheckImage.XmlSettings.SizeX">
+ <summary>
+ サイズ幅
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CheckImage.XmlSettings.SizeY">
+ <summary>
+ サイズ高さ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CheckImage.XmlSettings.State">
+ <summary>
+ 最大化・最小化状態
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CheckImage.XmlSettings.ApplicationName">
+ <summary>
+ アプリケーション名
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CheckImage.XmlSettings.SrcFolder">
+ <summary>
+ 対象フォルダ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CheckImage.XmlSettings.OfferCSV">
+ <summary>
+ 提供データCSV
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CheckImage.XmlSettings.OutFolder">
+ <summary>
+ 出力フォルダ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CheckImage.XmlSettings.JpegSizeFrom">
+ <summary>
+ JPEGサイズFrom
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CheckImage.XmlSettings.JpegSizeTo">
+ <summary>
+ JPEGサイズTo
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CheckImage.XmlSettings.Camera">
+ <summary>
+ 使用カメラ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CheckImage.XmlSettings.SerialDigit">
+ <summary>
+ 連番桁数
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CheckImage.XmlSettings.SerialFrom">
+ <summary>
+ 連番開始番号
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:CheckImage.XmlSettings.LoadFromXmlFile">
+ <summary>
+ 設定をXMLファイルから読み込み復元する
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:CheckImage.XmlSettings.SaveToXmlFile">
+ <summary>
+ 現在の設定をXMLファイルに保存する
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:CheckImage.XmlSettings.LoadFromBinaryFile">
+ <summary>
+ 設定をバイナリファイルから読み込み復元する
+ </summary>
+</member>
+<member name="M:CheckImage.XmlSettings.SaveToBinaryFile">
+ <summary>
+ 現在の設定をバイナリファイルに保存する
+ </summary>
+</member>
+<member name="M:CheckImage.XmlSettings.LoadFromRegistry">
+ <summary>
+ 設定をレジストリから読み込み復元する
+ </summary>
+</member>
+<member name="M:CheckImage.XmlSettings.SaveToRegistry">
+ <summary>
+ 現在の設定をレジストリに保存する
+ </summary>
+</member>
+<member name="M:CheckImage.XmlSettings.Dispose">
+ <summary>
+ インスタンスの内容を保存して解放する
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:CheckImage.XmlSettings.GetSettingPath">
+ <summary>
+ XMLファイルの保存先を取得する
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:CheckImage.XmlSettings.GetSettingRegistry">
+ <summary>
+ レジストリの保存先キーを取得する
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:CheckImage.frmMain.frmMain_Load(System.Object,System.EventArgs)">
+ <summary>
+ フォームロード時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:CheckImage.frmMain.frmMain_FormClosing(System.Object,System.Windows.Forms.FormClosingEventArgs)">
+ <summary>
+ フォームクロージング
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:CheckImage.frmMain.Initialize">
+ <summary>
+ 初期化処理
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:CheckImage.frmMain.GetComments(System.String,System.String@,System.String@)">
+ <summary>
+ 画像ファイルよりEXIF情報を取得する
+ </summary>
+ <param name="strFile"></param>
+ <param name="strMake"></param>
+ <param name="strModel"></param>
+ <returns></returns>
+</member>
+<member name="M:CheckImage.frmMain.GetColorSpace(System.String)">
+ <summary>
+ カラースペースの取得
+ </summary>
+ <param name="strFile"></param>
+ <returns></returns>
+</member>
+<member name="M:CheckImage.frmMain.EnableControls(System.Boolean)">
+ <summary>
+ コントロールの有効無効切り替え
+ </summary>
+ <param name="bool"></param>
+</member>
+<member name="M:CheckImage.frmMain.WriteJudge(System.Int32,System.Boolean)">
+ <summary>
+ メイングリッドに判定を書き込む
+ </summary>
+ <param name="iIndex"></param>
+ <param name="blnJudge"></param>
+</member>
+<member name="M:CheckImage.frmMain.ViewCamera">
+ <summary>
+ カメラマスタをグリッドにセットする
+ </summary>
+</member>
+<member name="M:CheckImage.frmMain.txtFolder_DragEnter(System.Object,System.Windows.Forms.DragEventArgs)">
+ <summary>
+ DragEnter
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:CheckImage.frmMain.txtFolder_DragDrop(System.Object,System.Windows.Forms.DragEventArgs)">
+ <summary>
+ フォルダ選択DragDrop
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:CheckImage.frmMain.txtOfferCSV_DragDrop(System.Object,System.Windows.Forms.DragEventArgs)">
+ <summary>
+ ファイル選択DragDrop
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:CheckImage.frmMain.btnStart_Click(System.Object,System.EventArgs)">
+ <summary>
+ 開始ボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:CheckImage.frmMain.btnCancel_Click(System.Object,System.EventArgs)">
+ <summary>
+ キャンセルボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:CheckImage.frmMain.ICCCheck(ImageMagick.ColorProfile)">
+ <summary>
+ カラープロファイルテスト用
+ </summary>
+ <param name="target"></param>
+ <returns></returns>
+</member>
+<member name="M:CheckImage.frmMain.chkFileSerial_CheckedChanged(System.Object,System.EventArgs)">
+ <summary>
+ ファイル連番チェック状態変更時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="T:CheckImage.DefaultModule.ResultMark">
+ <summary>
+ リストボックス用マーク列挙体
+ </summary>
+</member>
+<member name="M:CheckImage.DefaultModule.WriteLstResult(System.Windows.Forms.ListBox,System.String,CheckImage.DefaultModule.ResultMark)">
+ <summary>
+ リストボックスに結果マーク込みで文字列を書き込む
+ </summary>
+ <param name="lstResult"></param>
+ <param name="strLog"></param>
+ <param name="ResultMark"></param>
+</member>
+<member name="M:CheckImage.DefaultModule.IsNull(System.String)">
+ <summary>
+ NULL判定
+ </summary>
+ <param name="text"></param>
+ <returns></returns>
+</member>
+<member name="M:CheckImage.DefaultModule.OutputLogFile(System.String)">
+ <summary>
+ 例外処理内容をログファイルに書き込む
+ </summary>
+ <param name="strExceptionMessage"></param>
+</member>
+<member name="M:CheckImage.DefaultModule.GetLinesOfTextFile(System.String)">
+ <summary>
+ ファイルのレコード数をカウントする
+ </summary>
+ <param name="strFileName"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:CheckImage.DefaultModule.IsShiftJISOnlyText(System.String)">
+ <summary>
+ Shift-JISで表現できるか判別する
+ </summary>
+ <param name="text">対象文字列</param>
+ <returns>TRUE:表現できる、FALSE:表現できない</returns>
+ <remarks></remarks>
+</member>
+<member name="M:CheckImage.DefaultModule.FileBrowse(System.Windows.Forms.TextBox,System.String)">
+ <summary>
+ ファイルを開くダイアログボックス
+ </summary>
+ <param name="txtFile"></param>
+ <param name="strFilter"></param>
+ <returns>フィルタの記述例：JPEGイメージ(*.jpg)|*.jpg|すべてのファイル(*.*)|*.*</returns>
+</member>
+<member name="M:CheckImage.DefaultModule.FolderBrowse(System.Windows.Forms.TextBox)">
+ <summary>
+ フォルダを開くコモンダイアログボックスを表示する
+ </summary>
+ <param name="txtFolder"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:CheckImage.DefaultModule.GetFilesMostDeep(System.String,System.String[])">
+ <summary>
+ 指定した検索パターンに一致するファイルを最下層まで検索し全て返す
+ </summary>
+ <param name="strRootPath">検索を開始する最上層のディレクトリへのパス</param>
+ <param name="strPatterns">パス内のファイル名と対応させる検索文字列の配列</param>
+ <returns>検索パターンに一致したすべてのファイルパス</returns>
+ <remarks></remarks>
+</member>
+<member name="M:CheckImage.DefaultModule.OutputImportLog(System.Windows.Forms.ListBox,System.String)">
+ <summary>
+ リストボックスに表示されている文字列をログファイルとして保存する
+ </summary>
+ <param name="lstResult">対象ListBox</param>
+ <remarks>yyyyMMdd_Import_XXの形式で出力する(XXは数字)</remarks>
+</member>
+<member name="M:CheckImage.DefaultModule.OutputCSVFile(C1.Win.C1FlexGrid.C1FlexGrid,System.String)">
+ <summary>
+ 指定CSVファイルにC1FlexGridの内容を保存する
+ </summary>
+ <param name="C1FGridResult"></param>
+ <param name="strFileName"></param>
+ <remarks></remarks>
+</member>
+<member name="M:CheckImage.DefaultModule.OutputCSVFileNoGood(C1.Win.C1FlexGrid.C1FlexGrid,System.String)">
+ <summary>
+ メイングリッドの判定×のみ出力する
+ </summary>
+ <param name="C1FGridResult"></param>
+ <param name="strFileName"></param>
+</member>
+<member name="M:CheckImage.DefaultModule.SetComboValue(System.Windows.Forms.ComboBox,System.Data.DataTable,System.Boolean)">
+ <summary>
+ コンボボックスにDATATABLEの値をセットする
+ </summary>
+ <param name="cmb">対象コンボボックス</param>
+ <param name="dt">DATATABLE(カラム0＝ID、カラム1＝NAME)</param>
+ <param name="IsAll">全て項目を追加するか</param>
+</member>
+<member name="M:CheckImage.DefaultModule.EnableControls(System.Windows.Forms.Form,System.Boolean)">
+ <summary>
+ コントロールの使用可否を切り替える
+ </summary>
+ <param name="frmForm">対象フォーム</param>
+ <param name="ControlEnabled">True：使用可能、False：使用不可</param>
+ <remarks></remarks>
+</member>
+<member name="M:CheckImage.DefaultModule.GetBusinessYear(System.String)">
+ <summary>
+ 日付から年度を求める
+ </summary>
+ <param name="strDate"></param>
+ <returns></returns>
+</member>
+<member name="M:CheckImage.DefaultModule.PeriodCheck(System.String,System.Int32)">
+ <summary>
+ 小数点以下を指定された順位まで付与する
+ NULLの場合は空文字を返す
+ </summary>
+ <param name="strValue"></param>
+ <param name="iPoint"></param>
+ <returns></returns>
+</member>
+<member name="M:CheckImage.DefaultModule.SetPrinters(System.Windows.Forms.ComboBox)">
+ <summary>
+ コンピュータにインストールされているプリンタを取得して該当コンボボックスにセットする
+ </summary>
+ <param name="cmbComboBox"></param>
+</member>
+</members>
+</doc>

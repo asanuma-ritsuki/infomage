@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<XmlSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <LocationX>137</LocationX>
+  <LocationY>170</LocationY>
+  <SizeX>1000</SizeX>
+  <SizeY>800</SizeY>
+  <State>0</State>
+  <ApplicationName>画像チェックツール</ApplicationName>
+  <SrcFolder>C:\Users\ritsuki.ALPHA\Desktop\新しいフォルダー</SrcFolder>
+  <OfferCSV />
+  <OutFolder>C:\Users\ritsuki.ALPHA\Desktop\新しいフォルダー</OutFolder>
+  <JpegSizeFrom>0</JpegSizeFrom>
+  <JpegSizeTo>999999999</JpegSizeTo>
+  <Camera>6</Camera>
+  <SerialDigit>5</SerialDigit>
+  <SerialFrom>0</SerialFrom>
+</XmlSettings>

@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "JP_QRchk", "JP_QRchk\JP_QRchk.vbproj", "{80B48956-52E8-4364-81B9-FB7AA66947BF}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "JP_QRchk_setup", "JP_QRchk_setup\JP_QRchk_setup.vdproj", "{A666681B-1D31-4855-B766-1E9BBC0F68DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{80B48956-52E8-4364-81B9-FB7AA66947BF}.Debug|x86.ActiveCfg = Debug|x86
+		{80B48956-52E8-4364-81B9-FB7AA66947BF}.Debug|x86.Build.0 = Debug|x86
+		{80B48956-52E8-4364-81B9-FB7AA66947BF}.Release|x86.ActiveCfg = Release|x86
+		{80B48956-52E8-4364-81B9-FB7AA66947BF}.Release|x86.Build.0 = Release|x86
+		{A666681B-1D31-4855-B766-1E9BBC0F68DB}.Debug|x86.ActiveCfg = Debug
+		{A666681B-1D31-4855-B766-1E9BBC0F68DB}.Release|x86.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

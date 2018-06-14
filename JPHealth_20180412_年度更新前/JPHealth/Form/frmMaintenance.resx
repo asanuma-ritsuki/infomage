@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="C1FGridLotManage.ColumnInfo" xml:space="preserve">
+    <value>11,1,0,0,0,100,Columns:0{Name:"No";Caption:"No.";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	1{Width:30;Name:"削除フラグ";Caption:"削除";Style:"DataType:System.Boolean;TextAlign:LeftCenter;ImageAlign:CenterCenter;";}	2{Width:120;Name:"ロットID";Caption:"ロットID";Style:"DataType:System.String;TextAlign:LeftCenter;";}	3{Name:"発送日";Caption:"発送日";Style:"DataType:System.String;TextAlign:LeftCenter;";}	4{Width:100;Name:"判定票CSV";Caption:"判定票CSV";Style:"DataType:System.String;TextAlign:LeftCenter;";}	5{Width:100;Name:"リーフレットCSV";Caption:"リーフレットCSV";}	6{Width:100;Name:"インポート日時";Caption:"インポート日時";Style:"DataType:System.String;TextAlign:LeftCenter;";}	7{Name:"対象者一覧出力";Caption:"対象者一覧出力";Style:"DataType:System.String;TextAlign:LeftCenter;";}	8{Name:"事業所一覧出力";Caption:"事業所一覧出力";Style:"DataType:System.String;TextAlign:LeftCenter;";}	9{Name:"施設別件数出力";Caption:"施設別件数出力";}	10{Name:"後納票出力";Caption:"後納票出力";Style:"DataType:System.String;TextAlign:LeftCenter;";}	</value>
+  </data>
+  <data name="C1FGridOffice.ColumnInfo" xml:space="preserve">
+    <value>12,1,0,0,0,100,Columns:0{Width:60;Name:"No";Caption:"局所マスタ";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	1{Width:60;Name:"会社コード";Caption:"会社コード";}	2{Name:"会社名";Caption:"会社名";Style:"DataType:System.String;TextAlign:LeftCenter;";}	3{Width:60;Name:"局所コード";Caption:"局所コード";Style:"DataType:System.String;TextAlign:LeftCenter;";}	4{Name:"局所名";Caption:"局所名";Style:"DataType:System.String;TextAlign:LeftCenter;";}	5{Width:60;Name:"郵便番号";Caption:"郵便番号";Style:"DataType:System.String;TextAlign:LeftCenter;";}	6{Name:"住所";Caption:"住所";Style:"DataType:System.String;TextAlign:LeftCenter;";}	7{Name:"電話番号";Caption:"電話番号";Style:"DataType:System.String;TextAlign:LeftCenter;";}	8{Name:"健康管理施設コード";Caption:"健康管理施設コード";Style:"DataType:System.String;TextAlign:LeftCenter;";}	9{Name:"健康管理施設名";Caption:"健康管理施設名";Style:"DataType:System.String;TextAlign:LeftCenter;";}	10{Width:70;Name:"会場局コード";Caption:"会場局コード";Style:"DataType:System.String;TextAlign:LeftCenter;";}	11{Name:"会場局名";Caption:"会場局名";Style:"DataType:System.String;TextAlign:LeftCenter;";}	</value>
+  </data>
+  <data name="C1FGridExclusion.ColumnInfo" xml:space="preserve">
+    <value>5,1,0,0,0,100,Columns:0{Width:60;Name:"No";Caption:"除外リスト";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	1{Width:50;Name:"ID";Caption:"ID";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	2{Name:"対象種別";Caption:"対象種別";Style:"DataType:System.String;TextAlign:LeftCenter;";}	3{Name:"対象項目";Caption:"対象項目";Style:"DataType:System.String;TextAlign:LeftCenter;";}	4{Name:"入力値";Caption:"入力値";Style:"DataType:System.String;TextAlign:LeftCenter;";}	</value>
+  </data>
+  <data name="C1FGridFacility.ColumnInfo" xml:space="preserve">
+    <value>7,1,0,0,0,100,Columns:0{Name:"No";Caption:"No.";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	1{Name:"健康管理施設コード";Caption:"健康管理施設コード";Style:"DataType:System.String;TextAlign:LeftCenter;";}	2{Name:"健康管理施設名";Caption:"健康管理施設名";Style:"DataType:System.String;TextAlign:LeftCenter;";}	3{Width:50;Name:"略称";Caption:"略称";Style:"DataType:System.String;TextAlign:LeftCenter;";}	4{Width:70;Name:"郵便番号";Caption:"郵便番号";Style:"DataType:System.String;TextAlign:LeftCenter;";}	5{Width:300;Name:"住所";Caption:"住所";Style:"DataType:System.String;TextAlign:LeftCenter;";}	6{Name:"電話番号";Caption:"電話番号";Style:"DataType:System.String;TextAlign:LeftCenter;";}	</value>
+  </data>
+  <data name="C1FGridFormType.ColumnInfo" xml:space="preserve">
+    <value>4,1,0,0,0,100,Columns:0{Width:60;Name:"No";Caption:"帳票タイプ";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	1{Width:50;Name:"ID";Caption:"ID";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	2{Width:100;Name:"帳票タイプ";Caption:"帳票タイプ";Style:"DataType:System.String;TextAlign:LeftCenter;";}	3{Width:150;Name:"変換帳票タイプ";Caption:"変換帳票タイプ";Style:"DataType:System.String;TextAlign:LeftCenter;";}	</value>
+  </data>
+  <data name="C1FGridMedicalEx.ColumnInfo" xml:space="preserve">
+    <value>4,1,0,0,0,100,Columns:0{Width:60;Name:"No";Caption:"健診種別";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	1{Width:70;Name:"健診種別ID";Caption:"健診種別ID";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	2{Width:100;Name:"健診種別";Caption:"健診種別";Style:"DataType:System.String;TextAlign:LeftCenter;";}	3{Width:100;Name:"変換健診種別";Caption:"変換健診種別";Style:"DataType:System.String;TextAlign:LeftCenter;";}	</value>
+  </data>
+  <data name="C1FGridWeight.ColumnInfo" xml:space="preserve">
+    <value>8,1,0,0,0,100,Columns:0{Name:"No";Caption:"No.";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	1{Width:50;Name:"重量ID";Caption:"重量ID";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	2{Width:65;Name:"帳票種別ID";Caption:"帳票種別ID";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	3{Width:75;Name:"帳票種別詳細";Caption:"帳票種別詳細";Style:"DataType:System.String;TextAlign:LeftCenter;";}	4{Width:200;Name:"名称";Caption:"名称";Style:"DataType:System.String;TextAlign:LeftCenter;";}	5{Width:50;Name:"枚数";Caption:"枚数";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	6{Width:50;Name:"重量";Caption:"重量";Style:"DataType:System.Double;TextAlign:GeneralCenter;";}	7{Width:100;Name:"備考";Caption:"備考";Style:"DataType:System.String;TextAlign:LeftCenter;";}	</value>
+  </data>
+  <data name="C1FGridWeightHeader.ColumnInfo" xml:space="preserve">
+    <value>13,1,0,0,0,100,Columns:0{Name:"No";Caption:"No.";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	1{Width:60;Name:"重量ヘッダ";Caption:"重量ヘッダ";Style:"DataType:System.String;TextAlign:LeftCenter;";}	2{Width:80;Name:"郵便物の種類";Caption:"郵便物の種類";Style:"DataType:System.String;TextAlign:LeftCenter;";}	3{Width:80;Name:"特殊取扱書類";Caption:"特殊取扱書類";Style:"DataType:System.String;TextAlign:LeftCenter;";}	4{Width:80;Name:"重量";Caption:"重量";Style:"DataType:System.String;TextAlign:LeftCenter;";}	5{Width:50;Name:"郵送";Caption:"郵送";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	6{Width:55;Name:"特定記録";Caption:"特定記録";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	7{Width:50;Name:"総重量";Caption:"総重量";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	8{Width:65;Name:"重量FROM";Caption:"重量FROM";Style:"DataType:System.Double;TextAlign:GeneralCenter;";}	9{Width:65;Name:"重量TO";Caption:"重量TO";Style:"DataType:System.Double;TextAlign:GeneralCenter;";}	10{Name:"封筒種別";Caption:"封筒種別";Style:"DataType:System.String;TextAlign:LeftCenter;";}	11{Width:50;Name:"規格";Caption:"規格";Style:"DataType:System.String;TextAlign:LeftCenter;";}	12{Width:50;Name:"備考";Caption:"備考";Style:"DataType:System.String;TextAlign:LeftCenter;";}	</value>
+  </data>
+  <data name="C1FGridHoliday.ColumnInfo" xml:space="preserve">
+    <value>3,1,0,0,0,100,Columns:0{Name:"No";Caption:"No.";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	1{Width:80;Name:"祝日";Caption:"祝日";Style:"Format:""d"";DataType:System.DateTime;TextAlign:LeftCenter;";}	2{Width:100;Name:"備考";Caption:"備考";Style:"DataType:System.String;TextAlign:LeftCenter;";}	</value>
+  </data>
+  <data name="C1FGridFormEx.ColumnInfo" xml:space="preserve">
+    <value>4,1,0,0,0,100,Columns:0{Name:"No";Caption:"No.";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	1{Width:80;Name:"帳票種別ID";Caption:"帳票種別ID";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	2{Name:"帳票種別";Caption:"帳票種別";Style:"DataType:System.String;TextAlign:LeftCenter;";}	3{Name:"備考";Caption:"備考";Style:"DataType:System.String;TextAlign:LeftCenter;";}	</value>
+  </data>
+</root>

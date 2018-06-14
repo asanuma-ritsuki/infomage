@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.10
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CheckImage", "CheckImage\CheckImage.vbproj", "{D9EEE9FF-3C03-40D8-B1E9-C2E204075E75}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "setup", "setup\setup.vdproj", "{E5711432-6898-4006-91A7-89FA5A41AE07}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D9EEE9FF-3C03-40D8-B1E9-C2E204075E75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9EEE9FF-3C03-40D8-B1E9-C2E204075E75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9EEE9FF-3C03-40D8-B1E9-C2E204075E75}.Debug|x86.ActiveCfg = Debug|x86
+		{D9EEE9FF-3C03-40D8-B1E9-C2E204075E75}.Debug|x86.Build.0 = Debug|x86
+		{D9EEE9FF-3C03-40D8-B1E9-C2E204075E75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9EEE9FF-3C03-40D8-B1E9-C2E204075E75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9EEE9FF-3C03-40D8-B1E9-C2E204075E75}.Release|x86.ActiveCfg = Release|x86
+		{D9EEE9FF-3C03-40D8-B1E9-C2E204075E75}.Release|x86.Build.0 = Release|x86
+		{E5711432-6898-4006-91A7-89FA5A41AE07}.Debug|Any CPU.ActiveCfg = Debug
+		{E5711432-6898-4006-91A7-89FA5A41AE07}.Debug|x86.ActiveCfg = Debug
+		{E5711432-6898-4006-91A7-89FA5A41AE07}.Release|Any CPU.ActiveCfg = Release
+		{E5711432-6898-4006-91A7-89FA5A41AE07}.Release|x86.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

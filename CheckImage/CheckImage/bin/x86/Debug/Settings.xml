@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<XmlSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <LocationX>283</LocationX>
+  <LocationY>91</LocationY>
+  <SizeX>1000</SizeX>
+  <SizeY>800</SizeY>
+  <State>0</State>
+  <ApplicationName>画像チェックツール</ApplicationName>
+  <SrcFolder>\\192.168.1.210\99_システムGr\02_toolbox_案件用\CheckImage For スチールG\サンプル\TIFF\022-0771</SrcFolder>
+  <OfferCSV />
+  <OutFolder>\\192.168.1.210\99_システムGr\02_toolbox_案件用\CheckImage For スチールG\サンプル\TIFF\022-0771</OutFolder>
+  <JpegSizeFrom>0</JpegSizeFrom>
+  <JpegSizeTo>999999999</JpegSizeTo>
+  <Camera>6</Camera>
+  <SerialDigit>5</SerialDigit>
+  <SerialFrom>0</SerialFrom>
+</XmlSettings>

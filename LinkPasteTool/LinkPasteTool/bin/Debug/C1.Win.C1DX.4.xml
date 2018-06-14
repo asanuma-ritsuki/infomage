@@ -37909,5 +37909,60 @@
             HRESULT IWICBitmapSource::CopyPalette([In, Optional] IWICPalette* pIPalette)	
             </summary>
     </member>
+    <member name="M:C1.Util.DX.Point2D.Offset(C1.Util.DX.Point2D,System.Double,System.Double)">
+      <summary>
+            Offsets the point by the specified amount.
+            </summary>
+    </member>
+    <member name="M:C1.Util.DX.Point2D.Offset(C1.Util.DX.Point2D,C1.Util.DX.Size2D)">
+      <summary>
+            Offsets the point by the specified amount.
+            </summary>
+    </member>
+    <member name="M:C1.Util.DX.Point2D.Offset(C1.Util.DX.Point2D,C1.Util.DX.Point2D)">
+      <summary>
+            Offsets the point by the specified amount.
+            </summary>
+    </member>
+    <member name="M:C1.Util.DX.Point2F.Offset(C1.Util.DX.Point2F,System.Single,System.Single)">
+      <summary>
+            Offsets the point by the specified amount.
+            </summary>
+    </member>
+    <member name="M:C1.Util.DX.Point2F.Offset(C1.Util.DX.Point2F,C1.Util.DX.Size2F)">
+      <summary>
+            Offsets the point by the specified amount.
+            </summary>
+    </member>
+    <member name="M:C1.Util.DX.Point2F.Offset(C1.Util.DX.Point2F,C1.Util.DX.Point2F)">
+      <summary>
+            Offsets the point by the specified amount.
+            </summary>
+    </member>
+    <member name="M:C1.Util.DX.Point2F.Offset(C1.Util.DX.Point2F,C1.Util.DX.Vector2)">
+      <summary>
+            Offsets the point by the specified amount.
+            </summary>
+    </member>
+    <member name="M:C1.Util.DX.Point2L.Offset(C1.Util.DX.Point2L,System.Int32,System.Int32)">
+      <summary>
+            Offsets the point by the specified amount.
+            </summary>
+    </member>
+    <member name="M:C1.Util.DX.Point2L.Offset(C1.Util.DX.Point2L,C1.Util.DX.Size2L)">
+      <summary>
+            Offsets the point by the specified amount.
+            </summary>
+    </member>
+    <member name="M:C1.Util.DX.Point2L.Offset(C1.Util.DX.Point2L,C1.Util.DX.Point2L)">
+      <summary>
+            Offsets the point by the specified amount.
+            </summary>
+    </member>
+    <member name="M:C1.Util.DX.DirectWrite.FontCollection.GetFontFamily(System.Int32,C1.Util.DX.DirectWrite.FontFamily@)">
+      <summary>	
+            HRESULT IDWriteFontCollection::GetFontFamily([In] unsigned int index,[Out] IDWriteFontFamily** fontFamily)	
+            </summary>
+    </member>
   </members>
 </doc>

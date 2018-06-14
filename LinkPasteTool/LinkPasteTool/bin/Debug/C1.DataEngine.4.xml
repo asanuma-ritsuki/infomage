@@ -90,8 +90,7 @@
         <see cref="P:C1.FlexPivot.C1FlexPivotEngine.RowFields" />、
         <see cref="P:C1.FlexPivot.C1FlexPivotEngine.ColumnFields" />、
         <see cref="P:C1.FlexPivot.C1FlexPivotEngine.ValueFields" />の各リストにフィールドを追加して、ビューを定義します。
-        <code>// データソースを設定します（フィールドリストを設定します） fp.DataSource = GetDataTable(); // FlexPivot ビューの構築中は更新を禁止します fp.BeginUpdate(); // 国を行に表示します fp.RowFields.Add("Country"); // カテゴリと製品を列に表示します fp.ColumnFields.Add("Category"); fp.ColumnFields.Add("Product"); // 売上高の合計をセルに表示します fp.ValueFields.Add("Sales"); // ビューの定義を完了します fp.EndUpdate();</code>
-      </example>
+        <code>// データソースを設定します（フィールドリストを設定します） fp.DataSource = GetDataTable(); // FlexPivot ビューの構築中は更新を禁止します fp.BeginUpdate(); // 国を行に表示します fp.RowFields.Add("Country"); // カテゴリと製品を列に表示します fp.ColumnFields.Add("Category"); fp.ColumnFields.Add("Product"); // 売上高の合計をセルに表示します fp.ValueFields.Add("Sales"); // ビューの定義を完了します fp.EndUpdate();</code></example>
     </member>
     <member name="P:C1.FlexPivot.C1FlexPivotEngine.RowFields">
       <summary>
@@ -210,8 +209,7 @@
         以下のコードは、
         <see cref="M:C1.FlexPivot.C1FlexPivotEngine.BeginUpdate" />呼び出しと
         <see cref="M:C1.FlexPivot.C1FlexPivotEngine.EndUpdate" />呼び出しで変更を囲んで、 新しい FlexPivot ビューを効率よく定義する方法を示します。
-        <code>// データソースを設定します（フィールドリストを設定します） fp.DataSource = GetDataTable(); // FlexPivot ビューの構築中は更新を禁止します fp.BeginUpdate(); // 国を行に表示します fp.RowFields.Add("Country"); // カテゴリと製品を列に表示します fp.ColumnFields.Add("Category"); fp.ColumnFields.Add("Product"); // 売上高の合計をセルに表示します fp.ValueFields.Add("Sales"); // ビューの定義を完了します fp.EndUpdate();</code>
-      </example>
+        <code>// データソースを設定します（フィールドリストを設定します） fp.DataSource = GetDataTable(); // FlexPivot ビューの構築中は更新を禁止します fp.BeginUpdate(); // 国を行に表示します fp.RowFields.Add("Country"); // カテゴリと製品を列に表示します fp.ColumnFields.Add("Category"); fp.ColumnFields.Add("Product"); // 売上高の合計をセルに表示します fp.ValueFields.Add("Sales"); // ビューの定義を完了します fp.EndUpdate();</code></example>
     </member>
     <member name="M:C1.FlexPivot.C1FlexPivotEngine.EndUpdate">
       <summary>FlexPivot ビューの定義が完了したら、出力テーブルの自動更新を再開します。</summary>
@@ -1231,8 +1229,7 @@
         動的オブジェクトは、このテーブルに対するクエリーで使用されます。次に例を示します。
         <code>dynamic od = workspace.table("OderDetails"); dynamic query1 = workspace.query(new { price = Op.Mul(od.UnitPrice, od.Discount) });</code>また、この基本テーブルを表す
         <see cref="T:C1.DataEngine.BaseTable" />オブジェクトを返す Table プロパティを持ちます。
-        <code>BaseTable t = workspace.table("t1").Table;</code>
-      </remarks>
+        <code>BaseTable t = workspace.table("t1").Table;</code></remarks>
     </member>
     <member name="M:C1.DataEngine.Workspace.query(System.String,System.Object)">
       <summary>1 つのテーブルまたはクエリー（結合以外）に基づくクエリーを作成します。</summary>
@@ -1243,8 +1240,7 @@
         必要に応じて、この動的オブジェクトをこのクエリーの結果に対するクエリーに使用できます。方法は、
         <see cref="M:C1.DataEngine.Workspace.table(System.String)" />と同じです。 また、このクエリーを表す
         <see cref="T:C1.DataEngine.Query" />オブジェクトを返す Query プロパティを持ちます。 これは、次のようなクエリーの実行で使用されます。
-        <code>dynamic query1 = workspace.query(...); query1.Query.Execute();</code>
-      </remarks>
+        <code>dynamic query1 = workspace.query(...); query1.Query.Execute();</code></remarks>
     </member>
     <member name="M:C1.DataEngine.Workspace.query(System.Object)">
       <summary>1 つのテーブルまたはクエリー（結合以外）に基づくクエリーを作成します。</summary>
@@ -1254,8 +1250,7 @@
         必要に応じて、この動的オブジェクトをこのクエリーの結果に対するクエリーに使用できます。方法は、
         <see cref="M:C1.DataEngine.Workspace.table(System.String)" />と同じです。 また、このクエリーを表す
         <see cref="T:C1.DataEngine.Query" />オブジェクトを返す Query プロパティを持ちます。 これは、次のようなクエリーの実行で使用されます。
-        <code>dynamic query1 = workspace.query(...); query1.Query.Execute();</code>
-      </remarks>
+        <code>dynamic query1 = workspace.query(...); query1.Query.Execute();</code></remarks>
     </member>
     <member name="M:C1.DataEngine.Workspace.join(System.String,System.Dynamic.ExpandoObject,System.Object)">
       <summary>結合クエリーを作成します。</summary>
@@ -1267,8 +1262,7 @@
         必要に応じて、この動的オブジェクトをこのクエリーの結果に対するクエリーに使用できます。方法は、
         <see cref="M:C1.DataEngine.Workspace.table(System.String)" />と同じです。 また、このクエリーを表す
         <see cref="T:C1.DataEngine.Query" />オブジェクトを返す Query プロパティを持ちます。 これは、次のようなクエリーの実行で使用されます。
-        <code>dynamic query1 = workspace.join(...); query1.Query.Execute();</code>
-      </remarks>
+        <code>dynamic query1 = workspace.join(...); query1.Query.Execute();</code></remarks>
     </member>
     <member name="M:C1.DataEngine.Workspace.join(System.Dynamic.ExpandoObject,System.Object)">
       <summary>結合クエリーを作成します。</summary>
@@ -1279,8 +1273,7 @@
         必要に応じて、この動的オブジェクトをこのクエリーの結果に対するクエリーに使用できます。方法は、
         <see cref="M:C1.DataEngine.Workspace.table(System.String)" />と同じです。 また、このクエリーを表す
         <see cref="T:C1.DataEngine.Query" />オブジェクトを返す Query プロパティを持ちます。 これは、次のようなクエリーの実行で使用されます。
-        <code>dynamic query1 = workspace.join(...); query1.Query.Execute();</code>
-      </remarks>
+        <code>dynamic query1 = workspace.join(...); query1.Query.Execute();</code></remarks>
     </member>
     <member name="M:C1.FlexPivot.C1FlexPivotEngine.ConnectDataEngine(System.String)">
       <summary>C1.DataEngine テーブルに接続します。</summary>

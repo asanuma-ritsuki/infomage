@@ -28,8 +28,8 @@
     <PublisherName>Infomage</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>15</ApplicationRevision>
-    <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.2.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -106,16 +106,36 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="C1.C1Excel.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
-    <Reference Include="C1.C1Pdf.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=79882d576c6336da" />
-    <Reference Include="C1.DataEngine.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=79882d576c6336da" />
-    <Reference Include="C1.Win.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04" />
-    <Reference Include="C1.Win.C1Chart.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=a22e16972c085838" />
-    <Reference Include="C1.Win.C1Command.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=e808566f358766d8" />
-    <Reference Include="C1.Win.C1FlexGrid.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
-    <Reference Include="C1.Win.C1Input.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a" />
-    <Reference Include="C1.Win.C1Ribbon.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
-    <Reference Include="C1.Win.FlexPivot.4, Version=4.0.20163.226, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.C1Excel.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.C1Pdf.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.DataEngine.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.Win.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.Win.C1Chart.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.Win.C1Command.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.Win.C1FlexGrid.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.Win.C1Input.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.Win.C1Ribbon.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.Win.FlexPivot.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="Leadtools, Version=17.5.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907" />
     <Reference Include="Leadtools.Codecs, Version=17.5.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907" />
     <Reference Include="Leadtools.Codecs.Cmp, Version=17.5.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86" />
@@ -176,6 +196,12 @@
       <DependentUpon>frmBrowse.vb</DependentUpon>
     </Compile>
     <Compile Include="Form\frmBrowse.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmConnectionProperty.Designer.vb">
+      <DependentUpon>frmConnectionProperty.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmConnectionProperty.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form\frmEditorMokuji.Designer.vb">
@@ -256,6 +282,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\frmBrowse.resx">
       <DependentUpon>frmBrowse.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmConnectionProperty.resx">
+      <DependentUpon>frmConnectionProperty.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\frmEditorMokuji.resx">
       <DependentUpon>frmEditorMokuji.vb</DependentUpon>

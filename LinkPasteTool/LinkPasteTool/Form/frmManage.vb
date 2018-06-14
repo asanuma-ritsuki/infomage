@@ -142,134 +142,137 @@ Public Class frmManage
 		Dim iInsert As Integer = 0  '新規レコード
 		Dim iUpdate As Integer = 0  '更新レコード
 
-		Using parser As New TextFieldParser(strCSVFile, Encoding.GetEncoding("Shift-JIS"))
+        'Using parser As New TextFieldParser(strCSVFile, Encoding.GetEncoding("Shift-JIS"))
+        '2017/09/04
+        'ユニコード文字が散見されるためUTF-8としてCSVファイルを保存し、それを読み込むように変更
+        Using parser As New TextFieldParser(strCSVFile, Encoding.UTF8)
 
-			parser.TextFieldType = FieldType.Delimited
-			parser.SetDelimiters(","c) '区切り文字はカンマ
+            parser.TextFieldType = FieldType.Delimited
+            parser.SetDelimiters(","c) '区切り文字はカンマ
 
-			parser.HasFieldsEnclosedInQuotes = True 'データ内にデリミタがあっても区切らない
-			parser.TrimWhiteSpace = False   '空白文字を削除しない
+            parser.HasFieldsEnclosedInQuotes = True 'データ内にデリミタがあっても区切らない
+            parser.TrimWhiteSpace = False   '空白文字を削除しない
 
-			Dim strSQL As String = ""
-			Dim sqlProcess As New SQLProcess
-			Dim dt As DataTable = Nothing
+            Dim strSQL As String = ""
+            Dim sqlProcess As New SQLProcess
+            Dim dt As DataTable = Nothing
 
-			Try
-				'T_目次インポート内のレコードを削除
-				strSQL = "DELETE FROM T_目次インポート"
-				sqlProcess.DB_UPDATE(strSQL)
+            Try
+                'T_目次インポート内のレコードを削除
+                strSQL = "DELETE FROM T_目次インポート"
+                sqlProcess.DB_UPDATE(strSQL)
 
-				While Not parser.EndOfData
-					Application.DoEvents()
-					iRecordCount += 1
+                While Not parser.EndOfData
+                    Application.DoEvents()
+                    iRecordCount += 1
 
-					Dim row As String() = parser.ReadFields()   '1行読み込み、項目を配列に代入
+                    Dim row As String() = parser.ReadFields()   '1行読み込み、項目を配列に代入
 
-					'フィールドが26未満の場合はエラーとする
-					If row.Length < 26 Then
-						MessageBox.Show("インポートする項目が足りません" & vbNewLine & "CSVファイルを確認してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
-						Exit Sub
-					End If
+                    'フィールドが26未満の場合はエラーとする
+                    If row.Length < 26 Then
+                        MessageBox.Show("インポートする項目が足りません" & vbNewLine & "CSVファイルを確認してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                    End If
 
-					If iRecordCount = 1 Then
-						'ヘッダを読み飛ばす
-						Continue While
-					End If
+                    If iRecordCount = 1 Then
+                        'ヘッダを読み飛ばす
+                        Continue While
+                    End If
 
-					'管理IDの取得
-					strSQL = "SELECT 管理ID FROM M_管理表 "
-					strSQL &= "WHERE 納品フォルダ = '" & Microsoft.VisualBasic.Strings.Left(row(0), 8) & "'"
-					dt = sqlProcess.DB_SELECT_DATATABLE(strSQL)
-					If dt.Rows.Count = 0 Then
-						MessageBox.Show("納品フォルダが管理表に存在しませんでした" & vbNewLine & "納品フォルダ：" & Microsoft.VisualBasic.Strings.Left(row(0), 8), "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
-						Exit Sub
-					End If
-					Dim iManageID As Integer = dt.Rows(0)("管理ID")
+                    '管理IDの取得
+                    strSQL = "SELECT 管理ID FROM M_管理表 "
+                    strSQL &= "WHERE 納品フォルダ = '" & Microsoft.VisualBasic.Strings.Left(row(0), 8) & "'"
+                    dt = sqlProcess.DB_SELECT_DATATABLE(strSQL)
+                    If dt.Rows.Count = 0 Then
+                        MessageBox.Show("納品フォルダが管理表に存在しませんでした" & vbNewLine & "納品フォルダ：" & Microsoft.VisualBasic.Strings.Left(row(0), 8), "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                    End If
+                    Dim iManageID As Integer = dt.Rows(0)("管理ID")
 
-					'該当納品フォルダの連番を取得
-					strSQL = "SELECT ISNULL(MAX(連番), 0) + 1 FROM T_目次インポート "
-					strSQL &= "WHERE 管理ID = " & iManageID
-					Dim iSerial As Integer = CInt(sqlProcess.DB_EXECUTE_SCALAR(strSQL))
+                    '該当納品フォルダの連番を取得
+                    strSQL = "SELECT ISNULL(MAX(連番), 0) + 1 FROM T_目次インポート "
+                    strSQL &= "WHERE 管理ID = " & iManageID
+                    Dim iSerial As Integer = CInt(sqlProcess.DB_EXECUTE_SCALAR(strSQL))
 
-					'納品フォルダを付加してT_目次インポートにINSERT
-					strSQL = "INSERT INTO T_目次インポート (管理ID, 連番, レコード番号, 表示用, 行番号, 県名, 資料名, "
-					strSQL &= "副題, 対象年, 刊行者名, 刊行年月, 分類1, 分類2, 分類番号, 項目, 番号1, タイトル1, 番号2, タイトル2, "
-					strSQL &= "番号3, タイトル3, 番号4, タイトル4, 番号5, タイトル5) VALUES("
-					strSQL &= iManageID    '管理ID
-					strSQL &= ", " & iSerial    '連番
-					strSQL &= ", N'" & row(0) & "'" 'レコード番号
-					strSQL &= ", N'" & row(1) & "'" '表示用
-					strSQL &= ", " & row(2) '行番号
-					strSQL &= ", N'" & row(3) & "'" '県名
-					strSQL &= ", N'" & row(4) & "'" '資料名
-					strSQL &= ", N'" & row(5) & "'" '副題
-					strSQL &= ", N'" & row(6) & "'" '対象年
-					strSQL &= ", N'" & row(7) & "'" '刊行者名
-					strSQL &= ", N'" & row(8) & "'" '刊行年月
-					strSQL &= ", N'" & row(9) & "'" '分類1
-					strSQL &= ", N'" & row(10) & "'"    '分類2
-					strSQL &= ", N'" & row(11) & "'"    '分類番号
-					strSQL &= ", N'" & row(12) & "'"    '項目
-					strSQL &= ", N'" & row(13) & "'"    '番号1
-					strSQL &= ", N'" & row(14) & "'"    'タイトル1
-					strSQL &= ", N'" & row(15) & "'"    '番号2
-					strSQL &= ", N'" & row(16) & "'"    'タイトル2
-					strSQL &= ", N'" & row(17) & "'"    '番号3
-					strSQL &= ", N'" & row(18) & "'"    'タイトル3
-					strSQL &= ", N'" & row(19) & "'"    '番号4
-					strSQL &= ", N'" & row(20) & "'"    'タイトル4
-					strSQL &= ", N'" & row(21) & "'"    '番号5
-					strSQL &= ", N'" & row(22) & "')"    'タイトル5
-					sqlProcess.DB_UPDATE(strSQL)
+                    '納品フォルダを付加してT_目次インポートにINSERT
+                    strSQL = "INSERT INTO T_目次インポート (管理ID, 連番, レコード番号, 表示用, 行番号, 県名, 資料名, "
+                    strSQL &= "副題, 対象年, 刊行者名, 刊行年月, 分類1, 分類2, 分類番号, 項目, 番号1, タイトル1, 番号2, タイトル2, "
+                    strSQL &= "番号3, タイトル3, 番号4, タイトル4, 番号5, タイトル5) VALUES("
+                    strSQL &= iManageID    '管理ID
+                    strSQL &= ", " & iSerial    '連番
+                    strSQL &= ", N'" & row(0) & "'" 'レコード番号
+                    strSQL &= ", N'" & row(1) & "'" '表示用
+                    strSQL &= ", " & row(2) '行番号
+                    strSQL &= ", N'" & row(3) & "'" '県名
+                    strSQL &= ", N'" & row(4) & "'" '資料名
+                    strSQL &= ", N'" & row(5) & "'" '副題
+                    strSQL &= ", N'" & row(6) & "'" '対象年
+                    strSQL &= ", N'" & row(7) & "'" '刊行者名
+                    strSQL &= ", N'" & row(8) & "'" '刊行年月
+                    strSQL &= ", N'" & row(9) & "'" '分類1
+                    strSQL &= ", N'" & row(10) & "'"    '分類2
+                    strSQL &= ", N'" & row(11) & "'"    '分類番号
+                    strSQL &= ", N'" & row(12) & "'"    '項目
+                    strSQL &= ", N'" & row(13) & "'"    '番号1
+                    strSQL &= ", N'" & row(14) & "'"    'タイトル1
+                    strSQL &= ", N'" & row(15) & "'"    '番号2
+                    strSQL &= ", N'" & row(16) & "'"    'タイトル2
+                    strSQL &= ", N'" & row(17) & "'"    '番号3
+                    strSQL &= ", N'" & row(18) & "'"    'タイトル3
+                    strSQL &= ", N'" & row(19) & "'"    '番号4
+                    strSQL &= ", N'" & row(20) & "'"    'タイトル4
+                    strSQL &= ", N'" & row(21) & "'"    '番号5
+                    strSQL &= ", N'" & row(22) & "')"    'タイトル5
+                    sqlProcess.DB_UPDATE(strSQL)
 
-				End While
+                End While
 
-				'T_目次インポートより納品フォルダをグルーピングして該当する納品フォルダをT_目次から削除する
-				strSQL = "SELECT 管理ID FROM T_目次インポート "
-				strSQL &= "GROUP BY 管理ID "
-				strSQL &= "ORDER BY 管理ID"
-				dt = sqlProcess.DB_SELECT_DATATABLE(strSQL)
+                'T_目次インポートより納品フォルダをグルーピングして該当する納品フォルダをT_目次から削除する
+                strSQL = "SELECT 管理ID FROM T_目次インポート "
+                strSQL &= "GROUP BY 管理ID "
+                strSQL &= "ORDER BY 管理ID"
+                dt = sqlProcess.DB_SELECT_DATATABLE(strSQL)
 
-				For iRow As Integer = 0 To dt.Rows.Count - 1
-					'該当管理IDの削除
-					strSQL = "DELETE FROM T_目次 "
-					strSQL &= "WHERE 管理ID = " & dt.Rows(iRow)("管理ID")
-					sqlProcess.DB_UPDATE(strSQL)
-					'T_フラグから該当管理IDのレコードを削除
-					strSQL = "DELETE FROM T_フラグ "
-					strSQL &= "WHERE 管理ID = " & dt.Rows(iRow)("管理ID")
-					sqlProcess.DB_UPDATE(strSQL)
-					'該当管理IDのデータをT_目次インポートからT_目次にINSERTする
-					strSQL = "INSERT INTO T_目次 "
-					strSQL &= "SELECT 管理ID, 連番, レコード番号, 表示用, 行番号, 県名, 資料名, 副題, 対象年, 刊行者名, 刊行年月, "
-					strSQL &= "分類1, 分類2, 分類番号, 項目, 番号1, タイトル1, 番号2, タイトル2, 番号3, タイトル3, 番号4, タイトル4, 番号5, タイトル5, "
-					strSQL &= "N'' AS フォルダ名, N'' AS リンク, N'' AS リンクTO, N'' AS 備考, 0 AS フラグID "
-					strSQL &= "FROM T_目次インポート "
-					strSQL &= "WHERE 管理ID = " & dt.Rows(iRow)("管理ID")
-					sqlProcess.DB_UPDATE(strSQL)
-					'M_管理表のステータスを削除する
-					strSQL = "UPDATE M_管理表 SET 処理端末 = N'', 開始日時 = NULL, 終了日時 = NULL, 終了日時2次 = NULL, 処理ユーザー = N'' "
-					strSQL &= "WHERE 管理ID = " & dt.Rows(iRow)("管理ID")
-					sqlProcess.DB_UPDATE(strSQL)
-				Next
+                For iRow As Integer = 0 To dt.Rows.Count - 1
+                    '該当管理IDの削除
+                    strSQL = "DELETE FROM T_目次 "
+                    strSQL &= "WHERE 管理ID = " & dt.Rows(iRow)("管理ID")
+                    sqlProcess.DB_UPDATE(strSQL)
+                    'T_フラグから該当管理IDのレコードを削除
+                    strSQL = "DELETE FROM T_フラグ "
+                    strSQL &= "WHERE 管理ID = " & dt.Rows(iRow)("管理ID")
+                    sqlProcess.DB_UPDATE(strSQL)
+                    '該当管理IDのデータをT_目次インポートからT_目次にINSERTする
+                    strSQL = "INSERT INTO T_目次 "
+                    strSQL &= "SELECT 管理ID, 連番, レコード番号, 表示用, 行番号, 県名, 資料名, 副題, 対象年, 刊行者名, 刊行年月, "
+                    strSQL &= "分類1, 分類2, 分類番号, 項目, 番号1, タイトル1, 番号2, タイトル2, 番号3, タイトル3, 番号4, タイトル4, 番号5, タイトル5, "
+                    strSQL &= "N'' AS フォルダ名, N'' AS リンク, N'' AS リンクTO, N'' AS 備考, 0 AS フラグID "
+                    strSQL &= "FROM T_目次インポート "
+                    strSQL &= "WHERE 管理ID = " & dt.Rows(iRow)("管理ID")
+                    sqlProcess.DB_UPDATE(strSQL)
+                    'M_管理表のステータスを削除する
+                    strSQL = "UPDATE M_管理表 SET 処理端末 = N'', 開始日時 = NULL, 終了日時 = NULL, 終了日時2次 = NULL, 処理ユーザー = N'' "
+                    strSQL &= "WHERE 管理ID = " & dt.Rows(iRow)("管理ID")
+                    sqlProcess.DB_UPDATE(strSQL)
+                Next
 
-				MessageBox.Show("目次データのインポート処理が完了しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("目次データのインポート処理が完了しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-			Catch ex As Exception
+            Catch ex As Exception
 
-				Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message)
-				MessageBox.Show("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message)
+                MessageBox.Show("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
-			Finally
+            Finally
 
-				sqlProcess.Close()
-				EnableControls(Me, True)
+                sqlProcess.Close()
+                EnableControls(Me, True)
 
-			End Try
+            End Try
 
-		End Using
+        End Using
 
-	End Sub
+    End Sub
 
 	''' <summary>
 	''' グリッドマウンスダウン前

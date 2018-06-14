@@ -1,0 +1,3382 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>C1.C1Pdf.4</name>
+  </assembly>
+  <members>
+    <member name="T:C1.C1Pdf.Strings">
+      <summary>デザイナによって使用される UI 文字列を含む静的クラス。</summary>
+    </member>
+    <member name="T:C1.C1Pdf.AttachmentIconEnum">
+      <summary>添付ファイルに使用するアイコンの種類を指定します。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.AttachmentIconEnum.Paperclip">
+      <summary>「紙クリップ」アイコン。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.AttachmentIconEnum.PushPin">
+      <summary>「押しピン」アイコン</summary>
+    </member>
+    <member name="F:C1.C1Pdf.AttachmentIconEnum.Tag">
+      <summary>「タグ」アイコン。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.AttachmentIconEnum.Graph">
+      <summary>「グラフ」アイコン。</summary>
+    </member>
+    <member name="T:C1.C1Pdf.ImageSizeModeEnum">
+      <summary>四角形内に画像を描画する方法を指定します。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.ImageSizeModeEnum.Clip">
+      <summary>画像は指定の四角形に合わせて切り取られます。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.ImageSizeModeEnum.Stretch">
+      <summary>画像は指定の四角形に合わせて拡大／縮小されます。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.ImageSizeModeEnum.Scale">
+      <summary>画像は指定の四角形に合わせて縦横比を保持しながら拡大／縮小されます。</summary>
+    </member>
+    <member name="T:C1.C1Pdf.ImageQualityEnum">
+      <summary>
+        <see cref="M:C1.C1Pdf.C1PdfDocument.DrawImage(System.Drawing.Image,System.Drawing.RectangleF,System.Drawing.ContentAlignment,C1.C1Pdf.ImageSizeModeEnum)" />メソッドを使用してドキュメントに追加される画像の品質を指定します。
+      </summary>
+    </member>
+    <member name="F:C1.C1Pdf.ImageQualityEnum.Low">
+      <summary>低品質、高圧縮率。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.ImageQualityEnum.Medium">
+      <summary>中品質、中圧縮率。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.ImageQualityEnum.Default">
+      <summary>高品質、低～中圧縮率。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.ImageQualityEnum.High">
+      <summary>最高品質、低圧縮率。</summary>
+    </member>
+    <member name="T:C1.C1Pdf.C1PdfDocument">
+      <summary>PDF ドキュメントを作成あるいは保存する方法を提供します。</summary>
+      <remarks>
+        <para>
+          <see cref="T:C1.C1Pdf.C1PdfDocument" />クラスのインスタンスを作成するとき、１ページの空白ページを持つ PDF ドキュメントを取得します。 次に、.NET の Graphicsクラスで使用できるのと同じようなメソッド（
+          <see cref="M:C1.C1Pdf.C1PdfDocument.DrawRectangle(System.Drawing.Pen,System.Single,System.Single,System.Single,System.Single)" />、
+          <see cref="M:C1.C1Pdf.C1PdfDocument.DrawString(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.RectangleF,System.Drawing.StringFormat)" />など）を使用し、コンテンツをページに追加します。
+        </para>
+        <para>
+          <see cref="M:C1.C1Pdf.C1PdfDocumentBase.NewPage" />メソッドを使用して新しいページを追加し、
+          <see cref="P:C1.C1Pdf.C1PdfDocument.PaperKind" />プロパティ、または
+          <see cref="P:C1.C1Pdf.C1PdfDocument.PageSize" />プロパティを使用し、ページサイズを選択できます。
+        </para>
+        <para>
+          ドキュメントが作成されたら、
+          <see cref="M:C1.C1Pdf.C1PdfDocumentBase.Save(System.String)" />メソッドを使用してファイルまたはストリームに保存できます。
+        </para>
+        <para>
+          <see cref="T:C1.C1Pdf.C1PdfDocument" />で使用する座標システムはポイント単位で指定され、原点はページの左上隅に位置します。
+          <see cref="P:C1.C1Pdf.C1PdfDocumentBase.PageRectangle" />プロパティを使用し、ページの四角形（ポイント単位）を取得できます。
+        </para>
+      </remarks>
+    </member>
+    <member name="T:C1.C1Pdf.C1PdfDocumentBase">
+      <summary>PDF ドキュメントを作成および保存するための低レベルのメソッドを提供します。</summary>
+      <remarks>
+        これは
+        <see cref="T:C1.C1Pdf.C1PdfDocument" />クラスの基本クラスです。
+      </remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocumentBase.Clear">
+      <summary>ドキュメントを初期状態に戻します。</summary>
+      <remarks>
+        現在の全てのコンテンツとセキュリティ設定を破棄して、１ページの空白ページを作成し、
+        <see cref="P:C1.C1Pdf.C1PdfDocumentBase.CurrentPage" />プロパティを 0 に設定します。
+      </remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocumentBase.NewPage">
+      <summary>新しいページを開始します。</summary>
+      <remarks>
+        <para>
+          空白ページをドキュメントに追加し、
+          <see cref="P:C1.C1Pdf.C1PdfDocumentBase.CurrentPage" />プロパティを設定してこの空白ページを現在のアクティブページにします。
+        </para>
+        <para>
+          新しいページのサイズは、
+          <see cref="P:C1.C1Pdf.C1PdfDocumentBase.PageSize" />プロパティの値で定義されます。
+        </para>
+        <para>
+          新しいページをドキュメントの残りのページと異なるサイズにするためには、まず新しいページを作成してから、
+          <see cref="P:C1.C1Pdf.C1PdfDocumentBase.PageSize" />プロパティを設定します。
+        </para>
+      </remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocumentBase.Save(System.String)">
+      <summary>PDF ドキュメントをファイルに保存します。</summary>
+      <param name="fileName">作成する PDF ファイルの名前。</param>
+      <remarks>PDF ドキュメントをファイルに保存するには、書き込み可能なファイルが必要です。ファイルがすでに存在し、アプリケーション（Adobe Reader など）で使用されている場合、メソッドは例外をスローします。</remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocumentBase.Save(System.IO.Stream)">
+      <summary>
+        PDF ドキュメントを
+        <see cref="T:System.IO.Stream" />に保存します。
+      </summary>
+      <param name="stream">
+        ドキュメントを保存する
+        <see cref="T:System.IO.Stream" />オブジェクト。
+      </param>
+      <remarks>PDF ドキュメントのストリームへの保存は、Web で Response オブジェクトを作成したりドキュメントをキャッシュに格納する時に、一時ファイルを作成しない目的でよく利用されます。</remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocumentBase.GetStreamPosition">
+      <summary>これは内部使用専用です。ページストリーム上の位置を取得します。</summary>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocumentBase.GetCurrentID">
+      <summary>これは内部使用専用です。最後のオブジェクトの ID を取得します。</summary>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocumentBase.GetNewID">
+      <summary>これは内部使用専用です。次のオブジェクト用に ID をインクリメントします。</summary>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocumentBase.Write(System.String,System.Object[])">
+      <summary>PDF ストリームの現在のページに生のコンテンツを書き込みます。</summary>
+      <param name="format">書式文字列。</param>
+      <param name="args">
+        <paramref name="format" />を使用して書き込むオブジェクトの配列。
+      </param>
+      <remarks>これは、PDF コマンドをページストリームに直接挿入できる低レベルのメソッドです。派生クラスで使用するためのメソッドで、PDF ドキュメントの構造と構文の知識を必要とします。</remarks>
+    </member>
+    <member name="P:C1.C1Pdf.C1PdfDocumentBase.DocumentInfo">
+      <summary>
+        作成者などのドキュメント情報を含む
+        <see cref="T:C1.C1Pdf.PdfDocumentInfo" />オブジェクトを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.C1PdfDocumentBase.ViewerPreferences">
+      <summary>
+        ビューアでこのドキュメントを表示する方法に関する情報が含まれる
+        <see cref="T:C1.C1Pdf.PdfViewerPreferences" />オブジェクトを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.C1PdfDocumentBase.Security">
+      <summary>
+        パスワードなどのセキュリティ情報を管理する
+        <see cref="T:C1.C1Pdf.PdfSecurity" />オブジェクトを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.C1PdfDocumentBase.FontType">
+      <summary>PDF ドキュメントで使用するフォントの種類を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.C1PdfDocumentBase.Compression">
+      <summary>ドキュメントを保存するときに使用する圧縮のレベルを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.C1PdfDocumentBase.ImageQuality">
+      <summary>ドキュメントを保存するときに使用する画像の品質を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.C1PdfDocumentBase.UseFastTextOut">
+      <summary>高速のテキスト出力を使用するか、低速で正確なテキスト出力を使用するかを取得または設定します（デフォルトは低速）。</summary>
+      <remarks>低速（で正確）ではなく高速のテキスト出力を使用する場合は、Windows API MeasureText メソッド。</remarks>
+    </member>
+    <member name="P:C1.C1Pdf.C1PdfDocumentBase.UniqueFontsPerPage">
+      <summary>ページごとに独自のフォントを使用するかどうかを取得または設定します。デフォルトでは、文書ごとに独自のフォントが使用されます。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.C1PdfDocumentBase.UseFileCaching">
+      <summary>メモリ使用量を最小化するためのファイルキャッシュフラグを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.C1PdfDocumentBase.PageSize">
+      <summary>ドキュメントのデフォルトのページサイズをポイント単位で取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.C1PdfDocumentBase.PageRectangle">
+      <summary>現在のページ領域を表す四角形をポイント単位で取得します。</summary>
+      <remarks>
+        このプロパティは、原点と現在のページサイズから構成される
+        <see cref="T:System.Drawing.RectangleF" />を返します。原点はページ上で描画するための開始点として使用できます。
+      </remarks>
+    </member>
+    <member name="P:C1.C1Pdf.C1PdfDocumentBase.CurrentPage">
+      <summary>ドキュメント内の現在のページのインデックスを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.C1PdfDocumentBase.Pages">
+      <summary>
+        ドキュメントを構成する
+        <see cref="T:C1.C1Pdf.PdfPage" />オブジェクトのコレクションを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.C1PdfDocumentBase.SaveAllImagesAsJpeg">
+      <summary>
+        すべての画像を
+        <b>Jpeg</b>形式で保存するかどうかを取得または設定します。
+      </summary>
+      <remarks>
+        <para>
+          デフォルトでは、
+          <see cref="T:C1.C1Pdf.C1PdfDocument" />は画像をその元の形式で保存します。 その場合、透明性と損失のない圧縮をサポートできます。
+        </para>
+        <para>
+          このプロパティを true に設定すると、すべての画像が
+          <b>Jpeg</b>形式で保存されます。
+          <b>Jpeg</b>形式では優れた圧縮比とパフォーマンスが実現しますが、 透明性はサポートされていません。
+        </para>
+        <para>
+          <b>PNG</b>形式以外の画像を描画する場合は、このプロパティの設定値に関わらず必ず
+          <b>Jpeg</b>形式で描画されます。
+        </para>
+      </remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.#ctor">
+      <summary>
+        <see cref="T:C1.C1Pdf.C1PdfDocument" />クラスの新しいインスタンスを初期化します。
+      </summary>
+      <remarks>新規ドキュメントは単一の空ページを含んでいて、デフォルトの用紙サイズはLetter（8.5×11インチ）に設定されます。</remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.#ctor(System.Drawing.Printing.PaperKind)">
+      <summary>
+        <see cref="T:C1.C1Pdf.C1PdfDocument" />クラスの新しいインスタンスを初期化します。
+      </summary>
+      <param name="paperKind">ドキュメントのデフォルトの用紙サイズ。</param>
+      <remarks>
+        新規ドキュメントは単一の空ページを含んでいて、デフォルトの用紙サイズは
+        <paramref name="paperKind" />引数で指定した値に設定されます。
+      </remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.#ctor(System.Drawing.Printing.PaperKind,System.Boolean)">
+      <summary>
+        <see cref="T:C1.C1Pdf.C1PdfDocument" />クラスの新しいインスタンスを初期化します。
+      </summary>
+      <param name="paperKind">ドキュメントのデフォルトの用紙サイズ。</param>
+      <param name="landscape">ドキュメントのデフォルトの用紙の向き。</param>
+      <remarks>
+        新規ドキュメントは単一の空ページを含んでいて、デフォルトの用紙サイズと用紙方向はそれぞれ
+        <paramref name="paperKind" />引数と
+        <paramref name="landscape" />引数で指定した値に設定されます。
+      </remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.#ctor(System.Drawing.SizeF)">
+      <summary>
+        <see cref="T:C1.C1Pdf.C1PdfDocument" />クラスの新しいインスタンスを初期化します。
+      </summary>
+      <param name="pageSizeInPoints">ドキュメントのデフォルトの用紙サイズ（ポイント単位）。</param>
+      <remarks>
+        新規ドキュメントは単一の空ページを含んでいて、デフォルトの用紙サイズは
+        <paramref name="pageSizeInPoints" />引数で指定した値に設定されます。
+      </remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawRectangle(System.Drawing.Pen,System.Single,System.Single,System.Single,System.Single)">
+      <summary>左上の座標、幅、および高さで指定された四角形を描画します。</summary>
+      <param name="pen">
+        四角形の色、幅、およびスタイルを決定する
+        <see cref="T:System.Drawing.Pen" />オブジェクト。
+      </param>
+      <param name="x">描画する四角形の左上隅の x 座標。</param>
+      <param name="y">描画する四角形の左上隅の y 座標。</param>
+      <param name="width">描画する四角形の幅。</param>
+      <param name="height">描画する四角形の高さ。</param>
+      <remarks>座標は、ページの左上からの距離をポイント単位で指定します。</remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawRectangle(System.Drawing.Pen,System.Drawing.RectangleF)">
+      <summary>
+        <see cref="T:System.Drawing.RectangleF" />構造体で指定された四角形を描画します。
+      </summary>
+      <param name="pen">
+        四角形の色、幅、およびスタイルを決定する
+        <see cref="T:System.Drawing.Pen" />オブジェクト。
+      </param>
+      <param name="rc">
+        描画する四角形を表す
+        <see cref="T:System.Drawing.RectangleF" />構造体。
+      </param>
+      <remarks>座標は、ページの左上からの距離をポイント単位で指定します。</remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.FillRectangle(System.Drawing.Brush,System.Single,System.Single,System.Single,System.Single)">
+      <summary>左上の座標、幅、および高さで指定された四角形の内部を塗りつぶします。</summary>
+      <param name="brush">
+        塗りつぶしの特性を決定する
+        <see cref="T:System.Drawing.Brush" />オブジェクト。
+      </param>
+      <param name="x">塗りつぶす四角形の左上隅の x 座標。</param>
+      <param name="y">塗りつぶす四角形の左上隅の y 座標。</param>
+      <param name="width">塗りつぶす四角形の幅。</param>
+      <param name="height">塗りつぶす四角形の高さ。</param>
+      <remarks>座標は、ページの左上からの距離をポイント単位で指定します。</remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.FillRectangle(System.Drawing.Brush,System.Drawing.RectangleF)">
+      <summary>
+        <see cref="T:System.Drawing.RectangleF" />構造体で指定された四角形の内部を塗りつぶします。
+      </summary>
+      <param name="brush">
+        塗りつぶしの特性を決定する
+        <see cref="T:System.Drawing.Brush" />オブジェクト。
+      </param>
+      <param name="rc">
+        塗りつぶす四角形を表す
+        <see cref="T:System.Drawing.RectangleF" />構造体。
+      </param>
+      <remarks>座標は、ページの左上からの距離をポイント単位で指定します。</remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawRectangle(System.Drawing.Pen,System.Drawing.RectangleF,System.Drawing.SizeF)">
+      <summary>
+        <see cref="T:System.Drawing.RectangleF" />構造体および
+        <see cref="T:System.Drawing.SizeF" />で指定された角丸四角形を描画します。
+      </summary>
+      <param name="pen">
+        四角形の色、幅、およびスタイルを決定する
+        <see cref="T:System.Drawing.Pen" />オブジェクト。
+      </param>
+      <param name="rc">
+        描画する四角形を表す
+        <see cref="T:System.Drawing.RectangleF" />構造体。
+      </param>
+      <param name="corners">
+        四角形の角の半径を表す
+        <see cref="T:System.Drawing.SizeF" />構造体。
+      </param>
+      <remarks>座標は、ページの左上からの距離をポイント単位で指定します。</remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.FillRectangle(System.Drawing.Brush,System.Drawing.RectangleF,System.Drawing.SizeF)">
+      <summary>
+        <see cref="T:System.Drawing.RectangleF" />構造体および
+        <see cref="T:System.Drawing.SizeF" />で指定された角丸四角形の内部を塗りつぶします。
+      </summary>
+      <param name="brush">
+        塗りつぶしの特性を決定する
+        <see cref="T:System.Drawing.Brush" />オブジェクト。
+      </param>
+      <param name="rc">
+        塗りつぶす四角形を表す
+        <see cref="T:System.Drawing.RectangleF" />構造体。
+      </param>
+      <param name="corners">
+        四角形の角の半径を表す
+        <see cref="T:System.Drawing.SizeF" />構造体。
+      </param>
+      <remarks>座標は、ページの左上からの距離をポイント単位で指定します。</remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawLine(System.Drawing.Pen,System.Single,System.Single,System.Single,System.Single)">
+      <summary>座標ペアで指定された２つの点を結ぶ直線を描画します。</summary>
+      <param name="pen">
+        直線の色、幅、およびスタイルを決定する
+        <see cref="T:System.Drawing.Pen" />オブジェクト。
+      </param>
+      <param name="x1">最初の点の x 座標。</param>
+      <param name="y1">最初の点の y 座標。</param>
+      <param name="x2">２番目の点の x 座標。</param>
+      <param name="y2">２番目の点の y 座標。</param>
+      <remarks>座標は、ページの左上からの距離をポイント単位で指定します。</remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawLine(System.Drawing.Pen,System.Drawing.PointF,System.Drawing.PointF)">
+      <summary>
+        ２つの
+        <see cref="T:System.Drawing.PointF" />構造体を結ぶ直線を描画します。
+      </summary>
+      <param name="pen">
+        直線の色、幅、およびスタイルを決定する
+        <see cref="T:System.Drawing.Pen" />オブジェクト。
+      </param>
+      <param name="pt1">
+        最初の点を表す
+        <see cref="T:System.Drawing.PointF" />構造体。
+      </param>
+      <param name="pt2">
+        ２番目の点を表す
+        <see cref="T:System.Drawing.PointF" />構造体。
+      </param>
+      <remarks>座標は、ページの左上からの距離をポイント単位で指定します。</remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawLines(System.Drawing.Pen,System.Drawing.PointF[])">
+      <summary>
+        <see cref="T:System.Drawing.PointF" />構造体の配列を結ぶ一連の直線を描画します。
+      </summary>
+      <param name="pen">
+        直線の色、幅、およびスタイルを決定する
+        <see cref="T:System.Drawing.Pen" />オブジェクト。
+      </param>
+      <param name="points">
+        複数の点を表す
+        <see cref="T:System.Drawing.PointF" />構造体の配列。
+      </param>
+      <remarks>座標は、ページの左上からの距離をポイント単位で指定します。</remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawPolygon(System.Drawing.Pen,System.Drawing.PointF[])">
+      <summary>
+        <see cref="T:System.Drawing.PointF" />構造体の配列で定義された多角形を描画します。
+      </summary>
+      <param name="pen">
+        多角形の色、幅、およびスタイルを決定する
+        <see cref="T:System.Drawing.Pen" />オブジェクト。
+      </param>
+      <param name="points">
+        多角形の頂点を表す
+        <see cref="T:System.Drawing.PointF" />構造体の配列。
+      </param>
+      <remarks>座標は、ページの左上からの距離をポイント単位で指定します。</remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.FillPolygon(System.Drawing.Brush,System.Drawing.PointF[])">
+      <summary>
+        <see cref="T:System.Drawing.PointF" />構造体で指定された点の配列によって定義される多角形の内部を塗りつぶします。
+      </summary>
+      <param name="brush">
+        塗りつぶしの特性を決定する
+        <see cref="T:System.Drawing.Brush" />オブジェクト。
+      </param>
+      <param name="points">
+        塗りつぶす多角形の頂点を表す
+        <see cref="T:System.Drawing.PointF" />構造体の配列。
+      </param>
+      <remarks>座標は、ページの左上からの距離をポイント単位で指定します。</remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.FillPolygon(System.Drawing.Brush,System.Drawing.PointF[],System.Drawing.Drawing2D.FillMode)">
+      <summary>
+        <see cref="T:System.Drawing.PointF" />構造体で指定された点の配列によって定義される多角形の内部を指定の塗りつぶしモードで塗りつぶします。
+      </summary>
+      <param name="brush">
+        塗りつぶしの特性を決定する
+        <see cref="T:System.Drawing.Brush" />オブジェクト。
+      </param>
+      <param name="points">
+        塗りつぶす多角形の頂点を表す
+        <see cref="T:System.Drawing.PointF" />構造体の配列。
+      </param>
+      <param name="fillMode">
+        塗りつぶしのスタイルを決定する
+        <see cref="T:System.Drawing.Drawing2D.FillMode" />列挙体のメンバ。
+      </param>
+      <remarks>座標は、ページの左上からの距離をポイント単位で指定します。</remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawBezier(System.Drawing.Pen,System.Drawing.PointF,System.Drawing.PointF,System.Drawing.PointF,System.Drawing.PointF)">
+      <summary>
+        ４つの
+        <see cref="T:System.Drawing.PointF" />構造体で定義されるベジェ曲線を描画します。
+      </summary>
+      <param name="pen">
+        曲線の色、幅、およびスタイルを決定する
+        <see cref="T:System.Drawing.Pen" />オブジェクト。
+      </param>
+      <param name="start">
+        曲線の開始点を表す
+        <see cref="T:System.Drawing.PointF" />構造体。
+      </param>
+      <param name="ctl1">
+        曲線の最初の制御点を表す
+        <see cref="T:System.Drawing.PointF" />構造体。
+      </param>
+      <param name="ctl2">
+        曲線の２番目の制御点を表す
+        <see cref="T:System.Drawing.PointF" />構造体。
+      </param>
+      <param name="end">
+        曲線の終了点を表す
+        <see cref="T:System.Drawing.PointF" />構造体。
+      </param>
+      <remarks>座標は、ページの左上からの距離をポイント単位で指定します。</remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawBeziers(System.Drawing.Pen,System.Drawing.PointF[])">
+      <summary>
+        <see cref="T:System.Drawing.PointF" />構造体の配列から一連のベジェ曲線を描画します。
+      </summary>
+      <param name="pen">
+        曲線の色、幅、およびスタイルを決定する
+        <see cref="T:System.Drawing.Pen" />オブジェクト。
+      </param>
+      <param name="points">
+        曲線を決定する複数の点を表す
+        <see cref="T:System.Drawing.PointF" />構造体の配列。
+      </param>
+      <remarks>
+        <para>最初のベジェ曲線は、点配列の最初の点から４番目の点にかけて描画されます。２番目と３番目の点は、曲線の形状を決定する制御点です。 以降の曲線には、それぞれ３つの点 (２つの制御点と終了点) が必要です。前の曲線の終了点は、次の曲線の開始点に使用されます。</para>
+        <para>座標は、ページの左上からの距離をポイント単位で指定します。</para>
+      </remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawEllipse(System.Drawing.Pen,System.Single,System.Single,System.Single,System.Single)">
+      <summary>座標ペア、高さ、および幅で指定された外接する四角形によって定義される楕円を描画します。</summary>
+      <param name="pen">
+        楕円の色、幅、およびスタイルを決定する
+        <see cref="T:System.Drawing.Pen" />オブジェクト。
+      </param>
+      <param name="x">楕円を定義する外接する四角形の左上隅の x 座標。</param>
+      <param name="y">楕円を定義する外接する四角形の左上隅の y 座標。</param>
+      <param name="width">楕円を定義する外接する四角形の幅。</param>
+      <param name="height">楕円を定義する外接する四角形の高さ。</param>
+      <remarks>座標は、ページの左上からの距離をポイント単位で指定します。</remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawEllipse(System.Drawing.Pen,System.Drawing.RectangleF)">
+      <summary>
+        外接する
+        <see cref="T:System.Drawing.RectangleF" />構造体で定義された楕円を描画します。
+      </summary>
+      <param name="pen">
+        楕円の色、幅、およびスタイルを決定する
+        <see cref="T:System.Drawing.Pen" />オブジェクト。
+      </param>
+      <param name="rc">
+        楕円の境界を定義する
+        <see cref="T:System.Drawing.RectangleF" />構造体。
+      </param>
+      <remarks>座標は、ページの左上からの距離をポイント単位で指定します。</remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.FillEllipse(System.Drawing.Brush,System.Single,System.Single,System.Single,System.Single)">
+      <summary>座標ペア、高さ、および幅で指定された外接する四角形によって定義される楕円を描画します。</summary>
+      <param name="brush">
+        塗りつぶしの特性を決定する
+        <see cref="T:System.Drawing.Brush" />オブジェクト。
+      </param>
+      <param name="x">楕円を定義する外接する四角形の左上隅の x 座標。</param>
+      <param name="y">楕円を定義する外接する四角形の左上隅の y 座標。</param>
+      <param name="width">楕円を定義する外接する四角形の幅。</param>
+      <param name="height">楕円を定義する外接する四角形の高さ。</param>
+      <remarks>座標は、ページの左上からの距離をポイント単位で指定します。</remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.FillEllipse(System.Drawing.Brush,System.Drawing.RectangleF)">
+      <summary>
+        <see cref="T:System.Drawing.RectangleF" />構造体で指定された外接する四角形によって定義される楕円の内部を塗りつぶします。
+      </summary>
+      <param name="brush">
+        塗りつぶしの特性を決定する
+        <see cref="T:System.Drawing.Brush" />オブジェクト。
+      </param>
+      <param name="rc">
+        楕円を定義する外接する四角形を表す
+        <see cref="T:System.Drawing.RectangleF" />構造体。
+      </param>
+      <remarks>座標は、ページの左上からの距離をポイント単位で指定します。</remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawPie(System.Drawing.Pen,System.Drawing.RectangleF,System.Single,System.Single)">
+      <summary>
+        <see cref="T:System.Drawing.RectangleF" />構造体で定義される楕円と２つの角度によって指定された扇形を描画します。
+      </summary>
+      <param name="pen">
+        扇形の色、幅、およびスタイルを決定する
+        <see cref="T:System.Drawing.Pen" />オブジェクト。
+      </param>
+      <param name="rc">
+        扇形の元となる楕円を定義する外接する四角形を表す
+        <see cref="T:System.Drawing.RectangleF" />構造体。
+      </param>
+      <param name="startAngle">x 軸から扇形の最初の辺まで、時計回りに測定した角度 (度単位)。</param>
+      <param name="sweepAngle">
+        <paramref name="startAngle" />引数から扇形の２番目の辺まで、時計回りに測定した角度 (度単位)。
+      </param>
+      <remarks>座標は、ページの左上からの距離をポイント単位で指定します。</remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.FillPie(System.Drawing.Brush,System.Drawing.RectangleF,System.Single,System.Single)">
+      <summary>
+        <see cref="T:System.Drawing.RectangleF" />構造体で定義される楕円と２つの角度によって指定された扇形の内部を塗りつぶします。
+      </summary>
+      <param name="brush">
+        塗りつぶしの特性を決定する
+        <see cref="T:System.Drawing.Brush" />オブジェクト。
+      </param>
+      <param name="rc">
+        扇形の元となる楕円を定義する外接する四角形を表す
+        <see cref="T:System.Drawing.RectangleF" />構造体。
+      </param>
+      <param name="startAngle">x 軸から扇形の最初の辺まで、時計回りに測定した角度 (度単位)。</param>
+      <param name="sweepAngle">
+        <paramref name="startAngle" />引数から扇形の２番目の辺まで、時計回りに測定した角度 (度単位)。
+      </param>
+      <remarks>座標は、ページの左上からの距離をポイント単位で指定します。</remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawArc(System.Drawing.Pen,System.Drawing.RectangleF,System.Single,System.Single)">
+      <summary>
+        <see cref="T:System.Drawing.RectangleF" />構造体で指定された楕円の一部を表す円弧を描画します。
+      </summary>
+      <param name="pen">
+        円弧の色、幅、およびスタイルを決定する
+        <see cref="T:System.Drawing.Pen" />オブジェクト。
+      </param>
+      <param name="rc">
+        楕円の境界を定義する
+        <see cref="T:System.Drawing.RectangleF" />構造体。
+      </param>
+      <param name="startAngle">x 軸から円弧の開始点まで、時計回りに測定した角度 (度単位)。</param>
+      <param name="sweepAngle">
+        <paramref name="startAngle" />引数から円弧の終了点まで、時計回りに測定した角度 (度単位)。
+      </param>
+      <remarks>座標は、ページの左上からの距離をポイント単位で指定します。</remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.FillArc(System.Drawing.Brush,System.Drawing.RectangleF,System.Single,System.Single)">
+      <summary>
+        <see cref="T:System.Drawing.RectangleF" />構造体で指定された楕円の一部を表す円弧の内部を塗りつぶします。
+      </summary>
+      <param name="brush">
+        塗りつぶしの特性を決定する
+        <see cref="T:System.Drawing.Brush" />オブジェクト。
+      </param>
+      <param name="rc">
+        楕円の境界を定義する
+        <see cref="T:System.Drawing.RectangleF" />構造体。
+      </param>
+      <param name="startAngle">x 軸から円弧の開始点まで、時計回りに測定した角度 (度単位)。</param>
+      <param name="sweepAngle">
+        <paramref name="startAngle" />引数から円弧の終了点まで、時計回りに測定した角度 (度単位)。
+      </param>
+      <remarks>座標は、ページの左上からの距離をポイント単位で指定します。</remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawPath(System.Drawing.Pen,System.Drawing.Drawing2D.GraphicsPath)">
+      <summary>
+        <see cref="T:System.Drawing.Drawing2D.GraphicsPath" />オブジェクトによって定義される経路を描きます。
+      </summary>
+      <param name="pen">
+        指定された経路の描画に使用する
+        <see cref="T:System.Drawing.Pen" />。
+      </param>
+      <param name="path">
+        描画する
+        <see cref="T:System.Drawing.Drawing2D.GraphicsPath" />。
+      </param>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.FillPath(System.Drawing.Brush,System.Drawing.Drawing2D.GraphicsPath)">
+      <summary>
+        <see cref="T:System.Drawing.Drawing2D.GraphicsPath" />オブジェクトによって定義される経路を塗りつぶします。
+      </summary>
+      <param name="brush">
+        指定された経路の塗りつぶしに使用する
+        <see cref="T:System.Drawing.Brush" />。
+      </param>
+      <param name="path">
+        塗りつぶす
+        <see cref="T:System.Drawing.Drawing2D.GraphicsPath" />。
+      </param>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.MeasureString(System.String,System.Drawing.Font,System.Single,System.Drawing.StringFormat)">
+      <summary>
+        指定した
+        <see cref="T:System.Drawing.Font" />を使用し、指定した
+        <see cref="T:System.Drawing.StringFormat" />で書式指定して描画した場合の、指定した文字列を計測します。
+      </summary>
+      <param name="text">計測する文字列。</param>
+      <param name="font">
+        文字列の外観やサイズを定義する
+        <see cref="T:System.Drawing.Font" />オブジェクト。
+      </param>
+      <param name="width">文字列の最大幅。</param>
+      <param name="sf">
+        行間など、文字列の書式情報を表す
+        <see cref="T:System.Drawing.StringFormat" />オブジェクト。
+      </param>
+      <returns>ポイント単位の文字列のサイズ。</returns>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.MeasureString(System.String,System.Drawing.Font,System.Single)">
+      <summary>
+        指定した
+        <see cref="T:System.Drawing.Font" />で描画した場合の、指定した文字列を計測します。
+      </summary>
+      <param name="text">計測する文字列。</param>
+      <param name="font">
+        文字列の書式を定義する
+        <see cref="T:System.Drawing.Font" />オブジェクト。
+      </param>
+      <param name="width">文字列の最大幅。</param>
+      <returns>ポイント単位の文字列のサイズ。</returns>
+      <remarks>
+        このオーバーロードメソッドは、すべての行が
+        <paramref name="width" />で指定された幅を超えないように文字列を折り返します。 戻り値には、指定された幅と、すべての文字列を描画するのに必要な高さが含まれます。
+      </remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.MeasureString(System.String,System.Drawing.Font)">
+      <summary>
+        指定した
+        <see cref="T:System.Drawing.Font" />で描画した場合の、指定した文字列を計測します。
+      </summary>
+      <param name="text">計測する文字列。</param>
+      <param name="font">
+        文字列の外観やサイズを定義する
+        <see cref="T:System.Drawing.Font" />オブジェクト。
+      </param>
+      <returns>ポイント単位の文字列のサイズ。</returns>
+      <remarks>
+        このオーバーロードメソッドは、折り返しを行わない文字列の幅および高さを返します。
+        <paramref name="text" />引数に改行文字が含まれていない場合、戻り値の高さはフォントの高さに対応します。
+      </remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawString(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.RectangleF,System.Int32,System.Drawing.StringFormat)">
+      <summary>
+        指定された
+        <see cref="T:System.Drawing.StringFormat" />オブジェクトの書式設定属性を使用して、指定されたテキスト文字列を指定された四角形内に指定された
+        <see cref="T:System.Drawing.Brush" />オブジェクトと
+        <see cref="T:System.Drawing.Font" />オブジェクトで描画します。
+      </summary>
+      <param name="text">描画する文字列。</param>
+      <param name="font">
+        描画する文字列の外観やサイズを定義する
+        <see cref="T:System.Drawing.Font" />オブジェクト。
+      </param>
+      <param name="brush">
+        描画する文字列の色を定義する
+        <see cref="T:System.Drawing.Brush" />オブジェクト。
+      </param>
+      <param name="rc">
+        描画する文字列の位置をページの左上隅からのポイント数で指定する
+        <see cref="T:System.Drawing.RectangleF" />構造体。
+      </param>
+      <param name="sf">
+        描画する文字列に適用される書式設定属性を指定する
+        <see cref="T:System.Drawing.StringFormat" />オブジェクト。
+      </param>
+      <param name="firstChar">描画される最初の文字のインデックス。</param>
+      <returns>指定された四角形に収まらないために出力されなかった最初の文字のインデックス。</returns>
+      <remarks>
+        <para>
+          <paramref name="sf" />には、書式設定オプションを指定するプロパティが含まれます。Alignment プロパティを使用して水平方向の配置を指定し、LineAlignment プロパティを使用して垂直方向の配置を指定します。
+        </para>
+        <para>FormatFlags プロパティを使用して切り詰めと折り返しを指定します。</para>
+        <para>テキストを垂直方向に描画するには、DirectionVertical を使用します。このフラグを単独で使用すると、テキストが四角形の下から上に描画されます。DirectionRightToLeft フラグと組み合わせると、テキストが四角形の上から下に描画されます。</para>
+        <para>
+          <b>DrawString</b>メソッドは、出力四角形に収まらないために出力されなかった最初の文字のインデックスを返します。この値を使用して、テキストを次のページに、またはページ内の次のフレームに連続的に配置できます。
+        </para>
+      </remarks>
+      <example>
+        次のコードは長い文字列を複数のページに描画します。出力を続行する位置を決定するために、
+        <b>DrawString</b>メソッドの戻り値を使用します。
+        <code>// 複数のページにまたがる文字列を描画します for (int start = 0; start &lt; int.MaxValue;) { // 四角形に収まるだけの文字列を描画します start = _c1pdf.DrawString(text, font, Brushes.Black, rcPage, start); // 次のページに移動します _c1pdf.NewPage(); }</code>
+      </example>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawString(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.RectangleF,System.Int32,System.Drawing.StringFormat,System.Single)">
+      <summary>
+        指定されたテキスト文字列を、指定された矩形に、 指定された
+        <see cref="T:System.Drawing.Brush" />オブジェクトと
+        <see cref="T:System.Drawing.Font" />オブジェクトを用い、 指定された
+        <see cref="T:System.Drawing.StringFormat" />オブジェクトの書式属性と 指定された文字幅係数で描画します。
+      </summary>
+      <param name="text">描画する文字列。</param>
+      <param name="font">
+        テキストの描画に使用する
+        <see cref="T:System.Drawing.Font" />。
+      </param>
+      <param name="brush">
+        テキストの色を指定する
+        <see cref="T:System.Drawing.Brush" />。
+      </param>
+      <param name="rc">
+        テキストの位置を指定する
+        <see cref="T:System.Drawing.RectangleF" />（ページの左上隅からのポイント数で指定）。
+      </param>
+      <param name="firstChar">描画される最初の文字のインデックス。</param>
+      <param name="sf">
+        テキストに適用される書式属性を指定する
+        <see cref="T:System.Drawing.StringFormat" />オブジェクト。
+      </param>
+      <param name="widthCoeff">文字に適用される幅係数。 デフォルトは 1.0、２倍幅を使用する場合は 2.0 を使用します（それ以上の場合も同様）。</param>
+      <returns>指定された矩形に合わせられず表示されなかった最初の文字のインデックス。</returns>
+      <seealso cref="M:C1.C1Pdf.C1PdfDocument.DrawString(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.RectangleF,System.Int32,System.Drawing.StringFormat)" />
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawString(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.RectangleF,System.Drawing.StringFormat)">
+      <summary>
+        指定した
+        <see cref="T:System.Drawing.StringFormat" />の書式属性を使用して、指定した
+        <see cref="T:System.Drawing.Brush" />オブジェクトおよび
+        <see cref="T:System.Drawing.Font" />オブジェクトで、指定した四角形に指定した文字列を描画します。
+      </summary>
+      <param name="text">描画する文字列。</param>
+      <param name="font">
+        文字列の外観やサイズを定義する
+        <see cref="T:System.Drawing.Font" />オブジェクト。
+      </param>
+      <param name="brush">
+        描画するテキストの色とテクスチャを決定する
+        <see cref="T:System.Drawing.Brush" />オブジェクト。
+      </param>
+      <param name="rc">
+        描画するテキストの位置を指定する
+        <see cref="T:System.Drawing.RectangleF" />構造体。
+      </param>
+      <param name="sf">
+        描画するテキストに適用される書式属性を指定する
+        <see cref="T:System.Drawing.StringFormat" />オブジェクト。
+      </param>
+      <returns>指定した文字列が指定した四角形内に収まりきらなかった場合の、描画されなかった最初の文字のインデックス。</returns>
+      <seealso cref="M:C1.C1Pdf.C1PdfDocument.DrawString(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.RectangleF,System.Int32,System.Drawing.StringFormat)" />
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawString(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.RectangleF,System.Drawing.StringFormat,System.Single)">
+      <summary>
+        指定されたテキスト文字列を指定された四角形内に、 指定された
+        <see cref="T:System.Drawing.Brush" />オブジェクトと
+        <see cref="T:System.Drawing.Font" />オブジェクトで、 指定された
+        <see cref="T:System.Drawing.StringFormat" />オブジェクトの書式設定属性を使用して描画します。
+      </summary>
+      <param name="text">描画する文字列。</param>
+      <param name="font">
+        描画テキストの外観とサイズを定義する
+        <see cref="T:System.Drawing.Font" />オブジェクト。
+      </param>
+      <param name="brush">
+        描画テキストの色を定義する
+        <see cref="T:System.Drawing.Brush" />オブジェクト。
+      </param>
+      <param name="rc">
+        描画テキストの位置をページの左上隅からのポイント数で指定する
+        <see cref="T:System.Drawing.RectangleF" />構造体。
+      </param>
+      <param name="sf">
+        描画テキストに適用される書式設定属性を指定する
+        <see cref="T:System.Drawing.StringFormat" />オブジェクト。
+      </param>
+      <param name="widthCoeff">横倍角 2.0 のテキスト文字の幅係数（デフォルトは 1.0）。</param>
+      <returns>指定された四角形に収まらないために出力されなかった最初の文字のインデックス。</returns>
+      <seealso cref="M:C1.C1Pdf.C1PdfDocument.DrawString(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.RectangleF,System.Int32,System.Drawing.StringFormat)" />
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawString(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.RectangleF,System.Int32)">
+      <summary>
+        指定された
+        <see cref="T:System.Drawing.StringFormat" />オブジェクトの書式設定属性を使用して、指定されたテキスト文字列を指定された四角形内に指定された
+        <see cref="T:System.Drawing.Brush" />オブジェクトと
+        <see cref="T:System.Drawing.Font" />オブジェクトで描画します。
+      </summary>
+      <param name="text">描画する文字列。</param>
+      <param name="font">
+        描画する文字列の外観とサイズを定義する
+        <see cref="T:System.Drawing.Font" />オブジェクト。
+      </param>
+      <param name="brush">
+        描画する文字列の色を定義する
+        <see cref="T:System.Drawing.Brush" />オブジェクト。
+      </param>
+      <param name="rc">
+        描画する文字列の位置をページの左上隅からのポイント数で指定する
+        <see cref="T:System.Drawing.RectangleF" />構造体。
+      </param>
+      <param name="firstChar">描画される最初の文字のインデックス。</param>
+      <returns>指定された四角形に収まらないために出力されなかった最初の文字のインデックス。または、文字列全体が描画された場合は int.MaxValue。</returns>
+      <seealso cref="M:C1.C1Pdf.C1PdfDocument.DrawString(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.RectangleF,System.Int32,System.Drawing.StringFormat)" />
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawString(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.RectangleF)">
+      <summary>
+        指定した
+        <see cref="T:System.Drawing.Brush" />オブジェクトと
+        <see cref="T:System.Drawing.Font" />オブジェクトで、指定した文字列を指定した四角形内に描画します。
+      </summary>
+      <param name="text">描画する文字列。</param>
+      <param name="font">
+        文字列の外観やサイズを定義する
+        <see cref="T:System.Drawing.Font" />オブジェクト。
+      </param>
+      <param name="brush">
+        描画するテキストの色とテクスチャを決定する
+        <see cref="T:System.Drawing.Brush" />オブジェクト。
+      </param>
+      <param name="rc">
+        描画するテキストの位置を指定する
+        <see cref="T:System.Drawing.RectangleF" />構造体。
+      </param>
+      <returns>指定した文字列が指定した四角形内に収まりきらなかった場合の、描画されなかった最初の文字のインデックス。</returns>
+      <remarks>
+        このオーバーロードメソッドは、テキストを四角形の左上端に配置し、四角形内に収まるようにテキストをラップし、クリッピングを行わずに横書きで描画します。 これらのデフォルト設定を変更するには、
+        <see cref="T:System.Drawing.StringFormat" />引数を指定できる他のオーバーロードメソッドを使用してください。
+      </remarks>
+      <seealso cref="M:C1.C1Pdf.C1PdfDocument.DrawString(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.RectangleF,System.Int32,System.Drawing.StringFormat)" />
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawString(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.PointF,System.Drawing.StringFormat)">
+      <summary>
+        指定した
+        <see cref="T:System.Drawing.StringFormat" />の書式属性を使用して、指定した
+        <see cref="T:System.Drawing.Brush" />オブジェクトおよび
+        <see cref="T:System.Drawing.Font" />オブジェクトで、指定した位置に指定した文字列を描画します。
+      </summary>
+      <param name="text">描画する文字列。</param>
+      <param name="font">
+        文字列の外観やサイズを定義する
+        <see cref="T:System.Drawing.Font" />オブジェクト。
+      </param>
+      <param name="brush">
+        描画するテキストの色とテクスチャを決定する
+        <see cref="T:System.Drawing.Brush" />オブジェクト。
+      </param>
+      <param name="pt">
+        描画するテキストの左上隅を指定する
+        <see cref="T:System.Drawing.PointF" />構造体。
+      </param>
+      <param name="sf">
+        描画するテキストに適用される書式属性を指定する
+        <see cref="T:System.Drawing.StringFormat" />オブジェクト。
+      </param>
+      <returns>指定した文字列が指定した四角形内に収まりきらなかった場合の、描画されなかった最初の文字のインデックス。</returns>
+      <seealso cref="M:C1.C1Pdf.C1PdfDocument.DrawString(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.RectangleF,System.Int32,System.Drawing.StringFormat)" />
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawString(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.PointF,System.Drawing.StringFormat,System.Single)">
+      <summary>
+        指定されたテキスト文字列を、指定された位置に、 指定された
+        <see cref="T:System.Drawing.Brush" />オブジェクトと
+        <see cref="T:System.Drawing.Font" />オブジェクトを用い、 指定された
+        <see cref="T:System.Drawing.StringFormat" />オブジェクトの書式属性と 指定されたテキスト文字幅係数で描画します。
+      </summary>
+      <param name="text">描画する文字列。</param>
+      <param name="font">
+        描画されるテキストの外観とサイズを定義する
+        <see cref="T:System.Drawing.Font" />オブジェクト。
+      </param>
+      <param name="brush">
+        描画されるテキストの色を定義する
+        <see cref="T:System.Drawing.Brush" />オブジェクト。
+      </param>
+      <param name="pt">
+        描画されるテキストの位置を指定する
+        <see cref="T:System.Drawing.PointF" />構造体（ポイント単位）。
+      </param>
+      <param name="sf">
+        描画するテキストに適用される書式属性を指定する
+        <see cref="T:System.Drawing.StringFormat" />オブジェクト。
+      </param>
+      <param name="widthCoeff">テキスト文字の幅係数。デフォルトは 1.0、２倍幅は 2.0。</param>
+      <returns>指定された矩形に合わせられず表示されなかった最初の文字のインデックス。</returns>
+      <seealso cref="M:C1.C1Pdf.C1PdfDocument.DrawString(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.RectangleF,System.Int32,System.Drawing.StringFormat)" />
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawString(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.PointF)">
+      <summary>
+        指定した位置に、指定した
+        <see cref="T:System.Drawing.Brush" />オブジェクトと
+        <see cref="T:System.Drawing.Font" />オブジェクトで、指定した文字列を描画します。
+      </summary>
+      <param name="text">描画する文字列。</param>
+      <param name="font">
+        文字列の外観やサイズを定義する
+        <see cref="T:System.Drawing.Font" />オブジェクト。
+      </param>
+      <param name="brush">
+        描画するテキストの色とテクスチャを決定する
+        <see cref="T:System.Drawing.Brush" />オブジェクト。
+      </param>
+      <param name="pt">
+        描画するテキストの左上隅を指定する
+        <see cref="T:System.Drawing.PointF" />構造体。
+      </param>
+      <returns>指定した文字列が指定した四角形内に収まりきらなかった場合の、描画されなかった最初の文字のインデックス。</returns>
+      <seealso cref="M:C1.C1Pdf.C1PdfDocument.DrawString(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.RectangleF,System.Int32,System.Drawing.StringFormat)" />
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawString(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.PointF,System.Single)">
+      <summary>
+        指定されたテキスト文字列を、指定された位置に、 指定された
+        <see cref="T:System.Drawing.Brush" />オブジェクトと
+        <see cref="T:System.Drawing.Font" />オブジェクトを用いて、 指定されたテキスト文字幅係数で描画します。
+      </summary>
+      <param name="text">描画する文字列。</param>
+      <param name="font">
+        描画されるテキストの外観とサイズを定義する
+        <see cref="T:System.Drawing.Font" />オブジェクト。
+      </param>
+      <param name="brush">
+        描画されるテキストの色を定義する
+        <see cref="T:System.Drawing.Brush" />オブジェクト。
+      </param>
+      <param name="pt">
+        描画されるテキストの位置を指定する
+        <see cref="T:System.Drawing.PointF" />構造体（ページの左上隅からのポイント数で指定）。
+      </param>
+      <param name="widthCoeff">テキスト文字の幅係数。デフォルトは 1.0、２倍幅は 2.0。</param>
+      <returns>指定された矩形に合わせられず表示されなかった最初の文字のインデックス。</returns>
+      <seealso cref="M:C1.C1Pdf.C1PdfDocument.DrawString(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.PointF)" />
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawImage(System.Drawing.Image,System.Drawing.RectangleF,System.Drawing.ContentAlignment,C1.C1Pdf.ImageSizeModeEnum)">
+      <summary>
+        <paramref name="align" />引数と
+        <paramref name="mode" />引数の指定に基づいて画像サイズを調整し、指定した位置に指定した
+        <see cref="T:System.Drawing.Image" />を描画します。
+      </summary>
+      <param name="img">
+        描画する
+        <see cref="T:System.Drawing.Image" />オブジェクト。
+      </param>
+      <param name="rc">
+        描画する画像の位置とサイズを指定する
+        <see cref="T:System.Drawing.RectangleF" />構造体。
+      </param>
+      <param name="align">
+        四角形内に画像を配置する方法を指定する
+        <see cref="T:System.Drawing.ContentAlignment" />列挙体のメンバ。
+      </param>
+      <param name="mode">
+        四角形内に画像を拡大／縮小する方法を指定する
+        <see cref="T:C1.C1Pdf.ImageSizeModeEnum" />列挙体のメンバ。
+      </param>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawImage(System.Drawing.Image,System.Drawing.RectangleF)">
+      <summary>
+        指定した位置に、指定した
+        <see cref="T:System.Drawing.Image" />を指定した四角形に合わせて拡大／縮小して描画します。
+      </summary>
+      <param name="img">
+        描画する
+        <see cref="T:System.Drawing.Image" />オブジェクト。
+      </param>
+      <param name="rc">
+        描画する画像の位置とサイズを指定する
+        <see cref="T:System.Drawing.RectangleF" />構造体。
+      </param>
+      <remarks>
+        <see cref="M:C1.C1Pdf.C1PdfDocument.DrawImage(System.Drawing.Image,System.Drawing.RectangleF,System.Drawing.ContentAlignment,C1.C1Pdf.ImageSizeModeEnum)" />メソッドは、ビットマップおよびメタファイルを使用することができます。 メタファイルを使用した場合、メタファイル内の描画コマンドを列挙し、それらを低レベルの描画命令に変換します。その結果、解像度に依存しない画像となります。
+      </remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawImage(System.Drawing.Image,System.Drawing.RectangleF,System.Drawing.RectangleF)">
+      <summary>
+        指定した位置に指定したサイズで、指定した
+        <see cref="T:System.Drawing.Image" />の指定した部分を切り取って描画します。
+      </summary>
+      <param name="img">
+        描画する
+        <see cref="T:System.Drawing.Image" />オブジェクト。
+      </param>
+      <param name="rcImage">
+        描画する画像の位置とサイズを指定する
+        <see cref="T:System.Drawing.RectangleF" />構造体。
+      </param>
+      <param name="rcClip">
+        ページ上の切り取る四角形を指定する
+        <see cref="T:System.Drawing.RectangleF" />構造体。四角形の外にはみ出した画像の部分は描画されません。
+      </param>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.MeasureStringRtf(System.String,System.Drawing.Font,System.Single)">
+      <summary>
+        指定した幅を持つレイアウト領域内に指定した
+        <see cref="T:System.Drawing.Font" />で描画した場合の、指定した RTF 文字列を計測します。
+      </summary>
+      <param name="text">計測する文字列。</param>
+      <param name="font">
+        文字列の外観やサイズを定義する
+        <see cref="T:System.Drawing.Font" />オブジェクト。
+      </param>
+      <param name="width">文字列の最大幅。</param>
+      <returns>ポイント単位の文字列のサイズ。</returns>
+      <remarks>
+        <para>
+          このメソッドは、
+          <see cref="T:System.Windows.Forms.RichTextBox" />コントロールで使用されるような RTF（Rich Text Format）文字列を認識することを除き、
+          <see cref="M:C1.C1Pdf.C1PdfDocument.MeasureString(System.String,System.Drawing.Font,System.Single,System.Drawing.StringFormat)" />と同じです。
+        </para>
+        <para>
+          詳細については、
+          <see cref="M:C1.C1Pdf.C1PdfDocument.DrawStringRtf(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.RectangleF)" />メソッドを参照してください。
+        </para>
+      </remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.MeasureStringRtf(System.String,System.Drawing.Font)">
+      <summary>
+        指定された
+        <see cref="T:System.Drawing.Font" />オブジェクトで描画された RTF 文字列のサイズを測定します。
+      </summary>
+      <param name="text">測定する文字列。</param>
+      <param name="font">
+        テキストの外観とサイズを定義する
+        <see cref="T:System.Drawing.Font" />オブジェクト。
+      </param>
+      <returns>ポイント単位で表される文字列のサイズ。</returns>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawStringRtf(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.RectangleF)">
+      <summary>
+        指定した
+        <see cref="T:System.Drawing.Brush" />オブジェクトと
+        <see cref="T:System.Drawing.Font" />オブジェクトで、指定した文字列を指定した四角形内に描画します。
+      </summary>
+      <param name="text">描画する RTF 文字列。</param>
+      <param name="font">
+        描画する文字列の外観とサイズを定義する
+        <see cref="T:System.Drawing.Font" />オブジェクト。
+      </param>
+      <param name="brush">
+        描画する文字列の色を定義する
+        <see cref="T:System.Drawing.Brush" />オブジェクト。
+      </param>
+      <param name="rc">
+        描画する文字列の位置をページの左上隅からのポイント数で指定する
+        <see cref="T:System.Drawing.RectangleF" />構造体。
+      </param>
+      <returns>
+        指定された四角形に収まらないために出力されなかった最初の文字のインデックス。または、文字列全体が描画された場合は
+        <see>int.MaxValue</see>の値。
+      </returns>
+      <remarks>
+        <para>
+          このメソッドは、
+          <see cref="T:System.Windows.Forms.RichTextBox" />コントロールで使用されるような RTF（Rich Text Format）文字列を認識することを除き、
+          <see cref="M:C1.C1Pdf.C1PdfDocument.DrawString(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.RectangleF)" />と同じです。
+        </para>
+        <para>
+          <paramref name="text" />引数は、２種類の RTF 文字列を含むことができます。
+        </para>
+        <para>
+          1) Font テーブルと Color テーブルを含む、完全な RTF 文字列。このタイプの文字列は、
+          <see cref="T:System.Windows.Forms.RichTextBox" />コントロールの Rtf プロパティや、ディスクに保存された RTF ファイルから得ることができます。このタイプの文字列を使用する場合、
+          <paramref name="font" />引数と
+          <paramref name="brush" />引数は無視されます。
+        </para>
+        <para>
+          2) RTF ヘッダが無く、埋め込みの RTF タグを含むRTF 文字列の一部。このタイプの文字列はコードで構築することが容易で、太字や斜体などの特殊な属性（例えば {\b 太字} や {\i 斜体} など）を持つテキストを描画する際に使用できます。このタイプの文字列を使用する場合、自動的に RTF ヘッダを構築するために
+          <paramref name="font" />引数と
+          <paramref name="brush" />引数が使用されます。
+        </para>
+        <para>
+          <b>DrawStringRtf</b>メソッドは、出力四角形に収まらないために出力されなかった最初の文字のインデックスを返します。この値を使用して、テキストを次のページに、またはページ内の次のフレームに連続的に配置できます。この値は、RTF 入力自体のインデックスではなく、RTF で表されたテキスト内のインデックスであることに注意してください。RTF 文字列の開始位置を指定するには、オーバーロードメソッドを使用してください。
+        </para>
+      </remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawStringRtf(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.RectangleF,System.Int32)">
+      <summary>
+        RTF 文字列を指定された四角形内に指定された
+        <see cref="T:System.Drawing.Brush" />オブジェクトと
+        <see cref="T:System.Drawing.Font" />オブジェクトで、文字列内の指定されたオフセットから描画します。
+      </summary>
+      <param name="text">描画する RTF 文字列。</param>
+      <param name="font">
+        描画する文字列の外観とサイズを定義する
+        <see cref="T:System.Drawing.Font" />オブジェクト。
+      </param>
+      <param name="brush">
+        描画する文字列の色を定義する
+        <see cref="T:System.Drawing.Brush" />オブジェクト。
+      </param>
+      <param name="rc">
+        描画する文字列の位置をページの左上隅からのポイント数で指定する
+        <see cref="T:System.Drawing.RectangleF" />構造体。
+      </param>
+      <param name="firstChar">
+        描画する最初の文字のインデックス（通常は前回実行した
+        <b>DrawStringRtf</b>の戻り値を使用します）。
+      </param>
+      <returns>
+        指定された四角形に収まらないために出力されなかった最初の文字のインデックス。または、文字列全体が描画された場合は
+        <see>int.MaxValue</see>の値。
+      </returns>
+      <remarks>
+        <para>
+          このメソッドは
+          <see cref="M:C1.C1Pdf.C1PdfDocument.MeasureString(System.String,System.Drawing.Font,System.Single)" />に似ていますが、
+          <see cref="T:System.Windows.Forms.RichTextBox" />コントロールで使用されるような RTF（リッチテキスト形式）文字列を認識する点が異なります。
+        </para>
+        <para>RTF 文字列には、次の２つの種類があります。</para>
+        <para>
+          1) Font テーブルと Color テーブルを含む、完全な RTF 文字列。このタイプの文字列は、
+          <see cref="T:System.Windows.Forms.RichTextBox" />コントロールの Rtf プロパティや、ディスクに保存された RTF ファイルから得ることができます。このタイプの文字列を使用する場合、
+          <paramref name="font" />引数と
+          <paramref name="brush" />引数は無視されます。
+        </para>
+        <para>
+          2) RTF ヘッダが無く、埋め込みの RTF タグを含む RTF 文字列の一部。このタイプの文字列はコードで構築することが容易で、太字や斜体などの特殊な属性（例えば {\b 太字} や {\i 斜体} など）を持つテキストを描画する際に使用できます。このタイプの文字列を使用する場合、自動的に RTF ヘッダを構築するために
+          <paramref name="font" />引数と
+          <paramref name="brush" />引数が使用されます。
+        </para>
+        <para>
+          <b>DrawStringRtf</b>メソッドは、出力四角形に収まらないために出力されなかった最初の文字のインデックスを返します。この値を使用して、テキストを次のページに、またはページ内の次のフレームに連続的に配置できます。この値は、RTF 入力自体のインデックスではなく、RTF で表されたテキスト内のインデックスであることに注意してください。下の例を参照してください。
+        </para>
+      </remarks>
+      <example>
+        次のコードは長い文字列を複数のページに描画します。出力を続行する位置を決定するために、
+        <see cref="M:C1.C1Pdf.C1PdfDocument.DrawString(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.RectangleF,System.Drawing.StringFormat)" />メソッドの戻り値を使用します。
+        <code>// ページ四角形を計算します RectangleF rcPage = _c1pdf.PageRectangle; rcPage.Inflate(-72, -72); // 描画する RTF を取得します string text = richTextBox1.Rtf; // 複数のページにまたがる RTF 文字列を印刷します _c1pdf.Clear(); for (int start = 0; start &lt; int.MaxValue; ) { if (start &gt; 0) _c1pdf.NewPage(); start = _c1pdf.DrawStringRtf(text, Font, Brushes.Black, rcPage, start); } // 結果を表示します string fn = @"c:\rtf.pdf"; _c1pdf.Save(fn); System.Diagnostics.Process.Start(fn);</code>
+      </example>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.Dispose(System.Boolean)">
+      <summary>コントロールで使用されるすべてのリソースを解放します。</summary>
+      <param name="disposing">True では、マネージドリソースとアンマネージドリソースが両方とも解放され、 False では、アンマネージドリソースのみが解放されます。</param>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.MeasureStringHtml(System.String,System.Drawing.Font,System.Single)">
+      <summary>
+        指定された幅の矩形内に指定の
+        <see cref="T:System.Drawing.Font" />オブジェクトで 表示されたときの HTML 文字列を計測します。
+      </summary>
+      <param name="text">計測する文字列。</param>
+      <param name="font">
+        テキストの外観とサイズを定義する
+        <see cref="T:System.Drawing.Font" />オブジェクト。
+      </param>
+      <param name="width">文字列の最大幅。</param>
+      <returns>表示される文字列のサイズ（ポイント単位）。</returns>
+      <remarks>
+        <para>
+          このメソッドは
+          <see cref="M:C1.C1Pdf.C1PdfDocument.MeasureString(System.String,System.Drawing.Font,System.Single)" />に似ていますが、 HTML 文字列がプレーンテキストではなく
+          <paramref name="text" />パラメータに格納される点だけが異なります。
+        </para>
+        <para>
+          詳細については、
+          <see cref="M:C1.C1Pdf.C1PdfDocument.DrawStringHtml(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.RectangleF)" />メソッドを参照してください。
+        </para>
+      </remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.MeasureStringHtml(System.String,System.Drawing.Font)">
+      <summary>
+        指定された
+        <see cref="T:System.Drawing.Font" />オブジェクトで表示されたときの HTML 文字列を計測します。
+      </summary>
+      <param name="text">計測する文字列。</param>
+      <param name="font">
+        テキストの外観とサイズを定義する
+        <see cref="T:System.Drawing.Font" />オブジェクト。
+      </param>
+      <returns>表示される文字列のサイズ（ポイント単位）。</returns>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawStringHtml(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.RectangleF)">
+      <summary>
+        指定された
+        <see cref="T:System.Drawing.Brush" />オブジェクトと
+        <see cref="T:System.Drawing.Font" />オブジェクトで、指定の矩形内に HTML 文字列を表示します。
+      </summary>
+      <param name="text">表示する HTML 文字列。</param>
+      <param name="font">
+        表示されるテキストの外観とサイズを定義する
+        <see cref="T:System.Drawing.Font" />オブジェクト。
+      </param>
+      <param name="brush">
+        表示されるテキストの色を定義する
+        <see cref="T:System.Drawing.Brush" />オブジェクト。
+      </param>
+      <param name="rc">
+        表示されるテキストの位置を指定する
+        <see cref="T:System.Drawing.RectangleF" />構造体 （ページの左上隅からのポイント数で指定）。
+      </param>
+      <returns>
+        指定された矩形に収まらないために出力されなかった最初の行のオフセット、 または文字列全体が表示された場合は
+        <see cref="F:System.Int32.MaxValue" />の値。
+      </returns>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawStringHtml(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.RectangleF,System.Int32)">
+      <summary>
+        指定された
+        <see cref="T:System.Drawing.Brush" />オブジェクトと
+        <see cref="T:System.Drawing.Font" />オブジェクトで、 文字列内の指定のオフセットを始点として、指定の矩形内に HTML 文字列を表示します。
+      </summary>
+      <param name="text">表示する HTML 文字列。</param>
+      <param name="font">
+        表示されるテキストの外観とサイズを定義する
+        <see cref="T:System.Drawing.Font" />オブジェクト。
+      </param>
+      <param name="brush">
+        表示されるテキストの色を定義する
+        <see cref="T:System.Drawing.Brush" />オブジェクト。
+      </param>
+      <param name="rc">
+        表示されるテキストの位置を指定する
+        <see cref="T:System.Drawing.RectangleF" />構造体（ページの左上隅からのポイント数で指定）。
+      </param>
+      <param name="offset">
+        表示する最初の行のオフセット（通常、前に呼び出した
+        <b>DrawStringHtml</b>の戻り値）。
+      </param>
+      <returns>
+        指定された矩形に収まらないために出力されなかった最初の行のオフセット、 または文字列全体が表示された場合は
+        <see cref="F:System.Int32.MaxValue" />の値。
+      </returns>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.AddLink(System.String,System.Drawing.RectangleF)">
+      <summary>ドキュメントにハイパーリンクを追加します。</summary>
+      <param name="url">リンク先。URL、ファイル名、ローカルリンクを指定可能。</param>
+      <param name="rc">リンクとして機能するページ上の領域（ポイント単位）。</param>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.AddTarget(System.String,System.Drawing.RectangleF)">
+      <summary>ドキュメントにハイパーリンクターゲットを追加します。</summary>
+      <param name="name">
+        ターゲットの名前。
+        <see cref="M:C1.C1Pdf.C1PdfDocument.AddLink(System.String,System.Drawing.RectangleF)" />メソッドで使用します。
+      </param>
+      <param name="rc">ターゲットとして機能するページ上の領域（ポイント単位）。</param>
+      <remarks>
+        このメソッドは、ローカルリンクのターゲットを作成します。詳細と例については、
+        <see cref="M:C1.C1Pdf.C1PdfDocument.AddLink(System.String,System.Drawing.RectangleF)" />も参照してください。
+      </remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.AddTarget(System.String,System.Int32,System.Drawing.RectangleF)">
+      <summary>ドキュメントにハイパーリンクターゲットを追加します。</summary>
+      <param name="name">
+        ターゲットの名前。
+        <see cref="M:C1.C1Pdf.C1PdfDocument.AddLink(System.String,System.Drawing.RectangleF)" />メソッドで使用します。
+      </param>
+      <param name="page">ハイパーリンクターゲットを含むページのインデックス。</param>
+      <param name="rc">ターゲットとして機能するページ上の領域（ポイント単位）。</param>
+      <remarks>
+        このメソッドは、ローカルリンクのターゲットを作成します。詳細と例については、
+        <see cref="M:C1.C1Pdf.C1PdfDocument.AddLink(System.String,System.Drawing.RectangleF)" />も参照してください。
+      </remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.AddAttachment(System.String,System.Drawing.RectangleF)">
+      <summary>現在のページに添付ファイルを追加します。</summary>
+      <param name="fileName">添付するファイル名。</param>
+      <param name="rc">添付ファイルを含むページの領域（ポイント単位）。</param>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.AddAttachment(System.String,System.Drawing.RectangleF,C1.C1Pdf.AttachmentIconEnum,System.Drawing.Color)">
+      <summary>現在のページに添付ファイルを追加します。</summary>
+      <param name="fileName">添付するファイル名。</param>
+      <param name="rc">添付ファイルを含むページの領域（ポイント単位）。</param>
+      <param name="icon">
+        添付ファイルのアイコンの外観を決める
+        <see cref="T:C1.C1Pdf.AttachmentIconEnum" />列挙体のメンバ。
+      </param>
+      <param name="iconColor">
+        添付ファイルのアイコンの
+        <see cref="T:System.Drawing.Color" />。
+      </param>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.AddAttachment(System.String,System.Drawing.RectangleF,System.Int32,C1.C1Pdf.AttachmentIconEnum,System.Drawing.Color)">
+      <summary>ドキュメントに添付ファイルを追加します。</summary>
+      <param name="fileName">添付するファイル名。</param>
+      <param name="rc">添付ファイルを含むページの領域（ポイント単位）。</param>
+      <param name="page">添付ファイルを含むページのインデックス。</param>
+      <param name="icon">
+        添付ファイルのアイコンの外観を決める
+        <see cref="T:C1.C1Pdf.AttachmentIconEnum" />列挙体のメンバ。
+      </param>
+      <param name="iconColor">
+        添付ファイルのアイコンの
+        <see cref="T:System.Drawing.Color" />。
+      </param>
+      <remarks>ユーザーが添付ファイルを含むページ領域にマウスを移動させると、マウスポインタとツールチップが切り替わってユーザーが添付ファイルを取得できることを示します。ユーザーは、添付ファイルの領域を右クリックし、添付ファイルを開いたり保存したりできます。</remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.AddAttachment(System.String,System.Byte[],System.Drawing.RectangleF,C1.C1Pdf.AttachmentIconEnum,System.Drawing.Color)">
+      <summary>現在のページにストリームベースの添付データを追加します。</summary>
+      <param name="attachmentName">添付データの横に表示する名前。</param>
+      <param name="attachmentData">添付データを含むバイト配列。</param>
+      <param name="rc">添付データを含むことになるページ領域（ページの左上を原点としてポイント単位で指定）。</param>
+      <param name="icon">
+        添付アイコンの外観を決定する
+        <see cref="T:C1.C1Pdf.AttachmentIconEnum" />値。
+      </param>
+      <param name="iconColor">
+        添付アイコンの
+        <see cref="T:System.Drawing.Color" />。
+      </param>
+      <remarks>このオーバーライドにより、ファイルに由来しないデータを含む添付データを追加できます。 たとえば、データはデータベースに格納された BLOB やストリームでも構いません。</remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.AddAttachment(System.String,System.Byte[],System.Drawing.RectangleF,System.Int32,C1.C1Pdf.AttachmentIconEnum,System.Drawing.Color)">
+      <summary>ドキュメントにストリームベースの添付データを追加します。</summary>
+      <param name="attachmentName">添付データの横に表示する名前。</param>
+      <param name="attachmentData">添付データを含むバイト配列。</param>
+      <param name="rc">添付データを含むことになるページ領域（ページの左上を原点としてポイント単位で指定）。</param>
+      <param name="page">添付データを含むページのインデックス。</param>
+      <param name="icon">
+        添付アイコンの外観を決定する
+        <see cref="T:C1.C1Pdf.AttachmentIconEnum" />値。
+      </param>
+      <param name="iconColor">
+        添付アイコンの
+        <see cref="T:System.Drawing.Color" />。
+      </param>
+      <remarks>このオーバーライドにより、ファイルに由来しないデータを含む添付データを追加できます。 たとえば、データはデータベースに格納された BLOB やストリームでも構いません。</remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.AddField(C1.C1Pdf.PdfFieldBase,System.Drawing.RectangleF)">
+      <summary>フォームフィールドを現在のページに追加します。</summary>
+      <param name="field">
+        <see cref="T:C1.C1Pdf.PdfFieldBase" />オブジェクト。
+      </param>
+      <param name="rc">フォームフィールドとして動作するページ上の領域（ページの左上隅からのポイント数で指定）。</param>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.AddField(C1.C1Pdf.PdfFieldBase,System.Int32,System.Drawing.RectangleF)">
+      <summary>フォームフィールドをドキュメントに追加します。</summary>
+      <param name="field">
+        <see cref="T:C1.C1Pdf.PdfFieldBase" />オブジェクト。
+      </param>
+      <param name="page">フォームフィールドを含めるページのインデックス。</param>
+      <param name="rc">フォームフィールドとして動作するページ上の領域（ページの左上隅からのポイント数で指定）。</param>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.AddNote(C1.C1Pdf.PdfNoteBase,System.Drawing.RectangleF)">
+      <summary>注釈項目を現在のページに追加します。</summary>
+      <param name="note">
+        <see cref="T:C1.C1Pdf.PdfNoteBase" />オブジェクト。
+      </param>
+      <param name="rc">フォームフィールドとして動作するページ上の領域（ページの左上隅からのポイント数で指定）。</param>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.AddNote(C1.C1Pdf.PdfNoteBase,System.Int32,System.Drawing.RectangleF)">
+      <summary>注釈項目をドキュメントに追加します。</summary>
+      <param name="note">
+        <see cref="T:C1.C1Pdf.PdfNoteBase" />オブジェクト。
+      </param>
+      <param name="page">フォームフィールドを含めるページのインデックス。</param>
+      <param name="rc">フォームフィールドとして動作するページ上の領域（ページの左上隅からのポイント数で指定）。</param>
+    </member>
+    <member name="P:C1.C1Pdf.C1PdfDocument.RotateAngle">
+      <summary>ドキュメントの単純なオブジェクトの描画回転角度を取得または設定します（-360～360）。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.C1PdfDocument.ParseEmfPlus">
+      <summary>EMF PLUS メタファイルを EMF ONLY メタファイルに変換するかどうかを示すフラグを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.C1PdfDocument.PaperKind">
+      <summary>ドキュメントのデフォルトのページサイズを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.C1PdfDocument.Landscape">
+      <summary>ドキュメントのデフォルトのページの向きを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.C1PdfDocument.PageSize">
+      <summary>ドキュメントのデフォルトのページサイズをポイント単位で取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.C1PdfDocument.CurrentPage">
+      <summary>ドキュメント内の現在のページのインデックスを取得または設定します。</summary>
+      <remarks>
+        <para>
+          <see cref="P:C1.C1Pdf.C1PdfDocument.CurrentPage" />プロパティは、コンテンツを生成するメソッド（
+          <see cref="M:C1.C1Pdf.C1PdfDocument.DrawString(System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.RectangleF,System.Drawing.StringFormat)" />など）から出力を受け取るドキュメントのページを決定します。
+        </para>
+        <para>
+          値は、-1（アクティブページなし）から
+          <see cref="P:C1.C1Pdf.C1PdfDocumentBase.Pages" />.Count - 1 までの整数の１つを取ります。
+        </para>
+        <para>
+          ドキュメントを作成するとき、
+          <see cref="P:C1.C1Pdf.C1PdfDocument.CurrentPage" />プロパティを使用する必要はほとんどありません。
+          <see cref="T:C1.C1Pdf.C1PdfDocument" />オブジェクトを作成すると、空白ページが自動的に追加されて現在のページとなるため、ただちにこのページにコンテンツの追加を開始できます。
+          <see cref="M:C1.C1Pdf.C1PdfDocumentBase.NewPage" />メソッドを呼び出すと、新しいページがドキュメントに追加されて現在のページになります。
+        </para>
+        <para>
+          <see cref="P:C1.C1Pdf.C1PdfDocument.CurrentPage" />プロパティは、すでに生成されているページを再度開いて、そこにコンテンツを追加する場合（例えば、ページヘッダやページフッタを追加する場合など）に便利です。
+        </para>
+      </remarks>
+    </member>
+    <member name="T:C1.C1Pdf.CompressionEnum">
+      <summary>ドキュメントを保存するときに使用する圧縮レベルを指定します。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.CompressionEnum.None">
+      <summary>圧縮しません。デバッグの際に役立ちます。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.CompressionEnum.BestSpeed">
+      <summary>低い圧縮率です。圧縮速度は最も高速です。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.CompressionEnum.BestCompression">
+      <summary>最も高い圧縮率です。圧縮速度は最も低速です。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.CompressionEnum.Default">
+      <summary>高い圧縮率です。圧縮速度は高速です。</summary>
+    </member>
+    <member name="T:C1.C1Pdf.FontTypeEnum">
+      <summary>PDF ドキュメントで使用するフォントの種類を指定します。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.FontTypeEnum.Standard">
+      <summary>標準の PDF フォント（Helvetica、Roman、Symbol）のみを使用します。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.FontTypeEnum.TrueType">
+      <summary>TrueType フォントを使用します。フォントは埋め込まれません。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.FontTypeEnum.Embedded">
+      <summary>TrueType フォントを使用します。フォントは埋め込まれます。</summary>
+    </member>
+    <member name="T:C1.C1Pdf.PdfDocumentInfo">
+      <summary>ドキュメントに関する情報を含みます。この情報には、ドキュメントの作成者、タイトル、キーワードなどがあります。</summary>
+      <remarks>
+        <para>これは補足的な情報で、必ずしも提供する必要はありません。この情報はドキュメントと共に保存され、ビューアアプリケーションで確認できます。</para>
+        <para>一部のビューアアプリケーションでは、ユーザーは作成者、サブタイトル、またはキーワードでドキュメントを検索できます。</para>
+      </remarks>
+    </member>
+    <member name="P:C1.C1Pdf.PdfDocumentInfo.Title">
+      <summary>ドキュメントのタイトルを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfDocumentInfo.Creator">
+      <summary>オリジナルのドキュメントを作成したアプリケーションの名前を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfDocumentInfo.Producer">
+      <summary>ドキュメントを作成したアプリケーションの名前を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfDocumentInfo.Author">
+      <summary>ドキュメントの作成者の名前を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfDocumentInfo.Subject">
+      <summary>ドキュメントのサブタイトルを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfDocumentInfo.Keywords">
+      <summary>ドキュメントに関連付けられたキーワードを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfDocumentInfo.CreationDate">
+      <summary>PDF ドキュメントの作成日時を取得または設定します。</summary>
+      <remarks>
+        <para>
+          このプロパティのデフォルト値は
+          <b>DateTime.MinValue</b>です。その場合、
+          <see cref="T:C1.C1Pdf.C1PdfDocument" />は、ドキュメントが保存された日時を作成日として使用します。
+        </para>
+      </remarks>
+    </member>
+    <member name="T:C1.C1Pdf.FieldVisibility">
+      <summary>
+        （
+        <see cref="T:C1.C1Pdf.PdfFieldBase" />から派生した型の）
+        <b>フォームフィールド</b>の表示状態を指定します。
+      </summary>
+    </member>
+    <member name="F:C1.C1Pdf.FieldVisibility.Visible">
+      <summary>
+        <b>フォームフィールド</b>は表示されます。
+      </summary>
+    </member>
+    <member name="F:C1.C1Pdf.FieldVisibility.Hidden">
+      <summary>
+        <b>フォームフィールド</b>は非表示です。
+      </summary>
+    </member>
+    <member name="F:C1.C1Pdf.FieldVisibility.VisibleNotPrintable">
+      <summary>
+        <b>フォームフィールド</b>は表示されますが、出力されません。
+      </summary>
+    </member>
+    <member name="F:C1.C1Pdf.FieldVisibility.HiddenPrintable">
+      <summary>
+        <b>フォームフィールド</b>は非表示ですが、出力されます。
+      </summary>
+    </member>
+    <member name="T:C1.C1Pdf.FieldBorderStyle">
+      <summary>
+        <b>フォームフィールド</b>の枠のスタイルを指定します。
+      </summary>
+    </member>
+    <member name="F:C1.C1Pdf.FieldBorderStyle.Solid">
+      <summary>枠を実線にします。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.FieldBorderStyle.Dashed">
+      <summary>枠を破線にします。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.FieldBorderStyle.Beveled">
+      <summary>枠を斜めにします。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.FieldBorderStyle.Inset">
+      <summary>枠をくぼみにします。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.FieldBorderStyle.Underline">
+      <summary>枠に下線を付けます。</summary>
+    </member>
+    <member name="T:C1.C1Pdf.FieldBorderWidth">
+      <summary>
+        <b>フォームフィールド</b>の枠線の幅を指定します。
+      </summary>
+    </member>
+    <member name="F:C1.C1Pdf.FieldBorderWidth.None">
+      <summary>枠線なし。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.FieldBorderWidth.Thin">
+      <summary>細い枠線（１ポイント幅）。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.FieldBorderWidth.Medium">
+      <summary>中程度の枠線（２ポイント幅）。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.FieldBorderWidth.Thick">
+      <summary>太い枠線（３ポイント幅）。</summary>
+    </member>
+    <member name="T:C1.C1Pdf.ButtonLayout">
+      <summary>
+        <see cref="T:C1.C1Pdf.PdfPushButton" />の表面上のテキストと画像のレイアウトを指定します。
+      </summary>
+    </member>
+    <member name="F:C1.C1Pdf.ButtonLayout.TextOnly">
+      <summary>テキストのみがボタンの表面上に表示されます。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.ButtonLayout.ImageOnly">
+      <summary>画像のみがボタンの表面上に表示されます。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.ButtonLayout.ImageTopTextBottom">
+      <summary>画像はテキストより上側に表示されます。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.ButtonLayout.TextTopImageBottom">
+      <summary>テキストは画像より上側に表示されます。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.ButtonLayout.ImageLeftTextRight">
+      <summary>画像は左側、テキストは右側に表示されます。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.ButtonLayout.TextLeftImageRight">
+      <summary>テキストは左側、画像は右側に表示されます。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.ButtonLayout.TextOverImage">
+      <summary>テキストは画像上に表示されます。</summary>
+    </member>
+    <member name="T:C1.C1Pdf.ButtonStateChange">
+      <summary>
+        特定の
+        <see cref="T:C1.C1Pdf.PdfPushButton.Action" />に関連付けることができる
+        <see cref="T:C1.C1Pdf.PdfPushButton" />の状態変化のタイプを指定します （
+        <see cref="P:C1.C1Pdf.PdfPushButton.Actions" />を参照）。
+      </summary>
+    </member>
+    <member name="F:C1.C1Pdf.ButtonStateChange.Released">
+      <summary>
+        押されたボタンが離されます（これは、
+        <see cref="T:C1.C1Pdf.PdfPushButton.Action" />に関連付けられたデフォルトの状態変化です）。
+      </summary>
+    </member>
+    <member name="F:C1.C1Pdf.ButtonStateChange.Pressed">
+      <summary>ボタンが押されます。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.ButtonStateChange.MouseEnter">
+      <summary>マウスポインタがボタン上に置かれます。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.ButtonStateChange.MouseLeave">
+      <summary>マウスポインタがボタン上から外されます。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.ButtonStateChange.GotFocus">
+      <summary>ボタンがキーボードのフォーカスを受け取ります。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.ButtonStateChange.LostFocus">
+      <summary>ボタンがキーボードのフォーカスを失います。</summary>
+    </member>
+    <member name="T:C1.C1Pdf.ButtonAction">
+      <summary>
+        <see cref="T:C1.C1Pdf.ButtonAction" />で記述されたとおり
+        <see cref="T:C1.C1Pdf.PdfPushButton" />の状態が変化したときに実行できる処理を指定します。 ほとんどの処理では、
+        <see cref="P:C1.C1Pdf.PdfPushButton.Action.Command" />プロパティで その処理に関する追加的な状態を指定する必要があります。
+      </summary>
+    </member>
+    <member name="F:C1.C1Pdf.ButtonAction.CallMenu">
+      <summary>
+        <see cref="T:C1.C1Pdf.PdfPushButton.Action" />の
+        <see cref="P:C1.C1Pdf.PdfPushButton.Action.Command" />プロパティで指定された Adobe Acrobat のメニュー項目を呼び出します。
+        <para>
+          たとえば、
+          <see cref="P:C1.C1Pdf.PdfPushButton.Action.Command" />を
+          <b>SaveAs</b>（名前を付けて保存）に設定すると［ファイルの保存］ダイアログが呼び出され、
+          <b>Close</b>（閉じる）に設定するとドキュメントが閉じられます。 すべての項目のリストについては、Adobe のマニュアルを参照してください。
+        </para>
+      </summary>
+    </member>
+    <member name="F:C1.C1Pdf.ButtonAction.OpenUrl">
+      <summary>
+        <see cref="T:C1.C1Pdf.PdfPushButton.Action" />の
+        <see cref="P:C1.C1Pdf.PdfPushButton.Action.Command" />プロパティで 指定された URL を開きます。
+      </summary>
+    </member>
+    <member name="F:C1.C1Pdf.ButtonAction.OpenFile">
+      <summary>
+        <see cref="T:C1.C1Pdf.PdfPushButton.Action" />の
+        <see cref="P:C1.C1Pdf.PdfPushButton.Action.Command" />プロパティで 指定されたファイルを開きます。
+      </summary>
+    </member>
+    <member name="F:C1.C1Pdf.ButtonAction.GotoPage">
+      <summary>
+        <see cref="T:C1.C1Pdf.PdfPushButton.Action" />の
+        <see cref="P:C1.C1Pdf.PdfPushButton.Action.PageNo" />プロパティで 指定されたページに移動します。
+      </summary>
+    </member>
+    <member name="F:C1.C1Pdf.ButtonAction.ClearFields">
+      <summary>
+        <b>PDF フォーム</b>に含まれるすべてのフィールドをクリアします。 特定のフィールドをクリアしないようにするには、コンマ（,）区切りの フィールド名リスト（
+        <b>Field1,Field2</b>など）を
+        <see cref="T:C1.C1Pdf.PdfPushButton.Action" />の
+        <see cref="P:C1.C1Pdf.PdfPushButton.Action.Command" />プロパティに割り当てます。
+      </summary>
+      <seealso cref="P:C1.C1Pdf.PdfFieldBase.Name" />
+    </member>
+    <member name="F:C1.C1Pdf.ButtonAction.ShowField">
+      <summary>
+        フィールドが非表示であった場合、そのフィールドを表示します。 そのフィールドの
+        <see cref="P:C1.C1Pdf.PdfFieldBase.Name" />を
+        <see cref="T:C1.C1Pdf.PdfPushButton.Action" />の
+        <see cref="P:C1.C1Pdf.PdfPushButton.Action.Command" />プロパティに割り当てる必要があります。
+      </summary>
+    </member>
+    <member name="F:C1.C1Pdf.ButtonAction.HideField">
+      <summary>
+        フィールドが表示されていた場合、そのフィールドを非表示にします。 そのフィールドの
+        <see cref="P:C1.C1Pdf.PdfFieldBase.Name" />を
+        <see cref="T:C1.C1Pdf.PdfPushButton.Action" />の
+        <see cref="P:C1.C1Pdf.PdfPushButton.Action.Command" />プロパティに割り当てる必要があります。
+      </summary>
+    </member>
+    <member name="T:C1.C1Pdf.CheckmarkType">
+      <summary>
+        <see cref="T:C1.C1Pdf.PdfCheckBox" />フィールドと
+        <see cref="T:C1.C1Pdf.PdfRadioButton" />フィールド内の チェックマークの外観を指定します。
+      </summary>
+    </member>
+    <member name="F:C1.C1Pdf.CheckmarkType.Default">
+      <summary>
+        デフォルトのチェックマークを表示します（
+        <see cref="T:C1.C1Pdf.PdfRadioButton" />の場合は
+        <see cref="F:C1.C1Pdf.CheckmarkType.Circle" />、
+        <see cref="T:C1.C1Pdf.PdfCheckBox" />の場合は
+        <see cref="F:C1.C1Pdf.CheckmarkType.Check" />）。
+      </summary>
+    </member>
+    <member name="F:C1.C1Pdf.CheckmarkType.Check">
+      <summary>「チェック」（右側の棒が長い V 形の印）のチェックマークを表示します。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.CheckmarkType.Circle">
+      <summary>丸形のチェックマークを表示します。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.CheckmarkType.Cross">
+      <summary>バツ印（X 形）のチェックマークを表示します。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.CheckmarkType.Diamond">
+      <summary>ひし形のチェックマークを表示します。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.CheckmarkType.Square">
+      <summary>正方形のチェックマークを表示します。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.CheckmarkType.Star">
+      <summary>星形のチェックマークを表示します。</summary>
+    </member>
+    <member name="T:C1.C1Pdf.PdfFieldBase">
+      <summary>
+        他のすべての
+        <b>PDF フォーム</b>フィールドクラス（
+        <b>フォームフィールド</b>）の 派生元となる抽象基本クラス。
+      </summary>
+      <remarks>
+        非抽象派生クラスには、
+        <see cref="T:C1.C1Pdf.PdfTextBox" />、
+        <see cref="T:C1.C1Pdf.PdfCheckBox" />、
+        <see cref="T:C1.C1Pdf.PdfPushButton" />、
+        <see cref="T:C1.C1Pdf.PdfRadioButton" />、
+        <see cref="T:C1.C1Pdf.PdfComboBox" />、
+        <see cref="T:C1.C1Pdf.PdfListBox" />などがあります。
+      </remarks>
+    </member>
+    <member name="P:C1.C1Pdf.PdfFieldBase.Name">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfFieldBase" />の名前を取得または設定します。
+        <para>
+          現在のオブジェクトが
+          <see cref="T:C1.C1Pdf.PdfRadioButton" />である場合、 グループ内のすべてのラジオボタンに同じ名前を指定する必要があります。
+        </para>
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfFieldBase.Value">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfFieldBase" />の値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfFieldBase.DefaultValue">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfFieldBase" />のデフォルト値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfFieldBase.IsReadOnly">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfFieldBase" />が読み取り専用フィールドを 表すかどうかを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfFieldBase.IsRequired">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfFieldBase" />が必須フィールドを 表すかどうかを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfFieldBase.BorderWidth">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfFieldBase" />の枠線の幅を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfFieldBase.BorderStyle">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfFieldBase" />の枠のスタイルを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfFieldBase.BorderColor">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfFieldBase" />の枠の色を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfFieldBase.BackColor">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfFieldBase" />の背景色を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfFieldBase.ForeColor">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfFieldBase" />の前景色（テキストの色）を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfFieldBase.Font">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfFieldBase" />の
+        <see cref="T:System.Drawing.Font" />を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfFieldBase.Rotation">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfFieldBase" />の回転角（
+        <b>X</b>軸に対する 反時計回りの角度）を取得または設定します。
+      </summary>
+      <remarks>このフィールドでサポートされる回転角は、０°、90°、180°、270°だけです。</remarks>
+    </member>
+    <member name="P:C1.C1Pdf.PdfFieldBase.Visibility">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfFieldBase" />の表示状態を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfFieldBase.ToolTip">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfFieldBase" />に関連付けられたツールチップを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfFieldBase.Text">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfFieldBase" />のテキストを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfFieldBase.DefaultText">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfFieldBase" />のデフォルトテキストを取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.C1Pdf.PdfTextFieldBase">
+      <summary>
+        テキスト入力が可能な
+        <b>PDF フォーム</b>フィールドクラス （
+        <see cref="T:C1.C1Pdf.PdfTextBox" />と
+        <see cref="T:C1.C1Pdf.PdfComboListBase" />）の抽象基本クラス。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfTextFieldBase.IsSpellCheck">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfTextFieldBase" />でスペルチェックを行うかどうかを示す値を 取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.C1Pdf.PdfTextBox">
+      <summary>テキスト入力ボックスを表します。</summary>
+    </member>
+    <member name="M:C1.C1Pdf.PdfTextBox.#ctor">
+      <summary>
+        <see cref="T:C1.C1Pdf.PdfTextBox" />クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfTextBox.IsMultiline">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfTextBox" />が複数行であるかどうかを示す値を 取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfTextBox.IsPassword">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfTextBox" />がパスワードの入力に 使用されるかどうかを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfTextBox.IsFileSelect">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfTextBox" />がファイル名の入力に 使用されるかどうかを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfTextBox.IsScroll">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfTextBox" />でテキストのスクロールが サポートされているかどうかを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfTextBox.Alignment">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfFieldBase" />のテキストの配置を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfTextBox.MaxLength">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfTextBox" />の最大長を取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.C1Pdf.PdfPushButton">
+      <summary>プッシュボタンを表します。</summary>
+    </member>
+    <member name="M:C1.C1Pdf.PdfPushButton.#ctor">
+      <summary>
+        <see cref="T:C1.C1Pdf.PdfPushButton" />クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfPushButton.Layout">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfPushButton" />のレイアウトを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfPushButton.Image">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfPushButton" />に表示される画像を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfPushButton.Active">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfPushButton" />がアクティブであるかどうかを示す値を 取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfPushButton.Actions">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfPushButton" />に関連付けられたアクションのコレクションを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfPushButton.Click">
+      <summary>
+        現在のボタンがクリックされたときに呼び出される
+        <see cref="T:C1.C1Pdf.PdfPushButton.Action" />を 取得または設定します（
+        <see cref="F:C1.C1Pdf.ButtonStateChange.Released" />に対応）。 このプロパティは、現在のボタンの
+        <see cref="P:C1.C1Pdf.PdfPushButton.Actions" />の
+        <see cref="P:C1.C1Pdf.PdfPushButton.ActionCollection.Released" />コレクションに含まれる 最初のアクションへのショートカットです。このプロパティを設定すると、
+        <see cref="P:C1.C1Pdf.PdfPushButton.ActionCollection.Released" />コレクションが割り当ての前にクリアされることに注意してください。
+      </summary>
+    </member>
+    <member name="T:C1.C1Pdf.PdfPushButton.Action">
+      <summary>
+        <see cref="T:C1.C1Pdf.PdfPushButton" />の状態が変化したときに実行できる アクションを表します。
+      </summary>
+    </member>
+    <member name="M:C1.C1Pdf.PdfPushButton.Action.#ctor">
+      <summary>
+        <see cref="T:C1.C1Pdf.PdfPushButton.Action" />クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.C1Pdf.PdfPushButton.Action.#ctor(C1.C1Pdf.ButtonAction)">
+      <summary>
+        <see cref="T:C1.C1Pdf.PdfPushButton.Action" />クラスの新しいインスタンスを初期化します。
+      </summary>
+      <param name="actionType">アクションのタイプを指定します。</param>
+    </member>
+    <member name="M:C1.C1Pdf.PdfPushButton.Action.#ctor(C1.C1Pdf.ButtonAction,System.String)">
+      <summary>
+        <see cref="T:C1.C1Pdf.PdfPushButton.Action" />クラスの新しいインスタンスを初期化します。
+      </summary>
+      <param name="actionType">アクションのタイプを指定します。</param>
+      <param name="cmd">
+        アクションに関連付けられたコマンドを指定します（意味は
+        <paramref name="actionType" />に依存）。
+      </param>
+    </member>
+    <member name="P:C1.C1Pdf.PdfPushButton.Action.ActionType">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfPushButton.Action" />のタイプを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfPushButton.Action.Command">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfPushButton.Action" />に関連付けられたコマンドを取得または設定します。 コマンドの意味は
+        <see cref="P:C1.C1Pdf.PdfPushButton.Action.ActionType" />により異なります。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfPushButton.Action.PageNo">
+      <summary>
+        <see cref="F:C1.C1Pdf.ButtonAction.GotoPage" />アクションについて、 １で始まるページ番号を取得または設定します。 このプロパティを設定すると、現在の
+        <see cref="P:C1.C1Pdf.PdfPushButton.Action.Command" />の値が ページ番号の文字列表現でオーバーライドされることに 注意してください。
+      </summary>
+    </member>
+    <member name="T:C1.C1Pdf.PdfPushButton.ActionCollection">
+      <summary>
+        <see cref="T:C1.C1Pdf.PdfPushButton.Action" />オブジェクトのコレクションを表します。
+      </summary>
+    </member>
+    <member name="M:C1.C1Pdf.PdfPushButton.ActionCollection.Clear">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfPushButton.ActionCollection" />オブジェクトをクリアします。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfPushButton.ActionCollection.Owner">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfPushButton.ActionCollection" />オブジェクトを所有する
+        <see cref="T:C1.C1Pdf.PdfPushButton" />オブジェクトを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfPushButton.ActionCollection.Item(C1.C1Pdf.ButtonStateChange)">
+      <summary>
+        指定のボタン状態変化に関連付けられた現在のコレクションから
+        <see cref="T:C1.C1Pdf.PdfPushButton.Action" />オブジェクトの
+        <see cref="T:System.Collections.Generic.List`1" />を取得します （各状態変化に複数のアクションが関連付けられている場合があります）。
+        <para>
+          現在の
+          <see cref="T:C1.C1Pdf.PdfPushButton.ActionCollection" />で指定の状態変化に 関連付けられたアクションがない場合、
+          <b>null</b>を返します。
+        </para>
+      </summary>
+      <param name="change">関連付けられたアクションが返される状態変化のタイプ。</param>
+      <returns>
+        指定の状態変化に関連付けられた
+        <see cref="T:C1.C1Pdf.PdfPushButton.Action" />オブジェクトのリスト。
+      </returns>
+    </member>
+    <member name="P:C1.C1Pdf.PdfPushButton.ActionCollection.Item(C1.C1Pdf.ButtonStateChange,System.Int32)">
+      <summary>
+        指定のボタン状態変化（
+        <see cref="T:C1.C1Pdf.ButtonStateChange" />）に関連付けられたアクションの中で インデックスを指定し、現在のコレクション内の
+        <see cref="T:C1.C1Pdf.PdfPushButton.Action" />を取得または設定します。
+      </summary>
+      <param name="change">関連付けられたアクションが返される状態変化のタイプ。</param>
+      <param name="index">
+        <paramref name="change" />に関連付けられたアクションの中でのアクションインデックス。
+      </param>
+      <returns>
+        <paramref name="change" />に関連付けられたアクションの中で指定の
+        <paramref name="index" />を持つアクション、またはそうしたアクションが存在しない場合は
+        <b>null</b>。
+      </returns>
+    </member>
+    <member name="P:C1.C1Pdf.PdfPushButton.ActionCollection.GotFocus">
+      <summary>
+        <see cref="F:C1.C1Pdf.ButtonStateChange.GotFocus" />ボタン状態変化に関連付けられた現在のコレクションから
+        <see cref="T:C1.C1Pdf.PdfPushButton.Action" />オブジェクトの
+        <see cref="T:System.Collections.Generic.List`1" />を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfPushButton.ActionCollection.LostFocus">
+      <summary>
+        <see cref="F:C1.C1Pdf.ButtonStateChange.LostFocus" />ボタン状態変化に関連付けられた現在のコレクションから
+        <see cref="T:C1.C1Pdf.PdfPushButton.Action" />オブジェクトの
+        <see cref="T:System.Collections.Generic.List`1" />を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfPushButton.ActionCollection.MouseEnter">
+      <summary>
+        <see cref="F:C1.C1Pdf.ButtonStateChange.MouseEnter" />ボタン状態変化に関連付けられた現在のコレクションから
+        <see cref="T:C1.C1Pdf.PdfPushButton.Action" />オブジェクトの
+        <see cref="T:System.Collections.Generic.List`1" />を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfPushButton.ActionCollection.MouseLeave">
+      <summary>
+        <see cref="F:C1.C1Pdf.ButtonStateChange.MouseLeave" />ボタン状態変化に関連付けられた現在のコレクションから
+        <see cref="T:C1.C1Pdf.PdfPushButton.Action" />オブジェクトの
+        <see cref="T:System.Collections.Generic.List`1" />を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfPushButton.ActionCollection.Pressed">
+      <summary>
+        <see cref="F:C1.C1Pdf.ButtonStateChange.Pressed" />ボタン状態変化に関連付けられた現在のコレクションから
+        <see cref="T:C1.C1Pdf.PdfPushButton.Action" />オブジェクトの
+        <see cref="T:System.Collections.Generic.List`1" />を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfPushButton.ActionCollection.Released">
+      <summary>
+        <see cref="F:C1.C1Pdf.ButtonStateChange.Released" />ボタン状態変化に関連付けられた現在のコレクションから
+        <see cref="T:C1.C1Pdf.PdfPushButton.Action" />オブジェクトの
+        <see cref="T:System.Collections.Generic.List`1" />を取得します。
+      </summary>
+    </member>
+    <member name="T:C1.C1Pdf.PdfRadioCheckBase">
+      <summary>
+        <see cref="T:C1.C1Pdf.PdfRadioButton" />型と
+        <see cref="T:C1.C1Pdf.PdfCheckBox" />型の抽象基本クラス。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfRadioCheckBase.CheckmarkType">
+      <summary>現在のオブジェクトで使用されるチェックマークのタイプを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfRadioCheckBase.Checked">
+      <summary>現在のオブジェクトが選択された状態にあるかどうかを示す値を 取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfRadioCheckBase.Text">
+      <summary>現在のオブジェクトのテキスト値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfRadioCheckBase.DefaultText">
+      <summary>現在のオブジェクトのデフォルトのテキスト値を取得または設定します。</summary>
+    </member>
+    <member name="T:C1.C1Pdf.PdfRadioButton">
+      <summary>ラジオボタンを表します。</summary>
+      <remarks>
+        複数のラジオボタンを１つのグループに結合し（グループ内の ボタンは一度に１つだけ選択可能）、グループ内のすべてのボタンの
+        <see cref="P:C1.C1Pdf.PdfFieldBase.Name" />プロパティに同じ値を割り当てます。
+      </remarks>
+    </member>
+    <member name="M:C1.C1Pdf.PdfRadioButton.#ctor">
+      <summary>
+        <see cref="T:C1.C1Pdf.PdfRadioButton" />クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="T:C1.C1Pdf.PdfCheckBox">
+      <summary>チェックボックスを表します。</summary>
+    </member>
+    <member name="M:C1.C1Pdf.PdfCheckBox.#ctor">
+      <summary>
+        <see cref="T:C1.C1Pdf.PdfRadioButton" />クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="T:C1.C1Pdf.PdfComboListBase">
+      <summary>
+        <see cref="T:C1.C1Pdf.PdfComboBox" />型と
+        <see cref="T:C1.C1Pdf.PdfListBox" />型の抽象基本クラス。
+      </summary>
+    </member>
+    <member name="M:C1.C1Pdf.PdfComboListBase.#ctor">
+      <summary>
+        <see cref="T:C1.C1Pdf.PdfComboListBase" />クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfComboListBase.Items">
+      <summary>
+        現在のコンボまたはリストに含まれる項目のコレクションを表す
+        <see cref="T:System.Collections.Generic.List`1" />を取得します。
+        <para>値は項目を表す文字列です。</para>
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfComboListBase.SelectedColor">
+      <summary>現在のコンボまたはリストの選択色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfComboListBase.DefaultValue">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfFieldBase" />のデフォルト値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfComboListBase.Text">
+      <summary>現在のコンボまたはリストのテキスト値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfComboListBase.DefaultText">
+      <summary>現在のコンボまたはリストのデフォルトのテキスト値を取得または設定します。</summary>
+    </member>
+    <member name="T:C1.C1Pdf.PdfComboBox">
+      <summary>コンボボックスを表します。</summary>
+    </member>
+    <member name="M:C1.C1Pdf.PdfComboBox.#ctor">
+      <summary>
+        <see cref="T:C1.C1Pdf.PdfComboBox" />クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="T:C1.C1Pdf.PdfListBox">
+      <summary>リストボックスを表します。</summary>
+    </member>
+    <member name="M:C1.C1Pdf.PdfListBox.#ctor">
+      <summary>
+        <see cref="T:C1.C1Pdf.PdfListBox" />クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfListBox.IsMultiselect">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfListBox" />で複数の項目を 選択できるかどうかを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.C1Pdf.PdfNoteBase">
+      <summary>他のすべての notes クラスの派生元になる 抽象基本クラス。</summary>
+      <remarks>
+        <b>PdfNoteBase</b>の非抽象派生クラスには、
+        <see cref="T:C1.C1Pdf.PdfTextNote" />、
+        <see cref="T:C1.C1Pdf.PdfLineNote" />、
+        <see cref="T:C1.C1Pdf.PdfSquareNote" />、および
+        <see cref="T:C1.C1Pdf.PdfCircleNote" />があります。
+      </remarks>
+    </member>
+    <member name="P:C1.C1Pdf.PdfNoteBase.Thickness">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfNoteBase" />の太さ（ポイント単位）を取得または設定します（1 ～ 12 pt）。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfNoteBase.ForeColor">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfNoteBase" />の前景色（線または枠線の色）を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfNoteBase.Opacity">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfNoteBase" />の不透明度（%）を取得または設定します。 デフォルト値は 100% です。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfNoteBase.Contents">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfNoteBase" />のテキストを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfNoteBase.PopupOpen">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfNoteBase" />のポップアップウィンドウのフラグを取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.C1Pdf.PdfRectNote">
+      <summary>
+        他のすべての
+        <b>Notes</b>の元になる抽象基本クラス。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfRectNote.FillColor">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfNoteBase" />の塗りつぶし色を取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.C1Pdf.PdfTextNote">
+      <summary>テキストノートを表します。</summary>
+    </member>
+    <member name="M:C1.C1Pdf.PdfTextNote.#ctor">
+      <summary>
+        <see cref="T:C1.C1Pdf.PdfTextNote" />クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfTextNote.Font">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfTextNote" />の
+        <see cref="T:System.Drawing.Font" />を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfTextNote.BorderColor">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfTextNote" />の枠の色を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfTextNote.Alignment">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfTextNote" />のテキストの水平配置を取得または設定します。
+        <para>デフォルトの水平配置は near（左）です。</para>
+      </summary>
+    </member>
+    <member name="T:C1.C1Pdf.PdfLineNote">
+      <summary>テキスト入力ボックスを表します。</summary>
+    </member>
+    <member name="M:C1.C1Pdf.PdfLineNote.#ctor(System.Drawing.PointF,System.Drawing.PointF)">
+      <summary>
+        <see cref="T:C1.C1Pdf.PdfTextBox" />クラスの新しいインスタンスを初期化します。
+      </summary>
+      <param name="pt1">線の開始点。</param>
+      <param name="pt2">線の終了点。</param>
+    </member>
+    <member name="P:C1.C1Pdf.PdfLineNote.Begin">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfLineNote" />の開始ポイントを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfLineNote.End">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfLineNote" />の終了ポイントを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfLineNote.Rectangle">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfLineNote" />の概略の矩形を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfLineNote.Opacity">
+      <summary>現在のメモの不透明度を取得または設定します（0～100）。 デフォルト値は 100% です。</summary>
+    </member>
+    <member name="T:C1.C1Pdf.PdfSquareNote">
+      <summary>テキスト入力ボックスを表します。</summary>
+    </member>
+    <member name="M:C1.C1Pdf.PdfSquareNote.#ctor">
+      <summary>
+        <see cref="T:C1.C1Pdf.PdfSquareNote" />クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="T:C1.C1Pdf.PdfCircleNote">
+      <summary>テキスト入力ボックスを表します。</summary>
+    </member>
+    <member name="M:C1.C1Pdf.PdfCircleNote.#ctor">
+      <summary>
+        <see cref="T:C1.C1Pdf.PdfTextBox" />クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="T:C1.C1Pdf.PdfPageCollection">
+      <summary>
+        ドキュメントを構成する
+        <see cref="T:C1.C1Pdf.PdfPage" />のコレクションです。
+      </summary>
+    </member>
+    <member name="M:C1.C1Pdf.PdfPageCollection.Add(C1.C1Pdf.PdfPage)">
+      <summary>ドキュメントにページを追加します。</summary>
+      <param name="page">
+        ドキュメントに追加する
+        <see cref="T:C1.C1Pdf.PdfPage" />オブジェクト。
+      </param>
+      <returns>ドキュメント内の新しいページのインデックス。</returns>
+      <remarks>
+        <para>
+          <see cref="T:C1.C1Pdf.PdfPage" />クラスはパブリックコンストラクタを持たないため、このオーバーロードを使用する唯一の方法は、先にドキュメントから既存のページを削除して、削除したページをドキュメントに再度追加することです。
+        </para>
+        <para>各ページは、ドキュメント内で一度しか表示できません。同じページを２度追加しようとした場合、例外をスローします。</para>
+      </remarks>
+    </member>
+    <member name="M:C1.C1Pdf.PdfPageCollection.Insert(System.Int32,C1.C1Pdf.PdfPage)">
+      <summary>ドキュメント内の指定の位置にページを挿入します。</summary>
+      <param name="index">ドキュメントにページを挿入する位置。</param>
+      <param name="page">
+        ドキュメントに挿入する
+        <see cref="T:C1.C1Pdf.PdfPage" />オブジェクト。
+      </param>
+      <remarks>
+        <para>
+          <see cref="T:C1.C1Pdf.PdfPage" />クラスはパブリックコンストラクタを持たないので、このオーバーロードを使用する唯一の方法は、先にドキュメントから既存のページを削除して、削除したページをドキュメントに再度追加することです。
+        </para>
+        <para>各ページは、ドキュメント内で一度しか表示できません。同じページを２度追加しようとした場合、例外をスローします。</para>
+      </remarks>
+    </member>
+    <member name="M:C1.C1Pdf.PdfPageCollection.Remove(C1.C1Pdf.PdfPage)">
+      <summary>ドキュメントからページを削除します。</summary>
+      <param name="page">
+        ドキュメントから削除する
+        <see cref="T:C1.C1Pdf.PdfPage" />オブジェクト。
+      </param>
+    </member>
+    <member name="M:C1.C1Pdf.PdfPageCollection.RemoveAt(System.Int32)">
+      <summary>ドキュメントから指定の位置にあるページを削除します。</summary>
+      <param name="index">ドキュメントから削除するページのインデックス。</param>
+    </member>
+    <member name="M:C1.C1Pdf.PdfPageCollection.AddRange(System.Collections.ICollection)">
+      <summary>ドキュメントにページを追加します。</summary>
+      <param name="c">
+        ドキュメントに追加する
+        <see cref="T:C1.C1Pdf.PdfPage" />オブジェクトのコレクション。
+      </param>
+      <remarks>
+        <para>
+          <see cref="T:C1.C1Pdf.PdfPage" />クラスはパブリックコンストラクタを持たないので、このオーバーロードを使用する唯一の方法は、先にドキュメントから既存のページを削除して、削除したページをドキュメントに再度追加することです。
+        </para>
+        <para>各ページは、ドキュメント内で一度しか表示できません。同じページを２度追加しようとした場合、例外をスローします。</para>
+      </remarks>
+    </member>
+    <member name="M:C1.C1Pdf.PdfPageCollection.InsertRange(System.Int32,System.Collections.ICollection)">
+      <summary>ドキュメント内の指定の位置にページを挿入します。</summary>
+      <param name="index">ドキュメントにページを挿入する位置。</param>
+      <param name="c">
+        ドキュメントに追加する
+        <see cref="T:C1.C1Pdf.PdfPage" />オブジェクトのコレクション。
+      </param>
+      <remarks>
+        <para>
+          <see cref="T:C1.C1Pdf.PdfPage" />クラスはパブリックコンストラクタを持たないので、このオーバーロードを使用する唯一の方法は、先にドキュメントから既存のページを削除して、削除したページをドキュメントに再度追加することです。
+        </para>
+        <para>各ページは、ドキュメント内で一度しか表示できません。同じページを２度追加しようとした場合、例外をスローします。</para>
+      </remarks>
+    </member>
+    <member name="M:C1.C1Pdf.PdfPageCollection.RemoveRange(System.Int32,System.Int32)">
+      <summary>ドキュメントから指定した範囲のページを削除します。</summary>
+      <param name="index">削除する先頭のページのインデックス。</param>
+      <param name="count">ドキュメントから削除するページ数。</param>
+    </member>
+    <member name="M:C1.C1Pdf.PdfPageCollection.Add">
+      <summary>
+        <see cref="T:C1.C1Pdf.PdfPage" />の新規インスタンスを作成して、ドキュメントに追加します。
+      </summary>
+      <returns>新規ページのインデックス。</returns>
+      <remarks>
+        <para>
+          新規ページのサイズは、親ドキュメントの
+          <see cref="P:C1.C1Pdf.C1PdfDocument.PageSize" />プロパティで指定したサイズによって決定されます。
+        </para>
+        <para>
+          このメソッドは、親ドキュメントの
+          <see cref="P:C1.C1Pdf.C1PdfDocument.CurrentPage" />プロパティを設定して、新規に追加したページを現在のページに指定します。
+        </para>
+        <para>
+          <see cref="M:C1.C1Pdf.C1PdfDocumentBase.NewPage" />メソッドを呼び出しても、新規ページを
+          <see cref="T:C1.C1Pdf.C1PdfDocument" />に追加できます。
+        </para>
+      </remarks>
+    </member>
+    <member name="M:C1.C1Pdf.PdfPageCollection.Add(System.Drawing.Printing.PaperKind)">
+      <summary>
+        指定したサイズで
+        <see cref="T:C1.C1Pdf.PdfPage" />の新規インスタンスを作成して、ドキュメントに追加します。
+      </summary>
+      <param name="paperKind">
+        新規ページのサイズを表す
+        <see cref="T:System.Drawing.Printing.PaperKind" />列挙体のメンバ。
+      </param>
+      <returns>新規ページのインデックス。</returns>
+      <remarks>
+        <para>
+          このメソッドは、親ドキュメントの
+          <see cref="P:C1.C1Pdf.C1PdfDocument.CurrentPage" />プロパティを設定して、新規に追加したページを現在のページに指定します。
+        </para>
+        <para>
+          <see cref="M:C1.C1Pdf.C1PdfDocumentBase.NewPage" />メソッドを呼び出しても、新規ページを
+          <see cref="T:C1.C1Pdf.C1PdfDocument" />に追加できます。
+        </para>
+      </remarks>
+    </member>
+    <member name="M:C1.C1Pdf.PdfPageCollection.Insert(System.Int32)">
+      <summary>
+        <see cref="T:C1.C1Pdf.PdfPage" />の新規インスタンスを作成して、ドキュメント内の指定の位置にページを挿入します。
+      </summary>
+      <param name="index">ドキュメントにページを挿入する位置。</param>
+      <remarks>
+        <para>
+          新規ページのサイズは、親ドキュメントの
+          <see cref="P:C1.C1Pdf.C1PdfDocument.PageSize" />プロパティで指定したサイズによって決定されます。
+        </para>
+        <para>
+          このメソッドは、親ドキュメントの
+          <see cref="P:C1.C1Pdf.C1PdfDocument.CurrentPage" />プロパティを設定して、新規に追加したページを現在のページに指定します。
+        </para>
+      </remarks>
+    </member>
+    <member name="M:C1.C1Pdf.PdfPageCollection.Insert(System.Int32,System.Drawing.Printing.PaperKind)">
+      <summary>
+        指定したサイズで
+        <see cref="T:C1.C1Pdf.PdfPage" />の新規インスタンスを作成して、ドキュメント内の指定の位置にページを挿入します。
+      </summary>
+      <param name="index">ドキュメントにページを挿入する位置。</param>
+      <param name="paperKind">
+        新規ページのサイズを表す
+        <see cref="T:System.Drawing.Printing.PaperKind" />列挙体のメンバ。
+      </param>
+    </member>
+    <member name="M:C1.C1Pdf.PdfPageCollection.Clear">
+      <summary>ドキュメントからすべてのページを削除します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfPageCollection.Item(System.Int32)">
+      <summary>
+        ドキュメント内の指定の位置にある
+        <see cref="T:C1.C1Pdf.PdfPage" />オブジェクトを取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.C1Pdf.PdfPage">
+      <summary>C1PDF ドキュメント内のページを表します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfPage.Tag">
+      <summary>アプリケーションで利用できる、ページに関するデータを含むオブジェクトを取得または設定します。</summary>
+    </member>
+    <member name="T:C1.C1Pdf.PdfEncryptionType">
+      <summary>PDF セキュリティに使用する暗号化のタイプを示します。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.PdfEncryptionType.NotPermit">
+      <summary>FIPS 準拠のため暗号化を使用できない（MD5 と AES128 は FIPS 非準拠）。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.PdfEncryptionType.Standard40">
+      <summary>標準 40 ビット暗号化アルゴリズム。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.PdfEncryptionType.Standard128">
+      <summary>標準 128 ビット暗号化アルゴリズム。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.PdfEncryptionType.Aes128">
+      <summary>AES 128 ビット暗号化アルゴリズム。</summary>
+    </member>
+    <member name="T:C1.C1Pdf.PdfSecurity">
+      <summary>
+        セキュリティと暗号化サービスを提供し、
+        <see cref="T:C1.C1Pdf.C1PdfDocument" />オブジェクトに対する権限を管理します。
+      </summary>
+      <remarks>
+        <para>
+          <see cref="T:C1.C1Pdf.PdfSecurity" />クラスは、ドキュメントの所有者パスワードとユーザーパスワードを指定できるプロパティを持ちます。
+          <see cref="P:C1.C1Pdf.PdfSecurity.OwnerPassword" />は、パスワードと権限を変更する場合に必要となります。
+          <see cref="P:C1.C1Pdf.PdfSecurity.UserPassword" />パスワードは、ドキュメントを開くときに必要となります。
+        </para>
+        <para>
+          また、
+          <see cref="T:C1.C1Pdf.PdfSecurity" />クラスは、通常のユーザーが所有する権限を指定するためのプロパティも持っています。たとえば、ユーザーにドキュメントの閲覧だけを許可して、印刷や編集は許可しないように指定できます。
+        </para>
+        <para>
+          権限を指定してから、
+          <see cref="P:C1.C1Pdf.PdfSecurity.OwnerPassword" />のみを設定して
+          <see cref="P:C1.C1Pdf.PdfSecurity.UserPassword" />パスワードは空のままにすることができます。この場合、誰でもドキュメントを開くことができますが、権限を変更できるのは所有者のみとなります。
+        </para>
+        <para>PDF で使用している暗号化スキームは一般的なもので、100% 安全ではないことに注意してください。暗号化した PDF ドキュメンドが解読される方法は複数あります。提供されたセキュリティは、大部分の通常の攻撃からドキュメントを保護するのに適していますが、データが本当に機密情報である場合、PDF 暗号化のみに頼るべきではありません。</para>
+      </remarks>
+    </member>
+    <member name="P:C1.C1Pdf.PdfSecurity.Encryption">
+      <summary>PDF セキュリティに使用する暗号化のタイプを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfSecurity.OwnerPassword">
+      <summary>ドキュメントに対するパスワードや権限を変更するときに必要なパスワードを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfSecurity.UserPassword">
+      <summary>ドキュメントを開くときに必要なパスワードを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfSecurity.AllowPrint">
+      <summary>ユーザーがドキュメントを印刷できるかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfSecurity.AllowCopyContent">
+      <summary>ユーザーがドキュメントからコンテンツをコピーできるかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfSecurity.AllowEditContent">
+      <summary>ユーザーがドキュメントのコンテンツを編集できるかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfSecurity.AllowEditAnnotations">
+      <summary>ユーザーがドキュメント内の注釈を編集できるかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfSecurity.SignedTime">
+      <summary>Pdf ドキュメントの符号付き世界時を取得します。</summary>
+    </member>
+    <member name="T:C1.C1Pdf.SignatureHandler">
+      <summary>
+        デジタル署名の認証に使用する署名ハンドラのタイプを指定します （
+        <see cref="P:C1.C1Pdf.PdfSignature.Handler" />参照）。
+      </summary>
+    </member>
+    <member name="F:C1.C1Pdf.SignatureHandler.PPKMS">
+      <summary>実際のファイルデータではなく、ハッシュコードを使用して認証します（高速）。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.SignatureHandler.PPKLite">
+      <summary>実際のファイルデータを使用して認証します（低速、高セキュリティ）。</summary>
+    </member>
+    <member name="T:C1.C1Pdf.PdfSignature">
+      <summary>電子署名を表します（PDF フォームのフィールド）。</summary>
+    </member>
+    <member name="M:C1.C1Pdf.PdfSignature.#ctor">
+      <summary>PDF の電子署名の初期化。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfSignature.Certificate">
+      <summary>この電子署名の証明書を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfSignature.ContactInfo">
+      <summary>連絡先の情報（電子メールなど）を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfSignature.Location">
+      <summary>場所の情報（サイトのアドレスなど）を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfSignature.Reason">
+      <summary>理由の情報（任意のテキスト）を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfSignature.Handler">
+      <summary>署名の認証に使用されるハンドラのタイプを取得または設定します。</summary>
+      <remarks>
+        デフォルト値は、ファイル内容のハッシュコードに基づいた高速ハンドラである
+        <b>PPKMS</b>です。
+      </remarks>
+    </member>
+    <member name="P:C1.C1Pdf.PdfSignature.Image">
+      <summary>この電子署名の画像を取得または設定します。</summary>
+      <remarks>
+        画像を設定する場合、この電子署名の
+        <see cref="P:C1.C1Pdf.PdfSignature.Text" />は無視されます。
+      </remarks>
+      <seealso cref="P:C1.C1Pdf.PdfSignature.Text" />
+    </member>
+    <member name="P:C1.C1Pdf.PdfSignature.Text">
+      <summary>
+        現在の
+        <see cref="T:C1.C1Pdf.PdfSignature" />のテキストを取得または設定します。
+      </summary>
+      <seealso cref="P:C1.C1Pdf.PdfSignature.Image" />
+    </member>
+    <member name="T:C1.C1Pdf.PageLayoutEnum">
+      <summary>ビューアで PDF ファイルを表示するときに使用されるページレイアウトを指定します。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.PageLayoutEnum.ViewerDefault">
+      <summary>レイアウトを指定せず、ビューアの現在の設定値で表示します。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.PageLayoutEnum.SinglePage">
+      <summary>単一ページ形式で表示します。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.PageLayoutEnum.OneColumn">
+      <summary>連続ページ形式で表示します。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.PageLayoutEnum.TwoColumnLeft">
+      <summary>見開きページ形式で表示します。奇数番号のページが左側に表示されます。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.PageLayoutEnum.TwoColumnRight">
+      <summary>見開きページ形式で表示します。奇数番号のページが右側に表示されます。</summary>
+    </member>
+    <member name="T:C1.C1Pdf.PageModeEnum">
+      <summary>ビューアで PDF ファイルを表示するときの表示方法を指定します。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.PageModeEnum.Automatic">
+      <summary>アウトラインを表示します。アウトラインが無い場合は表示されません。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.PageModeEnum.UseNone">
+      <summary>アウトラインとサムネイル画像を表示しません。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.PageModeEnum.UseOutlines">
+      <summary>アウトラインを表示します。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.PageModeEnum.UseThumbs">
+      <summary>サムネイル画像を表示します。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.PageModeEnum.FullScreen">
+      <summary>フルスクリーンモードで表示します。メニューバーなどすべてのウィンドウやコントロールは表示されません。</summary>
+    </member>
+    <member name="T:C1.C1Pdf.PdfViewerPreferences">
+      <summary>ビューアでドキュメントを表示する時に使用されるオプションを表します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfViewerPreferences.PageMode">
+      <summary>ビューアで PDF ファイルを表示するときの表示方法を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfViewerPreferences.PageLayout">
+      <summary>ビューアで PDF ファイルを表示するときに使用されるページレイアウトを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfViewerPreferences.HideToolBar">
+      <summary>ドキュメントがアクティブなときに、ビューアツールバーを非表示にするかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfViewerPreferences.HideMenuBar">
+      <summary>ドキュメントがアクティブなときに、ビューアメニューバーを非表示にするかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfViewerPreferences.FitWindow">
+      <summary>最初に表示されるページのサイズに合わせてビューアのウィンドウサイズを変更するかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfViewerPreferences.CenterWindow">
+      <summary>ビューアのウィンドウを画面の中央に配置するかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.C1PdfDocument.MaxHeaderBookmarkLevel">
+      <summary>HTML テキストをレンダリングする際にブックマークを作成する最高ヘッダーレベルを取得または設定します。</summary>
+      <remarks>
+        <para>
+          このプロパティを 0 より大きい値に設定すると、
+          <see cref="T:C1.C1Pdf.C1PdfDocument" />は、 HTML 文字列をレンダリングする際にヘッダータグにブックマークを設定します。この値は、ブックマークを設定する 最高のヘッダーレベルを決定します。たとえば、このプロパティを 1 に設定すると、 すべての "H1" タグにブックマークが設定されます。4 に設定すると、"H1" から "H4" までのタグにブックマークが設定されます。
+        </para>
+        <para>デフォルトでは、このプロパティは 0 に設定され、ヘッダーブックマークは 生成されません。</para>
+      </remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.SetClipRect(System.Drawing.RectangleF)">
+      <summary>クリッピング領域を設定します。</summary>
+      <param name="rc">
+        クリップする領域を指定する
+        <see cref="!:Rect" />。
+      </param>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.ResetClipRect">
+      <summary>
+        クリッピング領域を、
+        <see cref="M:C1.C1Pdf.C1PdfDocument.SetClipRect(System.Drawing.RectangleF)" />を最後に呼び出した前の状態に戻します。
+      </summary>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.AddBookmark(System.String,System.Int32,System.Double)">
+      <summary>ドキュメントにブックマークを追加します。</summary>
+      <param name="text">アウトラインツリーに表示するテキスト。</param>
+      <param name="level">アウトラインレベル（ゼロが最上位）。</param>
+      <param name="y">アウトラインエントリがある現在のページ上の位置（ポイント表示）。</param>
+      <remarks>
+        長い PDF ドキュメントの多くにはアウトライン構造が含まれ、 それがリーダーの左ペインに表示されます。アウトラインは、簡単にドキュメントの構造を参照したり、 特定のトピックを検索できるようにします。
+        <b>AddBookmark</b>メソッドを使用すると、 アウトラインエントリ（ブックマーク）を追加することによってアウトライン構造を 構築できます。
+      </remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.AddBookmark(System.String,System.Int32,System.Double,System.Boolean)">
+      <summary>ドキュメントにブックマークを追加します。</summary>
+      <param name="text">アウトラインツリーに表示するテキスト。</param>
+      <param name="level">アウトラインレベル（ゼロが最上位）。</param>
+      <param name="y">アウトラインエントリがある現在のページ上の位置（ポイント表示）。</param>
+      <param name="isOpen">初期状態でブックマークの子を表示するかどうか。</param>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.AddBookmark(System.String,System.Int32,System.String)">
+      <summary>ドキュメントにブックマークを追加します。</summary>
+      <param name="text">アウトラインツリーに表示するテキスト。</param>
+      <param name="level">アウトラインレベル（ゼロが最上位）。</param>
+      <param name="target">
+        このドキュメントの既存のターゲット名（
+        <see cref="M:C1.C1Pdf.C1PdfDocument.AddTarget(System.String,System.Drawing.RectangleF)" />）。
+      </param>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.AddLink(System.String,System.Int32,System.Drawing.RectangleF)">
+      <summary>ドキュメントにハイパーリンクを追加します。</summary>
+      <param name="url">リンク先（URL、ファイル名、またはローカルのリンク先）。</param>
+      <param name="page">ハイパーリンクが含まれるページのインデックス</param>
+      <param name="rc">リンクとして動作するページの領域（ページの左上隅からのポイント数）。</param>
+      <remarks>
+        <para>ハイパーリンクは、外部（URL またはファイル名）でもローカル（同じドキュメント内の別の場所）でもかまいません。</para>
+        <para>ローカルリンクは、目次やインデックスのようなドキュメント内の相互参照を実装する場合に役立ちます。 ローカルリンクは、次の 2 点を除くと通常のハイパーリンクと同じです。</para>
+        <para>
+          1)
+          <paramref name="url" />パラメータの先頭は "#" になります。
+        </para>
+        <para>2) AddTarget メソッドを使用して、リンクのターゲット位置を指定する必要があります。</para>
+        <para>
+          <b>AddLink</b>メソッドを使用しても、ページに表示されるコンテンツは追加されないため、 通常は、次の例に示すように、
+          <b>AddLink</b>と一緒に別のコマンドを使用して、 ユーザーに表示するテキストや画像を指定する必要があります。
+        </para>
+      </remarks>
+      <example>
+        次のコードは、「Visit ComponentOne」という文字列と、ComponentOne のホームページに移動するリンクを追加します。
+        <code>Rect rc = new Rect(50, 50, 100, 15); // RectangleF Font font = new Font("Arial", 10, PdfFontStyle.Underline); // FontStyle _c1pdf.AddLink("http://www.componentone.com", rc); _c1pdf.DrawString("Visit ComponentOne", font, Color.Blue, rc); // Brushes.Blue</code>
+      </example>
+    </member>
+    <member name="T:C1.C1Pdf.PdfAConformanceLevel">
+      <summary>PDF/A 適合レベルを決定します。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.PdfAConformanceLevel.None">
+      <summary>PDF/A 適合なし。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.PdfAConformanceLevel.PdfA1a">
+      <summary>PDF/A 1a 適合レベル。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.PdfAConformanceLevel.PdfA1b">
+      <summary>PDF/A 1b 適合レベル。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.PdfAConformanceLevel.PdfA2a">
+      <summary>PDF/A 2a 適合レベル。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.PdfAConformanceLevel.PdfA2b">
+      <summary>PDF/A 2b 適合レベル。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.PdfAConformanceLevel.PdfA2u">
+      <summary>PDF/A 2u 適合レベル。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.PdfAConformanceLevel.PdfA3a">
+      <summary>PDF/A 3a 適合レベル。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.PdfAConformanceLevel.PdfA3b">
+      <summary>PDF/A 3b 適合レベル。</summary>
+    </member>
+    <member name="F:C1.C1Pdf.PdfAConformanceLevel.PdfA3u">
+      <summary>PDF/A 3u 適合レベル。</summary>
+    </member>
+    <member name="P:C1.C1Pdf.C1PdfDocumentBase.ConformanceLevel">
+      <summary>PDF/A 適合レベルを取得または設定します。デフォルトでは、PDF/A 適合を使用しません。</summary>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocumentBase.ToPoints(System.Double)">
+      <summary>ピクセル単位をポイント単位に変換します。</summary>
+      <param name="pixels">ピクセル単位の測定値。</param>
+      <returns>ポイント単位の測定値。</returns>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocumentBase.ToPoints(System.Drawing.SizeF)">
+      <summary>ピクセル単位をポイント単位に変換します。</summary>
+      <param name="szPixels">サイズ（ピクセル単位）。</param>
+      <returns>サイズ（ポイント単位）。</returns>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocumentBase.ToPoints(System.Drawing.RectangleF)">
+      <summary>ピクセル単位をポイント単位に変換します。</summary>
+      <param name="rcPixels">ピクセル単位の四角形。</param>
+      <returns>ポイント単位の四角形。</returns>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocumentBase.ToPixels(System.Double)">
+      <summary>ポイント単位をピクセル単位に変換します。</summary>
+      <param name="points">ポイント単位の測定値。</param>
+      <returns>ピクセル単位の測定値。</returns>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocumentBase.ToPixels(System.Drawing.SizeF)">
+      <summary>ポイント単位をピクセル単位に変換します。</summary>
+      <param name="szPoints">サイズ（ポイント単位）。</param>
+      <returns>サイズ（ピクセル単位）。</returns>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocumentBase.ToPixels(System.Drawing.RectangleF)">
+      <summary>ポイント単位をピクセル単位に変換します。</summary>
+      <param name="rcPoints">ポイント単位の四角形。</param>
+      <returns>ピクセル単位の四角形。</returns>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocumentBase.ResetResourceState">
+      <summary>内部使用専用。現在のフォント、ペン、およびブラシの状態をリセットします。</summary>
+    </member>
+    <member name="E:C1.C1Pdf.C1PdfDocumentBase.GeneratingDocument">
+      <summary>PDF ドキュメントにデータが書き込まれているときに定期的に発生します。</summary>
+      <remarks>
+        このイベントハンドラでは、
+        <see cref="P:C1.C1Pdf.C1PdfDocumentBase.Pages" />プロパティにアクセスすることで、それまでに作成されたページ数を確認できます。
+      </remarks>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocumentBase.OnGeneratingDocument(System.EventArgs)">
+      <summary>
+        <see cref="E:C1.C1Pdf.C1PdfDocumentBase.GeneratingDocument" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="E:C1.C1Pdf.C1PdfDocumentBase.SavingDocument">
+      <summary>
+        <see cref="M:C1.C1Pdf.C1PdfDocumentBase.Save(System.IO.Stream)" />メソッドの呼び出し後、PDF ストリームにページが書き込まれているときに発生します。
+      </summary>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocumentBase.OnSavingDocument(System.ComponentModel.ProgressChangedEventArgs)">
+      <summary>
+        <see cref="E:C1.C1Pdf.C1PdfDocumentBase.SavingDocument" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.ComponentModel.ProgressChangedEventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocumentBase.SetBrush(System.Drawing.Color)">
+      <summary>内部使用専用。現在のブラシ色を設定します。</summary>
+    </member>
+    <member name="M:C1.C1Pdf.PdfPageCollection.Add(System.Drawing.Size)">
+      <summary>
+        指定したサイズで
+        <see cref="T:C1.C1Pdf.PdfPage" />の新規インスタンスを作成して、ドキュメントに追加します。
+      </summary>
+      <param name="pageSize">新規ページのサイズ（ポイント単位）。</param>
+      <returns>新規ページのインデックス。</returns>
+      <remarks>
+        <para>
+          このメソッドは、親ドキュメントの
+          <see cref="P:C1.C1Pdf.C1PdfDocument.CurrentPage" />プロパティを設定して、新規に追加したページを現在のページに指定します。
+        </para>
+        <para>
+          <see cref="M:C1.C1Pdf.C1PdfDocumentBase.NewPage" />メソッドを呼び出しても、新規ページを
+          <see cref="T:C1.C1Pdf.C1PdfDocument" />に追加できます。
+        </para>
+      </remarks>
+    </member>
+    <member name="M:C1.C1Pdf.PdfPageCollection.Insert(System.Int32,System.Drawing.Size)">
+      <summary>
+        指定したサイズで
+        <see cref="T:C1.C1Pdf.PdfPage" />の新規インスタンスを作成して、ドキュメント内の指定の位置にページを挿入します。
+      </summary>
+      <param name="index">ドキュメントにページを挿入する位置。</param>
+      <param name="pageSize">新規ページのサイズ（ポイント単位）。</param>
+    </member>
+    <member name="P:C1.C1Pdf.C1PdfDocumentBase.UseJapaneseOrdering">
+      <summary>使用中のフォントで日本語の順序を使用するかどうかを示す値を取得または設定します。 デフォルトは false です。</summary>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawPath(System.Drawing.Pen,System.Drawing.Drawing2D.GraphicsPath,System.Boolean)">
+      <summary>
+        <see cref="T:System.Drawing.Drawing2D.GraphicsPath" />オブジェクトで定義されるパスを描画します。
+      </summary>
+      <param name="pen">
+        指定されたパスのストロークに使用される
+        <see cref="T:System.Drawing.Pen" />。
+      </param>
+      <param name="path">
+        描画する
+        <see cref="T:System.Drawing.Drawing2D.GraphicsPath" />。
+      </param>
+      <param name="close">閉じたパス（図形）かどうか。</param>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawPath(System.Drawing.Pen,System.Drawing.PointF[],System.Byte[],System.Boolean)">
+      <summary>ポイントとタイプで定義されるパスを描画します。</summary>
+      <param name="pen">
+        指定されたパスのストロークに使用される
+        <see cref="T:System.Drawing.Pen" />。
+      </param>
+      <param name="points">描画するパスのポイント。</param>
+      <param name="types">描画するパスのタイプ。</param>
+      <param name="close">閉じたパス（図形）かどうか。</param>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.FillPath(System.Drawing.Brush,System.Drawing.PointF[],System.Byte[],System.Boolean)">
+      <summary>ポイントとタイプで定義されたパスを塗りつぶします。</summary>
+      <param name="brush">
+        パスの塗りつぶしに使用する
+        <see cref="T:System.Drawing.Brush" />。
+      </param>
+      <param name="points">塗りつぶすパスのポイント。</param>
+      <param name="types">塗りつぶすパスのタイプ。</param>
+      <param name="winding">描画に使用するワインディング塗りつぶしモードフラグ（デフォルトは交互塗りつぶしモード）。</param>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.ClipPath(System.Drawing.PointF[],System.Byte[])">
+      <summary>ポイントとタイプで定義されたパスを使用してクリッピングを開始します。</summary>
+      <param name="points">クリッピングするパスのポイント。</param>
+      <param name="types">クリッピングするパスのタイプ。</param>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.ClipStop">
+      <summary>パスクリッピングを停止します。</summary>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawGlyphs(System.String,System.Int16[],System.Single[],C1.Util.FontSubSet,System.Single,System.Drawing.Brush,System.Drawing.PointF,System.Drawing.Drawing2D.Matrix,System.Single,System.Boolean)">
+      <summary>文字列をグリフで描画します。</summary>
+      <param name="text">テキスト文字列。</param>
+      <param name="glyphs">テキスト文字列のグリフ配列。</param>
+      <param name="widths">テキスト文字列の幅配列。</param>
+      <param name="fss">テキスト描画のフォントサブセット。</param>
+      <param name="fontSize">テキスト描画のフォントサイズ。</param>
+      <param name="brush">テキスト描画の色を決定するオブジェクト。</param>
+      <param name="pt">テキスト描画の開始点。</param>
+      <param name="matrix">テキスト描画の変換マトリックス。</param>
+      <param name="widthCoeff">文字に適用される幅係数。デフォルトは 1.0 です。たとえば、横倍角の場合は 2.0 を使用します。</param>
+      <param name="vertical">テキスト描画の垂直フラグ。CJK テキストでよく使用されます。</param>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.DrawMetafile(System.Drawing.Imaging.Metafile,System.Drawing.RectangleF,System.Drawing.RectangleF,System.Boolean,System.Drawing.GraphicsUnit)">
+      <summary>メタファイルを描画します。</summary>
+      <param name="meta">描画するメタファイルオブジェクト。</param>
+      <param name="rcImage">
+        描画画像の位置をページの左上隅からのポイント数で指定する
+        <see cref="T:System.Drawing.RectangleF" />構造体。
+      </param>
+      <param name="rcClip">
+        ページ内のクリッピング四角形を指定する
+        <see cref="T:System.Drawing.RectangleF" />構造体。このクリッピング四角形の外に画像の一部が描画されることはありません。
+      </param>
+      <param name="clipAllStrings">すべての文字列をクリップするかどうか。</param>
+      <param name="unit">特定のデータの測定単位。</param>
+    </member>
+    <member name="T:C1.Util.CodeRange">
+      <summary>文字コードの範囲を表します。</summary>
+    </member>
+    <member name="M:C1.Util.CodeRange.#ctor(System.Char)">
+      <summary>文字コードの範囲の初期化。</summary>
+      <param name="ch">追加文字。</param>
+    </member>
+    <member name="M:C1.Util.CodeRange.#ctor(System.Char,System.Char)">
+      <summary>文字コードの範囲の初期化。</summary>
+      <param name="first">最初の文字コード。</param>
+      <param name="last">最後の文字コード。</param>
+    </member>
+    <member name="M:C1.Util.CodeRange.Clone">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Util.CodeRange.Contains(C1.Util.CodeRange)">
+      <summary></summary>
+      <param name="cr"></param>
+      <returns></returns>
+    </member>
+    <member name="P:C1.Util.CodeRange.First">
+      <summary>文字の開始コード。</summary>
+    </member>
+    <member name="P:C1.Util.CodeRange.Last">
+      <summary>文字の終了コード。</summary>
+    </member>
+    <member name="T:C1.Util.CodeRanges">
+      <summary>
+        一意の
+        <see cref="T:C1.Util.CodeRange" />オブジェクトのコレクションを表します。 コレクション内のすべての CodeRange オブジェクトは重ならず、First フィールドに 基づいてソートされています。
+      </summary>
+    </member>
+    <member name="M:C1.Util.CodeRanges.AddNoCheck(C1.Util.CodeRange)">
+      <summary>
+        現在のオブジェクトに
+        <see cref="T:C1.Util.CodeRange" />オブジェクトをチェックなしで追加します。通常はデシリアライズ中に使用されます。
+      </summary>
+      <param name="cr">
+        追加する
+        <see cref="T:C1.Util.CodeRange" />。
+      </param>
+    </member>
+    <member name="M:C1.Util.CodeRanges.GetGlyphs">
+      <summary>このコード範囲のリストに含まれる文字の配列を取得します。</summary>
+      <returns>文字の配列。</returns>
+    </member>
+    <member name="M:C1.Util.CodeRanges.ContainsAllChars">
+      <summary>
+        この
+        <see cref="T:C1.Util.CodeRanges" />に 0x0000 ～ 0xFFFF のすべての文字が 含まれるかどうかを示す値を取得します。
+      </summary>
+      <returns></returns>
+    </member>
+    <member name="T:C1.Util.FontKey">
+      <summary>C1Preview の次のフォント処理アルゴリズムに 使用される一意のフォント識別子： - フォント置換 - フォント埋め込み</summary>
+    </member>
+    <member name="T:C1.Util.GlyphMetrics">
+      <summary>フォントサブセットのグリフメトリック。</summary>
+    </member>
+    <member name="P:C1.Util.GlyphMetrics.Char">
+      <summary>メトリックの文字を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Util.GlyphMetrics.Index">
+      <summary>グリフインデックスを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Util.GlyphMetrics.Width">
+      <summary>グリフ幅を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Util.GlyphMetrics.IsEmpty">
+      <summary>この構造体の空フラグを取得します。</summary>
+    </member>
+    <member name="P:C1.Util.GlyphMetrics.Empty">
+      <summary>空のグリフメトリックを取得します。</summary>
+    </member>
+    <member name="T:C1.Util.FontSubSet">
+      <summary>ビルドサブセットのフォントオブジェクト。</summary>
+    </member>
+    <member name="M:C1.Util.FontSubSet.Init">
+      <summary>初期化フィールド。</summary>
+    </member>
+    <member name="M:C1.Util.FontSubSet.GetFontTableStream(System.String)">
+      <summary>名前に基づいてフォントテーブルブロックのストリームを取得します。</summary>
+      <param name="name">フォントテーブルブロックの名前。</param>
+      <returns>
+        フォントテーブルストリームを返します。そうでない場合は
+        <b>null</b>。
+      </returns>
+    </member>
+    <member name="M:C1.Util.FontSubSet.IsCharSupported(System.Char)">
+      <summary>現在のフォントに、指定されたコードを持つ文字のグリフが入っている場合は true を返します。</summary>
+      <param name="ch"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Util.FontSubSet.GetGlyphWidth(System.Int32)">
+      <summary>フォントデータからグリフインデックスの幅を取得します。</summary>
+      <param name="glyph">グリフインデックス。</param>
+      <returns>グリフインデックスの幅を取得します。</returns>
+    </member>
+    <member name="M:C1.Util.FontSubSet.GetMetrics(System.Char,System.Boolean)">
+      <summary>文字のグリフインデックスとメトリックを取得し、 整数配列 {glyph index, width} を返します。</summary>
+      <param name="ch">文字のコード（Unicode）。</param>
+      <param name="vertical">垂直マッピングフラグ。</param>
+      <returns>グリフインデックスとグリフ幅から成る整数配列を取得します。</returns>
+    </member>
+    <member name="M:C1.Util.FontSubSet.GetCountMetrics(System.String)">
+      <summary>
+        このフォント内に対応するグリフを持つ
+        <paramref name="text" />内の 文字数をカウントします。
+      </summary>
+      <param name="text"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Util.FontSubSet.IsSupportAllSymbols(System.String)">
+      <summary>現在の FontSubSetBase オブジェクトが、指定された文字列内の 制御文字（char.IsControl() == true である文字）を除くすべての文字を表示できる場合は true を返します。</summary>
+      <param name="text"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Util.FontSubSet.GetCharForGlyph(System.Int32)">
+      <summary>グリフインデックスに対応する文字を取得します。</summary>
+      <param name="glyphIndex">グリフインデックス。</param>
+      <returns>グリフインデックスに対応する文字を返します。</returns>
+    </member>
+    <member name="M:C1.Util.FontSubSet.GetFontDifference(System.String,C1.Util.FontSubSet,System.Int32@,System.Int32@)">
+      <summary>fss によって表示可能な文字の「PANOSE インデックス」（panoseIndex）と個数を計算します。 panoseIndex は、現在の FontSubSetBase オブジェクトと fss オブジェクトの差を表します。 最小値は最小差を定義します。つまり、0 は現在の FontSubSetBase オブジェクトと fss がほぼ同じであることを意味します。 -1 は、fss を現在のオブジェクトの代わりに使用して text を表示することはできないことを意味します。</summary>
+      <param name="text"></param>
+      <param name="fss"></param>
+      <param name="panoseIndex"></param>
+      <param name="supportedGlyphCount"></param>
+    </member>
+    <member name="M:C1.Util.FontSubSet.GetAlternativeFont(System.String,System.Collections.Generic.IEnumerable{C1.Util.FontSubSet})">
+      <summary>フォントサブセット配列からテキストに最適な代替フォントを検索します。</summary>
+      <param name="text">置換するテキスト。</param>
+      <param name="substitutions">フォントサブセットリスト。</param>
+      <returns>最適な代替フォント（フォントサブセット）のインデックス。</returns>
+    </member>
+    <member name="P:C1.Util.FontSubSet.FontName">
+      <summary>FontSubSetBase オブジェクトが要求されたときに指定された「元の」フォント名を取得します。</summary>
+    </member>
+    <member name="P:C1.Util.FontSubSet.FontStyle">
+      <summary>FontSubSetBase オブジェクトが要求されたときに指定された「元の」フォントスタイルを取得します。</summary>
+    </member>
+    <member name="P:C1.Util.FontSubSet.FontBold">
+      <summary>FontSubSetBase オブジェクトが要求されたときに指定された「元の」Font.Bold を取得します。</summary>
+    </member>
+    <member name="P:C1.Util.FontSubSet.FontItalic">
+      <summary>FontSubSetBase オブジェクトが要求されたときに指定された「元の」Font.Italic を取得します。</summary>
+    </member>
+    <member name="P:C1.Util.FontSubSet.FontFileName">
+      <summary>
+        フォントのデータから読み取られたフォント名を取得します。
+        <see cref="P:C1.Util.FontSubSet.FontFamilyName" />も参照してください。
+      </summary>
+    </member>
+    <member name="P:C1.Util.FontSubSet.FontFamilyName">
+      <summary>フォントのデータから読み取られたフォントファミリ名を取得します。このプロパティは GDI フォントと GDI+ フォントの作成に使用されます。</summary>
+    </member>
+    <member name="P:C1.Util.FontSubSet.BaseFont2Name">
+      <summary>フォントのデータから読み取られた基本フォント名を取得します。このプロパティは PDF フォントの作成に使用されます。</summary>
+    </member>
+    <member name="P:C1.Util.FontSubSet.FamilyClass">
+      <summary>ファミリクラスを取得します。</summary>
+    </member>
+    <member name="P:C1.Util.FontSubSet.FontKey">
+      <summary>フォントキー（フォント識別子）を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Util.FontSubSet.CoreFontBold">
+      <summary>フォントのデータから読み取られた Font.Bold を取得します。</summary>
+    </member>
+    <member name="P:C1.Util.FontSubSet.CoreFontItalic">
+      <summary>フォントのデータから読み取られた Font.Italic を取得します。</summary>
+    </member>
+    <member name="P:C1.Util.FontSubSet.IsInvalid">
+      <summary>
+        この
+        <see cref="T:C1.Util.FontSubSet" />オブジェクトが無効で（フォントのデータ取得中にエラーが発生します）、 使用できないことを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="M:C1.Util.FontSubSet.GetFontSubSet(System.Drawing.Font)">
+      <summary>
+        フォント名とスタイルを使用して
+        <see cref="T:C1.Util.FontSubSet" />オブジェクトを作成します。
+      </summary>
+      <param name="font">フォントオブジェクト。</param>
+      <returns>
+        <see cref="T:C1.Util.FontSubSet" />オブジェクト。
+      </returns>
+    </member>
+    <member name="M:C1.Util.FontSubSet.GetFontSubSet(System.String,System.Boolean,System.Boolean)">
+      <summary>
+        フォント名とスタイルを使用して
+        <see cref="T:C1.Util.FontSubSet" />オブジェクトを作成します。
+      </summary>
+      <param name="fontName">フォント名。</param>
+      <param name="bold">フォントの太字フラグ。</param>
+      <param name="italic">フォントの斜体フラグ。</param>
+      <returns>
+        <see cref="T:C1.Util.FontSubSet" />オブジェクト。
+      </returns>
+    </member>
+    <member name="M:C1.Util.FontSubSet.GetFontSubSet(C1.Util.FontKey)">
+      <summary>
+        フォント名とスタイルを使用して
+        <see cref="T:C1.Util.FontSubSet" />オブジェクトを作成します。
+      </summary>
+      <param name="fk">フォントキーオブジェクト。</param>
+      <returns>
+        <see cref="T:C1.Util.FontSubSet" />オブジェクト。
+      </returns>
+    </member>
+    <member name="M:C1.Util.FontSubSet.SetFontSubSet(C1.Util.FontSubSet)">
+      <summary>
+        既存の
+        <see cref="T:C1.Util.FontSubSet" />オブジェクトをキャッシュするように設定します。
+      </summary>
+      <param name="fss">
+        既存の
+        <see cref="T:C1.Util.FontSubSet" />オブジェクト。
+      </param>
+    </member>
+    <member name="M:C1.Util.FontSubSet.SetFontSubSet(C1.Util.FontKey,C1.Util.FontSubSet)">
+      <summary>
+        既存の
+        <see cref="T:C1.Util.FontSubSet" />オブジェクトをキャッシュするように設定します。
+      </summary>
+      <param name="fk">
+        既存の
+        <see cref="P:C1.Util.FontSubSet.FontKey" />オブジェクト。
+      </param>
+      <param name="fss">
+        既存の
+        <see cref="T:C1.Util.FontSubSet" />オブジェクト。
+      </param>
+    </member>
+    <member name="T:C1.Util.FontSubSet.BigEndianBinaryReader">
+      <summary>TTF ファイルはビッグエンディアン形式で保存されます。 特別なリーダー／ライタが必要です。</summary>
+    </member>
+    <member name="T:C1.Util.FontBuilder">
+      <summary>フォントサブセットビルダ。</summary>
+    </member>
+    <member name="M:C1.Util.FontBuilder.GetFontData(C1.Util.FontSubSet,C1.Util.CodeRange,System.Boolean)">
+      <summary></summary>
+      <param name="fss"></param>
+      <param name="codeRange"></param>
+      <param name="includeCMap"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Util.CodeRanges.Add(System.Char[])">
+      <summary></summary>
+      <param name="chars"></param>
+    </member>
+    <member name="M:C1.Util.CodeRanges.Add(System.String)">
+      <summary></summary>
+      <param name="s"></param>
+    </member>
+    <member name="M:C1.Util.CodeRanges.Add(System.Char)">
+      <summary></summary>
+      <param name="c"></param>
+    </member>
+    <member name="M:C1.Util.CodeRanges.Add(C1.Util.CodeRange)">
+      <summary></summary>
+      <param name="cr"></param>
+    </member>
+    <member name="M:C1.Util.CodeRanges.Add(System.Char,System.Char)">
+      <summary></summary>
+      <param name="first"></param>
+      <param name="last"></param>
+    </member>
+    <member name="M:C1.Util.CodeRanges.Add(System.Collections.Generic.IEnumerable{C1.Util.CodeRange})">
+      <summary></summary>
+      <param name="crs"></param>
+    </member>
+    <member name="M:C1.Util.CodeRanges.Clone">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Util.CodeRanges.AssignFrom(C1.Util.CodeRanges)">
+      <summary></summary>
+      <param name="source"></param>
+    </member>
+    <member name="F:C1.Util.FontKey.c_flgBold">
+      <summary>Bold constant.</summary>
+    </member>
+    <member name="F:C1.Util.FontKey.c_flgItalic">
+      <summary>Italic constant.</summary>
+    </member>
+    <member name="M:C1.Util.FontKey.#ctor(System.String,System.Byte)">
+      <summary></summary>
+      <param name="name"></param>
+      <param name="flags"></param>
+    </member>
+    <member name="M:C1.Util.FontKey.#ctor(System.String,System.Boolean,System.Boolean)">
+      <summary></summary>
+      <param name="name"></param>
+      <param name="bold"></param>
+      <param name="italic"></param>
+    </member>
+    <member name="M:C1.Util.FontKey.GetHashCode">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Util.FontKey.Equals(System.Object)">
+      <summary></summary>
+      <param name="obj"></param>
+      <returns></returns>
+    </member>
+    <member name="P:C1.Util.FontKey.Name">
+      <summary>フォントの名前を取得します。</summary>
+    </member>
+    <member name="P:C1.Util.FontKey.Flags">
+      <summary>フォントのフラグを取得します。</summary>
+    </member>
+    <member name="P:C1.Util.FontKey.Bold">
+      <summary>フォントの太字フラグを取得します。</summary>
+    </member>
+    <member name="P:C1.Util.FontKey.Italic">
+      <summary>フォントの斜体フラグを取得します。</summary>
+    </member>
+    <member name="P:C1.Util.FontKey.Style">
+      <summary>フォントのスタイルを取得します。</summary>
+    </member>
+    <member name="M:C1.Util.FontKey.op_Equality(C1.Util.FontKey,C1.Util.FontKey)">
+      <summary></summary>
+      <param name="v1"></param>
+      <param name="v2"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Util.FontKey.op_Inequality(C1.Util.FontKey,C1.Util.FontKey)">
+      <summary></summary>
+      <param name="v1"></param>
+      <param name="v2"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Util.FontSubSet.#ctor">
+      <summary></summary>
+    </member>
+    <member name="M:C1.Util.FontSubSet.#ctor(C1.Util.FontKey)">
+      <summary></summary>
+      <param name="fontKey"></param>
+    </member>
+    <member name="M:C1.Util.FontSubSet.ReadCMap">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Util.FontSubSet.GetTableCode(System.String)">
+      <summary></summary>
+      <param name="tableName"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Util.FontSubSet.GetPanoseIndex(C1.Util.FontSubSet)">
+      <summary></summary>
+      <param name="fss"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Util.FontSubSet.GetDiffPanoseIndex(C1.Util.FontSubSet)">
+      <summary>差異 PANOSE インデックスを計算します。</summary>
+      <param name="fss"></param>
+      <returns></returns>
+    </member>
+    <member name="P:C1.Util.FontSubSet.CanEmbed">
+      <summary>このフォントをフォントデータとして埋め込むことができることを示すフラグを取得します。</summary>
+    </member>
+    <member name="P:C1.Util.FontSubSet.MustRestrict">
+      <summary>このフォントをフォントデータとして埋め込むことができることを示すフラグを取得します。</summary>
+    </member>
+    <member name="P:C1.Util.FontSubSet.MustObfuscate">
+      <summary>このフォントを難読化する必要があることを示すフラグを取得します。</summary>
+    </member>
+    <member name="P:C1.Util.FontSubSet.CanSubset">
+      <summary>このフォントをフォントデータのサブセットとして使用できることを示すフラグを取得します。</summary>
+    </member>
+    <member name="P:C1.Util.FontSubSet.IsFontSpecific">
+      <summary></summary>
+    </member>
+    <member name="P:C1.Util.FontSubSet.LocaShortTable">
+      <summary></summary>
+    </member>
+    <member name="P:C1.Util.FontSubSet.NumberOfMetrics">
+      <summary></summary>
+    </member>
+    <member name="P:C1.Util.FontSubSet.Panose">
+      <summary></summary>
+    </member>
+    <member name="P:C1.Util.FontSubSet.ItalicAngle">
+      <summary></summary>
+    </member>
+    <member name="P:C1.Util.FontSubSet.FirstChar">
+      <summary></summary>
+    </member>
+    <member name="P:C1.Util.FontSubSet.LastChar">
+      <summary></summary>
+    </member>
+    <member name="P:C1.Util.FontSubSet.Ascent">
+      <summary></summary>
+    </member>
+    <member name="P:C1.Util.FontSubSet.Descent">
+      <summary></summary>
+    </member>
+    <member name="P:C1.Util.FontSubSet.Height">
+      <summary></summary>
+    </member>
+    <member name="P:C1.Util.FontSubSet.ExternalLeading">
+      <summary></summary>
+    </member>
+    <member name="P:C1.Util.FontSubSet.InternalLeading">
+      <summary></summary>
+    </member>
+    <member name="M:C1.Util.FontSubSet.BigEndianBinaryReader.#ctor(System.IO.Stream)">
+      <summary></summary>
+      <param name="stream"></param>
+    </member>
+    <member name="M:C1.Util.FontSubSet.BigEndianBinaryReader.#ctor(System.IO.Stream,System.Boolean)">
+      <summary></summary>
+      <param name="stream"></param>
+      <param name="leaveOpen"></param>
+    </member>
+    <member name="M:C1.Util.FontSubSet.BigEndianBinaryReader.Dispose(System.Boolean)">
+      <summary></summary>
+      <param name="disposing"></param>
+    </member>
+    <member name="M:C1.Util.FontSubSet.BigEndianBinaryReader.ReadInt16">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Util.FontSubSet.BigEndianBinaryReader.ReadInt32">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Util.FontSubSet.BigEndianBinaryReader.ReadInt64">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Util.FontSubSet.BigEndianBinaryReader.ReadUInt16">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Util.FontSubSet.BigEndianBinaryReader.ReadUInt32">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Util.FontSubSet.BigEndianBinaryReader.ReadUInt64">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Util.FontSubSet.BigEndianBinaryReader.ReadChar">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Util.FontSubSet.BigEndianBinaryReader.ReadChars(System.Int32)">
+      <summary></summary>
+      <param name="count"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Util.FontSubSet.BigEndianBinaryReader.ReadSingle">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Util.FontSubSet.BigEndianBinaryReader.ReadDouble">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="T:C1.Util.FontSubSet.BigEndianBinaryWriter">
+      <summary>ビッグエンディアンバイナリライタ。</summary>
+    </member>
+    <member name="M:C1.Util.FontSubSet.BigEndianBinaryWriter.#ctor(System.IO.Stream)">
+      <summary></summary>
+      <param name="stream"></param>
+    </member>
+    <member name="M:C1.Util.FontSubSet.BigEndianBinaryWriter.#ctor(System.IO.Stream,System.Text.Encoding)">
+      <summary></summary>
+      <param name="stream"></param>
+      <param name="encoding"></param>
+    </member>
+    <member name="M:C1.Util.FontSubSet.BigEndianBinaryWriter.Write(System.Int16)">
+      <summary></summary>
+      <param name="value"></param>
+    </member>
+    <member name="M:C1.Util.FontSubSet.BigEndianBinaryWriter.Write(System.Int32)">
+      <summary></summary>
+      <param name="value"></param>
+    </member>
+    <member name="M:C1.Util.FontSubSet.BigEndianBinaryWriter.Write(System.Int64)">
+      <summary></summary>
+      <param name="value"></param>
+    </member>
+    <member name="M:C1.Util.FontSubSet.BigEndianBinaryWriter.Write(System.String)">
+      <summary></summary>
+      <param name="value"></param>
+    </member>
+    <member name="F:C1.Util.FontBuilder.s_tableNamesSimple">
+      <summary>フォントの名前の単純テーブル。</summary>
+    </member>
+    <member name="F:C1.Util.FontBuilder.s_tableNamesCMap">
+      <summary>フォントの名前の CMAP テーブル。</summary>
+    </member>
+    <member name="M:C1.Util.FontBuilder.NewLocaGlyphTables">
+      <summary></summary>
+    </member>
+    <member name="M:C1.Util.FontBuilder.GetFontData(C1.Util.FontSubSet,C1.Util.CodeRanges,System.Boolean)">
+      <summary></summary>
+      <param name="fss"></param>
+      <param name="codeRanges"></param>
+      <param name="includeCMap"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Util.FontBuilder.GetFontData(C1.Util.FontSubSet,System.Collections.Generic.IEnumerable{C1.Util.GlyphMetrics},System.Boolean)">
+      <summary></summary>
+      <param name="fss"></param>
+      <param name="metrics"></param>
+      <param name="includeCMap"></param>
+      <returns></returns>
+    </member>
+    <member name="P:C1.Util.FontBuilder.FullCodeRange">
+      <summary>このフォントのコード範囲全体を取得します。</summary>
+    </member>
+    <member name="M:C1.C1Pdf.C1PdfDocument.SetTransform(System.Drawing.Drawing2D.Matrix)">
+      <summary>PDF 変換を設定します（行列の書き込み）。</summary>
+      <param name="matrix">単位行列ではない変換行列。</param>
+    </member>
+  </members>
+</doc>

@@ -1,0 +1,5 @@
+C:\GitHub\infomage\BidEntryManageTool\BidEntryManageTool\obj\Debug\BidEntryManageTool.vbprojResolveAssemblyReference.cache
+C:\GitHub\infomage\BidEntryManageTool\BidEntryManageTool\obj\Debug\BidEntryManageTool.Resources.resources
+C:\GitHub\infomage\BidEntryManageTool\BidEntryManageTool\obj\Debug\BidEntryManageTool.frmTempForm.resources
+C:\GitHub\infomage\BidEntryManageTool\BidEntryManageTool\obj\Debug\BidEntryManageTool.vbproj.GenerateResource.Cache
+C:\GitHub\infomage\BidEntryManageTool\BidEntryManageTool\obj\Debug\BidEntryManageTool.exe.licenses

@@ -141,7 +141,4 @@
   <data name="C1FGridOutput.ColumnInfo" xml:space="preserve">
     <value>5,1,0,0,0,155,Columns:0{Width:50;Name:"種別";Caption:"種別";Style:"DataType:System.String;TextAlign:LeftCenter;";}	1{Name:"フラグ";Caption:"フラグ名";Style:"DataType:System.String;TextAlign:LeftCenter;";}	2{Name:"フラグ数";Caption:"フラグ数";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";}	3{Name:"確認数";Caption:"確認数";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";}	4{Name:"残数";Caption:"残数";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";}	</value>
   </data>
-  <metadata name="C1XLBook1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
 </root>
