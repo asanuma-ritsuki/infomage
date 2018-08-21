@@ -403,8 +403,10 @@ Module ExcelProcess
 								sheet(iHead + 1, 8).Value = iBMI
 								sheet(iHead + 1, 9).Value = iBMI * 2
 								'BMI件数、枚数をリーフ件、枚から減算してセットする
-								sheet(iHead + 1, 6).Value = CInt(dt.Rows(iRow)("リーフ件")) - iBMI
-								sheet(iHead + 1, 7).Value = CInt(dt.Rows(iRow)("リーフ枚")) - iBMI * 2
+								'2018/08/21
+								'減算せずにトータルをセットするように変更
+								sheet(iHead + 1, 6).Value = CInt(dt.Rows(iRow)("リーフ件"))
+								sheet(iHead + 1, 7).Value = CInt(dt.Rows(iRow)("リーフ枚"))
 								blnData = True
 								Exit For
 							End If

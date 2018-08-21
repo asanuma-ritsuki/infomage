@@ -15,8 +15,8 @@
   <SizeManageY>0</SizeManageY>
   <StateManage>0</StateManage>
   <ApplicationName>JP健診 就業判定票発送業務支援ツール</ApplicationName>
-  <CheckupLocationX>0</CheckupLocationX>
-  <CheckupLocationY>0</CheckupLocationY>
+  <CheckupLocationX>977</CheckupLocationX>
+  <CheckupLocationY>160</CheckupLocationY>
   <CheckupSizeX>1500</CheckupSizeX>
   <CheckupSizeY>850</CheckupSizeY>
   <CheckupState>0</CheckupState>

@@ -2159,8 +2159,12 @@ Public Class frmImport
 			strSQL &= "SUM(CASE WHEN T1.帳票種別ID = 2 THEN 1 ELSE 0 END) AS 対象者, "
 			strSQL &= "SUM(CASE WHEN T1.帳票種別ID = 3 THEN 1 ELSE 0 END) AS 保健指導, "
 			strSQL &= "SUM(CASE WHEN T1.帳票種別ID = 4 THEN 1 ELSE 0 END) AS 判定票, "
-			strSQL &= "SUM(CASE WHEN T1.帳票種別ID = 5 AND T1.枚数 < 6 THEN 1 ELSE 0 END) AS リーフ件, "
-			strSQL &= "SUM(CASE WHEN T1.帳票種別ID = 5 AND T1.枚数 < 6 THEN T1.枚数 ELSE 0 END) AS リーフ枚, "
+			'2018/08/15
+			'リーフ件、リーフ枚は6枚未満だけではなく全てのリーフ数を出力するように変更
+			'strSQL &= "SUM(CASE WHEN T1.帳票種別ID = 5 AND T1.枚数 < 6 THEN 1 ELSE 0 END) AS リーフ件, "
+			'strSQL &= "SUM(CASE WHEN T1.帳票種別ID = 5 AND T1.枚数 < 6 THEN T1.枚数 ELSE 0 END) AS リーフ枚, "
+			strSQL &= "SUM(CASE WHEN T1.帳票種別ID = 5 THEN 1 ELSE 0 END) AS リーフ件, "
+			strSQL &= "SUM(CASE WHEN T1.帳票種別ID = 5 THEN T1.枚数 ELSE 0 END) AS リーフ枚, "
 			'2018/08/02
 			'T1.枚数 = 6ではなく6以上に変更、リーフ6枚の追加
 			'strSQL &= "SUM(CASE WHEN T1.枚数 = 6 THEN 1 ELSE 0 END) AS リーフ6件, "

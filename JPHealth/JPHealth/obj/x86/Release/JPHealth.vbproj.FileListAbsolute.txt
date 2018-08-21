@@ -79,3 +79,5 @@ C:\GitHub\infomage\JPHealth\JPHealth\obj\x86\Release\JPHealth.exe
 C:\GitHub\infomage\JPHealth\JPHealth\bin\Release\C1.Win.C1FlexGrid.ImportExport.4.dll
 C:\GitHub\infomage\JPHealth\JPHealth\bin\Release\C1.Win.C1FlexGrid.ImportExport.4.xml
 C:\GitHub\infomage\JPHealth\JPHealth\obj\x86\Release\JPHealth.frmPrintPreview.resources
+C:\GitHub\infomage\JPHealth\JPHealth\obj\x86\Release\JPHealth.vbproj.CoreCompileInputs.cache
+C:\GitHub\infomage\JPHealth\JPHealth\obj\x86\Release\JPHealth.vbproj.CopyComplete

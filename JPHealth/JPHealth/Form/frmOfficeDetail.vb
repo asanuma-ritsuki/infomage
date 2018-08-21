@@ -601,6 +601,13 @@
 
 	End Sub
 
+	Private Sub C1FGridResult_DoubleClick(sender As Object, e As EventArgs) Handles C1FGridResult.DoubleClick
+
+		Dim f As New frmPrintPreview
+		f.ShowDialog(Me)
+
+	End Sub
+
 #End Region
 
 End Class

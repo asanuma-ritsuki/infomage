@@ -192,7 +192,7 @@ Partial Class frmOfficeDetail
 		Me.Panel1.Controls.Add(Me.btnAllSelect)
 		Me.Panel1.Controls.Add(Me.btnClose)
 		Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-		Me.Panel1.Location = New System.Drawing.Point(0, 556)
+		Me.Panel1.Location = New System.Drawing.Point(0, 555)
 		Me.Panel1.Name = "Panel1"
 		Me.Panel1.Size = New System.Drawing.Size(664, 33)
 		Me.Panel1.TabIndex = 2
@@ -240,7 +240,7 @@ Partial Class frmOfficeDetail
 		Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.GroupBox2.Location = New System.Drawing.Point(0, 121)
 		Me.GroupBox2.Name = "GroupBox2"
-		Me.GroupBox2.Size = New System.Drawing.Size(664, 435)
+		Me.GroupBox2.Size = New System.Drawing.Size(664, 434)
 		Me.GroupBox2.TabIndex = 3
 		Me.GroupBox2.TabStop = False
 		Me.GroupBox2.Text = "帳票情報"
@@ -263,7 +263,7 @@ Partial Class frmOfficeDetail
 		Me.C1FGridResult.Rows.DefaultSize = 20
 		Me.C1FGridResult.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.ListBox
 		Me.C1FGridResult.ShowCellLabels = True
-		Me.C1FGridResult.Size = New System.Drawing.Size(658, 412)
+		Me.C1FGridResult.Size = New System.Drawing.Size(658, 411)
 		Me.C1FGridResult.TabIndex = 4
 		Me.C1FGridResult.VisualStyle = C1.Win.C1FlexGrid.VisualStyle.System
 		'

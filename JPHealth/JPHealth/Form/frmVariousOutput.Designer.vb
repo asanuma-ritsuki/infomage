@@ -26,25 +26,25 @@ Partial Class frmVariousOutput
 		Me.Panel1 = New System.Windows.Forms.Panel()
 		Me.btnClose = New System.Windows.Forms.Button()
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-		Me.cmbLotID = New System.Windows.Forms.ComboBox()
+		Me.txtLeafletCount = New System.Windows.Forms.TextBox()
+		Me.txtCheckupCount = New System.Windows.Forms.TextBox()
+		Me.Label3 = New System.Windows.Forms.Label()
+		Me.Label2 = New System.Windows.Forms.Label()
 		Me.Label1 = New System.Windows.Forms.Label()
+		Me.cmbLotID = New System.Windows.Forms.ComboBox()
 		Me.C1FGridNumber = New C1.Win.C1FlexGrid.C1FlexGrid()
 		Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-		Me.Label2 = New System.Windows.Forms.Label()
-		Me.Label3 = New System.Windows.Forms.Label()
-		Me.txtCheckupCount = New System.Windows.Forms.TextBox()
-		Me.txtLeafletCount = New System.Windows.Forms.TextBox()
 		Me.GroupBox3 = New System.Windows.Forms.GroupBox()
 		Me.C1FGridOffice = New C1.Win.C1FlexGrid.C1FlexGrid()
 		Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+		Me.btnPostponement = New System.Windows.Forms.Button()
+		Me.btnTarget = New System.Windows.Forms.Button()
+		Me.btnOffice = New System.Windows.Forms.Button()
+		Me.btnCheck = New System.Windows.Forms.Button()
+		Me.btnInadequacy = New System.Windows.Forms.Button()
 		Me.btnPDFPathBrowse = New System.Windows.Forms.Button()
 		Me.txtOutputFolder = New System.Windows.Forms.TextBox()
 		Me.Label15 = New System.Windows.Forms.Label()
-		Me.btnInadequacy = New System.Windows.Forms.Button()
-		Me.btnCheck = New System.Windows.Forms.Button()
-		Me.btnOffice = New System.Windows.Forms.Button()
-		Me.btnTarget = New System.Windows.Forms.Button()
-		Me.btnPostponement = New System.Windows.Forms.Button()
 		Me.Panel1.SuspendLayout()
 		Me.GroupBox1.SuspendLayout()
 		CType(Me.C1FGridNumber, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -58,7 +58,7 @@ Partial Class frmVariousOutput
 		'
 		Me.Panel1.Controls.Add(Me.btnClose)
 		Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-		Me.Panel1.Location = New System.Drawing.Point(0, 696)
+		Me.Panel1.Location = New System.Drawing.Point(0, 673)
 		Me.Panel1.Name = "Panel1"
 		Me.Panel1.Size = New System.Drawing.Size(1008, 33)
 		Me.Panel1.TabIndex = 2
@@ -88,13 +88,37 @@ Partial Class frmVariousOutput
 		Me.GroupBox1.TabStop = False
 		Me.GroupBox1.Text = "ロット情報"
 		'
-		'cmbLotID
+		'txtLeafletCount
 		'
-		Me.cmbLotID.FormattingEnabled = True
-		Me.cmbLotID.Location = New System.Drawing.Point(116, 23)
-		Me.cmbLotID.Name = "cmbLotID"
-		Me.cmbLotID.Size = New System.Drawing.Size(175, 25)
-		Me.cmbLotID.TabIndex = 0
+		Me.txtLeafletCount.Location = New System.Drawing.Point(605, 23)
+		Me.txtLeafletCount.Name = "txtLeafletCount"
+		Me.txtLeafletCount.Size = New System.Drawing.Size(100, 24)
+		Me.txtLeafletCount.TabIndex = 5
+		'
+		'txtCheckupCount
+		'
+		Me.txtCheckupCount.Location = New System.Drawing.Point(398, 24)
+		Me.txtCheckupCount.Name = "txtCheckupCount"
+		Me.txtCheckupCount.Size = New System.Drawing.Size(100, 24)
+		Me.txtCheckupCount.TabIndex = 4
+		'
+		'Label3
+		'
+		Me.Label3.Location = New System.Drawing.Point(504, 24)
+		Me.Label3.Name = "Label3"
+		Me.Label3.Size = New System.Drawing.Size(95, 24)
+		Me.Label3.TabIndex = 3
+		Me.Label3.Text = "リーフレット："
+		Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		'
+		'Label2
+		'
+		Me.Label2.Location = New System.Drawing.Point(297, 24)
+		Me.Label2.Name = "Label2"
+		Me.Label2.Size = New System.Drawing.Size(95, 24)
+		Me.Label2.TabIndex = 2
+		Me.Label2.Text = "判定票："
+		Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
 		'
 		'Label1
 		'
@@ -104,6 +128,14 @@ Partial Class frmVariousOutput
 		Me.Label1.TabIndex = 1
 		Me.Label1.Text = "インポート日時："
 		Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		'
+		'cmbLotID
+		'
+		Me.cmbLotID.FormattingEnabled = True
+		Me.cmbLotID.Location = New System.Drawing.Point(116, 23)
+		Me.cmbLotID.Name = "cmbLotID"
+		Me.cmbLotID.Size = New System.Drawing.Size(175, 25)
+		Me.cmbLotID.TabIndex = 0
 		'
 		'C1FGridNumber
 		'
@@ -136,38 +168,6 @@ Partial Class frmVariousOutput
 		Me.GroupBox2.TabIndex = 4
 		Me.GroupBox2.TabStop = False
 		Me.GroupBox2.Text = "発送通数情報"
-		'
-		'Label2
-		'
-		Me.Label2.Location = New System.Drawing.Point(297, 24)
-		Me.Label2.Name = "Label2"
-		Me.Label2.Size = New System.Drawing.Size(95, 24)
-		Me.Label2.TabIndex = 2
-		Me.Label2.Text = "判定票："
-		Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-		'
-		'Label3
-		'
-		Me.Label3.Location = New System.Drawing.Point(504, 24)
-		Me.Label3.Name = "Label3"
-		Me.Label3.Size = New System.Drawing.Size(95, 24)
-		Me.Label3.TabIndex = 3
-		Me.Label3.Text = "リーフレット："
-		Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-		'
-		'txtCheckupCount
-		'
-		Me.txtCheckupCount.Location = New System.Drawing.Point(398, 24)
-		Me.txtCheckupCount.Name = "txtCheckupCount"
-		Me.txtCheckupCount.Size = New System.Drawing.Size(100, 24)
-		Me.txtCheckupCount.TabIndex = 4
-		'
-		'txtLeafletCount
-		'
-		Me.txtLeafletCount.Location = New System.Drawing.Point(605, 23)
-		Me.txtLeafletCount.Name = "txtLeafletCount"
-		Me.txtLeafletCount.Size = New System.Drawing.Size(100, 24)
-		Me.txtLeafletCount.TabIndex = 5
 		'
 		'GroupBox3
 		'
@@ -218,6 +218,51 @@ Partial Class frmVariousOutput
 		Me.GroupBox4.TabStop = False
 		Me.GroupBox4.Text = "出力設定"
 		'
+		'btnPostponement
+		'
+		Me.btnPostponement.Location = New System.Drawing.Point(509, 53)
+		Me.btnPostponement.Name = "btnPostponement"
+		Me.btnPostponement.Size = New System.Drawing.Size(75, 25)
+		Me.btnPostponement.TabIndex = 52
+		Me.btnPostponement.Text = "後納票"
+		Me.btnPostponement.UseVisualStyleBackColor = True
+		'
+		'btnTarget
+		'
+		Me.btnTarget.Location = New System.Drawing.Point(403, 53)
+		Me.btnTarget.Name = "btnTarget"
+		Me.btnTarget.Size = New System.Drawing.Size(100, 25)
+		Me.btnTarget.TabIndex = 51
+		Me.btnTarget.Text = "対象者一覧"
+		Me.btnTarget.UseVisualStyleBackColor = True
+		'
+		'btnOffice
+		'
+		Me.btnOffice.Location = New System.Drawing.Point(297, 53)
+		Me.btnOffice.Name = "btnOffice"
+		Me.btnOffice.Size = New System.Drawing.Size(100, 25)
+		Me.btnOffice.TabIndex = 50
+		Me.btnOffice.Text = "事業所一覧"
+		Me.btnOffice.UseVisualStyleBackColor = True
+		'
+		'btnCheck
+		'
+		Me.btnCheck.Location = New System.Drawing.Point(216, 53)
+		Me.btnCheck.Name = "btnCheck"
+		Me.btnCheck.Size = New System.Drawing.Size(75, 25)
+		Me.btnCheck.TabIndex = 49
+		Me.btnCheck.Text = "チェック表"
+		Me.btnCheck.UseVisualStyleBackColor = True
+		'
+		'btnInadequacy
+		'
+		Me.btnInadequacy.Location = New System.Drawing.Point(135, 53)
+		Me.btnInadequacy.Name = "btnInadequacy"
+		Me.btnInadequacy.Size = New System.Drawing.Size(75, 25)
+		Me.btnInadequacy.TabIndex = 31
+		Me.btnInadequacy.Text = "不備リスト"
+		Me.btnInadequacy.UseVisualStyleBackColor = True
+		'
 		'btnPDFPathBrowse
 		'
 		Me.btnPDFPathBrowse.Location = New System.Drawing.Point(480, 21)
@@ -245,54 +290,10 @@ Partial Class frmVariousOutput
 		Me.Label15.Text = "出力フォルダ："
 		Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight
 		'
-		'btnInadequacy
-		'
-		Me.btnInadequacy.Location = New System.Drawing.Point(135, 53)
-		Me.btnInadequacy.Name = "btnInadequacy"
-		Me.btnInadequacy.Size = New System.Drawing.Size(75, 25)
-		Me.btnInadequacy.TabIndex = 31
-		Me.btnInadequacy.Text = "不備リスト"
-		Me.btnInadequacy.UseVisualStyleBackColor = True
-		'
-		'btnCheck
-		'
-		Me.btnCheck.Location = New System.Drawing.Point(216, 53)
-		Me.btnCheck.Name = "btnCheck"
-		Me.btnCheck.Size = New System.Drawing.Size(75, 25)
-		Me.btnCheck.TabIndex = 49
-		Me.btnCheck.Text = "チェック表"
-		Me.btnCheck.UseVisualStyleBackColor = True
-		'
-		'btnOffice
-		'
-		Me.btnOffice.Location = New System.Drawing.Point(297, 53)
-		Me.btnOffice.Name = "btnOffice"
-		Me.btnOffice.Size = New System.Drawing.Size(100, 25)
-		Me.btnOffice.TabIndex = 50
-		Me.btnOffice.Text = "事業所一覧"
-		Me.btnOffice.UseVisualStyleBackColor = True
-		'
-		'btnTarget
-		'
-		Me.btnTarget.Location = New System.Drawing.Point(403, 53)
-		Me.btnTarget.Name = "btnTarget"
-		Me.btnTarget.Size = New System.Drawing.Size(100, 25)
-		Me.btnTarget.TabIndex = 51
-		Me.btnTarget.Text = "対象者一覧"
-		Me.btnTarget.UseVisualStyleBackColor = True
-		'
-		'btnPostponement
-		'
-		Me.btnPostponement.Location = New System.Drawing.Point(509, 53)
-		Me.btnPostponement.Name = "btnPostponement"
-		Me.btnPostponement.Size = New System.Drawing.Size(75, 25)
-		Me.btnPostponement.TabIndex = 52
-		Me.btnPostponement.Text = "後納票"
-		Me.btnPostponement.UseVisualStyleBackColor = True
-		'
 		'frmVariousOutput
 		'
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
+		Me.CaptionDisplayMode = JPHealth.frmTempForm.StatusDisplayMode.ShowAll
 		Me.ClientSize = New System.Drawing.Size(1008, 729)
 		Me.Controls.Add(Me.GroupBox4)
 		Me.Controls.Add(Me.GroupBox3)

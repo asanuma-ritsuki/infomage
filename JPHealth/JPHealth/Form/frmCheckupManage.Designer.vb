@@ -471,7 +471,7 @@ Partial Class frmCheckupManage
 		Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Left
 		Me.GroupBox3.Location = New System.Drawing.Point(0, 0)
 		Me.GroupBox3.Name = "GroupBox3"
-		Me.GroupBox3.Size = New System.Drawing.Size(687, 532)
+		Me.GroupBox3.Size = New System.Drawing.Size(687, 531)
 		Me.GroupBox3.TabIndex = 2
 		Me.GroupBox3.TabStop = False
 		Me.GroupBox3.Text = "事業所別インポート内容"
@@ -496,7 +496,7 @@ Partial Class frmCheckupManage
 		Me.C1FGridResult.Rows.DefaultSize = 20
 		Me.C1FGridResult.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row
 		Me.C1FGridResult.ShowCellLabels = True
-		Me.C1FGridResult.Size = New System.Drawing.Size(681, 509)
+		Me.C1FGridResult.Size = New System.Drawing.Size(681, 508)
 		Me.C1FGridResult.TabIndex = 3
 		Me.C1FGridResult.VisualStyle = C1.Win.C1FlexGrid.VisualStyle.System
 		'
@@ -542,7 +542,7 @@ Partial Class frmCheckupManage
 		Me.GroupBox5.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.GroupBox5.Location = New System.Drawing.Point(687, 0)
 		Me.GroupBox5.Name = "GroupBox5"
-		Me.GroupBox5.Size = New System.Drawing.Size(797, 532)
+		Me.GroupBox5.Size = New System.Drawing.Size(797, 531)
 		Me.GroupBox5.TabIndex = 5
 		Me.GroupBox5.TabStop = False
 		Me.GroupBox5.Text = "データ不備内容"
@@ -565,7 +565,7 @@ Partial Class frmCheckupManage
 		Me.C1FGridDefect.Rows.DefaultSize = 20
 		Me.C1FGridDefect.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row
 		Me.C1FGridDefect.ShowCellLabels = True
-		Me.C1FGridDefect.Size = New System.Drawing.Size(791, 476)
+		Me.C1FGridDefect.Size = New System.Drawing.Size(791, 475)
 		Me.C1FGridDefect.TabIndex = 4
 		Me.C1FGridDefect.VisualStyle = C1.Win.C1FlexGrid.VisualStyle.System
 		'
@@ -577,7 +577,7 @@ Partial Class frmCheckupManage
 		Me.Panel2.Controls.Add(Me.btnUpdate)
 		Me.Panel2.Controls.Add(Me.btnCopy)
 		Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
-		Me.Panel2.Location = New System.Drawing.Point(3, 496)
+		Me.Panel2.Location = New System.Drawing.Point(3, 495)
 		Me.Panel2.Name = "Panel2"
 		Me.Panel2.Size = New System.Drawing.Size(791, 33)
 		Me.Panel2.TabIndex = 0
@@ -645,7 +645,7 @@ Partial Class frmCheckupManage
 		Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.Panel3.Location = New System.Drawing.Point(0, 257)
 		Me.Panel3.Name = "Panel3"
-		Me.Panel3.Size = New System.Drawing.Size(1484, 532)
+		Me.Panel3.Size = New System.Drawing.Size(1484, 531)
 		Me.Panel3.TabIndex = 7
 		'
 		'frmCheckupManage

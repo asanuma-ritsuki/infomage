@@ -118,7 +118,7 @@ Partial Class frmPrint
 		Me.Panel1.Controls.Add(Me.btnPDFPathBrowse)
 		Me.Panel1.Controls.Add(Me.Label15)
 		Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-		Me.Panel1.Location = New System.Drawing.Point(0, 806)
+		Me.Panel1.Location = New System.Drawing.Point(0, 805)
 		Me.Panel1.Name = "Panel1"
 		Me.Panel1.Size = New System.Drawing.Size(1184, 33)
 		Me.Panel1.TabIndex = 1
@@ -804,7 +804,7 @@ Partial Class frmPrint
 		Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.Panel3.Location = New System.Drawing.Point(0, 245)
 		Me.Panel3.Name = "Panel3"
-		Me.Panel3.Size = New System.Drawing.Size(1184, 561)
+		Me.Panel3.Size = New System.Drawing.Size(1184, 560)
 		Me.Panel3.TabIndex = 2
 		'
 		'GroupBox4
@@ -813,7 +813,7 @@ Partial Class frmPrint
 		Me.GroupBox4.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.GroupBox4.Location = New System.Drawing.Point(0, 0)
 		Me.GroupBox4.Name = "GroupBox4"
-		Me.GroupBox4.Size = New System.Drawing.Size(1184, 561)
+		Me.GroupBox4.Size = New System.Drawing.Size(1184, 560)
 		Me.GroupBox4.TabIndex = 1
 		Me.GroupBox4.TabStop = False
 		Me.GroupBox4.Text = "印刷内容"
@@ -836,7 +836,7 @@ Partial Class frmPrint
 		Me.C1FGridResult.Rows.DefaultSize = 20
 		Me.C1FGridResult.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.ListBox
 		Me.C1FGridResult.ShowCellLabels = True
-		Me.C1FGridResult.Size = New System.Drawing.Size(1178, 538)
+		Me.C1FGridResult.Size = New System.Drawing.Size(1178, 537)
 		Me.C1FGridResult.TabIndex = 3
 		Me.C1FGridResult.VisualStyle = C1.Win.C1FlexGrid.VisualStyle.System
 		'
