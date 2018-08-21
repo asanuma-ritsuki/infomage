@@ -15,7 +15,17 @@
   <SizeManageY>0</SizeManageY>
   <StateManage>0</StateManage>
   <ApplicationName>JP健診 就業判定票発送業務支援ツール</ApplicationName>
-  <ImportFromFolder>C:\JPTemp\01_Import\20180530</ImportFromFolder>
+  <CheckupLocationX>0</CheckupLocationX>
+  <CheckupLocationY>0</CheckupLocationY>
+  <CheckupSizeX>1500</CheckupSizeX>
+  <CheckupSizeY>850</CheckupSizeY>
+  <CheckupState>0</CheckupState>
+  <PrintLocationX>0</PrintLocationX>
+  <PrintLocationY>0</PrintLocationY>
+  <PrintSizeX>1200</PrintSizeX>
+  <PrintSizeY>900</PrintSizeY>
+  <PrintState>0</PrintState>
+  <ImportFromFolder>C:\JPTemp\01_Import\20180725</ImportFromFolder>
   <ImportToFolder>C:\JPTemp\02_Out</ImportToFolder>
   <ImportLogFolder>C:\JPTemp\03_Log</ImportLogFolder>
   <ZipPassword>Jp-Mbp@</ZipPassword>
@@ -33,16 +43,16 @@
   <TablePrefix>[DailyReport_Test].[dbo].</TablePrefix>
   <CheckupList>50</CheckupList>
   <LeafletList>15</LeafletList>
-  <Printer_Header>Microsoft XPS Document Writer</Printer_Header>
-  <Printer_Label>Microsoft XPS Document Writer</Printer_Label>
-  <Printer_Sentlist>Microsoft XPS Document Writer</Printer_Sentlist>
-  <Printer_SentLeaflet>Microsoft XPS Document Writer</Printer_SentLeaflet>
-  <Printer_Result>Microsoft XPS Document Writer</Printer_Result>
-  <Printer_Leaflet>Microsoft XPS Document Writer</Printer_Leaflet>
+  <Printer_Header>Microsoft Print to PDF</Printer_Header>
+  <Printer_Label>Microsoft Print to PDF</Printer_Label>
+  <Printer_Sentlist>Microsoft Print to PDF</Printer_Sentlist>
+  <Printer_SentLeaflet>Microsoft Print to PDF</Printer_SentLeaflet>
+  <Printer_Result>Microsoft Print to PDF</Printer_Result>
+  <Printer_Leaflet>Microsoft Print to PDF</Printer_Leaflet>
   <HeaderTray>-1</HeaderTray>
   <LabelTray>-1</LabelTray>
-  <SentlistTray>0</SentlistTray>
-  <SentLeafletTray>0</SentLeafletTray>
+  <SentlistTray>-1</SentlistTray>
+  <SentLeafletTray>-1</SentLeafletTray>
   <ResultTray>-1</ResultTray>
   <LeafletTray>-1</LeafletTray>
   <PDFPath>E:\JPTemp\04_PDF</PDFPath>

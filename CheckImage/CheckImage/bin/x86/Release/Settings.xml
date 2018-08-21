@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <XmlSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <LocationX>137</LocationX>
-  <LocationY>170</LocationY>
+  <LocationX>44</LocationX>
+  <LocationY>174</LocationY>
   <SizeX>1000</SizeX>
   <SizeY>800</SizeY>
   <State>0</State>

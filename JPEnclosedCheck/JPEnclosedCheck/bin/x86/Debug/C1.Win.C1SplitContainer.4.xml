@@ -1,0 +1,701 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>C1.Win.C1SplitContainer.4</name>
+  </assembly>
+  <members>
+    <member name="T:C1.Win.C1SplitContainer.C1SplitContainer">
+      <summary>サイズ変更可能なドッキングされるパネルのコンテナを表します。</summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitContainer.#ctor">
+      <summary>
+        <see cref="T:C1.Win.C1SplitContainer.C1SplitContainer" /> の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitContainer.Dispose(System.Boolean)">
+      <summary>使用されているすべてのリソースをクリーンアップします。</summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitContainer.ResetVisualStyle">
+      <summary>
+        <see cref="P:C1.Win.C1SplitContainer.C1SplitContainer.VisualStyle" /> アンビエントプロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitContainer.ResetBorderColor">
+      <summary>
+        <see cref="P:C1.Win.C1SplitContainer.C1SplitContainer.BorderColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitContainer.ResetFixedLineColor">
+      <summary>
+        <see cref="P:C1.Win.C1SplitContainer.C1SplitContainer.FixedLineColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitContainer.ResetCollapsingAreaColor">
+      <summary>
+        <see cref="P:C1.Win.C1SplitContainer.C1SplitContainer.CollapsingAreaColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitContainer.ResetCollapsingCueColor">
+      <summary>
+        <see cref="P:C1.Win.C1SplitContainer.C1SplitContainer.CollapsingCueColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitContainer.ResetCollapsedToolTip">
+      <summary>
+        <see cref="P:C1.Win.C1SplitContainer.C1SplitContainer.CollapsedToolTip" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitContainer.ResetCollapsingToolTip">
+      <summary>
+        <see cref="P:C1.Win.C1SplitContainer.C1SplitContainer.CollapsingToolTip" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitContainer.ResetHeaderBackColor">
+      <summary>
+        <see cref="P:C1.Win.C1SplitContainer.C1SplitContainer.HeaderBackColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitContainer.ResetHeaderForeColor">
+      <summary>
+        <see cref="P:C1.Win.C1SplitContainer.C1SplitContainer.HeaderForeColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitContainer.ResetSplitterColor">
+      <summary>
+        <see cref="P:C1.Win.C1SplitContainer.C1SplitContainer.SplitterColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitContainer.ResetSplitterMovingColor">
+      <summary>
+        <see cref="P:C1.Win.C1SplitContainer.C1SplitContainer.SplitterMovingColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitContainer.OnBackColorChanged(System.EventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.BackColorChanged" /> イベントを発生させます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitContainer.OnForeColorChanged(System.EventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.ForeColorChanged" /> イベントを発生させます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitContainer.OnEnabledChanged(System.EventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.EnabledChanged" /> イベントを発生させます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitContainer.OnVisibleChanged(System.EventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.VisibleChanged" /> イベントを発生させます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitContainer.OnPaint(System.Windows.Forms.PaintEventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.Paint" /> イベントを発生させます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitContainer.OnFontChanged(System.EventArgs)">
+      <summary>ツールチップおよびキャプションフォントを更新します。</summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitContainer.OnResize(System.EventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.Resize" /> イベントを発生させます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitContainer.OnRightToLeftChanged(System.EventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.RightToLeftChanged" /> イベントを発生させます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitContainer.OnParentChanged(System.EventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.ParentChanged" /> イベントを発生させます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.Panels">
+      <summary>パネルのコレクションを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.UpdateNestedContainers">
+      <summary>スタイルプロパティへの変更がネストした分割コンテナにも影響するかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.VisualStyle">
+      <summary>
+        <see cref="T:C1.Win.C1SplitContainer.C1SplitContainer" /> の視覚スタイルを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.UseSizingCursor">
+      <summary>分割カーソルの代わりに、サイズ変更カーソルを表示するかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.BorderColor">
+      <summary>
+        <see cref="T:C1.Win.C1SplitContainer.C1SplitContainer" /> の枠線の色を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.FixedLineColor">
+      <summary>固定の分割線の色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.CollapsingAreaColor">
+      <summary>縮小領域の色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.CollapsingCueColor">
+      <summary>縮小ハンドル上に描画する小さい三角形の色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.EnlargeCollapsingHandle">
+      <summary>大きい画像を縮小ハンドルとして表示するかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.CollapsedToolTip">
+      <summary>縮小されたパネルの展開ハンドルのツールチップテキストを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.CollapsingToolTip">
+      <summary>展開されたパネルの縮小ハンドルのツールチップテキストを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.HeaderBackColor">
+      <summary>
+        <see cref="T:C1.Win.C1SplitContainer.C1SplitterPanel" /> ヘッダーの背景色を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.HeaderForeColor">
+      <summary>
+        <see cref="T:C1.Win.C1SplitContainer.C1SplitterPanel" /> ヘッダーの前景色を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.SplitterColor">
+      <summary>スプリッタ要素の色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.SplitterMovingColor">
+      <summary>ユーザーによって移動されるスプリッタの色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.SplitterMovingOpacity">
+      <summary>ユーザーによって移動されるスプリッタの不透明度を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.BorderWidth">
+      <summary>分割コンテナの枠線幅を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.BoldHeaderFont">
+      <summary>パネルヘッダーが太字フォントを使用するかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.LineBelowHeader">
+      <summary>水平線をパネルヘッダーの下に表示するかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.HeaderLineWidth">
+      <summary>パネルヘッダーの下に表示する水平線の幅を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.SplitterWidth">
+      <summary>スプリッタ要素の幅を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.FixedLineWidth">
+      <summary>固定の分割線の幅を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.HeaderHeight">
+      <summary>
+        <see cref="T:C1.Win.C1SplitContainer.C1SplitterPanel" /> ヘッダーの高さを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.HeaderTextOffset">
+      <summary>パネルキャプションテキストのオフセット値（ピクセル単位）を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.ToolTipGradient">
+      <summary>ツールチップの背景グラデーションを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.ToolTipBackColor">
+      <summary>ツールチップウィンドウの背景色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.ToolTipForeColor">
+      <summary>ツールチップウィンドウの前景色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.ToolTipFont">
+      <summary>ツールチップを表示するためのデフォルトのフォントを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.ToolTipBorder">
+      <summary>ツールチップウィンドウに実線の境界線を表示するかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.ToolTipBorderColor">
+      <summary>
+        <see cref="P:C1.Win.C1SplitContainer.C1SplitContainer.ToolTipBorder" /> プロパティが true に設定されている場合にツールチップの周囲に描画される境界線の色を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.ToolTipShadow">
+      <summary>ツールチップウィンドウに影を表示するかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.ToolTipRoundedCorners">
+      <summary>ツールチップウィンドウの角に丸みを付けるかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.ToolTipUseFading">
+      <summary>ツールチップを表示する際にフェード効果を使用するかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.TextRenderingHint">
+      <summary>
+        テキストの表示品質を制御する <see cref="P:C1.Win.C1SplitContainer.C1SplitContainer.TextRenderingHint" /> を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.DefaultSize">
+      <summary>
+        <see cref="T:C1.Win.C1SplitContainer.C1SplitContainer" /> のデフォルトサイズを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.Padding">
+      <summary>このプロパティはこのクラスには関連しません。</summary>
+    </member>
+    <member name="T:C1.Win.C1SplitContainer.C1SplitterPanel">
+      <summary>
+        <see cref="T:C1.Win.C1SplitContainer.C1SplitContainer" /> 内の１つのパネルを表します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitterPanel.#ctor">
+      <summary>
+        <see cref="T:C1.Win.C1SplitContainer.C1SplitterPanel" /> の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitterPanel.Dispose(System.Boolean)">
+      <summary>使用されているすべてのリソースをクリーンアップします。</summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitterPanel.ResetBorderColor">
+      <summary>
+        <see cref="P:C1.Win.C1SplitContainer.C1SplitterPanel.BorderColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitterPanel.ResetPadding">
+      <summary>
+        <see cref="P:C1.Win.C1SplitContainer.C1SplitterPanel.Padding" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitterPanel.ResetSizeRatio">
+      <summary>
+        <see cref="P:C1.Win.C1SplitContainer.C1SplitterPanel.SizeRatio" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitterPanel.ResetHeight">
+      <summary>
+        <see cref="P:C1.Win.C1SplitContainer.C1SplitterPanel.Height" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitterPanel.ResetWidth">
+      <summary>
+        <see cref="P:C1.Win.C1SplitContainer.C1SplitterPanel.Width" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitterPanel.ResetHeaderBackColor">
+      <summary>
+        <see cref="P:C1.Win.C1SplitContainer.C1SplitterPanel.HeaderBackColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitterPanel.ResetHeaderForeColor">
+      <summary>
+        <see cref="P:C1.Win.C1SplitContainer.C1SplitterPanel.HeaderForeColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitterPanel.ResetHeaderLineColor">
+      <summary>
+        <see cref="P:C1.Win.C1SplitContainer.C1SplitterPanel.HeaderLineColor" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitterPanel.OnHeaderClick(System.EventArgs)">
+      <summary>
+        <see cref="E:C1.Win.C1SplitContainer.C1SplitterPanel.HeaderClick" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        <see cref="T:System.EventArgs" /> イベントのパラメータを含む。
+      </param>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitterPanel.OnHeaderDoubleClick(System.EventArgs)">
+      <summary>
+        <see cref="E:C1.Win.C1SplitContainer.C1SplitterPanel.HeaderDoubleClick" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        <see cref="T:System.EventArgs" /> イベントのパラメータを含む。
+      </param>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitterPanel.OnDrawHeader(C1.Win.C1SplitContainer.DrawHeaderEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.C1SplitContainer.C1SplitterPanel.DrawHeader" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        <see cref="T:C1.Win.C1SplitContainer.DrawHeaderEventArgs" /> イベントのパラメータを含む。
+      </param>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitterPanel.OnDrawSplitter(C1.Win.C1SplitContainer.DrawSplitterEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.C1SplitContainer.C1SplitterPanel.DrawSplitter" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        <see cref="T:C1.Win.C1SplitContainer.DrawSplitterEventArgs" /> イベントのパラメータを含む。
+      </param>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitterPanel.OnVisibleChanged(System.EventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.VisibleChanged" /> イベントを発生させます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitterPanel.OnControlAdded(System.Windows.Forms.ControlEventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.ControlAdded" /> イベントを発生させます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.SplitContainer">
+      <summary>
+        この <see cref="T:C1.Win.C1SplitContainer.C1SplitterPanel" /> が属している <see cref="T:C1.Win.C1SplitContainer.C1SplitContainer" /> を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.BorderColor">
+      <summary>
+        <see cref="T:C1.Win.C1SplitContainer.C1SplitterPanel" /> の枠線の色を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.BorderWidth">
+      <summary>
+        <see cref="T:C1.Win.C1SplitContainer.C1SplitterPanel" /> の枠線の幅を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.Padding">
+      <summary>
+        <see cref="T:C1.Win.C1SplitContainer.C1SplitterPanel" /> の内部スペースを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.Collapsible">
+      <summary>パネルを縮小できるかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.CollapsedToolTip">
+      <summary>縮小状態のパネルの展開ハンドルのツールチップテキストを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.CollapsingToolTip">
+      <summary>展開状態のパネルの縮小ハンドルのツールチップテキストを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.ResizeWhileDragging">
+      <summary>ユーザーによるスプリッタのドラッグ中にパネルをサイズ変更するかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.Dock">
+      <summary>
+        親 <see cref="T:C1.Win.C1SplitContainer.C1SplitContainer" /> へのドッキング先のパネル枠線を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.SizeRatio">
+      <summary>パネルのサイズを、全残り領域との割合として取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.KeepRelativeSize">
+      <summary>オーナーコンテナのサイズ変更時にパネルがその相対サイズの維持を試みるかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.Resizable">
+      <summary>パネルをスプリッタでサイズ変更できるかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.Height">
+      <summary>パネルの高さを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.Width">
+      <summary>パネルの幅を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.MinHeight">
+      <summary>パネルの最小高さを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.MinWidth">
+      <summary>パネルの最小幅を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.Text">
+      <summary>パネルキャプションを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.HeaderBackColor">
+      <summary>パネルヘッダーの背景色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.HeaderForeColor">
+      <summary>パネルヘッダーの前景色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.HeaderTextAlign">
+      <summary>パネルキャプションテキストの配置を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.HeaderLineColor">
+      <summary>パネルヘッダーの下に表示する水平線の色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.Location">
+      <summary>コンテナの左上隅に相対するコントロールの左上隅の座標を取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.Size">
+      <summary>コントロールの高さと幅を取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.RightToLeft">
+      <summary>右から左のフォントを使用するロケールをサポートするようにパネルの要素を配置するかどうかを示す値を取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.Margin">
+      <summary>このプロパティはこのクラスには関連しません。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.Anchor">
+      <summary>このプロパティはこのクラスには関連しません。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.AutoSize">
+      <summary>このプロパティはこのクラスには関連しません。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.MaximumSize">
+      <summary>このプロパティはこのクラスには関連しません。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.MinimumSize">
+      <summary>このプロパティはこのクラスには関連しません。</summary>
+    </member>
+    <member name="E:C1.Win.C1SplitContainer.C1SplitterPanel.HeaderClick">
+      <summary>パネルヘッダーがクリックされるときに発生します。</summary>
+    </member>
+    <member name="E:C1.Win.C1SplitContainer.C1SplitterPanel.HeaderDoubleClick">
+      <summary>パネルヘッダーがダブルクリックされるときに発生します。</summary>
+    </member>
+    <member name="E:C1.Win.C1SplitContainer.C1SplitterPanel.DrawHeader">
+      <summary>パネルヘッダーの背景が再描画されるときに発生します。</summary>
+    </member>
+    <member name="E:C1.Win.C1SplitContainer.C1SplitterPanel.DrawSplitter">
+      <summary>パネルスプリッタが再描画されるときに発生します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.CreateParams">
+      <summary>コントロールハンドルを作成するときに必要な作成パラメータを取得します。</summary>
+    </member>
+    <member name="T:C1.Win.C1SplitContainer.PanelDockStyle">
+      <summary>
+        <see cref="T:C1.Win.C1SplitContainer.C1SplitterPanel" /> のドッキング位置を指定します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1SplitContainer.PanelDockStyle.Top">
+      <summary>
+        <see cref="T:C1.Win.C1SplitContainer.C1SplitterPanel" /> の上端を所属先の <see cref="T:C1.Win.C1SplitContainer.C1SplitContainer" /> の上端にドッキングします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1SplitContainer.PanelDockStyle.Bottom">
+      <summary>
+        <see cref="T:C1.Win.C1SplitContainer.C1SplitterPanel" /> の下端を所属先の <see cref="T:C1.Win.C1SplitContainer.C1SplitContainer" /> の下端にドッキングします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1SplitContainer.PanelDockStyle.Left">
+      <summary>
+        <see cref="T:C1.Win.C1SplitContainer.C1SplitterPanel" /> の左端を所属先の <see cref="T:C1.Win.C1SplitContainer.C1SplitContainer" /> の左端にドッキングします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1SplitContainer.PanelDockStyle.Right">
+      <summary>
+        <see cref="T:C1.Win.C1SplitContainer.C1SplitterPanel" /> の右端を所属先の <see cref="T:C1.Win.C1SplitContainer.C1SplitContainer" /> の右端にドッキングします。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1SplitContainer.PanelTextAlign">
+      <summary>パネルキャプション上のテキストの配置を指定します。</summary>
+    </member>
+    <member name="F:C1.Win.C1SplitContainer.PanelTextAlign.Left">
+      <summary>テキストを左揃えにします。</summary>
+    </member>
+    <member name="F:C1.Win.C1SplitContainer.PanelTextAlign.Center">
+      <summary>テキストをパネルヘッダーの中央揃えにします。</summary>
+    </member>
+    <member name="F:C1.Win.C1SplitContainer.PanelTextAlign.Right">
+      <summary>テキストを右揃えにします。</summary>
+    </member>
+    <member name="T:C1.Win.C1SplitContainer.ToolTipGradient">
+      <summary>ツールチップの背景グラデーションを指定します。</summary>
+    </member>
+    <member name="F:C1.Win.C1SplitContainer.ToolTipGradient.None">
+      <summary>背景グラデーションを使用しません。</summary>
+    </member>
+    <member name="F:C1.Win.C1SplitContainer.ToolTipGradient.Automatic">
+      <summary>現在のシステム視覚スタイルに適合するグラデーションを使用します。</summary>
+    </member>
+    <member name="F:C1.Win.C1SplitContainer.ToolTipGradient.Silver">
+      <summary>シルバーの背景グラデーションを使用します。</summary>
+    </member>
+    <member name="F:C1.Win.C1SplitContainer.ToolTipGradient.Blue">
+      <summary>青色の背景グラデーションを使用します。</summary>
+    </member>
+    <member name="F:C1.Win.C1SplitContainer.ToolTipGradient.Gold">
+      <summary>ゴールドの背景グラデーションを使用します。</summary>
+    </member>
+    <member name="F:C1.Win.C1SplitContainer.ToolTipGradient.Olive">
+      <summary>オリーブ色の背景グラデーションを使用します。</summary>
+    </member>
+    <member name="F:C1.Win.C1SplitContainer.ToolTipGradient.Vista">
+      <summary>Vista スタイルの背景グラデーションを使用します。</summary>
+    </member>
+    <member name="T:C1.Win.C1SplitContainer.VisualStyle">
+      <summary>コントロールのレンダリング時に使用する視覚スタイルを指定します。</summary>
+    </member>
+    <member name="F:C1.Win.C1SplitContainer.VisualStyle.Custom">
+      <summary>ユーザー定義のカラースキーム。</summary>
+    </member>
+    <member name="F:C1.Win.C1SplitContainer.VisualStyle.System">
+      <summary>プレーンな Windows カラースキーム。</summary>
+    </member>
+    <member name="F:C1.Win.C1SplitContainer.VisualStyle.Office2007Black">
+      <summary>Office 2007 Black 視覚スタイル。</summary>
+    </member>
+    <member name="F:C1.Win.C1SplitContainer.VisualStyle.Office2007Blue">
+      <summary>Office 2007 Blue 視覚スタイル。</summary>
+    </member>
+    <member name="F:C1.Win.C1SplitContainer.VisualStyle.Office2007Silver">
+      <summary>Office 2007 Silver 視覚スタイル。</summary>
+    </member>
+    <member name="F:C1.Win.C1SplitContainer.VisualStyle.Office2010Black">
+      <summary>Office 2010 Black 視覚スタイル。</summary>
+    </member>
+    <member name="F:C1.Win.C1SplitContainer.VisualStyle.Office2010Blue">
+      <summary>Office 2010 Blue 視覚スタイル。</summary>
+    </member>
+    <member name="F:C1.Win.C1SplitContainer.VisualStyle.Office2010Silver">
+      <summary>Office 2010 Silver 視覚スタイル。</summary>
+    </member>
+    <member name="F:C1.Win.C1SplitContainer.VisualStyle.Windows7">
+      <summary>Windows 7 視覚スタイル。</summary>
+    </member>
+    <member name="T:C1.Win.C1SplitContainer.DrawHeaderEventHandler">
+      <summary>
+        <see cref="E:C1.Win.C1SplitContainer.C1SplitterPanel.DrawHeader" /> イベントを処理するデリゲートを表します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1SplitContainer.DrawHeaderEventArgs">
+      <summary>
+        <see cref="E:C1.Win.C1SplitContainer.C1SplitterPanel.DrawHeader" /> イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.DrawHeaderEventArgs.#ctor(System.Drawing.Graphics,System.Drawing.Rectangle)">
+      <summary>
+        <see cref="T:C1.Win.C1SplitContainer.DrawHeaderEventArgs" /> の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.DrawHeaderEventArgs.Graphics">
+      <summary>パネルヘッダーの描画に使用されるグラフィックスを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.DrawHeaderEventArgs.Bounds">
+      <summary>描画先となる矩形の位置とサイズを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.DrawHeaderEventArgs.Finished">
+      <summary>パネルヘッダー内のすべての描画が完了したかどうかを示す値を取得または設定します。</summary>
+      <remarks>このプロパティの値が true の場合 パネルテキストは描画されません。</remarks>
+    </member>
+    <member name="T:C1.Win.C1SplitContainer.DrawSplitterEventHandler">
+      <summary>
+        <see cref="E:C1.Win.C1SplitContainer.C1SplitterPanel.DrawSplitter" /> イベントを処理するデリゲートを表します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1SplitContainer.DrawSplitterEventArgs">
+      <summary>
+        <see cref="E:C1.Win.C1SplitContainer.C1SplitterPanel.DrawSplitter" /> イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.DrawSplitterEventArgs.#ctor(System.Drawing.Graphics,System.Drawing.Rectangle,System.Boolean)">
+      <summary>
+        <see cref="T:C1.Win.C1SplitContainer.DrawSplitterEventArgs" /> の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.DrawSplitterEventArgs.Graphics">
+      <summary>スプリッタの描画に使用されるグラフィックスを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.DrawSplitterEventArgs.Bounds">
+      <summary>描画先となる矩形の位置とサイズを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.DrawSplitterEventArgs.Vertical">
+      <summary>スプリッタが垂直方向（true）か水平方向（false）かどうかを示す値を取得します。</summary>
+    </member>
+    <member name="T:C1.Win.C1SplitContainer.PanelCollection">
+      <summary>
+        <see cref="T:C1.Win.C1SplitContainer.C1SplitterPanel" /> オブジェクトのコレクションを表します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.PanelCollection.BeginUpdate">
+      <summary>ビューの追加または変更時のパフォーマンスを維持します。</summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.PanelCollection.EndUpdate">
+      <summary>
+        <see cref="M:C1.Win.C1SplitContainer.PanelCollection.BeginUpdate" /> の呼び出しによって中断した後に処理を再開します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.PanelCollection.Clear(System.Boolean)">
+      <summary>すべてのコンポーネントをコレクションから削除して、それらのコンポーネントを破棄します。</summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.PanelCollection.InsertItem(System.Int32,C1.Win.C1SplitContainer.C1SplitterPanel)">
+      <summary>
+        <see cref="T:C1.Win.C1SplitContainer.C1SplitterPanel" /> を <see cref="T:C1.Win.C1SplitContainer.PanelCollection" /> の指定したインデックスに挿入します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.PanelCollection.SetItem(System.Int32,C1.Win.C1SplitContainer.C1SplitterPanel)">
+      <summary>
+        指定したインデックスの <see cref="T:C1.Win.C1SplitContainer.C1SplitterPanel" /> を置き換えます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.PanelCollection.RemoveItem(System.Int32)">
+      <summary>
+        <see cref="T:C1.Win.C1SplitContainer.PanelCollection" /> の指定したインデックスの項目を削除します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.PanelCollection.ClearItems">
+      <summary>
+        すべての項目を <see cref="T:C1.Win.C1SplitContainer.PanelCollection" /> から削除します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1SplitContainer.Localization.Strings">
+      <summary>
+        <see cref="T:C1.Win.C1SplitContainer.Localization.Strings" /> クラスには、ローカライズに使用される静的プロパティが含まれます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.Localization.Strings.ResourceManager">
+      <summary>
+        ルックアップリソースとして使用される <see cref="P:C1.Win.C1SplitContainer.Localization.Strings.ResourceManager" /> オブジェクト。
+      </summary>
+      <remarks>
+        カスタムコントロールアセンブリ内でリソースを定義する場合は、
+        このプロパティを有効な値に設定します。
+      </remarks>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.Localization.Strings.UICulture">
+      <summary>
+        フォールバックカルチャとして使用されるデフォルトの <see cref="T:System.Globalization.CultureInfo" /> オブジェクトを返します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitContainer.ResetCloseButtonToolTip">
+      <summary>
+        <see cref="P:C1.Win.C1SplitContainer.C1SplitContainer.CloseButtonToolTip" /> プロパティの値をリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitContainer.ScaleControl(System.Drawing.SizeF,System.Windows.Forms.BoundsSpecified)">
+      <summary>
+        コントロールの位置、サイズ、パディング、およびマージンのスケールを調整します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitContainer.CloseButtonToolTip">
+      <summary>
+        パネルの閉じるボタンのツールチップテキストを取得または設定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1SplitContainer.C1SplitterPanel.OnCloseButtonClick(System.EventArgs)">
+      <summary>
+        <see cref="E:C1.Win.C1SplitContainer.C1SplitterPanel.CloseButtonClick" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントパラメータを含む <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.DoubleBuffered">
+      <summary>
+        パネルで二重バッファリングを使用してちらつきを減らすかどうかを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.ShowCloseButton">
+      <summary>
+        パネルヘッダーに閉じるボタンを表示するかどうかを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.CloseButtonToolTip">
+      <summary>
+        閉じるボタンのツールチップテキストを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1SplitContainer.C1SplitterPanel.Collapsed">
+      <summary>
+        パネルが折りたたまれているかどうかを取得または設定します（Visible プロパティと同じ）。
+      </summary>
+    </member>
+    <member name="E:C1.Win.C1SplitContainer.C1SplitterPanel.CloseButtonClick">
+      <summary>
+        パネルヘッダーの閉じるボタンがクリックされたときに発生します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.C1SplitContainer.C1SplitContainer.SplitterMoving">
+      <summary>
+        スプリッタコントロールの移動中に発生します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.C1SplitContainer.C1SplitContainer.SplitterMoved">
+      <summary>
+        スプリッタコントロールが移動されたときに発生します。
+      </summary>
+    </member>
+  </members>
+</doc>

@@ -1062,6 +1062,1107 @@ ORDER BY
           <Value sys="string">上記※１、※２は、該当する社員のみに「○」印が表示されています。</Value>
         </Text>
       </TextField>
+      <TextField>
+        <Name>Field23</Name>
+        <Section>PageFooter</Section>
+        <Left>629</Left>
+        <Top>1250</Top>
+        <Width>8485</Width>
+        <Height>250</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Meiryo UI</Name>
+          <Size>8.25</Size>
+          <Bold>true</Bold>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">異動等により旧事業所に就業判定票等が送付された場合は、お手数ですが現在の事業所へ転送をお願いします。</Value>
+        </Text>
+      </TextField>
+    </Fields>
+  </Report>
+  <Report ref="1">
+    <Name>対象者一覧_個別</Name>
+    <DataSourceName>対象者一覧</DataSourceName>
+    <OnOpen>_styleCtr = 0
+</OnOpen>
+    <RecordsPerPage>50</RecordsPerPage>
+    <ReportInfo>
+      <Author>haniuda</Author>
+    </ReportInfo>
+    <Layout>
+      <Width>11902</Width>
+      <Margin>0</Margin>
+      <MarginTop>0</MarginTop>
+      <MarginRight>0</MarginRight>
+      <MarginBottom>500</MarginBottom>
+      <Orientation>Portrait</Orientation>
+      <PaperSize>A4</PaperSize>
+    </Layout>
+    <Font>
+      <Name>Segoe UI</Name>
+    </Font>
+    <DataSources>
+      <DataSource>
+        <Name>Main</Name>
+        <DataProvider>OLEDB</DataProvider>
+        <ConnectionString>Provider=SQLOLEDB.1;Password=intra_intra;Persist Security Info=True;User ID=sa;Initial Catalog=JPHealth;Data Source=JPSERV\INTRASQL</ConnectionString>
+        <RecordSource>dbo.T_対象者一覧印刷</RecordSource>
+        <RecordSourceType>TableDirect</RecordSourceType>
+      </DataSource>
+      <DataSource>
+        <Name>対象者一覧</Name>
+        <DataProvider>OLEDB</DataProvider>
+        <ConnectionString>Provider=SQLOLEDB;Password=intra_intra;Persist Security Info=True;User ID=sa;Initial Catalog=JPHealth;Data Source=JPSERV\INTRASQL</ConnectionString>
+        <RecordSource>SELECT 
+	T1.ロットID, 
+	T1.会社コード, 
+	T1.所属事業所コード, 
+	T1.印刷ID, 
+	T1.ページ数, 
+	T1.レコード番号, 
+	T1.会社, 
+	T1.所属事業所, 
+	T1.所属部名, 
+	T1.所属課名, 
+	T1.氏名, 
+	T1.受診日, 
+	T1.健診種別, 
+	T1.意見書発行, 
+	T1.判定票要押印, 
+	T3.QR AS QRコード, 
+	T4.ラベル連番,
+	T3.分数
+FROM 
+	T_対象者一覧印刷 AS T1 INNER JOIN 
+	T_判定票管理 AS T2 ON T1.ロットID = T2.ロットID 
+		AND T1.レコード番号 = T2.レコード番号 LEFT OUTER JOIN 
+	T_印刷ソート AS T3 ON T1.ロットID = T3.ロットID 
+		AND T1.会社コード = T3.会社コード 
+		AND T1.所属事業所コード = T3.所属事業所コード 
+		AND T1.印刷ID = T3.印刷ID 
+		AND T1.ページ数 = T3.ページ数 INNER JOIN 
+	T_印刷管理 AS T4 ON T1.ロットID = T4.ロットID 
+		AND T1.会社コード = T4.会社コード 
+		AND T1.所属事業所コード = T4.所属事業所コード 
+		AND T1.印刷ID = T4.印刷ID 
+WHERE 
+	T1.ロットID = '20170726174419' 
+	AND T1.会社コード = '1001' 
+	AND T1.所属事業所コード = '009610' 
+	AND T1.印刷ID = 1 
+	AND T3.帳票種別ID = 2
+	AND T1.ページ数 = 2
+ORDER BY 
+	CASE WHEN ISNULL(T1.所属部名, '') = '' THEN 1 ELSE 0 END, 
+	T1.所属部名, 
+	CASE WHEN ISNULL(T1.所属課名, '') = '' THEN 1 ELSE 0 END, 
+	T1.所属課名, 
+	T2.社員コード
+</RecordSource>
+      </DataSource>
+    </DataSources>
+    <Sections>
+      <Section>
+        <Name>Detail</Name>
+        <SubSections>
+          <SubSection>
+            <Height>240</Height>
+          </SubSection>
+        </SubSections>
+        <Type>Detail</Type>
+        <OnPrint>_styleCtr = _styleCtr+1</OnPrint>
+      </Section>
+      <Section>
+        <Name>Header</Name>
+        <SubSections>
+          <SubSection />
+        </SubSections>
+        <Type>Header</Type>
+      </Section>
+      <Section>
+        <Name>Footer</Name>
+        <SubSections>
+          <SubSection />
+        </SubSections>
+        <Type>Footer</Type>
+      </Section>
+      <Section>
+        <Name>PageHeader</Name>
+        <SubSections>
+          <SubSection>
+            <Height>2442</Height>
+          </SubSection>
+        </SubSections>
+        <Type>PageHeader</Type>
+      </Section>
+      <Section>
+        <Name>PageFooter</Name>
+        <SubSections>
+          <SubSection>
+            <Height>1813</Height>
+          </SubSection>
+        </SubSections>
+        <Type>PageFooter</Type>
+      </Section>
+    </Sections>
+    <Fields>
+      <TextField>
+        <Name>レコード番号Ctl</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>20</Width>
+          </Left>
+          <Top>
+            <Color>00FFFFFF</Color>
+          </Top>
+          <Right>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Right>
+          <Bottom>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Bottom>
+        </Border>
+        <Section>Detail</Section>
+        <Left>629</Left>
+        <Top>0</Top>
+        <Width>545</Width>
+        <Height>240</Height>
+        <MarginRight>100</MarginRight>
+        <Align>RightMiddle</Align>
+        <WordWrap>false</WordWrap>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>8.25</Size>
+          <GdiCharSet>0</GdiCharSet>
+        </Font>
+        <Text>
+          <Expression> _styleCtr+1</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>所属部名Ctl</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Left>
+          <Right>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Right>
+          <Bottom>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Bottom>
+        </Border>
+        <Section>Detail</Section>
+        <Left>1174</Left>
+        <Top>0</Top>
+        <Width>2071</Width>
+        <Height>240</Height>
+        <MarginLeft>20</MarginLeft>
+        <MarginRight>50</MarginRight>
+        <Align>LeftMiddle</Align>
+        <WordWrap>false</WordWrap>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>6.75</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Expression>所属部名</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>所属課名Ctl</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Left>
+          <Right>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Right>
+          <Bottom>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Bottom>
+        </Border>
+        <Section>Detail</Section>
+        <Left>3245</Left>
+        <Top>0</Top>
+        <Width>2078</Width>
+        <Height>240</Height>
+        <MarginLeft>20</MarginLeft>
+        <MarginRight>50</MarginRight>
+        <Align>LeftMiddle</Align>
+        <WordWrap>false</WordWrap>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>6.75</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Expression>所属課名</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>氏名Ctl</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Left>
+          <Right>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Right>
+          <Bottom>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Bottom>
+        </Border>
+        <Section>Detail</Section>
+        <Left>5323</Left>
+        <Top>0</Top>
+        <Width>2077</Width>
+        <Height>240</Height>
+        <MarginLeft>20</MarginLeft>
+        <MarginRight>50</MarginRight>
+        <Align>LeftMiddle</Align>
+        <WordWrap>false</WordWrap>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>8.25</Size>
+          <GdiCharSet>0</GdiCharSet>
+        </Font>
+        <Text>
+          <Expression>氏名</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>受診日Ctl</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Left>
+          <Right>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Right>
+          <Bottom>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Bottom>
+        </Border>
+        <Section>Detail</Section>
+        <Left>7400</Left>
+        <Top>0</Top>
+        <Width>969</Width>
+        <Height>240</Height>
+        <ZOrder>2</ZOrder>
+        <Align>CenterMiddle</Align>
+        <WordWrap>false</WordWrap>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>8.25</Size>
+          <GdiCharSet>0</GdiCharSet>
+        </Font>
+        <Text>
+          <Expression>受診日</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>健診種別Ctl</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Left>
+          <Right>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Right>
+          <Bottom>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Bottom>
+        </Border>
+        <Section>Detail</Section>
+        <Left>8369</Left>
+        <Top>0</Top>
+        <Width>870</Width>
+        <Height>240</Height>
+        <ZOrder>3</ZOrder>
+        <MarginLeft>20</MarginLeft>
+        <MarginRight>50</MarginRight>
+        <Align>LeftMiddle</Align>
+        <WordWrap>false</WordWrap>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>8.25</Size>
+          <GdiCharSet>0</GdiCharSet>
+        </Font>
+        <Text>
+          <Expression>健診種別</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>意見書発行Ctl</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Left>
+          <Right>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Right>
+          <Bottom>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Bottom>
+        </Border>
+        <Section>Detail</Section>
+        <Left>9239</Left>
+        <Top>0</Top>
+        <Width>1005</Width>
+        <Height>240</Height>
+        <ZOrder>4</ZOrder>
+        <Align>CenterMiddle</Align>
+        <WordWrap>false</WordWrap>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>8.25</Size>
+          <GdiCharSet>0</GdiCharSet>
+        </Font>
+        <Text>
+          <Expression>意見書発行</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>判定票要押印Ctl</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Left>
+          <Top>
+            <Color>00FFFFFF</Color>
+          </Top>
+          <Right>
+            <Style>Solid</Style>
+            <Width>20</Width>
+          </Right>
+          <Bottom>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Bottom>
+        </Border>
+        <Section>Detail</Section>
+        <Left>10244</Left>
+        <Top>0</Top>
+        <Width>1015</Width>
+        <Height>240</Height>
+        <ZOrder>5</ZOrder>
+        <Align>CenterMiddle</Align>
+        <WordWrap>false</WordWrap>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>8.25</Size>
+          <GdiCharSet>0</GdiCharSet>
+        </Font>
+        <Text>
+          <Expression>判定票要押印</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field3</Name>
+        <Section>PageHeader</Section>
+        <Left>10080</Left>
+        <Top>315</Top>
+        <Width>718</Width>
+        <Height>172</Height>
+        <Align>RightMiddle</Align>
+        <WordWrap>false</WordWrap>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>6</Size>
+          <GdiCharSet>0</GdiCharSet>
+        </Font>
+        <Text>
+          <Expression>ラベル連番</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>QRテキスト</Name>
+        <Section>PageHeader</Section>
+        <Left>9000</Left>
+        <Top>915</Top>
+        <Width>2500</Width>
+        <Height>172</Height>
+        <Align>RightMiddle</Align>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>6</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Expression>QRコード</Expression>
+        </Text>
+      </TextField>
+      <BarCodeField>
+        <Name>QRCode</Name>
+        <Section>PageHeader</Section>
+        <Left>10890</Left>
+        <Top>315</Top>
+        <Width>600</Width>
+        <Height>600</Height>
+        <ZOrder>6</ZOrder>
+        <Text>
+          <Expression>QRコード</Expression>
+        </Text>
+        <BarCodeType>QRCode</BarCodeType>
+        <BarcodeOptions>
+          <TextAlign>Right</TextAlign>
+          <SizeOptions>
+            <NarrowWideRatio>0</NarrowWideRatio>
+            <SizeMode>Scale</SizeMode>
+            <BarHeight>300</BarHeight>
+          </SizeOptions>
+        </BarcodeOptions>
+        <Align>CenterMiddle</Align>
+        <Font>
+          <Name>Meiryo UI</Name>
+          <Size>6</Size>
+        </Font>
+      </BarCodeField>
+      <TextField>
+        <Name>Field4</Name>
+        <Section>PageHeader</Section>
+        <Left>4902</Left>
+        <Top>1087</Top>
+        <Width>2100</Width>
+        <Height>236</Height>
+        <Align>CenterMiddle</Align>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>8.25</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">就業判定票 発送一覧</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>会社Ctl</Name>
+        <Section>PageHeader</Section>
+        <Left>1331</Left>
+        <Top>1335</Top>
+        <Width>6069</Width>
+        <Height>240</Height>
+        <Align>LeftMiddle</Align>
+        <WordWrap>false</WordWrap>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>8.25</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Expression>会社</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field6</Name>
+        <Section>PageHeader</Section>
+        <Left>546</Left>
+        <Top>1339</Top>
+        <Width>785</Width>
+        <Height>236</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>8.25</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">会社名：</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field7</Name>
+        <Section>PageHeader</Section>
+        <Left>546</Left>
+        <Top>1575</Top>
+        <Width>785</Width>
+        <Height>236</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>8.25</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">事業所名：</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>所属事業所Ctl</Name>
+        <Section>PageHeader</Section>
+        <Left>1331</Left>
+        <Top>1575</Top>
+        <Width>6069</Width>
+        <Height>240</Height>
+        <Align>LeftMiddle</Align>
+        <WordWrap>false</WordWrap>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>8.25</Size>
+          <GdiCharSet>0</GdiCharSet>
+        </Font>
+        <Text>
+          <Expression>所属事業所</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field8</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>20</Width>
+          </Left>
+          <Top>
+            <Style>Solid</Style>
+            <Width>20</Width>
+          </Top>
+          <Right>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Right>
+          <Bottom>
+            <Style>Solid</Style>
+            <Width>20</Width>
+          </Bottom>
+        </Border>
+        <Background type="Solid">
+          <Color>3C000000</Color>
+        </Background>
+        <Section>PageHeader</Section>
+        <Left>629</Left>
+        <Top>2052</Top>
+        <Width>545</Width>
+        <Height>390</Height>
+        <Align>CenterMiddle</Align>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>6.75</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">No.</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field9</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Left>
+          <Top>
+            <Style>Solid</Style>
+            <Width>20</Width>
+          </Top>
+          <Right>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Right>
+          <Bottom>
+            <Style>Solid</Style>
+            <Width>20</Width>
+          </Bottom>
+        </Border>
+        <Background type="Solid">
+          <Color>3C000000</Color>
+        </Background>
+        <Section>PageHeader</Section>
+        <Left>1174</Left>
+        <Top>2052</Top>
+        <Width>2071</Width>
+        <Height>390</Height>
+        <Align>CenterMiddle</Align>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>6.75</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">部名</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field10</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Left>
+          <Top>
+            <Style>Solid</Style>
+            <Width>20</Width>
+          </Top>
+          <Right>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Right>
+          <Bottom>
+            <Style>Solid</Style>
+            <Width>20</Width>
+          </Bottom>
+        </Border>
+        <Background type="Solid">
+          <Color>3C000000</Color>
+        </Background>
+        <Section>PageHeader</Section>
+        <Left>3245</Left>
+        <Top>2052</Top>
+        <Width>2078</Width>
+        <Height>390</Height>
+        <Align>CenterMiddle</Align>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>6.75</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">課名</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field11</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Left>
+          <Top>
+            <Style>Solid</Style>
+            <Width>20</Width>
+          </Top>
+          <Right>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Right>
+          <Bottom>
+            <Style>Solid</Style>
+            <Width>20</Width>
+          </Bottom>
+        </Border>
+        <Background type="Solid">
+          <Color>3C000000</Color>
+        </Background>
+        <Section>PageHeader</Section>
+        <Left>5323</Left>
+        <Top>2052</Top>
+        <Width>2077</Width>
+        <Height>390</Height>
+        <Align>CenterMiddle</Align>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>6.75</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">氏名</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field12</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Left>
+          <Top>
+            <Style>Solid</Style>
+            <Width>20</Width>
+          </Top>
+          <Right>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Right>
+          <Bottom>
+            <Style>Solid</Style>
+            <Width>20</Width>
+          </Bottom>
+        </Border>
+        <Background type="Solid">
+          <Color>3C000000</Color>
+        </Background>
+        <Section>PageHeader</Section>
+        <Left>7400</Left>
+        <Top>2052</Top>
+        <Width>969</Width>
+        <Height>390</Height>
+        <Align>CenterMiddle</Align>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>6.75</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">受診日</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field13</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Left>
+          <Top>
+            <Style>Solid</Style>
+            <Width>20</Width>
+          </Top>
+          <Right>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Right>
+          <Bottom>
+            <Style>Solid</Style>
+            <Width>20</Width>
+          </Bottom>
+        </Border>
+        <Background type="Solid">
+          <Color>3C000000</Color>
+        </Background>
+        <Section>PageHeader</Section>
+        <Left>8369</Left>
+        <Top>2052</Top>
+        <Width>870</Width>
+        <Height>390</Height>
+        <Align>CenterMiddle</Align>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>6.75</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">健診種別</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field14</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Left>
+          <Top>
+            <Style>Solid</Style>
+            <Width>20</Width>
+          </Top>
+          <Right>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Right>
+          <Bottom>
+            <Color>00FFFFFF</Color>
+          </Bottom>
+        </Border>
+        <Background type="Solid">
+          <Color>3C000000</Color>
+        </Background>
+        <Section>PageHeader</Section>
+        <Left>9239</Left>
+        <Top>2052</Top>
+        <Width>1005</Width>
+        <Height>195</Height>
+        <Align>CenterMiddle</Align>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>6.75</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">意見書等の</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field15</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Left>
+          <Top>
+            <Style>Solid</Style>
+            <Width>20</Width>
+          </Top>
+          <Right>
+            <Style>Solid</Style>
+            <Width>20</Width>
+          </Right>
+          <Bottom>
+            <Color>00FFFFFF</Color>
+          </Bottom>
+        </Border>
+        <Background type="Solid">
+          <Color>3C000000</Color>
+        </Background>
+        <Section>PageHeader</Section>
+        <Left>10244</Left>
+        <Top>2052</Top>
+        <Width>1015</Width>
+        <Height>195</Height>
+        <Align>CenterMiddle</Align>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>6.75</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">就業判定票</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field16</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Left>
+          <Top>
+            <Color>00FFFFFF</Color>
+          </Top>
+          <Right>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Right>
+          <Bottom>
+            <Style>Solid</Style>
+            <Width>20</Width>
+          </Bottom>
+        </Border>
+        <Background type="Solid">
+          <Color>3C000000</Color>
+        </Background>
+        <Section>PageHeader</Section>
+        <Left>9239</Left>
+        <Top>2247</Top>
+        <Width>1005</Width>
+        <Height>195</Height>
+        <Align>CenterMiddle</Align>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>6.75</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">発行有り</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field17</Name>
+        <Section>PageHeader</Section>
+        <Left>10018</Left>
+        <Top>2247</Top>
+        <Width>139</Width>
+        <Height>195</Height>
+        <Font>
+          <Name>Segoe UI</Name>
+          <Size>5.25</Size>
+          <GdiCharSet>0</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">*1</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field19</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Left>
+          <Top>
+            <Color>00FFFFFF</Color>
+          </Top>
+          <Right>
+            <Style>Solid</Style>
+            <Width>20</Width>
+          </Right>
+          <Bottom>
+            <Style>Solid</Style>
+            <Width>20</Width>
+          </Bottom>
+        </Border>
+        <Background type="Solid">
+          <Color>3C000000</Color>
+        </Background>
+        <Section>PageHeader</Section>
+        <Left>10244</Left>
+        <Top>2247</Top>
+        <Width>1015</Width>
+        <Height>195</Height>
+        <Align>CenterMiddle</Align>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>6.75</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">への要押印</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field18</Name>
+        <Section>PageHeader</Section>
+        <Left>11110</Left>
+        <Top>2247</Top>
+        <Width>139</Width>
+        <Height>195</Height>
+        <Font>
+          <Name>Segoe UI</Name>
+          <Size>5.25</Size>
+          <GdiCharSet>0</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">*2</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field2</Name>
+        <Section>PageFooter</Section>
+        <Left>629</Left>
+        <Top>0</Top>
+        <Width>10261</Width>
+        <Height>250</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Meiryo UI</Name>
+          <Size>8.25</Size>
+          <Bold>true</Bold>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">用語の説明 ： 「就業判定票」・・・健康診断票兼就業判定票、「意見書等」・・・就業に関する意見書及び健康管理指示書</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field20</Name>
+        <Section>PageFooter</Section>
+        <Left>629</Left>
+        <Top>500</Top>
+        <Width>10261</Width>
+        <Height>250</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Meiryo UI</Name>
+          <Size>8.25</Size>
+          <Bold>true</Bold>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">※１　就業判定票の到着前後に健康管理施設から「就業に関する意見書」及び「健康管理指示書」が別送されます。</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field21</Name>
+        <Section>PageFooter</Section>
+        <Left>629</Left>
+        <Top>750</Top>
+        <Width>10261</Width>
+        <Height>250</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Meiryo UI</Name>
+          <Size>8.25</Size>
+          <Bold>true</Bold>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">※２　「就業に関する意見書」及び「健康管理指示書」到着後、内容を確認し、対話の上、就業判定票の本人確認印欄に社員からの押印をもらいます。</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field1</Name>
+        <Section>PageFooter</Section>
+        <Left>9294</Left>
+        <Top>1453</Top>
+        <Width>1965</Width>
+        <Height>270</Height>
+        <Align>RightBottom</Align>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <GdiCharSet>0</GdiCharSet>
+        </Font>
+        <Text>
+          <Expression>[Page] &amp; " / " &amp; [Pages]</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field5</Name>
+        <Section>PageFooter</Section>
+        <Left>629</Left>
+        <Top>250</Top>
+        <Width>10261</Width>
+        <Height>250</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Meiryo UI</Name>
+          <Size>8.25</Size>
+          <Bold>true</Bold>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">就業判定票は社員に交付する必要はありません。事業所で保管をお願いします。</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field22</Name>
+        <Section>PageFooter</Section>
+        <Left>629</Left>
+        <Top>1000</Top>
+        <Width>10261</Width>
+        <Height>250</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Meiryo UI</Name>
+          <Size>8.25</Size>
+          <Bold>true</Bold>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">上記※１、※２は、該当する社員のみに「○」印が表示されています。</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field23</Name>
+        <Section>PageFooter</Section>
+        <Left>629</Left>
+        <Top>1250</Top>
+        <Width>8485</Width>
+        <Height>250</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Meiryo UI</Name>
+          <Size>8.25</Size>
+          <Bold>true</Bold>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">異動等により旧事業所に就業判定票等が送付された場合は、お手数ですが現在の事業所へ転送をお願いします。</Value>
+        </Text>
+      </TextField>
     </Fields>
   </Report>
   <Report ref="1">
@@ -1095,7 +2196,7 @@ ORDER BY
       <DataSource>
         <Name>保健指導名簿</Name>
         <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLOLEDB.1;Password=intra_intra;Persist Security Info=True;User ID=sa;Initial Catalog=JPHealth;Data Source=JPSERV\INTRASQL</ConnectionString>
+        <ConnectionString>Provider=SQLOLEDB.1;Password=intra_intra;Persist Security Info=True;User ID=sa;Initial Catalog=JPHealth;Data Source=INTRA-PDC00\INTRASQL</ConnectionString>
         <RecordSource>SELECT 
 	T1.ロットID, 
 	T1.会社コード, 
@@ -1141,7 +2242,7 @@ ORDER BY
         <Name>Detail</Name>
         <SubSections>
           <SubSection>
-            <Height>571</Height>
+            <Height>550</Height>
           </SubSection>
         </SubSections>
         <Type>Detail</Type>
@@ -1188,7 +2289,7 @@ ORDER BY
                 <Width>10</Width>
               </Bottom>
             </Border>
-            <Height>270</Height>
+            <Height>520</Height>
           </SubSection>
         </SubSections>
         <Type>PageFooter</Type>
@@ -1215,7 +2316,7 @@ ORDER BY
         <Left>292</Left>
         <Top>0</Top>
         <Width>829</Width>
-        <Height>571</Height>
+        <Height>550</Height>
         <MarginRight>50</MarginRight>
         <Align>RightMiddle</Align>
         <WordWrap>false</WordWrap>
@@ -1248,7 +2349,7 @@ ORDER BY
         <Left>1121</Left>
         <Top>0</Top>
         <Width>2562</Width>
-        <Height>571</Height>
+        <Height>550</Height>
         <MarginLeft>50</MarginLeft>
         <Align>LeftMiddle</Align>
         <WordWrap>false</WordWrap>
@@ -1281,7 +2382,7 @@ ORDER BY
         <Left>3683</Left>
         <Top>0</Top>
         <Width>2562</Width>
-        <Height>571</Height>
+        <Height>550</Height>
         <MarginLeft>50</MarginLeft>
         <Align>LeftMiddle</Align>
         <WordWrap>false</WordWrap>
@@ -1314,7 +2415,7 @@ ORDER BY
         <Left>6245</Left>
         <Top>0</Top>
         <Width>1322</Width>
-        <Height>571</Height>
+        <Height>550</Height>
         <Align>CenterMiddle</Align>
         <WordWrap>false</WordWrap>
         <Font>
@@ -1346,7 +2447,7 @@ ORDER BY
         <Left>7567</Left>
         <Top>0</Top>
         <Width>2562</Width>
-        <Height>571</Height>
+        <Height>550</Height>
         <MarginLeft>50</MarginLeft>
         <Align>LeftMiddle</Align>
         <WordWrap>false</WordWrap>
@@ -1379,7 +2480,7 @@ ORDER BY
         <Left>10129</Left>
         <Top>0</Top>
         <Width>3813</Width>
-        <Height>571</Height>
+        <Height>550</Height>
         <MarginLeft>50</MarginLeft>
         <Align>LeftMiddle</Align>
         <Font>
@@ -1414,7 +2515,7 @@ ORDER BY
         <Left>13942</Left>
         <Top>0</Top>
         <Width>2562</Width>
-        <Height>571</Height>
+        <Height>550</Height>
         <Align>CenterMiddle</Align>
         <Font>
           <Name>Meiryo UI</Name>
@@ -1806,9 +2907,799 @@ ORDER BY
         <Name>Field11</Name>
         <Section>PageFooter</Section>
         <Left>14539</Left>
-        <Top>0</Top>
+        <Top>270</Top>
         <Width>1965</Width>
-        <Height>270</Height>
+        <Height>250</Height>
+        <Align>RightMiddle</Align>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <GdiCharSet>0</GdiCharSet>
+        </Font>
+        <Text>
+          <Expression>[Page] &amp; " / " &amp; [Pages]</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field12</Name>
+        <Section>PageFooter</Section>
+        <Left>292</Left>
+        <Top>20</Top>
+        <Width>10261</Width>
+        <Height>250</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">上記対象者に、保健指導リーフレットを配付してください。</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field13</Name>
+        <Section>PageFooter</Section>
+        <Left>297</Left>
+        <Top>270</Top>
+        <Width>10998</Width>
+        <Height>250</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">保健指導リーフレットは、就業判定票の「機能別判定」が「要医療3」または「要観察1」に該当した社員のうち、必要な方のみに発行しています。</Value>
+        </Text>
+      </TextField>
+    </Fields>
+  </Report>
+  <Report ref="1">
+    <Name>保健指導名簿_個別</Name>
+    <DataSourceName>保健指導名簿</DataSourceName>
+    <OnOpen>_styleCtr = 0</OnOpen>
+    <RecordsPerPage>15</RecordsPerPage>
+    <ReportInfo>
+      <Author>haniuda</Author>
+    </ReportInfo>
+    <Layout>
+      <Width>16815</Width>
+      <Margin>0</Margin>
+      <MarginTop>0</MarginTop>
+      <MarginRight>0</MarginRight>
+      <MarginBottom>504</MarginBottom>
+      <Orientation>Landscape</Orientation>
+      <PaperSize>A4</PaperSize>
+    </Layout>
+    <Font>
+      <Name>Segoe UI</Name>
+    </Font>
+    <DataSources>
+      <DataSource>
+        <Name>Main</Name>
+        <DataProvider>OLEDB</DataProvider>
+        <ConnectionString>Provider=SQLOLEDB.1;Password=intra_intra;Persist Security Info=True;User ID=sa;Initial Catalog=JPHealth;Data Source=JPSERV\INTRASQL</ConnectionString>
+        <RecordSource>dbo.T_保健指導名簿印刷</RecordSource>
+        <RecordSourceType>TableDirect</RecordSourceType>
+      </DataSource>
+      <DataSource>
+        <Name>保健指導名簿</Name>
+        <DataProvider>OLEDB</DataProvider>
+        <ConnectionString>Provider=SQLOLEDB.1;Password=intra_intra;Persist Security Info=True;User ID=sa;Initial Catalog=JPHealth;Data Source=JPSERV\INTRASQL</ConnectionString>
+        <RecordSource>SELECT 
+	T1.ロットID, 
+	T1.会社コード, 
+	T1.所属事業所コード, 
+	T1.印刷ID, 
+	T1.ページ数, 
+	T1.レコード番号,
+	T1.会社, 
+	T1.所属事業所, 
+	T1.所属部名, 
+	T1.所属課名, 
+	T1.社員コード, 
+	T1.氏名, 
+	T1.帳票タイプ, 
+	T2.QR AS QRコード, 
+	T3.ラベル連番,
+	T2.分数
+FROM 
+	T_保健指導名簿印刷 AS T1 LEFT OUTER JOIN
+	T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID 
+		AND T1.会社コード = T2.会社コード
+		AND T1.所属事業所コード = T2.所属事業所コード 
+		AND T1.印刷ID = T2.印刷ID 
+		AND T1.ページ数 = T2.ページ数 INNER JOIN
+	T_印刷管理 AS T3 ON T1.ロットID = T3.ロットID 
+		AND T1.会社コード = T3.会社コード
+		AND T1.所属事業所コード = T3.所属事業所コード 
+		AND T1.印刷ID = T3.印刷ID
+WHERE T1.ロットID = '20170726174419'
+	AND T1.会社コード = '1001'
+	AND T1.所属事業所コード = '009610'
+	AND T1.印刷ID = 1
+	AND T2.帳票種別ID = 3
+	AND T1.ページ数 = 2
+ORDER BY 
+	CASE WHEN ISNULL(T1.所属部名, '') = '' THEN 1 ELSE 0 END,
+	T1.所属部名,
+	CASE WHEN ISNULL(T1.所属課名, '') = '' THEN 1 ELSE 0 END, 
+	T1.所属課名, T1.社員コード
+</RecordSource>
+      </DataSource>
+    </DataSources>
+    <Sections>
+      <Section>
+        <Name>Detail</Name>
+        <SubSections>
+          <SubSection>
+            <Height>550</Height>
+          </SubSection>
+        </SubSections>
+        <Type>Detail</Type>
+        <OnPrint>_styleCtr = _styleCtr+1</OnPrint>
+      </Section>
+      <Section>
+        <Name>Header</Name>
+        <SubSections>
+          <SubSection />
+        </SubSections>
+        <Type>Header</Type>
+      </Section>
+      <Section>
+        <Name>Footer</Name>
+        <SubSections>
+          <SubSection />
+        </SubSections>
+        <Type>Footer</Type>
+      </Section>
+      <Section>
+        <Name>PageHeader</Name>
+        <SubSections>
+          <SubSection>
+            <Height>2350</Height>
+          </SubSection>
+        </SubSections>
+        <Type>PageHeader</Type>
+      </Section>
+      <Section>
+        <Name>PageFooter</Name>
+        <SubSections>
+          <SubSection>
+            <Border>
+              <Left>
+                <Width>10</Width>
+              </Left>
+              <Top>
+                <Width>10</Width>
+              </Top>
+              <Right>
+                <Width>10</Width>
+              </Right>
+              <Bottom>
+                <Width>10</Width>
+              </Bottom>
+            </Border>
+            <Height>520</Height>
+          </SubSection>
+        </SubSections>
+        <Type>PageFooter</Type>
+      </Section>
+    </Sections>
+    <Fields>
+      <TextField>
+        <Name>レコード番号Ctl</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Left>
+          <Right>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Right>
+          <Bottom>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Bottom>
+        </Border>
+        <Section>Detail</Section>
+        <Left>292</Left>
+        <Top>0</Top>
+        <Width>829</Width>
+        <Height>550</Height>
+        <MarginRight>50</MarginRight>
+        <Align>RightMiddle</Align>
+        <WordWrap>false</WordWrap>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>8.25</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Expression> _styleCtr+1</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>所属部名Ctl</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Left>
+          <Right>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Right>
+          <Bottom>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Bottom>
+        </Border>
+        <Section>Detail</Section>
+        <Left>1121</Left>
+        <Top>0</Top>
+        <Width>2562</Width>
+        <Height>550</Height>
+        <MarginLeft>50</MarginLeft>
+        <Align>LeftMiddle</Align>
+        <WordWrap>false</WordWrap>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>8.25</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Expression>所属部名</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>所属課名Ctl</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Left>
+          <Right>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Right>
+          <Bottom>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Bottom>
+        </Border>
+        <Section>Detail</Section>
+        <Left>3683</Left>
+        <Top>0</Top>
+        <Width>2562</Width>
+        <Height>550</Height>
+        <MarginLeft>50</MarginLeft>
+        <Align>LeftMiddle</Align>
+        <WordWrap>false</WordWrap>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>8.25</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Expression>所属課名</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>社員コードCtl</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Left>
+          <Right>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Right>
+          <Bottom>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Bottom>
+        </Border>
+        <Section>Detail</Section>
+        <Left>6245</Left>
+        <Top>0</Top>
+        <Width>1322</Width>
+        <Height>550</Height>
+        <Align>CenterMiddle</Align>
+        <WordWrap>false</WordWrap>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>8.25</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Expression>社員コード</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>氏名Ctl</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Left>
+          <Right>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Right>
+          <Bottom>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Bottom>
+        </Border>
+        <Section>Detail</Section>
+        <Left>7567</Left>
+        <Top>0</Top>
+        <Width>2562</Width>
+        <Height>550</Height>
+        <MarginLeft>50</MarginLeft>
+        <Align>LeftMiddle</Align>
+        <WordWrap>false</WordWrap>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>8.25</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Expression>氏名</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>帳票タイプCtl</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Left>
+          <Right>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Right>
+          <Bottom>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Bottom>
+        </Border>
+        <Section>Detail</Section>
+        <Left>10129</Left>
+        <Top>0</Top>
+        <Width>3813</Width>
+        <Height>550</Height>
+        <MarginLeft>50</MarginLeft>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>8.25</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Expression>帳票タイプ</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field1</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Left>
+          <Top>
+            <Color>00FFFFFF</Color>
+          </Top>
+          <Right>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Right>
+          <Bottom>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Bottom>
+        </Border>
+        <Section>Detail</Section>
+        <Left>13942</Left>
+        <Top>0</Top>
+        <Width>2562</Width>
+        <Height>550</Height>
+        <Align>CenterMiddle</Align>
+        <Font>
+          <Name>Meiryo UI</Name>
+          <Size>9.75</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+      </TextField>
+      <TextField>
+        <Name>Field3</Name>
+        <Section>PageHeader</Section>
+        <Left>15051</Left>
+        <Top>328</Top>
+        <Width>718</Width>
+        <Height>172</Height>
+        <Align>RightMiddle</Align>
+        <WordWrap>false</WordWrap>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>6</Size>
+          <GdiCharSet>0</GdiCharSet>
+        </Font>
+        <Text>
+          <Expression>ラベル連番</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field2</Name>
+        <Section>PageHeader</Section>
+        <Left>292</Left>
+        <Top>388</Top>
+        <Width>16212</Width>
+        <Height>345</Height>
+        <Align>CenterMiddle</Align>
+        <Font>
+          <Name>ＭＳ ゴシック</Name>
+          <Size>12</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">保健指導 対象者名簿（要医療3・要観察1）</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>QRテキスト</Name>
+        <Section>PageHeader</Section>
+        <Left>14000</Left>
+        <Top>928</Top>
+        <Width>2500</Width>
+        <Height>172</Height>
+        <Align>RightMiddle</Align>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>6</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Expression>QRコード</Expression>
+        </Text>
+      </TextField>
+      <BarCodeField>
+        <Name>QRCode</Name>
+        <Section>PageHeader</Section>
+        <Left>15861</Left>
+        <Top>328</Top>
+        <Width>600</Width>
+        <Height>600</Height>
+        <ZOrder>2</ZOrder>
+        <Text>
+          <Expression>QRコード</Expression>
+        </Text>
+        <BarCodeType>QRCode</BarCodeType>
+        <BarcodeOptions>
+          <TextAlign>Right</TextAlign>
+          <SizeOptions>
+            <NarrowWideRatio>0</NarrowWideRatio>
+            <SizeMode>Scale</SizeMode>
+            <BarHeight>300</BarHeight>
+          </SizeOptions>
+        </BarcodeOptions>
+        <Align>CenterMiddle</Align>
+        <Font>
+          <Name>Meiryo UI</Name>
+          <Size>6</Size>
+        </Font>
+      </BarCodeField>
+      <TextField>
+        <Name>会社Ctl</Name>
+        <Section>PageHeader</Section>
+        <Left>297</Left>
+        <Top>1144</Top>
+        <Width>5159</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <WordWrap>false</WordWrap>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>8.25</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Expression>会社</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>所属事業所Ctl</Name>
+        <Section>PageHeader</Section>
+        <Left>297</Left>
+        <Top>1424</Top>
+        <Width>5159</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <WordWrap>false</WordWrap>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>8.25</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Expression>所属事業所</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field4</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Left>
+          <Top>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Top>
+          <Right>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Right>
+          <Bottom>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Bottom>
+        </Border>
+        <Background type="Solid">
+          <Color>3C000000</Color>
+        </Background>
+        <Section>PageHeader</Section>
+        <Left>292</Left>
+        <Top>1732</Top>
+        <Width>829</Width>
+        <Height>618</Height>
+        <Align>CenterMiddle</Align>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>9.75</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">№</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field5</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Left>
+          <Top>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Top>
+          <Right>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Right>
+          <Bottom>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Bottom>
+        </Border>
+        <Background type="Solid">
+          <Color>3C000000</Color>
+        </Background>
+        <Section>PageHeader</Section>
+        <Left>1121</Left>
+        <Top>1732</Top>
+        <Width>2562</Width>
+        <Height>618</Height>
+        <Align>CenterMiddle</Align>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>9.75</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">部名</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field6</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Left>
+          <Top>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Top>
+          <Right>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Right>
+          <Bottom>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Bottom>
+        </Border>
+        <Background type="Solid">
+          <Color>3C000000</Color>
+        </Background>
+        <Section>PageHeader</Section>
+        <Left>3683</Left>
+        <Top>1732</Top>
+        <Width>2562</Width>
+        <Height>618</Height>
+        <Align>CenterMiddle</Align>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>9.75</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">課名</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field7</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Left>
+          <Top>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Top>
+          <Right>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Right>
+          <Bottom>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Bottom>
+        </Border>
+        <Background type="Solid">
+          <Color>3C000000</Color>
+        </Background>
+        <Section>PageHeader</Section>
+        <Left>6245</Left>
+        <Top>1732</Top>
+        <Width>1322</Width>
+        <Height>618</Height>
+        <Align>CenterMiddle</Align>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>9.75</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">社員コード</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field8</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Left>
+          <Top>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Top>
+          <Right>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Right>
+          <Bottom>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Bottom>
+        </Border>
+        <Background type="Solid">
+          <Color>3C000000</Color>
+        </Background>
+        <Section>PageHeader</Section>
+        <Left>7567</Left>
+        <Top>1732</Top>
+        <Width>2562</Width>
+        <Height>618</Height>
+        <Align>CenterMiddle</Align>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>9.75</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">氏名</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field9</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Left>
+          <Top>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Top>
+          <Right>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Right>
+          <Bottom>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Bottom>
+        </Border>
+        <Background type="Solid">
+          <Color>3C000000</Color>
+        </Background>
+        <Section>PageHeader</Section>
+        <Left>10129</Left>
+        <Top>1732</Top>
+        <Width>3813</Width>
+        <Height>618</Height>
+        <Align>CenterMiddle</Align>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>9.75</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">項目</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field10</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Left>
+          <Top>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Top>
+          <Right>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Right>
+          <Bottom>
+            <Style>Solid</Style>
+            <Width>10</Width>
+          </Bottom>
+        </Border>
+        <Background type="Solid">
+          <Color>3C000000</Color>
+        </Background>
+        <Section>PageHeader</Section>
+        <Left>13942</Left>
+        <Top>1732</Top>
+        <Width>2562</Width>
+        <Height>618</Height>
+        <Align>CenterMiddle</Align>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>9.75</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">備考</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field11</Name>
+        <Section>PageFooter</Section>
+        <Left>14539</Left>
+        <Top>270</Top>
+        <Width>1965</Width>
+        <Height>250</Height>
         <Align>RightBottom</Align>
         <Font>
           <Name>ＭＳ Ｐゴシック</Name>
@@ -1832,6 +3723,22 @@ ORDER BY
         </Font>
         <Text>
           <Value sys="string">上記対象者に、保健指導リーフレットを配付してください。</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field13</Name>
+        <Section>PageFooter</Section>
+        <Left>297</Left>
+        <Top>270</Top>
+        <Width>10998</Width>
+        <Height>250</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">保健指導リーフレットは、就業判定票の「機能別判定」が「要医療3」または「要観察1」に該当した社員のうち、必要な方のみに発行しています。</Value>
         </Text>
       </TextField>
     </Fields>
@@ -39384,1845 +41291,6 @@ ORDER BY
         </Font>
         <Text>
           <Value sys="string">【保存期間５年】</Value>
-        </Text>
-      </TextField>
-    </Fields>
-  </Report>
-  <Report ref="1">
-    <Name>対象者一覧_個別</Name>
-    <DataSourceName>対象者一覧</DataSourceName>
-    <OnOpen>_styleCtr = 0
-</OnOpen>
-    <RecordsPerPage>50</RecordsPerPage>
-    <ReportInfo>
-      <Author>haniuda</Author>
-    </ReportInfo>
-    <Layout>
-      <Width>11902</Width>
-      <Margin>0</Margin>
-      <MarginTop>0</MarginTop>
-      <MarginRight>0</MarginRight>
-      <MarginBottom>500</MarginBottom>
-      <Orientation>Portrait</Orientation>
-      <PaperSize>A4</PaperSize>
-    </Layout>
-    <Font>
-      <Name>Segoe UI</Name>
-    </Font>
-    <DataSources>
-      <DataSource>
-        <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLOLEDB.1;Password=intra_intra;Persist Security Info=True;User ID=sa;Initial Catalog=JPHealth;Data Source=JPSERV\INTRASQL</ConnectionString>
-        <RecordSource>dbo.T_対象者一覧印刷</RecordSource>
-        <RecordSourceType>TableDirect</RecordSourceType>
-      </DataSource>
-      <DataSource>
-        <Name>対象者一覧</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLOLEDB;Password=intra_intra;Persist Security Info=True;User ID=sa;Initial Catalog=JPHealth;Data Source=JPSERV\INTRASQL</ConnectionString>
-        <RecordSource>SELECT 
-	T1.ロットID, 
-	T1.会社コード, 
-	T1.所属事業所コード, 
-	T1.印刷ID, 
-	T1.ページ数, 
-	T1.レコード番号, 
-	T1.会社, 
-	T1.所属事業所, 
-	T1.所属部名, 
-	T1.所属課名, 
-	T1.氏名, 
-	T1.受診日, 
-	T1.健診種別, 
-	T1.意見書発行, 
-	T1.判定票要押印, 
-	T3.QR AS QRコード, 
-	T4.ラベル連番,
-	T3.分数
-FROM 
-	T_対象者一覧印刷 AS T1 INNER JOIN 
-	T_判定票管理 AS T2 ON T1.ロットID = T2.ロットID 
-		AND T1.レコード番号 = T2.レコード番号 LEFT OUTER JOIN 
-	T_印刷ソート AS T3 ON T1.ロットID = T3.ロットID 
-		AND T1.会社コード = T3.会社コード 
-		AND T1.所属事業所コード = T3.所属事業所コード 
-		AND T1.印刷ID = T3.印刷ID 
-		AND T1.ページ数 = T3.ページ数 INNER JOIN 
-	T_印刷管理 AS T4 ON T1.ロットID = T4.ロットID 
-		AND T1.会社コード = T4.会社コード 
-		AND T1.所属事業所コード = T4.所属事業所コード 
-		AND T1.印刷ID = T4.印刷ID 
-WHERE 
-	T1.ロットID = '20170726174419' 
-	AND T1.会社コード = '1001' 
-	AND T1.所属事業所コード = '009610' 
-	AND T1.印刷ID = 1 
-	AND T3.帳票種別ID = 2
-	AND T1.ページ数 = 2
-ORDER BY 
-	CASE WHEN ISNULL(T1.所属部名, '') = '' THEN 1 ELSE 0 END, 
-	T1.所属部名, 
-	CASE WHEN ISNULL(T1.所属課名, '') = '' THEN 1 ELSE 0 END, 
-	T1.所属課名, 
-	T2.社員コード
-</RecordSource>
-      </DataSource>
-    </DataSources>
-    <Sections>
-      <Section>
-        <Name>Detail</Name>
-        <SubSections>
-          <SubSection>
-            <Height>240</Height>
-          </SubSection>
-        </SubSections>
-        <Type>Detail</Type>
-        <OnPrint>_styleCtr = _styleCtr+1</OnPrint>
-      </Section>
-      <Section>
-        <Name>Header</Name>
-        <SubSections>
-          <SubSection />
-        </SubSections>
-        <Type>Header</Type>
-      </Section>
-      <Section>
-        <Name>Footer</Name>
-        <SubSections>
-          <SubSection />
-        </SubSections>
-        <Type>Footer</Type>
-      </Section>
-      <Section>
-        <Name>PageHeader</Name>
-        <SubSections>
-          <SubSection>
-            <Height>2442</Height>
-          </SubSection>
-        </SubSections>
-        <Type>PageHeader</Type>
-      </Section>
-      <Section>
-        <Name>PageFooter</Name>
-        <SubSections>
-          <SubSection>
-            <Height>1813</Height>
-          </SubSection>
-        </SubSections>
-        <Type>PageFooter</Type>
-      </Section>
-    </Sections>
-    <Fields>
-      <TextField>
-        <Name>レコード番号Ctl</Name>
-        <Border>
-          <Left>
-            <Style>Solid</Style>
-            <Width>20</Width>
-          </Left>
-          <Top>
-            <Color>00FFFFFF</Color>
-          </Top>
-          <Right>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Right>
-          <Bottom>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Bottom>
-        </Border>
-        <Section>Detail</Section>
-        <Left>629</Left>
-        <Top>0</Top>
-        <Width>545</Width>
-        <Height>240</Height>
-        <MarginRight>100</MarginRight>
-        <Align>RightMiddle</Align>
-        <WordWrap>false</WordWrap>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>8.25</Size>
-          <GdiCharSet>0</GdiCharSet>
-        </Font>
-        <Text>
-          <Expression> _styleCtr+1</Expression>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>所属部名Ctl</Name>
-        <Border>
-          <Left>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Left>
-          <Right>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Right>
-          <Bottom>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Bottom>
-        </Border>
-        <Section>Detail</Section>
-        <Left>1174</Left>
-        <Top>0</Top>
-        <Width>2071</Width>
-        <Height>240</Height>
-        <MarginLeft>20</MarginLeft>
-        <MarginRight>50</MarginRight>
-        <Align>LeftMiddle</Align>
-        <WordWrap>false</WordWrap>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>6.75</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Expression>所属部名</Expression>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>所属課名Ctl</Name>
-        <Border>
-          <Left>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Left>
-          <Right>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Right>
-          <Bottom>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Bottom>
-        </Border>
-        <Section>Detail</Section>
-        <Left>3245</Left>
-        <Top>0</Top>
-        <Width>2078</Width>
-        <Height>240</Height>
-        <MarginLeft>20</MarginLeft>
-        <MarginRight>50</MarginRight>
-        <Align>LeftMiddle</Align>
-        <WordWrap>false</WordWrap>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>6.75</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Expression>所属課名</Expression>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>氏名Ctl</Name>
-        <Border>
-          <Left>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Left>
-          <Right>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Right>
-          <Bottom>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Bottom>
-        </Border>
-        <Section>Detail</Section>
-        <Left>5323</Left>
-        <Top>0</Top>
-        <Width>2077</Width>
-        <Height>240</Height>
-        <MarginLeft>20</MarginLeft>
-        <MarginRight>50</MarginRight>
-        <Align>LeftMiddle</Align>
-        <WordWrap>false</WordWrap>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>8.25</Size>
-          <GdiCharSet>0</GdiCharSet>
-        </Font>
-        <Text>
-          <Expression>氏名</Expression>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>受診日Ctl</Name>
-        <Border>
-          <Left>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Left>
-          <Right>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Right>
-          <Bottom>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Bottom>
-        </Border>
-        <Section>Detail</Section>
-        <Left>7400</Left>
-        <Top>0</Top>
-        <Width>969</Width>
-        <Height>240</Height>
-        <ZOrder>2</ZOrder>
-        <Align>CenterMiddle</Align>
-        <WordWrap>false</WordWrap>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>8.25</Size>
-          <GdiCharSet>0</GdiCharSet>
-        </Font>
-        <Text>
-          <Expression>受診日</Expression>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>健診種別Ctl</Name>
-        <Border>
-          <Left>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Left>
-          <Right>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Right>
-          <Bottom>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Bottom>
-        </Border>
-        <Section>Detail</Section>
-        <Left>8369</Left>
-        <Top>0</Top>
-        <Width>870</Width>
-        <Height>240</Height>
-        <ZOrder>3</ZOrder>
-        <MarginLeft>20</MarginLeft>
-        <MarginRight>50</MarginRight>
-        <Align>LeftMiddle</Align>
-        <WordWrap>false</WordWrap>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>8.25</Size>
-          <GdiCharSet>0</GdiCharSet>
-        </Font>
-        <Text>
-          <Expression>健診種別</Expression>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>意見書発行Ctl</Name>
-        <Border>
-          <Left>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Left>
-          <Right>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Right>
-          <Bottom>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Bottom>
-        </Border>
-        <Section>Detail</Section>
-        <Left>9239</Left>
-        <Top>0</Top>
-        <Width>1005</Width>
-        <Height>240</Height>
-        <ZOrder>4</ZOrder>
-        <Align>CenterMiddle</Align>
-        <WordWrap>false</WordWrap>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>8.25</Size>
-          <GdiCharSet>0</GdiCharSet>
-        </Font>
-        <Text>
-          <Expression>意見書発行</Expression>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>判定票要押印Ctl</Name>
-        <Border>
-          <Left>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Left>
-          <Top>
-            <Color>00FFFFFF</Color>
-          </Top>
-          <Right>
-            <Style>Solid</Style>
-            <Width>20</Width>
-          </Right>
-          <Bottom>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Bottom>
-        </Border>
-        <Section>Detail</Section>
-        <Left>10244</Left>
-        <Top>0</Top>
-        <Width>1015</Width>
-        <Height>240</Height>
-        <ZOrder>5</ZOrder>
-        <Align>CenterMiddle</Align>
-        <WordWrap>false</WordWrap>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>8.25</Size>
-          <GdiCharSet>0</GdiCharSet>
-        </Font>
-        <Text>
-          <Expression>判定票要押印</Expression>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>Field3</Name>
-        <Section>PageHeader</Section>
-        <Left>10080</Left>
-        <Top>315</Top>
-        <Width>718</Width>
-        <Height>172</Height>
-        <Align>RightMiddle</Align>
-        <WordWrap>false</WordWrap>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>6</Size>
-          <GdiCharSet>0</GdiCharSet>
-        </Font>
-        <Text>
-          <Expression>ラベル連番</Expression>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>QRテキスト</Name>
-        <Section>PageHeader</Section>
-        <Left>9000</Left>
-        <Top>915</Top>
-        <Width>2500</Width>
-        <Height>172</Height>
-        <Align>RightMiddle</Align>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>6</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Expression>QRコード</Expression>
-        </Text>
-      </TextField>
-      <BarCodeField>
-        <Name>QRCode</Name>
-        <Section>PageHeader</Section>
-        <Left>10890</Left>
-        <Top>315</Top>
-        <Width>600</Width>
-        <Height>600</Height>
-        <ZOrder>6</ZOrder>
-        <Text>
-          <Expression>QRコード</Expression>
-        </Text>
-        <BarCodeType>QRCode</BarCodeType>
-        <BarcodeOptions>
-          <TextAlign>Right</TextAlign>
-          <SizeOptions>
-            <NarrowWideRatio>0</NarrowWideRatio>
-            <SizeMode>Scale</SizeMode>
-            <BarHeight>300</BarHeight>
-          </SizeOptions>
-        </BarcodeOptions>
-        <Align>CenterMiddle</Align>
-        <Font>
-          <Name>Meiryo UI</Name>
-          <Size>6</Size>
-        </Font>
-      </BarCodeField>
-      <TextField>
-        <Name>Field4</Name>
-        <Section>PageHeader</Section>
-        <Left>4902</Left>
-        <Top>1087</Top>
-        <Width>2100</Width>
-        <Height>236</Height>
-        <Align>CenterMiddle</Align>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>8.25</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Value sys="string">就業判定票 発送一覧</Value>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>会社Ctl</Name>
-        <Section>PageHeader</Section>
-        <Left>1331</Left>
-        <Top>1335</Top>
-        <Width>6069</Width>
-        <Height>240</Height>
-        <Align>LeftMiddle</Align>
-        <WordWrap>false</WordWrap>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>8.25</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Expression>会社</Expression>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>Field6</Name>
-        <Section>PageHeader</Section>
-        <Left>546</Left>
-        <Top>1339</Top>
-        <Width>785</Width>
-        <Height>236</Height>
-        <Align>LeftMiddle</Align>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>8.25</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Value sys="string">会社名：</Value>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>Field7</Name>
-        <Section>PageHeader</Section>
-        <Left>546</Left>
-        <Top>1575</Top>
-        <Width>785</Width>
-        <Height>236</Height>
-        <Align>LeftMiddle</Align>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>8.25</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Value sys="string">事業所名：</Value>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>所属事業所Ctl</Name>
-        <Section>PageHeader</Section>
-        <Left>1331</Left>
-        <Top>1575</Top>
-        <Width>6069</Width>
-        <Height>240</Height>
-        <Align>LeftMiddle</Align>
-        <WordWrap>false</WordWrap>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>8.25</Size>
-          <GdiCharSet>0</GdiCharSet>
-        </Font>
-        <Text>
-          <Expression>所属事業所</Expression>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>Field8</Name>
-        <Border>
-          <Left>
-            <Style>Solid</Style>
-            <Width>20</Width>
-          </Left>
-          <Top>
-            <Style>Solid</Style>
-            <Width>20</Width>
-          </Top>
-          <Right>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Right>
-          <Bottom>
-            <Style>Solid</Style>
-            <Width>20</Width>
-          </Bottom>
-        </Border>
-        <Background type="Solid">
-          <Color>3C000000</Color>
-        </Background>
-        <Section>PageHeader</Section>
-        <Left>629</Left>
-        <Top>2052</Top>
-        <Width>545</Width>
-        <Height>390</Height>
-        <Align>CenterMiddle</Align>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>6.75</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Value sys="string">No.</Value>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>Field9</Name>
-        <Border>
-          <Left>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Left>
-          <Top>
-            <Style>Solid</Style>
-            <Width>20</Width>
-          </Top>
-          <Right>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Right>
-          <Bottom>
-            <Style>Solid</Style>
-            <Width>20</Width>
-          </Bottom>
-        </Border>
-        <Background type="Solid">
-          <Color>3C000000</Color>
-        </Background>
-        <Section>PageHeader</Section>
-        <Left>1174</Left>
-        <Top>2052</Top>
-        <Width>2071</Width>
-        <Height>390</Height>
-        <Align>CenterMiddle</Align>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>6.75</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Value sys="string">部名</Value>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>Field10</Name>
-        <Border>
-          <Left>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Left>
-          <Top>
-            <Style>Solid</Style>
-            <Width>20</Width>
-          </Top>
-          <Right>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Right>
-          <Bottom>
-            <Style>Solid</Style>
-            <Width>20</Width>
-          </Bottom>
-        </Border>
-        <Background type="Solid">
-          <Color>3C000000</Color>
-        </Background>
-        <Section>PageHeader</Section>
-        <Left>3245</Left>
-        <Top>2052</Top>
-        <Width>2078</Width>
-        <Height>390</Height>
-        <Align>CenterMiddle</Align>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>6.75</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Value sys="string">課名</Value>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>Field11</Name>
-        <Border>
-          <Left>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Left>
-          <Top>
-            <Style>Solid</Style>
-            <Width>20</Width>
-          </Top>
-          <Right>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Right>
-          <Bottom>
-            <Style>Solid</Style>
-            <Width>20</Width>
-          </Bottom>
-        </Border>
-        <Background type="Solid">
-          <Color>3C000000</Color>
-        </Background>
-        <Section>PageHeader</Section>
-        <Left>5323</Left>
-        <Top>2052</Top>
-        <Width>2077</Width>
-        <Height>390</Height>
-        <Align>CenterMiddle</Align>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>6.75</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Value sys="string">氏名</Value>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>Field12</Name>
-        <Border>
-          <Left>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Left>
-          <Top>
-            <Style>Solid</Style>
-            <Width>20</Width>
-          </Top>
-          <Right>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Right>
-          <Bottom>
-            <Style>Solid</Style>
-            <Width>20</Width>
-          </Bottom>
-        </Border>
-        <Background type="Solid">
-          <Color>3C000000</Color>
-        </Background>
-        <Section>PageHeader</Section>
-        <Left>7400</Left>
-        <Top>2052</Top>
-        <Width>969</Width>
-        <Height>390</Height>
-        <Align>CenterMiddle</Align>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>6.75</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Value sys="string">受診日</Value>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>Field13</Name>
-        <Border>
-          <Left>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Left>
-          <Top>
-            <Style>Solid</Style>
-            <Width>20</Width>
-          </Top>
-          <Right>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Right>
-          <Bottom>
-            <Style>Solid</Style>
-            <Width>20</Width>
-          </Bottom>
-        </Border>
-        <Background type="Solid">
-          <Color>3C000000</Color>
-        </Background>
-        <Section>PageHeader</Section>
-        <Left>8369</Left>
-        <Top>2052</Top>
-        <Width>870</Width>
-        <Height>390</Height>
-        <Align>CenterMiddle</Align>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>6.75</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Value sys="string">健診種別</Value>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>Field14</Name>
-        <Border>
-          <Left>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Left>
-          <Top>
-            <Style>Solid</Style>
-            <Width>20</Width>
-          </Top>
-          <Right>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Right>
-          <Bottom>
-            <Color>00FFFFFF</Color>
-          </Bottom>
-        </Border>
-        <Background type="Solid">
-          <Color>3C000000</Color>
-        </Background>
-        <Section>PageHeader</Section>
-        <Left>9239</Left>
-        <Top>2052</Top>
-        <Width>1005</Width>
-        <Height>195</Height>
-        <Align>CenterMiddle</Align>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>6.75</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Value sys="string">意見書等の</Value>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>Field15</Name>
-        <Border>
-          <Left>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Left>
-          <Top>
-            <Style>Solid</Style>
-            <Width>20</Width>
-          </Top>
-          <Right>
-            <Style>Solid</Style>
-            <Width>20</Width>
-          </Right>
-          <Bottom>
-            <Color>00FFFFFF</Color>
-          </Bottom>
-        </Border>
-        <Background type="Solid">
-          <Color>3C000000</Color>
-        </Background>
-        <Section>PageHeader</Section>
-        <Left>10244</Left>
-        <Top>2052</Top>
-        <Width>1015</Width>
-        <Height>195</Height>
-        <Align>CenterMiddle</Align>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>6.75</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Value sys="string">就業判定票</Value>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>Field16</Name>
-        <Border>
-          <Left>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Left>
-          <Top>
-            <Color>00FFFFFF</Color>
-          </Top>
-          <Right>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Right>
-          <Bottom>
-            <Style>Solid</Style>
-            <Width>20</Width>
-          </Bottom>
-        </Border>
-        <Background type="Solid">
-          <Color>3C000000</Color>
-        </Background>
-        <Section>PageHeader</Section>
-        <Left>9239</Left>
-        <Top>2247</Top>
-        <Width>1005</Width>
-        <Height>195</Height>
-        <Align>CenterMiddle</Align>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>6.75</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Value sys="string">発行有り</Value>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>Field17</Name>
-        <Section>PageHeader</Section>
-        <Left>10018</Left>
-        <Top>2247</Top>
-        <Width>139</Width>
-        <Height>195</Height>
-        <Font>
-          <Name>Segoe UI</Name>
-          <Size>5.25</Size>
-          <GdiCharSet>0</GdiCharSet>
-        </Font>
-        <Text>
-          <Value sys="string">*1</Value>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>Field19</Name>
-        <Border>
-          <Left>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Left>
-          <Top>
-            <Color>00FFFFFF</Color>
-          </Top>
-          <Right>
-            <Style>Solid</Style>
-            <Width>20</Width>
-          </Right>
-          <Bottom>
-            <Style>Solid</Style>
-            <Width>20</Width>
-          </Bottom>
-        </Border>
-        <Background type="Solid">
-          <Color>3C000000</Color>
-        </Background>
-        <Section>PageHeader</Section>
-        <Left>10244</Left>
-        <Top>2247</Top>
-        <Width>1015</Width>
-        <Height>195</Height>
-        <Align>CenterMiddle</Align>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>6.75</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Value sys="string">への要押印</Value>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>Field18</Name>
-        <Section>PageHeader</Section>
-        <Left>11110</Left>
-        <Top>2247</Top>
-        <Width>139</Width>
-        <Height>195</Height>
-        <Font>
-          <Name>Segoe UI</Name>
-          <Size>5.25</Size>
-          <GdiCharSet>0</GdiCharSet>
-        </Font>
-        <Text>
-          <Value sys="string">*2</Value>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>Field2</Name>
-        <Section>PageFooter</Section>
-        <Left>629</Left>
-        <Top>0</Top>
-        <Width>10261</Width>
-        <Height>250</Height>
-        <Align>LeftMiddle</Align>
-        <Font>
-          <Name>Meiryo UI</Name>
-          <Size>8.25</Size>
-          <Bold>true</Bold>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Value sys="string">用語の説明 ： 「就業判定票」・・・健康診断票兼就業判定票、「意見書等」・・・就業に関する意見書及び健康管理指示書</Value>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>Field20</Name>
-        <Section>PageFooter</Section>
-        <Left>629</Left>
-        <Top>500</Top>
-        <Width>10261</Width>
-        <Height>250</Height>
-        <Align>LeftMiddle</Align>
-        <Font>
-          <Name>Meiryo UI</Name>
-          <Size>8.25</Size>
-          <Bold>true</Bold>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Value sys="string">※１　就業判定票の到着前後に健康管理施設から「就業に関する意見書」及び「健康管理指示書」が別送されます。</Value>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>Field21</Name>
-        <Section>PageFooter</Section>
-        <Left>629</Left>
-        <Top>750</Top>
-        <Width>10261</Width>
-        <Height>250</Height>
-        <Align>LeftMiddle</Align>
-        <Font>
-          <Name>Meiryo UI</Name>
-          <Size>8.25</Size>
-          <Bold>true</Bold>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Value sys="string">※２　「就業に関する意見書」及び「健康管理指示書」到着後、内容を確認し、対話の上、就業判定票の本人確認印欄に社員からの押印をもらいます。</Value>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>Field1</Name>
-        <Section>PageFooter</Section>
-        <Left>9294</Left>
-        <Top>1453</Top>
-        <Width>1965</Width>
-        <Height>270</Height>
-        <Align>RightBottom</Align>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <GdiCharSet>0</GdiCharSet>
-        </Font>
-        <Text>
-          <Expression>分数</Expression>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>Field5</Name>
-        <Section>PageFooter</Section>
-        <Left>629</Left>
-        <Top>250</Top>
-        <Width>10261</Width>
-        <Height>250</Height>
-        <Align>LeftMiddle</Align>
-        <Font>
-          <Name>Meiryo UI</Name>
-          <Size>8.25</Size>
-          <Bold>true</Bold>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Value sys="string">就業判定票は社員に交付する必要はありません。事業所で保管をお願いします。</Value>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>Field22</Name>
-        <Section>PageFooter</Section>
-        <Left>629</Left>
-        <Top>1000</Top>
-        <Width>10261</Width>
-        <Height>250</Height>
-        <Align>LeftMiddle</Align>
-        <Font>
-          <Name>Meiryo UI</Name>
-          <Size>8.25</Size>
-          <Bold>true</Bold>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Value sys="string">上記※１、※２は、該当する社員のみに「○」印が表示されています。</Value>
-        </Text>
-      </TextField>
-    </Fields>
-  </Report>
-  <Report ref="1">
-    <Name>保健指導名簿_個別</Name>
-    <DataSourceName>保健指導名簿</DataSourceName>
-    <OnOpen>_styleCtr = 0</OnOpen>
-    <RecordsPerPage>15</RecordsPerPage>
-    <ReportInfo>
-      <Author>haniuda</Author>
-    </ReportInfo>
-    <Layout>
-      <Width>16815</Width>
-      <Margin>0</Margin>
-      <MarginTop>0</MarginTop>
-      <MarginRight>0</MarginRight>
-      <MarginBottom>504</MarginBottom>
-      <Orientation>Landscape</Orientation>
-      <PaperSize>A4</PaperSize>
-    </Layout>
-    <Font>
-      <Name>Segoe UI</Name>
-    </Font>
-    <DataSources>
-      <DataSource>
-        <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLOLEDB.1;Password=intra_intra;Persist Security Info=True;User ID=sa;Initial Catalog=JPHealth;Data Source=JPSERV\INTRASQL</ConnectionString>
-        <RecordSource>dbo.T_保健指導名簿印刷</RecordSource>
-        <RecordSourceType>TableDirect</RecordSourceType>
-      </DataSource>
-      <DataSource>
-        <Name>保健指導名簿</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLOLEDB.1;Password=intra_intra;Persist Security Info=True;User ID=sa;Initial Catalog=JPHealth;Data Source=JPSERV\INTRASQL</ConnectionString>
-        <RecordSource>SELECT 
-	T1.ロットID, 
-	T1.会社コード, 
-	T1.所属事業所コード, 
-	T1.印刷ID, 
-	T1.ページ数, 
-	T1.レコード番号,
-	T1.会社, 
-	T1.所属事業所, 
-	T1.所属部名, 
-	T1.所属課名, 
-	T1.社員コード, 
-	T1.氏名, 
-	T1.帳票タイプ, 
-	T2.QR AS QRコード, 
-	T3.ラベル連番,
-	T2.分数
-FROM 
-	T_保健指導名簿印刷 AS T1 LEFT OUTER JOIN
-	T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID 
-		AND T1.会社コード = T2.会社コード
-		AND T1.所属事業所コード = T2.所属事業所コード 
-		AND T1.印刷ID = T2.印刷ID 
-		AND T1.ページ数 = T2.ページ数 INNER JOIN
-	T_印刷管理 AS T3 ON T1.ロットID = T3.ロットID 
-		AND T1.会社コード = T3.会社コード
-		AND T1.所属事業所コード = T3.所属事業所コード 
-		AND T1.印刷ID = T3.印刷ID
-WHERE T1.ロットID = '20170726174419'
-	AND T1.会社コード = '1001'
-	AND T1.所属事業所コード = '009610'
-	AND T1.印刷ID = 1
-	AND T2.帳票種別ID = 3
-	AND T1.ページ数 = 2
-ORDER BY 
-	CASE WHEN ISNULL(T1.所属部名, '') = '' THEN 1 ELSE 0 END,
-	T1.所属部名,
-	CASE WHEN ISNULL(T1.所属課名, '') = '' THEN 1 ELSE 0 END, 
-	T1.所属課名, T1.社員コード
-</RecordSource>
-      </DataSource>
-    </DataSources>
-    <Sections>
-      <Section>
-        <Name>Detail</Name>
-        <SubSections>
-          <SubSection>
-            <Height>571</Height>
-          </SubSection>
-        </SubSections>
-        <Type>Detail</Type>
-        <OnPrint>_styleCtr = _styleCtr+1</OnPrint>
-      </Section>
-      <Section>
-        <Name>Header</Name>
-        <SubSections>
-          <SubSection />
-        </SubSections>
-        <Type>Header</Type>
-      </Section>
-      <Section>
-        <Name>Footer</Name>
-        <SubSections>
-          <SubSection />
-        </SubSections>
-        <Type>Footer</Type>
-      </Section>
-      <Section>
-        <Name>PageHeader</Name>
-        <SubSections>
-          <SubSection>
-            <Height>2350</Height>
-          </SubSection>
-        </SubSections>
-        <Type>PageHeader</Type>
-      </Section>
-      <Section>
-        <Name>PageFooter</Name>
-        <SubSections>
-          <SubSection>
-            <Border>
-              <Left>
-                <Width>10</Width>
-              </Left>
-              <Top>
-                <Width>10</Width>
-              </Top>
-              <Right>
-                <Width>10</Width>
-              </Right>
-              <Bottom>
-                <Width>10</Width>
-              </Bottom>
-            </Border>
-            <Height>270</Height>
-          </SubSection>
-        </SubSections>
-        <Type>PageFooter</Type>
-      </Section>
-    </Sections>
-    <Fields>
-      <TextField>
-        <Name>レコード番号Ctl</Name>
-        <Border>
-          <Left>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Left>
-          <Right>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Right>
-          <Bottom>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Bottom>
-        </Border>
-        <Section>Detail</Section>
-        <Left>292</Left>
-        <Top>0</Top>
-        <Width>829</Width>
-        <Height>571</Height>
-        <MarginRight>50</MarginRight>
-        <Align>RightMiddle</Align>
-        <WordWrap>false</WordWrap>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>8.25</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Expression> _styleCtr+1</Expression>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>所属部名Ctl</Name>
-        <Border>
-          <Left>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Left>
-          <Right>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Right>
-          <Bottom>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Bottom>
-        </Border>
-        <Section>Detail</Section>
-        <Left>1121</Left>
-        <Top>0</Top>
-        <Width>2562</Width>
-        <Height>571</Height>
-        <MarginLeft>50</MarginLeft>
-        <Align>LeftMiddle</Align>
-        <WordWrap>false</WordWrap>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>8.25</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Expression>所属部名</Expression>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>所属課名Ctl</Name>
-        <Border>
-          <Left>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Left>
-          <Right>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Right>
-          <Bottom>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Bottom>
-        </Border>
-        <Section>Detail</Section>
-        <Left>3683</Left>
-        <Top>0</Top>
-        <Width>2562</Width>
-        <Height>571</Height>
-        <MarginLeft>50</MarginLeft>
-        <Align>LeftMiddle</Align>
-        <WordWrap>false</WordWrap>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>8.25</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Expression>所属課名</Expression>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>社員コードCtl</Name>
-        <Border>
-          <Left>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Left>
-          <Right>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Right>
-          <Bottom>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Bottom>
-        </Border>
-        <Section>Detail</Section>
-        <Left>6245</Left>
-        <Top>0</Top>
-        <Width>1322</Width>
-        <Height>571</Height>
-        <Align>CenterMiddle</Align>
-        <WordWrap>false</WordWrap>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>8.25</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Expression>社員コード</Expression>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>氏名Ctl</Name>
-        <Border>
-          <Left>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Left>
-          <Right>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Right>
-          <Bottom>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Bottom>
-        </Border>
-        <Section>Detail</Section>
-        <Left>7567</Left>
-        <Top>0</Top>
-        <Width>2562</Width>
-        <Height>571</Height>
-        <MarginLeft>50</MarginLeft>
-        <Align>LeftMiddle</Align>
-        <WordWrap>false</WordWrap>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>8.25</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Expression>氏名</Expression>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>帳票タイプCtl</Name>
-        <Border>
-          <Left>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Left>
-          <Right>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Right>
-          <Bottom>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Bottom>
-        </Border>
-        <Section>Detail</Section>
-        <Left>10129</Left>
-        <Top>0</Top>
-        <Width>3813</Width>
-        <Height>571</Height>
-        <MarginLeft>50</MarginLeft>
-        <Align>LeftMiddle</Align>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>8.25</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Expression>帳票タイプ</Expression>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>Field1</Name>
-        <Border>
-          <Left>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Left>
-          <Top>
-            <Color>00FFFFFF</Color>
-          </Top>
-          <Right>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Right>
-          <Bottom>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Bottom>
-        </Border>
-        <Section>Detail</Section>
-        <Left>13942</Left>
-        <Top>0</Top>
-        <Width>2562</Width>
-        <Height>571</Height>
-        <Align>CenterMiddle</Align>
-        <Font>
-          <Name>Meiryo UI</Name>
-          <Size>9.75</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-      </TextField>
-      <TextField>
-        <Name>Field3</Name>
-        <Section>PageHeader</Section>
-        <Left>15051</Left>
-        <Top>328</Top>
-        <Width>718</Width>
-        <Height>172</Height>
-        <Align>RightMiddle</Align>
-        <WordWrap>false</WordWrap>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>6</Size>
-          <GdiCharSet>0</GdiCharSet>
-        </Font>
-        <Text>
-          <Expression>ラベル連番</Expression>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>Field2</Name>
-        <Section>PageHeader</Section>
-        <Left>292</Left>
-        <Top>388</Top>
-        <Width>16212</Width>
-        <Height>345</Height>
-        <Align>CenterMiddle</Align>
-        <Font>
-          <Name>ＭＳ ゴシック</Name>
-          <Size>12</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Value sys="string">保健指導 対象者名簿（要医療3・要観察1）</Value>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>QRテキスト</Name>
-        <Section>PageHeader</Section>
-        <Left>14000</Left>
-        <Top>928</Top>
-        <Width>2500</Width>
-        <Height>172</Height>
-        <Align>RightMiddle</Align>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>6</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Expression>QRコード</Expression>
-        </Text>
-      </TextField>
-      <BarCodeField>
-        <Name>QRCode</Name>
-        <Section>PageHeader</Section>
-        <Left>15861</Left>
-        <Top>328</Top>
-        <Width>600</Width>
-        <Height>600</Height>
-        <ZOrder>2</ZOrder>
-        <Text>
-          <Expression>QRコード</Expression>
-        </Text>
-        <BarCodeType>QRCode</BarCodeType>
-        <BarcodeOptions>
-          <TextAlign>Right</TextAlign>
-          <SizeOptions>
-            <NarrowWideRatio>0</NarrowWideRatio>
-            <SizeMode>Scale</SizeMode>
-            <BarHeight>300</BarHeight>
-          </SizeOptions>
-        </BarcodeOptions>
-        <Align>CenterMiddle</Align>
-        <Font>
-          <Name>Meiryo UI</Name>
-          <Size>6</Size>
-        </Font>
-      </BarCodeField>
-      <TextField>
-        <Name>会社Ctl</Name>
-        <Section>PageHeader</Section>
-        <Left>297</Left>
-        <Top>1144</Top>
-        <Width>5159</Width>
-        <Height>280</Height>
-        <Align>LeftMiddle</Align>
-        <WordWrap>false</WordWrap>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>8.25</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Expression>会社</Expression>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>所属事業所Ctl</Name>
-        <Section>PageHeader</Section>
-        <Left>297</Left>
-        <Top>1424</Top>
-        <Width>5159</Width>
-        <Height>280</Height>
-        <Align>LeftMiddle</Align>
-        <WordWrap>false</WordWrap>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>8.25</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Expression>所属事業所</Expression>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>Field4</Name>
-        <Border>
-          <Left>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Left>
-          <Top>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Top>
-          <Right>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Right>
-          <Bottom>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Bottom>
-        </Border>
-        <Background type="Solid">
-          <Color>3C000000</Color>
-        </Background>
-        <Section>PageHeader</Section>
-        <Left>292</Left>
-        <Top>1732</Top>
-        <Width>829</Width>
-        <Height>618</Height>
-        <Align>CenterMiddle</Align>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>9.75</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Value sys="string">№</Value>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>Field5</Name>
-        <Border>
-          <Left>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Left>
-          <Top>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Top>
-          <Right>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Right>
-          <Bottom>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Bottom>
-        </Border>
-        <Background type="Solid">
-          <Color>3C000000</Color>
-        </Background>
-        <Section>PageHeader</Section>
-        <Left>1121</Left>
-        <Top>1732</Top>
-        <Width>2562</Width>
-        <Height>618</Height>
-        <Align>CenterMiddle</Align>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>9.75</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Value sys="string">部名</Value>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>Field6</Name>
-        <Border>
-          <Left>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Left>
-          <Top>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Top>
-          <Right>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Right>
-          <Bottom>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Bottom>
-        </Border>
-        <Background type="Solid">
-          <Color>3C000000</Color>
-        </Background>
-        <Section>PageHeader</Section>
-        <Left>3683</Left>
-        <Top>1732</Top>
-        <Width>2562</Width>
-        <Height>618</Height>
-        <Align>CenterMiddle</Align>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>9.75</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Value sys="string">課名</Value>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>Field7</Name>
-        <Border>
-          <Left>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Left>
-          <Top>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Top>
-          <Right>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Right>
-          <Bottom>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Bottom>
-        </Border>
-        <Background type="Solid">
-          <Color>3C000000</Color>
-        </Background>
-        <Section>PageHeader</Section>
-        <Left>6245</Left>
-        <Top>1732</Top>
-        <Width>1322</Width>
-        <Height>618</Height>
-        <Align>CenterMiddle</Align>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>9.75</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Value sys="string">社員コード</Value>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>Field8</Name>
-        <Border>
-          <Left>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Left>
-          <Top>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Top>
-          <Right>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Right>
-          <Bottom>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Bottom>
-        </Border>
-        <Background type="Solid">
-          <Color>3C000000</Color>
-        </Background>
-        <Section>PageHeader</Section>
-        <Left>7567</Left>
-        <Top>1732</Top>
-        <Width>2562</Width>
-        <Height>618</Height>
-        <Align>CenterMiddle</Align>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>9.75</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Value sys="string">氏名</Value>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>Field9</Name>
-        <Border>
-          <Left>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Left>
-          <Top>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Top>
-          <Right>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Right>
-          <Bottom>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Bottom>
-        </Border>
-        <Background type="Solid">
-          <Color>3C000000</Color>
-        </Background>
-        <Section>PageHeader</Section>
-        <Left>10129</Left>
-        <Top>1732</Top>
-        <Width>3813</Width>
-        <Height>618</Height>
-        <Align>CenterMiddle</Align>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>9.75</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Value sys="string">項目</Value>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>Field10</Name>
-        <Border>
-          <Left>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Left>
-          <Top>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Top>
-          <Right>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Right>
-          <Bottom>
-            <Style>Solid</Style>
-            <Width>10</Width>
-          </Bottom>
-        </Border>
-        <Background type="Solid">
-          <Color>3C000000</Color>
-        </Background>
-        <Section>PageHeader</Section>
-        <Left>13942</Left>
-        <Top>1732</Top>
-        <Width>2562</Width>
-        <Height>618</Height>
-        <Align>CenterMiddle</Align>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <Size>9.75</Size>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Value sys="string">備考</Value>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>Field11</Name>
-        <Section>PageFooter</Section>
-        <Left>14539</Left>
-        <Top>0</Top>
-        <Width>1965</Width>
-        <Height>270</Height>
-        <Align>RightBottom</Align>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <GdiCharSet>0</GdiCharSet>
-        </Font>
-        <Text>
-          <Expression>分数</Expression>
-        </Text>
-      </TextField>
-      <TextField>
-        <Name>Field12</Name>
-        <Section>PageFooter</Section>
-        <Left>292</Left>
-        <Top>20</Top>
-        <Width>10261</Width>
-        <Height>250</Height>
-        <Align>LeftMiddle</Align>
-        <Font>
-          <Name>ＭＳ Ｐゴシック</Name>
-          <GdiCharSet>128</GdiCharSet>
-        </Font>
-        <Text>
-          <Value sys="string">上記対象者に、保健指導リーフレットを配付してください。</Value>
         </Text>
       </TextField>
     </Fields>

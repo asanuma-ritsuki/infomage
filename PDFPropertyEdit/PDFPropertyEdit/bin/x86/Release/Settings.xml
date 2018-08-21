@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<XmlSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <LocationX>0</LocationX>
+  <LocationY>0</LocationY>
+  <SizeX>1024</SizeX>
+  <SizeY>768</SizeY>
+  <State>0</State>
+  <ApplicationName>JP健診 就業判定票発送業務支援ツール</ApplicationName>
+  <DataSource>JPSERV\INTRASQL</DataSource>
+  <InitialCatalog>JPHealth</InitialCatalog>
+  <UserID>sa</UserID>
+  <Password>intra_intra</Password>
+  <TablePrefix>[DailyReport_Test].[dbo].</TablePrefix>
+  <TargetPath>a</TargetPath>
+  <OutPath>b</OutPath>
+  <Title>c</Title>
+  <Author>d</Author>
+  <SubTitle>e</SubTitle>
+  <Keywords>f</Keywords>
+  <CSVFile>g</CSVFile>
+  <TIFTargetPath>C:\temp\sample_tif</TIFTargetPath>
+  <TIFSubject>国民所得推計研究会資料2</TIFSubject>
+  <TIFAuthor>一橋大学経済研究所附属社会科学統計情報研究センター2</TIFAuthor>
+</XmlSettings>

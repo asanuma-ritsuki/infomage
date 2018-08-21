@@ -1815,6 +1815,34 @@ BidEntryManageTool
  <param name="sender"></param>
  <param name="e"></param>
 </member>
+<member name="M:BidEntryManageTool.frmOperation.C1FGridResult_MouseDown(System.Object,System.Windows.Forms.MouseEventArgs)">
+ <summary>
+ 業者グリッドクリック時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:BidEntryManageTool.frmOperation.cmbPrefectures_SelectedIndexChanged_1(System.Object,System.EventArgs)">
+ <summary>
+ 都道府県コンボボックスインデックス変更時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:BidEntryManageTool.frmOperation.cmbTrader_SelectedIndexChanged_1(System.Object,System.EventArgs)">
+ <summary>
+ 業者コンボボックスインデックス変更時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:BidEntryManageTool.frmOperation.btnNew_Click(System.Object,System.EventArgs)">
+ <summary>
+ 新規登録ボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
 <member name="M:BidEntryManageTool.frmOperation.SearchTrader">
  <summary>
  業者一覧を特定条件でグリッドに表示する
@@ -1823,6 +1851,41 @@ BidEntryManageTool
 <member name="M:BidEntryManageTool.frmOperation.SearchMuni">
  <summary>
  自治体一覧を特定条件でグリッドに表示する
+ </summary>
+</member>
+<member name="M:BidEntryManageTool.frmSelectGroup.frmSelectGroup_Load(System.Object,System.EventArgs)">
+ <summary>
+ フォームロード時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:BidEntryManageTool.frmSelectGroup.Initialize">
+ <summary>
+ 初期化処理
+ </summary>
+</member>
+<member name="P:BidEntryManageTool.frmTraderDetail.InnerNumber">
+ <summary>
+ 内部番号の値を読み込みまたは設定する
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:BidEntryManageTool.frmTraderDetail.frmTraderDetail_Load(System.Object,System.EventArgs)">
+ <summary>
+ フォームロード時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:BidEntryManageTool.frmTraderDetail.Initialize">
+ <summary>
+ 初期化処理
+ </summary>
+</member>
+<member name="M:BidEntryManageTool.frmTraderDetail.ViewYear">
+ <summary>
+ 年度をセット
  </summary>
 </member>
 <member name="T:BidEntryManageTool.DefaultModule.ResultMark">

@@ -1,0 +1,1853 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>C1.Win.TreeView.4</name>
+  </assembly>
+  <members>
+    <member name="T:C1.Win.TreeView.C1TreeViewEventArgs">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeView" />コントロールの
+        <see cref="E:C1.Win.TreeView.C1TreeView.AfterCheck" />、
+        <see cref="E:C1.Win.TreeView.C1TreeView.AfterCollapse" />、
+        <see cref="E:C1.Win.TreeView.C1TreeView.AfterExpand" />、および
+        <see cref="!:C1TreeView.AfterSelect" />イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeViewEventArgs.Node">
+      <summary>オンにされた、展開された、折りたたまれた、または選択されたツリーノードを取得します。</summary>
+    </member>
+    <member name="T:C1.Win.TreeView.C1TreeViewNodeStylesEventArgs">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeView" />クラスの
+        <see cref="E:C1.Win.TreeView.C1TreeView.ApplyNodeStyles" />イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeViewNodeStylesEventArgs.NodeStyles">
+      <summary>TreeView コントロールのツリーノードスタイルを取得します。</summary>
+    </member>
+    <member name="T:C1.Win.TreeView.HeaderStyle">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeNode" />のヘッダーのスタイルを定義します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.HeaderStyle.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TreeView.HeaderStyle" />クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.HeaderStyle.Font">
+      <summary>フォントを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.HeaderStyle.HorizontalAlign">
+      <summary>水平方向の配置を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.HeaderStyle.VerticalAlign">
+      <summary>垂直方向の配置を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.HeaderStyle.WordWrap">
+      <summary>テキストを折り返すことができるかどうかを取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.HeaderStyle.Equals(System.Object)">
+      <summary>
+        指定された
+        <see cref="T:C1.Win.TreeView.HeaderStyle" />が現在の
+        <see cref="T:C1.Win.TreeView.HeaderStyle" />と等しいかどうかを判定します。
+      </summary>
+      <returns>
+        指定された
+        <see cref="T:C1.Win.TreeView.HeaderStyle" />が現在の
+        <see cref="T:C1.Win.TreeView.HeaderStyle" />と等しい場合は true、そうでない場合は false。
+      </returns>
+      <param name="obj">現在の HeaderStyle と比較するオブジェクト。</param>
+      <filterpriority>2</filterpriority>
+    </member>
+    <member name="M:C1.Win.TreeView.HeaderStyle.GetHashCode">
+      <summary>特定のタイプのハッシュ関数として機能します。</summary>
+      <returns>
+        現在の
+        <see cref="T:System.Object" />のハッシュコード。
+      </returns>
+      <filterpriority>2</filterpriority>
+    </member>
+    <member name="M:C1.Win.TreeView.HeaderStyle.ToString">
+      <summary>現在の HeaderStyle を表す文字列を返します。</summary>
+      <returns>現在の HeaderStyle を表す文字列。</returns>
+      <filterpriority>2</filterpriority>
+    </member>
+    <member name="T:C1.Win.TreeView.TreeNodeCellStyles">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeNode" />のセルのスタイルを定義します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.TreeNodeCellStyles.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TreeView.TreeNodeCellStyles" />クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.TreeNodeCellStyles.Default">
+      <summary>デフォルトのスタイルを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.TreeNodeCellStyles.Selected">
+      <summary>選択スタイルを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.TreeNodeCellStyles.Hot">
+      <summary>ホットスタイルを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.TreeNodeCellStyles.HotSelected">
+      <summary>ホット選択スタイルを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.TreeNodeCellStyles.UnfocusedSelected">
+      <summary>フォーカスがない選択スタイルを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.TreeNodeCellStyles.Editor">
+      <summary>エディタスタイルを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.TreeNodeCellStyles.Disabled">
+      <summary>無効化されたスタイルを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.TreeNodeCellStyles.Font">
+      <summary>フォントを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.TreeNodeCellStyles.HorizontalAlign">
+      <summary>水平方向の配置を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.TreeNodeCellStyles.VerticalAlign">
+      <summary>垂直方向の配置を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.TreeNodeCellStyles.WordWrap">
+      <summary>テキストを折り返すことができるかどうかを取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.TreeNodeCellStyles.OnStyleChanged(System.EventArgs)">
+      <summary>
+        <see cref="E:StyleChanged" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />インスタンス。
+      </param>
+    </member>
+    <member name="M:C1.Win.TreeView.TreeNodeCellStyles.Style_PropertyChanged(System.Object,System.EventArgs)">
+      <summary>スタイルの PropertyChanged イベントを処理します。</summary>
+      <param name="sender">イベントのソース。</param>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />インスタンス。
+      </param>
+    </member>
+    <member name="T:C1.Win.TreeView.TreeColumnStyles">
+      <summary>列のスタイルを表します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.TreeColumnStyles.#ctor">
+      <summary>列のスタイルの新しいインスタンスを初期化します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.TreeColumnStyles.ColumnHeader">
+      <summary>列ヘッダーのスタイルを取得します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.TreeColumnStyles.ToString">
+      <summary>現在の TreeColumnStyles を表す文字列を返します。</summary>
+      <returns>現在の TreeColumnStyles を表す文字列。</returns>
+      <filterpriority>2</filterpriority>
+    </member>
+    <member name="T:C1.Win.TreeView.TreeViewStyles">
+      <summary>ツリービューのスタイルを表します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.TreeViewStyles.#ctor">
+      <summary>ツリービューのスタイルの新しいインスタンスを初期化します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.TreeViewStyles.BorderStyle">
+      <summary>境界線のスタイルを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.TreeViewStyles.Border">
+      <summary>境界線の太さを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.TreeViewStyles.BorderColor">
+      <summary>境界線の色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.TreeViewStyles.LinesWidth">
+      <summary>線の幅を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.TreeViewStyles.ShowLines">
+      <summary>線を表示するかどうかを示す値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.TreeViewStyles.LinesColor">
+      <summary>線の色を取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.TreeViewStyles.ToString">
+      <summary>現在の TreeViewStyles を表す文字列を返します。</summary>
+      <returns>現在の TreeViewStyles を表す文字列。</returns>
+      <filterpriority>2</filterpriority>
+    </member>
+    <member name="T:C1.Win.TreeView.C1TreeViewSelectionMode">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeView" />の選択動作を定義します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.TreeView.C1TreeViewSelectionMode.Single">
+      <summary>1 つのノードだけを選択できます。</summary>
+    </member>
+    <member name="F:C1.Win.TreeView.C1TreeViewSelectionMode.Multi">
+      <summary>すべてのノードから複数のノードを選択できます。</summary>
+    </member>
+    <member name="F:C1.Win.TreeView.C1TreeViewSelectionMode.MultiSibling">
+      <summary>同じ親ノードを持つ兄弟ノードだけを複数選択できます。</summary>
+    </member>
+    <member name="F:C1.Win.TreeView.C1TreeViewSelectionMode.None">
+      <summary>どのノードも選択できません。</summary>
+    </member>
+    <member name="T:C1.Win.TreeView.C1TreeViewBorderStyle">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeView" />コントロールにセルの境界線を表示する方法を指定します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.TreeView.C1TreeViewBorderStyle.ColumnsHeaderOnly">
+      <summary>列のヘッダーにのみ境界線を表示します。</summary>
+    </member>
+    <member name="F:C1.Win.TreeView.C1TreeViewBorderStyle.None">
+      <summary>境界線なし。</summary>
+    </member>
+    <member name="F:C1.Win.TreeView.C1TreeViewBorderStyle.ColumnsLineOnly">
+      <summary>列の左右の境界線だけを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.TreeView.C1TreeViewBorderStyle.Full">
+      <summary>すべてのセルに境界線を表示します。</summary>
+    </member>
+    <member name="T:C1.Win.TreeView.C1TreeViewEditorType">
+      <summary>
+        編集前に
+        <see cref="T:C1.Win.TreeView.C1TreeView" />のセルの外観を決定します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.TreeView.C1TreeViewEditorType.Text">
+      <summary>TextBox と同様</summary>
+    </member>
+    <member name="F:C1.Win.TreeView.C1TreeViewEditorType.ComboBox">
+      <summary>ComboBox と同様</summary>
+    </member>
+    <member name="F:C1.Win.TreeView.C1TreeViewEditorType.CheckBox">
+      <summary>CheckBox と同様</summary>
+    </member>
+    <member name="T:C1.Win.TreeView.C1TreeViewEditMode">
+      <summary>
+        ユーザーが
+        <see cref="T:C1.Win.TreeView.C1TreeView" />コントロールのセルの編集を開始する方法を指定します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.TreeView.C1TreeViewEditMode.EditOnEnter">
+      <summary>セルがフォーカスを受け取ると編集が開始されます。［Tab］キーを押しながら 1 行内を右方向に値を入力していく場合、または［Enter］キーを押しながら 1 列内を下方向に値を入力していく場合に、このモードが役立ちます。</summary>
+    </member>
+    <member name="F:C1.Win.TreeView.C1TreeViewEditMode.EditOnF2">
+      <summary>セルにフォーカスがあるときに、任意の英数字キーを押すと編集が開始されます。</summary>
+    </member>
+    <member name="F:C1.Win.TreeView.C1TreeViewEditMode.EditOnKeystroke">
+      <summary>セルにフォーカスがあるときに、任意の英数字キーまたは［F2］キーを押すと編集が開始されます。</summary>
+    </member>
+    <member name="F:C1.Win.TreeView.C1TreeViewEditMode.EditOnKeystrokeOrF2">
+      <summary>セルにフォーカスがあるときに、［F2］キーを押すと編集が開始されます。このモードでは、セルコンテンツの最後に選択ポイントが配置されます。</summary>
+    </member>
+    <member name="F:C1.Win.TreeView.C1TreeViewEditMode.EditProgrammatically">
+      <summary>
+        <see cref="M:C1.Win.TreeView.C1TreeView.BeginEdit" />メソッドが呼び出されると、編集が開始されます。
+      </summary>
+    </member>
+    <member name="T:C1.Win.TreeView.C1TreeColumn">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeView" />の 1 つの列を表します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeColumn.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeColumn" />クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeColumn.#ctor(System.String)">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeColumn" />クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeColumn.#ctor(System.String,System.String)">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeColumn" />クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeColumn.AutoWidth">
+      <summary>コンテンツ幅を基準として自動的に列幅を設定するかどうかを示す値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeColumn.Name">
+      <summary>C1TreeView コントロールのツリーの列の名前を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeColumn.HeaderText">
+      <summary>C1TreeView コントロールのツリーの列のヘッダーのテキストを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeColumn.Visible">
+      <summary>ツリーノードが表示可能な状態であるかどうかを示す値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeColumn.DisplayFieldName">
+      <summary>ノードのレベルに基づいて列に表示されるフィールドのリストを取得または設定します。</summary>
+      <example>[First]\\[Second]\\[etc]</example>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeColumn.Width">
+      <summary>TreeColumn の幅を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeColumn.Styles">
+      <summary>TreeColumn のスタイルを取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeColumn.ResetStyles">
+      <summary>Styles プロパティをデフォルト値にリセットします。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeColumn.EditorType">
+      <summary>ノードエディタのタイプを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeColumn.Editor">
+      <summary>ノードのカスタムエディタを取得または設定します。</summary>
+    </member>
+    <member name="E:C1.Win.TreeView.C1TreeColumn.EditorTypeChanged">
+      <summary>列の EditorType が変更されると発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TreeView.C1TreeColumn.AutoWidthChanged">
+      <summary>列の AutoWidth が変更されると発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TreeView.C1TreeColumn.WidthChanged">
+      <summary>列の幅が変更されると発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TreeView.C1TreeColumn.VisibleChanged">
+      <summary>列の表示/非表示が変更されると発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TreeView.C1TreeColumn.DisplayFieldNameChanged">
+      <summary>列に表示されるフィールドのリストが変更されると発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TreeView.C1TreeColumn.HeaderTextChanged">
+      <summary>列のヘッダーのテキストが変更されると発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TreeView.C1TreeColumn.StylesChanged">
+      <summary>列のスタイルが変更されると発生します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeColumn.OnEditorTypeChanged(System.EventArgs)">
+      <summary>OnEditorTypeChanged イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeColumn.OnAutoWidthChanged(System.EventArgs)">
+      <summary>AutoWidthChanged イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeColumn.OnWidthChanged(System.EventArgs)">
+      <summary>WidthChanged イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeColumn.OnVisibleChanged(System.EventArgs)">
+      <summary>VisibleChanged イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeColumn.OnDisplayFieldNameChanged(System.EventArgs)">
+      <summary>DisplayFieldNameChanged イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeColumn.OnHeaderTextChanged(System.EventArgs)">
+      <summary>HeaderTextChanged イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeColumn.OnStylesChanged(System.EventArgs)">
+      <summary>StylesChanged イベントを発生させます。</summary>
+    </member>
+    <member name="T:C1.Win.TreeView.C1TreeColumnCollection">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeColumn" />オブジェクトのコレクションを表します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeColumnCollection.Item(System.Int32)">
+      <summary>指定されたインデックスにあるツリーの列を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeColumnCollection.Count">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeColumnCollection" />インスタンスに含まれるツリーの列数を取得します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeColumnCollection.IndexOf(C1.Win.TreeView.C1TreeColumn)">
+      <summary>
+        指定された列を検索し、
+        <see cref="T:C1.Win.TreeView.C1TreeColumnCollection" />全体で最初に見つかった列の 0 から始まるインデックスを返します。
+      </summary>
+      <param name="column">コレクション内で検索する列。</param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeColumnCollection.Contains(C1.Win.TreeView.C1TreeColumn)">
+      <summary>
+        要素が
+        <see cref="T:C1.Win.TreeView.C1TreeColumnCollection" />内にあるかどうかを判定します。
+      </summary>
+      <param name="item">コレクション内で検索する列。</param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeColumnCollection.GetEnumerator">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeColumnCollection" />を反復処理する列挙子を返します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeColumnCollection.Add(C1.Win.TreeView.C1TreeColumn)">
+      <summary>ツリーの新しい列をコレクションに追加します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeColumnCollection.Add(System.String)">
+      <summary>指定された名前を使用してツリーの新しい列をコレクションに追加します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeColumnCollection.Add(System.String,System.String)">
+      <summary>ツリーの新しい列をコレクションに追加します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeColumnCollection.RemoveAt(System.Int32)">
+      <summary>コレクションの指定されたインデックスにあるツリーの列を削除します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeColumnCollection.Remove(C1.Win.TreeView.C1TreeColumn)">
+      <summary>コレクションから最初に見つかった指定されたツリーの列を削除します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeColumnCollection.Clear">
+      <summary>コレクションからツリーのすべての列を削除します。</summary>
+    </member>
+    <member name="T:C1.Win.TreeView.NodeCellStyle">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeNode" />のセルのスタイルを定義します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.NodeCellStyle.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeNode" />のセルのスタイルの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.NodeCellStyle.BackColor">
+      <summary>背景色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.NodeCellStyle.ForeColor">
+      <summary>前景色を取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.NodeCellStyle.ToString">
+      <summary>現在の NodeCellStyle を表す文字列を返します。</summary>
+      <returns>現在の NodeCellStyle を表す文字列。</returns>
+      <filterpriority>2</filterpriority>
+    </member>
+    <member name="M:C1.Win.TreeView.NodeCellStyle.Equals(System.Object)">
+      <summary>
+        指定された
+        <see cref="T:C1.Win.TreeView.NodeCellStyle" />が現在の
+        <see cref="T:C1.Win.TreeView.NodeCellStyle" />と等しいかどうかを判定します。
+      </summary>
+      <returns>
+        指定された
+        <see cref="T:C1.Win.TreeView.NodeCellStyle" />が現在の
+        <see cref="T:C1.Win.TreeView.NodeCellStyle" />と等しい場合は true、そうでない場合は false。
+      </returns>
+      <param name="obj">現在の NodeCellStyle と比較するオブジェクト。</param>
+      <filterpriority>2</filterpriority>
+    </member>
+    <member name="M:C1.Win.TreeView.NodeCellStyle.GetHashCode">
+      <summary>特定のタイプのハッシュ関数として機能します。</summary>
+      <returns>
+        現在の
+        <see cref="T:System.Object" />のハッシュコード。
+      </returns>
+      <filterpriority>2</filterpriority>
+    </member>
+    <member name="T:C1.Win.TreeView.C1TreeNodeCollection">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeNode" />オブジェクトのコレクションを表します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeNodeCollection.Count">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeNodeCollection" />インスタンスに含まれるツリーノードの数を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeNodeCollection.IsReadOnly">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeNodeCollection" />が読み取り専用かどうかを示す値を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeNodeCollection.Parent">
+      <summary>このコレクションの親ノードを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeNodeCollection.Item(System.Int32)">
+      <summary>指定されたインデックスにあるツリーノードを取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeNodeCollection.Add(C1.Win.TreeView.C1TreeNode)">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeNodeCollection" />に項目を 1 つ追加します。
+      </summary>
+      <param name="treeNode">
+        <see cref="T:C1.Win.TreeView.C1TreeNodeCollection" />に追加する
+        <see cref="T:C1.Win.TreeView.C1TreeNode" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeNodeCollection.Add(System.Object)">
+      <summary>指定された値を使用して新しいツリーノードをコレクションに追加します。</summary>
+      <param name="value">
+        <see cref="T:C1.Win.TreeView.C1TreeNodeCollection" />に追加する新しい
+        <see cref="T:C1.Win.TreeView.C1TreeNode" />の値。
+      </param>
+      <returns>
+        コレクションに追加される
+        <see cref="T:C1.Win.TreeView.C1TreeNode" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeNodeCollection.Clear">
+      <summary>コレクションからすべてのツリーノードを削除します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeNodeCollection.IndexOf(C1.Win.TreeView.C1TreeNode)">
+      <summary>指定されたツリーノードを検索し、0 から始まるインデックスを返します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeNodeCollection.Contains(C1.Win.TreeView.C1TreeNode)">
+      <summary>
+        要素が
+        <see cref="T:C1.Win.TreeView.C1TreeNodeCollection" />内にあるかどうかを判定します。
+      </summary>
+      <param name="item">コレクション内で検索する列。</param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeNodeCollection.GetEnumerator">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeNodeCollection" />を反復処理する列挙子を返します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeNodeCollection.Remove(C1.Win.TreeView.C1TreeNode)">
+      <summary>コレクションから最初に見つかった指定されたツリーノードを削除します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeNodeCollection.RemoveAt(System.Int32)">
+      <summary>コレクションの指定されたインデックスにあるツリーノードを削除します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeNodeCollection.Insert(System.Int32,C1.Win.TreeView.C1TreeNode)">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeNodeCollection" />の指定されたインデックスにツリービューノードを挿入します。
+      </summary>
+      <param name="nodeIndex">ノードのインデックス。</param>
+      <param name="node">ノード。</param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeNodeCollection.Move(System.Int32,System.Int32)">
+      <summary>指定されたインデックスにあるツリーのノードをコレクション内の新しい場所に移動します。</summary>
+    </member>
+    <member name="T:C1.Win.TreeView.C1TreeView">
+      <summary>階層化データ構造を管理し、それらを展開および折りたたみ可能な項目から成るツリー構造に表示するコントロール。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeView" />クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.WriteXml(System.String,System.Boolean,System.Boolean)">
+      <summary>ツリービューのコンテンツを XML ドキュメントに保存します。</summary>
+      <param name="fileName">保存するファイルの名前（パスを含む）。</param>
+      <param name="saveStyles">ツリービューのスタイルを保存します。</param>
+      <param name="saveExpandedState">展開/折りたたまれた状態でツリービューを保存します。</param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.WriteXml(System.IO.TextWriter,System.Boolean,System.Boolean)">
+      <summary>ツリービューのコンテンツを XML ドキュメントに保存します。</summary>
+      <param name="tw">
+        ドキュメントを保存するための
+        <see cref="T:System.IO.TextWriter" />。
+      </param>
+      <param name="saveStyles">ツリービューのスタイルを保存します。</param>
+      <param name="saveExpandedState">展開/折りたたまれた状態でツリービューを保存します。</param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.WriteXml(System.IO.Stream,System.Boolean,System.Boolean)">
+      <summary>ツリービューのコンテンツを XML ドキュメントに保存します。</summary>
+      <param name="stream">
+        ドキュメントを保存するための
+        <see cref="T:System.IO.Stream" />。
+      </param>
+      <param name="saveStyles">ツリービューのスタイルを保存します。</param>
+      <param name="saveExpandedState">展開/折りたたまれた状態でツリービューを保存します。</param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.WriteXml(System.Xml.XmlTextWriter,System.Boolean,System.Boolean)">
+      <summary>ツリービューのコンテンツを XML ドキュメントに保存します。</summary>
+      <param name="w">
+        ドキュメントを保存するための
+        <see cref="T:System.Xml.XmlTextWriter" />。
+      </param>
+      <param name="saveStyles">ツリービューのスタイルを保存します。</param>
+      <param name="saveExpandedState">展開/折りたたまれた状態でツリービューを保存します。</param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.ReadXml(System.String)">
+      <summary>XML ドキュメントからツリービューをロードします。</summary>
+      <param name="fileName">ロードするファイルの名前（パスを含む）。</param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.ReadXml(System.IO.TextReader)">
+      <summary>XML ドキュメントからツリービューをロードします。</summary>
+      <param name="tr">
+        ツリービューのロードに使用する
+        <see cref="T:System.IO.TextReader" />オブジェクト。
+      </param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.ReadXml(System.IO.Stream)">
+      <summary>XML ドキュメントからツリービューをロードします。</summary>
+      <param name="stream">
+        ツリービューのロードに使用する
+        <see cref="T:System.IO.Stream" />オブジェクト。
+      </param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.ReadXml(System.Xml.XmlReader)">
+      <summary>XML ドキュメントからツリービューをロードします。</summary>
+      <param name="xr">
+        ツリービューのロードに使用する
+        <see cref="T:System.Xml.XmlReader" />オブジェクト。
+      </param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.ReadXml(System.Xml.XmlDocument)">
+      <summary>XML ドキュメントからツリービューをロードします。</summary>
+      <param name="doc">
+        ツリービューのロードに使用する
+        <see cref="T:System.Xml.XmlDocument" />オブジェクト。
+      </param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.ReadXml(System.Xml.XmlNode)">
+      <summary>XML ドキュメントからツリービューをロードします。</summary>
+      <param name="node">
+        ツリービューのロードに使用する
+        <see cref="T:System.Xml.XmlNode" />オブジェクト。
+      </param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.BeginUpdate">
+      <summary>長い更新操作中に描画を一時停止します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.EndUpdate">
+      <summary>長い更新操作の後で描画を再開します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.Dispose(System.Boolean)">
+      <summary>使用されているリソースをすべてクリーンアップします。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnLostFocus(System.EventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.LostFocus" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnGotFocus(System.EventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.GotFocus" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnMouseDoubleClick(System.Windows.Forms.MouseEventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.MouseDoubleClick" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.Windows.Forms.MouseEventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.MouseDown" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.Windows.Forms.MouseEventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.MouseUp" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.Windows.Forms.MouseEventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.KeyDown" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.Windows.Forms.KeyEventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnPreviewKeyDown(System.Windows.Forms.PreviewKeyDownEventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.PreviewKeyDown" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.Windows.Forms.PreviewKeyDownEventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnRightToLeftChanged(System.EventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.RightToLeftChanged" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.MouseMove" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.Windows.Forms.EventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnCursorChanged(System.EventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.CursorChanged" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnSizeChanged(System.EventArgs)">
+      <summary>
+        このメンバは、
+        <see cref="M:System.Windows.Forms.Control.OnSizeChanged(System.EventArgs)" />をオーバーライドします。
+      </summary>
+      <param name="e"></param>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeView.ShowColumnHeaders">
+      <summary>ツリービューコントロールに列ヘッダーを表示するかどうかを示す値を取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.BeginEdit">
+      <summary>ツリービューセルの編集を開始します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.EndEdit(System.Boolean)">
+      <summary>ツリービューセルの編集を終了します。</summary>
+      <param name="cancelEdit">true に設定すると、すべての変更が取り消されます。</param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.ShowAboutBox">
+      <summary>C1TreeView のインスタンスのバージョン情報ダイアログボックスを表示します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeView.AllowUserToResizeColumns">
+      <summary>ユーザーがツリービューコントロールの列をサイズ変更できるかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeView.AllowEditing">
+      <summary>ユーザーがツリービューのコンテンツを編集できるかどうかを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeView.EditMode">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeView" />コントロールでユーザーがセル編集を開始する方法を指定する値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeView.CheckBoxes">
+      <summary>チェックボックスを表示するかどうかを示す値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeView.ImageList">
+      <summary>ツリーノードに表示する画像を提供する画像リストを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeView.Styles">
+      <summary>TreeView のスタイルを取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.ResetStyles">
+      <summary>Styles プロパティをデフォルト値にリセットします。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeView.SelectionMode">
+      <summary>ツリービューコントロールのノードの選択方法を示す値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeView.Nodes">
+      <summary>ツリービューコントロールのルートノード。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeView.Columns">
+      <summary>ツリービューコントロールにノードのデータを表示する列。</summary>
+    </member>
+    <member name="E:C1.Win.TreeView.C1TreeView.ApplyNodeCellStyles">
+      <summary>ユーザーがノードのセルにスタイルを適用できるときに発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TreeView.C1TreeView.ApplyNodeStyles">
+      <summary>ユーザーがノードにスタイルを適用できるときに発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TreeView.C1TreeView.StylesChanged">
+      <summary>ツリーのスタイルが変更されると発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TreeView.C1TreeView.SelectionChanging">
+      <summary>ツリーノードの選択状態が変更されるときに発生します。その変更をキャンセルできます。</summary>
+    </member>
+    <member name="E:C1.Win.TreeView.C1TreeView.SelectionChanged">
+      <summary>ツリーノードの選択状態が変更されたときに発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TreeView.C1TreeView.DataBindingComplete">
+      <summary>データ連結操作が終了した後で発生します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.RaiseApplyNodeStyles(C1.Win.TreeView.C1TreeNode)">
+      <summary>ApplyNodeStyles イベントを発生させます。</summary>
+      <param name="node">イベントを発生させるノード。</param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.RaiseApplyNodeCellStyles(C1.Win.TreeView.C1TreeNode,System.Int32)">
+      <summary>ApplyNodeCellStyles イベントを発生させます。</summary>
+      <param name="node">イベントを発生させるノード。</param>
+      <param name="columnIndex">ノード列のインデックス。</param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.ResetNodeStyles(C1.Win.TreeView.C1TreeNode)">
+      <summary>ノードスタイルをリセットします。</summary>
+      <param name="node">ノード。</param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.ResetNodeCellStyles(C1.Win.TreeView.C1TreeNode,System.Int32)">
+      <summary>ノードセルスタイルをリセットします。</summary>
+      <param name="node">ノード。</param>
+      <param name="columnIndex">ノード列のインデックス。</param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.CheckAll">
+      <summary>ツリービューコントロールのすべてのノードをオンにします。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.UncheckAll">
+      <summary>ツリービューコントロールのすべてのノードをオフにします。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.ExpandAll">
+      <summary>ツリービューコントロールのすべてのノードを展開します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.CollapseAll">
+      <summary>ツリービューコントロールのすべてのノードを折りたたみます。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnApplyNodeCellStyles(C1.Win.TreeView.C1TreeViewNodeCellStylesEventArgs)">
+      <summary>ApplyNodeCellStyles イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnApplyNodeStyles(C1.Win.TreeView.C1TreeViewNodeStylesEventArgs)">
+      <summary>ApplyNodeStyles イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnStylesChanged(System.EventArgs)">
+      <summary>StylesChanged イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnSelectionChanging(C1.Win.TreeView.C1TreeViewCancelEventArgs)">
+      <summary>SelectionChanging イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnSelectionChanged(C1.Win.TreeView.C1TreeViewEventArgs)">
+      <summary>SelectionChanged イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnDataBindingComplete(System.EventArgs)">
+      <summary>DataBindingComplete イベントを発生させます。</summary>
+    </member>
+    <member name="T:C1.Win.TreeView.C1TreeNode">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeView" />の 1 つのノードを表します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeNode.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeNode" />クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeNode.#ctor(System.Object)">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeNode" />クラスの新しいインスタンスを初期化します。
+      </summary>
+      <param name="value">新しいツリーノードの値。</param>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeNode.Item(System.Int32)">
+      <summary>指定されたインデックスにある値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeNode.Expanded">
+      <summary>ツリーノードが展開された状態であるかどうかを示す値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeNode.Checked">
+      <summary>ツリーノードチェックボックスがオン状態であるかどうかを示す値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeNode.CheckState">
+      <summary>ツリーノードチェックボックスの状態を取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeNode.SetValue(System.Object)">
+      <summary>ツリーノードの値を設定します。</summary>
+      <remarks>非連結モードでのみ使用します。</remarks>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeNode.SetValue(System.Object,System.Int32)">
+      <summary>指定された列にあるツリーノードの値を設定します。</summary>
+      <remarks>
+        列には
+        <see cref="P:C1.Win.TreeView.C1TreeColumn.DisplayFieldName" />値が必要です。
+      </remarks>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeNode.GetValue(System.Int32)">
+      <summary>指定された列にあるツリーノードの値を取得します。</summary>
+      <remarks>
+        列には
+        <see cref="P:C1.Win.TreeView.C1TreeColumn.DisplayFieldName" />値が必要です。
+      </remarks>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeNode.GetValue">
+      <summary>ツリーノードの値を取得します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeNode.Collapse(System.Boolean)">
+      <summary>ツリーノードを折りたたまれた状態に設定します。</summary>
+      <param name="allChildrens">true の場合は、子ノードのすべてが折りたたまれた状態に設定されます。</param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeNode.Expand(System.Boolean)">
+      <summary>ツリーノードを展開された状態に設定します。</summary>
+      <param name="allChildrens">true の場合は、子ノードのすべてが展開された状態に設定されます。</param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeNode.Uncheck(System.Boolean)">
+      <summary>ツリーノードのチェックボックスをオフ状態に設定します。</summary>
+      <param name="allChildrens">true の場合は、子ノードのすべてのチェックボックスがオフ状態に設定されます。</param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeNode.Check(System.Boolean)">
+      <summary>ツリーノードのチェックボックスをオン状態に設定します。</summary>
+      <param name="allChildrens">true の場合は、子ノードのすべてのチェックボックスがオン状態に設定されます。</param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeNode.ResetCellStyles(System.Int32)">
+      <summary>ノードセルのスタイルをリセットします。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeNode.ResetStyles">
+      <summary>ノードのスタイルをリセットします。</summary>
+    </member>
+    <member name="T:C1.Win.TreeView.C1TreeViewNodeCellStylesEventArgs">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeView" />クラスの
+        <see cref="E:C1.Win.TreeView.C1TreeView.ApplyNodeCellStyles" />イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeViewNodeCellStylesEventArgs.NodeCellStyles">
+      <summary>TreeView コントロールのツリーノードスタイルを取得します。</summary>
+    </member>
+    <member name="T:C1.Win.TreeView.IC1TreeEditor">
+      <summary>セルの編集コントロールをホストするために、エディタで実装されてツリービューで使用される インタフェース。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.IC1TreeEditor.C1EditorValueIsValid">
+      <summary>エディタの現在のコンテンツが有効であるかどうかを決定する値を取得します。</summary>
+      <returns>現在エディタのコンテンツが有効である場合は true。</returns>
+    </member>
+    <member name="M:C1.Win.TreeView.IC1TreeEditor.C1EditorUpdateBounds(System.Drawing.Rectangle)">
+      <summary>エディタのサイズと位置を更新するために呼び出されます。</summary>
+      <param name="rc">編集中のセルの範囲（クライアント座標）。</param>
+    </member>
+    <member name="M:C1.Win.TreeView.IC1TreeEditor.C1EditorKeyDownFinishEdit(System.Windows.Forms.KeyEventArgs)">
+      <summary>指定されたキーによって編集を終了するかどうかを決定する値を取得します。</summary>
+      <param name="e">テストするキー。</param>
+      <returns>このキーによって編集を終了し、エディタを閉じる場合は true。</returns>
+    </member>
+    <member name="M:C1.Win.TreeView.IC1TreeEditor.C1EditorInitialize(System.Object,System.Collections.IDictionary)">
+      <summary>エディタのコンテンツを初期化するために呼び出されます。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.IC1TreeEditor.C1EditorGetValue">
+      <summary>エディタの現在の値を取得します。</summary>
+      <returns>エディタの現在の値（任意のデータ型）。</returns>
+    </member>
+    <member name="T:C1.Win.TreeView.Localization.Strings">
+      <summary>
+        <see cref="T:C1.Win.TreeView.Localization.Strings" />クラスには、ローカライズに使用される静的プロパティが含まれます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.Localization.Strings.ResourceManager">
+      <summary>
+        ルックアップリソースとして使用される
+        <see cref="P:C1.Win.TreeView.Localization.Strings.ResourceManager" />オブジェクト。
+      </summary>
+      <remarks>カスタムコントロールアセンブリ内でリソースを定義する場合は、このプロパティを有効な値に設定します。</remarks>
+    </member>
+    <member name="P:C1.Win.TreeView.Localization.Strings.UICulture">
+      <summary>
+        フォールバックカルチャとして使用されるデフォルトの
+        <see cref="T:System.Globalization.CultureInfo" />オブジェクトを返します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.TreeView.C1TreeViewCancelEventArgs">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeView" />コントロールの
+        <see cref="E:C1.Win.TreeView.C1TreeView.BeforeCheck" />、
+        <see cref="E:C1.Win.TreeView.C1TreeView.BeforeCollapse" />、
+        <see cref="E:C1.Win.TreeView.C1TreeView.BeforeExpand" />、および
+        <see cref="!:C1TreeView.BeforeSelect" />イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeViewCancelEventArgs.Node">
+      <summary>オンにされた、展開された、折りたたまれた、または選択されたツリーノードを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeView.ToStringPlaceHolder">
+      <summary>ノード値の ToString メソッドの値を表示するプレースホルダの値を取得します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.ScrollToNode(C1.Win.TreeView.C1TreeNode)">
+      <summary>C1TreeView を特定のノードまでスクロールします。</summary>
+      <param name="node">C1TreeView のスクロール先のノード。</param>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeNode.ParentCollection">
+      <summary>親 C1TreeNodeCollection を取得します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeNode.Level">
+      <summary>C1TreeView コントロール内のツリーノードの 0 から始まる深さを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeNode.Selected">
+      <summary>ツリーノードが選択状態であるかどうかを示す値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeNode.Nodes">
+      <summary>ツリーのノードのコレクションを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeNode.HasChildren">
+      <summary>ツリーノードが子ノードを持っている場合は true を返します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeNode.Images">
+      <summary>ノードに表示される画像インデックスのコレクションを取得します。</summary>
+    </member>
+    <member name="T:C1.Win.TreeView.C1TreeViewItemDragEventArgs">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeView" />コントロールの
+        <see cref="E:C1.Win.TreeView.C1TreeView.ItemDrag" />イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeViewItemDragEventArgs.DraggedData">
+      <summary>ドラッグされたデータを取得します。</summary>
+    </member>
+    <member name="T:C1.Win.TreeView.DragDropPosition">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeNode" />をドロップする位置を定義します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.TreeView.DragDropPosition.After">
+      <summary>ノードは、現在のノードの後にドロップされます。</summary>
+    </member>
+    <member name="F:C1.Win.TreeView.DragDropPosition.Before">
+      <summary>ノードは、現在のノードの前にドロップされます。</summary>
+    </member>
+    <member name="F:C1.Win.TreeView.DragDropPosition.Inner">
+      <summary>ノードは、現在のノードにドロップされます。</summary>
+    </member>
+    <member name="F:C1.Win.TreeView.DragDropPosition.None">
+      <summary></summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeColumnCollection.CopyTo(System.Array,System.Int32)">
+      <summary>C1.Win.TreeView.C1TreeColumnCollection 全体を 1 次元配列にコピーします。コピーは、配列の指定されたインデックス位置から開始されます。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeColumnCollection.IsSynchronized">
+      <summary>System.Collections.ICollection へのアクセスが同期されている（スレッドセーフ）かどうかを示す値を取得します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeColumnCollection.SyncRoot">
+      <summary>System.Collections.ICollection へのアクセスを同期させるために使用できるオブジェクトを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeView.DefaultSize">
+      <summary>コントロールのデフォルトサイズを取得します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnDragEnter(System.Windows.Forms.DragEventArgs)">
+      <summary>
+        このメンバは、
+        <see cref="M:System.Windows.Forms.Control.OnDragEnter(System.Windows.Forms.DragEventArgs)" />をオーバーライドします。
+      </summary>
+      <param name="drgevent"></param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnDragDrop(System.Windows.Forms.DragEventArgs)">
+      <summary>
+        このメンバは、
+        <see cref="M:System.Windows.Forms.Control.OnDragDrop(System.Windows.Forms.DragEventArgs)" />をオーバーライドします。
+      </summary>
+      <param name="drgevent"></param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnDragOver(System.Windows.Forms.DragEventArgs)">
+      <summary>
+        このメンバは、
+        <see cref="M:System.Windows.Forms.Control.OnDragOver(System.Windows.Forms.DragEventArgs)" />をオーバーライドします。
+      </summary>
+      <param name="drgevent"></param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnDragLeave(System.EventArgs)">
+      <summary>
+        このメンバは、
+        <see cref="M:System.Windows.Forms.Control.OnDragLeave(System.EventArgs)" />をオーバーライドします。
+      </summary>
+      <param name="e"></param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.GetNodeAtPoint(System.Drawing.Point)">
+      <summary>クライアント領域の指定されたポイントにあるノードを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeView.EnableDragDrop">
+      <summary>ツリーでの単純なドラッグアンドドロップを有効にするかどうかを示す値を取得または設定します。</summary>
+    </member>
+    <member name="E:C1.Win.TreeView.C1TreeView.ItemDrag">
+      <summary>ノードがドラッグされたときに発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TreeView.C1TreeView.Expanding">
+      <summary>ツリーノードが展開される前に発生します。その変更をキャンセルできます。</summary>
+    </member>
+    <member name="E:C1.Win.TreeView.C1TreeView.Expanded">
+      <summary>ツリーノードが展開された後に発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TreeView.C1TreeView.Collapsing">
+      <summary>ツリーノードが折りたたまれる前に発生します。その変更をキャンセルできます。</summary>
+    </member>
+    <member name="E:C1.Win.TreeView.C1TreeView.Collapsed">
+      <summary>ツリーノードが折りたたまれた後に発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TreeView.C1TreeView.CheckStateChanging">
+      <summary>ツリーノードチェックボックスがオンにされる前に発生します。その変更をキャンセルできます。</summary>
+    </member>
+    <member name="E:C1.Win.TreeView.C1TreeView.CheckStateChanged">
+      <summary>ツリーノードチェックボックスがオンにされた後に発生します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnItemDrag(C1.Win.TreeView.C1TreeViewItemDragEventArgs)">
+      <summary>ItemDrag イベントを発生させます。</summary>
+      <param name="e"></param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnExpanding(C1.Win.TreeView.C1TreeViewCancelEventArgs)">
+      <summary>Expanding イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnExpanded(C1.Win.TreeView.C1TreeViewEventArgs)">
+      <summary>Expanded イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnCollapsing(C1.Win.TreeView.C1TreeViewCancelEventArgs)">
+      <summary>Collapsing イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnCollapsed(C1.Win.TreeView.C1TreeViewEventArgs)">
+      <summary>Collapsed イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnCheckStateChanging(C1.Win.TreeView.C1TreeViewCancelEventArgs)">
+      <summary>CheckStateChanging イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnCheckStateChanged(C1.Win.TreeView.C1TreeViewEventArgs)">
+      <summary>CheckStateChanged イベントを発生させます。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.TreeViewStyles.CheckBoxStyle">
+      <summary>チェックボックスのスタイルを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.TreeViewStyles.ExpandButtonStyle">
+      <summary>展開ボタンのスタイルを取得または設定します。</summary>
+    </member>
+    <member name="T:C1.Win.TreeView.CheckBoxStyle">
+      <summary>チェックボックスのビューを決定します。</summary>
+    </member>
+    <member name="F:C1.Win.TreeView.CheckBoxStyle.System">
+      <summary>標準のシステムビュー。</summary>
+    </member>
+    <member name="F:C1.Win.TreeView.CheckBoxStyle.Office2007Black">
+      <summary>MS Office 2007 Black と同様です。</summary>
+    </member>
+    <member name="F:C1.Win.TreeView.CheckBoxStyle.Office2007Blue">
+      <summary>MS Office 2007 Blue と同様です。</summary>
+    </member>
+    <member name="F:C1.Win.TreeView.CheckBoxStyle.Office2007Silver">
+      <summary>MS Office 2007 Silver と同様です。</summary>
+    </member>
+    <member name="F:C1.Win.TreeView.CheckBoxStyle.Office2010Black">
+      <summary>MS Office 2010 Black と同様です。</summary>
+    </member>
+    <member name="F:C1.Win.TreeView.CheckBoxStyle.Office2010Blue">
+      <summary>MS Office 2010 Blue と同様です。</summary>
+    </member>
+    <member name="F:C1.Win.TreeView.CheckBoxStyle.Office2010Silver">
+      <summary>MS Office 2010 Silver と同様です。</summary>
+    </member>
+    <member name="F:C1.Win.TreeView.CheckBoxStyle.Office2013">
+      <summary>MS Office 2013 と同様です。</summary>
+    </member>
+    <member name="F:C1.Win.TreeView.CheckBoxStyle.Windows10">
+      <summary>Windows 10 と同様です。</summary>
+    </member>
+    <member name="T:C1.Win.TreeView.ExpandButtonStyle">
+      <summary>展開ボタンのビューを決定します。</summary>
+    </member>
+    <member name="F:C1.Win.TreeView.ExpandButtonStyle.System">
+      <summary>標準のシステムビュー。</summary>
+    </member>
+    <member name="F:C1.Win.TreeView.ExpandButtonStyle.VS2015">
+      <summary>Visual Studio 2015 と同様です。</summary>
+    </member>
+    <member name="F:C1.Win.TreeView.ExpandButtonStyle.Windows10">
+      <summary>Windows 10 と同様です。</summary>
+    </member>
+    <member name="T:C1.Win.TreeView.BindingMode">
+      <summary>結合モードのタイプを指定します。</summary>
+    </member>
+    <member name="F:C1.Win.TreeView.BindingMode.OneWay">
+      <summary>結合データソースは、ツリービュー階層の変化後に更新されませんされます。</summary>
+    </member>
+    <member name="F:C1.Win.TreeView.BindingMode.TwoWay">
+      <summary>結合データソースは、ツリービュー階層の変化後に更新。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnEnabledChanged(System.EventArgs)">
+      <summary>
+        このメンバは、
+        <see cref="M:System.Windows.Forms.Control.OnEnabledChanged(System.EventArgs)" />をオーバーライドします。
+      </summary>
+      <param name="e"></param>
+    </member>
+    <member name="P:C1.Win.TreeView.TreeViewStyles.LinesStyle">
+      <summary>破線のスタイルを取得または設定します。</summary>
+    </member>
+    <member name="F:C1.Win.TreeView.C1TreeViewEditorType.ColorPicker">
+      <summary>C1ColorPicker と同様です。</summary>
+    </member>
+    <member name="F:C1.Win.TreeView.C1TreeViewEditorType.DatePicker">
+      <summary>DatePicker と同様です。</summary>
+    </member>
+    <member name="F:C1.Win.TreeView.C1TreeViewEditorType.NumericEdit">
+      <summary>C1NumericEdit と同様です。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeColumn.DataMap">
+      <summary>
+        コンボボックスエディタ内でセル値を表示値に関連付けるために使用される
+        <see cref="T:System.Collections.IDictionary" />を取得または設定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeNode.IsReadOnly(System.Int32)">
+      <summary>ノードセルのコンテンツが変更可能かどうかを示す値を取得します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeView.SelectedNodes">
+      <summary>ツリービューコントロールの選択されているノードを取得します。</summary>
+    </member>
+    <member name="T:C1.Win.TreeView.C1TreeViewNodeCellEventArgs">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeView" />コントロールのイベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeViewNodeCellEventArgs.ColumnIndex">
+      <summary>TreeView コントロールのツリー列インデックスを取得します。</summary>
+    </member>
+    <member name="T:C1.Win.TreeView.C1TreeViewToolTipTextEventArgs">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeView" />コントロールの
+        <see cref="E:C1.Win.TreeView.C1TreeView.ApplyNodeCellToolTipText" />イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeViewToolTipTextEventArgs.ColumnIndex">
+      <summary>TreeView コントロールのツリー列インデックスを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeViewToolTipTextEventArgs.ToolTipText">
+      <summary>
+        マウスポインタを
+        <see cref="T:C1.Win.TreeView.C1TreeNode" />の上に置いたときに表示されるテキストを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeView.ContextMenuStrip">
+      <summary>
+        コントロールに関連付けられた
+        <see cref="P:C1.Win.TreeView.C1TreeView.ContextMenuStrip" />を取得または設定します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.TreeView.C1TreeView.BeforeContextMenuShow">
+      <summary>コンテキストメニューが表示される前に発生します。</summary>
+    </member>
+    <member name="E:C1.Win.TreeView.C1TreeView.ScrollPositionChanged">
+      <summary>
+        <see cref="P:C1.Win.TreeView.C1TreeView.ScrollPosition" />プロパティが変更されたときに発生します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnScrollPositionChanged(System.EventArgs)">
+      <summary>ScrollPositionChanged イベントを発生させます。</summary>
+    </member>
+    <member name="E:C1.Win.TreeView.C1TreeView.ApplyNodeCellToolTipText">
+      <summary>ツリーノードのツールチップを表示する前に発生します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnApplyNodeCellToolTipText(C1.Win.TreeView.C1TreeViewToolTipTextEventArgs)">
+      <summary>ApplyNodeCellToolTipText イベントを発生させます。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeNode.Tag">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeNode" />に関するデータを含むオブジェクトを取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.TreeView.CustomContentPresenter">
+      <summary>
+        <see cref="T:C1.Win.TreeView.CustomContentPresenter" />は、利用可能なスペース全体を常に占めるただ 1 つの子要素を含むレイアウトパネルです。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.CustomContentPresenter.#ctor">
+      <summary>
+        <see cref="T:C1.Win.TreeView.CustomContentPresenter" />の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.CustomContentPresenter.Child">
+      <summary>
+        <see cref="T:C1.Win.TreeView.CustomContentPresenter" />のルート
+        <see cref="T:C1.Framework.Element" />。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.CustomContentPresenter.ToolTipText">
+      <summary>
+        この
+        <see cref="T:C1.Win.TreeView.CustomContentPresenter" />の ToolTip として表示されるテキストを取得または設定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.CustomContentPresenter.SetStyle(C1.Win.TreeView.TreeNodeCellStyles)">
+      <summary>
+        この
+        <see cref="T:C1.Win.TreeView.CustomContentPresenter" />のスタイルを設定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.CustomContentPresenter.SetValue(System.Object)">
+      <summary>
+        この
+        <see cref="T:C1.Win.TreeView.ICellContentPresenter" />によって表される値を設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.CustomContentPresenter.Node">
+      <summary>
+        <see cref="T:C1.Win.TreeView.CustomContentPresenter" />パネルの唯一の子要素を取得または設定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.CustomContentPresenter.SetFormat(System.String)">
+      <summary>ノードセルが編集モードでないときに値を表示するために使用される書式文字列を設定します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.CustomContentPresenter.Layout(System.Drawing.Graphics)">
+      <summary>この要素をスタイルとコンテンツに基づいてレイアウトします。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.CustomContentPresenter.LayoutChildren(System.Drawing.Graphics)">
+      <summary>子のレイアウトと位置を更新します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeViewItemDragEventArgs.Nodes">
+      <summary>ドラッグされたツリーノードを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeColumn.DisplayFormat">
+      <summary>ノードセルが編集モードでないときに値を表示するために使用される書式文字列を取得または設定します。</summary>
+      <remarks>標準の .NET 書式指定子を使用する DisplayFormat。</remarks>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeColumn.EditFormat">
+      <summary>コントロールが編集モードのときに値を表示するために使用される書式文字列を取得または設定します。</summary>
+      <remarks>標準の .NET 書式指定子を使用する EditFormat。</remarks>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeColumn.CustomContentPresenter">
+      <summary>この列のセルのコンテンツを表示するカスタム要素を取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeColumn.OnCustomContentPresenterChanged(System.EventArgs)">
+      <summary>CustomContentPresenterChanged イベントを発生させます。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.IC1TreeEditor.C1EditorSetFormat(System.String)">
+      <summary>コントロールが編集モードのときに値を表示するために使用される書式文字列を設定します。</summary>
+      <param name="format">標準の .NET 書式指定子を使用する書式文字列。</param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnMouseWheel(System.Windows.Forms.MouseEventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.MouseWheel" />イベントを発生させます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeView.AutoCheckChildNodes">
+      <summary>親ノードがオン状態に変更されたときに、子ノードを自動的にオン状態にするかどうかを示す値を取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeColumn.#ctor(System.String,System.String,System.String)">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeColumn" />クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeColumnCollection.Add(System.String,System.String,System.String)">
+      <summary>ツリーの新しい列をコレクションに追加します。</summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeView.ButtonImageList">
+      <summary>展開ボタンの状態を示すために使用される画像リストを取得します。</summary>
+      <remarks>
+        ButtonImageList プロパティを設定した場合、
+        <see cref="T:C1.Win.TreeView.C1TreeView" />に含まれる各
+        <see cref="T:C1.Win.TreeView.C1TreeNode" />は、展開および折りたたまれている状態を示すために、それぞれ ButtonImageList に含まれる 1 番目と 2 番目の画像を表示します。さらに、ButtonImageList プロパティにキー CollapsedNormal、CollapsedHot、CollapsedPressed、CollapsedDisabled、ExpandedNormal、ExpandedHot、ExpandedPressed、ExpandedDisabled を持つ 8 つの画像が含まれる場合、
+        <see cref="T:C1.Win.TreeView.C1TreeView" />は展開ボタンの 8 つの状態を表示できます。
+      </remarks>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeView.CheckImageList">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeView" />とそのノードの状態を示すために使用される画像リストを取得します。
+      </summary>
+      <remarks>
+        CheckImageList プロパティを設定した場合、
+        <see cref="T:C1.Win.TreeView.C1TreeView" />に含まれる各
+        <see cref="T:C1.Win.TreeView.C1TreeNode" />は、オン/オフ状態を示すために、それぞれ CheckImageList に含まれる 1 番目と 2 番目の画像を表示します。さらに、CheckImageList プロパティに CheckBoxState 列挙のキーを持つ 12 の画像が含まれる場合、
+        <see cref="T:C1.Win.TreeView.C1TreeView" />はチェックボックスの 12 の状態を表示できます。
+      </remarks>
+    </member>
+    <member name="T:C1.Reflection.AssemblyLoadingException">
+      <summary>
+        アセンブリのロード中に発生するエラーを表します。
+      </summary>
+    </member>
+    <member name="P:C1.Reflection.AssemblyLoadingException.Assembly">
+      <summary>
+        アセンブリの完全名。
+      </summary>
+    </member>
+    <member name="T:C1.Win.TreeView.UI.ExpressionsForm">
+      <summary>
+        さまざまなノードレベルの式を簡単にセットアップできるように設計されたウィンドウまたはダイアログを表します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.UI.ExpressionsForm.#ctor(C1.Win.TreeView.C1TreeView,System.String[])">
+      <summary>
+        <see cref="T:C1.Win.TreeView.UI.ExpressionsForm" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+      <param name="treeView">オーナーツリービュー。</param>
+      <param name="expressions">初期状態の式。</param>
+    </member>
+    <member name="P:C1.Win.TreeView.UI.ExpressionsForm.Expressions">
+      <summary>
+        式文字列を取得します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.UI.ExpressionsForm.OnShown(System.EventArgs)">
+      <summary>
+        System.Windows.Forms.Form.Shown イベントを発生させます。
+      </summary>
+      <param name="e">イベントデータを含む System.EventArgs。</param>
+    </member>
+    <member name="M:C1.Win.TreeView.UI.ExpressionsForm.Dispose(System.Boolean)">
+      <summary>
+        使用されているリソースをすべてクリーンアップします。
+      </summary>
+      <param name="disposing">マネージリソースを破棄する場合は true、そうでない場合は false。</param>
+    </member>
+    <member name="T:C1.Win.TreeView.ExpressionException">
+      <summary>
+        C1ExpressionEditor を使用した動作中に発生するエラーを表します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.ExpressionException.#ctor(System.String)">
+      <summary>
+        C1.Win.TreeView.ExpressionException クラスの新しいインスタンスを初期化します。
+      </summary>
+      <param name="message">エラーについて説明するメッセージ。</param>
+    </member>
+    <member name="T:C1.Win.TreeView.BindingInfo">
+      <summary>
+        データ連結に関する情報を含みます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.BindingInfo.BindingMode">
+      <summary>
+        <summary>結合モードのタイプを示す値を取得または設定します。</summary>
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.BindingInfo.AutoGenerateColumns">
+      <summary>
+        データソースのフィールドごとに連結フィールドが自動的に作成されるかどうかを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.BindingInfo.DataSource">
+      <summary>
+        <summary>現在のツリービューコントロールのデータソースとして使用されるオブジェクトを取得または設定します。</summary>
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.BindingInfo.DataMember">
+      <summary>
+        <summary>データソース内の特定のレコードセットの名前を取得または設定します。</summary>
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.BindingInfo.CheckedFieldName">
+      <summary>
+        ノードのレベルに基づいてチェックボックスと連結するために使用されるフィールドのリストを取得または設定します。
+      </summary>
+      <remarks>
+        最後のフィールド名は、後続のすべてのレベルで使用されるフィールドを設定します。
+      </remarks>
+      <example>[First]\\[Second]\\[etc]</example>
+    </member>
+    <member name="P:C1.Win.TreeView.BindingInfo.DisabledFieldName">
+      <summary>
+        ノードのレベルに基づいて有効なプロパティと連結するために使用されるフィールドのリストを取得または設定します。
+      </summary>
+      <remarks>
+        最後のフィールド名は、後続のすべてのレベルで使用されるフィールドを設定します。
+      </remarks>
+      <example>[First]\\[Second]\\[etc]</example>
+    </member>
+    <member name="P:C1.Win.TreeView.BindingInfo.ParentKeyField">
+      <summary>
+        <summary>このデータソース内の親レコードを識別するデータソースフィールドを表す値を取得または設定します。</summary>
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.BindingInfo.KeyField">
+      <summary>
+        <summary>ツリービューコントロールに連結されるデータソースのキーフィールドを指定する値を取得または設定します。</summary>
+      </summary>
+    </member>
+    <member name="E:C1.Win.TreeView.BindingInfo.PropertyChanged">
+      <summary>
+        プロパティ値が変更されたときに発生します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.BindingInfo.OnPropertyChanged(System.String)">
+      <summary>
+        PropertyChanged イベントを発生させます。
+      </summary>
+      <param name="propertyName"></param>
+    </member>
+    <member name="T:C1.Win.TreeView.CheckBoxInfo">
+      <summary>
+        C1TreeColumn ヘッダーチェックボックスのロジックを含みます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.CheckBoxInfo.Visible">
+      <summary>
+        最初に表示される C1TreeColumn のヘッダーにチェックボックスを表示するかどうかを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.CheckBoxInfo.Checked">
+      <summary>
+        ツリーノードチェックボックスがオン状態であるかどうかを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.CheckBoxInfo.CheckState">
+      <summary>
+        ツリーノードチェックボックスの状態を取得または設定します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.TreeView.CheckBoxInfo.PropertyChanged">
+      <summary>
+        プロパティ値が変更されたときに発生します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.CheckBoxInfo.OnPropertyChanged(System.String)">
+      <summary>
+        PropertyChanged イベントを発生させます。
+      </summary>
+      <param name="propertyName"></param>
+    </member>
+    <member name="T:C1.Win.TreeView.ExpressionInfo">
+      <summary>
+        式に関する情報を含みます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.ExpressionInfo.AllowDelete">
+      <summary>
+        ノードレベル式を削除できるかどうかを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.ExpressionInfo.AllowAddNew">
+      <summary>
+        ノードレベル式を新しく追加できるかどうかを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.ExpressionInfo.AllowEdit">
+      <summary>
+        列ヘッダーにある式エディタアイコンをクリックして
+        この列の式を編集できるかどうかを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.ExpressionInfo.Expressions">
+      <summary>
+        列に使用される式を取得または設定します。
+      </summary>
+      <exception cref="T:C1.Win.TreeView.ExpressionException"></exception>
+    </member>
+    <member name="P:C1.Win.TreeView.ExpressionInfo.ExpandLastExpression">
+      <summary>
+        後続のレベルに式が定義されていない場合に、最後の式を TreeView の後続の
+        すべてのレベルに展開するかどうかを示す値を取得または設定します。
+      </summary>
+      <exception cref="T:C1.Win.TreeView.ExpressionException"></exception>
+    </member>
+    <member name="P:C1.Win.TreeView.CustomContentPresenter.Owner">
+      <summary>
+        現在の <see cref="T:C1.Win.TreeView.C1TreeNode" /> の <see cref="T:C1.Win.TreeView.C1TreeView" /> を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.CustomContentPresenter.IsSelected">
+      <summary>
+        この <see cref="T:C1.Win.TreeView.CustomContentPresenter" /> が選択状態であるかどうかを示す値を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.CustomContentPresenter.IsHotSelected">
+      <summary>
+        この <see cref="T:C1.Win.TreeView.CustomContentPresenter" /> が選択状態かつホット状態であるかどうかを示す値を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.CustomContentPresenter.IsUnfocusedSelected">
+      <summary>
+        この <see cref="T:C1.Win.TreeView.CustomContentPresenter" /> が選択状態であり、<see cref="T:C1.Win.TreeView.C1TreeView" /> にフォーカスがないかどうかを示す値を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.CustomContentPresenter.IsEnabled">
+      <summary>
+        この要素とそのすべての祖先が有効にされているかどうかを取得します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.TreeView.C1TreeViewNodeCellCancelEventArgs">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeView" /> コントロールのイベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeViewNodeCellCancelEventArgs.ColumnIndex">
+      <summary>
+        TreeView コントロールのツリー列インデックスを取得します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.HeaderStyle.ShouldSerializeFont">
+      <summary>
+        この Font が変更されている場合は true、そうでない場合は false を返します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.HeaderStyle.ResetFont">
+      <summary>
+        BackColor プロパティをデフォルト値にリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.HeaderStyle.ShouldSerializeHorizontalAlign">
+      <summary>
+        この HorizontalAlign が変更されている場合は true、そうでない場合は false を返します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.HeaderStyle.ResetHorizontalAlign">
+      <summary>
+        HorizontalAlign プロパティをデフォルト値にリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.HeaderStyle.ShouldSerializeVerticalAlign">
+      <summary>
+        この VerticalAlign が変更されている場合は true、そうでない場合は false を返します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.HeaderStyle.ResetVerticalAlign">
+      <summary>
+        VerticalAlign プロパティをデフォルト値にリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.HeaderStyle.ShouldSerializeWordWrap">
+      <summary>
+        この WordWrap が変更されている場合は true、そうでない場合は false を返します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.HeaderStyle.ResetWordWrap">
+      <summary>
+        WordWrap プロパティをデフォルト値にリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.HeaderStyle.ShouldSerialize">
+      <summary>
+        このスタイルが変更されている場合は true、そうでない場合は false を返します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.HeaderStyle.Reset">
+      <summary>
+        このスタイルをデフォルト値にリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.TreeNodeCellStyles.ShouldSerializeFont">
+      <summary>
+        この Font が変更されている場合は true、そうでない場合は false を返します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.TreeNodeCellStyles.ResetFont">
+      <summary>
+        Font プロパティをデフォルト値にリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.TreeNodeCellStyles.ShouldSerializeHorizontalAlign">
+      <summary>
+        この HorizontalAlign が変更されている場合は true、そうでない場合は false を返します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.TreeNodeCellStyles.ResetHorizontalAlign">
+      <summary>
+        HorizontalAlign プロパティをデフォルト値にリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.TreeNodeCellStyles.ShouldSerializeVerticalAlign">
+      <summary>
+        この VerticalAlign が変更されている場合は true、そうでない場合は false を返します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.TreeNodeCellStyles.ResetVerticalAlign">
+      <summary>
+        VerticalAlign プロパティをデフォルト値にリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.TreeNodeCellStyles.ShouldSerializeWordWrap">
+      <summary>
+        この WordWrap が変更されている場合は true、そうでない場合は false を返します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.TreeNodeCellStyles.ResetWordWrap">
+      <summary>
+        WordWrap プロパティをデフォルト値にリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.TreeNodeCellStyles.ResetStyles">
+      <summary>
+        このスタイルをデフォルト値にリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.TreeNodeCellStyles.ShouldSerialize">
+      <summary>
+        スタイルが変更されている場合は true、そうでない場合は false を返します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.TreeColumnStyles.ResetStyles">
+      <summary>
+        このスタイルをデフォルト値にリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.TreeColumnStyles.ShouldSerialize">
+      <summary>
+        スタイルが変更されている場合は true、そうでない場合は false を返します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.TreeViewStyles.ResetStyles">
+      <summary>
+        このスタイルをデフォルト値にリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.TreeViewStyles.ShouldSerialize">
+      <summary>
+        スタイルが変更されている場合は true、そうでない場合は false を返します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.TreeView.ComparisonType">
+      <summary>
+        C1TreeView.Search メソッドの文字列比較タイプ。
+      </summary>
+    </member>
+    <member name="F:C1.Win.TreeView.ComparisonType.Equal">
+      <summary>
+        指定された文字列とノード値は同じ値です。
+      </summary>
+    </member>
+    <member name="F:C1.Win.TreeView.ComparisonType.StartsWith">
+      <summary>
+        セル値の先頭が指定された文字列と比較して一致します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.TreeView.ComparisonType.Contains">
+      <summary>
+        指定された部分文字列がセル内で一致します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.TreeView.SelectionModifier">
+      <summary>
+        <see cref="F:C1.Win.TreeView.C1TreeViewSelectionMode.Multi" /> および <see cref="F:C1.Win.TreeView.C1TreeViewSelectionMode.MultiSibling" /> モードで、ノード選択に使用する修飾キーを指定します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.TreeView.SelectionModifier.None">
+      <summary>
+        マウスクリックでノードを選択または選択解除します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.TreeView.SelectionModifier.Ctrl">
+      <summary>
+        Ctrl + マウスクリックでノードを選択または選択解除します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeColumn.ExpressionInfo">
+      <summary>
+        式に関する情報を含みます。
+      </summary>
+    </member>
+    <member name="E:C1.Win.TreeView.C1TreeColumn.ExpressionChanged">
+      <summary>
+        列の ExpressionChanged が変更されると発生します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.NodeCellStyle.BBProvider">
+      <summary>
+        要素の背景の描画に使用される BackgroundBrushProvider を取得または設定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.NodeCellStyle.ShouldSerializeBackColor">
+      <summary>
+        この BackColor が変更されている場合は true、そうでない場合は false を返します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.NodeCellStyle.ResetBackColor">
+      <summary>
+        BackColor プロパティをデフォルト値にリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.NodeCellStyle.ShouldSerializeForeColor">
+      <summary>
+        この ForeColor が変更されている場合は true、そうでない場合は false を返します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.NodeCellStyle.ResetForeColor">
+      <summary>
+        ForeColor プロパティをデフォルト値にリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.NodeCellStyle.ShouldSerialize">
+      <summary>
+        このスタイルが変更されている場合は true、そうでない場合は false を返します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.NodeCellStyle.Reset">
+      <summary>
+        このスタイルをデフォルト値にリセットします。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeView.BorderStyle">
+      <summary>
+        コントロールの境界線の種類を決定する <see cref="P:C1.Win.TreeView.C1TreeView.BorderStyle" /> 値を取得または設定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.BuildScrollableRectangle(System.Int32,System.Int32)">
+      <summary>
+        このメソッドは、スクロール四角形の設定に使用されます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnScroll(System.Windows.Forms.ScrollBars)">
+      <summary>
+        コントロールがスクロールされたときに通知を受け取るには、このメソッドをオーバーライドします。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeView.ExtendLastColumn">
+      <summary>
+        グリッドがコントロールいっぱいに収まるように最後の列を拡大するかどうかを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeView.ScrollOnMouseClick">
+      <summary>
+        マウスクリックでフォーカスを得た場合にノードセルをスクロールするかどうかを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeView.HeaderCheckBox">
+      <summary>
+        C1TreeColumn ヘッダーチェックボックスに関する情報を含みます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeView.SelectionModifier">
+      <summary>
+        <see cref="F:C1.Win.TreeView.C1TreeViewSelectionMode.Multi" /> および <see cref="F:C1.Win.TreeView.C1TreeViewSelectionMode.MultiSibling" /> モードで、ノードの選択方法を示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeView.BindingInfo">
+      <summary>
+        データ連結に関する情報を含みます。
+      </summary>
+    </member>
+    <member name="E:C1.Win.TreeView.C1TreeView.HeaderCheckStateChanging">
+      <summary>
+        ツリー列ヘッダーチェックボックスがオンにされる前に発生します。その変更をキャンセルできます。
+      </summary>
+    </member>
+    <member name="E:C1.Win.TreeView.C1TreeView.HeaderCheckStateChanged">
+      <summary>
+        ツリー列ヘッダーチェックボックスがオンにされる後に発生します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.TreeView.C1TreeView.CellBeginEdit">
+      <summary>
+        選択されたセルが編集モードを開始するときに発生します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.TreeView.C1TreeView.CellEndEdit">
+      <summary>
+        選択されたセルが編集モードを終了するときに発生します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.TreeView.C1TreeView.NodeEnabledChanged">
+      <summary>
+        ツリーノードの有効な状態が変更された後に発生します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.Search(System.String,System.Int32,C1.Win.TreeView.ComparisonType,System.Boolean)">
+      <summary>
+        指定された文字列を含むノードを検索します。
+      </summary>
+      <param name="value">検索文字列。</param>
+      <param name="columnIndex">ノード列インデックス。</param>
+      <param name="comparisonType">文字列比較タイプ。</param>
+      <param name="dfs">検索タイプ: true - 深さ優先探索、false - 幅優先探索。</param>
+      <returns>見つかったノード。</returns>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.SetDefaultStyles(C1.Win.TreeView.TreeViewStyles)">
+      <summary>
+        <see cref="T:C1.Win.TreeView.C1TreeView" /> のデフォルトのスタイルを設定します。
+      </summary>
+      <param name="styles">デフォルトのスタイルとして使用されるスタイル。</param>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnHeaderCheckStateChanging(System.ComponentModel.CancelEventArgs)">
+      <summary>
+        HeaderCheckStateChanging イベントを発生させます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnHeaderCheckStateChanged(System.EventArgs)">
+      <summary>
+        HeaderCheckStateChanged イベントを発生させます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnNodeEnabledChanged(C1.Win.TreeView.C1TreeViewEventArgs)">
+      <summary>
+        NodeEnabledChanged イベントを発生させます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnCellBeginEdit(C1.Win.TreeView.C1TreeViewNodeCellCancelEventArgs)">
+      <summary>
+        CellBeginEdit イベントを発生させます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.TreeView.C1TreeView.OnCellEndEdit(C1.Win.TreeView.C1TreeViewNodeCellEventArgs)">
+      <summary>
+        CellEndEdit イベントを発生させます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.TreeView.C1TreeNode.Enabled">
+      <summary>
+        このノードが有効かどうかを示す値を取得または設定します。
+      </summary>
+    </member>
+  </members>
+</doc>

@@ -33,6 +33,7 @@ Partial Class frmOperation
 		Me.C1FGridResult = New C1.Win.C1FlexGrid.C1FlexGrid()
 		Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
 		Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+		Me.btnNew = New System.Windows.Forms.Button()
 		Me.GroupBox1.SuspendLayout()
 		CType(Me.C1FGridMuni, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBox3.SuspendLayout()
@@ -46,6 +47,7 @@ Partial Class frmOperation
 		'
 		'GroupBox1
 		'
+		Me.GroupBox1.Controls.Add(Me.btnNew)
 		Me.GroupBox1.Controls.Add(Me.Label2)
 		Me.GroupBox1.Controls.Add(Me.cmbTrader)
 		Me.GroupBox1.Controls.Add(Me.Label1)
@@ -114,7 +116,7 @@ Partial Class frmOperation
 		Me.C1FGridMuni.Rows.DefaultSize = 23
 		Me.C1FGridMuni.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row
 		Me.C1FGridMuni.ShowCellLabels = True
-		Me.C1FGridMuni.Size = New System.Drawing.Size(322, 583)
+		Me.C1FGridMuni.Size = New System.Drawing.Size(323, 584)
 		Me.C1FGridMuni.TabIndex = 5
 		Me.C1FGridMuni.VisualStyle = C1.Win.C1FlexGrid.VisualStyle.System
 		'
@@ -124,7 +126,7 @@ Partial Class frmOperation
 		Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.GroupBox3.Location = New System.Drawing.Point(0, 0)
 		Me.GroupBox3.Name = "GroupBox3"
-		Me.GroupBox3.Size = New System.Drawing.Size(932, 606)
+		Me.GroupBox3.Size = New System.Drawing.Size(931, 607)
 		Me.GroupBox3.TabIndex = 3
 		Me.GroupBox3.TabStop = False
 		Me.GroupBox3.Text = "電子調達システム・業者"
@@ -149,7 +151,7 @@ Partial Class frmOperation
 		Me.C1FGridResult.Rows.DefaultSize = 23
 		Me.C1FGridResult.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row
 		Me.C1FGridResult.ShowCellLabels = True
-		Me.C1FGridResult.Size = New System.Drawing.Size(926, 583)
+		Me.C1FGridResult.Size = New System.Drawing.Size(925, 584)
 		Me.C1FGridResult.TabIndex = 4
 		Me.C1FGridResult.VisualStyle = C1.Win.C1FlexGrid.VisualStyle.System
 		'
@@ -166,8 +168,8 @@ Partial Class frmOperation
 		'SplitContainer1.Panel2
 		'
 		Me.SplitContainer1.Panel2.Controls.Add(Me.GroupBox2)
-		Me.SplitContainer1.Size = New System.Drawing.Size(1264, 606)
-		Me.SplitContainer1.SplitterDistance = 932
+		Me.SplitContainer1.Size = New System.Drawing.Size(1264, 607)
+		Me.SplitContainer1.SplitterDistance = 931
 		Me.SplitContainer1.TabIndex = 3
 		'
 		'GroupBox2
@@ -176,10 +178,20 @@ Partial Class frmOperation
 		Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.GroupBox2.Location = New System.Drawing.Point(0, 0)
 		Me.GroupBox2.Name = "GroupBox2"
-		Me.GroupBox2.Size = New System.Drawing.Size(328, 606)
+		Me.GroupBox2.Size = New System.Drawing.Size(329, 607)
 		Me.GroupBox2.TabIndex = 0
 		Me.GroupBox2.TabStop = False
 		Me.GroupBox2.Text = "自治体登録"
+		'
+		'btnNew
+		'
+		Me.btnNew.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.btnNew.Location = New System.Drawing.Point(1177, 69)
+		Me.btnNew.Name = "btnNew"
+		Me.btnNew.Size = New System.Drawing.Size(75, 25)
+		Me.btnNew.TabIndex = 4
+		Me.btnNew.Text = "新規登録"
+		Me.btnNew.UseVisualStyleBackColor = True
 		'
 		'frmOperation
 		'
@@ -217,4 +229,5 @@ Partial Class frmOperation
 	Friend WithEvents cmbPrefectures As ComboBox
 	Friend WithEvents SplitContainer1 As SplitContainer
 	Friend WithEvents GroupBox2 As GroupBox
+	Friend WithEvents btnNew As Button
 End Class

@@ -288,23 +288,23 @@ Module DefaultModule
 
         End Using
 
-        'For i As Integer = 1 To 99
-        '	'ファイルが存在した場合、ファイルの末尾番号を1ずつインクリメントする
-        '	strOutputImportLog = strOutputFolder & "\" & strDate & strSign & i.ToString("00") & strSign2 & ".log"
-        '	If System.IO.File.Exists(strOutputImportLog) = False Then
-        '		'存在しなかったらそのファイル名を採用
-        '		Dim enc As System.Text.Encoding = New System.Text.UTF8Encoding(False)
-        '		Dim sw As New System.IO.StreamWriter(strOutputImportLog, False, enc)
-        '		'テキストの書き込み
-        '		For j As Integer = 0 To lstResult.Items.Count - 1
-        '			sw.WriteLine(lstResult.Items(j))
-        '		Next
-        '		sw.Close()
-        '		Exit For
-        '	End If
-        'Next
+		'For i As Integer = 1 To 99
+		'	'ファイルが存在した場合、ファイルの末尾番号を1ずつインクリメントする
+		'	strOutputImportLog = strOutputFolder & "\" & strDate & strSign & i.ToString("00") & strSign2 & ".log"
+		'	If System.IO.File.Exists(strOutputImportLog) = False Then
+		'		'存在しなかったらそのファイル名を採用
+		'		Dim enc As System.Text.Encoding = New System.Text.UTF8Encoding(False)
+		'		Dim sw As New System.IO.StreamWriter(strOutputImportLog, False, enc)
+		'		'テキストの書き込み
+		'		For j As Integer = 0 To lstResult.Items.Count - 1
+		'			sw.WriteLine(lstResult.Items(j))
+		'		Next
+		'		sw.Close()
+		'		Exit For
+		'	End If
+		'Next
 
-        WriteLstResult(lstResult, "ログ保存：" & strOutputImportLog, ResultMark.InformationMark)
+		WriteLstResult(lstResult, "ログ保存：" & strOutputImportLog, ResultMark.InformationMark)
 
     End Sub
 

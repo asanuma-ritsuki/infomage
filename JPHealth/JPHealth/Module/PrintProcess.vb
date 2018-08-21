@@ -75,7 +75,7 @@ Module PrintProcess
 			'==================================================
 			'2018/01/16
 			'判定票、リーフレット共に文字数チェックを行い、超過しているものに関しては
-			'強制的にM_文字数テーブル内のバイト数従って文字を削る
+			'強制的にM_文字数テーブル内のバイト数に従って文字を削る
 			WriteLstResult(lstResult, "判定票文字数チェック開始")
 			'エラーチェック用にT_判定票の項目名を全て取得しておく
 			strSQL = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS "
@@ -188,7 +188,8 @@ Module PrintProcess
 				ReDim Preserve strColumnName(i)
 				strColumnName(i) = dt.Rows(i)("COLUMN_NAME")
 			Next
-
+			'2018/07/30
+			'BMI項目の追加
 			strSQL = "SELECT システムID, 社員コード, 会社コード, 所属事業所コード, 会社, 所属事業所, "
 			strSQL &= "所属部名, 所属課名, 役職名, 氏名セイ, 氏名メイ, 氏名姓, 氏名名, 性別, 採用年月日, 生年月日, 健診種別, 受診日, "
 			strSQL &= "血圧1回収縮期コード, 血圧1回収縮期, 血圧1回収縮期単位, 血圧1回収縮期上限, 血圧1回収縮期下限, "
@@ -204,7 +205,7 @@ Module PrintProcess
 			strSQL &= "随時血糖コード, 随時血糖, 随時血糖単位, 随時血糖上限, 随時血糖下限, HbA1cコード, HbA1c, HbA1c単位, "
 			strSQL &= "HbA1c上限, HbA1c下限, 胸部X線判定コード, 胸部X線判定結果, 心電図判定コード, 心電図判定結果, 服薬血圧コード,"
 			strSQL &= "服薬血圧, 服薬血糖コード, 服薬血糖, 服薬脂質コード, 服薬脂質, 健診データ登録日, 胸部X線所見, 胸部X線判定, "
-			strSQL &= "心電図所見, 心電図判定, 帳票タイプ, レコード番号 "
+			strSQL &= "心電図所見, 心電図判定, 帳票タイプ, BMI, レコード番号 "
 			strSQL &= "FROM T_リーフレット "
 			strSQL &= "WHERE ロットID = '" & strLotID & "' "
 			strSQL &= "ORDER BY ロットID, レコード番号"
@@ -272,8 +273,8 @@ Module PrintProcess
             strSQL &= "GROUP BY ロットID, 会社コード, 所属事業所コード "
             strSQL &= "ORDER BY 会社コード, 所属事業所コード"
             Dim dtOffice As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
-            Dim dblTemp As Double = 0
-            Dim iLeafletSeq As Integer = 0 'リーフレットシーケンス(0～63)で各リーフレットを回す
+			Dim dblTemp As Decimal = 0
+			Dim iLeafletSeq As Integer = 0 'リーフレットシーケンス(0～63)で各リーフレットを回す
 
             WriteLstResult(lstResult, "対象事業所数：" & dtOffice.Rows.Count & "件")
             WriteLstResult(lstResult, "重量ヘッダ付与処理開始")
@@ -283,10 +284,10 @@ Module PrintProcess
                 WriteLstResult(lstResult, "会社コード：" & dtOffice.Rows(iRow)("会社コード") & "：所属事業所コード：" & dtOffice.Rows(iRow)("所属事業所コード"))
 
                 Application.DoEvents()
-                '事業所単位で回す
-                'はじめに事業所単位の判定票のレコード数、重量を算出する
-                Dim dblCheckupWeight As Double = 0
-                Dim iCheckupCount As Integer = 0
+				'事業所単位で回す
+				'はじめに事業所単位の判定票のレコード数、重量を算出する
+				Dim dblCheckupWeight As Decimal = 0
+				Dim iCheckupCount As Integer = 0
                 Dim iLeafletCount As Integer = 0
 
                 strSQL = "SELECT SUM(重量) AS 総重量, COUNT(社員コード) AS 判定票件数 "
@@ -316,28 +317,28 @@ Module PrintProcess
                 strSQL = "SELECT 重量 FROM M_重量 "
                 strSQL &= "WHERE 帳票種別ID = 0 "
                 strSQL &= "AND 帳票種別詳細 = 1"
-                Dim dblLabelWeight As Double = sqlProcess.DB_EXECUTE_SCALAR(strSQL) 'ラベルの重量
-                '対象者一覧のページ数を取得して総重量を取得
-                dblTemp = iCheckupCount / iCheckupList
+				Dim dblLabelWeight As Decimal = sqlProcess.DB_EXECUTE_SCALAR(strSQL) 'ラベルの重量
+				'対象者一覧のページ数を取得して総重量を取得
+				dblTemp = iCheckupCount / iCheckupList
                 Dim iCheckupSheet As Integer = Math.Ceiling(dblTemp)   '切り上げ(判定票件数 / 1ページあたりの件数)
                 strSQL = "SELECT 重量 FROM M_重量 "
                 strSQL &= "WHERE 帳票種別ID = 2 "
                 strSQL &= "AND 帳票種別詳細 = 1"
-                Dim dblCheckupListWeight As Double = sqlProcess.DB_EXECUTE_SCALAR(strSQL)   '対象者一覧1ページあたりの重量
-                Dim dblCheckupListTotalWeight As Double = dblCheckupListWeight * iCheckupSheet  '対象者一覧の総重量
-                '保健指導対象者名簿のページ数を取得して総重量を取得
-                dblTemp = iLeafletCount / iLeafletList
+				Dim dblCheckupListWeight As Decimal = sqlProcess.DB_EXECUTE_SCALAR(strSQL)   '対象者一覧1ページあたりの重量
+				Dim dblCheckupListTotalWeight As Decimal = dblCheckupListWeight * iCheckupSheet  '対象者一覧の総重量
+				'保健指導対象者名簿のページ数を取得して総重量を取得
+				dblTemp = iLeafletCount / iLeafletList
                 Dim iLeafletSheet As Integer = Math.Ceiling(dblTemp)   '切り上げ(保健指導対象者名簿件数 / 1ページあたりの件数)
                 strSQL = "SELECT 重量 FROM M_重量 "
                 strSQL &= "WHERE 帳票種別ID = 3 "
                 strSQL &= "AND 帳票種別詳細 = 1"
-                Dim dblLeafletListWeight As Double = sqlProcess.DB_EXECUTE_SCALAR(strSQL)   '保健指導対象者名簿1ページあたりの重量
-                Dim dblLeafletListTotalWeight As Double = dblLeafletListWeight * iLeafletSheet  '保健指導対象者名簿の総重量
-                'ラベル＋対象者一覧＋保健指導対象者名簿＋(判定票＋リーフレット)の総重量を取得
-                Dim dblOfficeTotalWeight As Double = dblLabelWeight + dblCheckupListTotalWeight + dblLeafletListTotalWeight + dblCheckupWeight
+				Dim dblLeafletListWeight As Decimal = sqlProcess.DB_EXECUTE_SCALAR(strSQL)   '保健指導対象者名簿1ページあたりの重量
+				Dim dblLeafletListTotalWeight As Decimal = dblLeafletListWeight * iLeafletSheet  '保健指導対象者名簿の総重量
+				'ラベル＋対象者一覧＋保健指導対象者名簿＋(判定票＋リーフレット)の総重量を取得
+				Dim dblOfficeTotalWeight As Decimal = dblLabelWeight + dblCheckupListTotalWeight + dblLeafletListTotalWeight + dblCheckupWeight
 
-                '重量ヘッダに該当するか調べる
-                strSQL = "SELECT 重量ヘッダ, 封筒種別 FROM M_重量ヘッダ "
+				'重量ヘッダに該当するか調べる
+				strSQL = "SELECT 重量ヘッダ, 封筒種別 FROM M_重量ヘッダ "
                 strSQL &= "WHERE " & dblOfficeTotalWeight & " BETWEEN 重量FROM AND 重量TO"
                 Dim dtWeightHeader As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
 
@@ -372,8 +373,8 @@ Module PrintProcess
                 strSQL &= "社員コード"
                 Dim dtMultiEnvelope As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
                 Dim iPrintID As Integer = 0 '印刷ID
-                Dim dblTotalWeight As Double = 0    '累積重量用
-                Dim iSeq As Integer = 0 'シーケンス
+				Dim dblTotalWeight As Decimal = 0    '累積重量用
+				Dim iSeq As Integer = 0 'シーケンス
                 Dim iNowCheckupCount As Integer = 1 '対象者一覧の現在のレコード数。対象者一覧の限度レコード数に達したらレコード追加する
                 Dim iNowLeafletCount As Integer = 1 '対象者名簿の現在のレコード数。対象者名簿の限度レコード数に達したらレコードを追加する
 
@@ -411,57 +412,59 @@ Module PrintProcess
                         iNowCheckupCount += 1
 
                     Else
-                        '2レコード目以降
-                        '重量チェック
-                        '当該レコードの重量を足したdblTotalWeightが重量ヘッダ「H」の重量TOを超えていたら
-                        '印刷IDをインクリメントしてラベルレコードから再開する
-                        'iNowCheckupCount、iNowLeafletCountのリセット
-                        'dblTotalWeightのリセット
-
-                        '最大重量の取得
-                        strSQL = "SELECT 重量TO FROM M_重量ヘッダ "
+						'2レコード目以降
+						'重量チェック
+						'当該レコードの重量を足したdblTotalWeightが重量ヘッダ「H」の重量TOを超えていたら
+						'印刷IDをインクリメントしてラベルレコードから再開する
+						'iNowCheckupCount、iNowLeafletCountのリセット
+						'dblTotalWeightのリセット
+						'If dtOffice.Rows(iRow)("所属事業所コード") = "017970" Then
+						'	MessageBox.Show(dtOffice.Rows(iRow)("所属事業所コード"))
+						'End If
+						'最大重量の取得
+						strSQL = "SELECT 重量TO FROM M_重量ヘッダ "
                         strSQL &= "WHERE 重量ヘッダ = 'H'"
-                        Dim dblMaxWeight As Double = sqlProcess.DB_EXECUTE_SCALAR(strSQL)
+						Dim dblMaxWeight As Decimal = sqlProcess.DB_EXECUTE_SCALAR(strSQL)
 
-                        If dblTotalWeight + dtMultiEnvelope.Rows(iMulti)("重量") > dblMaxWeight Then
-                            '最大重量を超えていた
-                            iPrintID += 1
-                            iNowCheckupCount = 1
-                            iNowLeafletCount = 1
-                            dblTotalWeight = 0
-                            'ラベルのレコード追加
-                            iSeq += 1
-                            MultiEnvelopeInsert(strLotID, 0, iSeq, iPrintID, 0, dblLabelWeight, 0, 0, 0, dblLabelWeight)
-                            dblTotalWeight += dblLabelWeight
-                            '対象者一覧レコードを追加
-                            iSeq += 1
-                            MultiEnvelopeInsert(strLotID, 0, iSeq, iPrintID, 2, 0, dblCheckupListWeight, 0, 0, dblTotalWeight + dblCheckupListWeight)
-                            dblTotalWeight += dblCheckupListWeight
-                            'リーフレットが無効かどうか調べて無効でなかった場合対象者名簿レコードを追加する
-                            If dtMultiEnvelope.Rows(iMulti)("リーフレット無効") = 0 Then
-                                'リーフレットがあった
-                                iSeq += 1
-                                MultiEnvelopeInsert(strLotID, 0, iSeq, iPrintID, 3, 0, 0, dblLeafletListWeight, 0, dblTotalWeight + dblLeafletListWeight)
-                                dblTotalWeight += dblLeafletListWeight
-                                iNowLeafletCount += 1
-                                '==================================================
-                                '2017/07/14
-                                'リーフレットレコードのINSERT
-                                '※重量は判定票部分に含まれるため加算しない
-                                iSeq += 1
-                                MultiEnvelopeInsert(strLotID, dtMultiEnvelope.Rows(iMulti)("レコード番号"), iSeq, iPrintID, 5, 0, 0, 0, 0, dblTotalWeight)
-                                '==================================================
-                            End If
-                            '判定票のレコードを追加
-                            iSeq += 1
-                            MultiEnvelopeInsert(strLotID, dtMultiEnvelope.Rows(iMulti)("レコード番号"), iSeq, iPrintID, 4, 0, 0, 0, dtMultiEnvelope.Rows(iMulti)("重量"), dblTotalWeight + dtMultiEnvelope.Rows(iMulti)("重量"))
-                            dblTotalWeight += dtMultiEnvelope.Rows(iMulti)("重量")
-                            iNowCheckupCount += 1
+						If dblTotalWeight + dtMultiEnvelope.Rows(iMulti)("重量") + dblCheckupListWeight + dblLeafletListWeight > dblMaxWeight Then
+							'最大重量を超えていた
+							iPrintID += 1
+							iNowCheckupCount = 1
+							iNowLeafletCount = 1
+							dblTotalWeight = 0
+							'ラベルのレコード追加
+							iSeq += 1
+							MultiEnvelopeInsert(strLotID, 0, iSeq, iPrintID, 0, dblLabelWeight, 0, 0, 0, dblLabelWeight)
+							dblTotalWeight += dblLabelWeight
+							'対象者一覧レコードを追加
+							iSeq += 1
+							MultiEnvelopeInsert(strLotID, 0, iSeq, iPrintID, 2, 0, dblCheckupListWeight, 0, 0, dblTotalWeight + dblCheckupListWeight)
+							dblTotalWeight += dblCheckupListWeight
+							'リーフレットが無効かどうか調べて無効でなかった場合対象者名簿レコードを追加する
+							If dtMultiEnvelope.Rows(iMulti)("リーフレット無効") = 0 Then
+								'リーフレットがあった
+								iSeq += 1
+								MultiEnvelopeInsert(strLotID, 0, iSeq, iPrintID, 3, 0, 0, dblLeafletListWeight, 0, dblTotalWeight + dblLeafletListWeight)
+								dblTotalWeight += dblLeafletListWeight
+								iNowLeafletCount += 1
+								'==================================================
+								'2017/07/14
+								'リーフレットレコードのINSERT
+								'※重量は判定票部分に含まれるため加算しない
+								iSeq += 1
+								MultiEnvelopeInsert(strLotID, dtMultiEnvelope.Rows(iMulti)("レコード番号"), iSeq, iPrintID, 5, 0, 0, 0, 0, dblTotalWeight)
+								'==================================================
+							End If
+							'判定票のレコードを追加
+							iSeq += 1
+							MultiEnvelopeInsert(strLotID, dtMultiEnvelope.Rows(iMulti)("レコード番号"), iSeq, iPrintID, 4, 0, 0, 0, dtMultiEnvelope.Rows(iMulti)("重量"), dblTotalWeight + dtMultiEnvelope.Rows(iMulti)("重量"))
+							dblTotalWeight += dtMultiEnvelope.Rows(iMulti)("重量")
+							iNowCheckupCount += 1
 
-                        Else
-                            '超えていなかった
-                            '対象者一覧チェック
-                            If iNowCheckupCount = iCheckupList + 1 Then
+						Else
+							'超えていなかった
+							'対象者一覧チェック
+							If iNowCheckupCount = iCheckupList + 1 Then
                                 '限度数を超えていたら対象者一覧をレコード追加し、iNowCheckCountをリセットする
                                 iSeq += 1
                                 MultiEnvelopeInsert(strLotID, 0, iSeq, iPrintID, 2, 0, dblCheckupListWeight, 0, 0, dblTotalWeight + dblCheckupListWeight)
@@ -501,23 +504,23 @@ Module PrintProcess
 
                 Next iMulti
 
-                'T_複数封筒計算を起点にして各テーブルより以下のテーブルを成型する
-                'T_印刷管理
-                'T_印刷ソート
-                'T_対象者一覧印刷
-                'T_保健指導名簿印刷
-                'T_判定票印刷
-                'T_リーフレット印刷
+				'T_複数封筒計算を起点にして各テーブルより以下のテーブルを成型する
+				'T_印刷管理
+				'T_印刷ソート
+				'T_対象者一覧印刷
+				'T_保健指導名簿印刷
+				'T_判定票印刷
+				'T_リーフレット印刷
 
-                '==================================================
-                'T_印刷管理
-                '2017/06/30
-                'ラベル連番(0固定)、判定票枚数、リーフレット枚数項目の追加
-                '==================================================
-                '印刷IDでグルーピングして各最終レコードの累積重量を参照し、M_重量ヘッダから該当の重量ヘッダを取得する
-                '※T_複数封筒計算テーブルは事業所単位での計算を前提としたテーブル
-                strSQL = "SELECT 印刷ID, "
-                strSQL &= "SUM(CASE WHEN 帳票種別ID = 4 THEN 1 ELSE 0 END) AS 判定票枚数, "
+				'==================================================
+				'T_印刷管理
+				'2017/06/30
+				'ラベル連番(0固定)、判定票枚数、リーフレット枚数項目の追加
+				'==================================================
+				'印刷IDでグルーピングして各最終レコードの累積重量を参照し、M_重量ヘッダから該当の重量ヘッダを取得する
+				'※T_複数封筒計算テーブルは事業所単位での計算を前提としたテーブル
+				strSQL = "SELECT 印刷ID, "
+				strSQL &= "SUM(CASE WHEN 帳票種別ID = 4 THEN 1 ELSE 0 END) AS 判定票枚数, "
                 strSQL &= "SUM(CASE WHEN 帳票種別ID = 5 THEN 1 ELSE 0 END) AS リーフレット枚数 "
                 strSQL &= "FROM T_複数封筒計算 "
                 strSQL &= "WHERE ロットID = '" & strLotID & "' "
@@ -530,9 +533,9 @@ Module PrintProcess
                     '該当印刷IDの累積重量を取得しておく
                     strSQL = "SELECT MAX(累積重量) FROM T_複数封筒計算 "
                     strSQL &= "WHERE 印刷ID = " & dtPrintID.Rows(i)("印刷ID")
-                    Dim dblPrintIDWeight As Double = sqlProcess.DB_EXECUTE_SCALAR(strSQL)
-                    '累積重量から重量ヘッダを取得する
-                    strSQL = "SELECT 重量ヘッダ FROM M_重量ヘッダ "
+					Dim dblPrintIDWeight As Decimal = sqlProcess.DB_EXECUTE_SCALAR(strSQL)
+					'累積重量から重量ヘッダを取得する
+					strSQL = "SELECT 重量ヘッダ FROM M_重量ヘッダ "
                     strSQL &= "WHERE " & dblPrintIDWeight & " BETWEEN 重量FROM AND 重量TO"
                     '必ず重量ヘッダは引っかかる
                     Dim strWeightHeader As String = sqlProcess.DB_EXECUTE_SCALAR(strSQL)
@@ -778,8 +781,11 @@ Module PrintProcess
                             strSQL &= "AND T1.会社コード = '" & dtOffice.Rows(iRow)("会社コード") & "' "
                             strSQL &= "AND T1.所属事業所コード = '" & dtOffice.Rows(iRow)("所属事業所コード") & "' "
                             strSQL &= "AND T1.レコード番号 = " & dtLeafletRec.Rows(iRec)("レコード番号") & " "
-                            strSQL &= "AND T4.リーフレット無効 != 1 "   'リーフレット無効が立っていたら出力しない
-                            strSQL &= "ORDER BY CASE WHEN ISNULL(T1.所属部名, '') = '' THEN 1 ELSE 0 END, "
+							strSQL &= "AND T4.リーフレット無効 != 1 "   'リーフレット無効が立っていたら出力しない
+							'2018/07/31
+							'帳票タイプが「BMIMAP」の際は除外する
+							strSQL &= "AND T2.帳票タイプ != 'BMIMAP' "
+							strSQL &= "ORDER BY CASE WHEN ISNULL(T1.所属部名, '') = '' THEN 1 ELSE 0 END, "
                             strSQL &= "T1.所属部名, "
                             strSQL &= "CASE WHEN ISNULL(T1.所属課名, '') = '' THEN 1 ELSE 0 END, "
                             strSQL &= "T1.所属課名, T1.社員コード"
@@ -2719,6 +2725,12 @@ Module PrintProcess
 			ReSwingQR(strLotID)
 			WriteLstResult(lstResult, "QRコード内連番の再振り処理終了")
 
+			'2018/08/10
+			'リーフレットが6枚以上ある社員レコードをT_リーフ6チェックにコピーする
+			WriteLstResult(lstResult, "リーフレット6データ抽出処理開始")
+			ReSwingLeaf6(strLotID)
+			WriteLstResult(lstResult, "リーフレット6データ抽出処理終了")
+
 			WriteLstResult(lstResult, "印刷準備処理完了")
 			OutputImportLog(lstResult, strOutputFolder, "_Preparation_")
 
@@ -2734,6 +2746,50 @@ Module PrintProcess
         End Try
 
     End Sub
+
+	''' <summary>
+	''' リーフ6チェック用テーブルへのデータINSERT
+	''' </summary>
+	''' <param name="strLotID"></param>
+	Private Sub ReSwingLeaf6(ByVal strLotID As String)
+
+		Dim strSQL As String = ""
+		Dim sqlProcess As New SQLProcess
+
+		Try
+			'該当ロットIDのデータをリーフ6チェックより削除
+			strSQL = "DELETE FROM T_リーフ6チェック "
+			strSQL &= "WHERE ロットID = '" & strLotID & "'"
+			sqlProcess.DB_UPDATE(strSQL)
+
+			strSQL = "INSERT INTO T_リーフ6チェック "
+			strSQL &= "SELECT T2.ロットID, T2.レコード番号, T1.会社コード, T1.所属事業所コード, T1.印刷ID, T2.印刷SEQ, "
+			strSQL &= "T2.トータルSEQ, T2.カレントSEQ, T3.ラベル連番, T3.重量ヘッダ, T2.帳票タイプ, T2.QRコード, 0, NULL, '' "
+			strSQL &= "FROM T_印刷ソート AS T1 INNER JOIN "
+			strSQL &= "T_リーフレット印刷 AS T2 ON T1.ロットID = T2.ロットID "
+			strSQL &= "AND T1.レコード番号 = T2.レコード番号 INNER JOIN "
+			strSQL &= "T_印刷管理 AS T3 ON T1.ロットID = T3.ロットID "
+			strSQL &= "AND T1.会社コード = T3.会社コード "
+			strSQL &= "AND T1.所属事業所コード = T3.所属事業所コード "
+			strSQL &= "AND T1.印刷ID = T3.印刷ID "
+			strSQL &= "WHERE T1.ロットID = '" & strLotID & "' "
+			strSQL &= "AND T1.帳票種別ID = 5 "
+			strSQL &= "AND T2.トータルSEQ >= 6 "
+			strSQL &= "ORDER BY T3.ラベル連番, T2.印刷SEQ"
+			sqlProcess.DB_UPDATE(strSQL)
+
+		Catch ex As Exception
+
+			Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message & vbNewLine & ex.StackTrace)
+			MessageBox.Show("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+		Finally
+
+			sqlProcess.Close()
+
+		End Try
+
+	End Sub
 
 	''' <summary>
 	''' QRコードに所属事業所コード単位の連番を付与したものをセットする
@@ -3441,13 +3497,15 @@ Module PrintProcess
                     strSQL &= "AND システムID = '" & strSystemID & "' "
                     strSQL &= "AND 帳票タイプ = '" & strType & "'"
                     Dim dtValue As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
-                    strValue1 = dtValue.Rows(0)("HbA1c")
-                    If IsNull(dtValue.Rows(0)("空腹時血糖")) Then
-                        '空腹時血糖がNULLの場合のみ随時血糖を採用する
-                        strValue2 = dtValue.Rows(0)("随時血糖")
-                    Else
-                        strValue2 = dtValue.Rows(0)("空腹時血糖")
-                    End If
+					strValue1 = dtValue.Rows(0)("HbA1c")
+					'2018/06/19
+					'文言に(空腹)(随時)を付与
+					If IsNull(dtValue.Rows(0)("空腹時血糖")) Then
+						'空腹時血糖がNULLの場合のみ随時血糖を採用する
+						strValue2 = "(随時) " & dtValue.Rows(0)("随時血糖")
+					Else
+						strValue2 = "(空腹) " & dtValue.Rows(0)("空腹時血糖")
+					End If
                     strVAlue3 = ""
 
                 Case "脂質3", "脂質4"
@@ -3490,7 +3548,34 @@ Module PrintProcess
                     strValue2 = ""
                     strVAlue3 = ""
 
-            End Select
+					'2018/07/31
+					'腎機能、BMI、BMIMAPの追加
+				Case "腎機能3"
+					strSQL = "SELECT クレアチニン FROM T_リーフレット "
+					strSQL &= "WHERE ロットID = '" & strLotID & "' "
+					strSQL &= "AND システムID = '" & strSystemID & "' "
+					strSQL &= "AND 帳票タイプ = '" & strType & "'"
+					Dim dtValue As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
+					strValue1 = dtValue.Rows(0)("クレアチニン")
+					strValue2 = ""
+					strVAlue3 = ""
+
+				Case "BMI"
+					strSQL = "SELECT BMI FROM T_リーフレット "
+					strSQL &= "WHERE ロットID = '" & strLotID & "' "
+					strSQL &= "AND システムID = '" & strSystemID & "' "
+					strSQL &= "AND 帳票タイプ = '" & strType & "'"
+					Dim dtValue As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
+					strValue1 = dtValue.Rows(0)("BMI")
+					strValue2 = ""
+					strVAlue3 = ""
+
+				Case "BMIMAP"
+					strValue1 = ""
+					strValue2 = ""
+					strVAlue3 = ""
+
+			End Select
 
             Return True
 
@@ -4409,10 +4494,13 @@ Module PrintProcess
 
                         dt = sqlProcess.DB_SELECT_DATATABLE(strSQL)
                         If dt.Rows.Count > 0 Then
-                            '結果があった場合印刷
-                            Print(strSQL, PrintCategory.WeightHeader)
+							'結果があった場合印刷
+							'Using sw As New System.IO.StreamWriter("C:\JPTemp\07_TEMP\PrintProcess.log", True, System.Text.Encoding.GetEncoding("Shift-JIS"))
+							'	sw.WriteLine(strSQL)
+							'End Using
+							Print(strSQL, PrintCategory.WeightHeader)
 
-                        End If
+						End If
                     End If
                     '==================================================
                     'リーフレット印刷
@@ -4521,10 +4609,13 @@ Module PrintProcess
 							strSQL &= "T1.局所会社名, T1.健康管理施設名, T1.郵便番号, T1.住所, T1.電話番号, T1.年度, T4.受診日, T1.帳票タイプ, "
 							strSQL &= "T1.結果値1, T1.結果値2, T1.結果値3, T1.BOC, T1.EOC, T1.PAR, T1.WAS1, T1.WAS2, T1.WAS3, "
                             strSQL &= "T1.WAS4, T1.WAS5, T1.WAS6, T1.QRコード, T3.ラベル連番, T1.先頭マーク, T1.トータルSEQ, T1.カレントSEQ "
-                            '印刷処理
-                            Print(strSQL, PrintCategory.Leaflet, dtFormType.Rows(iFormType)("帳票タイプ"))
+							'印刷処理
+							'Using sw As New System.IO.StreamWriter("C:\JPTemp\07_TEMP\PrintProcess.log", True, System.Text.Encoding.GetEncoding("Shift-JIS"))
+							'	sw.WriteLine(strSQL)
+							'End Using
+							Print(strSQL, PrintCategory.Leaflet, dtFormType.Rows(iFormType)("帳票タイプ"))
 
-                        Next
+						Next
 
                     Next
                     '会社コード、所属事業所コード内の印刷が終了した段階でT_印刷管理の「リーフレット印刷日時」を更新する
@@ -4648,9 +4739,9 @@ Module PrintProcess
                 strSQL &= "AND T2.所属事業所コード = '" & dtLeaf6Header.Rows(iRow)("所属事業所コード") & "' "
                 strSQL &= "AND T2.印刷ID = " & dtLeaf6Header.Rows(iRow)("印刷ID") & " "
                 strSQL &= "AND T3.リーフレット無効 = 0 "    'リーフレット無効が立っているものは印刷対象としない
-                '2017/08/09
-                '一社員6枚組のみ検索
-                strSQL &= "AND T2.枚数 >= 6 "
+				'2017/08/09
+				'一社員6枚組以上のみ検索
+				strSQL &= "AND T2.枚数 >= 6 "
                 strSQL &= "GROUP BY T1.ロットID, T1.レコード番号, T3.所属部名, T3.所属課名, T3.社員コード "
                 'strSQL &= "ORDER BY CASE WHEN ISNULL(T1.所属部課名, '') = '' THEN 1 ELSE 0 END, "
                 'strSQL &= "T1.所属部課名, "
@@ -4699,8 +4790,15 @@ Module PrintProcess
                         strSQL &= "T1.WAS4, T1.WAS5, T1.WAS6, T1.QRコード, T3.ラベル連番, T1.先頭マーク, T1.トータルSEQ, T1.カレントSEQ "
                         '印刷処理
                         Print(strSQL, PrintCategory.Leaflet, dtFormType6.Rows(iFormType)("帳票タイプ"))
+						'2018/08/13
+						'T_リーフ6チェックからチェックフラグを外す
+						strSQL = "UPDATE T_リーフ6チェック SET チェックフラグ = 0 "
+						strSQL &= "WHERE ロットID = '" & strLotID & "' "
+						strSQL &= "AND レコード番号 = " & dtLeaflet6.Rows(i)("レコード番号") & " "
+						strSQL &= "AND 帳票タイプ = '" & dtFormType6.Rows(iFormType)("帳票タイプ") & "'"
+						sqlProcess.DB_UPDATE(strSQL)
 
-                    Next
+					Next
                     '該当レコード番号の印刷が終了した段階でT_印刷管理の「リーフレット印刷日時」を更新する
                     WritePrintDate(strLotID, PrintCategory.Leaflet, dtLeaflet6.Rows(i)("レコード番号"), dtLeaf6Header.Rows(iRow)("会社コード"), dtLeaf6Header.Rows(iRow)("所属事業所コード"), dtLeaf6Header.Rows(iRow)("印刷ID"))
                     '該当の会社コード、所属事業所コード、印刷IDすべてのチェックフラグを取り下げる
@@ -4771,8 +4869,8 @@ Module PrintProcess
                     strSQL = "SELECT '" & strImportDate & "' AS インポート日, T3.重量ヘッダ, T3.対象者一覧, T3.保健指導名簿, T3.判定票枚数, T3.判定票件数, "
                     strSQL &= "T3.リーフレット枚数, T3.リーフレット件数, T3.総枚数 + 1 AS 総枚数, T3.リーフレット枚数 AS 枚数, "
                     strSQL &= "T3.リーフレット件数 AS 件数, "
-                    strSQL &= "(SELECT COUNT(重量ヘッダ) FROM T_印刷管理 "
-                    strSQL &= "WHERE ロットID = '" & strLotID & "' "
+					strSQL &= "(SELECT COUNT(重量ヘッダ) FROM T_印刷管理個別 "
+					strSQL &= "WHERE ロットID = '" & strLotID & "' "
                     'リーフレットの存在する通数のみ合算
                     strSQL &= "AND 重量ヘッダ = '" & dtPrintManage.Rows(iRow)("重量ヘッダ") & "' AND リーフレット枚数 > 0) AS 通数 "
                     strSQL &= "FROM (SELECT T1.重量ヘッダ, "
@@ -4894,8 +4992,8 @@ Module PrintProcess
             '2017/08/09
             '一社員6枚組のリーフレットの印刷
             strSQL = "SELECT T1.ロットID, T1.会社コード, T1.所属事業所コード, T1.印刷ID, T1.重量ヘッダ, T1.ラベル連番 "
-            strSQL &= "FROM T_印刷管理 AS T1 INNER JOIN "
-            strSQL &= "T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID "
+			strSQL &= "FROM T_印刷管理個別 AS T1 INNER JOIN "
+			strSQL &= "T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID "
             strSQL &= "AND T1.会社コード = T2.会社コード "
             strSQL &= "AND T1.所属事業所コード = T2.所属事業所コード "
             strSQL &= "AND T1.印刷ID = T2.印刷ID "
@@ -4917,8 +5015,8 @@ Module PrintProcess
                     strSQL = "SELECT '" & strLotID.Substring(0, 8) & "' AS インポート日, T3.重量ヘッダ, T3.対象者一覧, T3.保健指導名簿, T3.判定票枚数, T3.判定票件数, "
                     strSQL &= "T3.リーフレット枚数, T3.リーフレット件数, T3.総枚数 + 1 AS 総枚数, T3.リーフレット枚数 AS 枚数, "
                     strSQL &= "T3.リーフレット件数 AS 件数, "
-                    strSQL &= "(SELECT COUNT(重量ヘッダ) FROM T_印刷管理 "
-                    strSQL &= "WHERE ロットID = '" & strLotID & "' "
+					strSQL &= "(SELECT COUNT(重量ヘッダ) FROM T_印刷管理個別 "
+					strSQL &= "WHERE ロットID = '" & strLotID & "' "
                     'リーフレットの存在する通数のみ合算
                     strSQL &= "AND 重量ヘッダ = '" & dtLeaf6Header.Rows(iRow)("重量ヘッダ") & "' AND リーフレット枚数 > 0) AS 通数 "
                     strSQL &= "FROM (SELECT T1.重量ヘッダ, "
@@ -4930,8 +5028,8 @@ Module PrintProcess
                     strSQL &= "ISNULL(SUM(CASE WHEN T2.帳票種別ID = 5 THEN T2.枚数 ELSE 0 END), 0) AS リーフレット枚数, "
                     strSQL &= "ISNULL(SUM(CASE WHEN T2.帳票種別ID = 5 THEN 1 ELSE 0 END), 0) AS リーフレット件数, "
                     strSQL &= "ISNULL(SUM(CASE WHEN T2.帳票種別ID = 5 THEN T2.枚数 ELSE 0 END), 0) AS 総枚数 "
-                    strSQL &= "FROM T_印刷管理 AS T1 INNER JOIN "
-                    strSQL &= "T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID AND T1.会社コード = T2.会社コード "
+					strSQL &= "FROM T_印刷管理個別 AS T1 INNER JOIN "
+					strSQL &= "T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID AND T1.会社コード = T2.会社コード "
                     strSQL &= "AND T1.所属事業所コード = T2.所属事業所コード AND T1.印刷ID = T2.印刷ID "
                     strSQL &= "WHERE T1.ロットID = '" & strLotID & "' "
                     strSQL &= "AND T2.帳票種別ID != 0 " 'ラベル以外
@@ -4995,8 +5093,8 @@ Module PrintProcess
                         strSQL &= "FROM T_リーフレット印刷 AS T1 INNER JOIN "
                         strSQL &= "T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID "
                         strSQL &= "AND T1.レコード番号 = T2.レコード番号 INNER JOIN "
-                        strSQL &= "T_印刷管理 AS T3 ON T2.ロットID = T3.ロットID "
-                        strSQL &= "AND T2.会社コード = T3.会社コード "
+						strSQL &= "T_印刷管理個別 AS T3 ON T2.ロットID = T3.ロットID "
+						strSQL &= "AND T2.会社コード = T3.会社コード "
                         strSQL &= "AND T2.所属事業所コード = T3.所属事業所コード "
 						strSQL &= "AND T2.印刷ID = T3.印刷ID INNER JOIN "
 						'==================================================
@@ -5051,334 +5149,363 @@ Module PrintProcess
     ''' </summary>
     Public Sub Print(ByVal strSQL As String, ByVal prtCategory As PrintCategory, Optional ByVal strLeafletPattern As String = "")
 
-        Dim strConnectionString As String = ""
-        XmlSettings.LoadFromXmlFile()
-        Dim C1FlexReport1 As New C1FlexReport
+		''==================================================
+		''デバッグ用(この囲み以外はコメントアウトする)
+		'Using sw As New System.IO.StreamWriter("C:\JPTemp\06_印刷\20180807-02\Print.txt", True, System.Text.Encoding.GetEncoding("Shift-JIS"))
+		'	Dim strWriteLine As String = ""
+		'	Select Case prtCategory
+		'		Case PrintCategory.Label
+		'			strWriteLine = "ラベル：" & strSQL
+		'		Case PrintCategory.WeightHeader
+		'			strWriteLine = "重量ヘッダ：" & strSQL
+		'		Case PrintCategory.WeightHeaderHand
+		'			strWriteLine = "重量ヘッダ手差し：" & strSQL
+		'		Case PrintCategory.CheckupList
+		'			strWriteLine = "対象者一覧：" & strSQL
+		'		Case PrintCategory.CheckupListIndividual
+		'			strWriteLine = "対象者一覧_個別：" & strSQL
+		'		Case PrintCategory.LeafletList
+		'			strWriteLine = "保健指導名簿：" & strSQL
+		'		Case PrintCategory.LeafletListIndividual
+		'			strWriteLine = "保健指導名簿_個別：" & strSQL
+		'		Case PrintCategory.Checkup
+		'			strWriteLine = "判定票：" & strSQL
+		'		Case PrintCategory.Leaflet
+		'			strWriteLine = "リーフレット：" & strLeafletPattern & "：" & strSQL
+		'	End Select
+		'	sw.WriteLine(strWriteLine)
+		'End Using
+		''ここまで
+		''==================================================
 
-        '現在の通常使うプリンタ名を取得
-        Dim pd As New System.Drawing.Printing.PrintDocument
-        'プリンタ名の取得
-        'Finallyで通常使うプリンタを戻す
-        Dim strDefaultPrinter As String = pd.PrinterSettings.PrinterName
+		Dim strConnectionString As String = ""
+		XmlSettings.LoadFromXmlFile()
+		Dim C1FlexReport1 As New C1FlexReport
 
-        Try
-            '接続文字列を作成する
-            strConnectionString = "Provider=SQLOLEDB.1;"
-            strConnectionString &= "Password=" & XmlSettings.Instance.Password & ";"
-            strConnectionString &= "Persist Security Info=True;"
-            strConnectionString &= "User ID=" & XmlSettings.Instance.UserID & ";"
-            strConnectionString &= "Initial Catalog=" & XmlSettings.Instance.InitialCatalog & ";"
-            strConnectionString &= "Data Source=" & XmlSettings.Instance.DataSource
-            '印刷オプションのインスタンス
-            Dim print_option As C1.Win.C1Document.C1PrintOptions = New C1.Win.C1Document.C1PrintOptions()
-            print_option.PrinterSettings = New System.Drawing.Printing.PrinterSettings()
+		'現在の通常使うプリンタ名を取得
+		Dim pd As New System.Drawing.Printing.PrintDocument
+		'プリンタ名の取得
+		'Finallyで通常使うプリンタを戻す
+		Dim strDefaultPrinter As String = pd.PrinterSettings.PrinterName
 
-            '==================================================
-            ''新コード
-            ''プリンタドライバの切り替え
-            'SetDefaultPrinter(XmlSettings.Instance.Printer_Result)
-            '==================================================
+		Try
+			'接続文字列を作成する
+			strConnectionString = "Provider=SQLOLEDB.1;"
+			strConnectionString &= "Password=" & XmlSettings.Instance.Password & ";"
+			strConnectionString &= "Persist Security Info=True;"
+			strConnectionString &= "User ID=" & XmlSettings.Instance.UserID & ";"
+			strConnectionString &= "Initial Catalog=" & XmlSettings.Instance.InitialCatalog & ";"
+			strConnectionString &= "Data Source=" & XmlSettings.Instance.DataSource
+			'印刷オプションのインスタンス
+			Dim print_option As C1.Win.C1Document.C1PrintOptions = New C1.Win.C1Document.C1PrintOptions()
+			print_option.PrinterSettings = New System.Drawing.Printing.PrinterSettings()
 
-            Select Case prtCategory
+			'==================================================
+			''新コード
+			''プリンタドライバの切り替え
+			'SetDefaultPrinter(XmlSettings.Instance.Printer_Result)
+			'==================================================
 
-                Case PrintCategory.Label
-                    'ラベル印刷
-                    C1FlexReport1.Load(Application.StartupPath & "\Template\others.flxr", "ラベル")
-                    '接続文字列、SQL文の設定
-                    C1FlexReport1.DataSource.ConnectionString = strConnectionString
-                    C1FlexReport1.DataSource.RecordSource = strSQL
-                    C1FlexReport1.Render()
+			Select Case prtCategory
 
-                    'プリンタドライバの切り替え
-                    '現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
-                    If strDefaultPrinter <> XmlSettings.Instance.Printer_Label Then
-                        SetDefaultPrinter(XmlSettings.Instance.Printer_Label)
-                    End If
-                    '印刷方向を縦向きにする
-                    print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
-                    '給紙トレイを変更する
-                    'トレイのインデックスが0以上の場合のみトレイ変更する
-                    If XmlSettings.Instance.LabelTray >= 0 Then
-                        print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.LabelTray)    'トレイ1※対象者一覧のトレイと同一
-                    End If
+				Case PrintCategory.Label
+					'ラベル印刷
+					C1FlexReport1.Load(Application.StartupPath & "\Template\others.flxr", "ラベル")
+					'接続文字列、SQL文の設定
+					C1FlexReport1.DataSource.ConnectionString = strConnectionString
+					C1FlexReport1.DataSource.RecordSource = strSQL
+					C1FlexReport1.Render()
 
-                    isPrinting = True   '印刷中フラグを設定
-                    C1FlexReport1.Print(print_option)   '印刷処理
+					'プリンタドライバの切り替え
+					'現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
+					If strDefaultPrinter <> XmlSettings.Instance.Printer_Label Then
+						SetDefaultPrinter(XmlSettings.Instance.Printer_Label)
+					End If
+					'印刷方向を縦向きにする
+					print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
+					'給紙トレイを変更する
+					'トレイのインデックスが0以上の場合のみトレイ変更する
+					If XmlSettings.Instance.LabelTray >= 0 Then
+						print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.LabelTray)    'トレイ1※対象者一覧のトレイと同一
+					End If
 
-                Case PrintCategory.WeightHeader
-                    '重量ヘッダ
-                    C1FlexReport1.Load(Application.StartupPath & "\Template\others.flxr", "重量ヘッダ")
-                    '接続文字列、SQL文の設定
-                    C1FlexReport1.DataSource.ConnectionString = strConnectionString
-                    C1FlexReport1.DataSource.RecordSource = strSQL
-                    C1FlexReport1.Render()
+					isPrinting = True   '印刷中フラグを設定
+					C1FlexReport1.Print(print_option)   '印刷処理
 
-                    ''==================================================
-                    ''従来のコード
-                    ''プリンタドライバの切り替え
-                    'SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
-                    ''印刷方向を縦向きにする
-                    'print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
-                    '==================================================
-                    'プリンタドライバの切り替え
-                    '現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
-                    If strDefaultPrinter <> XmlSettings.Instance.Printer_Header Then
-                        SetDefaultPrinter(XmlSettings.Instance.Printer_Header)
-                    End If
-                    '新コード
-                    '給紙トレイを変更する
-                    print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
-                    'トレイのインデックスが0以上の場合のみトレイ変更する
-                    If XmlSettings.Instance.HeaderTray >= 0 Then
-                        print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.HeaderTray)    'トレイ1※対象者一覧のトレイと同一
-                    End If
-                    '==================================================
+				Case PrintCategory.WeightHeader
+					'重量ヘッダ
+					C1FlexReport1.Load(Application.StartupPath & "\Template\others.flxr", "重量ヘッダ")
+					'接続文字列、SQL文の設定
+					C1FlexReport1.DataSource.ConnectionString = strConnectionString
+					C1FlexReport1.DataSource.RecordSource = strSQL
+					C1FlexReport1.Render()
 
-                    isPrinting = True   '印刷中フラグを設定
-                    C1FlexReport1.Print(print_option)   '印刷処理
+					''==================================================
+					''従来のコード
+					''プリンタドライバの切り替え
+					'SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
+					''印刷方向を縦向きにする
+					'print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
+					'==================================================
+					'プリンタドライバの切り替え
+					'現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
+					If strDefaultPrinter <> XmlSettings.Instance.Printer_Header Then
+						SetDefaultPrinter(XmlSettings.Instance.Printer_Header)
+					End If
+					'新コード
+					'給紙トレイを変更する
+					print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
+					'トレイのインデックスが0以上の場合のみトレイ変更する
+					If XmlSettings.Instance.HeaderTray >= 0 Then
+						print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.HeaderTray)    'トレイ1※対象者一覧のトレイと同一
+					End If
+					'==================================================
 
-                Case PrintCategory.WeightHeaderHand
-                    '重量ヘッダ(手封入)
-                    C1FlexReport1.Load(Application.StartupPath & "\Template\others.flxr", "重量ヘッダHAND")
-                    '接続文字列、SQL文の設定
-                    C1FlexReport1.DataSource.ConnectionString = strConnectionString
-                    C1FlexReport1.DataSource.RecordSource = strSQL
-                    C1FlexReport1.Render()
+					isPrinting = True   '印刷中フラグを設定
+					C1FlexReport1.Print(print_option)   '印刷処理
 
-                    ''==================================================
-                    ''従来のコード
-                    ''プリンタドライバの切り替え
-                    'SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
-                    ''印刷方向を縦向きにする
-                    'print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
-                    '==================================================
-                    'プリンタドライバの切り替え
-                    '現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
-                    If strDefaultPrinter <> XmlSettings.Instance.Printer_Header Then
-                        SetDefaultPrinter(XmlSettings.Instance.Printer_Header)
-                    End If
-                    '新コード
-                    '給紙トレイを変更する
-                    print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
-                    'トレイのインデックスが0以上の場合のみトレイ変更する
-                    If XmlSettings.Instance.HeaderTray >= 0 Then
-                        print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.HeaderTray)    'トレイ1※対象者一覧のトレイと同一
-                    End If
-                    '==================================================
+				Case PrintCategory.WeightHeaderHand
+					'重量ヘッダ(手封入)
+					C1FlexReport1.Load(Application.StartupPath & "\Template\others.flxr", "重量ヘッダHAND")
+					'接続文字列、SQL文の設定
+					C1FlexReport1.DataSource.ConnectionString = strConnectionString
+					C1FlexReport1.DataSource.RecordSource = strSQL
+					C1FlexReport1.Render()
 
-                    isPrinting = True   '印刷中フラグを設定
-                    C1FlexReport1.Print(print_option)   '印刷処理
+					''==================================================
+					''従来のコード
+					''プリンタドライバの切り替え
+					'SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
+					''印刷方向を縦向きにする
+					'print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
+					'==================================================
+					'プリンタドライバの切り替え
+					'現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
+					If strDefaultPrinter <> XmlSettings.Instance.Printer_Header Then
+						SetDefaultPrinter(XmlSettings.Instance.Printer_Header)
+					End If
+					'新コード
+					'給紙トレイを変更する
+					print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
+					'トレイのインデックスが0以上の場合のみトレイ変更する
+					If XmlSettings.Instance.HeaderTray >= 0 Then
+						print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.HeaderTray)    'トレイ1※対象者一覧のトレイと同一
+					End If
+					'==================================================
 
-                Case PrintCategory.CheckupList
-                    '対象者一覧
-                    C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "対象者一覧")
-                    '接続文字列、SQL文の設定
-                    C1FlexReport1.DataSource.ConnectionString = strConnectionString
-                    C1FlexReport1.DataSource.RecordSource = strSQL
-                    C1FlexReport1.Render()
+					isPrinting = True   '印刷中フラグを設定
+					C1FlexReport1.Print(print_option)   '印刷処理
 
-                    ''==================================================
-                    ''従来のコード
-                    ''プリンタドライバの切り替え
-                    'SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
-                    ''印刷方向を縦向きにする
-                    'print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
-                    '==================================================
-                    'プリンタドライバの切り替え
-                    '現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
-                    If strDefaultPrinter <> XmlSettings.Instance.Printer_Sentlist Then
-                        SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
-                    End If
-                    '新コード
-                    '給紙トレイを変更する
-                    print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
-                    'トレイのインデックスが0以上の場合のみトレイ変更する
-                    If XmlSettings.Instance.ResultTray >= 0 Then
-                        print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.SentlistTray)    'トレイ1
-                    End If
-                    '==================================================
+				Case PrintCategory.CheckupList
+					'対象者一覧
+					C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "対象者一覧")
+					'接続文字列、SQL文の設定
+					C1FlexReport1.DataSource.ConnectionString = strConnectionString
+					C1FlexReport1.DataSource.RecordSource = strSQL
+					C1FlexReport1.Render()
 
-                    isPrinting = True   '印刷中フラグを設定
-                    C1FlexReport1.Print(print_option)   '印刷処理
+					''==================================================
+					''従来のコード
+					''プリンタドライバの切り替え
+					'SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
+					''印刷方向を縦向きにする
+					'print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
+					'==================================================
+					'プリンタドライバの切り替え
+					'現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
+					If strDefaultPrinter <> XmlSettings.Instance.Printer_Sentlist Then
+						SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
+					End If
+					'新コード
+					'給紙トレイを変更する
+					print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
+					'トレイのインデックスが0以上の場合のみトレイ変更する
+					If XmlSettings.Instance.ResultTray >= 0 Then
+						print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.SentlistTray)    'トレイ1
+					End If
+					'==================================================
 
-                Case PrintCategory.CheckupListIndividual
-                    '対象者一覧個別
-                    C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "対象者一覧_個別")
-                    '接続文字列、SQL文の設定
-                    C1FlexReport1.DataSource.ConnectionString = strConnectionString
-                    C1FlexReport1.DataSource.RecordSource = strSQL
-                    C1FlexReport1.Render()
+					isPrinting = True   '印刷中フラグを設定
+					C1FlexReport1.Print(print_option)   '印刷処理
 
-                    ''==================================================
-                    ''従来のコード
-                    ''プリンタドライバの切り替え
-                    'SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
-                    ''印刷方向を縦向きにする
-                    'print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
-                    '==================================================
-                    'プリンタドライバの切り替え
-                    '現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
-                    If strDefaultPrinter <> XmlSettings.Instance.Printer_Sentlist Then
-                        SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
-                    End If
-                    '新コード
-                    '給紙トレイを変更する
-                    print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
-                    'トレイのインデックスが0以上の場合のみトレイ変更する
-                    If XmlSettings.Instance.ResultTray >= 0 Then
-                        print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.SentlistTray)    'トレイ1
-                    End If
-                    '==================================================
+				Case PrintCategory.CheckupListIndividual
+					'対象者一覧個別
+					C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "対象者一覧_個別")
+					'接続文字列、SQL文の設定
+					C1FlexReport1.DataSource.ConnectionString = strConnectionString
+					C1FlexReport1.DataSource.RecordSource = strSQL
+					C1FlexReport1.Render()
 
-                    isPrinting = True   '印刷中フラグを設定
-                    C1FlexReport1.Print(print_option)   '印刷処理
+					''==================================================
+					''従来のコード
+					''プリンタドライバの切り替え
+					'SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
+					''印刷方向を縦向きにする
+					'print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
+					'==================================================
+					'プリンタドライバの切り替え
+					'現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
+					If strDefaultPrinter <> XmlSettings.Instance.Printer_Sentlist Then
+						SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
+					End If
+					'新コード
+					'給紙トレイを変更する
+					print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
+					'トレイのインデックスが0以上の場合のみトレイ変更する
+					If XmlSettings.Instance.ResultTray >= 0 Then
+						print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.SentlistTray)    'トレイ1
+					End If
+					'==================================================
 
-                Case PrintCategory.LeafletList
-                    '保健指導対象者名簿
-                    C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "保健指導名簿")
-                    '接続文字列、SQL文の設定
-                    C1FlexReport1.DataSource.ConnectionString = strConnectionString
-                    C1FlexReport1.DataSource.RecordSource = strSQL
-                    C1FlexReport1.Render()
+					isPrinting = True   '印刷中フラグを設定
+					C1FlexReport1.Print(print_option)   '印刷処理
 
-                    '==================================================
-                    ''従来のコード
-                    ''プリンタドライバの切り替え
-                    'SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
-                    ''印刷方向を縦向きにする
-                    'print_option.PrinterSettings.DefaultPageSettings.Landscape = True  '横向き
-                    '==================================================
-                    'プリンタドライバの切り替え
-                    '現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
-                    If strDefaultPrinter <> XmlSettings.Instance.Printer_SentLeaflet Then
-                        SetDefaultPrinter(XmlSettings.Instance.Printer_SentLeaflet)
-                    End If
-                    '新コード
-                    '給紙トレイを変更する
-                    print_option.PrinterSettings.DefaultPageSettings.Landscape = True  '横向き
-                    'トレイのインデックスが0以上の場合のみトレイ変更する
-                    If XmlSettings.Instance.SentLeafletTray >= 0 Then
-                        print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.SentLeafletTray)    'トレイ1
-                    End If
-                    '==================================================
+				Case PrintCategory.LeafletList
+					'保健指導対象者名簿
+					C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "保健指導名簿")
+					'接続文字列、SQL文の設定
+					C1FlexReport1.DataSource.ConnectionString = strConnectionString
+					C1FlexReport1.DataSource.RecordSource = strSQL
+					C1FlexReport1.Render()
 
-                    isPrinting = True   '印刷中フラグを設定
-                    C1FlexReport1.Print(print_option)   '印刷処理
-
-                Case PrintCategory.LeafletListIndividual
-                    '保健指導対象者名簿個別
-                    C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "保健指導名簿_個別")
-                    '接続文字列、SQL文の設定
-                    C1FlexReport1.DataSource.ConnectionString = strConnectionString
-                    C1FlexReport1.DataSource.RecordSource = strSQL
-                    C1FlexReport1.Render()
-
-                    '==================================================
-                    ''従来のコード
-                    ''プリンタドライバの切り替え
-                    'SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
-                    ''印刷方向を縦向きにする
-                    'print_option.PrinterSettings.DefaultPageSettings.Landscape = True  '横向き
-                    '==================================================
-                    'プリンタドライバの切り替え
-                    '現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
-                    If strDefaultPrinter <> XmlSettings.Instance.Printer_SentLeaflet Then
-                        SetDefaultPrinter(XmlSettings.Instance.Printer_SentLeaflet)
-                    End If
-                    '新コード
-                    '給紙トレイを変更する
-                    print_option.PrinterSettings.DefaultPageSettings.Landscape = True  '横向き
-                    'トレイのインデックスが0以上の場合のみトレイ変更する
-                    If XmlSettings.Instance.SentLeafletTray >= 0 Then
-                        print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.SentLeafletTray)    'トレイ1
-                    End If
-                    '==================================================
-
-                    isPrinting = True   '印刷中フラグを設定
-                    C1FlexReport1.Print(print_option)   '印刷処理
-
-                Case PrintCategory.Checkup
-                    '判定票
-                    C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "判定票")
-                    '接続文字列、SQL文の設定
-                    C1FlexReport1.DataSource.ConnectionString = strConnectionString
-                    C1FlexReport1.DataSource.RecordSource = strSQL
-                    C1FlexReport1.Render()
-
-                    ''==================================================
-                    ''従来のコード
-                    ''プリンタドライバの切り替え
-                    'SetDefaultPrinter(XmlSettings.Instance.Printer_Result)
-                    ''印刷方向を縦向きにする
-                    'print_option.PrinterSettings.DefaultPageSettings.Landscape = True  '横向き
-                    '==================================================
-                    'プリンタドライバの切り替え
-                    '現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
-                    If strDefaultPrinter <> XmlSettings.Instance.Printer_Result Then
-                        SetDefaultPrinter(XmlSettings.Instance.Printer_Result)
-                    End If
-                    '新コード
-                    '給紙トレイを変更する
-                    print_option.PrinterSettings.DefaultPageSettings.Landscape = True  '横向き
-                    'トレイのインデックスが0以上の場合のみトレイ変更する
-                    If XmlSettings.Instance.ResultTray >= 0 Then
-                        print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.ResultTray)    '給紙台
-                    End If
-                    '==================================================
-
-                    isPrinting = True   '印刷中フラグを設定
-                    C1FlexReport1.Print(print_option)   '印刷処理
-
-                Case PrintCategory.Leaflet
-                    'リーフレット
-                    'テンプレートの決定
-                    Dim strReportCategory As String = "R_" & strLeafletPattern
-                    C1FlexReport1.Load(Application.StartupPath & "\Template\leaflet.flxr", strReportCategory)
-                    '接続文字列、SQL文の設定
-                    C1FlexReport1.DataSource.ConnectionString = strConnectionString
-                    C1FlexReport1.DataSource.RecordSource = strSQL
-                    C1FlexReport1.Render()
-
-                    '==================================================
-                    ''従来のコード
-                    ''プリンタドライバの切り替え
-                    'SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
-                    ''印刷方向を縦向きにする
-                    'print_option.PrinterSettings.DefaultPageSettings.Landscape = True  '横向き
-                    '==================================================
-                    'プリンタドライバの切り替え
-                    '現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
-                    If strDefaultPrinter <> XmlSettings.Instance.Printer_Leaflet Then
-                        SetDefaultPrinter(XmlSettings.Instance.Printer_Leaflet)
-                    End If
+					'==================================================
+					''従来のコード
+					''プリンタドライバの切り替え
+					'SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
+					''印刷方向を縦向きにする
+					'print_option.PrinterSettings.DefaultPageSettings.Landscape = True  '横向き
+					'==================================================
+					'プリンタドライバの切り替え
+					'現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
+					If strDefaultPrinter <> XmlSettings.Instance.Printer_SentLeaflet Then
+						SetDefaultPrinter(XmlSettings.Instance.Printer_SentLeaflet)
+					End If
 					'新コード
 					'給紙トレイを変更する
 					print_option.PrinterSettings.DefaultPageSettings.Landscape = True  '横向き
-                    'トレイのインデックスが0以上の場合のみトレイ変更する
-                    If XmlSettings.Instance.LeafletTray >= 0 Then
-                        print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.LeafletTray)    '給紙台
-                    End If
-                    '==================================================
+					'トレイのインデックスが0以上の場合のみトレイ変更する
+					If XmlSettings.Instance.SentLeafletTray >= 0 Then
+						print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.SentLeafletTray)    'トレイ1
+					End If
+					'==================================================
 
-                    isPrinting = True   '印刷中フラグを設定
-                    C1FlexReport1.Print(print_option)   '印刷処理
+					isPrinting = True   '印刷中フラグを設定
+					C1FlexReport1.Print(print_option)   '印刷処理
 
-            End Select
+				Case PrintCategory.LeafletListIndividual
+					'保健指導対象者名簿個別
+					C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "保健指導名簿_個別")
+					'接続文字列、SQL文の設定
+					C1FlexReport1.DataSource.ConnectionString = strConnectionString
+					C1FlexReport1.DataSource.RecordSource = strSQL
+					C1FlexReport1.Render()
 
-        Catch ex As Exception
+					'==================================================
+					''従来のコード
+					''プリンタドライバの切り替え
+					'SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
+					''印刷方向を縦向きにする
+					'print_option.PrinterSettings.DefaultPageSettings.Landscape = True  '横向き
+					'==================================================
+					'プリンタドライバの切り替え
+					'現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
+					If strDefaultPrinter <> XmlSettings.Instance.Printer_SentLeaflet Then
+						SetDefaultPrinter(XmlSettings.Instance.Printer_SentLeaflet)
+					End If
+					'新コード
+					'給紙トレイを変更する
+					print_option.PrinterSettings.DefaultPageSettings.Landscape = True  '横向き
+					'トレイのインデックスが0以上の場合のみトレイ変更する
+					If XmlSettings.Instance.SentLeafletTray >= 0 Then
+						print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.SentLeafletTray)    'トレイ1
+					End If
+					'==================================================
 
-            Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message & vbNewLine & ex.StackTrace)
-            MessageBox.Show("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+					isPrinting = True   '印刷中フラグを設定
+					C1FlexReport1.Print(print_option)   '印刷処理
 
-        Finally
+				Case PrintCategory.Checkup
+					'判定票
+					C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "判定票")
+					'接続文字列、SQL文の設定
+					C1FlexReport1.DataSource.ConnectionString = strConnectionString
+					C1FlexReport1.DataSource.RecordSource = strSQL
+					C1FlexReport1.Render()
 
-            C1FlexReport1.Clear()
-            ''設定されていた通常使うプリンタに戻す
-            'SetDefaultPrinter(strDefaultPrinter)
+					''==================================================
+					''従来のコード
+					''プリンタドライバの切り替え
+					'SetDefaultPrinter(XmlSettings.Instance.Printer_Result)
+					''印刷方向を縦向きにする
+					'print_option.PrinterSettings.DefaultPageSettings.Landscape = True  '横向き
+					'==================================================
+					'プリンタドライバの切り替え
+					'現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
+					If strDefaultPrinter <> XmlSettings.Instance.Printer_Result Then
+						SetDefaultPrinter(XmlSettings.Instance.Printer_Result)
+					End If
+					'新コード
+					'給紙トレイを変更する
+					print_option.PrinterSettings.DefaultPageSettings.Landscape = True  '横向き
+					'トレイのインデックスが0以上の場合のみトレイ変更する
+					If XmlSettings.Instance.ResultTray >= 0 Then
+						print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.ResultTray)    '給紙台
+					End If
+					'==================================================
 
-        End Try
+					isPrinting = True   '印刷中フラグを設定
+					C1FlexReport1.Print(print_option)   '印刷処理
 
-    End Sub
+				Case PrintCategory.Leaflet
+					'リーフレット
+					'テンプレートの決定
+					Dim strReportCategory As String = "R_" & strLeafletPattern
+					C1FlexReport1.Load(Application.StartupPath & "\Template\leaflet.flxr", strReportCategory)
+					'接続文字列、SQL文の設定
+					C1FlexReport1.DataSource.ConnectionString = strConnectionString
+					C1FlexReport1.DataSource.RecordSource = strSQL
+					C1FlexReport1.Render()
+
+					'==================================================
+					''従来のコード
+					''プリンタドライバの切り替え
+					'SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
+					''印刷方向を縦向きにする
+					'print_option.PrinterSettings.DefaultPageSettings.Landscape = True  '横向き
+					'==================================================
+					'プリンタドライバの切り替え
+					'現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
+					If strDefaultPrinter <> XmlSettings.Instance.Printer_Leaflet Then
+						SetDefaultPrinter(XmlSettings.Instance.Printer_Leaflet)
+					End If
+					'新コード
+					'給紙トレイを変更する
+					print_option.PrinterSettings.DefaultPageSettings.Landscape = True  '横向き
+					'トレイのインデックスが0以上の場合のみトレイ変更する
+					If XmlSettings.Instance.LeafletTray >= 0 Then
+						print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.LeafletTray)    '給紙台
+					End If
+					'==================================================
+
+					isPrinting = True   '印刷中フラグを設定
+					C1FlexReport1.Print(print_option)   '印刷処理
+
+			End Select
+
+		Catch ex As Exception
+
+			Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message & vbNewLine & ex.StackTrace)
+			MessageBox.Show("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+		Finally
+
+			C1FlexReport1.Clear()
+			''設定されていた通常使うプリンタに戻す
+			'SetDefaultPrinter(strDefaultPrinter)
+
+		End Try
+
+	End Sub
 
     ''' <summary>
     ''' 通常使うプリンタに設定する

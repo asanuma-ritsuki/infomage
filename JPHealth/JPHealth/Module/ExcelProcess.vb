@@ -24,7 +24,7 @@ Module ExcelProcess
 	''' <returns></returns>
 	Public Function WriteExcelFile(ByVal enumCategory As ExcelOutputCategory, ByVal strSaveFile As String, ByVal dt As DataTable, ByVal strOutputDate As String,
 								   Optional ByVal dtCheckup As DataTable = Nothing, Optional ByVal dtLeaflet As DataTable = Nothing,
-								   Optional ByVal dt2 As DataTable = Nothing, Optional ByVal iFacilityCount As Integer = 0,
+								   Optional ByVal dt2 As DataTable = Nothing, Optional ByVal dtBMI As DataTable = Nothing, Optional ByVal iFacilityCount As Integer = 0,
 								   Optional ByVal iCheckupDefect As Integer = 0, Optional ByVal iLeafDefect As Integer = 0, Optional ByVal iLeafDupe As Integer = 0,
 								   Optional ByVal iTargetList As Integer = 0) As Boolean
 
@@ -304,75 +304,129 @@ Module ExcelProcess
 					Dim iRow As Integer = 0
 					'データがないヘッダも出力するためヘッダの配列で回す
 					Dim strHeads As String() = {"A", "B", "C", "D", "E", "F", "G", "H"}
-					Dim blnData As Boolean = False  'ヘッダのデータが有ったかどうか
-					For Each strHead As String In strHeads
+					For iHead As Integer = 0 To strHeads.Length - 1
+						Dim strHead As String = strHeads(iHead)
+						Dim blnData As Boolean = False  'ヘッダのデータが有ったかどうか
 						For iRow = 0 To dt.Rows.Count - 1
 							If strHead = dt.Rows(iRow)("ヘッダ") Then
-								sheet(iRow + 1, 0).Value = dt.Rows(iRow)("ヘッダ")
-								sheet(iRow + 1, 1).Value = dt.Rows(iRow)("ラベル連番")
-								sheet(iRow + 1, 2).Value = CInt(dt.Rows(iRow)("ラベル"))
-								sheet(iRow + 1, 3).Value = CInt(dt.Rows(iRow)("対象者"))
-								sheet(iRow + 1, 4).Value = CInt(dt.Rows(iRow)("保健指導"))
-								sheet(iRow + 1, 5).Value = CInt(dt.Rows(iRow)("判定票"))
-								sheet(iRow + 1, 6).Value = CInt(dt.Rows(iRow)("リーフ件"))
-								sheet(iRow + 1, 7).Value = CInt(dt.Rows(iRow)("リーフ枚"))
-								sheet(iRow + 1, 8).Value = CInt(dt.Rows(iRow)("リーフ6件"))
-								sheet(iRow + 1, 9).Value = CInt(dt.Rows(iRow)("リーフ重複件"))
-								sheet(iRow + 1, 10).Value = CInt(dt.Rows(iRow)("リーフ重複枚"))
+								sheet(iHead + 1, 0).Value = dt.Rows(iRow)("ヘッダ")
+								sheet(iHead + 1, 1).Value = dt.Rows(iRow)("ラベル連番")
+								sheet(iHead + 1, 2).Value = CInt(dt.Rows(iRow)("ラベル"))
+								sheet(iHead + 1, 3).Value = CInt(dt.Rows(iRow)("対象者"))
+								sheet(iHead + 1, 4).Value = CInt(dt.Rows(iRow)("保健指導"))
+								sheet(iHead + 1, 5).Value = CInt(dt.Rows(iRow)("判定票"))
+								sheet(iHead + 1, 10).Value = CInt(dt.Rows(iRow)("リーフ6件"))
+								'2018/08/02
+								'リーフ6枚の追加
+								sheet(iHead + 1, 11).Value = CInt(dt.Rows(iRow)("リーフ6枚"))
+								sheet(iHead + 1, 12).Value = CInt(dt.Rows(iRow)("リーフ重複件"))
+								sheet(iHead + 1, 13).Value = CInt(dt.Rows(iRow)("リーフ重複枚"))
 								'2018/03/30
 								'不備、修正済を各DATATABLEから取得する
-								'sheet(iRow + 1, 11).Value = CInt(dt.Rows(iRow)("不備"))
-								'sheet(iRow + 1, 12).Value = CInt(dt.Rows(iRow)("修正"))
+								'sheet(iHead + 1, 11).Value = CInt(dt.Rows(iRow)("不備"))
+								'sheet(iHead + 1, 12).Value = CInt(dt.Rows(iRow)("修正"))
 								Dim iFubi As Integer = 0
 								Dim iSumi As Integer = 0
+								'2018/08/02
+								'BMIの件数をセット
+								Dim iBMI As Integer = 0
 								Select Case dt.Rows(iRow)("ヘッダ")
 									Case "A"
 										iFubi = CInt(dtCheckup.Rows(0)("A")) + CInt(dtLeaflet.Rows(0)("A"))
 										iSumi = CInt(dtCheckup.Rows(0)("A修正済")) + CInt(dtLeaflet.Rows(0)("A修正済"))
+										If dtBMI.Rows.Count = 0 Then
+											iBMI = 0
+										Else
+											iBMI = CInt(dtBMI.Rows(0)("ABMI"))
+										End If
 									Case "B"
 										iFubi = CInt(dtCheckup.Rows(0)("B")) + CInt(dtLeaflet.Rows(0)("B"))
 										iSumi = CInt(dtCheckup.Rows(0)("B修正済")) + CInt(dtLeaflet.Rows(0)("B修正済"))
+										If dtBMI.Rows.Count = 0 Then
+											iBMI = 0
+										Else
+											iBMI = CInt(dtBMI.Rows(0)("BBMI"))
+										End If
 									Case "C"
 										iFubi = CInt(dtCheckup.Rows(0)("C")) + CInt(dtLeaflet.Rows(0)("C"))
 										iSumi = CInt(dtCheckup.Rows(0)("C修正済")) + CInt(dtLeaflet.Rows(0)("C修正済"))
+										If dtBMI.Rows.Count = 0 Then
+											iBMI = 0
+										Else
+											iBMI = CInt(dtBMI.Rows(0)("CBMI"))
+										End If
 									Case "D"
 										iFubi = CInt(dtCheckup.Rows(0)("D")) + CInt(dtLeaflet.Rows(0)("D"))
 										iSumi = CInt(dtCheckup.Rows(0)("D修正済")) + CInt(dtLeaflet.Rows(0)("D修正済"))
+										If dtBMI.Rows.Count = 0 Then
+											iBMI = 0
+										Else
+											iBMI = CInt(dtBMI.Rows(0)("DBMI"))
+										End If
 									Case "E"
 										iFubi = CInt(dtCheckup.Rows(0)("E")) + CInt(dtLeaflet.Rows(0)("E"))
 										iSumi = CInt(dtCheckup.Rows(0)("E修正済")) + CInt(dtLeaflet.Rows(0)("E修正済"))
+										If dtBMI.Rows.Count = 0 Then
+											iBMI = 0
+										Else
+											iBMI = CInt(dtBMI.Rows(0)("EBMI"))
+										End If
 									Case "F"
 										iFubi = CInt(dtCheckup.Rows(0)("F")) + CInt(dtLeaflet.Rows(0)("F"))
 										iSumi = CInt(dtCheckup.Rows(0)("F修正済")) + CInt(dtLeaflet.Rows(0)("F修正済"))
+										If dtBMI.Rows.Count = 0 Then
+											iBMI = 0
+										Else
+											iBMI = CInt(dtBMI.Rows(0)("FBMI"))
+										End If
 									Case "G"
 										iFubi = CInt(dtCheckup.Rows(0)("G")) + CInt(dtLeaflet.Rows(0)("G"))
 										iSumi = CInt(dtCheckup.Rows(0)("G修正済")) + CInt(dtLeaflet.Rows(0)("G修正済"))
+										If dtBMI.Rows.Count = 0 Then
+											iBMI = 0
+										Else
+											iBMI = CInt(dtBMI.Rows(0)("GBMI"))
+										End If
 									Case "H"
 										iFubi = CInt(dtCheckup.Rows(0)("H")) + CInt(dtLeaflet.Rows(0)("H"))
 										iSumi = CInt(dtCheckup.Rows(0)("H修正済")) + CInt(dtLeaflet.Rows(0)("H修正済"))
+										If dtBMI.Rows.Count = 0 Then
+											iBMI = 0
+										Else
+											iBMI = CInt(dtBMI.Rows(0)("HBMI"))
+										End If
 								End Select
-								sheet(iRow + 1, 11).Value = iFubi
-								sheet(iRow + 1, 12).Value = iSumi
-
+								sheet(iHead + 1, 14).Value = iFubi
+								sheet(iHead + 1, 15).Value = iSumi
+								'2018/08/02
+								'リーフBMI件、リーフBMI枚(件×2)をセット
+								sheet(iHead + 1, 8).Value = iBMI
+								sheet(iHead + 1, 9).Value = iBMI * 2
+								'BMI件数、枚数をリーフ件、枚から減算してセットする
+								sheet(iHead + 1, 6).Value = CInt(dt.Rows(iRow)("リーフ件")) - iBMI
+								sheet(iHead + 1, 7).Value = CInt(dt.Rows(iRow)("リーフ枚")) - iBMI * 2
 								blnData = True
 								Exit For
 							End If
 						Next
 						If Not blnData Then
 							'対象のヘッダがDATATABLE内になかったら空レコードを作成
-							sheet(iRow + 1, 0).Value = strHead
-							sheet(iRow + 1, 1).Value = ""
-							sheet(iRow + 1, 2).Value = ""
-							sheet(iRow + 1, 3).Value = ""
-							sheet(iRow + 1, 4).Value = ""
-							sheet(iRow + 1, 5).Value = ""
-							sheet(iRow + 1, 6).Value = ""
-							sheet(iRow + 1, 7).Value = ""
-							sheet(iRow + 1, 8).Value = ""
-							sheet(iRow + 1, 9).Value = ""
-							sheet(iRow + 1, 10).Value = ""
-							sheet(iRow + 1, 11).Value = ""
-							sheet(iRow + 1, 12).Value = ""
+							sheet(iHead + 1, 0).Value = strHead
+							sheet(iHead + 1, 1).Value = ""
+							sheet(iHead + 1, 2).Value = ""
+							sheet(iHead + 1, 3).Value = ""
+							sheet(iHead + 1, 4).Value = ""
+							sheet(iHead + 1, 5).Value = ""
+							sheet(iHead + 1, 6).Value = ""
+							sheet(iHead + 1, 7).Value = ""
+							sheet(iHead + 1, 8).Value = ""
+							sheet(iHead + 1, 9).Value = ""
+							sheet(iHead + 1, 10).Value = ""
+							sheet(iHead + 1, 11).Value = ""
+							sheet(iHead + 1, 12).Value = ""
+							sheet(iHead + 1, 13).Value = ""
+							sheet(iHead + 1, 14).Value = ""
+							sheet(iHead + 1, 15).Value = ""
 						End If
 						blnData = False
 					Next

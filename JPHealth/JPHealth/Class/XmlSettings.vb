@@ -29,6 +29,19 @@ Public Class XmlSettings
 	Private _SizeManageX As Integer '管理フォーム幅
 	Private _SizeManageY As Integer '管理フォーム高さ
 	Private _StateManage As Integer '管理フォーム最大化・最小化状態
+	'判定票管理画面
+	Private _CheckupLocationX As Integer
+	Private _CheckupLocationY As Integer
+	Private _CheckupSizeX As Integer
+	Private _CheckupSizeY As Integer
+	Private _CheckupState As Integer
+	'印刷画面
+	Private _PrintLocationX As Integer
+	Private _PrintLocationY As Integer
+	Private _PrintSizeX As Integer
+	Private _PrintSizeY As Integer
+	Private _PrintState As Integer
+
 	'インポート画面
 	Private _ImportFromFolder As String 'インポート元フォルダ
 	Private _ImportToFolder As String   '保存先フォルダ
@@ -287,6 +300,140 @@ Public Class XmlSettings
 		End Get
 		Set(value As String)
 			_ApplicationName = value
+		End Set
+	End Property
+	'==================================================
+	'判定票管理画面
+
+	''' <summary>
+	''' 判定票管理画面の位置Xの読み書き
+	''' </summary>
+	''' <returns></returns>
+	Public Property CheckupLocationX() As Integer
+		Get
+			Return _CheckupLocationX
+		End Get
+		Set(value As Integer)
+			_CheckupLocationX = value
+		End Set
+	End Property
+
+	''' <summary>
+	''' 判定票管理画面の位置Yの読み書き
+	''' </summary>
+	''' <returns></returns>
+	Public Property CheckupLocationY() As Integer
+		Get
+			Return _CheckupLocationY
+		End Get
+		Set(value As Integer)
+			_CheckupLocationY = value
+		End Set
+	End Property
+
+	''' <summary>
+	''' 判定票管理画面のサイズXの読み書き
+	''' </summary>
+	''' <returns></returns>
+	Public Property CheckupSizeX() As Integer
+		Get
+			Return _CheckupSizeX
+		End Get
+		Set(value As Integer)
+			_CheckupSizeX = value
+		End Set
+	End Property
+
+	''' <summary>
+	''' 判定票管理画面のサイズYの読み書き
+	''' </summary>
+	''' <returns></returns>
+	Public Property CheckupSizeY() As Integer
+		Get
+			Return _CheckupSizeY
+		End Get
+		Set(value As Integer)
+			_CheckupSizeY = value
+		End Set
+	End Property
+
+	''' <summary>
+	''' 判定票管理画面の最大化・最小化の読み書き
+	''' </summary>
+	''' <returns></returns>
+	Public Property CheckupState() As Integer
+		Get
+			Return _CheckupState
+		End Get
+		Set(value As Integer)
+			_CheckupState = value
+		End Set
+	End Property
+	'==================================================
+	'印刷画面
+
+	''' <summary>
+	''' 印刷画面の位置Xの読み書き
+	''' </summary>
+	''' <returns></returns>
+	Public Property PrintLocationX() As Integer
+		Get
+			Return _PrintLocationX
+		End Get
+		Set(value As Integer)
+			_PrintLocationX = value
+		End Set
+	End Property
+
+	''' <summary>
+	''' 印刷画面の位置Yの読み書き
+	''' </summary>
+	''' <returns></returns>
+	Public Property PrintLocationY() As Integer
+		Get
+			Return _PrintLocationY
+		End Get
+		Set(value As Integer)
+			_PrintLocationY = value
+		End Set
+	End Property
+
+	''' <summary>
+	''' 印刷画面のサイズXの読み書き
+	''' </summary>
+	''' <returns></returns>
+	Public Property PrintSizeX() As Integer
+		Get
+			Return _PrintSizeX
+		End Get
+		Set(value As Integer)
+			_PrintSizeX = value
+		End Set
+	End Property
+
+	''' <summary>
+	''' 印刷画面のサイズYの読み書き
+	''' </summary>
+	''' <returns></returns>
+	Public Property PrintSizeY() As Integer
+		Get
+			Return _PrintSizeY
+		End Get
+		Set(value As Integer)
+			_PrintSizeY = value
+		End Set
+	End Property
+
+	''' <summary>
+	''' 印刷画面の最大化・最小化の読み書き
+	''' </summary>
+	''' <returns></returns>
+	Public Property PrintState() As Integer
+		Get
+			Return _PrintState
+		End Get
+		Set(value As Integer)
+			_PrintState = value
 		End Set
 	End Property
 
@@ -890,9 +1037,22 @@ Public Class XmlSettings
 		_LocEntryY = 100
 		_SizeEntryX = 1024
 		_SizeEntryY = 400
-        _ApplicationName = "JP健診 就業判定票発送業務支援ツール"
-        'インポート画面
-        _ImportFromFolder = "E:\JPTemp\01_Import"
+		_ApplicationName = "JP健診 就業判定票発送業務支援ツール"
+		'判定票管理画面
+		_CheckupLocationX = 0
+		_CheckupLocationY = 0
+		_CheckupSizeX = 1500
+		_CheckupSizeY = 850
+		_CheckupState = FormWindowState.Normal
+		'印刷画面
+		_PrintLocationX = 0
+		_PrintLocationY = 0
+		_PrintSizeX = 1200
+		_PrintSizeY = 900
+		_PrintState = FormWindowState.Normal
+
+		'インポート画面
+		_ImportFromFolder = "E:\JPTemp\01_Import"
 		_ImportToFolder = "E:\JPTemp\02_Out"
 		_ImportLogFolder = "E:\JPTemp\03_Log"
 		_ZipPassword = "Jp-Mbp@"

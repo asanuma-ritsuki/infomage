@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<Reports>
+  <FormatVersion>1.0 1.0.0.0</FormatVersion>
+  <Report ref="1">
+    <Name>CDCaseLabel_Child</Name>
+    <DataSourceName>Main</DataSourceName>
+    <ReportInfo>
+      <Author>ritsuki</Author>
+    </ReportInfo>
+    <Layout>
+      <Width>2520</Width>
+      <Margin>172.8</Margin>
+      <MarginTop>172.8</MarginTop>
+      <MarginRight>4536</MarginRight>
+      <MarginBottom>1137.6</MarginBottom>
+      <Orientation>Landscape</Orientation>
+      <Columns>5</Columns>
+      <PaperSize>A5</PaperSize>
+      <LabelSpacingX>576</LabelSpacingX>
+    </Layout>
+    <DataSources>
+      <DataSource>
+        <Name>Main</Name>
+        <DataProvider>OLEDB</DataProvider>
+        <ConnectionString>Provider=SQLOLEDB.1;Password=intra_intra;Persist Security Info=True;User ID=sa;Initial Catalog=Rekihaku;Data Source=intra-pdc00\INTRASQL</ConnectionString>
+        <RecordSource>SELECT BD_Vol, Doc_No, Doc_Name FROM T_Case_Label ORDER BY BD_Vol, Doc_No, Doc_Name</RecordSource>
+      </DataSource>
+    </DataSources>
+    <Sections>
+      <Section>
+        <Name>Detail</Name>
+        <SubSections>
+          <SubSection>
+            <Height>450</Height>
+          </SubSection>
+        </SubSections>
+        <Type>Detail</Type>
+        <AutoHeight>None</AutoHeight>
+      </Section>
+      <Section>
+        <Name>Header</Name>
+        <SubSections>
+          <SubSection />
+        </SubSections>
+        <Type>Header</Type>
+      </Section>
+      <Section>
+        <Name>Footer</Name>
+        <SubSections>
+          <SubSection />
+        </SubSections>
+        <Type>Footer</Type>
+      </Section>
+      <Section>
+        <Name>PageHeader</Name>
+        <SubSections>
+          <SubSection />
+        </SubSections>
+        <Type>PageHeader</Type>
+      </Section>
+      <Section>
+        <Name>PageFooter</Name>
+        <SubSections>
+          <SubSection />
+        </SubSections>
+        <Type>PageFooter</Type>
+      </Section>
+    </Sections>
+    <Fields>
+      <TextField>
+        <Name>Doc_NoCtl</Name>
+        <Section>Detail</Section>
+        <Left>0</Left>
+        <Top>0</Top>
+        <Width>2520</Width>
+        <Height>225</Height>
+        <AutoHeight>CanShrink</AutoHeight>
+        <Align>LeftTop</Align>
+        <Text>
+          <Expression>Doc_No</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Doc_NameCtl</Name>
+        <Section>Detail</Section>
+        <Left>0</Left>
+        <Top>225</Top>
+        <Width>2520</Width>
+        <Height>225</Height>
+        <AutoHeight>CanShrink</AutoHeight>
+        <Align>LeftTop</Align>
+        <Text>
+          <Expression>Doc_Name</Expression>
+        </Text>
+      </TextField>
+    </Fields>
+  </Report>
+  <Report ref="1">
+    <Name>CDCaseLabel_Parent</Name>
+    <DataSourceName>Main</DataSourceName>
+    <OnOpen>' -- style script start
+_styleCtr = 0
+' -- style script end
+</OnOpen>
+    <ReportInfo>
+      <Author>ritsuki</Author>
+    </ReportInfo>
+    <Layout>
+      <Width>2505</Width>
+      <Margin>172.8</Margin>
+      <MarginTop>172.8</MarginTop>
+      <MarginRight>4536</MarginRight>
+      <MarginBottom>1137.6</MarginBottom>
+      <Orientation>Landscape</Orientation>
+      <Columns>5</Columns>
+      <PaperSize>A5</PaperSize>
+    </Layout>
+    <Font>
+      <Name>Segoe UI</Name>
+    </Font>
+    <DataSources>
+      <DataSource>
+        <Name>Main</Name>
+        <DataProvider>OLEDB</DataProvider>
+        <ConnectionString>Provider=SQLOLEDB.1;Password=intra_intra;Persist Security Info=True;User ID=sa;Initial Catalog=Rekihaku;Data Source=intra-pdc00\INTRASQL</ConnectionString>
+        <RecordSource>SELECT BD_Vol FROM T_Case_Label GROUP BY BD_Vol ORDER BY BD_Vol</RecordSource>
+      </DataSource>
+    </DataSources>
+    <Sections>
+      <Section>
+        <Name>Detail</Name>
+        <Background type="Solid">
+          <Color>FFFFFFFF</Color>
+        </Background>
+        <SubSections>
+          <SubSection>
+            <Height>620</Height>
+          </SubSection>
+        </SubSections>
+        <Type>Detail</Type>
+        <OnPrint>' -- style script start
+detail.BackColor = iif(_styleCtr mod 2 = 0, rgb(255,255,255),rgb(240,240,240))
+_styleCtr = _styleCtr + 1
+' -- style script end
+</OnPrint>
+      </Section>
+      <Section>
+        <Name>Header</Name>
+        <Background type="Solid">
+          <Color>FFFFFFFF</Color>
+        </Background>
+        <SubSections>
+          <SubSection />
+        </SubSections>
+        <Type>Header</Type>
+      </Section>
+      <Section>
+        <Name>Footer</Name>
+        <SubSections>
+          <SubSection />
+        </SubSections>
+        <Type>Footer</Type>
+      </Section>
+      <Section>
+        <Name>PageHeader</Name>
+        <Background type="Solid">
+          <Color>FFC2DCFF</Color>
+        </Background>
+        <SubSections>
+          <SubSection />
+        </SubSections>
+        <Type>PageHeader</Type>
+      </Section>
+      <Section>
+        <Name>PageFooter</Name>
+        <Background type="Solid">
+          <Color>FFFFFFFF</Color>
+        </Background>
+        <SubSections>
+          <SubSection />
+        </SubSections>
+        <Type>PageFooter</Type>
+      </Section>
+    </Sections>
+    <Fields>
+      <SubreportField>
+        <Name>Field1</Name>
+        <Section>Detail</Section>
+        <Left>0</Left>
+        <Top>0</Top>
+        <Width>2505</Width>
+        <Height>620</Height>
+        <ForcePageBreak>Before</ForcePageBreak>
+        <Subreport sys="string">CDCaseLabel_Child</Subreport>
+        <SubreportFilter>
+          <Expression>"[BD_Vol] = '" &amp; [BD_Vol] &amp; "'"</Expression>
+        </SubreportFilter>
+      </SubreportField>
+    </Fields>
+  </Report>
+</Reports>

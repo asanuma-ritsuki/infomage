@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.10
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "JPEnclosedCheck", "JPEnclosedCheck\JPEnclosedCheck.vbproj", "{154926A5-8D2F-4B7F-B1E2-DCC7A1A11B32}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "setup", "setup\setup.vdproj", "{591BD263-286B-41E6-8D9C-757CB450C699}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{154926A5-8D2F-4B7F-B1E2-DCC7A1A11B32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{154926A5-8D2F-4B7F-B1E2-DCC7A1A11B32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{154926A5-8D2F-4B7F-B1E2-DCC7A1A11B32}.Debug|x86.ActiveCfg = Debug|x86
+		{154926A5-8D2F-4B7F-B1E2-DCC7A1A11B32}.Debug|x86.Build.0 = Debug|x86
+		{154926A5-8D2F-4B7F-B1E2-DCC7A1A11B32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{154926A5-8D2F-4B7F-B1E2-DCC7A1A11B32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{154926A5-8D2F-4B7F-B1E2-DCC7A1A11B32}.Release|x86.ActiveCfg = Release|x86
+		{154926A5-8D2F-4B7F-B1E2-DCC7A1A11B32}.Release|x86.Build.0 = Release|x86
+		{591BD263-286B-41E6-8D9C-757CB450C699}.Debug|Any CPU.ActiveCfg = Debug
+		{591BD263-286B-41E6-8D9C-757CB450C699}.Debug|x86.ActiveCfg = Debug
+		{591BD263-286B-41E6-8D9C-757CB450C699}.Release|Any CPU.ActiveCfg = Release
+		{591BD263-286B-41E6-8D9C-757CB450C699}.Release|x86.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

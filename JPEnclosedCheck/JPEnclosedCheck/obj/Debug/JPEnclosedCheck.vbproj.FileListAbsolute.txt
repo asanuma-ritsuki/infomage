@@ -1,0 +1,11 @@
+C:\GitHub\infomage\JPEnclosedCheck\JPEnclosedCheck\bin\Debug\JPEnclosedCheck.exe.config
+C:\GitHub\infomage\JPEnclosedCheck\JPEnclosedCheck\bin\Debug\JPEnclosedCheck.exe
+C:\GitHub\infomage\JPEnclosedCheck\JPEnclosedCheck\bin\Debug\JPEnclosedCheck.pdb
+C:\GitHub\infomage\JPEnclosedCheck\JPEnclosedCheck\bin\Debug\JPEnclosedCheck.xml
+C:\GitHub\infomage\JPEnclosedCheck\JPEnclosedCheck\obj\Debug\JPEnclosedCheck.vbprojResolveAssemblyReference.cache
+C:\GitHub\infomage\JPEnclosedCheck\JPEnclosedCheck\obj\Debug\JPEnclosedCheck.frmLogin.resources
+C:\GitHub\infomage\JPEnclosedCheck\JPEnclosedCheck\obj\Debug\JPEnclosedCheck.Resources.resources
+C:\GitHub\infomage\JPEnclosedCheck\JPEnclosedCheck\obj\Debug\JPEnclosedCheck.vbproj.GenerateResource.Cache
+C:\GitHub\infomage\JPEnclosedCheck\JPEnclosedCheck\obj\Debug\JPEnclosedCheck.exe
+C:\GitHub\infomage\JPEnclosedCheck\JPEnclosedCheck\obj\Debug\JPEnclosedCheck.xml
+C:\GitHub\infomage\JPEnclosedCheck\JPEnclosedCheck\obj\Debug\JPEnclosedCheck.pdb

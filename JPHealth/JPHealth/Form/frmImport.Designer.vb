@@ -138,6 +138,7 @@ Partial Class frmImport
 		Me.btnDelete2.TabIndex = 35
 		Me.btnDelete2.Text = "完全削除"
 		Me.btnDelete2.UseVisualStyleBackColor = True
+		Me.btnDelete2.Visible = False
 		'
 		'Panel2
 		'

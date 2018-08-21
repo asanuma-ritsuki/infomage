@@ -1,0 +1,1705 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>C1.Win.Calendar.4</name>
+  </assembly>
+  <members>
+    <member name="T:C1.Win.Calendar.C1CalendarView">
+      <summary>
+        <see cref="T:C1.Win.Calendar.C1CalendarView" />コントロールは、ユーザーインタフェースの作成に使用され、ユーザーが特定の日を対話式に選択できるようにします。このコントロールには 1 つまたは複数の月を表示でき、月や年の間を即座に移動できます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Calendar.C1CalendarView.#ctor">
+      <summary>
+        <see cref="T:C1.Win.Calendar.C1CalendarView" />コントロールの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.Calendar.C1CalendarView.BeforeDayTooltipShow">
+      <summary>日ツールチップが表示される前に発生します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.C1CalendarView.OnBeforeDayTooltipShow(C1.Win.Calendar.BeforeDayTooltipShowEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.Calendar.C1CalendarView.BeforeDayTooltipShow" />イベントを発生させます。
+      </summary>
+      <param name="e"></param>
+    </member>
+    <member name="E:C1.Win.Calendar.C1CalendarView.StylesChanged">
+      <summary>カレンダーテーマが変更されたときに発生します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.C1CalendarView.OnThemeChanged(System.EventArgs)">
+      <summary>
+        <see cref="E:C1.Win.Calendar.C1CalendarView.StylesChanged" />イベントを発生させます。
+      </summary>
+    </member>
+    <member name="E:C1.Win.Calendar.C1CalendarView.SelectionChanged">
+      <summary>選択されている日付の範囲が変更されると発生します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.C1CalendarView.OnSelectionChanged(System.EventArgs)">
+      <summary>
+        <see cref="E:C1.Win.Calendar.C1CalendarView.SelectionChanged" />イベントを発生させます。
+      </summary>
+    </member>
+    <member name="E:C1.Win.Calendar.C1CalendarView.RightToLeftLayoutChanged">
+      <summary>RightToLeftLayout プロパティが変更されたときに発生します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.C1CalendarView.OnRightToLeftLayoutChanged(System.EventArgs)">
+      <summary>
+        <see cref="E:C1.Win.Calendar.C1CalendarView.RightToLeftLayoutChanged" />イベントを発生させます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.ShowToolTips">
+      <summary>
+        <see cref="T:C1.Win.Calendar.C1CalendarView" />がツールチップを表示するかどうかを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.MaxColumns">
+      <summary>
+        <see cref="P:C1.Win.Calendar.C1CalendarView.CalendarDimensions" />プロパティの最大列を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.MinDate">
+      <summary>
+        使用できる最小の日付を取得または設定します。デフォルト値は、
+        <see cref="F:System.DateTime.MinValue" />（01/01/0001）です。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.MaxDate">
+      <summary>
+        使用できる最大の日付を取得または設定します。デフォルト値は、
+        <see cref="F:System.DateTime.MaxValue" />です。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.MaxSelectionCount">
+      <summary>
+        <see cref="T:C1.Win.Calendar.C1CalendarView" />コントロールで選択できる最大の日数を取得または設定します。デフォルト値は 1 です。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.SelectedDates">
+      <summary>
+        選択中の日付の
+        <see cref="T:System.DateTime" />配列を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.DisabledDates">
+      <summary>
+        無効な日付の
+        <see cref="T:System.DateTime" />配列を取得または設定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Calendar.C1CalendarView.ShouldSerializeDisabledDates">
+      <summary>
+        <see cref="P:C1.Win.Calendar.C1CalendarView.DisabledDates" />プロパティを保存するかどうかを示します。
+      </summary>
+      <returns>
+        デフォルトの
+        <see cref="P:C1.Win.Calendar.C1CalendarView.DisabledDates" />プロパティ値が変更されている場合は
+        <see langword="true" />、そうでない場合は
+        <see langword="false" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.Calendar.C1CalendarView.ResetDisabledDates">
+      <summary>
+        <see cref="P:C1.Win.Calendar.C1CalendarView.DisabledDates" />をクリアします。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.BoldedDates">
+      <summary>
+        太字の日付の
+        <see cref="T:System.DateTime" />配列を取得または設定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Calendar.C1CalendarView.ShouldSerializeBoldedDates">
+      <summary>
+        <see cref="P:C1.Win.Calendar.C1CalendarView.BoldedDates" />プロパティを保存するかどうかを示します。
+      </summary>
+      <returns>
+        デフォルトの
+        <see cref="P:C1.Win.Calendar.C1CalendarView.BoldedDates" />プロパティ値が変更されている場合は
+        <see langword="true" />、そうでない場合は
+        <see langword="false" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.Calendar.C1CalendarView.ResetBoldedDates">
+      <summary>
+        <see cref="P:C1.Win.Calendar.C1CalendarView.BoldedDates" />をクリアします。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.AnnuallyBoldedDates">
+      <summary>毎年太字の日付の配列を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.FirstDayOfWeek">
+      <summary>月間カレンダーに表示する最初の曜日を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.CalendarWeekRule">
+      <summary>現在のカレンダーの週の規則を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.CalendarDimensions">
+      <summary>表示される月の数を示す値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.PeriodSelectionType">
+      <summary>
+        日付期間を取得する方法を指定する値を取得または設定します。デフォルト値は
+        <see cref="F:C1.CalendarView.SelectionType.Field" />です。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.AutoSize">
+      <summary>自動サイズ調整が有効であるかどうかを示す値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.ShowToday">
+      <summary>今日の日付を表示するかどうかを示す値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.RightToLeftLayout">
+      <summary>このコントロールを右から左にレイアウトできるかどうかを示す値を取得または設定します。</summary>
+      <remarks>RightToLeft プロパティと RightToLeftLayout プロパティが両方とも true の場合は、コントロールが右から左に表示されます。</remarks>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.ShowArrowButtons">
+      <summary>
+        <see cref="T:C1.Win.Calendar.C1CalendarView" />コントロールに矢印ボタンを表示するかどうかを示す
+        <see cref="T:System.Boolean" />値 を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.ShowWeekNumbers">
+      <summary>
+        <see cref="T:C1.Win.Calendar.C1CalendarView" />コントロールに週番号を表示するかどうか を示す
+        <see cref="T:System.Boolean" />値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.VerticalOrientationLayout">
+      <summary>
+        月が縦に配置されているかどうかを示す
+        <see cref="T:System.Boolean" />値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.CurrentMonthDisplayOffset">
+      <summary>現在の月の表示オフセットを取得または設定します。</summary>
+      <example>
+        次の例では、現在の月を複数月カレンダーの中心に表示します。
+        <code>
+          <![CDATA[
+          c1CalendarView1.CalendarDimensions = 3;
+          c1CalendarView1.CurrentMonthDisplayOffset = 1;
+          ]]>
+        </code>
+      </example>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.MonthTitlePosition">
+      <summary>
+        <see cref="T:C1.Win.Calendar.C1CalendarView" />コントロールの月タイトルを 表示する場所を示す
+        <see cref="T:C1.CalendarView.Position" />値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.DayTitlePosition">
+      <summary>
+        <see cref="T:C1.Win.Calendar.C1CalendarView" />コントロールの日タイトルを 表示する場所を示す
+        <see cref="T:C1.CalendarView.Position" />値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.Theme">
+      <summary>カレンダーのスタイルを取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.C1CalendarView.ShowAboutBox">
+      <summary>C1TreeView のインスタンスのバージョン情報ダイアログボックスを表示します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.C1CalendarView.OnRightToLeftChanged(System.EventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.RightToLeftChanged" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.Calendar.C1CalendarView.GetPreferredSize(System.Drawing.Size)">
+      <summary>コントロールを配置できる四角形領域のサイズを取得します。</summary>
+      <param name="proposedSize">コントロールのカスタムサイズ領域。</param>
+      <returns>
+        四角形の幅と高さを表す
+        <see cref="T:System.Drawing.Size" />型の順序付きペア。
+      </returns>
+    </member>
+    <member name="M:C1.Win.Calendar.C1CalendarView.Dispose(System.Boolean)">
+      <summary>
+        <see cref="T:C1.Win.Calendar.C1CalendarView" />とその子コントロールによって使用されたアンマネージリソースを解放し、オプションでマネージリソースを解放します。
+      </summary>
+      <param name="disposing">マネージリソースとアンマネージリソースの両方を解放する場合は true、アンマネージリソースだけを解放する場合は false。</param>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.DefaultSize">
+      <summary>
+        <see cref="T:C1.Win.Calendar.C1CalendarView" />のデフォルトサイズを取得します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Calendar.C1CalendarView.SetBoundsCore(System.Int32,System.Int32,System.Int32,System.Int32,System.Windows.Forms.BoundsSpecified)">
+      <summary>このコントロールに指定された境界を設定する作業を実行します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.Margin">
+      <summary>このプロパティは使用しないでください。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.Padding">
+      <summary>このプロパティは使用しないでください。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.BackColor">
+      <summary>コントロールの背景色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.ForeColor">
+      <summary>このプロパティは使用しないでください。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.BackgroundImage">
+      <summary>コントロールの背景画像を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.BackgroundImageLayout">
+      <summary>このプロパティは使用しないでください。レイアウトを設定するには、Theme.Common.BackImageAlignment プロパティ と Theme.Common.BackImageScaling プロパティを使用します。</summary>
+    </member>
+    <member name="T:C1.Win.Calendar.BeforeDayTooltipShowEventArgs">
+      <summary>
+        <see cref="T:C1.Win.Calendar.C1CalendarView" />コントロールの
+        <see cref="E:C1.Win.Calendar.C1CalendarView.BeforeDayTooltipShow" />イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.BeforeDayTooltipShowEventArgs.Text">
+      <summary>ツールチップのテキストを取得または設定します。デフォルトのテキストは、空の文字列です。</summary>
+      <remarks>HTML エンコードを使用してテキストを書式設定します。</remarks>
+    </member>
+    <member name="P:C1.Win.Calendar.BeforeDayTooltipShowEventArgs.Day">
+      <summary>ツールチップが表示される日付を取得します。</summary>
+    </member>
+    <member name="T:C1.Win.Calendar.Localization.Strings">
+      <summary>
+        <see cref="T:C1.Win.Calendar.Localization.Strings" />クラスには、ローカライズに使用される静的プロパティが含まれます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.Localization.Strings.ResourceManager">
+      <summary>
+        ルックアップリソースとして使用される
+        <see cref="P:C1.Win.Calendar.Localization.Strings.ResourceManager" />オブジェクト。
+      </summary>
+      <remarks>カスタムコントロールアセンブリ内でリソースを定義する場合は、このプロパティを有効な値に設定します。</remarks>
+    </member>
+    <member name="P:C1.Win.Calendar.Localization.Strings.UICulture">
+      <summary>
+        フォールバックカルチャとして使用されるデフォルトの
+        <see cref="T:System.Globalization.CultureInfo" />オブジェクトを返します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Calendar.UI.BaseStyle">
+      <summary>
+        <see cref="T:C1.Win.Calendar.C1CalendarView" />のすべてのスタイルの基本スタイル。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.BaseStyle.Name">
+      <summary>スタイル名を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.BaseStyle.BackColor">
+      <summary>
+        背景の描画に使用される
+        <see cref="T:System.Drawing.Color" />を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.BaseStyle.Border">
+      <summary>要素の周囲の境界線の太さを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.BaseStyle.BorderColor">
+      <summary>
+        要素の周囲の境界線の描画に使用される
+        <see cref="T:System.Drawing.Color" />を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.BaseStyle.HorizontalAlignment">
+      <summary>要素を水平方向に配置する方法を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.BaseStyle.VerticalAlignment">
+      <summary>要素を垂直方向に配置する方法を取得または設定します。</summary>
+    </member>
+    <member name="T:C1.Win.Calendar.UI.BaseTheme">
+      <summary>テーマの基本クラス。</summary>
+    </member>
+    <member name="E:C1.Win.Calendar.UI.BaseTheme.StyleChanged">
+      <summary>いずれかのプロパティが変更されるときに発生します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.UI.BaseTheme.OnStyleChanged(System.Object,System.EventArgs)">
+      <summary></summary>
+      <param name="sender"></param>
+      <param name="e"></param>
+    </member>
+    <member name="M:C1.Win.Calendar.UI.BaseTheme.#ctor">
+      <summary>コンストラクタ</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.UI.BaseTheme.#ctor(C1.Win.Calendar.UI.BaseTheme)">
+      <summary>コンストラクタ</summary>
+      <param name="prototype">プロトタイプ。</param>
+    </member>
+    <member name="M:C1.Win.Calendar.UI.BaseTheme.Dispose">
+      <summary>デストラクタ。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.BaseTheme.Name">
+      <summary>テーマ名を取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.UI.BaseTheme.GetStyle(System.String)">
+      <summary>名前に基づいてスタイルを取得します。</summary>
+      <param name="name">スタイル名。</param>
+      <returns>
+        <see cref="T:C1.Framework.Style" />オブジェクト。
+      </returns>
+    </member>
+    <member name="M:C1.Win.Calendar.UI.BaseTheme.SetStyle(C1.Framework.Style,System.String)">
+      <summary>既存のスタイルを設定するか、新しいスタイルを追加します。</summary>
+      <param name="value">スタイル。</param>
+      <param name="name">スタイル名。</param>
+    </member>
+    <member name="M:C1.Win.Calendar.UI.BaseTheme.Reset">
+      <summary>すべてのスタイルをデフォルトにリセットします。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.UI.BaseTheme.ToString">
+      <summary>
+        <see cref="P:C1.Framework.Theme.Name" />プロパティの値を返します。
+      </summary>
+      <returns></returns>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.BaseTheme.ComponentType">
+      <summary>コンポーネントのタイプ。</summary>
+    </member>
+    <member name="T:C1.Win.Calendar.UI.CalendarTheme">
+      <summary>
+        <see cref="T:C1.Win.Calendar.UI.CalendarTheme" />クラスは、C1CalendarView コントロールのテーマを表します。このコントロールには、コントロールの外観を定義する表示属性が含まれます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Calendar.UI.CalendarTheme.#ctor(C1.Win.Calendar.UI.CalendarTheme)">
+      <summary>コンストラクタ</summary>
+      <param name="prototype">プロトタイプ。</param>
+    </member>
+    <member name="M:C1.Win.Calendar.UI.CalendarTheme.Dispose">
+      <summary>デストラクタ。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.CalendarTheme.Day">
+      <summary>
+        画面内の
+        <see cref="T:C1.Win.Calendar.C1CalendarView" />の日要素の外観を 決定するスタイルを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.CalendarTheme.Titles">
+      <summary>
+        画面内の
+        <see cref="T:C1.Win.Calendar.C1CalendarView" />のタイトル要素の外観を 決定するスタイルを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.CalendarTheme.NavigationButtons">
+      <summary>
+        画面内の
+        <see cref="T:C1.Win.Calendar.C1CalendarView" />のナビゲーション要素の外観を 決定するスタイルを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.CalendarTheme.Common">
+      <summary>
+        画面内の
+        <see cref="T:C1.Win.Calendar.C1CalendarView" />の 外観を決定する表示共通属性を含む
+        <see cref="T:C1.Win.Calendar.UI.CommonStyle" />を取得します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Calendar.UI.CalendarTheme.Reset">
+      <summary>すべての CalendarTheme スタイルをデフォルトにリセットします。</summary>
+    </member>
+    <member name="T:C1.Win.Calendar.UI.CommonStyle">
+      <summary>
+        <see cref="T:C1.Win.Calendar.UI.CommonStyle" />クラスには、画面内の
+        <see cref="T:C1.Win.Calendar.C1CalendarView" />の 外観を決定する表示共通属性が含まれます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.CommonStyle.BackImage">
+      <summary>
+        <see cref="T:C1.Win.Calendar.C1CalendarView" />コントロールの背景画像を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.CommonStyle.BackImageAlignment">
+      <summary>
+        <see cref="T:C1.Win.Calendar.C1CalendarView" />コントロールの背景画像のレンダリングに使用される配置を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.CommonStyle.BackImageScaling">
+      <summary>
+        <see cref="T:C1.Win.Calendar.C1CalendarView" />コントロールの背景画像のレンダリングに使用されるスケーリングを取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Calendar.UI.DayTheme">
+      <summary>
+        画面内の
+        <see cref="T:C1.Win.Calendar.C1CalendarView" />の日要素の外観を 決定する日スタイルを含むクラス。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Calendar.UI.DayTheme.#ctor">
+      <summary>コンストラクタ</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.UI.DayTheme.#ctor(C1.Win.Calendar.UI.DayTheme)">
+      <summary>コピーコンストラクタ。</summary>
+      <param name="prototype">プロトタイプ。</param>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.DayTheme.Selected">
+      <summary>選択された日のスタイルを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.DayTheme.Bolded">
+      <summary>太字の日のスタイルを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.DayTheme.Disabled">
+      <summary>無効な日のスタイルを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.DayTheme.Today">
+      <summary>今日のスタイルを取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.UI.DayTheme.Reset">
+      <summary>すべての DayTheme 日スタイルをデフォルトにリセットします。</summary>
+    </member>
+    <member name="T:C1.Win.Calendar.UI.DayStyle">
+      <summary>
+        <see cref="T:C1.Win.Calendar.UI.DayStyle" />クラスには、画面内の
+        <see cref="T:C1.Win.Calendar.C1CalendarView" />の 日要素の外観を決定する表示属性が含まれます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.DayStyle.Font">
+      <summary>日要素のテキストフォントを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.DayStyle.ForeColor">
+      <summary>
+        日要素のテキストの描画に使用される
+        <see cref="T:System.Drawing.Color" />を取得または設定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Calendar.UI.DayStyle.Equals(C1.Win.Calendar.UI.DayStyle)">
+      <summary>
+        このインスタンスと指定された
+        <see cref="T:C1.Win.Calendar.UI.DayStyle" />オブジェクトが等しいかどうかを指定します。
+      </summary>
+      <param name="style">チェックするオブジェクト。</param>
+      <returns>等しい場合は true、そうでない場合は false。</returns>
+    </member>
+    <member name="M:C1.Win.Calendar.UI.DayStyle.Equals(C1.Framework.Style)">
+      <summary>
+        このインスタンスと指定された
+        <see cref="T:C1.Framework.Style" />オブジェクトが等しいかどうかを指定します。
+      </summary>
+      <param name="style">
+        指定された
+        <see cref="T:C1.Framework.Style" />オブジェクト。
+      </param>
+      <returns>等しい場合は true、そうでない場合は false。</returns>
+    </member>
+    <member name="T:C1.Win.Calendar.UI.NavigationButtonsTheme">
+      <summary>
+        <see cref="T:C1.Win.Calendar.UI.NavigationButtonsTheme" />には、画面内の
+        <see cref="T:C1.Win.Calendar.C1CalendarView" />のナビゲーションボタンの外観を 決定するスタイルが含まれます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Calendar.UI.NavigationButtonsTheme.#ctor">
+      <summary>コンストラクタ</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.UI.NavigationButtonsTheme.#ctor(C1.Win.Calendar.UI.NavigationButtonsTheme)">
+      <summary>コピーコンストラクタ。</summary>
+      <param name="prototype">プロトタイプ。</param>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.NavigationButtonsTheme.ImageArrowNext">
+      <summary>
+        次矢印ボタンの
+        <see cref="T:System.Drawing.Image" />を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.NavigationButtonsTheme.ImageArrowPrevious">
+      <summary>
+        前矢印ボタンの
+        <see cref="T:System.Drawing.Image" />を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.NavigationButtonsTheme.ArrowNext">
+      <summary>次矢印ボタンのスタイルを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.NavigationButtonsTheme.ArrowPrevious">
+      <summary>前矢印ボタンのスタイルを取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.UI.NavigationButtonsTheme.Reset">
+      <summary>すべての NavigationButtonsTheme スタイルをデフォルトにリセットします。</summary>
+    </member>
+    <member name="T:C1.Win.Calendar.UI.BaseArrowStyle">
+      <summary>
+        <see cref="T:C1.Win.Calendar.UI.ArrowStyle" />クラスには、画面内の
+        <see cref="T:C1.Win.Calendar.C1CalendarView" />の 矢印ボタン要素の外観を決定する表示属性が含まれます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.BaseArrowStyle.ForeColor">
+      <summary>
+        矢印の描画に使用される
+        <see cref="T:System.Drawing.Color" />を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.BaseArrowStyle.BackImage">
+      <summary>ArrowButton 要素の背景画像を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.BaseArrowStyle.BackImageAlignment">
+      <summary>ArrowButton の背景画像のレンダリングに使用される配置を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.BaseArrowStyle.BackImageScaling">
+      <summary>ArrowButton の背景画像のレンダリングに使用されるスケーリングを取得または設定します。</summary>
+    </member>
+    <member name="T:C1.Win.Calendar.UI.ArrowStyle">
+      <summary>
+        <see cref="T:C1.Win.Calendar.UI.ArrowStyle" />クラスには、画面内の
+        <see cref="T:C1.Win.Calendar.C1CalendarView" />の ホット矢印ボタン要素の外観を決定する表示属性が含まれます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.ArrowStyle.Hot">
+      <summary>ArrowButton 要素がホット状態であるときに使用されるスタイルを取得または設定します。</summary>
+    </member>
+    <member name="T:C1.Win.Calendar.UI.TitleTheme">
+      <summary>
+        <see cref="T:C1.Win.Calendar.UI.TitleTheme" />には、画面内の
+        <see cref="T:C1.Win.Calendar.C1CalendarView" />のナビゲーションボタンの外観を 決定するスタイルが含まれます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Calendar.UI.TitleTheme.#ctor">
+      <summary>コンストラクタ</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.UI.TitleTheme.#ctor(C1.Win.Calendar.UI.TitleTheme)">
+      <summary>コピーコンストラクタ。</summary>
+      <param name="prototype">プロトタイプ。</param>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.TitleTheme.Day">
+      <summary>日タイトルのスタイルを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.TitleTheme.Week">
+      <summary>週タイトルのスタイルを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.TitleTheme.Month">
+      <summary>月タイトルのスタイルを取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.UI.TitleTheme.Reset">
+      <summary>すべての TitleTheme スタイルをデフォルトにリセットします。</summary>
+    </member>
+    <member name="T:C1.Win.Calendar.UI.WeekTitleStyle">
+      <summary>
+        <see cref="T:C1.Win.Calendar.UI.WeekTitleStyle" />クラスには、画面内の
+        <see cref="T:C1.Win.Calendar.C1CalendarView" />の 週タイトルの外観を決定する表示属性が含まれます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.WeekTitleStyle.Font">
+      <summary>WeekTitle 要素のテキストフォントを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.WeekTitleStyle.ForeColor">
+      <summary>
+        WeekTitle 要素のテキストの描画に使用される
+        <see cref="T:System.Drawing.Color" />を取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Calendar.UI.DayTitleStyle">
+      <summary>
+        <see cref="T:C1.Win.Calendar.UI.DayTitleStyle" />クラスには、画面内の
+        <see cref="T:C1.Win.Calendar.C1CalendarView" />の 日タイトルの外観を決定する表示属性が含まれます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.DayTitleStyle.Font">
+      <summary>DayTitle 要素のテキストフォントを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.DayTitleStyle.ForeColor">
+      <summary>
+        DayTitle 要素のテキストの描画に使用される
+        <see cref="T:System.Drawing.Color" />を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.DayTitleStyle.BackImage">
+      <summary>DayTitle 要素の背景画像を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.DayTitleStyle.BackImageAlignment">
+      <summary>DayTitle 要素の背景画像のレンダリングに使用される配置を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.DayTitleStyle.BackImageScaling">
+      <summary>DayTitle 要素の背景画像のレンダリングに使用されるスケーリングを取得または設定します。</summary>
+    </member>
+    <member name="T:C1.Win.Calendar.UI.MonthTitleStyle">
+      <summary>
+        <see cref="T:C1.Win.Calendar.UI.MonthTitleStyle" />クラスには、画面内の
+        <see cref="T:C1.Win.Calendar.C1CalendarView" />の 月タイトルの外観を決定する表示属性が含まれます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.MonthTitleStyle.Font">
+      <summary>MonthTitle 要素のテキストフォントを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.MonthTitleStyle.ForeColor">
+      <summary>
+        MonthTitle 要素のテキストの描画に使用される
+        <see cref="T:System.Drawing.Color" />を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.MonthTitleStyle.Trimming">
+      <summary>利用可能な領域に収まらない文字をトリミングする方法を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.MonthTitleStyle.BackImage">
+      <summary>MonthTitle 要素の背景画像を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.MonthTitleStyle.BackImageAlignment">
+      <summary>MonthTitle 要素の背景画像のレンダリングに使用される配置を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.MonthTitleStyle.BackImageScaling">
+      <summary>MonthTitle 要素の背景画像のレンダリングに使用されるスケーリングを取得または設定します。</summary>
+    </member>
+    <member name="T:C1.CalendarView.Position">
+      <summary>要素の位置を示す値。</summary>
+    </member>
+    <member name="F:C1.CalendarView.Position.Top">
+      <summary>上の位置。</summary>
+    </member>
+    <member name="F:C1.CalendarView.Position.Bottom">
+      <summary>下の位置。</summary>
+    </member>
+    <member name="F:C1.CalendarView.Position.Left">
+      <summary>左の位置。</summary>
+    </member>
+    <member name="F:C1.CalendarView.Position.Right">
+      <summary>右の位置。</summary>
+    </member>
+    <member name="T:C1.CalendarView.SelectionType">
+      <summary>値の選択タイプ。</summary>
+    </member>
+    <member name="F:C1.CalendarView.SelectionType.Field">
+      <summary>フィールドの外観。TextBox に似ています。</summary>
+    </member>
+    <member name="F:C1.CalendarView.SelectionType.List">
+      <summary>リストの外観。ComboBox に似ています。</summary>
+    </member>
+    <member name="T:C1.Globalization.JapaneseEraHelper">
+      <summary>AddJapaneseEra 関数を含むヘルパー静的クラス。</summary>
+    </member>
+    <member name="M:C1.Globalization.JapaneseEraHelper.ClearJapaneseEras">
+      <summary>すべての日本の年号をクリアします。</summary>
+    </member>
+    <member name="M:C1.Globalization.JapaneseEraHelper.AddJapaneseEra(System.Int32,System.DateTime,System.DateTime,System.String,System.String,System.String,System.String)">
+      <summary>日本の暦に年号を追加します。</summary>
+      <param name="era">年号の数値 ID。負以外の整数でなければなりません。</param>
+      <param name="startTime">年号の開始日。</param>
+      <param name="endTime">年号の終了日。</param>
+      <param name="eraName">年号の日本語名。</param>
+      <param name="abbreviatedEraName">年号の日本語省略名。</param>
+      <param name="englishEraName">英語の年号。オプション。</param>
+      <param name="symbolEraName">1 文字のラテン文字による年号。</param>
+      <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+    </member>
+    <member name="M:C1.Globalization.JapaneseEraHelper.ReadErasFromGCConfig(System.String)">
+      <summary>GC 構成ファイルから年号情報を読み取ります。</summary>
+      <param name="sectionName">セクション名。</param>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.TodayFormat">
+      <summary>［今日］ボタンのテキストの書式を取得または設定します。中かっこを使用して日付書式を定義します。</summary>
+      <example>"Today: {MM.dd.yy}"</example>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.DayNameLength">
+      <summary>日の名前の最大の長さを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.CaptionFormat">
+      <summary>カレンダーのキャプションに使用する書式を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.WorkDays">
+      <summary>
+        単一の週の週末を指定する
+        <see cref="T:C1.CalendarView.WorkDays" />オブジェクトを取得または設定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Calendar.C1CalendarView.ShouldSerializeWorkDays">
+      <summary>
+        <see cref="P:C1.Win.Calendar.C1CalendarView.WorkDays" />プロパティを保存するかどうかを示します。
+      </summary>
+      <returns>
+        デフォルトの
+        <see cref="P:C1.Win.Calendar.C1CalendarView.WorkDays" />プロパティ値が変更されている場合は
+        <see langword="true" />、そうでない場合は
+        <see langword="false" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.Calendar.C1CalendarView.ResetWorkDays">
+      <summary>
+        <see cref="P:C1.Win.Calendar.C1CalendarView.WorkDays" />をクリアします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Calendar.C1CalendarView.ShouldSerializeMinDate">
+      <summary>
+        <see cref="P:C1.Win.Calendar.C1CalendarView.MinDate" />プロパティを保存するかどうかを示します。
+      </summary>
+      <returns>
+        デフォルトの
+        <see cref="P:C1.Win.Calendar.C1CalendarView.MinDate" />プロパティ値が変更されている場合は
+        <see langword="true" />、そうでない場合は
+        <see langword="false" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.Calendar.C1CalendarView.ResetMinDate">
+      <summary>
+        <see cref="P:C1.Win.Calendar.C1CalendarView.MinDate" />をクリアします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Calendar.C1CalendarView.ShouldSerializeMaxDate">
+      <summary>
+        <see cref="P:C1.Win.Calendar.C1CalendarView.MaxDate" />プロパティを保存するかどうかを示します。
+      </summary>
+      <returns>
+        デフォルトの
+        <see cref="P:C1.Win.Calendar.C1CalendarView.MaxDate" />プロパティ値が変更されている場合は
+        <see langword="true" />、そうでない場合は
+        <see langword="false" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.Calendar.C1CalendarView.ResetMaxDate">
+      <summary>
+        <see cref="P:C1.Win.Calendar.C1CalendarView.MaxDate" />をクリアします。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Calendar.C1DateEdit">
+      <summary>日付や時間の値を表示および編集します。日時値を簡単に入力できるドロップダウンカレンダーの機能が付いています。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.C1DateEdit.#ctor">
+      <summary>C1DateEdit クラスの新しいインスタンスを初期化します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1DateEdit.AllowSpinLoop">
+      <summary>
+        スピナーが
+        <see cref="P:C1.Win.Calendar.CalendarSettings.MaxDate" />に達したときに
+        <see cref="P:C1.Win.Calendar.CalendarSettings.MinDate" />に移動したり、
+        <see cref="P:C1.Win.Calendar.CalendarSettings.MinDate" />に達したときに
+        <see cref="P:C1.Win.Calendar.CalendarSettings.MaxDate" />に移動するかどうかを指定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1DateEdit.RetainTimeOnDateChange">
+      <summary>日付がドロップダウンカレンダーによって変更されるとき、現在の時刻値を保持するかどうかを示す値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1DateEdit.Calendar">
+      <summary>ドロップダウンカレンダーの設定を取得します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1DateEdit.FormatType">
+      <summary>標準の .NET 書式文字列、カスタム書式設定、プログラム書式設定など、書式設定方法を指定する列挙値。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.C1DateEdit.SpinUp">
+      <summary>スピンアップを実行します。</summary>
+      <remarks>このメソッドは、［日］フィールドが選択されて、上矢印キーが押されたときと同じように動作し、値を 1 日インクリメントします。</remarks>
+      <seealso cref="M:C1.Win.Calendar.C1DateEdit.SpinDown" />
+    </member>
+    <member name="M:C1.Win.Calendar.C1DateEdit.SpinUp(System.TimeSpan)">
+      <summary>スピンアップを実行します。</summary>
+      <param name="increment">
+        スピンアップ時にインクリメントを示す
+        <see cref="T:System.TimeSpan" />値。
+      </param>
+      <remarks>このメソッドは、上矢印キーが押されたときと同じ動作をします。</remarks>
+      <seealso cref="M:C1.Win.Calendar.C1DateEdit.SpinDown(System.TimeSpan)" />
+    </member>
+    <member name="M:C1.Win.Calendar.C1DateEdit.SpinDown">
+      <summary>スピンダウンを実行します。</summary>
+      <remarks>このメソッドは、［日］フィールドが選択されて、下矢印キーが押されたときと同じように動作し、値を 1 日デクリメントします。</remarks>
+      <seealso cref="M:C1.Win.Calendar.C1DateEdit.SpinUp" />
+    </member>
+    <member name="M:C1.Win.Calendar.C1DateEdit.SpinDown(System.TimeSpan)">
+      <summary>スピンダウンを実行します。</summary>
+      <param name="decrement">
+        スピンダウン時にデクリメントを示す
+        <see cref="T:System.TimeSpan" />値。
+      </param>
+      <remarks>このメソッドは、下矢印キーが押されたときと同じ動作をします。</remarks>
+      <seealso cref="M:C1.Win.Calendar.C1DateEdit.SpinUp(System.TimeSpan)" />
+    </member>
+    <member name="T:C1.Win.Calendar.Exceptions.CaptionValidationException">
+      <summary>キャプションの書式検証時に発生したエラーを表します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.Exceptions.CaptionValidationException.#ctor(System.String)">
+      <summary>
+        <see cref="T:C1.Win.Calendar.Exceptions.CaptionValidationException" />オブジェクトの新しいインスタンスを初期化します。
+      </summary>
+      <param name="msg">エラーメッセージ</param>
+    </member>
+    <member name="T:C1.Win.Calendar.Exceptions.UnsupportedValueException`1">
+      <summary>サポートされていない値の結果発生したエラーを表します。</summary>
+      <typeparam name="T"></typeparam>
+    </member>
+    <member name="M:C1.Win.Calendar.Exceptions.UnsupportedValueException`1.#ctor(`0,System.String)">
+      <summary>UnsupportedValueException オブジェクトの新しいインスタンスを初期化します。</summary>
+      <param name="value">サポートされていない値</param>
+      <param name="msg">エラーメッセージ</param>
+    </member>
+    <member name="P:C1.Win.Calendar.Exceptions.UnsupportedValueException`1.Value">
+      <summary></summary>
+    </member>
+    <member name="T:C1.Win.Calendar.CalendarSettings">
+      <summary>ドロップダウンカレンダーの設定を表します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.CurrentMonthDisplayOffset">
+      <summary>現在の月の表示オフセットを取得または設定します。</summary>
+      <example>
+        次の例では、現在の月を複数月ドロップダウンカレンダーの中心に 表示します。
+        <code>
+          <![CDATA[
+          c1DateEdit1.Calendar.CalendarDimensions = new Size(3, 1);
+          
+          // 現在の月をカレンダーの中央に表示します
+          // 指定可能な値：
+          // 0 - （デフォルト）右
+          // 1 - 中央
+          // 2 - 左
+          c1DateEdit1.Calendar.CurrentMonthDisplayOffset = 1;
+          ]]>
+        </code>
+      </example>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.VisualStyle">
+      <summary>VisualStyle を取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ShouldSerializeVisualStyle">
+      <summary>
+        <see cref="P:C1.Win.Calendar.CalendarSettings.VisualStyle" />がシリアライズされるかどうかをテストします。
+      </summary>
+      <returns>
+        <see cref="P:C1.Win.Calendar.CalendarSettings.VisualStyle" />がシリアライズされる場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ResetVisualStyle">
+      <summary>
+        <see cref="P:C1.Win.Calendar.CalendarSettings.VisualStyle" />をデフォルト値にリセットします。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.MinDate">
+      <summary>使用できる最小の日付を取得または設定します。デフォルト値は、DateTime.MinValue（01/01/0001）です。</summary>
+      <exception cref="T:System.ArgumentException">
+        値が
+        <see cref="P:C1.Win.Calendar.CalendarSettings.MaxDate" />を超えています。
+      </exception>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ShouldSerializeMinDate">
+      <summary>
+        <see cref="P:C1.Win.Calendar.CalendarSettings.MinDate" />プロパティを保存するかどうかを示します。
+      </summary>
+      <returns>
+        デフォルトの
+        <see cref="P:C1.Win.Calendar.CalendarSettings.MinDate" />プロパティ値が変更されている場合は
+        <see langword="true" />、そうでない場合は
+        <see langword="false" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ResetMinDate">
+      <summary>
+        <see cref="P:C1.Win.Calendar.CalendarSettings.MinDate" />プロパティをデフォルト値に設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.MaxDate">
+      <summary>使用できる最大の日付を取得または設定します。</summary>
+      <exception cref="T:System.ArgumentException">
+        値が
+        <see cref="P:C1.Win.Calendar.CalendarSettings.MinDate" />未満です。
+      </exception>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ShouldSerializeMaxDate">
+      <summary>
+        <see cref="P:C1.Win.Calendar.CalendarSettings.MaxDate" />プロパティを保存するかどうかを示します。
+      </summary>
+      <returns>
+        デフォルトの
+        <see cref="P:C1.Win.Calendar.CalendarSettings.MaxDate" />プロパティ値が変更されている場合は
+        <see langword="true" />、そうでない場合は
+        <see langword="false" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ResetMaxDate">
+      <summary>
+        <see cref="P:C1.Win.Calendar.CalendarSettings.MaxDate" />プロパティをデフォルト値に設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.DateIsNull">
+      <summary>カレンダーで現在選択されている日付がないことを示す値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.BackColor">
+      <summary>コントロールの背景色を取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ShouldSerializeBackColor">
+      <summary>このメソッドは内部使用専用です。</summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ResetBackColor">
+      <summary>このメソッドは内部使用専用です。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.ForeColor">
+      <summary>コントロールの前景色を取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ShouldSerializeForeColor">
+      <summary>このメソッドは内部使用専用です。</summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ResetForeColor">
+      <summary>このメソッドは内部使用専用です。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.SelectionBackColor">
+      <summary>選択範囲の背景色を取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ShouldSerializeSelectionBackColor">
+      <summary>このメソッドは内部使用専用です。</summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ResetSelectionBackColor">
+      <summary>このメソッドは内部使用専用です。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.SelectionForeColor">
+      <summary>選択範囲の前景色を取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ShouldSerializeSelectionForeColor">
+      <summary>このメソッドは内部使用専用です。</summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ResetSelectionForeColor">
+      <summary>このメソッドは内部使用専用です。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.LineColor">
+      <summary>線の色を取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ShouldSerializeLineColor">
+      <summary>このメソッドは内部使用専用です。</summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ResetLineColor">
+      <summary>このメソッドは内部使用専用です。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.ArrowColor">
+      <summary>矢印の色を取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ShouldSerializeArrowColor">
+      <summary>このメソッドは内部使用専用です。</summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ResetArrowColor">
+      <summary>このメソッドは内部使用専用です。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.TodayBorderColor">
+      <summary>現在の日付の周囲に描画される境界線の色を取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ShouldSerializeTodayBorderColor">
+      <summary>このメソッドは内部使用専用です。</summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ResetTodayBorderColor">
+      <summary>このメソッドは内部使用専用です。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.TrailingForeColor">
+      <summary>コントロール内に一部が表示されていない日の色を示す値を 取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ShouldSerializeTrailingForeColor">
+      <summary>このメソッドは内部使用専用です。</summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ResetTrailingForeColor">
+      <summary>このメソッドは内部使用専用です。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.DayNamesColor">
+      <summary>日の名前のテキスト色を取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ShouldSerializeDayNamesColor">
+      <summary>このメソッドは内部使用専用です。</summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ResetDayNamesColor">
+      <summary>このメソッドは内部使用専用です。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.TitleBackColor">
+      <summary>カレンダーのタイトル領域の背景色を示す値を取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ShouldSerializeTitleBackColor">
+      <summary>このメソッドは内部使用専用です。</summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ResetTitleBackColor">
+      <summary>このメソッドは内部使用専用です。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.TitleForeColor">
+      <summary>カレンダーのタイトル領域の前景色を示す値を取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ShouldSerializeTitleForeColor">
+      <summary>このメソッドは内部使用専用です。</summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ResetTitleForeColor">
+      <summary>このメソッドは内部使用専用です。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.FirstMonth">
+      <summary>全体が表示されている最初の月の最初の日を取得します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.LastMonth">
+      <summary>全体が表示されている最後の月の最後の日を取得します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.SelectedDate">
+      <summary>選択されている日付を取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ShouldSerializeSelectedDate">
+      <summary>
+        <see cref="P:C1.Win.Calendar.CalendarSettings.SelectedDate" />プロパティを保存するかどうかを示します。
+      </summary>
+      <returns>
+        デフォルトの
+        <see cref="P:C1.Win.Calendar.CalendarSettings.SelectedDate" />プロパティ値が変更されている場合は
+        <see langword="true" />、そうでない場合は
+        <see langword="false" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ResetSelectedDate">
+      <summary>
+        <see cref="P:C1.Win.Calendar.CalendarSettings.SelectedDate" />プロパティをデフォルト値に設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.CalendarDimensions">
+      <summary>月を何行何列に表示するかを取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ShouldSerializeCalendarDimensions">
+      <summary>
+        <see cref="P:C1.Win.Calendar.CalendarSettings.CalendarDimensions" />プロパティを保存するかどうかを示します。
+      </summary>
+      <returns>
+        デフォルトの
+        <see cref="P:C1.Win.Calendar.CalendarSettings.CalendarDimensions" />プロパティ値が変更されている場合は
+        <see langword="true" />、そうでない場合は
+        <see langword="false" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ResetCalendarDimensions">
+      <summary>
+        <see cref="P:C1.Win.Calendar.CalendarSettings.CalendarDimensions" />プロパティをデフォルト値に設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.FirstDayOfWeek">
+      <summary>月間カレンダーに表示する最初の曜日を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.CaptionFormat">
+      <summary>カレンダーのキャプションに使用する書式を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.DayNameLength">
+      <summary>日の名前の最大の長さを取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ShouldSerializeDayNameLength">
+      <summary>このメソッドは内部使用専用です。</summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ResetDayNameLength">
+      <summary>このメソッドは内部使用専用です。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.TitleHeight">
+      <summary>タイトルの高さを取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ShouldSerializeTitleHeight">
+      <summary>このメソッドは内部使用専用です。</summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ResetTitleHeight">
+      <summary>このメソッドは内部使用専用です。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.Font">
+      <summary>ドロップダウンカレンダーによって表示されるテキストのフォントを取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ShouldSerializeFont">
+      <summary>このメソッドは内部使用専用です。</summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ResetFont">
+      <summary>このメソッドは内部使用専用です。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.TitleFont">
+      <summary>タイトルのフォントを取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ShouldSerializeTitleFont">
+      <summary>このメソッドは内部使用専用です。</summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ResetTitleFont">
+      <summary>このメソッドは内部使用専用です。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.DayNamesFont">
+      <summary>日の名前のフォントを取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ShouldSerializeDayNamesFont">
+      <summary>このメソッドは内部使用専用です。</summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ResetDayNamesFont">
+      <summary>このメソッドは内部使用専用です。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.BoldedDates">
+      <summary>一度だけ太字で表示する日付を決定する System.DateTime オブジェクトの配列を取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ShouldSerializeBoldedDates">
+      <summary>
+        <see cref="P:C1.Win.Calendar.CalendarSettings.BoldedDates" />プロパティを保存するかどうかを示します。
+      </summary>
+      <returns>
+        デフォルトの
+        <see cref="P:C1.Win.Calendar.CalendarSettings.BoldedDates" />プロパティ値が変更されている場合は
+        <see langword="true" />、そうでない場合は
+        <see langword="false" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ResetBoldedDates">
+      <summary>
+        <see cref="P:C1.Win.Calendar.CalendarSettings.BoldedDates" />をクリアします。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.AnnuallyBoldedDates">
+      <summary>毎年太字で表示する日付を決定する System.DateTime オブジェクトの配列を取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ShouldSerializeAnnuallyBoldedDates">
+      <summary>
+        <see cref="P:C1.Win.Calendar.CalendarSettings.AnnuallyBoldedDates" />プロパティを保存するかどうかを示します。
+      </summary>
+      <returns>
+        デフォルトの
+        <see cref="P:C1.Win.Calendar.CalendarSettings.AnnuallyBoldedDates" />プロパティ値が変更されている場合は
+        <see langword="true" />、そうでない場合は
+        <see langword="false" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ResetAnnuallyBoldedDates">
+      <summary>
+        <see cref="P:C1.Win.Calendar.CalendarSettings.AnnuallyBoldedDates" />をクリアします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ShouldSerializeMonthlyBoldedDates">
+      <summary>
+        <see cref="P:C1.Win.Calendar.CalendarSettings.MonthlyBoldedDates" />プロパティを保存するかどうかを示します。
+      </summary>
+      <returns>
+        デフォルトの
+        <see cref="P:C1.Win.Calendar.CalendarSettings.MonthlyBoldedDates" />プロパティ値が変更されている場合は
+        <see langword="true" />、そうでない場合は
+        <see langword="false" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ResetMonthlyBoldedDates">
+      <summary>
+        <see cref="P:C1.Win.Calendar.CalendarSettings.MonthlyBoldedDates" />をクリアします。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.DisabledDates">
+      <summary>無効にする日付を決定する System.DateTime オブジェクトの配列を取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ShouldSerializeDisabledDates">
+      <summary>
+        <see cref="P:C1.Win.Calendar.CalendarSettings.DisabledDates" />プロパティを保存するかどうかを示します。
+      </summary>
+      <returns>
+        デフォルトの
+        <see cref="P:C1.Win.Calendar.CalendarSettings.DisabledDates" />プロパティ値が変更されている場合は
+        <see langword="true" />、そうでない場合は
+        <see langword="false" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.ResetDisabledDates">
+      <summary>
+        <see cref="M:C1.Win.Calendar.CalendarSettings.ResetDisabledDates" />をクリアします。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.ShowToday">
+      <summary>TodayDate プロパティで表される日付をコントロールの下部に表示するかどうかを示す値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.ShowTodayCircle">
+      <summary>今日の日付を丸で囲むかどうかを示す値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.ShowTodayButton">
+      <summary>ドロップダウンカレンダーの［今日］ボタンが表示されるかどうかを指定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.ShowClearButton">
+      <summary>ドロップダウンカレンダーの［クリア］ボタンが表示されるかどうかを指定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.TodayText">
+      <summary>［今日］ボタンのテキストを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.ClearText">
+      <summary>［クリア］ボタンのテキストを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.CalendarWeekRule">
+      <summary>1 年の最初の週を決定するためのルールを指定する値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.ShowWeekNumbers">
+      <summary>月間カレンダーコントロールで各日付行の左に週番号（1 ～ 52）を 表示するかどうかを示す値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.RightToLeft">
+      <summary>コントロールの要素が、右から左に表記されるフォントを使用するロケールをサポートするように配置されているかどうかを示す値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.RightToLeftLayout">
+      <summary>このコントロールを右から左にレイアウトするかどうかを示す値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.TitleNavigation">
+      <summary>カレンダーのタイトルをクリックすることで現在の月と年を変更できるかどうかを示す値を取得または設定します。</summary>
+    </member>
+    <member name="E:C1.Win.Calendar.CalendarSettings.VisualStyleChanged">
+      <summary>VisualStyle プロパティが変更されたときに発生します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.OnVisualStyleChanged(System.EventArgs)">
+      <summary>VisualStyleChanged イベントを呼び出します。</summary>
+      <param name="e">イベント引数。</param>
+    </member>
+    <member name="E:C1.Win.Calendar.CalendarSettings.TodayButtonClick">
+      <summary>［今日］ボタンがクリックされると発生します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.OnTodayButtonClick(System.EventArgs)">
+      <summary>このメソッドは内部使用専用です。</summary>
+      <param name="e"></param>
+    </member>
+    <member name="E:C1.Win.Calendar.CalendarSettings.ClearButtonClick">
+      <summary>［クリア］ボタンがクリックされると発生します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.OnClearButtonClick(System.EventArgs)">
+      <summary>このメソッドは内部使用専用です。</summary>
+      <param name="e"></param>
+    </member>
+    <member name="E:C1.Win.Calendar.CalendarSettings.TodayButtonVisibilityChanged">
+      <summary>［今日］ボタンの表示状態が変更されると発生します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.OnTodayButtonVisibilityChanged(System.EventArgs)">
+      <summary>このメソッドは内部使用専用です。</summary>
+      <param name="e"></param>
+    </member>
+    <member name="E:C1.Win.Calendar.CalendarSettings.ClearButtonVisibilityChanged">
+      <summary>［クリア］ボタンの表示状態が変更されると発生します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.OnClearButtonVisibilityChanged(System.EventArgs)">
+      <summary>このメソッドは内部使用専用です。</summary>
+      <param name="e"></param>
+    </member>
+    <member name="E:C1.Win.Calendar.CalendarSettings.DateValueChanged">
+      <summary>Date プロパティの値が変化すると発生します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.OnDateValueChanged(C1.Win.Calendar.NullableDateTimeEventArgs)">
+      <summary>このメソッドは内部使用専用です。</summary>
+      <param name="e"></param>
+    </member>
+    <member name="E:C1.Win.Calendar.CalendarSettings.DateValueSelected">
+      <summary>ユーザーが Date プロパティの値を選択すると発生します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.OnDateValueSelected(C1.Win.Calendar.NullableDateTimeEventArgs)">
+      <summary>このメソッドは内部使用専用です。</summary>
+      <param name="e"></param>
+    </member>
+    <member name="E:C1.Win.Calendar.CalendarSettings.RightToLeftLayoutChanged">
+      <summary>RightToLeftLayout プロパティの値が変化すると発生します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.OnRightToLeftLayoutChanged(System.EventArgs)">
+      <summary>
+        <see cref="E:C1.Win.Calendar.CalendarSettings.RightToLeftLayoutChanged" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="E:C1.Win.Calendar.CalendarSettings.MonthChanged">
+      <summary>
+        C1DateEdit のドロップダウンカレンダーの月の変更を処理します。
+        <see cref="P:C1.Win.Calendar.CalendarSettings.FirstMonth" />または
+        <see cref="P:C1.Win.Calendar.CalendarSettings.LastMonth" />プロパティの値が変化すると発生します。
+      </summary>
+      <remarks>ユーザーが月の間をスクロール移動したときに月の一部の日付を太字に設定する場合に使用できます。</remarks>
+      <example>
+        次の例では、選択された月に新しい太字の日付を設定します。
+        <code>
+          <![CDATA[
+          private void c1DateEdit1_Calendar_MonthChanged(object sender, EventArgs e)
+          {
+            DateTime dt = c1DateEdit1.Calendar.FirstMonth;
+            c1DateEdit1.Calendar.AddBoldedDate(new DateTime(dt.Year, dt.Month, dt.Month));
+          }
+          ]]>
+        </code>
+      </example>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.OnMonthChanged(System.EventArgs)">
+      <summary>
+        <see cref="E:C1.Win.Calendar.CalendarSettings.MonthChanged" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.AddAnnuallyBoldedDate(System.DateTime)">
+      <summary>月間カレンダーに毎年太字で表示する日を追加します。</summary>
+      <param name="date">太字で表示する日。</param>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.AddBoldedDate(System.DateTime)">
+      <summary>月間カレンダーに太字で表示する日を追加します。</summary>
+      <param name="date">太字で表示する日。</param>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.AddDisabledDate(System.DateTime)">
+      <summary>月間カレンダーで無効にする日を追加します。</summary>
+      <param name="date">無効にする日。</param>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.AddMonthlyBoldedDate(System.DateTime)">
+      <summary>月間カレンダーに毎月太字で表示する日を追加します。</summary>
+      <param name="date">太字で表示する日。</param>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.RemoveAllAnnuallyBoldedDates">
+      <summary>毎年太字で表示する日をすべて削除します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.RemoveAllBoldedDates">
+      <summary>一度だけ太字で表示する日をすべて削除します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.RemoveAllDisabledDates">
+      <summary>無効な日をすべて削除します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.RemoveAllMonthlyBoldedDates">
+      <summary>毎月太字で表示する日をすべて削除します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.RemoveAnnuallyBoldedDate(System.DateTime)">
+      <summary>毎年太字の日のリストから指定した日を削除します。</summary>
+      <param name="date">日付リストから削除する日。</param>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.RemoveBoldedDate(System.DateTime)">
+      <summary>一度だけ太字の日のリストから指定した日を削除します。</summary>
+      <param name="date">日付リストから削除する日。</param>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.RemoveDisabledDate(System.DateTime)">
+      <summary>無効な日のリストから指定した日を削除します。</summary>
+      <param name="date">日付リストから削除する日。</param>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.RemoveMonthlyBoldedDate(System.DateTime)">
+      <summary>毎月太字の日のリストから指定した日を削除します。</summary>
+      <param name="date">日付リストから削除する日。</param>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.SetCalendarDimensions(System.Int32,System.Int32)">
+      <summary>表示する月の列数と行数を設定します。</summary>
+      <param name="x">列の数。</param>
+      <param name="y">行の数。</param>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.SetDate(System.DateTime)">
+      <summary>現在選択された日付とする日付を設定します。</summary>
+      <param name="date">選択する日。</param>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.SetSelectionRange(System.DateTime,System.DateTime)">
+      <summary>月間カレンダーコントロールで選択された日付として指定の日付範囲を設定します。</summary>
+      <param name="date1">選択範囲の開始日。</param>
+      <param name="date2">選択範囲の終了日。</param>
+    </member>
+    <member name="T:C1.Win.Calendar.DropDownCalendar">
+      <summary>ドロップダウンカレンダーピッカーフォームを表します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.DropDownCalendar.#ctor">
+      <summary>DropDownCalendar クラスの新しいインスタンスを初期化します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.DropDownCalendar.Font">
+      <summary>コントロールによって表示されるテキストのフォントを取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.DropDownCalendar.OnPostChanges(System.EventArgs)">
+      <summary>このメソッドは内部使用専用です。</summary>
+      <param name="e"></param>
+    </member>
+    <member name="M:C1.Win.Calendar.DropDownCalendar.Dispose(System.Boolean)">
+      <summary>使用されているリソースをすべてクリーンアップします。</summary>
+      <param name="disposing">マネージリソースを破棄する場合は true、そうでない場合は false。</param>
+    </member>
+    <member name="T:C1.Win.Calendar.NullableDateTimeEventHandler">
+      <summary>DateValueChanged イベントと DateValueSelected イベントを処理するメソッドを表します。</summary>
+      <param name="sender">イベントのソース。</param>
+      <param name="e">イベントデータを含む NullableDateTimeEventArgs オブジェクト。</param>
+    </member>
+    <member name="T:C1.Win.Calendar.NullableDateTimeEventArgs">
+      <summary>DateValueChanged イベントと DateValueSelected イベントのデータを提供します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.NullableDateTimeEventArgs.Date">
+      <summary>日付の値です。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.NullableDateTimeEventArgs.DateIsNull">
+      <summary>日付の値が null の場合は、True に設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.BaseStyle.Padding">
+      <summary>要素の辺とそのコンテンツの間のパディングを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.BaseStyle.Margins">
+      <summary>要素の周囲のマージンの太さを取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.UI.BaseTheme.SubscribeOnStyleChanged(C1.Framework.Style)">
+      <summary>スタイルを変更するイベントをサブスクライブします。</summary>
+      <param name="item">サブスクライブするスタイル。</param>
+    </member>
+    <member name="M:C1.Win.Calendar.UI.BaseTheme.UnsubscribeOnStyleChanged(C1.Framework.Style)">
+      <summary>スタイルを変更するイベントをアンサブスクライブします。</summary>
+      <param name="item">アンサブスクライブするスタイル。</param>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.CommonStyle.VerticalAlignment">
+      <summary>VerticalOrientationLayout が true に設定されている場合に、要素を垂直方向に配置する方法を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.DayTheme.Ordinary">
+      <summary>通常の日のスタイルを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.DayTheme.Trail">
+      <summary>前後の月の日のスタイルを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.DayTheme.Weekend">
+      <summary>基本の週末の日のスタイルを取得または設定します。各週末に独自の定義がされていない場合は、画面に表示されるすべての週末の外観を決定します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.UI.NavigationButtonsTheme.SubscribeOnStyleChanged(C1.Framework.Style)">
+      <summary>スタイルを変更するイベントをサブスクライブします。</summary>
+      <param name="item">サブスクライブするスタイル。</param>
+    </member>
+    <member name="M:C1.Win.Calendar.UI.NavigationButtonsTheme.UnsubscribeOnStyleChanged(C1.Framework.Style)">
+      <summary>スタイルを変更するイベントをアンサブスクライブします。</summary>
+      <param name="item">アンサブスクライブするスタイル。</param>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.TitleTheme.Weekend">
+      <summary>週末タイトルのスタイルを取得または設定します。</summary>
+    </member>
+    <member name="T:C1.CalendarView.WorkDays">
+      <summary>
+        <see cref="T:C1.CalendarView.WorkDays" />クラスは、単一の週の勤務日を指定します。
+      </summary>
+    </member>
+    <member name="M:C1.CalendarView.WorkDays.#ctor">
+      <summary>
+        <see cref="T:C1.CalendarView.WorkDays" />クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.CalendarView.WorkDays.#ctor(System.DayOfWeek[])">
+      <summary>
+        <see cref="T:C1.CalendarView.WorkDays" />クラスの新しいインスタンスを初期化します。
+      </summary>
+      <param name="days">
+        勤務日の
+        <see cref="T:System.DayOfWeek" />配列
+      </param>
+    </member>
+    <member name="P:C1.CalendarView.WorkDays.Days">
+      <summary>
+        勤務日の
+        <see cref="T:System.DayOfWeek" />オブジェクトのリストを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.CalendarView.WorkDays.Sunday">
+      <summary>日曜日を示します。</summary>
+    </member>
+    <member name="M:C1.CalendarView.WorkDays.ShouldSerializeSunday">
+      <summary>
+        <see cref="P:C1.CalendarView.WorkDays.Sunday" />プロパティを保存するかどうかを示します。
+      </summary>
+      <returns>
+        デフォルトの
+        <see cref="P:C1.CalendarView.WorkDays.Sunday" />プロパティ値が変更されている場合は
+        <see langword="true" />、そうでない場合は
+        <see langword="false" />。
+      </returns>
+    </member>
+    <member name="M:C1.CalendarView.WorkDays.ResetSunday">
+      <summary>
+        <see cref="P:C1.CalendarView.WorkDays.Sunday" />をクリアします。
+      </summary>
+    </member>
+    <member name="P:C1.CalendarView.WorkDays.Saturday">
+      <summary>土曜日を示します。</summary>
+    </member>
+    <member name="M:C1.CalendarView.WorkDays.ShouldSerializeSaturday">
+      <summary>
+        <see cref="P:C1.CalendarView.WorkDays.Saturday" />プロパティを保存するかどうかを示します。
+      </summary>
+      <returns>
+        デフォルトの
+        <see cref="P:C1.CalendarView.WorkDays.Saturday" />プロパティ値が変更されている場合は
+        <see langword="true" />、そうでない場合は
+        <see langword="false" />。
+      </returns>
+    </member>
+    <member name="M:C1.CalendarView.WorkDays.ResetSaturday">
+      <summary>
+        <see cref="P:C1.CalendarView.WorkDays.Saturday" />をクリアします。
+      </summary>
+    </member>
+    <member name="P:C1.CalendarView.WorkDays.Monday">
+      <summary>月曜日を示します。</summary>
+    </member>
+    <member name="M:C1.CalendarView.WorkDays.ShouldSerializeMonday">
+      <summary>
+        <see cref="P:C1.CalendarView.WorkDays.Monday" />プロパティを保存するかどうかを示します。
+      </summary>
+      <returns>
+        デフォルトの
+        <see cref="P:C1.CalendarView.WorkDays.Monday" />プロパティ値が変更されている場合は
+        <see langword="true" />、そうでない場合は
+        <see langword="false" />。
+      </returns>
+    </member>
+    <member name="M:C1.CalendarView.WorkDays.ResetMonday">
+      <summary>
+        <see cref="P:C1.CalendarView.WorkDays.Monday" />をクリアします。
+      </summary>
+    </member>
+    <member name="P:C1.CalendarView.WorkDays.Tuesday">
+      <summary>火曜日を示します。</summary>
+    </member>
+    <member name="M:C1.CalendarView.WorkDays.ShouldSerializeTuesday">
+      <summary>
+        <see cref="P:C1.CalendarView.WorkDays.Tuesday" />プロパティを保存するかどうかを示します。
+      </summary>
+      <returns>
+        デフォルトの
+        <see cref="P:C1.CalendarView.WorkDays.Tuesday" />プロパティ値が変更されている場合は
+        <see langword="true" />、そうでない場合は
+        <see langword="false" />。
+      </returns>
+    </member>
+    <member name="M:C1.CalendarView.WorkDays.ResetTuesday">
+      <summary>
+        <see cref="P:C1.CalendarView.WorkDays.Tuesday" />をクリアします。
+      </summary>
+    </member>
+    <member name="P:C1.CalendarView.WorkDays.Wednesday">
+      <summary>水曜日を示します。</summary>
+    </member>
+    <member name="M:C1.CalendarView.WorkDays.ShouldSerializeWednesday">
+      <summary>
+        <see cref="P:C1.CalendarView.WorkDays.Wednesday" />プロパティを保存するかどうかを示します。
+      </summary>
+      <returns>
+        デフォルトの
+        <see cref="P:C1.CalendarView.WorkDays.Wednesday" />プロパティ値が変更されている場合は
+        <see langword="true" />、そうでない場合は
+        <see langword="false" />。
+      </returns>
+    </member>
+    <member name="M:C1.CalendarView.WorkDays.ResetWednesday">
+      <summary>
+        <see cref="P:C1.CalendarView.WorkDays.Wednesday" />をクリアします。
+      </summary>
+    </member>
+    <member name="P:C1.CalendarView.WorkDays.Thursday">
+      <summary>木曜日を示します。</summary>
+    </member>
+    <member name="M:C1.CalendarView.WorkDays.ShouldSerializeThursday">
+      <summary>
+        <see cref="P:C1.CalendarView.WorkDays.Thursday" />プロパティを保存するかどうかを示します。
+      </summary>
+      <returns>
+        デフォルトの
+        <see cref="P:C1.CalendarView.WorkDays.Thursday" />プロパティ値が変更されている場合は
+        <see langword="true" />、そうでない場合は
+        <see langword="false" />。
+      </returns>
+    </member>
+    <member name="M:C1.CalendarView.WorkDays.ResetThursday">
+      <summary>
+        <see cref="P:C1.CalendarView.WorkDays.Thursday" />をクリアします。
+      </summary>
+    </member>
+    <member name="P:C1.CalendarView.WorkDays.Friday">
+      <summary>金曜日を示します。</summary>
+    </member>
+    <member name="M:C1.CalendarView.WorkDays.ShouldSerializeFriday">
+      <summary>
+        <see cref="P:C1.CalendarView.WorkDays.Friday" />プロパティを保存するかどうかを示します。
+      </summary>
+      <returns>
+        デフォルトの
+        <see cref="P:C1.CalendarView.WorkDays.Friday" />プロパティ値が変更されている場合は
+        <see langword="true" />、そうでない場合は
+        <see langword="false" />。
+      </returns>
+    </member>
+    <member name="M:C1.CalendarView.WorkDays.ResetFriday">
+      <summary>
+        <see cref="P:C1.CalendarView.WorkDays.Friday" />をクリアします。
+      </summary>
+    </member>
+    <member name="M:C1.CalendarView.WorkDays.IsSelected(System.DayOfWeek)">
+      <summary>指定された曜日が勤務日として選択されているかどうかを示す値を取得します。</summary>
+      <param name="day">
+        指定された
+        <see cref="T:System.DayOfWeek" />の曜日。
+      </param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.CalendarView.WorkDays.SetDay(System.DayOfWeek,System.Boolean)">
+      <summary>
+        指定された
+        <see cref="T:System.DayOfWeek" />の曜日を設定します。
+      </summary>
+      <param name="day">
+        指定された
+        <see cref="T:System.DayOfWeek" />の曜日。
+      </param>
+      <param name="value">true の場合は、曜日が勤務日として設定されます。false の場合は、勤務日から曜日が削除されます。</param>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.SelectionRule">
+      <summary>
+        選択された日付の動作を決定する
+        <see cref="P:C1.Win.Calendar.C1CalendarView.SelectionRule" />値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.Calendar">
+      <summary>
+        コントロールを縦横に仕切って時間を表す
+        <see cref="T:System.Globalization.Calendar" />オブジェクトを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.C1CalendarView.CurrentCulture">
+      <summary>カレンダーの現在のカルチャを取得または設定します。</summary>
+    </member>
+    <member name="M:C1.Win.Calendar.C1DateEdit.Dispose(System.Boolean)">
+      <summary>C1DateEdit によって使用されたリソースを解放します。</summary>
+      <param name="disposing">
+        マネージリソースとアンマネージリソースの両方を解放する場合は、
+        <b>true</b>。アンマネージリソースだけを解放する場合は、
+        <b>false</b>。
+      </param>
+    </member>
+    <member name="M:C1.Win.Calendar.C1DateEdit.SetCultureInfo(System.Globalization.CultureInfo)">
+      <summary>カルチャを設定します。</summary>
+      <param name="cultureInfo">新しいカルチャ。</param>
+    </member>
+    <member name="T:C1.CalendarView.SelectionRule">
+      <summary>月ナビゲーションのオプション</summary>
+    </member>
+    <member name="F:C1.CalendarView.SelectionRule.EnumerationNone">
+      <summary>ナビゲーション中に選択を維持します。</summary>
+    </member>
+    <member name="F:C1.CalendarView.SelectionRule.EnumerationSameDay">
+      <summary>ナビゲーション中に選択を月の同じ日に移動します。</summary>
+    </member>
+    <member name="F:C1.CalendarView.SelectionRule.EnumerationFirstDay">
+      <summary>ナビゲーション中に月の最初の日を選択します。</summary>
+    </member>
+    <member name="F:C1.CalendarView.SelectionRule.EnumerationLastDays">
+      <summary>ナビゲーション中に月の最後の日を選択します。</summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.TitleTheme.Today">
+      <summary>
+        今日のキャプションのスタイルを取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Calendar.UI.TodayCaptionStyle">
+      <summary>
+        <see cref="T:C1.Win.Calendar.UI.TodayCaptionStyle" /> クラスには、画面内の
+        <see cref="T:C1.Win.Calendar.C1CalendarView" /> の今日のキャプションの外観を決定する表示属性が含まれます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.TodayCaptionStyle.Font">
+      <summary>
+        TodayCaption 要素のテキストフォントを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.UI.TodayCaptionStyle.ForeColor">
+      <summary>
+        TodayCaption 要素のテキストの描画に使用される <see cref="T:System.Drawing.Color" /> を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.ShowToolTips">
+      <summary>
+        <see cref="T:C1.Win.Calendar.C1DateEdit" /> がツールチップを表示するかどうかを取得または設定します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.Calendar.CalendarSettings.BeforeDayTooltipShow">
+      <summary>
+        日ツールチップが表示される前に発生します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Calendar.CalendarSettings.OnBeforeDayTooltipShow(C1.Win.Calendar.BeforeDayTooltipShowEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.Calendar.CalendarSettings.BeforeDayTooltipShow" /> イベントを発生させます。
+      </summary>
+      <param name="e"></param>
+    </member>
+    <member name="M:C1.Win.Calendar.C1DateEdit.OnFontChanged(System.EventArgs)">
+      <summary>
+        System.Windows.Forms.Control.FontChanged イベントを発生させます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Calendar.CalendarSettings.WeekNumbersFont">
+      <summary>
+        週数のフォントを取得または設定します。
+      </summary>
+    </member>
+  </members>
+</doc>

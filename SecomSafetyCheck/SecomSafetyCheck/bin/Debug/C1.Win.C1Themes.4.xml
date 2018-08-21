@@ -1,0 +1,3790 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>C1.Win.C1Themes.4</name>
+  </assembly>
+  <members>
+    <member name="T:C1.Win.C1Themes.BackgroundPictureDrawModeEnum">
+      <summary>使用場所：C1TrueDBGrid\Style</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.BackgroundPictureDrawModeEnum.Center">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.BackgroundPictureDrawModeEnum.Stretch">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.BackgroundPictureDrawModeEnum.Tile">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.BorderType">
+      <summary>使用場所：C1TrueDBGrid\GridBorder</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.BorderType.None">
+      <summary>境界線なし。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.BorderType.Flat">
+      <summary>境界線の外観はフラットになります。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.BorderType.Raised">
+      <summary>境界線の外観は浮き出た 3D になります。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.BorderType.Inset">
+      <summary>境界線の外観は内部がくぼんだ 3D になります。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.BorderType.Groove">
+      <summary>境界線の内側の線。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.BorderType.Fillet">
+      <summary>フィレットタイプの境界線。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.BorderType.RaisedBevel">
+      <summary>境界線は、斜影付きの浮き出た 3D です。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.BorderType.InsetBevel">
+      <summary>境界線は、斜影付きの内部がくぼんだ 3D です。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ForegroundPicturePosition">
+      <summary>使用場所：C1TrueDBGrid\Style</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ForegroundPicturePosition.Near">
+      <summary>画像はセルの近い側にレンダリングされます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ForegroundPicturePosition.Far">
+      <summary>画像はセルの遠い側にレンダリングされます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ForegroundPicturePosition.LeftOfText">
+      <summary>画像はセルのテキストの左にレンダリングされます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ForegroundPicturePosition.RightOfText">
+      <summary>画像はセルのテキストの右にレンダリングされます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ForegroundPicturePosition.TopOfText">
+      <summary>画像はセルのテキストの上にレンダリングされます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ForegroundPicturePosition.BottomOfText">
+      <summary>画像はセルのテキストの下にレンダリングされます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ForegroundPicturePosition.PictureOnly">
+      <summary>テキストは表示されません。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ForegroundPicturePosition.TextOnly">
+      <summary>画像は表示されません。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.AlignHorzEnum">
+      <summary>使用場所：C1TrueDBGrid\Style</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.AlignHorzEnum.General">
+      <summary>テキストは Near、数値は Far に配置されます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.AlignHorzEnum.Near">
+      <summary>テキストは左に揃えられます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.AlignHorzEnum.Center">
+      <summary>テキストは中央に揃えられます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.AlignHorzEnum.Far">
+      <summary>テキストは右に揃えられます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.AlignHorzEnum.Justify">
+      <summary>テキストは、セルの境界線に揃えられます。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.AlignVertEnum">
+      <summary>使用場所：C1TrueDBGrid\Style</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.AlignVertEnum.Top">
+      <summary>テキストはセルの上にレンダリングされます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.AlignVertEnum.Center">
+      <summary>テキストはセルの中央にレンダリングされます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.AlignVertEnum.Bottom">
+      <summary>テキストはセルの下にレンダリングされます。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.LineStyle">
+      <summary>使用場所：C1TrueDBGrid\GridLines</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.LineStyle.None">
+      <summary>線なし。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.LineStyle.Single">
+      <summary>実線。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.LineStyle.Double">
+      <summary>二重線。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.LineStyle.Raised">
+      <summary>浮き出た 3D の線。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.LineStyle.Inset">
+      <summary>内部がくぼんだ 3D の線。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.PaletteType">
+      <summary>使用場所：C1Schedule\PaletteType</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.PaletteType.Office2007">
+      <summary>Office 2007 パレットには、空き時間数/日数、勤務時間数/日数、日付ヘッダー、グリッド境界線、カレンダータブの 背景色と境界線色が含まれています。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.PaletteType.Office2010">
+      <summary>Office 2010 パレットには、空き時間数/日数、勤務時間数/日数、日付ヘッダー、グリッド境界線、カレンダータブの 背景色と境界線色が含まれています。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.BackgroundGradient">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.BackgroundGradient.None">
+      <summary>背景グラデーションを使用しません。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.BackgroundGradient.Automatic">
+      <summary>現在のシステムビジュアルスタイルと一致するグラデーションを使用します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.BackgroundGradient.Silver">
+      <summary>シルバーの背景グラデーションを使用します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.BackgroundGradient.Blue">
+      <summary>青色の背景グラデーションを使用します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.BackgroundGradient.Gold">
+      <summary>ゴールドの背景グラデーションを使用します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.BackgroundGradient.Olive">
+      <summary>オリーブ色の背景グラデーションを使用します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.BackgroundGradient.Vista">
+      <summary>Vista 形式の背景グラデーションを使用します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.GradientMode">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.GradientMode.None">
+      <summary>グラデーションなし。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.GradientMode.Horizontal">
+      <summary>水平グラデーション（左から右）。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.GradientMode.Vertical">
+      <summary>垂直グラデーション（上から下）。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.GradientMode.DiagonalDown">
+      <summary>斜めグラデーション（左上から右下）。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.GradientMode.DiagonalUp">
+      <summary>斜めグラデーション（左下から右上）。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.GradientMode.Radial">
+      <summary>放射状グラデーション。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ImageAlignment">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ImageAlignment.LeftTop">
+      <summary>画像は、垂直方向には上揃えで、水平方向には左揃えで配置されます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ImageAlignment.CenterTop">
+      <summary>画像は、垂直方向には上揃えで、水平方向には中央揃えで配置されます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ImageAlignment.RightTop">
+      <summary>画像は、垂直方向には上揃えで、水平方向には右揃えで配置されます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ImageAlignment.LeftCenter">
+      <summary>画像は、垂直方法には中央揃えで、水平方向には左揃えで配置されます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ImageAlignment.CenterCenter">
+      <summary>画像は、垂直方法には中央揃えで、水平方向には中央揃えで配置されます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ImageAlignment.RightCenter">
+      <summary>画像は、垂直方法には中央揃えで、水平方向には右揃えで配置されます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ImageAlignment.LeftBottom">
+      <summary>画像は、垂直方向には下揃えで、水平方向には左揃えで配置されます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ImageAlignment.CenterBottom">
+      <summary>画像は、垂直方向には下揃えで、水平方向には中央揃えで配置されます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ImageAlignment.RightBottom">
+      <summary>画像は、垂直方向には下揃えで、水平方向には右揃えで配置されます。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ImageScaling">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ImageScaling.Clip">
+      <summary>画像の元のサイズを使用します。必要に応じて、表示領域でクリッピングします。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ImageScaling.Stretch">
+      <summary>表示領域全体に画像を引き伸ばします。このモードでは、通常、画像のアスペクト比が変化します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ImageScaling.Scale">
+      <summary>表示領域に合わせて画像を拡大縮小します。このモードでは、画像のサイズが変化しますが、アスペクト比は維持されます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ImageScaling.Tile">
+      <summary>表示領域全体に画像をタイル表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ImageScaling.TileStretch">
+      <summary>画像を３行３列にタイル表示し、表示領域全体に引き伸ばします。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ImageScaling.TileStretchHorizontal">
+      <summary>画像を横に３枚タイル表示し、表示領域全体に引き伸ばします。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ImageScaling.TileStretchVertical">
+      <summary>画像を縦に３枚タイル表示し、表示領域全体に引き伸ばします。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ImageScaling.Hide">
+      <summary>画像を非表示にします。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Alignment">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Alignment.NotSet">
+      <summary>デフォルト値。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Alignment.Near">
+      <summary>近く。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Alignment.Far">
+      <summary>遠く。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Alignment.Center">
+      <summary>中央。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Alignment.Spread">
+      <summary>拡散。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.TextDirection">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.TextDirection.Normal">
+      <summary>テキストは、左から右に水平方向に描画されます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.TextDirection.Up">
+      <summary>テキストは、下から上に垂直方向に描画されます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.TextDirection.Down">
+      <summary>テキストは、上から下に垂直方向に描画されます。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.RadialMenuTooltipPosition">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.RadialMenuTooltipPosition.None">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.RadialMenuTooltipPosition.Left">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.RadialMenuTooltipPosition.Top">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.RadialMenuTooltipPosition.Right">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.RadialMenuTooltipPosition.Bottom">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ImageSetEnum">
+      <summary>プレビューアクションのツールバー画像として使用される画像セット を記述します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ImageSetEnum.Classic">
+      <summary>クラシック画像セット。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ImageSetEnum.XP">
+      <summary>XP 画像セット。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ImageSetEnum.XP2">
+      <summary>XP 代替画像セット。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ImageSetEnum.XP3">
+      <summary>XP 第２代替画像セット。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ImageSetEnum.Adobe">
+      <summary>Adobe 画像セット。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ImageSetEnum.OsX">
+      <summary>Os X 画像セット。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ImageSetEnum.Original">
+      <summary>オリジナル（C1Preview の「クラシック」）画像セット。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Flex_BorderDirEnum">
+      <summary>C1.Win.C1FlexGrid.BorderDirEnum</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_BorderDirEnum.Both">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_BorderDirEnum.Horizontal">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_BorderDirEnum.Vertical">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Flex_BorderStyleEnum">
+      <summary>C1.Win.C1FlexGrid.BorderStyleEnum</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_BorderStyleEnum.None">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_BorderStyleEnum.Flat">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_BorderStyleEnum.Double">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_BorderStyleEnum.Raised">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_BorderStyleEnum.Inset">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_BorderStyleEnum.Groove">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_BorderStyleEnum.Fillet">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_BorderStyleEnum.Dotted">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Flex_DisplayEnum">
+      <summary>C1.Win.C1FlexGrid.DisplayEnum</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_DisplayEnum.TextOnly">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_DisplayEnum.ImageOnly">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_DisplayEnum.Overlay">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_DisplayEnum.Stack">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_DisplayEnum.None">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Flex_ImageAlignEnum">
+      <summary>C1.Win.C1FlexGrid.ImageAlignEnum</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_ImageAlignEnum.LeftTop">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_ImageAlignEnum.LeftCenter">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_ImageAlignEnum.LeftBottom">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_ImageAlignEnum.CenterTop">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_ImageAlignEnum.CenterCenter">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_ImageAlignEnum.CenterBottom">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_ImageAlignEnum.RightTop">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_ImageAlignEnum.RightCenter">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_ImageAlignEnum.RightBottom">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_ImageAlignEnum.Scale">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_ImageAlignEnum.Stretch">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_ImageAlignEnum.Tile">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_ImageAlignEnum.Hide">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_ImageAlignEnum.TileStretch">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Flex_TextAlignEnum">
+      <summary>C1.Win.C1FlexGrid.TextAlignEnum</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_TextAlignEnum.LeftTop">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_TextAlignEnum.LeftCenter">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_TextAlignEnum.LeftBottom">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_TextAlignEnum.CenterTop">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_TextAlignEnum.CenterCenter">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_TextAlignEnum.CenterBottom">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_TextAlignEnum.RightTop">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_TextAlignEnum.RightCenter">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_TextAlignEnum.RightBottom">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_TextAlignEnum.GeneralTop">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_TextAlignEnum.GeneralCenter">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_TextAlignEnum.GeneralBottom">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Flex_TextDirectionEnum">
+      <summary>C1.Win.C1FlexGrid.TextDirectionEnum</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_TextDirectionEnum.Normal">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_TextDirectionEnum.Up">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_TextDirectionEnum.Down">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Flex_TextEffectEnum">
+      <summary>C1.Win.C1FlexGrid.TextEffectEnum</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_TextEffectEnum.Flat">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_TextEffectEnum.Raised">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_TextEffectEnum.Inset">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Flex_TreeStyleFlags">
+      <summary>C1.Win.C1FlexGrid.TreeStyleFlags</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_TreeStyleFlags.None">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_TreeStyleFlags.Lines">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_TreeStyleFlags.Symbols">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_TreeStyleFlags.ButtonBar">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_TreeStyleFlags.Leaf">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_TreeStyleFlags.Complete">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_TreeStyleFlags.Simple">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_TreeStyleFlags.CompleteLeaf">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_TreeStyleFlags.SimpleLeaf">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Flex_FocusRectEnum">
+      <summary>C1.Win.C1FlexGrid.FocusRectEnum</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_FocusRectEnum.None">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_FocusRectEnum.Light">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_FocusRectEnum.Heavy">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_FocusRectEnum.Solid">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_FocusRectEnum.Raised">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Flex_FocusRectEnum.Inset">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Gantt_BarShape">
+      <summary>C1.Win.C1GanttView.BarShape</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_BarShape.None">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_BarShape.ThickBar">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_BarShape.TopBar">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_BarShape.MiddleBar">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_BarShape.BottomBar">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_BarShape.TopLine">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_BarShape.MiddleLine">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_BarShape.BottomLine">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Gantt_HatchPattern">
+      <summary>C1.Win.C1GanttView.HatchPattern</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_HatchPattern.Empty">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_HatchPattern.SolidBrush">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_HatchPattern.Gradient">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_HatchPattern.Percent25">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_HatchPattern.Percent50">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_HatchPattern.Percent70">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_HatchPattern.ForwardDiagonal">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_HatchPattern.BackwardDiagonal">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_HatchPattern.DiagonalCross">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_HatchPattern.Vertical">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_HatchPattern.Horizontal">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_HatchPattern.NarrowVertical">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_HatchPattern.NarrowHorizontal">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_HatchPattern.Confetti">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_HatchPattern.ZigZag">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Gantt_TaskProperty">
+      <summary>C1.Win.C1GanttView.TaskProperty</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_TaskProperty.None">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_TaskProperty.Name">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_TaskProperty.Mode">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_TaskProperty.Calendar">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_TaskProperty.Duration">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_TaskProperty.DurationUnits">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_TaskProperty.Start">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_TaskProperty.Finish">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_TaskProperty.PercentComplete">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_TaskProperty.Deadline">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_TaskProperty.ConstraintType">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_TaskProperty.ConstraintDate">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_TaskProperty.Predecessors">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_TaskProperty.ResourceNames">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_TaskProperty.Notes">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Gantt_ProgressLineStyle">
+      <summary>C1.Win.C1GanttView.ProgressLineStyle</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_ProgressLineStyle.None">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_ProgressLineStyle.Solid">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_ProgressLineStyle.Dash">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_ProgressLineStyle.Dot">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_ProgressLineStyle.DashDot">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_ProgressLineStyle.DashDotDot">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Ribbon_ThemeColor">
+      <summary>C1.Win.C1Ribbon.ThemeColor</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Ribbon_ThemeColor.Azure">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Ribbon_ThemeColor.Blue">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Ribbon_ThemeColor.Green">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Ribbon_ThemeColor.Orange">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Ribbon_ThemeColor.Orchid">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Ribbon_ThemeColor.Red">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Ribbon_ThemeColor.Teal">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Ribbon_ThemeColor.Violet">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Ribbon_ThemeLightness">
+      <summary>C1.Win.C1Ribbon.ThemeLightness</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Ribbon_ThemeLightness.DarkGray">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Ribbon_ThemeLightness.LightGray">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Ribbon_ThemeLightness.White">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Chart_ColorGeneration">
+      <summary>C1.Win.C1Chart.ColorGeneration</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_ColorGeneration.CopyCurrentToCustom">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_ColorGeneration.Custom">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_ColorGeneration.Standard">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_ColorGeneration.Office">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_ColorGeneration.GrayScale">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_ColorGeneration.Apex">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_ColorGeneration.Aspect">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_ColorGeneration.Civic">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_ColorGeneration.Concourse">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_ColorGeneration.Equity">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_ColorGeneration.Flow">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_ColorGeneration.Foundry">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_ColorGeneration.Median">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_ColorGeneration.Metro">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_ColorGeneration.Module">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_ColorGeneration.Opulent">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_ColorGeneration.Oriel">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_ColorGeneration.Origin">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_ColorGeneration.Paper">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_ColorGeneration.Solstice">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_ColorGeneration.Technic">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_ColorGeneration.Trek">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_ColorGeneration.Urban">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_ColorGeneration.Verve">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Chart_GradientStyleEnum">
+      <summary>C1.Win.C1Chart.GradientStyleEnum</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_GradientStyleEnum.None">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_GradientStyleEnum.Horizontal">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_GradientStyleEnum.HorizontalCenter">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_GradientStyleEnum.Vertical">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_GradientStyleEnum.VerticalCenter">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_GradientStyleEnum.Diagonal">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_GradientStyleEnum.DiagonalCenter">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_GradientStyleEnum.DiagonalBack">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_GradientStyleEnum.DiagonalBackCenter">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_GradientStyleEnum.Radial">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_GradientStyleEnum.FromCenter">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Chart_HatchStyleEnum">
+      <summary>C1.Win.C1Chart.HatchStyleEnum</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.None">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.Horizontal">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.Vertical">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.ForwardDiagonal">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.BackwardDiagonal">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.Cross">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.DiagonalCross">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.Percent05">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.Percent10">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.Percent20">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.Percent25">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.Percent30">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.Percent40">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.Percent50">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.Percent60">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.Percent70">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.Percent75">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.Percent80">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.Percent90">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.LightDownwardDiagonal">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.LightUpwardDiagonal">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.DarkDownwardDiagonal">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.DarkUpwardDiagonal">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.WideDownwardDiagonal">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.WideUpwardDiagonal">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.LightVertical">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.LightHorizontal">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.NarrowVertical">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.NarrowHorizontal">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.DarkVertical">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.DarkHorizontal">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.DashedDownwardDiagonal">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.DashedUpwardDiagonal">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.DashedHorizontal">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.DashedVertical">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.SmallConfetti">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.LargeConfetti">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.ZigZag">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.Wave">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.DiagonalBrick">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.HorizontalBrick">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.Weave">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.Plaid">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.Divot">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.DottedGrid">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.DottedDiamond">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.Shingle">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.Trellis">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.Sphere">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.SmallGrid">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.SmallCheckerBoard">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.LargeCheckerBoard">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.OutlinedDiamond">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_HatchStyleEnum.SolidDiamond">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Chart_AlignImageEnum">
+      <summary>C1.Win.C1Chart.AlignImageEnum</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_AlignImageEnum.Hide">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_AlignImageEnum.Left">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_AlignImageEnum.Right">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_AlignImageEnum.Top">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_AlignImageEnum.Bottom">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_AlignImageEnum.Center">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_AlignImageEnum.Scale">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_AlignImageEnum.Stretch">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_AlignImageEnum.Tile">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Chart_RotationEnum">
+      <summary>C1.Win.C1Chart.RotationEnum</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_RotationEnum.Rotate0">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_RotationEnum.Rotate90">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_RotationEnum.Rotate180">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_RotationEnum.Rotate270">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Chart_BorderStyleEnum">
+      <summary>C1.Win.C1Chart.BorderStyleEnum</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_BorderStyleEnum.NotSet">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_BorderStyleEnum.None">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_BorderStyleEnum.Empty">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_BorderStyleEnum.Solid">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_BorderStyleEnum.Raised">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_BorderStyleEnum.Inset">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_BorderStyleEnum.RaisedBevel">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_BorderStyleEnum.InsetBevel">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_BorderStyleEnum.Groove">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_BorderStyleEnum.Fillet">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_BorderStyleEnum.Double">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_BorderStyleEnum.Dashed">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Chart_BorderStyleEnum.Opaque">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeVisualStyle">
+      <summary>すべての C1 コントロールに共通の VisualStyle。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ThemeVisualStyle.Custom">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ThemeVisualStyle.System">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ThemeVisualStyle.Office2007Blue">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ThemeVisualStyle.Office2007Black">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ThemeVisualStyle.Office2007Silver">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ThemeVisualStyle.Office2010Blue">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ThemeVisualStyle.Office2010Black">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ThemeVisualStyle.Office2010Silver">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ThemeVisualStyle.Windows7">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ThemeVisualStyle.WinXPBlue">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ThemeVisualStyle.WinXPSilver">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ThemeVisualStyle.WinXPOlive">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ThemeVisualStyle.Royale">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ThemeVisualStyle.Yahoo">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ThemeVisualStyle.Aero">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ThemeVisualStyle.Office2003Blue">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ThemeVisualStyle.Office2003Olive">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ThemeVisualStyle.Office2003Silver">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ThemeVisualStyle.OfficeXP">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ThemeVisualStyle.Classic">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ThemeVisualStyle.WindowsXP">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.IC1ThemeControl">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.IC1ThemeControl.ThemeChanged(System.Object)">
+      <summary>内部使用。</summary>
+      <param name="theme"></param>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeBrushBase">
+      <summary>
+        テーマに含まれるブラシを表すすべてのクラスの抽象基本クラス。実際に一致する GDI+ ブラシを取得するには、
+        <see cref="M:C1.Win.C1Themes.ThemeBrushBase.GetBrush(System.Drawing.Rectangle)" />メソッドを使用します。
+        <see cref="T:C1.Win.C1Themes.ThemeBrushBase" />から派生されたクラスは、Equals() および GetHashCode() メソッドをオーバーライドし、参照ではなくコンテンツに基づいてオブジェクトを比較します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Serialization.ISerializable">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeBrushBase.EncodeValues(C1.Win.C1Themes.Utils.ValuesStore)">
+      <summary>内部使用。</summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeBrushBase.DecodeValues(C1.Win.C1Themes.Utils.ValuesStore)">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeBrushBase.AssignFrom(C1.Win.C1Themes.ThemeBrushBase)">
+      <summary>
+        プロパティを別の
+        <see cref="T:C1.Win.C1Themes.ThemeBrushBase" />から現在のオブジェクトに割り当てます（コピーします）。
+      </summary>
+      <param name="source">プロパティのコピー元のオブジェクト。</param>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeBrushBase.Clone">
+      <summary>
+        この
+        <see cref="T:C1.Win.C1Themes.ThemeBrushBase" />の正確なコピーを作成します。
+      </summary>
+      <returns>
+        このメソッドが作成する
+        <see cref="T:C1.Win.C1Themes.ThemeBrushBase" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeBrushBase.GetBrush(System.Drawing.Rectangle)">
+      <summary>テーマブラシと一致する GDI+ ブラシを返します。このブラシが不要になった場合は、呼び出し元がブラシを破棄する必要があります。</summary>
+      <param name="brushRect">ブラシの四角形（グラデーションブラシで使用）。</param>
+      <returns>
+        GDI+
+        <see cref="T:System.Drawing.Brush" />オブジェクト。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeBrushBase.DependOnRect">
+      <summary>
+        このテーマブラシ用に作成された GDI+ ブラシが、
+        <see cref="M:C1.Win.C1Themes.ThemeBrushBase.GetBrush(System.Drawing.Rectangle)" />メソッドに渡された四角形に依存する場合は true を返します。たとえば、グラデーションブラシはこのメソッドで true を返しますが、単色ブラシは false を返します。
+      </summary>
+      <returns>GDI+ ブラシがアプリケーション領域に依存する場合は true、そうでない場合は false。</returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeBrushBase.EncodeToString">
+      <summary>
+        この
+        <see cref="T:C1.Win.C1Themes.ThemeBrushBase" />オブジェクトを文字列にエンコードします。
+      </summary>
+      <returns>
+        この
+        <see cref="T:C1.Win.C1Themes.ThemeBrushBase" />オブジェクトを表す文字列。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeBrushBase.IsBrushesEqual(C1.Win.C1Themes.ThemeBrushBase,C1.Win.C1Themes.ThemeBrushBase)">
+      <summary>
+        ２つの
+        <see cref="T:C1.Win.C1Themes.ThemeBrushBase" />オブジェクトの値が等しいかどうか（完全に同じように記述されているテーマブラシかどうか）をチェックします。
+      </summary>
+      <param name="tb1">
+        最初の
+        <see cref="T:C1.Win.C1Themes.ThemeBrushBase" />オブジェクト。
+      </param>
+      <param name="tb2">
+        ２番目の
+        <see cref="T:C1.Win.C1Themes.ThemeBrushBase" />オブジェクト。
+      </param>
+      <returns>２つのブラシが等しい場合、または両方とも null の場合は true。</returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeBrushBase.TryDecodeFromString(System.String,C1.Win.C1Themes.ThemeBrushBase@)">
+      <summary>
+        指定された文字列から
+        <see cref="T:C1.Win.C1Themes.ThemeBrushBase" />オブジェクトを作成します。
+      </summary>
+      <param name="s">
+        <see cref="T:C1.Win.C1Themes.ThemeBrushBase" />オブジェクトを表す文字列。
+      </param>
+      <param name="value">
+        文字列から作成される
+        <see cref="T:C1.Win.C1Themes.ThemeBrushBase" />オブジェクト。
+      </param>
+      <returns>文字列が正常に解析された場合は true、そうでない場合は false。</returns>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeSolidBrush">
+      <summary>単色テーマブラシを表します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeSolidBrush.EncodeValues(C1.Win.C1Themes.Utils.ValuesStore)">
+      <summary>内部使用。</summary>
+      <param name="store"></param>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeSolidBrush.DecodeValues(C1.Win.C1Themes.Utils.ValuesStore)">
+      <summary>内部使用。</summary>
+      <param name="store"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeSolidBrush.AssignFrom(C1.Win.C1Themes.ThemeBrushBase)">
+      <summary>
+        プロパティを別の
+        <see cref="T:C1.Win.C1Themes.ThemeBrushBase" />から現在のオブジェクトに割り当てる（コピーする）ためにオーバーライドされます。
+      </summary>
+      <param name="source">プロパティのコピー元のオブジェクト。</param>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeSolidBrush.GetBrush(System.Drawing.Rectangle)">
+      <summary>
+        この
+        <see cref="T:C1.Win.C1Themes.ThemeSolidBrush" />オブジェクトと一致する GDI+
+        <see cref="T:System.Drawing.SolidBrush" />を作成するためにオーバーライドされます。色が指定されていないか透明な場合は、null を返します。
+      </summary>
+      <param name="brushRect">ブラシの対象アプリケーション領域（無視されます）。</param>
+      <returns>
+        <see cref="T:System.Drawing.SolidBrush" />オブジェクト。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeSolidBrush.DependOnRect">
+      <summary>内部使用。</summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeSolidBrush.GetHashCode">
+      <summary>内部使用。</summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeSolidBrush.Equals(System.Object)">
+      <summary>内部使用。</summary>
+      <param name="obj"></param>
+      <returns></returns>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeSolidBrush.Color">
+      <summary>この単色ブラシの色を取得または設定します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeGradientBrush">
+      <summary>グラデーションテーマブラシの抽象基本クラス。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeGradientBrush.DependOnRect">
+      <summary>内部使用。</summary>
+      <returns></returns>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeLinearBrush">
+      <summary>直線グラデーションテーマブラシの抽象基本クラス。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeLinearBrush.EncodeValues(C1.Win.C1Themes.Utils.ValuesStore)">
+      <summary>内部使用。</summary>
+      <param name="store"></param>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeLinearBrush.DecodeValues(C1.Win.C1Themes.Utils.ValuesStore)">
+      <summary>内部使用。</summary>
+      <param name="store"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeLinearBrush.AssignFrom(C1.Win.C1Themes.ThemeBrushBase)">
+      <summary>
+        プロパティを別の
+        <see cref="T:C1.Win.C1Themes.ThemeBrushBase" />から現在のオブジェクトに割り当てる（コピーする）ためにオーバーライドされます。
+      </summary>
+      <param name="source">プロパティのコピー元のオブジェクト。</param>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeLinearBrush.GammaCorrection">
+      <summary>ガンマ修正が有効かどうかを示す値を取得または設定します。LinearGradientBrush.GammaCorrection と同じです。</summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeLinearBrush.Angle">
+      <summary>グラデーションの方向線の角度を取得または設定します。これは、x 軸から時計回りに度単位で測定されます。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeTwoColorLinearBrush">
+      <summary>
+        開始色、終了色、および
+        <see cref="P:C1.Win.C1Themes.ThemeTwoColorLinearBrush.Blend" />オブジェクトに基づく 直線グラデーションブラシを表します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeTwoColorLinearBrush.EncodeValues(C1.Win.C1Themes.Utils.ValuesStore)">
+      <summary>内部使用。</summary>
+      <param name="store"></param>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeTwoColorLinearBrush.DecodeValues(C1.Win.C1Themes.Utils.ValuesStore)">
+      <summary>内部使用。</summary>
+      <param name="store"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeTwoColorLinearBrush.AssignFrom(C1.Win.C1Themes.ThemeBrushBase)">
+      <summary>
+        プロパティを別の
+        <see cref="T:C1.Win.C1Themes.ThemeBrushBase" />から現在のオブジェクトに割り当てる（コピーする）ためにオーバーライドされます。
+      </summary>
+      <param name="source">プロパティのコピー元のオブジェクト。</param>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeTwoColorLinearBrush.GetBrush(System.Drawing.Rectangle)">
+      <summary>
+        この
+        <see cref="T:C1.Win.C1Themes.ThemeTwoColorLinearBrush" />オブジェクトと一致する
+        <see cref="T:System.Drawing.Drawing2D.LinearGradientBrush" />を作成するためにオーバーライドされます。
+      </summary>
+      <param name="brushRect">グラデーションの四角形。</param>
+      <returns>
+        <see cref="T:System.Drawing.Drawing2D.LinearGradientBrush" />オブジェクト。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeTwoColorLinearBrush.GetHashCode">
+      <summary>内部使用。</summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeTwoColorLinearBrush.Equals(System.Object)">
+      <summary>内部使用。</summary>
+      <param name="obj"></param>
+      <returns></returns>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeTwoColorLinearBrush.StartColor">
+      <summary>グラデーションの開始色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeTwoColorLinearBrush.EndColor">
+      <summary>グラデーションの終了色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeTwoColorLinearBrush.Blend">
+      <summary>
+        <see cref="P:C1.Win.C1Themes.ThemeTwoColorLinearBrush.Blend" />オブジェクトを取得または設定します。null を設定できます。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeMultiColorLinearBrush">
+      <summary>マルチカラー直線グラデーションブラシを表します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeMultiColorLinearBrush.EncodeValues(C1.Win.C1Themes.Utils.ValuesStore)">
+      <summary>内部使用。</summary>
+      <param name="store"></param>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeMultiColorLinearBrush.DecodeValues(C1.Win.C1Themes.Utils.ValuesStore)">
+      <summary>内部使用。</summary>
+      <param name="store"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeMultiColorLinearBrush.AssignFrom(C1.Win.C1Themes.ThemeBrushBase)">
+      <summary>
+        プロパティを別の
+        <see cref="T:C1.Win.C1Themes.ThemeBrushBase" />から現在のオブジェクトに割り当てる（コピーする）ためにオーバーライドされます。
+      </summary>
+      <param name="source">プロパティのコピー元のオブジェクト。</param>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeMultiColorLinearBrush.GetBrush(System.Drawing.Rectangle)">
+      <summary>
+        この
+        <see cref="T:C1.Win.C1Themes.ThemeMultiColorLinearBrush" />オブジェクトと一致する
+        <see cref="T:System.Drawing.Drawing2D.LinearGradientBrush" />を作成するためにオーバーライドされます。
+      </summary>
+      <param name="brushRect">グラデーションブラシの四角形。</param>
+      <returns>
+        <see cref="T:System.Drawing.Drawing2D.LinearGradientBrush" />オブジェクト。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeMultiColorLinearBrush.GetHashCode">
+      <summary>内部使用。</summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeMultiColorLinearBrush.Equals(System.Object)">
+      <summary>内部使用。</summary>
+      <param name="obj"></param>
+      <returns></returns>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeMultiColorLinearBrush.InterpolationColors">
+      <summary>
+        マルチカラー直線グラデーションを定義する
+        <see cref="T:System.Drawing.Drawing2D.ColorBlend" />を取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeRadialBrush">
+      <summary>放射状グラデーションテーマブラシの抽象基本クラス。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeRadialBrush.CreateBrush(System.Drawing.Rectangle)">
+      <summary>内部使用。</summary>
+      <param name="brushRect"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeRadialBrush.EncodeValues(C1.Win.C1Themes.Utils.ValuesStore)">
+      <summary>内部使用。</summary>
+      <param name="store"></param>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeRadialBrush.DecodeValues(C1.Win.C1Themes.Utils.ValuesStore)">
+      <summary>内部使用。</summary>
+      <param name="store"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeRadialBrush.AssignFrom(C1.Win.C1Themes.ThemeBrushBase)">
+      <summary>
+        プロパティを別の
+        <see cref="T:C1.Win.C1Themes.ThemeBrushBase" />から現在のオブジェクトに割り当てる（コピーする）ためにオーバーライドされます。
+      </summary>
+      <param name="source">プロパティのコピー元のオブジェクト。</param>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeRadialBrush.DependOnRect">
+      <summary>内部使用。</summary>
+      <returns></returns>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeRadialBrush.Center">
+      <summary>
+        中心点の位置を定義する
+        <see cref="T:System.Drawing.Point" />構造体を 取得または設定します。(0,0) が左上隅、(100,100) が右下隅になります。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeTwoColorRadialBrush">
+      <summary>
+        中心の色、周囲の色、および
+        <see cref="P:C1.Win.C1Themes.ThemeTwoColorRadialBrush.Blend" />オブジェクトに基づく 放射状グラデーションブラシを表します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeTwoColorRadialBrush.EncodeValues(C1.Win.C1Themes.Utils.ValuesStore)">
+      <summary>内部使用。</summary>
+      <param name="store"></param>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeTwoColorRadialBrush.DecodeValues(C1.Win.C1Themes.Utils.ValuesStore)">
+      <summary>内部使用。</summary>
+      <param name="store"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeTwoColorRadialBrush.AssignFrom(C1.Win.C1Themes.ThemeBrushBase)">
+      <summary>
+        プロパティを別の
+        <see cref="T:C1.Win.C1Themes.ThemeBrushBase" />から現在のオブジェクトに割り当てる（コピーする）ためにオーバーライドされます。
+      </summary>
+      <param name="source">プロパティのコピー元のオブジェクト。</param>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeTwoColorRadialBrush.GetBrush(System.Drawing.Rectangle)">
+      <summary>
+        この
+        <see cref="T:C1.Win.C1Themes.ThemeTwoColorRadialBrush" />オブジェクトと一致する
+        <see cref="T:System.Drawing.Drawing2D.PathGradientBrush" />を作成するためにオーバーライドされます。
+      </summary>
+      <param name="brushRect">グラデーションの四角形。</param>
+      <returns>
+        <see cref="T:System.Drawing.Drawing2D.PathGradientBrush" />オブジェクト。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeTwoColorRadialBrush.Equals(System.Object)">
+      <summary>内部使用。</summary>
+      <param name="obj"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeTwoColorRadialBrush.GetHashCode">
+      <summary>内部使用。</summary>
+      <returns></returns>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeTwoColorRadialBrush.CenterColor">
+      <summary>放射状グラデーションの中心の色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeTwoColorRadialBrush.SurroundColor">
+      <summary>放射状グラデーションの周囲の色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeTwoColorRadialBrush.Blend">
+      <summary>
+        <see cref="P:C1.Win.C1Themes.ThemeTwoColorRadialBrush.Blend" />オブジェクトを取得または設定します。null を設定できます。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeMultiColorRadialBrush">
+      <summary>マルチカラー放射状グラデーションブラシを表します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeMultiColorRadialBrush.EncodeValues(C1.Win.C1Themes.Utils.ValuesStore)">
+      <summary>内部使用。</summary>
+      <param name="store"></param>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeMultiColorRadialBrush.DecodeValues(C1.Win.C1Themes.Utils.ValuesStore)">
+      <summary>内部使用。</summary>
+      <param name="store"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeMultiColorRadialBrush.AssignFrom(C1.Win.C1Themes.ThemeBrushBase)">
+      <summary>
+        プロパティを別の
+        <see cref="T:C1.Win.C1Themes.ThemeBrushBase" />から現在のオブジェクトに割り当てる（コピーする）ためにオーバーライドされます。
+      </summary>
+      <param name="source">プロパティのコピー元のオブジェクト。</param>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeMultiColorRadialBrush.GetBrush(System.Drawing.Rectangle)">
+      <summary>
+        この
+        <see cref="T:C1.Win.C1Themes.ThemeMultiColorRadialBrush" />オブジェクトと一致する
+        <see cref="T:System.Drawing.Drawing2D.PathGradientBrush" />を作成するためにオーバーライドされます。
+      </summary>
+      <param name="brushRect">グラデーションの四角形。</param>
+      <returns>
+        <see cref="T:System.Drawing.Drawing2D.PathGradientBrush" />オブジェクト。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeMultiColorRadialBrush.Equals(System.Object)">
+      <summary>内部使用。</summary>
+      <param name="obj"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeMultiColorRadialBrush.GetHashCode">
+      <summary>内部使用。</summary>
+      <returns></returns>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeMultiColorRadialBrush.InterpolationColors">
+      <summary>
+        このマルチカラー放射状グラデーションを定義する
+        <see cref="T:System.Drawing.Drawing2D.ColorBlend" />を取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Utils.Utils">
+      <summary>内部使用。</summary>
+      <summary>内部使用。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.Utils.Utils.IsBlendEqual(System.Drawing.Drawing2D.Blend,System.Drawing.Drawing2D.Blend)">
+      <summary>内部使用。</summary>
+      <param name="b1"></param>
+      <param name="b2"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.Utils.Utils.IsColorBlendEqual(System.Drawing.Drawing2D.ColorBlend,System.Drawing.Drawing2D.ColorBlend)">
+      <summary>内部使用。</summary>
+      <param name="cb1"></param>
+      <param name="cb2"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.Utils.Utils.GradientModeToAngle(C1.Win.C1Themes.GradientMode)">
+      <summary>内部使用。</summary>
+      <param name="gradientMode"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.Utils.Utils.AngleToGradientMode(System.Single)">
+      <summary>内部使用。</summary>
+      <param name="angle"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.Utils.Utils.GetThemeFormat(System.String)">
+      <summary>内部使用。</summary>
+      <param name="fileName"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.Utils.Utils.IsRefPathEqual(C1.Win.C1Themes.ThemeItem,C1.Win.C1Themes.ThemeItem)">
+      <summary>内部使用。２つの参照を比較し、パスが同じ場合は true を返します。</summary>
+      <param name="r1"></param>
+      <param name="r2"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.Utils.Utils.IsNameValid(System.String)">
+      <summary>内部使用。</summary>
+      <param name="name"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.Utils.Utils.IndexOfString(System.Collections.Generic.IList{System.String},System.String,System.Boolean)">
+      <summary>内部使用。指定された文字列リストから文字列を検索します。</summary>
+      <param name="strings">文字列のリスト。</param>
+      <param name="s">検索する文字列。</param>
+      <param name="ignoreCase">検索時に大文字小文字を無視する場合は true、そうでない場合は false。</param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.Utils.Utils.IsEqual(System.Object,System.Object)">
+      <summary>２つのオブジェクトを比較し、２つが等しいか、両方とも null の場合は true を返します。</summary>
+      <param name="v1">最初のオブジェクト。</param>
+      <param name="v2">２番目のオブジェクト。</param>
+      <returns>オブジェクトが等しいか、両方とも null の場合は true を返します。</returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.Utils.Utils.GetResourceNames(System.Reflection.Assembly,System.String)">
+      <summary>指定された regex と一致するリソース名を列挙します。このマッチングでは、大文字小文字は区別されません。</summary>
+      <param name="assembly">リソースを含むアセンブリ。</param>
+      <param name="regex">リソース名を照合する正規表現。</param>
+      <returns>一致するリソース名のコレクション。</returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.Utils.Utils.ReadMetafileFromMemory(System.Byte[])">
+      <summary>
+        バイト配列から
+        <see cref="T:System.Drawing.Imaging.Metafile" />を読み取ります。
+      </summary>
+      <param name="imageData">
+        <see cref="T:System.Drawing.Imaging.Metafile" />データを含むバイト配列。
+      </param>
+      <returns>
+        新しく作成された
+        <see cref="T:System.Drawing.Imaging.Metafile" />。
+      </returns>
+      <seealso cref="M:C1.Win.C1Themes.Utils.Utils.WriteMetafileToMemory(System.Drawing.Imaging.Metafile)" />
+    </member>
+    <member name="M:C1.Win.C1Themes.Utils.Utils.WriteMetafileToMemory(System.Drawing.Imaging.Metafile)">
+      <summary>
+        <see cref="T:System.Drawing.Imaging.Metafile" />をバイト配列に書き込みます。
+      </summary>
+      <param name="metafile">
+        書き込む
+        <see cref="T:System.Drawing.Imaging.Metafile" />。
+      </param>
+      <returns>
+        <paramref name="metafile" />データを含むバイト配列。
+      </returns>
+      <seealso cref="M:C1.Win.C1Themes.Utils.Utils.ReadMetafileFromMemory(System.Byte[])" />
+    </member>
+    <member name="M:C1.Win.C1Themes.Utils.Utils.WriteMetafileToStream(System.Drawing.Imaging.Metafile,System.IO.Stream)">
+      <summary>
+        <see cref="T:System.Drawing.Imaging.Metafile" />を
+        <see cref="T:System.IO.Stream" />にシリアライズします。
+      </summary>
+      <param name="metafile">
+        シリアライズする
+        <see cref="T:System.Drawing.Imaging.Metafile" />。
+      </param>
+      <param name="stream">
+        ターゲット
+        <see cref="T:System.IO.Stream" />。
+      </param>
+      <seealso cref="M:C1.Win.C1Themes.Utils.Utils.WriteMetafileToMemory(System.Drawing.Imaging.Metafile)" />
+      <seealso cref="M:C1.Win.C1Themes.Utils.Utils.WriteMetafileToFile(System.Drawing.Imaging.Metafile,System.String)" />
+    </member>
+    <member name="M:C1.Win.C1Themes.Utils.Utils.WriteMetafileToFile(System.Drawing.Imaging.Metafile,System.String)">
+      <summary>
+        <see cref="T:System.Drawing.Imaging.Metafile" />をディスクファイルにシリアライズします。
+      </summary>
+      <param name="metafile">
+        シリアライズする
+        <see cref="T:System.Drawing.Imaging.Metafile" />。
+      </param>
+      <param name="fileName">ターゲットファイル名。</param>
+      <seealso cref="M:C1.Win.C1Themes.Utils.Utils.WriteMetafileToStream(System.Drawing.Imaging.Metafile,System.IO.Stream)" />
+    </member>
+    <member name="M:C1.Win.C1Themes.Utils.Utils.SaveImageToStream(System.Drawing.Image,System.Drawing.Imaging.ImageFormat)">
+      <summary>
+        <see cref="T:System.Drawing.Image" />を
+        <see cref="T:System.IO.Stream" />に保存します。
+      </summary>
+      <param name="image">
+        保存する
+        <see cref="T:System.Drawing.Image" />。
+      </param>
+      <param name="imageFormat">
+        画像の保存に使用される
+        <see cref="T:System.Drawing.Imaging.ImageFormat" />（画像が
+        <see cref="T:System.Drawing.Imaging.Metafile" />の場合は無視されます）。
+      </param>
+      <returns>
+        画像データを含む
+        <see cref="T:System.IO.MemoryStream" />オブジェクト。保存中にエラーが発生した場合は
+        <b>null</b>。
+      </returns>
+      <remarks>
+        標準の
+        <see cref="M:System.Drawing.Image.Save(System.IO.Stream,System.Drawing.Imaging.ImageFormat)" />メソッドとは異なり、このメソッドは、
+        <see cref="T:System.Drawing.Imaging.Metafile" />オブジェクトを変換することなくメタファイルとして保存します（標準のメソッドは、保存前にメタファイルを PNG 形式に変換します）。
+      </remarks>
+      <seealso cref="M:C1.Win.C1Themes.Utils.Utils.SaveImageToStream(System.Drawing.Image,System.Drawing.Imaging.ImageFormat,System.Boolean)" />
+    </member>
+    <member name="M:C1.Win.C1Themes.Utils.Utils.SaveImageToStream(System.Drawing.Image,System.Drawing.Imaging.ImageFormat,System.Boolean)">
+      <summary>
+        <see cref="T:System.Drawing.Image" />を
+        <see cref="T:System.IO.Stream" />に保存します。
+      </summary>
+      <param name="image">
+        保存する
+        <see cref="T:System.Drawing.Image" />。
+      </param>
+      <param name="imageFormat">
+        画像の保存に使用される
+        <see cref="T:System.Drawing.Imaging.ImageFormat" />（
+        <paramref name="image" />が
+        <see cref="T:System.Drawing.Imaging.Metafile" />で、
+        <paramref name="keepAsMetafile" />が
+        <b>true</b>の場合は無視されます）。
+      </param>
+      <param name="keepAsMetafile">
+        <b>true</b>の場合、メタファイルは変換なしで保存され、
+        <paramref name="imageFormat" />は無視されます。そうでない場合、画像は指定された形式で保存されます。
+      </param>
+      <returns>
+        画像データを含む
+        <see cref="T:System.IO.MemoryStream" />オブジェクト。保存中にエラーが発生した場合は
+        <b>null</b>。
+      </returns>
+      <remarks>
+        標準の
+        <see cref="M:System.Drawing.Image.Save(System.IO.Stream,System.Drawing.Imaging.ImageFormat)" />メソッドとは異なり、このメソッドは、
+        <see cref="T:System.Drawing.Imaging.Metafile" />オブジェクトを変換することなくメタファイルとして保存できます（標準のメソッドは、変換が要求されていなくても、保存前にメタファイルを PNG 形式に変換します）。
+      </remarks>
+      <seealso cref="M:C1.Win.C1Themes.Utils.Utils.SaveImageToStream(System.Drawing.Image,System.Drawing.Imaging.ImageFormat)" />
+    </member>
+    <member name="M:C1.Win.C1Themes.Utils.Utils.SaveImageToStream(System.Drawing.Image)">
+      <summary>
+        <see cref="T:System.Drawing.Image" />をバイト配列に保存します。
+      </summary>
+      <param name="image">
+        保存する
+        <see cref="T:System.Drawing.Image" />。
+      </param>
+      <returns>
+        画像データを含む
+        <see cref="T:System.IO.MemoryStream" />オブジェクト。保存中にエラーが発生した場合は
+        <b>null</b>。
+      </returns>
+      <remarks>
+        標準の
+        <see cref="M:System.Drawing.Image.Save(System.IO.Stream,System.Drawing.Imaging.ImageFormat)" />メソッドとは異なり、このメソッドは、
+        <see cref="T:System.Drawing.Imaging.Metafile" />オブジェクトを変換することなくメタファイルとして保存できます（標準のメソッドは、変換が要求されていなくても、保存前にメタファイルを PNG 形式に変換します）。
+      </remarks>
+    </member>
+    <member name="M:C1.Win.C1Themes.Utils.Utils.SaveImageToMemory(System.Drawing.Image,System.Drawing.Imaging.ImageFormat,System.Boolean)">
+      <summary>
+        <see cref="T:System.Drawing.Image" />をバイト配列に保存します。
+      </summary>
+      <param name="image">
+        保存する
+        <see cref="T:System.Drawing.Image" />。
+      </param>
+      <param name="imageFormat">
+        画像の保存に使用される
+        <see cref="T:System.Drawing.Imaging.ImageFormat" />（
+        <paramref name="image" />が
+        <see cref="T:System.Drawing.Imaging.Metafile" />で、
+        <paramref name="keepAsMetafile" />が
+        <b>true</b>の場合は無視されます）。
+      </param>
+      <param name="keepAsMetafile">
+        <b>true</b>の場合、メタファイルは変換なしで保存され、
+        <paramref name="imageFormat" />は無視されます。そうでない場合、画像は指定された形式で保存されます。
+      </param>
+      <returns>
+        画像データを含む byte[] オブジェクト。保存中にエラーが発生した場合は
+        <b>null</b>。
+      </returns>
+      <remarks>
+        標準の
+        <see cref="M:System.Drawing.Image.Save(System.IO.Stream,System.Drawing.Imaging.ImageFormat)" />メソッドとは異なり、このメソッドは、
+        <see cref="T:System.Drawing.Imaging.Metafile" />オブジェクトを変換することなくメタファイルとして保存できます（標準のメソッドは、変換が要求されていなくても、保存前にメタファイルを PNG 形式に変換します）。
+      </remarks>
+      <seealso cref="M:C1.Win.C1Themes.Utils.Utils.SaveImageToStream(System.Drawing.Image,System.Drawing.Imaging.ImageFormat)" />
+    </member>
+    <member name="M:C1.Win.C1Themes.Utils.Utils.SaveImageToMemory(System.Drawing.Image)">
+      <summary>
+        <see cref="T:System.Drawing.Image" />をバイト配列に保存します。
+      </summary>
+      <param name="image">
+        保存する
+        <see cref="T:System.Drawing.Image" />。
+      </param>
+      <returns>
+        画像データを含む byte[] オブジェクト。保存中にエラーが発生した場合は
+        <b>null</b>。
+      </returns>
+      <remarks>
+        標準の
+        <see cref="M:System.Drawing.Image.Save(System.IO.Stream,System.Drawing.Imaging.ImageFormat)" />メソッドとは異なり、このメソッドは、
+        <see cref="T:System.Drawing.Imaging.Metafile" />オブジェクトを変換することなくメタファイルとして保存できます（標準のメソッドは、変換が要求されていなくても、保存前にメタファイルを PNG 形式に変換します）。
+      </remarks>
+      <seealso cref="M:C1.Win.C1Themes.Utils.Utils.SaveImageToStream(System.Drawing.Image,System.Drawing.Imaging.ImageFormat)" />
+    </member>
+    <member name="M:C1.Win.C1Themes.Utils.Utils.LoadImageFromMemory(System.Byte[])">
+      <summary>バイト配列から画像を作成します。</summary>
+      <param name="data">画像データを含むバイト配列。</param>
+      <returns>
+        <see cref="T:System.Drawing.Image" />オブジェクト。画像を作成できなかった場合は null。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.Utils.Utils.LoadIconFromMemory(System.Byte[])">
+      <summary>バイト配列からアイコンを作成します。</summary>
+      <param name="data">画像データを含むバイト配列。</param>
+      <returns>
+        <see cref="T:System.Drawing.Icon" />オブジェクト。画像を作成できなかった場合は null。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.Utils.Utils.SaveIconToMemory(System.Drawing.Icon)">
+      <summary>
+        <see cref="T:System.Drawing.Icon" />をバイト配列に保存します。
+      </summary>
+      <param name="image">
+        保存する
+        <see cref="T:System.Drawing.Icon" />。
+      </param>
+      <returns>
+        アイコンデータを含む
+        <see cref="T:System.IO.MemoryStream" />オブジェクト。保存中にエラーが発生した場合は
+        <b>null</b>。
+      </returns>
+    </member>
+    <member name="T:C1.Win.C1Themes.Utils.ValuesStore">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.C1ThemeFormat">
+      <summary>
+        <see cref="T:C1.Win.C1Themes.C1Theme" />の永続化形式を指定します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.C1ThemeFormat.Xml">
+      <summary>テーマは XML ファイルで表されます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.C1ThemeFormat.Compressed">
+      <summary>テーマは zip ファイルで表されます。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.C1Theme">
+      <summary>WinForms コントロールに適用して外観を変更するためのテーマを表します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeItem">
+      <summary>内部使用。テーマツリーのノードを表します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Serialization.INamedSerializable">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeItem.GetReferences(System.Boolean)">
+      <summary>
+        現在の
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />によって 参照される
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />オブジェクトのリストを返します。このオブジェクトが別のオブジェクトの参照を を持たない場合は、
+        <b>null</b>を返すことがあります。
+      </summary>
+      <param name="directReferencesOnly">直接参照だけを対象にするかどうかを示します。</param>
+      <returns>
+        現在のオブジェクトによって参照される
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />オブジェクトのリスト。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeItem.ReplaceReference(C1.Win.C1Themes.ThemeItem,C1.Win.C1Themes.ThemeItem)">
+      <summary>oldRef のすべての参照を newRef に置き換えます。</summary>
+      <param name="oldRef">古い参照。</param>
+      <param name="newRef">新しい参照。</param>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeItem.GetLinkedItems(System.Collections.Generic.List{C1.Win.C1Themes.ThemeItem},System.Boolean,System.Boolean)">
+      <summary>
+        内部使用。項目が
+        <see cref="T:C1.Win.C1Themes.ThemePropBase" />の場合に、
+        <see cref="P:C1.Win.C1Themes.ThemeItem.Ref" />プロパティ または親参照によって現在の
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />を参照する項目のリストを返します。
+      </summary>
+      <param name="linkedItems"></param>
+      <param name="includeChildren">子項目のリンク項目も結果に入れるかどうかを示します。</param>
+      <param name="directLinksOnly">
+        <see cref="P:C1.Win.C1Themes.ThemeItem.Ref" />プロパティによって指定された直接リンクだけを追加します。
+      </param>
+      <returns>
+        リンクされた
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />オブジェクトのリストを返します。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeItem.GetRelativeName(C1.Win.C1Themes.ThemeItem)">
+      <summary>
+        内部使用。指定された親に対する現在の
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />オブジェクトの名前を返します。
+        <paramref name="parent" />が現在のノードの親でない場合は、null を返します。
+      </summary>
+      <param name="parent">
+        親
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />オブジェクト。
+      </param>
+      <returns>
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />オブジェクトの相対名。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeItem.CanReference(C1.Win.C1Themes.ThemeItem)">
+      <summary>
+        現在の
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />オブジェクトが 指定された
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />オブジェクトを参照できる場合は、true を返します。
+      </summary>
+      <param name="themeItem">
+        チェックする
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />オブジェクト。
+      </param>
+      <returns>
+        現在のオブジェクトが、指定された
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />オブジェクトを参照できる場合は、
+        <b>true</b>を返します。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeItem.IsChildFor(C1.Win.C1Themes.ThemeItem)">
+      <summary>
+        現在の
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />オブジェクトが、指定された
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />オブジェクトの子である場合は、true を返します。
+      </summary>
+      <param name="themeItem"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeItem.GetChildPropDefaultValue(C1.Win.C1Themes.ThemePropBase)">
+      <summary>
+        子
+        <see cref="T:C1.Win.C1Themes.ThemePropBase" />オブジェクトがデフォルト状態かどうかを示す値を返します。
+      </summary>
+      <param name="child"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeItem.MakeEmpty">
+      <summary>
+        現在の
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />を空/デフォルト状態にリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeItem.MakeTreeEmpty">
+      <summary>
+        現在の
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />とそのすべての子を空/デフォルト状態にリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeItem.IsTreeEmpty">
+      <summary>
+        現在の
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />とそのすべての子が空かどうかを 示す値を返します。
+      </summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeItem.AssignValueFrom(C1.Win.C1Themes.ThemeItem)">
+      <summary>
+        値を別の
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />から現在のオブジェクトに割り当てます（コピーします）。
+      </summary>
+      <param name="source">プロパティのコピー元のオブジェクト。</param>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeItem.AssignFrom(C1.Win.C1Themes.ThemeItem)">
+      <summary>
+        プロパティを別の
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />から現在のオブジェクトに割り当てます（コピーします）。
+      </summary>
+      <param name="source">プロパティのコピー元のオブジェクト。</param>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeItem.Clone">
+      <summary>
+        現在の
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />オブジェクトのコピーを作成します。
+      </summary>
+      <returns>
+        新しく作成された
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />オブジェクト。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeItem.RedirectReferences(C1.Win.C1Themes.ThemeItem)">
+      <summary>
+        コピー先
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />がコピー元
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />とは別のテーマツリーにある場合は、
+        <see cref="M:C1.Win.C1Themes.ThemeItem.Clone" />メソッドと
+        <see cref="M:C1.Win.C1Themes.ThemeItem.AssignFrom(C1.Win.C1Themes.ThemeItem)" />メソッドの後にこのメソッドを呼び出す必要があります。このメソッドは、元のツリー内の項目に参照ポイントを割り当てた後で、それらの参照をコピー先のツリーにリダイレクトします。
+      </summary>
+      <param name="newTopParent"></param>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeItem.Ref">
+      <summary>
+        このオブジェクトによって参照される
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />オブジェクトを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeItem.Path">
+      <summary>
+        ツリー内の現在の
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />オブジェクトへのパスを返します。オブジェクトが最上位の親オブジェクトである場合は、空の文字列を返します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeItem.FullName">
+      <summary>
+        テーマツリー内の
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />オブジェクトの完全名を返します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeItem.Attrs">
+      <summary>
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />オブジェクトの属性を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeItem.Index">
+      <summary>
+        親子リスト内の
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />オブジェクトのインデックスを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeItem.TopParent">
+      <summary>
+        最上位の親
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />オブジェクトを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeItem.ThemeSection">
+      <summary>
+        この
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />オブジェクトを含む
+        <see cref="T:C1.Win.C1Themes.ThemeSectionPropBag" />オブジェクトを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeItem.Owner">
+      <summary>
+        この
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />オブジェクトを含む
+        <see cref="T:C1.Win.C1Themes.ThemeItemCollection" />コレクションを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeItem.Children">
+      <summary>
+        現在のノードの子を含む
+        <see cref="T:C1.Win.C1Themes.ThemeItemCollection" />コレクションを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeItem.HasChildren">
+      <summary>
+        この
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />オブジェクトに子があるかどうかを示す値を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeItem.Parent">
+      <summary>
+        親
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />オブジェクトを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeItem.IsEmpty">
+      <summary>
+        現在の
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />オブジェクトが空（その
+        <see cref="P:C1.Win.C1Themes.ThemeItem.Ref" />プロパティが null）かどうかを示す値を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeItem.Name">
+      <summary>
+        この
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />オブジェクトの名前を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeItem.FixedChildren">
+      <summary>
+        <see cref="P:C1.Win.C1Themes.ThemeItem.Children" />コレクションをユーザーが変更できるかどうかを示す値を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeItem.Fixed">
+      <summary>
+        この
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />をユーザーが削除できるかどうか、またはその名前を ユーザーが変更できるかどうかを示す値を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeItem.DisplayName">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeItem.Description">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.#ctor">
+      <summary>C1Theme クラスの新しいインスタンスを初期化します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.SerializeReset">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.SerializeReadProp(C1.Win.C1Themes.Serialization.Serializer,System.String,System.Type,System.String)">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.SerializeWrite(C1.Win.C1Themes.Serialization.Serializer)">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.Save(System.IO.Stream)">
+      <summary>現在のテーマをストリームに保存します。</summary>
+      <param name="stream">ターゲットストリーム。</param>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.Save(System.IO.Stream,C1.Win.C1Themes.C1ThemeFormat)">
+      <summary>現在のテーマをストリームに保存します。</summary>
+      <param name="stream">ターゲットストリーム。</param>
+      <param name="format">使用するテーマの永続化形式。</param>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.Load(System.IO.Stream)">
+      <summary>現在のテーマをストリームからロードします。</summary>
+      <param name="stream">ソースストリーム。</param>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.Load(System.IO.Stream,C1.Win.C1Themes.C1ThemeFormat)">
+      <summary>現在のテーマをストリームからロードします。</summary>
+      <param name="stream">ソースストリーム。</param>
+      <param name="format">使用するテーマの永続化形式。</param>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.Save(System.String,C1.Win.C1Themes.C1ThemeFormat)">
+      <summary>現在のテーマをファイルに保存します。</summary>
+      <param name="fileName">ターゲットファイル名。</param>
+      <param name="format">使用するテーマの永続化形式。</param>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.Save(System.String)">
+      <summary>現在のテーマをファイルに保存します。</summary>
+      <param name="fileName">ターゲットファイル名。</param>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.Load(System.String)">
+      <summary>現在のテーマをファイルからロードします。</summary>
+      <param name="fileName">ソースファイル名。</param>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.Load(System.String,C1.Win.C1Themes.C1ThemeFormat)">
+      <summary>現在のテーマをファイルからロードします。</summary>
+      <param name="stream">ソースストリーム。</param>
+      <param name="format">使用するテーマの永続化形式。</param>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.AssignFrom(C1.Win.C1Themes.ThemeItem)">
+      <summary>
+        現在のテーマを
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />からロードします。
+      </summary>
+      <param name="source">ソーステーマ項目。</param>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.GetUsedFonts">
+      <summary>現在のテーマで使用されているすべてのフォントの名前を取得します。</summary>
+      <returns>現在のテーマで使用されているすべてのフォントの名前を含む文字列の配列。</returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.IsEmpty(System.String)">
+      <summary>指定されたパスに値も参照も入っていないかどうかをチェックします。</summary>
+      <param name="path">ターゲットパス。</param>
+      <returns>パスに値も参照も入っていない場合は true、そうでない場合は false。</returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.IsTreeEmpty(System.String)">
+      <summary>指定されたパスに値も参照も入っていないかどうかを、すべての子を含めて 再帰的にチェックします。</summary>
+      <param name="path">ターゲットパス。</param>
+      <returns>このパスにもその子にも値および参照が入っていない場合は true、そうでない場合は false。</returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.HasValue(System.String)">
+      <summary>
+        パスが値を指定しているかどうかをテストします。
+        <para>
+          パスが空（
+          <see cref="M:C1.Win.C1Themes.C1Theme.IsEmpty(System.String)" />が true を返す）でも、その親の１つで参照によって値を指定している（このメソッドが true を返す）場合があることに注意してください。
+        </para>
+      </summary>
+      <param name="path">テストするパス。</param>
+      <returns>パスが値を指定している場合は true、そうでない場合は false。</returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.GetColor(System.String)">
+      <summary>
+        パスによって指定された
+        <see cref="T:System.Drawing.Color" />値を取得します。
+      </summary>
+      <param name="path">ターゲットパス。</param>
+      <returns>
+        <paramref name="path" />によって指定された色。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.GetColor(System.String,System.Drawing.Color)">
+      <summary>
+        パスによって指定された
+        <see cref="T:System.Drawing.Color" />値を取得します。
+      </summary>
+      <param name="path">ターゲットパス。</param>
+      <param name="defaultValue">指定されたパスに値が存在しない場合に使用されます。</param>
+      <returns>
+        <paramref name="path" />で指定された色。指定されたパスに値が存在しない場合は
+        <see paramref="defaultValue" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.GetBool(System.String)">
+      <summary>パスによって指定されたブール値を取得します。</summary>
+      <param name="path">ターゲットパス。</param>
+      <returns>
+        <paramref name="path" />によって指定されたブール値値。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.GetBool(System.String,System.Boolean)">
+      <summary>パスによって指定されたブール値を取得します。</summary>
+      <param name="path">ターゲットパス。</param>
+      <param name="defaultValue">指定されたパスに値が存在しない場合に使用されます。</param>
+      <returns>
+        <paramref name="path" />で指定されたブール値。指定されたパスに値が存在しない場合は
+        <see paramref="defaultValue" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.GetInt(System.String)">
+      <summary>パスによって指定された整数値を取得します。</summary>
+      <param name="path">ターゲットパス。</param>
+      <returns>
+        <paramref name="path" />によって指定された整数値。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.GetInt(System.String,System.Int32)">
+      <summary>パスによって指定された整数値を取得します。</summary>
+      <param name="path">ターゲットパス。</param>
+      <param name="defaultValue">指定されたパスに値が存在しない場合に使用されます。</param>
+      <returns>
+        <paramref name="path" />で指定された整数値。指定されたパスに値が存在しない場合は
+        <see paramref="defaultValue" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.GetDouble(System.String)">
+      <summary>パスによって指定された double 値を取得します。</summary>
+      <param name="path">ターゲットパス。</param>
+      <returns>
+        <paramref name="path" />によって指定された double 値。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.GetImage(System.String)">
+      <summary>パスによって指定された画像を取得します。</summary>
+      <param name="path">ターゲットパス。</param>
+      <returns>
+        <paramref name="path" />によって指定された画像、または null。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.GetImage(System.String,System.Drawing.Image)">
+      <summary>パスによって指定された画像を取得します。</summary>
+      <param name="path">ターゲットパス。</param>
+      <param name="defaultValue">指定されたパスに値が存在しない場合に使用されます。</param>
+      <returns>
+        <paramref name="path" />で指定された画像。指定されたパスに画像が存在しない場合は
+        <see paramref="defaultValue" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.GetEnum(System.String)">
+      <summary>パスによって指定された列挙型値を取得します。</summary>
+      <param name="path">ターゲットパス。</param>
+      <returns>
+        <paramref name="path" />によって指定された列挙型値。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.GetEnum``1(System.String,``0)">
+      <summary>パスによって指定された列挙型値を取得します。</summary>
+      <param name="path">ターゲットパス。</param>
+      <param name="defaultValue">指定されたパスに値が存在しない場合に使用されます。</param>
+      <returns>
+        <paramref name="path" />で指定された列挙型値。指定されたパスに値が存在しない場合は
+        <see paramref="defaultValue" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.GetEnumStr(System.String)">
+      <summary>パスによって指定された列挙型値の文字列表現を取得します。</summary>
+      <param name="path">ターゲットパス。</param>
+      <returns>
+        <paramref name="path" />によって指定された列挙文字列。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.GetFont(System.String)">
+      <summary>
+        パスによって指定された
+        <see cref="T:System.Drawing.Font" />を取得します。
+      </summary>
+      <param name="path">ターゲットパス。</param>
+      <returns>
+        <paramref name="path" />によって指定されたフォント。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.GetFont(System.String,System.Drawing.Font)">
+      <summary>
+        パスによって指定された
+        <see cref="T:System.Drawing.Font" />を取得します。
+      </summary>
+      <param name="path">ターゲットパス。</param>
+      <param name="defaultValue">指定されたパスに値が存在しない場合に使用されます。</param>
+      <returns>
+        <paramref name="path" />で指定されたフォント。指定されたパスにフォントが存在しない場合は
+        <see paramref="defaultValue" />。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.GetString(System.String)">
+      <summary>パスによって指定された文字列を取得します。</summary>
+      <param name="path">ターゲットパス。</param>
+      <returns>
+        <paramref name="path" />によって指定された文字列。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.GetBlend(System.String)">
+      <summary>
+        パスによって指定された
+        <see cref="T:System.Drawing.Drawing2D.Blend" />を取得します。
+      </summary>
+      <param name="path">ターゲットパス。</param>
+      <returns>
+        <paramref name="path" />によって指定されたブレンド。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.GetColorBlend(System.String)">
+      <summary>
+        パスによって指定された
+        <see cref="T:System.Drawing.Drawing2D.ColorBlend" />を取得します。
+      </summary>
+      <param name="path">ターゲットパス。</param>
+      <returns>
+        <paramref name="path" />によって指定された色のブレンド。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.GetPoint(System.String)">
+      <summary>
+        パスによって指定された
+        <see cref="T:System.Drawing.Point" />を取得します。
+      </summary>
+      <param name="path">ターゲットパス。</param>
+      <returns>
+        <paramref name="path" />によって指定されたポイント。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.GetThickness(System.String)">
+      <summary>
+        パスによって指定された
+        <see cref="T:System.Windows.Forms.Padding" />を取得します。
+      </summary>
+      <param name="path">ターゲットパス。</param>
+      <returns>
+        <paramref name="path" />によって指定されたパディング。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.ApplyThemeToObject(System.Object)">
+      <summary>
+        オブジェクトにテーマを適用します。
+        <para>ターゲットオブジェクトは、テーマをサポートする C1 コントロールか、このライブラリから基本テーマが提供される標準コントロール（ボタン、ラベルなど）でなければなりません。</para>
+      </summary>
+      <param name="obj">テーマの適用先のオブジェクト。</param>
+      <returns>テーマが正常に適用された場合は true、そうでない（オブジェクトがテーマをサポートしていない）場合は false。</returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.ApplyThemeToControlTree(System.Windows.Forms.Control,System.Predicate{System.Windows.Forms.Control})">
+      <summary>コントロールとその子にテーマを再帰的に適用します。テーマをサポートしないコントロールは無視されます（ただし、その子にはテーマが適用されます）。</summary>
+      <param name="root">テーマの適用先のルートコントロール。</param>
+      <param name="applyThemeToSubTree">この述語を指定した場合は、ツリー内の特定のノードでこれが false を返した場合にテーマの適用を中断できます。</param>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.GetThemeName(System.IO.Stream)">
+      <summary>ストリームに保存されているテーマの名前を取得します。</summary>
+      <param name="stream">テーマ XML を含むストリーム。</param>
+      <returns>テーマの名前。ストリームでテーマが見つからなかった場合は null。</returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.GetThemeName(System.IO.Stream,C1.Win.C1Themes.C1ThemeFormat)">
+      <summary>ストリームに保存されているテーマの名前を取得します。</summary>
+      <param name="stream">テーマ XML を含むストリーム。</param>
+      <param name="format">使用するドキュメントの永続化形式。</param>
+      <returns>テーマの名前。ストリームでテーマが見つからなかった場合は null。</returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.GetThemeName(System.String)">
+      <summary>ストリームに保存されているテーマの名前を取得します。</summary>
+      <param name="fileName">テーマ XML を含むファイル。</param>
+      <returns>テーマの名前。ファイルでテーマが見つからなかった場合は null。</returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.GetThemeName(System.String,C1.Win.C1Themes.C1ThemeFormat)">
+      <summary>ストリームに保存されているテーマの名前を取得します。</summary>
+      <param name="fileName">テーマ XML を含むファイル。</param>
+      <param name="format">使用するドキュメントの永続化形式。</param>
+      <returns>テーマの名前。ファイルでテーマが見つからなかった場合は null。</returns>
+    </member>
+    <member name="P:C1.Win.C1Themes.C1Theme.Template">
+      <summary>内部使用。内部テーマテンプレートを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.C1Theme.Attrs">
+      <summary>テーマ属性を取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.C1Theme.Icon">
+      <summary>テーマのアイコンを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.C1Theme.OriginalThemeVersion">
+      <summary>ロードされた XML で定義されている元のテーマバージョンを取得します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.C1ThemeCollection">
+      <summary>
+        名前をキーにした
+        <see cref="T:C1.Win.C1Themes.C1Theme" />オブジェクトのコレクションを表します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeCollection.GetKeyForItem(C1.Win.C1Themes.C1Theme)">
+      <summary>指定されたテーマのキーを取得します。</summary>
+      <param name="item">取得するキーに対応するテーマ。</param>
+      <returns>指定されたテーマの名前。</returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeCollection.TryGetValue(System.String,C1.Win.C1Themes.C1Theme@)">
+      <summary>名前に基づいてテーマを取得します。</summary>
+      <param name="key">取得するテーマの名前。</param>
+      <param name="theme">出力：指定された名前を持つテーマ。見つからなかった場合は null。</param>
+      <returns>テーマが見つかった場合は true、そうでない場合は false。</returns>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeEventArgs">
+      <summary>テーマ関連イベントのイベントデータを指定します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeEventArgs.#ctor(System.String)">
+      <summary>ThemeEventArgs クラスの新しいインスタンスを初期化します。</summary>
+      <param name="themeName">テーマの名前。</param>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeEventArgs.ThemeName">
+      <summary>イベントに関連するテーマの名前を取得します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ApplicationThemeEventHandler">
+      <summary>アプリケーション全体のテーマに関連するイベントを処理するメソッドを表します。</summary>
+      <param name="e">イベントデータ。</param>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeEventHandler">
+      <summary>テーマに関連するイベントを処理するメソッドを表します。</summary>
+      <param name="sender">イベントのソース。</param>
+      <param name="e">イベントデータ。</param>
+    </member>
+    <member name="T:C1.Win.C1Themes.ObjectThemeEventArgs">
+      <summary>特定のオブジェクトに適用されるテーマ関連イベントのイベントデータを指定します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.ObjectThemeEventArgs.#ctor(System.Object,System.String)">
+      <summary>ObjectThemeEventArgs クラスの新しいインスタンスを初期化します。</summary>
+      <param name="obj">ターゲットオブジェクト。</param>
+      <param name="themeName">テーマの名前。</param>
+    </member>
+    <member name="P:C1.Win.C1Themes.ObjectThemeEventArgs.Object">
+      <summary>イベントに関連するオブジェクトを取得します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ObjectThemeEventHandler">
+      <summary>特定のオブジェクトに適用されるテーマ関連イベントを処理するメソッドを表します。</summary>
+      <param name="sender">イベントのソース。</param>
+      <param name="e">イベントデータ。</param>
+    </member>
+    <member name="T:C1.Win.C1Themes.C1ThemeController">
+      <summary>C1 ビジュアルテーマをロードおよび管理したり、それらのテーマをフォームや コントロールに適用するコンポーネントを表します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.C1ThemeController.DefaultThemeName">
+      <summary>
+        デフォルトのテーマ名 ID。
+        <para>
+          これがテーマコントローラの
+          <see cref="P:C1.Win.C1Themes.C1ThemeController.Theme" />プロパティに割り当てられた場合は、デフォルトのアプリケーションテーマを使用することを示します。
+        </para>
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.C1ThemeController.NoTheme">
+      <summary>
+        空のテーマ名 ID。
+        <para>これがコントロールの "Theme" 拡張プロパティ（C1ThemeController から提供）に割り当てられた場合は、テーマコントローラがそのコントロールにテーマを割り当てないことを示します。</para>
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeController.#ctor">
+      <summary>C1ThemeController クラスの新しいインスタンスを初期化します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeController.ResetTheme">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeController.ShouldSerializeTheme">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeController.GetTheme(System.Object)">
+      <summary>このテーマコントローラによってオブジェクトに設定されたテーマの名前を取得します。</summary>
+      <param name="control">そのテーマ名を取得するオブジェクト。</param>
+      <returns>オブジェクトに設定されたテーマの名前。オブジェクトにテーマが設定されていない場合は、"(none)" 文字列が返されます。</returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeController.SetTheme(System.Object,System.String)">
+      <summary>オブジェクトにテーマ名を設定します。</summary>
+      <param name="control">テーマ名を設定するオブジェクト。</param>
+      <param name="value">テーマの名前。</param>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeController.OnThemeChanging(System.String)">
+      <summary>
+        <see cref="E:C1.Win.C1Themes.C1ThemeController.ThemeChanging" />イベントを発生させます。
+      </summary>
+      <param name="themeName">
+        <see cref="P:C1.Win.C1Themes.C1ThemeController.Theme" />プロパティに割り当てられるテーマの名前。
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeController.OnThemeChanged(System.String)">
+      <summary>
+        <see cref="E:C1.Win.C1Themes.C1ThemeController.ThemeChanged" />イベントを発生させます。
+      </summary>
+      <param name="themeName">
+        <see cref="P:C1.Win.C1Themes.C1ThemeController.Theme" />プロパティに割り当てられたテーマの名前。
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeController.OnObjectThemeChanging(System.Object,System.String)">
+      <summary>
+        <see cref="E:C1.Win.C1Themes.C1ThemeController.ObjectThemeChanging" />イベントを発生させます。
+      </summary>
+      <param name="obj">テーマが変更されるオブジェクト。</param>
+      <param name="themeName">
+        <paramref name="obj" />に適用されるテーマの名前。
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeController.OnObjectThemeChanged(System.Object,System.String)">
+      <summary>
+        <see cref="E:C1.Win.C1Themes.C1ThemeController.ThemeChanged" />イベントを発生させます。
+      </summary>
+      <param name="obj">テーマが変更されたオブジェクト。</param>
+      <param name="themeName">
+        <paramref name="obj" />に適用されたテーマの名前。
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeController.OnObjectThemeApplying(System.Object,System.String)">
+      <summary>
+        <see cref="E:C1.Win.C1Themes.C1ThemeController.ObjectThemeApplying" />イベントを発生させます。
+      </summary>
+      <param name="obj">テーマが適用されるオブジェクト。</param>
+      <param name="themeName">
+        <paramref name="obj" />に適用されるテーマの名前。
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeController.OnObjectThemeApplied(System.Object,System.String)">
+      <summary>
+        <see cref="E:C1.Win.C1Themes.C1ThemeController.ThemeChanged" />イベントを発生させます。
+      </summary>
+      <param name="obj">テーマが適用されたオブジェクト。</param>
+      <param name="themeName">
+        <paramref name="obj" />に適用されたテーマの名前。
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeController.Dispose(System.Boolean)">
+      <summary>内部使用。</summary>
+      <param name="disposing"></param>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeController.GetThemeByName(System.String,System.Boolean)">
+      <summary>アプリケーションに登録されているテーマを名前に基づいて取得します。</summary>
+      <param name="themeName">取得するテーマの名前。</param>
+      <param name="throwException">指定されたテーマが見つからない場合に、例外が生成されるかどうかを示します。</param>
+      <returns>
+        指定された名前を持つテーマ。一致するテーマが見つからず、
+        <paramref name="throwException" />が false の場合は null。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeController.GetThemes">
+      <summary>アプリケーションに登録されているすべてのテーマの名前を取得します。</summary>
+      <returns>登録されているすべてのテーマの名前を含む文字列の配列。</returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeController.RegisterTheme(System.IO.Stream,C1.Win.C1Themes.C1ThemeFormat)">
+      <summary>
+        ストリームからテーマをロードし、そのテーマをアプリケーションでテーマコントローラが 使用できるように登録します。
+        <para>
+          このメソッドが完了すると、
+          <see cref="P:C1.Win.C1Themes.C1ThemeController.ApplicationTheme" />プロパティと
+          <see cref="P:C1.Win.C1Themes.C1ThemeController.Theme" />プロパティによってテーマを設定できます。
+        </para><para>同じ名前を持つテーマが既に登録されている場合、このメソッドは例外を生成します。</para>
+      </summary>
+      <param name="stream">ロード/登録するテーマを含むストリーム。</param>
+      <param name="format">使用するテーマの永続化形式。</param>
+      <returns>登録されたテーマの名前。</returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeController.RegisterTheme(System.IO.Stream)">
+      <summary>
+        ストリームからテーマをロードし、そのテーマをアプリケーションでテーマコントローラが 使用できるように登録します。
+        <para>
+          このメソッドが完了すると、
+          <see cref="P:C1.Win.C1Themes.C1ThemeController.ApplicationTheme" />プロパティと
+          <see cref="P:C1.Win.C1Themes.C1ThemeController.Theme" />プロパティによってテーマを設定できます。
+        </para><para>同じ名前を持つテーマが既に登録されている場合、このメソッドは例外を生成します。</para>
+      </summary>
+      <param name="stream">ロード/登録するテーマを含むストリーム。</param>
+      <returns>登録されたテーマの名前。</returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeController.RegisterTheme(System.String)">
+      <summary>
+        ファイルからテーマをロードし、そのテーマをアプリケーションでテーマコントローラが 使用できるように登録します。
+        <para>
+          このメソッドが完了すると、
+          <see cref="P:C1.Win.C1Themes.C1ThemeController.ApplicationTheme" />プロパティと
+          <see cref="P:C1.Win.C1Themes.C1ThemeController.Theme" />プロパティによってテーマを設定できます。
+        </para><para>同じ名前を持つテーマが既に登録されている場合、このメソッドは例外を生成します。</para>
+      </summary>
+      <param name="fileName">ロード/登録するテーマを含むファイル。</param>
+      <returns>登録されたテーマの名前。</returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeController.RegisterThemes(System.Reflection.Assembly)">
+      <summary>
+        アセンブリからすべてのテーマをロードし、それらのテーマを現在のアプリケーションでテーマコントローラが 使用できるように登録します。
+        <para>このメソッドは、指定されたアセンブリですべてのリソースをスキャンし、".c1theme" で終わる（大文字小文字を区別）名前を持つリソースを選択します。（名前の重複などのエラーによって）テーマをロードできない場合、そのテーマは スキップされます（例外は生成されません）。</para>
+      </summary>
+      <param name="assembly">ロード/登録するテーマがあるアセンブリ。</param>
+      <returns>ロード/登録されたすべてのテーマの名前の配列。</returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeController.UnregisterTheme(System.String)">
+      <summary>
+        指定された名前を持つテーマを登録解除します。
+        <para>一致するテーマが見つからなかった場合、このメソッドは何もしません。</para><para>指定されたテーマが現在使用中の場合は、例外が生成されます。</para>
+      </summary>
+      <param name="themeName">登録解除するテーマの名前。</param>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeController.IsThemeRegistered(System.String)">
+      <summary>指定された名前を持つテーマが登録されているかどうかをチェックします。</summary>
+      <param name="themeName">チェックするテーマの名前。</param>
+      <returns>テーマが登録済みの場合は true、そうでない場合は false。</returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeController.IsObjectThemeable(System.Object)">
+      <summary>オブジェクトが ComponentOne テーマをサポートするかどうかをチェックします。</summary>
+      <param name="obj">チェックするオブジェクト。</param>
+      <returns>オブジェクトがテーマをサポートする場合は true、そうでない場合は false。</returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeController.ApplyThemeToObject(System.Object,C1.Win.C1Themes.C1Theme)">
+      <summary>
+        オブジェクトにテーマを適用します。
+        <para>ターゲットオブジェクトは、テーマをサポートする C1 コントロールか、このライブラリから基本テーマが提供される標準コントロール（ボタン、ラベルなど）でなければなりません。</para>
+      </summary>
+      <param name="obj">テーマの適用先のオブジェクト。</param>
+      <param name="theme">適用するテーマ。</param>
+      <returns>テーマが正常に適用された場合は true、そうでない（オブジェクトがテーマをサポートしていない）場合は false。</returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeController.ApplyThemeToControlTree(System.Windows.Forms.Control,C1.Win.C1Themes.C1Theme,System.Predicate{System.Windows.Forms.Control})">
+      <summary>コントロールとその子にテーマを再帰的に適用します。テーマをサポートしないコントロールは無視されます（ただし、その子にはテーマが適用されます）。</summary>
+      <param name="root">テーマの適用先のルートコントロール。</param>
+      <param name="theme">適用するテーマ。</param>
+      <param name="applyThemeToSubTree">この述語を指定した場合は、ツリー内の特定のノードでこれが false を返した場合にテーマの適用を中断できます。</param>
+    </member>
+    <member name="P:C1.Win.C1Themes.C1ThemeController.Theme">
+      <summary>現在のテーマコントローラによって管理されているフォームまたはユーザーコントロール上にある すべてのオブジェクトのデフォルトテーマの名前を取得または設定します。</summary>
+    </member>
+    <member name="E:C1.Win.C1Themes.C1ThemeController.ApplicationThemeChanging">
+      <summary>
+        新しい値が
+        <see cref="P:C1.Win.C1Themes.C1ThemeController.ApplicationTheme" />プロパティに割り当てられる前に発生します。
+      </summary>
+      <seealso cref="E:C1.Win.C1Themes.C1ThemeController.ApplicationThemeChanged" />
+    </member>
+    <member name="E:C1.Win.C1Themes.C1ThemeController.ApplicationThemeChanged">
+      <summary>
+        新しい値が
+        <see cref="P:C1.Win.C1Themes.C1ThemeController.ApplicationTheme" />プロパティに割り当てられた後に発生します。
+      </summary>
+      <seealso cref="E:C1.Win.C1Themes.C1ThemeController.ApplicationThemeChanging" />
+    </member>
+    <member name="E:C1.Win.C1Themes.C1ThemeController.ThemeChanging">
+      <summary>
+        新しい値が
+        <see cref="P:C1.Win.C1Themes.C1ThemeController.Theme" />プロパティに割り当てられる前に発生します。
+      </summary>
+      <seealso cref="E:C1.Win.C1Themes.C1ThemeController.ThemeChanged" />
+    </member>
+    <member name="E:C1.Win.C1Themes.C1ThemeController.ThemeChanged">
+      <summary>
+        新しい値が
+        <see cref="P:C1.Win.C1Themes.C1ThemeController.Theme" />プロパティに割り当てられた後に発生します。
+      </summary>
+      <seealso cref="E:C1.Win.C1Themes.C1ThemeController.ThemeChanging" />
+    </member>
+    <member name="E:C1.Win.C1Themes.C1ThemeController.ObjectThemeChanging">
+      <summary>
+        現在のテーマコントローラによって管理されているオブジェクトのテーマが変更される際に発生します。
+        <para>
+          詳細については、
+          <see cref="E:C1.Win.C1Themes.C1ThemeController.ObjectThemeApplied" />の備考を参照してください。
+        </para>
+      </summary>
+      <seealso cref="E:C1.Win.C1Themes.C1ThemeController.ObjectThemeChanged" />
+      <seealso cref="E:C1.Win.C1Themes.C1ThemeController.ObjectThemeApplying" />
+      <seealso cref="E:C1.Win.C1Themes.C1ThemeController.ObjectThemeApplied" />
+    </member>
+    <member name="E:C1.Win.C1Themes.C1ThemeController.ObjectThemeChanged">
+      <summary>
+        現在のテーマコントローラによって管理されているオブジェクトのテーマが変更された後に発生します。
+        <para>
+          詳細については、
+          <see cref="E:C1.Win.C1Themes.C1ThemeController.ObjectThemeApplied" />の備考を参照してください。
+        </para>
+      </summary>
+      <seealso cref="E:C1.Win.C1Themes.C1ThemeController.ObjectThemeChanging" />
+      <seealso cref="E:C1.Win.C1Themes.C1ThemeController.ObjectThemeApplying" />
+      <seealso cref="E:C1.Win.C1Themes.C1ThemeController.ObjectThemeApplied" />
+    </member>
+    <member name="E:C1.Win.C1Themes.C1ThemeController.ObjectThemeApplying">
+      <summary>
+        現在のテーマコントローラによって管理されているオブジェクトにテーマが適用される際に発生します。
+        <para>
+          詳細については、
+          <see cref="E:C1.Win.C1Themes.C1ThemeController.ObjectThemeApplied" />の備考を参照してください。
+        </para>
+      </summary>
+      <seealso cref="E:C1.Win.C1Themes.C1ThemeController.ObjectThemeChanging" />
+      <seealso cref="E:C1.Win.C1Themes.C1ThemeController.ObjectThemeChanged" />
+      <seealso cref="E:C1.Win.C1Themes.C1ThemeController.ObjectThemeApplied" />
+    </member>
+    <member name="E:C1.Win.C1Themes.C1ThemeController.ObjectThemeApplied">
+      <summary>
+        現在のテーマコントローラによって管理されているオブジェクトにテーマが適用された後に発生します。
+        <para>詳細については備考を参照してください。</para>
+      </summary>
+      <remarks>
+        オブジェクトの Theme 拡張プロパティの値が変化すると、
+        <see cref="E:C1.Win.C1Themes.C1ThemeController.ObjectThemeChanging" />イベントと
+        <see cref="E:C1.Win.C1Themes.C1ThemeController.ObjectThemeChanged" />イベント が発生します。オブジェクトに新しいテーマが適用されると、
+        <see cref="E:C1.Win.C1Themes.C1ThemeController.ObjectThemeApplying" />イベントと
+        <see cref="E:C1.Win.C1Themes.C1ThemeController.ObjectThemeApplied" />イベント が発生します。これは、オブジェクトの Theme プロパティが変化しなくても 発生することがあります。たとえば、オブジェクトが、親フォームで指定されているデフォルトテーマを使用しており、そのフォームのテーマが変更された場合、オブジェクトの Applying/Applied イベントは発生しますが、Changing/Changed イベントは発生しません。
+      </remarks>
+      <seealso cref="E:C1.Win.C1Themes.C1ThemeController.ObjectThemeChanging" />
+      <seealso cref="E:C1.Win.C1Themes.C1ThemeController.ObjectThemeChanged" />
+      <seealso cref="E:C1.Win.C1Themes.C1ThemeController.ObjectThemeApplying" />
+    </member>
+    <member name="P:C1.Win.C1Themes.C1ThemeController.ApplicationTheme">
+      <summary>
+        アプリケーション全体のデフォルトテーマ名を取得または設定します。
+        <para>Theme プロパティ値が "(default)" に設定されているすべてのテーマコントローラは、このテーマを使用します。</para><para>この名前は、アプリケーション構成ファイル（app.config）に "C1ApplicationTheme" というキーで保存されます。</para>
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.C1ThemeLocator">
+      <summary>テーマの場所（組み込みまたは外部ファイル）とその名前をカプセル化します。これは、１つの文字列で表されます。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeLocator.#ctor(System.String)">
+      <summary>テーマロケータを表す文字列から ThemeLocator 型の新しいインスタンスを初期化します。</summary>
+      <param name="themeLocator">"builtin:GreenHouse" などのテーマロケータを表す文字列。</param>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeLocator.#ctor(C1.Win.C1Themes.C1ThemeLocator.LocationType,System.String)">
+      <summary>場所タイプとテーマ名から ThemeLocator 型の新しいインスタンスを初期化します。</summary>
+      <param name="locationType">テーマの場所タイプ。</param>
+      <param name="themeName">"GreenHouse" などのテーマ名。</param>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeLocator.GetThemeName(C1.Win.C1Themes.C1ThemeLocator.LocationType@)">
+      <summary>現在のテーマ名と場所を取得します。</summary>
+      <param name="locationType">出力：現在のテーマの場所。</param>
+      <returns>現在のテーマ名。</returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeLocator.GetTheme">
+      <summary>現在のテーマを取得します。</summary>
+      <returns>現在のテーマ。テーマをロードできなかった場合は null。</returns>
+    </member>
+    <member name="P:C1.Win.C1Themes.C1ThemeLocator.ThemesFolder">
+      <summary>
+        テーマファイルが入ったフォルダの名前を取得または設定します。
+        <para>テーマファイルは、現在のアプリケーションフォルダにあるこの名前のサブフォルダに格納されている と想定されます。</para><para>デフォルトは "Themes" です。したがって、たとえば現在のアプリケーションのパスが "c:\myfolder\myapp.exe" の場合は、"c:\myfolder\Themes" からテーマファイルが検索されます。</para><para>サブフォルダも検索対象になります。</para>
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.C1ThemeLocator.ThemeName">
+      <summary>現在のテーマ名を取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.C1ThemeLocator.Location">
+      <summary>現在のテーマの場所を取得します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.C1ThemeLocator.LocationType">
+      <summary>テーマの場所のタイプを特定します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.C1ThemeLocator.LocationType.Empty">
+      <summary>空の場所を指定します。ここには、テーマを配置できません。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.C1ThemeLocator.LocationType.Builtin">
+      <summary>テーマが C1.Win.C1Themes.* アセンブリに組み込まれていることを指定します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.C1ThemeLocator.LocationType.ThemesFolder">
+      <summary>
+        テーマが
+        <see cref="F:C1.Win.C1Themes.C1ThemeLocator.LocationType.ThemesFolder" />内のファイルに配置されていることを指定します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.C1ThemeVersion">
+      <summary>テーマ XML 形式のバージョン情報とテーマアセンブリのバージョン情報を表します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeVersion.#ctor">
+      <summary>C1ThemeVersion クラスの新しいインスタンスを初期化します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeVersion.#ctor(System.String,System.String)">
+      <summary>指定されたテーマ XML 形式バージョンとテーマアセンブリバージョンを使用して、C1ThemeVersion クラスの新しいインスタンスを初期化します。</summary>
+      <param name="formatVersion">テーマ XML 形式のバージョン。</param>
+      <param name="assemblyVersion">C1.Win.C1Themes アセンブリのバージョン。</param>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeVersion.#ctor(System.Version,System.Version)">
+      <summary>指定されたテーマ XML 形式バージョンとテーマアセンブリバージョンを使用して、C1ThemeVersion クラスの新しいインスタンスを初期化します。</summary>
+      <param name="formatVersion">テーマ XML 形式のバージョン。</param>
+      <param name="assemblyVersion">C1.Win.C1Themes アセンブリのバージョン。</param>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeVersion.ToString">
+      <summary>オーバーライドされます。現在のオブジェクトを表す文字列を返します。</summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1ThemeVersion.Parse(System.String,System.Boolean,C1.Win.C1Themes.C1ThemeVersion)">
+      <summary>
+        文字列を
+        <see cref="T:C1.Win.C1Themes.C1ThemeVersion" />オブジェクトに変換します。
+      </summary>
+      <param name="s">変換する文字列。</param>
+      <param name="throwException">指定された文字列を変換できない場合に、例外が生成されるかどうかを示します。</param>
+      <param name="defaultValue">
+        デフォルトのバージョン（バージョンを解析できず、
+        <paramref name="throwException" />が false の場合に使用されます）。
+      </param>
+      <returns>
+        新しく作成された
+        <see cref="T:C1.Win.C1Themes.C1ThemeVersion" />型のインスタンス、または null。
+      </returns>
+    </member>
+    <member name="P:C1.Win.C1Themes.C1ThemeVersion.FormatVersion">
+      <summary>テーマ XML 形式のバージョンを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.C1ThemeVersion.AssemblyVersion">
+      <summary>C1.Win.C1Themes アセンブリのバージョンを取得します。</summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.Strings.C1Theme.ThemeXmlTooOld">
+      <summary>TODO：</summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.Strings.C1Theme.ThemeXmlUnsupported">
+      <summary>TODO：</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeBackground">
+      <summary>内部使用。テーマの背景を表します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.IThemeItemRefOwner">
+      <summary>
+        内部使用。
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />の参照を使用できるクラスの共通インタフェース。このようなクラスの例として、
+        <see cref="T:C1.Win.C1Themes.ThemeBackground" />の派生クラスや
+        <see cref="T:C1.Win.C1Themes.ThemeColorBlend" />があります。
+        <see cref="T:C1.Win.C1Themes.ThemeBlend" />.
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.IThemeItemRefOwner.GetReferences(System.Collections.Generic.List{C1.Win.C1Themes.ThemeItem})">
+      <summary>内部使用。</summary>
+      <param name="references"></param>
+    </member>
+    <member name="M:C1.Win.C1Themes.IThemeItemRefOwner.ContainsReference(C1.Win.C1Themes.ThemeItem)">
+      <summary>内部使用。</summary>
+      <param name="r"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.IThemeItemRefOwner.ReplaceReference(C1.Win.C1Themes.ThemeItem,C1.Win.C1Themes.ThemeItem)">
+      <summary>内部使用。</summary>
+      <param name="oldRef"></param>
+      <param name="newRef"></param>
+    </member>
+    <member name="M:C1.Win.C1Themes.IThemeItemRefOwner.IsStateEqual(System.Object)">
+      <summary>内部使用。</summary>
+      <param name="obj"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeBackground.GetSolidColor">
+      <summary>要素が特別な背景をサポートしない場合に、背景の代わりに使用できる色を返します。</summary>
+      <returns></returns>
+    </member>
+    <member name="F:C1.Win.C1Themes.LinearGradientMode.Horizontal">
+      <summary>水平グラデーション（左から右）。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.LinearGradientMode.Vertical">
+      <summary>垂直グラデーション（上から下）。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.LinearGradientMode.DiagonalDown">
+      <summary>斜めグラデーション（左上から右下）。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.LinearGradientMode.DiagonalUp">
+      <summary>斜めグラデーション（左下から右上）。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.BackgroundProp">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeProp`1">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemePropBase">
+      <summary>内部使用。何らかの値を返すすべてのノードの基本クラス。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemePropBase.GetReference">
+      <summary>
+        現在の
+        <see cref="T:C1.Win.C1Themes.ThemePropBase" />オブジェクトの参照を解決します。
+      </summary>
+      <returns>
+        参照に関する情報を含む
+        <see cref="T:C1.Win.C1Themes.RefInfo" />構造体を返します。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemePropBase.GetDefaultValue">
+      <summary>
+        内部使用。現在の
+        <see cref="T:C1.Win.C1Themes.ThemePropBase" />オブジェクトの デフォルト値を表す
+        <see cref="T:C1.Win.C1Themes.DefaultValue" />構造体を返します。
+      </summary>
+      <returns></returns>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemePropBase.Value">
+      <summary>
+        ノードの値を取得または設定します。
+        <see cref="T:C1.Win.C1Themes.ThemePropBase" />の値を 特定できない場合は、例外を生成します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemePropBase.HasValue">
+      <summary>
+        現在の
+        <see cref="T:C1.Win.C1Themes.ThemePropBase" />オブジェクトで値が指定されているかどうかを示す値を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemePropBase.IsValueConst">
+      <summary>
+        現在の
+        <see cref="T:C1.Win.C1Themes.ThemePropBase" />の値が定数で指定されているかどうかを示す値を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemePropBase.IsValueDefault">
+      <summary>
+        現在の
+        <see cref="T:C1.Win.C1Themes.ThemePropBase" />の値がデフォルト値かどうかを示す値を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemePropBase.IsEmpty">
+      <summary>
+        現在の
+        <see cref="T:C1.Win.C1Themes.ThemePropBase" />オブジェクトが空（値が指定されず、
+        <see cref="P:C1.Win.C1Themes.ThemePropBase.Ref" />が null）かどうかを示す値を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemePropBase.Ref">
+      <summary>
+        このオブジェクトによって参照される
+        <see cref="T:C1.Win.C1Themes.ThemePropBase" />オブジェクトを取得または設定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeProp`1.IsStateEqual(C1.Win.C1Themes.ThemeItem)">
+      <summary>内部使用。</summary>
+      <param name="ti"></param>
+      <returns></returns>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeSectionPropBag">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.BaseThemePropertiesPropBag">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ProductPropBag">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.StylePropBag">
+      <summary>内部使用。すべての C1 コントロールに共通の標準スタイルを記述します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.NumericProp`1">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.IntProp">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.DoubleProp">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.FontSizeProp">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.EnumProp`1">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.BoolProp">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ColorProp">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ColorProp.AllowTransparent">
+      <summary>
+        Color.Transparent を現在の
+        <see cref="T:C1.Win.C1Themes.ColorProp" />オブジェクトの値として指定できるかどうかを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ColorProp.AllowEmpty">
+      <summary>
+        Color.Empty を現在の
+        <see cref="T:C1.Win.C1Themes.ColorProp" />オブジェクトの値として指定できるかどうかを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ColorProp.EmptyColorCaption">
+      <summary>プロパティエディタで空の色のキャプションを取得または設定します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.GradientCenterProp">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.StringProp">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.FontNameProp">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeImage">
+      <summary>内部使用。画像プロパティを表します。標準の画像に加えて、画像ソース（通常はファイル名）が含まれます。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ImageProp">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.FontProp">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeContainerProp">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThicknessProp">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeBlendItem">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeCollectionItem">
+      <summary>
+        内部使用。
+        <see cref="T:C1.Win.C1Themes.ThemeCollection`1" />の項目を表します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeBlend">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeCollection`1">
+      <summary>
+        内部使用。
+        <see cref="T:C1.Win.C1Themes.ThemePropBase" />の値として 使用できるコレクションの基本クラスを表します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeBlend.ToBlend">
+      <summary>
+        現在の
+        <see cref="T:C1.Win.C1Themes.ThemeBlend" />オブジェクトから
+        <see cref="T:System.Drawing.Drawing2D.Blend" />オブジェクトを作成します。
+      </summary>
+      <returns>
+        <see cref="T:System.Drawing.Drawing2D.Blend" />オブジェクト。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeBlend.IsBlendEqual(C1.Win.C1Themes.ThemeBlend,C1.Win.C1Themes.ThemeBlend)">
+      <summary>
+        ２つの
+        <see cref="T:C1.Win.C1Themes.ThemeBlend" />オブジェクトが等しいか、両方とも null の場合は true を返します。
+      </summary>
+      <param name="v1">
+        最初の
+        <see cref="T:C1.Win.C1Themes.ThemeBlend" />オブジェクト。
+      </param>
+      <param name="v2">
+        ２番目の
+        <see cref="T:C1.Win.C1Themes.ThemeBlend" />オブジェクト。
+      </param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeBlend.op_Implicit(C1.Win.C1Themes.ThemeBlend)~System.Drawing.Drawing2D.Blend">
+      <summary>
+        <see cref="T:C1.Win.C1Themes.ThemeBlend" />を
+        <see cref="T:System.Drawing.Drawing2D.Blend" />に変換します。
+      </summary>
+      <param name="value">
+        変換する
+        <see cref="T:C1.Win.C1Themes.ThemeBlend" />。
+      </param>
+      <returns>
+        <see cref="T:System.Drawing.Drawing2D.Blend" />値。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeBlend.op_Implicit(System.Drawing.Drawing2D.Blend)~C1.Win.C1Themes.ThemeBlend">
+      <summary>
+        <see cref="T:System.Drawing.Drawing2D.Blend" />を
+        <see cref="T:C1.Win.C1Themes.ThemeBlend" />に変換します。
+      </summary>
+      <param name="value">
+        変換する
+        <see cref="T:System.Drawing.Drawing2D.Blend" />。
+      </param>
+      <returns>
+        <see cref="T:C1.Win.C1Themes.ThemeBlend" />値。
+      </returns>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeBlend.Valid">
+      <summary>
+        現在の
+        <see cref="T:C1.Win.C1Themes.ThemeBlend" />オブジェクトが空 でない正しい
+        <see cref="T:System.Drawing.Drawing2D.Blend" />オブジェクトを定義しているかどうかを示す値を取得します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.BlendProp">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.C1ChartStylePropBag">
+      <summary>内部使用。C1Chart コントロールのスタイルを記述します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.C1ChartBorderPropBag">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.C1TrueDBGridStylePropBag">
+      <summary>C1TrueDBGrid コントロールのスタイルを記述します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.C1TrueDBGridBordersPropBag">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.C1FrameworkStateStylePropBag">
+      <summary>内部使用。C1Framework の Style に類似した一連のテーマプロパティ（Hot、Pressed など）を提供します。デフォルトでは、すべてのプロパティが空です。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.C1FrameworkStylePropBag">
+      <summary>
+        <see cref="T:C1.Win.C1Themes.C1FrameworkStylePropBag" />が提供する
+        <see cref="T:C1.Win.C1Themes.C1FrameworkStateStylePropBag" />基本クラスに加えて、C1Framework の Style に 類似した一連のテーマプロパティを提供します。- すべての子のデフォルトのプロパティ - Hot、Pressed、HotPressed、Disabled の各要素の宣言
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeColorBlendItem">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeColorBlend">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeColorBlend.ToColorBlend">
+      <summary>
+        現在の
+        <see cref="T:C1.Win.C1Themes.ThemeColorBlend" />オブジェクトから
+        <see cref="T:System.Drawing.Drawing2D.ColorBlend" />オブジェクトを作成します。
+      </summary>
+      <returns>
+        <see cref="T:System.Drawing.Drawing2D.ColorBlend" />オブジェクト。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeColorBlend.IsBlendEqual(C1.Win.C1Themes.ThemeColorBlend,C1.Win.C1Themes.ThemeColorBlend)">
+      <summary>
+        ２つの
+        <see cref="T:C1.Win.C1Themes.ThemeColorBlend" />オブジェクトが等しいか、両方とも null の場合は true を返します。
+      </summary>
+      <param name="v1">
+        最初の
+        <see cref="T:C1.Win.C1Themes.ThemeColorBlend" />オブジェクト。
+      </param>
+      <param name="v2">
+        ２番目の
+        <see cref="T:C1.Win.C1Themes.ThemeColorBlend" />オブジェクト。
+      </param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeColorBlend.op_Implicit(C1.Win.C1Themes.ThemeColorBlend)~System.Drawing.Drawing2D.ColorBlend">
+      <summary>
+        <see cref="T:C1.Win.C1Themes.ThemeColorBlend" />を
+        <see cref="T:System.Drawing.Drawing2D.ColorBlend" />に変換します。
+      </summary>
+      <param name="value">
+        変換する
+        <see cref="T:C1.Win.C1Themes.ThemeColorBlend" />。
+      </param>
+      <returns>
+        <see cref="T:System.Drawing.Drawing2D.ColorBlend" />値。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeColorBlend.op_Implicit(System.Drawing.Drawing2D.ColorBlend)~C1.Win.C1Themes.ThemeColorBlend">
+      <summary>
+        <see cref="T:System.Drawing.Drawing2D.ColorBlend" />を
+        <see cref="T:C1.Win.C1Themes.ThemeColorBlend" />に変換します。
+      </summary>
+      <param name="value">
+        変換する
+        <see cref="T:System.Drawing.Drawing2D.ColorBlend" />。
+      </param>
+      <returns>
+        <see cref="T:C1.Win.C1Themes.ThemeColorBlend" />値。
+      </returns>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeColorBlend.Valid">
+      <summary>
+        現在の
+        <see cref="T:C1.Win.C1Themes.ThemeColorBlend" />オブジェクトが空 でない正しい
+        <see cref="T:System.Drawing.Drawing2D.ColorBlend" />オブジェクトを定義しているかどうかを示す値を取得します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ColorBlendProp">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.C1FlexGridStylePropBag">
+      <summary>内部使用。C1TrueDBGrid コントロールのスタイルを記述します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.C1FlexGridBorderPropBag">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.C1GanttViewBarStylePropBag">
+      <summary>内部使用。C1TrueDBGrid コントロールのスタイルを記述します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeFont">
+      <summary>
+        内部使用。この構造体の主要な目的は、実際の
+        <see cref="T:System.Drawing.Font" />オブジェクトを 作成することなくフォントデータの保存場所を提供することで、パフォーマンスを向上し、リソースを節約することです。
+        <see cref="T:C1.Win.C1Themes.ThemeFont" />は、
+        <see cref="T:System.Drawing.Font" />に直接変換したり、
+        <see cref="T:System.Drawing.Font" />から作成することができます。この目的で、対応する静的演算子が定義されています。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeFont.#ctor(System.String,System.Single,System.Drawing.FontStyle)">
+      <summary>
+        <see cref="T:C1.Win.C1Themes.ThemeFont" />の新しいインスタンスを初期化します。
+      </summary>
+      <param name="name">
+        <see cref="P:C1.Win.C1Themes.ThemeFont.Name" />プロパティの値。
+      </param>
+      <param name="size">
+        <see cref="P:C1.Win.C1Themes.ThemeFont.Size" />プロパティの値。
+      </param>
+      <param name="style">
+        <see cref="P:C1.Win.C1Themes.ThemeFont.Style" />プロパティの値。
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeFont.#ctor(System.Drawing.Font)">
+      <summary>
+        <see cref="T:System.Drawing.Font" />オブジェクトから
+        <see cref="T:C1.Win.C1Themes.ThemeFont" />の新しいインスタンスを初期化します。
+      </summary>
+      <param name="font">
+        <see cref="T:System.Drawing.Font" />オブジェクト。
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeFont.ToString">
+      <summary>
+        <see cref="T:C1.Win.C1Themes.ThemeFont" />構造体を表す文字列を返します。
+      </summary>
+      <returns>
+        <see cref="T:C1.Win.C1Themes.ThemeFont" />構造体を表す文字列。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeFont.GetHashCode">
+      <summary>
+        現在の
+        <see cref="T:C1.Win.C1Themes.ThemeFont" />のハッシュコードを生成します。
+      </summary>
+      <returns>32 ビット符号付き整数のハッシュコード。</returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeFont.Equals(System.Object)">
+      <summary>
+        指定されたオブジェクトの値が 現在の
+        <see cref="T:C1.Win.C1Themes.ThemeFont" />と等しいかどうかを判定します。
+      </summary>
+      <param name="obj">
+        現在の
+        <see cref="T:C1.Win.C1Themes.ThemeFont" />と比較するオブジェクト。
+      </param>
+      <returns>
+        ２つの
+        <see cref="T:C1.Win.C1Themes.ThemeFont" />オブジェクトが等しい場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeFont.op_Equality(C1.Win.C1Themes.ThemeFont,C1.Win.C1Themes.ThemeFont)">
+      <summary>
+        指定された２つの
+        <see cref="T:C1.Win.C1Themes.ThemeFont" />オブジェクトどうしが等しいかどうかをテストします。
+      </summary>
+      <param name="t1">
+        テストする
+        <see cref="T:C1.Win.C1Themes.ThemeFont" />。
+      </param>
+      <param name="t2">
+        テストする
+        <see cref="T:C1.Win.C1Themes.ThemeFont" />。
+      </param>
+      <returns>
+        ２つの
+        <see cref="T:C1.Win.C1Themes.ThemeFont" />オブジェクトが等しい場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeFont.op_Inequality(C1.Win.C1Themes.ThemeFont,C1.Win.C1Themes.ThemeFont)">
+      <summary>
+        指定された２つの
+        <see cref="T:C1.Win.C1Themes.ThemeFont" />オブジェクトどうしが異なるかどうかをテストします。
+      </summary>
+      <param name="t1">
+        テストする
+        <see cref="T:C1.Win.C1Themes.ThemeFont" />。
+      </param>
+      <param name="t2">
+        テストする
+        <see cref="T:C1.Win.C1Themes.ThemeFont" />。
+      </param>
+      <returns>
+        ２つの
+        <see cref="T:C1.Win.C1Themes.ThemeFont" />オブジェクトが異なる場合は True、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeFont.ToFont">
+      <summary>
+        現在の
+        <see cref="T:C1.Win.C1Themes.ThemeFont" />構造体から
+        <see cref="T:System.Drawing.Font" />オブジェクトを作成します。
+      </summary>
+      <returns>
+        <see cref="T:System.Drawing.Font" />オブジェクト。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeFont.TryParse(System.String,C1.Win.C1Themes.ThemeFont@)">
+      <summary>
+        <see cref="T:C1.Win.C1Themes.ThemeFont" />構造体の文字列表現を実際の
+        <see cref="T:C1.Win.C1Themes.ThemeFont" />構造体に変換します。戻り値は、この変換が成功したかどうかを示します。
+      </summary>
+      <param name="s">
+        変換する
+        <see cref="T:C1.Win.C1Themes.ThemeFont" />構造体を含む文字列。
+      </param>
+      <param name="value">
+        このメソッドが返ると、変換が成功した場合は、s に含まれる構造体に相当する
+        <see cref="T:C1.Win.C1Themes.ThemeFont" />構造体が格納されます。失敗した場合は
+        <see cref="P:C1.Win.C1Themes.ThemeFont.Empty" />が格納されます。
+      </param>
+      <returns>
+        s が正しく変換された場合は
+        <b>true</b>、失敗した場合は
+        <b>false</b>。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeFont.op_Implicit(C1.Win.C1Themes.ThemeFont)~System.Drawing.Font">
+      <summary>
+        <see cref="T:C1.Win.C1Themes.ThemeFont" />を
+        <see cref="T:System.Drawing.Font" />に変換します。
+      </summary>
+      <param name="value">
+        変換する
+        <see cref="T:C1.Win.C1Themes.ThemeFont" />。
+      </param>
+      <returns>
+        <see cref="T:System.Drawing.Font" />値。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeFont.op_Implicit(System.Drawing.Font)~C1.Win.C1Themes.ThemeFont">
+      <summary>
+        <see cref="T:System.Drawing.Font" />を
+        <see cref="T:C1.Win.C1Themes.ThemeFont" />に変換します。
+      </summary>
+      <param name="value">
+        変換する
+        <see cref="T:System.Drawing.Font" />。
+      </param>
+      <returns>
+        <see cref="T:C1.Win.C1Themes.ThemeFont" />値。
+      </returns>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeFont.Empty">
+      <summary>
+        プロパティが初期化されていない状態の
+        <see cref="T:C1.Win.C1Themes.ThemeFont" />構造体を表します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeItemAttrs">
+      <summary>
+        内部使用。
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />のさまざまな属性を定義します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ThemeItemAttrs.None">
+      <summary>特別な属性はありません。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ThemeItemAttrs.InitChildren">
+      <summary>テーマ項目が子の構造体を初期化することを示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ThemeItemAttrs.FixedChildren">
+      <summary>子ノードの構造体を固定し、変更できないようにすることを示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ThemeItemAttrs.FixedTree">
+      <summary>ツリー内で現在のノードが所有するすべてのノードを固定し、変更できないようにすることを示します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.DefaultValue">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ItemState">
+      <summary>
+        内部使用。
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />の値に関する拡張情報を提供します。この情報は、テーマに「リンク」されていません。つまり、すべての参照が文字列で表されます。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.IValueStateProvider">
+      <summary>
+        内部使用。
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />の参照を使用できるクラスの共通インタフェース。このようなクラスの例として、
+        <see cref="T:C1.Win.C1Themes.ThemeBackground" />の派生クラスや
+        <see cref="T:C1.Win.C1Themes.ThemeColorBlend" />があります。
+        <see cref="T:C1.Win.C1Themes.ThemeBlend" />.
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeItemCollection">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeItemCollection.SortByName">
+      <summary>
+        内部使用。
+        <see cref="P:C1.Win.C1Themes.ThemeItem.Name" />に基づいてコレクション内の要素をソートします。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeItemCollection.Item(System.String)">
+      <summary>
+        内部使用。指定された名前を持つ
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />オブジェクトを取得します。次のように、サブ子ノードの名前を指定することもできます。Node n = this["Child\\SubChild"];
+      </summary>
+      <param name="itemName">
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />オブジェクトの相対パス
+      </param>
+      <returns>
+        指定された名前を持つ
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />オブジェクト。指定された名前を持つノードが見つからない場合は、例外が生成されます。
+      </returns>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeItemCollection.Owner">
+      <summary>
+        内部使用。この
+        <see cref="T:C1.Win.C1Themes.ThemeItemCollection" />コレクションを所有する
+        <see cref="T:C1.Win.C1Themes.ThemeItem" />オブジェクトを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeItemCollection.Path">
+      <summary>内部使用。ツリー内のこのコレクションのノードのパスを取得します。</summary>
+      <returns></returns>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeItemCollection.Fixed">
+      <summary>
+        内部使用。この
+        <see cref="T:C1.Win.C1Themes.ThemeItemCollection" />コレクションが固定され、ユーザーが変更できないようにされているかどうかを示す値を取得します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.RefType">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.RefType.None">
+      <summary>参照なし。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.RefType.Ref">
+      <summary>
+        <see cref="P:C1.Win.C1Themes.ThemePropBase.Ref" />プロパティによって指定された
+        <see cref="T:C1.Win.C1Themes.ThemePropBase" />の参照。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.RefType.ParentRef">
+      <summary>
+        親参照によって計算された
+        <see cref="T:C1.Win.C1Themes.ThemePropBase" />の参照。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemePropValueNotSpecifiedException">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.RefInfo">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ValueSource">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.ValueSource.DifferentSources">
+      <summary>コンテナに対してだけ使用されます。子プロパティが それぞれ異なるソースから値を取得することを示します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.PropState">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ContainerPropState">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Serialization.SerializerException">
+      <summary>テーマのシリアライズの例外を表します。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.Serialization.SerializerException.#ctor(System.String,System.Int32,System.Int32,System.Exception)">
+      <summary>SerializerException クラスの新しいインスタンスを初期化します。</summary>
+      <param name="message">例外メッセージ。</param>
+      <param name="lineNumber">行番号。</param>
+      <param name="linePosition">行内の位置。</param>
+      <param name="innerException">内部の例外。</param>
+    </member>
+    <member name="M:C1.Win.C1Themes.Serialization.SerializerException.#ctor(System.String,System.Int32,System.Int32)">
+      <summary>SerializerException クラスの新しいインスタンスを初期化します。</summary>
+      <param name="message">例外メッセージ。</param>
+      <param name="lineNumber">行番号。</param>
+      <param name="linePosition">行内の位置。</param>
+    </member>
+    <member name="M:C1.Win.C1Themes.Serialization.SerializerException.#ctor(System.String)">
+      <summary>SerializerException クラスの新しいインスタンスを初期化します。</summary>
+      <param name="message">例外メッセージ。</param>
+    </member>
+    <member name="M:C1.Win.C1Themes.Serialization.SerializerException.#ctor(System.Xml.XmlReader)">
+      <summary>SerializerException クラスの新しいインスタンスを初期化します。</summary>
+      <param name="reader">例外の原因になった XmlReader。</param>
+    </member>
+    <member name="P:C1.Win.C1Themes.Serialization.SerializerException.LineNumber">
+      <summary>例外に関連する行番号。</summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.Serialization.SerializerException.LinePosition">
+      <summary>例外に関連する行の位置。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Serialization.ISerializableAsString">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Serialization.SetReferenceDelegate">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Serialization.ResolveReferenceEventArgs">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Serialization.ResolveReferenceDelegate">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Serialization.Serializer">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Serialization.ThemeSerializer">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeValueNotSpecifiedException">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeValueNotSpecifiedException.#ctor(System.Object)">
+      <summary>内部使用。</summary>
+      <param name="themeValue"></param>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeValueNotSpecifiedException.ThemeValue">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeValueBase.SerializeReset">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeValueBase.SerializeReadProp(C1.Win.C1Themes.Serialization.Serializer,System.String,System.Type,System.String)">
+      <summary>内部使用。</summary>
+      <param name="serializer"></param>
+      <param name="propName"></param>
+      <param name="type"></param>
+      <param name="objectName"></param>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeValueBase.SerializeWrite(C1.Win.C1Themes.Serialization.Serializer)">
+      <summary>内部使用。</summary>
+      <param name="serializer"></param>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeValueBase.SerializeAfterDeserialization(C1.Win.C1Themes.Serialization.Serializer)">
+      <summary>内部使用。</summary>
+      <param name="serializer"></param>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeValueBase.SerializeToString(C1.Win.C1Themes.Serialization.Serializer)">
+      <summary>内部使用。</summary>
+      <param name="serializer"></param>
+      <param name="value"></param>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeValueBase.SerializeFromString(C1.Win.C1Themes.Serialization.Serializer,System.String)">
+      <summary>内部使用。</summary>
+      <param name="serializer"></param>
+      <param name="value"></param>
+      <returns></returns>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeValueBase.Value">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeValueBase.HasValue">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeValueBase.IsValueConst">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeValueBase.IsEmpty">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeValueBase.Ref">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeValue`1">
+      <summary>内部使用。</summary>
+      <typeparam name="T"></typeparam>
+    </member>
+    <member name="F:C1.Win.C1Themes.ThemeValue`1.m_Value">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeValue`1.SerializeReset">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeValue`1.SerializeReadProp(C1.Win.C1Themes.Serialization.Serializer,System.String,System.Type,System.String)">
+      <summary>内部使用。</summary>
+      <param name="serializer"></param>
+      <param name="propName"></param>
+      <param name="type"></param>
+      <param name="objectName"></param>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeValue`1.SerializeWrite(C1.Win.C1Themes.Serialization.Serializer)">
+      <summary>内部使用。</summary>
+      <param name="serializer"></param>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeValue`1.SerializeReadValue(C1.Win.C1Themes.Serialization.Serializer)">
+      <summary>内部使用。</summary>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeValue`1.SerializeWriteValue(C1.Win.C1Themes.Serialization.Serializer)">
+      <summary>内部使用。</summary>
+      <param name="value"></param>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeValue`1.SerializeValueFromString(C1.Win.C1Themes.Serialization.Serializer,System.String)">
+      <summary>内部使用。</summary>
+      <param name="serializer"></param>
+      <param name="value"></param>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeValue`1.SerializeValueToString(C1.Win.C1Themes.Serialization.Serializer,`0)">
+      <summary>内部使用。</summary>
+      <param name="serializer"></param>
+      <param name="value"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.ThemeValue`1.TryGetValue(`0@)">
+      <summary>内部使用。</summary>
+      <param name="value"></param>
+      <returns></returns>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeValue`1.Value">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeValue`1.IsValueConst">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeValue`1.IsEmpty">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.ThemeValue`1.Ref">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeDoubleValue">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeFloatValue">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeColorValue">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.ThemeEnumValue`1">
+      <summary>内部使用。</summary>
+      <typeparam name="T"></typeparam>
+    </member>
+    <member name="T:C1.Win.C1Themes.Utils.CreateObjectDelegate">
+      <summary>内部使用。</summary>
+      <returns></returns>
+    </member>
+    <member name="T:C1.Win.C1Themes.Utils.TypeInfoTable">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.Utils.TypeInfoTable.Add(C1.Win.C1Themes.Utils.TypeInfoTable)">
+      <summary>内部使用。</summary>
+      <param name="table"></param>
+    </member>
+    <member name="M:C1.Win.C1Themes.Utils.TypeInfoTable.Register(System.Type,System.String,C1.Win.C1Themes.Utils.CreateObjectDelegate)">
+      <summary>内部使用。</summary>
+      <param name="type"></param>
+      <param name="typeName"></param>
+      <param name="createDelegate"></param>
+    </member>
+    <member name="M:C1.Win.C1Themes.Utils.TypeInfoTable.GetCreateDelegate(System.String)">
+      <summary>内部使用。</summary>
+      <param name="typeName"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.Utils.TypeInfoTable.GetCreateDelegate(System.Type)">
+      <summary>内部使用。</summary>
+      <param name="type"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.Utils.TypeInfoTable.GetTypeNameByType(System.Type)">
+      <summary>内部使用。</summary>
+      <param name="type"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.Win.C1Themes.Utils.TypeInfoTable.GetTypeByTypeName(System.String)">
+      <summary>内部使用。</summary>
+      <param name="typeName"></param>
+      <returns></returns>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_BarShape.Frame">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_BarShape.HalfFrame">
+      <summary>内部使用。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.TreeViewBorderStyleEnum">
+      <summary>使用場所：C1TreeView\Style</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.TreeViewBorderStyleEnum.ColumnsHeaderOnly">
+      <summary>列のヘッダーにのみ境界線を表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.TreeViewBorderStyleEnum.None">
+      <summary>境界線なし。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.TreeViewBorderStyleEnum.ColumnsLineOnly">
+      <summary>列の左右の境界線だけを表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.TreeViewBorderStyleEnum.Full">
+      <summary>すべてのセルに境界線を表示します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.C1TreeViewStylesPropBag">
+      <summary>C1TreeView コントロールのスタイルを記述します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.C1TreeViewColumnHeaderStylePropBag">
+      <summary>C1TreeView コントロールの列のヘッダーのスタイルを記述します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.C1TreeViewNodeCellStylePropBag">
+      <summary>C1TreeView コントロールのノードのセルのスタイルを記述します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.BackgroundPictureDrawModeEnum.Fill">
+      <summary>アスペクト比を維持したまま画像を引き伸ばします。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.Dock_SizeMode">
+      <summary>使用場所：C1DockingTab\Style</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Dock_SizeMode.Normal">
+      <summary>列のヘッダーにのみ境界線を表示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Dock_SizeMode.Fit">
+      <summary>境界線なし。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Dock_SizeMode.FillToEnd">
+      <summary>列の左右の境界線だけを表示します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.C1CalendarViewStylesPropBag">
+      <summary>C1TreeView コントロールのスタイルを記述します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.C1CalendarViewCommonStylesPropBag">
+      <summary>C1CalendarView コントロールの共通スタイルを記述します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.C1CalendarViewDaysStylesPropBag">
+      <summary>C1CalendarView コントロールのさまざまな日のスタイルを記述します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.C1CalendarViewDayStylesPropBag">
+      <summary>C1CalendarView コントロールの日スタイルを記述します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.C1CalendarViewNavigationButtonsStylesPropBag">
+      <summary>C1CalendarView コントロールのナビゲーションボタンスタイルを記述します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.C1CalendarViewArrowStylesPropBag">
+      <summary>C1CalendarView コントロールの矢印スタイルを記述します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.C1CalendarViewBaseArrowStylesPropBag">
+      <summary>C1CalendarView コントロールの基本矢印スタイルを記述します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.C1CalendarViewTitlesStylesPropBag">
+      <summary>C1CalendarView コントロールのタイトルスタイルを記述します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.C1CalendarViewBaseTitleStylesPropBag">
+      <summary>C1CalendarView コントロールの基本タイトルスタイルを記述します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.C1CalendarViewMonthTitleStylesPropBag">
+      <summary>C1CalendarView コントロールの月タイトルスタイルを記述します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.C1CalendarViewBaseStylesPropBag">
+      <summary>C1CalendarView コントロールの基本スタイルを記述します。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.PaletteType.Office2016">
+      <summary>Office 2016 パレットには、カレンダーヘッダーで使用されるアクセント色と、現在の日付用の暗い色が含まれます。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.PaletteType.Office2016Dark">
+      <summary>Office 2016 ダークパレットには、カレンダーヘッダーで使用されるアクセント色と、現在の日付用の暗い色が含まれます。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.GroupTabStyle">
+      <summary>使用場所：C1Schedule\GroupTabStyle</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.GroupTabStyle.FullWidth">
+      <summary>四角形のグループヘッダーは、対応するグループの幅全体になります。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.GroupTabStyle.Office2007">
+      <summary>Office2007 外観のグループヘッダー。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.GroupTabStyle.Office2016">
+      <summary>Office2016 外観のグループヘッダー。</summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.WeekTabStyle">
+      <summary>使用場所：C1Schedule\WeekTabStyle</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.WeekTabStyle.Office2007">
+      <summary>Office2007 の外観の週タブ。</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.WeekTabStyle.Office2016">
+      <summary>Office2016 の外観の週タブ。</summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.C1Theme.GetMergedFont(System.String,System.Drawing.Font)">
+      <summary>
+        デフォルトのフォントとパスによって指定されるフォントをマージして取得される
+        <see cref="T:System.Drawing.Font" />を取得します。
+      </summary>
+      <param name="path">ターゲットパス。</param>
+      <param name="defaultValue">指定されたフォント。</param>
+      <returns>
+        <see paramref="defaultValue" />と
+        <paramref name="path" />によって指定されるフォントをマージして取得されるフォント。
+      </returns>
+    </member>
+    <member name="T:C1.Win.C1Themes.CheckBoxStyleEnum">
+      <summary>
+        使用場所：
+        C1TreeView\Style
+        C1MultiSelect\C1CheckList\Style
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.CheckBoxStyleEnum.System">
+      <summary>
+        標準のシステムビュー。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.CheckBoxStyleEnum.Office2007Black">
+      <summary>
+        MS Office 2007 Black と同様です。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.CheckBoxStyleEnum.Office2007Blue">
+      <summary>
+        MS Office 2007 Blue と同様です。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.CheckBoxStyleEnum.Office2007Silver">
+      <summary>
+        MS Office 2007 Silver と同様です。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.CheckBoxStyleEnum.Office2010Black">
+      <summary>
+        MS Office 2010 Black と同様です。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.CheckBoxStyleEnum.Office2010Blue">
+      <summary>
+        MS Office 2010 Blue と同様です。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.CheckBoxStyleEnum.Office2010Silver">
+      <summary>
+        MS Office 2010 Silver と同様です。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.CheckBoxStyleEnum.Office2013">
+      <summary>
+        MS Office 2013 と同様です。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.CheckBoxStyleEnum.Windows10">
+      <summary>
+        Windows 10 と同様です。
+      </summary>
+    </member>
+  </members>
+</doc>

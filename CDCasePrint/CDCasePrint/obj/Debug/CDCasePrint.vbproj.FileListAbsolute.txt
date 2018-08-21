@@ -1,0 +1,85 @@
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\obj\Debug\CDCasePrint.vbprojResolveAssemblyReference.cache
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\obj\Debug\CDCasePrint.Form1.resources
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\obj\Debug\CDCasePrint.Resources.resources
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\obj\Debug\CDCasePrint.vbproj.GenerateResource.Cache
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\obj\Debug\CDCasePrint.exe.licenses
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\bin\Debug\CDCasePrint.exe.config
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\bin\Debug\CDCasePrint.exe
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\bin\Debug\CDCasePrint.pdb
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\bin\Debug\CDCasePrint.xml
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\bin\Debug\C1.C1Pdf.4.dll
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\bin\Debug\C1.C1Zip.4.dll
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\bin\Debug\C1.Win.4.dll
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\bin\Debug\C1.Win.BarCode.4.dll
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\bin\Debug\C1.Win.Bitmap.4.dll
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\bin\Debug\C1.Win.C1Document.4.dll
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\bin\Debug\C1.Win.C1DX.4.dll
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\bin\Debug\C1.Win.C1InputPanel.4.dll
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\bin\Debug\C1.Win.C1Ribbon.4.dll
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\bin\Debug\C1.Win.FlexChart.4.dll
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\bin\Debug\C1.Win.FlexViewer.4.dll
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\bin\Debug\C1.Win.ImportServices.4.dll
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\bin\Debug\C1.C1Word.4.dll
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\bin\Debug\C1.C1Excel.4.dll
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\bin\Debug\C1.C1Pdf.4.xml
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\bin\Debug\C1.C1Zip.4.xml
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\bin\Debug\C1.Win.BarCode.4.xml
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\bin\Debug\C1.Win.Bitmap.4.xml
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\bin\Debug\C1.Win.C1Document.4.xml
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\bin\Debug\C1.Win.C1DX.4.xml
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\bin\Debug\C1.Win.C1InputPanel.4.xml
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\bin\Debug\C1.Win.C1Ribbon.4.xml
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\bin\Debug\C1.Win.FlexChart.4.xml
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\bin\Debug\C1.Win.FlexViewer.4.xml
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\bin\Debug\C1.Win.ImportServices.4.xml
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\bin\Debug\C1.C1Word.4.xml
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\bin\Debug\C1.C1Excel.4.xml
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\obj\Debug\CDCasePrint.exe
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\obj\Debug\CDCasePrint.xml
+C:\Users\ritsuki.ALPHA\AppData\Local\Temporary Projects\CDCasePrint\obj\Debug\CDCasePrint.pdb
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\CDラベル.flxr
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\CDCasePrint.exe.config
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\CDCasePrint.exe
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\CDCasePrint.pdb
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\CDCasePrint.xml
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.C1Pdf.4.dll
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.C1Zip.4.dll
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.Win.4.dll
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.Win.BarCode.4.dll
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.Win.Bitmap.4.dll
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.Win.C1Chart.4.dll
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.Win.C1Chart3D.4.dll
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.Win.C1Document.4.dll
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.Win.C1DX.4.dll
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.Win.C1InputPanel.4.dll
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.Win.C1Ribbon.4.dll
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.Win.FlexChart.4.dll
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.Win.FlexReport.4.dll
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.Win.FlexViewer.4.dll
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.Win.ImportServices.4.dll
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.C1Word.4.dll
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.C1Excel.4.dll
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.C1Pdf.4.xml
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.C1Zip.4.xml
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.Win.BarCode.4.xml
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.Win.Bitmap.4.xml
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.Win.C1Chart.4.xml
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.Win.C1Chart3D.4.xml
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.Win.C1Document.4.xml
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.Win.C1DX.4.xml
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.Win.C1InputPanel.4.xml
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.Win.C1Ribbon.4.xml
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.Win.FlexChart.4.xml
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.Win.FlexReport.4.xml
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.Win.FlexViewer.4.xml
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.Win.ImportServices.4.xml
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.C1Word.4.xml
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\bin\Debug\C1.C1Excel.4.xml
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\obj\Debug\CDCasePrint.vbprojResolveAssemblyReference.cache
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\obj\Debug\CDCasePrint.Form1.resources
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\obj\Debug\CDCasePrint.Resources.resources
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\obj\Debug\CDCasePrint.vbproj.GenerateResource.Cache
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\obj\Debug\CDCasePrint.exe.licenses
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\obj\Debug\CDCasePrint.exe
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\obj\Debug\CDCasePrint.xml
+C:\GitHub\infomage\CDCasePrint\CDCasePrint\obj\Debug\CDCasePrint.pdb

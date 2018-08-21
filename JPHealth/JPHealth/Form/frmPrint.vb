@@ -107,6 +107,21 @@ Public Class frmPrint
 		XmlSettings.Instance.SentLeafletTray = Me.cmbSentLeafletTray.SelectedIndex
 		XmlSettings.Instance.ResultTray = Me.cmbResultTray.SelectedIndex
 		XmlSettings.Instance.LeafletTray = Me.cmbLeafletTray.SelectedIndex
+
+		If Me.WindowState = FormWindowState.Normal Then
+			XmlSettings.Instance.PrintLocationX = Me.Left
+			XmlSettings.Instance.PrintLocationY = Me.Top
+			XmlSettings.Instance.PrintSizeX = Me.Width
+			XmlSettings.Instance.PrintSizeY = Me.Height
+			XmlSettings.Instance.PrintState = Me.WindowState
+		Else
+			XmlSettings.Instance.PrintLocationX = Me.RestoreBounds.Left
+			XmlSettings.Instance.PrintLocationY = Me.RestoreBounds.Top
+			XmlSettings.Instance.PrintSizeX = Me.RestoreBounds.Width
+			XmlSettings.Instance.PrintSizeY = Me.RestoreBounds.Height
+			XmlSettings.Instance.PrintState = Me.WindowState
+		End If
+
 		XmlSettings.SaveToXmlFile()
 
 		Me.Close()
@@ -502,9 +517,10 @@ Public Class frmPrint
     ''' </summary>
     Private Sub Initialize()
 
-        CaptionDisplayMode = StatusDisplayMode.None
-        'インポート日時コンボボックスのイベントを殺す
-        RemoveHandler cmbLotID.SelectedIndexChanged, AddressOf cmbLotID_SelectedIndexChanged
+		CaptionDisplayMode = StatusDisplayMode.None
+
+		'インポート日時コンボボックスのイベントを殺す
+		RemoveHandler cmbLotID.SelectedIndexChanged, AddressOf cmbLotID_SelectedIndexChanged
 
         '設定ファイルより読み込む
         XmlSettings.LoadFromXmlFile()
@@ -550,7 +566,15 @@ Public Class frmPrint
             Me.numLabelFrom.Enabled = False
             Me.numLabelTo.Enabled = False
 
-        Catch ex As Exception
+			'印刷画面のプロパティ反映
+			XmlSettings.LoadFromXmlFile()
+			Me.Left = XmlSettings.Instance.PrintLocationX
+			Me.Top = XmlSettings.Instance.PrintLocationY
+			Me.Width = XmlSettings.Instance.PrintSizeX
+			Me.Height = XmlSettings.Instance.PrintSizeY
+			Me.WindowState = XmlSettings.Instance.PrintState
+
+		Catch ex As Exception
 
             Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message & vbNewLine & ex.StackTrace)
             MessageBox.Show("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)

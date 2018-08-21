@@ -1,0 +1,787 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+SecomSafetyCheck
+</name>
+</assembly>
+<members>
+<member name="T:SecomSafetyCheck.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:SecomSafetyCheck.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:SecomSafetyCheck.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="M:SecomSafetyCheck.CSVParser.#ctor(System.String,System.Text.Encoding)">
+ <summary>
+ コンストラクタ
+ </summary>
+ <param name="filename"></param>
+ <param name="enc"></param>
+</member>
+<member name="M:SecomSafetyCheck.CSVParser.Close">
+ <summary>
+ ストリームを閉じる
+ </summary>
+</member>
+<member name="P:SecomSafetyCheck.CSVParser.Delimiter">
+ <summary>
+ 区切り文字
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.CSVParser.LineNumber">
+ <summary>
+ 現在処理中のCSVデータのレコード番号
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.CSVParser.HasFieldsEnclosedInQuotes">
+ <summary>
+ フィールドを引用符("")で囲み、改行文字、区切り文字を含めることが出来るか
+ フィールドを引用符で囲まない場合は、このクラスを使用してはいけない
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.CSVParser.TrimWhiteSpace">
+ <summary>
+ フィールドの前後からスペースを削除するか
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.CSVParser.EndOfData">
+ <summary>
+ データの終りか
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:SecomSafetyCheck.CSVParser.ReadFields">
+ <summary>
+ 1行読み込み
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:SecomSafetyCheck.CSVParser.ReadForStateBeginning(System.String,System.String)">
+ <summary>
+ 初回入力待ち状態での Read
+ "ABC","D""EF","GHI"
+ ^
+ </summary>
+ <param name="row">現在の列の値</param>
+ <param name="nextChar">次の1文字</param>
+ <returns></returns>
+</member>
+<member name="M:SecomSafetyCheck.CSVParser.ReadForStateWaitInput(System.String,System.String)">
+ <summary>
+ 入力待ち状態での Read
+ ReadForStateBeginning()と同じ、分かりやすくするために記述？
+ "ABC","D""EF","GHI"
+ ^
+ </summary>
+ <param name="row">現在の列の値</param>
+ <param name="nextChar">次の1文字</param>
+ <returns></returns>
+</member>
+<member name="M:SecomSafetyCheck.CSVParser.ReadForStateFindQuote(System.String,System.String)">
+ <summary>
+ 引用符を発見した状態での Read
+ "ABC","D""EF","GHI"
+  ^
+ </summary>
+ <param name="row">現在の列の値</param>
+ <param name="nextChar">次の1文字</param>
+ <returns></returns>
+</member>
+<member name="M:SecomSafetyCheck.CSVParser.ReadForStateFindQuoteDouble(System.String,System.String)">
+ <summary>
+ 引用符の連続を発見した状態での Read
+ "ABC","D""EF","GHI"
+		   ^
+ </summary>
+ <param name="row">現在の列の値</param>
+ <param name="nextChar">次の1文字</param>
+ <returns></returns>
+</member>
+<member name="M:SecomSafetyCheck.CSVParser.ReadForStateInQuote(System.String,System.String)">
+ <summary>
+ 引用符の中で入力待ち状態での Read
+ </summary>
+ <param name="row">現在の列の値</param>
+ <param name="nextChar">次の1文字</param>
+ <returns></returns>
+</member>
+<member name="M:SecomSafetyCheck.CSVParser.ReadForStateFindQuoteInQuote(System.String,System.String)">
+ <summary>
+ 引用符の中で引用符を発見した状態での Read
+ "ABC","D""EF","GHI"
+	  ^  ^		  ^
+ </summary>
+ <param name="row">現在の列の値</param>
+ <param name="nextChar">次の1文字</param>
+ <returns></returns>
+</member>
+<member name="T:SecomSafetyCheck.CSVParser.State">
+ <summary>
+ 読込み状態
+ </summary>
+</member>
+<member name="F:SecomSafetyCheck.CSVParser.State.None">
+ <summary>読み込み開始前</summary>
+</member>
+<member name="F:SecomSafetyCheck.CSVParser.State.Beginning">
+ <summary>初期状態の入力待ち</summary>
+</member>
+<member name="F:SecomSafetyCheck.CSVParser.State.WaitInput">
+ <summary>入力待ち</summary>
+</member>
+<member name="F:SecomSafetyCheck.CSVParser.State.FindQuote">
+ <summary>引用符を発見</summary>
+</member>
+<member name="F:SecomSafetyCheck.CSVParser.State.FindQuoteDouble">
+ <summary>引用符の連続を発見</summary>
+</member>
+<member name="F:SecomSafetyCheck.CSVParser.State.InQuote">
+ <summary>引用符の中で入力待ち</summary>
+</member>
+<member name="F:SecomSafetyCheck.CSVParser.State.FindQuoteInQuote">
+ <summary>引用符の中で引用符を発見</summary>
+</member>
+<member name="F:SecomSafetyCheck.CSVParser.State.FindComma">
+ <summary>カンマを発見</summary>
+</member>
+<member name="F:SecomSafetyCheck.CSVParser.State.FindCr">
+ <summary>Cr を発見</summary>
+</member>
+<member name="F:SecomSafetyCheck.CSVParser.State.FindCrLf">
+ <summary>CrLf を発見</summary>
+</member>
+<member name="F:SecomSafetyCheck.CSVParser.State.InvalidChar">
+ <summary>無効な文字を発見</summary>
+</member>
+<member name="M:SecomSafetyCheck.SQLProcess.#ctor(System.String)">
+ <summary>
+ コンストラクタ
+ </summary>
+ <param name="strAccessFile"></param>
+</member>
+<member name="M:SecomSafetyCheck.SQLProcess.Close">
+ <summary>
+ デストラクタ
+ </summary>
+</member>
+<member name="M:SecomSafetyCheck.SQLProcess.Initialize(System.String)">
+ <summary>
+ Accessデータベースの接続
+ </summary>
+ <param name="strAccessFile"></param>
+</member>
+<member name="M:SecomSafetyCheck.SQLProcess.DB_UPDATE(System.String)">
+ <summary>
+ UPDATE文
+ </summary>
+ <param name="strSQL"></param>
+</member>
+<member name="M:SecomSafetyCheck.SQLProcess.DB_EXECUTE_SCALAR(System.String)">
+ <summary>
+ SQL文の結果より単一の値を取得
+ </summary>
+ <param name="strSQL"></param>
+ <returns></returns>
+</member>
+<member name="M:SecomSafetyCheck.SQLProcess.DB_SELECT_DATATABLE(System.String)">
+ <summary>
+ DATATABLE取得用関数
+ </summary>
+ <param name="strSQL"></param>
+ <returns></returns>
+</member>
+<member name="M:SecomSafetyCheck.Form1.Form1_Load(System.Object,System.EventArgs)">
+ <summary>
+ フォームロード時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:SecomSafetyCheck.Form1.Form1_FormClosing(System.Object,System.Windows.Forms.FormClosingEventArgs)">
+ <summary>
+ フォームクロージング
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:SecomSafetyCheck.Form1.menuExit_Click(System.Object,C1.Win.C1Command.ClickEventArgs)">
+ <summary>
+ [ファイル][終了]
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:SecomSafetyCheck.Form1.menuConnection_Click(System.Object,C1.Win.C1Command.ClickEventArgs)">
+ <summary>
+ [ツール][接続設定]
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:SecomSafetyCheck.frmConnectionProperty.frmConnectionProperty_Load(System.Object,System.EventArgs)">
+ <summary>
+ フォームロード時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:SecomSafetyCheck.frmConnectionProperty.btnOK_Click(System.Object,System.EventArgs)">
+ <summary>
+ 適用ボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:SecomSafetyCheck.frmConnectionProperty.btnCancel_Click(System.Object,System.EventArgs)">
+ <summary>
+ キャンセルボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="T:SecomSafetyCheck.DefaultModule.ResultMark">
+ <summary>
+ リストボックス用マーク列挙体
+ </summary>
+</member>
+<member name="M:SecomSafetyCheck.DefaultModule.WriteLstResult(System.Windows.Forms.ListBox,System.String,SecomSafetyCheck.DefaultModule.ResultMark)">
+ <summary>
+ リストボックスに結果マーク込みで文字列を書き込む
+ </summary>
+ <param name="lstResult"></param>
+ <param name="strLog"></param>
+ <param name="ResultMark"></param>
+</member>
+<member name="M:SecomSafetyCheck.DefaultModule.IsNull(System.String)">
+ <summary>
+ NULL判定
+ </summary>
+ <param name="text"></param>
+ <returns></returns>
+</member>
+<member name="M:SecomSafetyCheck.DefaultModule.OutputLogFile(System.String)">
+ <summary>
+ 例外処理内容をログファイルに書き込む
+ </summary>
+ <param name="strExceptionMessage"></param>
+</member>
+<member name="M:SecomSafetyCheck.DefaultModule.GetLinesOfTextFile(System.String)">
+ <summary>
+ ファイルのレコード数をカウントする
+ </summary>
+ <param name="strFileName"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:SecomSafetyCheck.DefaultModule.IsShiftJISOnlyText(System.String)">
+ <summary>
+ Shift-JISで表現できるか判別する
+ </summary>
+ <param name="text">対象文字列</param>
+ <returns>TRUE:表現できる、FALSE:表現できない</returns>
+ <remarks></remarks>
+</member>
+<member name="M:SecomSafetyCheck.DefaultModule.FileBrowse(System.Windows.Forms.TextBox,System.String)">
+ <summary>
+ ファイルを開くダイアログボックス
+ </summary>
+ <param name="txtFile"></param>
+ <param name="strFilter"></param>
+ <returns>フィルタの記述例：JPEGイメージ(*.jpg)|*.jpg|すべてのファイル(*.*)|*.*</returns>
+</member>
+<member name="M:SecomSafetyCheck.DefaultModule.FolderBrowse(System.Windows.Forms.TextBox)">
+ <summary>
+ フォルダを開くコモンダイアログボックスを表示する
+ </summary>
+ <param name="txtFolder"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:SecomSafetyCheck.DefaultModule.GetFilesMostDeep(System.String,System.String[])">
+ <summary>
+ 指定した検索パターンに一致するファイルを最下層まで検索し全て返す
+ </summary>
+ <param name="strRootPath">検索を開始する最上層のディレクトリへのパス</param>
+ <param name="strPatterns">パス内のファイル名と対応させる検索文字列の配列</param>
+ <returns>検索パターンに一致したすべてのファイルパス</returns>
+ <remarks></remarks>
+</member>
+<member name="M:SecomSafetyCheck.DefaultModule.OutputImportLog(System.Windows.Forms.ListBox,System.String,System.String,System.String)">
+ <summary>
+ リストボックスに表示されている文字列をログファイルとして保存する
+ </summary>
+ <param name="lstResult">対象ListBox</param>
+ <param name="strOutputFolder">出力フォルダ</param>
+ <param name="strSign">ファイル名をわかりやすくするためのサインを指定する</param>
+ <remarks>yyyyMMdd_Import_XXの形式で出力する(XXは数字)</remarks>
+</member>
+<member name="M:SecomSafetyCheck.DefaultModule.OutputCSVFile(C1.Win.C1FlexGrid.C1FlexGrid,System.String)">
+ <summary>
+ 指定CSVファイルにC1FlexGridの内容を保存する
+ </summary>
+ <param name="C1FGridResult"></param>
+ <param name="strFileName"></param>
+ <remarks></remarks>
+</member>
+<member name="M:SecomSafetyCheck.DefaultModule.EnableControls(System.Windows.Forms.Form,System.Boolean)">
+ <summary>
+ コントロールの使用可否を切り替える
+ </summary>
+ <param name="frmForm">対象フォーム</param>
+ <param name="ControlEnabled">True：使用可能、False：使用不可</param>
+ <remarks></remarks>
+</member>
+<member name="M:SecomSafetyCheck.DefaultModule.GetBusinessYear(System.String)">
+ <summary>
+ 日付から年度を求める
+ </summary>
+ <param name="strDate"></param>
+ <returns></returns>
+</member>
+<member name="M:SecomSafetyCheck.DefaultModule.GetAge(System.DateTime,System.DateTime)">
+ <summary>
+ 満年齢を求める
+ </summary>
+ <param name="dtDate"></param>
+ <returns></returns>
+</member>
+<member name="M:SecomSafetyCheck.DefaultModule.PeriodCheck(System.String,System.Int32)">
+ <summary>
+ 小数点以下を指定された順位まで付与する
+ NULLの場合は空文字を返す
+ </summary>
+ <param name="strValue"></param>
+ <param name="iPoint"></param>
+ <returns></returns>
+</member>
+<member name="M:SecomSafetyCheck.DefaultModule.SetPrinters(System.Windows.Forms.ComboBox)">
+ <summary>
+ コンピュータにインストールされているプリンタを取得して該当コンボボックスにセットする
+ </summary>
+ <param name="cmbComboBox"></param>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.AccessFile">
+ <summary>
+ Accessファイル
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.LocationX">
+ <summary>
+ フォーム位置X
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.LocationY">
+ <summary>
+ フォーム位置Y
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.SizeX">
+ <summary>
+ サイズ幅
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.SizeY">
+ <summary>
+ サイズ高さ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.State">
+ <summary>
+ 最大化・最小化状態
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.LocEntryX">
+ <summary>
+ エントリフォーム位置X
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.LocEntryY">
+ <summary>
+ エントリフォーム位置Y
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.SizeEntryX">
+ <summary>
+ エントリフォーム幅
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.SizeEntryY">
+ <summary>
+ エントリフォーム高さ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.LocManageX">
+ <summary>
+ 管理フォーム位置X
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.LocManageY">
+ <summary>
+ 管理フォーム位置Y
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.SizeManageX">
+ <summary>
+ 管理フォーム幅
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.SizeManageY">
+ <summary>
+ 管理フォーム高さ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.StateManage">
+ <summary>
+ 管理フォーム最大化・最小化状態
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.ApplicationName">
+ <summary>
+ アプリケーション名
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.ImportFromFolder">
+ <summary>
+ インポート元フォルダ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.ImportToFolder">
+ <summary>
+ 保存先フォルダ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.ImportLogFolder">
+ <summary>
+ ログ保存先フォルダ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.ZipPassword">
+ <summary>
+ ZIP解凍用パスワード
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.DataDupe">
+ <summary>
+ 重複レコード
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.DataRequired">
+ <summary>
+ 必須項目不備
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.DataDigit">
+ <summary>
+ 桁数不備
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.DataShiftJIS">
+ <summary>
+ データ不備(SJISで表現できない)
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.DataExceed">
+ <summary>
+ 文字数超過
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.SJISErrorCheck">
+ <summary>
+ SJISで表現できない文言
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.ImagePath">
+ <summary>
+ 画像ファイル親パス
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.OutputFolder">
+ <summary>
+ 出力フォルダ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.DataSource">
+ <summary>
+ DataSource
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.InitialCatalog">
+ <summary>
+ InitialCatalog
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.UserID">
+ <summary>
+ UserID
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.Password">
+ <summary>
+ Password
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.TablePrefix">
+ <summary>
+ INTRA-PDC00接続時の接頭語入出力
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.CheckupList">
+ <summary>
+ 対象者一覧1ページあたりの件数
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.LeafletList">
+ <summary>
+ 保健指導対象者名簿1ページあたりの件数
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.Printer_Label">
+ <summary>
+ プリンタドライバ名(ラベル)
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.Printer_Sentlist">
+ <summary>
+ プリンタドライバ名(対象者一覧)の入出力
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.Printer_SentLeaflet">
+ <summary>
+ プリンタドライバ名(保健指導対象者名簿)
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.Printer_Result">
+ <summary>
+ プリンタドライバ名(判定票)
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.Printer_Leaflet">
+ <summary>
+ プリンタドライバ名(リーフレット)
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.HeaderTray">
+ <summary>
+ 重量ヘッダ給紙トレイ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.LabelTray">
+ <summary>
+ ラベル給紙トレイ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.SentlistTray">
+ <summary>
+ 対象者一覧給紙トレイ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.SentLeafletTray">
+ <summary>
+ 保健指導対象者名簿給紙トレイ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.ResultTray">
+ <summary>
+ 判定票給紙トレイ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.LeafletTray">
+ <summary>
+ リーフレット給紙トレイ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.PDFPath">
+ <summary>
+ PDF出力先フォルダ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.VariousOutputFolder">
+ <summary>
+ 各種出力フォルダ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.ExcelDataIncomplete">
+ <summary>
+ データ不備内容
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.ExcelWeightCount">
+ <summary>
+ 重量ヘッダ単位件数
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.ExcelFacilityCount">
+ <summary>
+ 就業判定票_施設別件数
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.ExcelCheckupTargetList">
+ <summary>
+ 就業判定票_対象者一覧
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.ExcelOfficeList">
+ <summary>
+ 発送先事業所一覧
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.ExcelSuccession">
+ <summary>
+ 後納票
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.ExcelWorkOrder">
+ <summary>
+ 作業票
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.ExcelPassword">
+ <summary>
+ エクセルパスワード
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.OfficeCSV">
+ <summary>
+ 局所マスタCSVフルパス
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SecomSafetyCheck.XmlSettings.BackupFolder">
+ <summary>
+ バックアップフォルダ
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:SecomSafetyCheck.XmlSettings.LoadFromXmlFile">
+ <summary>
+ 設定をXMLファイルから読み込み復元する
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:SecomSafetyCheck.XmlSettings.SaveToXmlFile">
+ <summary>
+ 現在の設定をXMLファイルに保存する
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:SecomSafetyCheck.XmlSettings.LoadFromBinaryFile">
+ <summary>
+ 設定をバイナリファイルから読み込み復元する
+ </summary>
+</member>
+<member name="M:SecomSafetyCheck.XmlSettings.SaveToBinaryFile">
+ <summary>
+ 現在の設定をバイナリファイルに保存する
+ </summary>
+</member>
+<member name="M:SecomSafetyCheck.XmlSettings.LoadFromRegistry">
+ <summary>
+ 設定をレジストリから読み込み復元する
+ </summary>
+</member>
+<member name="M:SecomSafetyCheck.XmlSettings.SaveToRegistry">
+ <summary>
+ 現在の設定をレジストリに保存する
+ </summary>
+</member>
+<member name="M:SecomSafetyCheck.XmlSettings.Dispose">
+ <summary>
+ インスタンスの内容を保存して解放する
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:SecomSafetyCheck.XmlSettings.GetSettingPath">
+ <summary>
+ XMLファイルの保存先を取得する
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:SecomSafetyCheck.XmlSettings.GetSettingRegistry">
+ <summary>
+ レジストリの保存先キーを取得する
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+</members>
+</doc>

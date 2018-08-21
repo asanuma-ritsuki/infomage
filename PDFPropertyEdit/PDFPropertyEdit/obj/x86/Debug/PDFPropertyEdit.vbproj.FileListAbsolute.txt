@@ -1,0 +1,15 @@
+C:\GitHub\infomage\PDFPropertyEdit\PDFPropertyEdit\bin\x86\Debug\PDFPropertyEdit.exe.config
+C:\GitHub\infomage\PDFPropertyEdit\PDFPropertyEdit\bin\x86\Debug\PDFPropertyEdit.exe
+C:\GitHub\infomage\PDFPropertyEdit\PDFPropertyEdit\bin\x86\Debug\PDFPropertyEdit.pdb
+C:\GitHub\infomage\PDFPropertyEdit\PDFPropertyEdit\bin\x86\Debug\PDFPropertyEdit.xml
+C:\GitHub\infomage\PDFPropertyEdit\PDFPropertyEdit\bin\x86\Debug\itextsharp.dll
+C:\GitHub\infomage\PDFPropertyEdit\PDFPropertyEdit\bin\x86\Debug\itextsharp.xml
+C:\GitHub\infomage\PDFPropertyEdit\PDFPropertyEdit\obj\x86\Debug\PDFPropertyEdit.Form1.resources
+C:\GitHub\infomage\PDFPropertyEdit\PDFPropertyEdit\obj\x86\Debug\PDFPropertyEdit.Resources.resources
+C:\GitHub\infomage\PDFPropertyEdit\PDFPropertyEdit\obj\x86\Debug\PDFPropertyEdit.vbproj.GenerateResource.Cache
+C:\GitHub\infomage\PDFPropertyEdit\PDFPropertyEdit\obj\x86\Debug\PDFPropertyEdit.exe
+C:\GitHub\infomage\PDFPropertyEdit\PDFPropertyEdit\obj\x86\Debug\PDFPropertyEdit.xml
+C:\GitHub\infomage\PDFPropertyEdit\PDFPropertyEdit\obj\x86\Debug\PDFPropertyEdit.pdb
+C:\GitHub\infomage\PDFPropertyEdit\PDFPropertyEdit\bin\x86\Debug\Magick.NET-Q16-AnyCPU.dll
+C:\GitHub\infomage\PDFPropertyEdit\PDFPropertyEdit\bin\x86\Debug\Magick.NET-Q16-AnyCPU.xml
+C:\GitHub\infomage\PDFPropertyEdit\PDFPropertyEdit\bin\x86\Debug\exiftool.exe

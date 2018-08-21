@@ -77,9 +77,14 @@
     <Reference Include="C1.Win.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04" />
     <Reference Include="C1.Win.C1FlexGrid.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1FlexGrid.ImportExport.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1Input.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a" />
     <Reference Include="C1.Win.C1Ribbon.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1SplitContainer.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.Calendar.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.Input.MultiSelect.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.TreeView.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -109,6 +114,12 @@
     <Compile Include="Class\CSVParser.vb" />
     <Compile Include="Class\SQLProcess.vb" />
     <Compile Include="Class\XmlSettings.vb" />
+    <Compile Include="Form\Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form\frmConnectionProperty.Designer.vb">
       <DependentUpon>frmConnectionProperty.vb</DependentUpon>
     </Compile>
@@ -131,6 +142,18 @@
       <DependentUpon>frmOperation.vb</DependentUpon>
     </Compile>
     <Compile Include="Form\frmOperation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmSelectGroup.Designer.vb">
+      <DependentUpon>frmSelectGroup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmSelectGroup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmTraderDetail.Designer.vb">
+      <DependentUpon>frmTraderDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmTraderDetail.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Module\DefaultModule.vb" />
@@ -158,6 +181,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Form\Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\frmConnectionProperty.resx">
       <DependentUpon>frmConnectionProperty.vb</DependentUpon>
     </EmbeddedResource>
@@ -169,6 +195,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\frmOperation.resx">
       <DependentUpon>frmOperation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmSelectGroup.resx">
+      <DependentUpon>frmSelectGroup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmTraderDetail.resx">
+      <DependentUpon>frmTraderDetail.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">

@@ -1,0 +1,1923 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>C1.DataEngine.4</name>
+  </assembly>
+  <members>
+    <member name="T:C1.FlexPivot.Subtotal">
+      <summary>計算する小計（集計）統計値のタイプを指定します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.Subtotal.Sum">
+      <summary>グループの合計を取得します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.Subtotal.Count">
+      <summary>グループ内の値の数を取得します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.Subtotal.Average">
+      <summary>グループの平均を取得します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.Subtotal.Max">
+      <summary>グループ内の最大値を取得します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.Subtotal.Min">
+      <summary>グループ内の最小値を取得します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.Subtotal.First">
+      <summary>グループ内の最初の値を取得します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.Subtotal.Last">
+      <summary>グループ内の最後の値を取得します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.Subtotal.Var">
+      <summary>グループの標本分散を取得します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.Subtotal.Std">
+      <summary>グループの標本標準偏差を取得します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.Subtotal.VarP">
+      <summary>グループの母分散を取得します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.Subtotal.StdP">
+      <summary>グループの母標準偏差を取得します。</summary>
+    </member>
+    <member name="T:C1.FlexPivot.ShowTotals">
+      <summary>出力テーブルに合計を含めるかどうかを指定します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.ShowTotals.None">
+      <summary>合計を表示しません。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.ShowTotals.GrandTotals">
+      <summary>総計を表示します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.ShowTotals.Subtotals">
+      <summary>小計と総計を表示します。</summary>
+    </member>
+    <member name="T:C1.FlexPivot.C1FlexPivotEngine">
+      <summary>
+        <see cref="P:C1.FlexPivot.C1FlexPivotEngine.DataSource" />内のデータをフィールドのリストに従って表形式にし、
+        <see cref="P:C1.FlexPivot.C1FlexPivotEngine.FlexPivotTable" />プロパティによって公開される
+        <see cref="T:System.Data.DataTable" />を作成するクラス。
+      </summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.#ctor">
+      <summary>
+        <see cref="T:C1.FlexPivot.C1FlexPivotEngine" />の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.DataSource">
+      <summary>分析されるデータを含むオブジェクトを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.Fields">
+      <summary>
+        データソースによって公開される
+        <see cref="T:C1.FlexPivot.C1FlexPivotField" />オブジェクトのリスト
+      </summary>
+      <remarks>
+        <para>
+          このリストは、
+          <see cref="P:C1.FlexPivot.C1FlexPivotEngine.DataSource" />プロパティを設定するたびに自動的に作成されます。
+        </para>
+        <para>
+          FlexPivot ビューは、このリストからビューを定義するリスト （
+          <see cref="P:C1.FlexPivot.C1FlexPivotEngine.ValueFields" />,
+          <see cref="P:C1.FlexPivot.C1FlexPivotEngine.RowFields" />、
+          <see cref="P:C1.FlexPivot.C1FlexPivotEngine.ColumnFields" />、
+          <see cref="P:C1.FlexPivot.C1FlexPivotEngine.FilterFields" />） にフィールドをコピーすることで定義されます。
+        </para>
+      </remarks>
+      <example>
+        以下のコードは、データソースを FlexPivot エンジンに割り当ててから、
+        <see cref="P:C1.FlexPivot.C1FlexPivotEngine.RowFields" />、
+        <see cref="P:C1.FlexPivot.C1FlexPivotEngine.ColumnFields" />、
+        <see cref="P:C1.FlexPivot.C1FlexPivotEngine.ValueFields" />の各リストにフィールドを追加して、ビューを定義します。
+        <code>// データソースを設定します（フィールドリストを設定します） fp.DataSource = GetDataTable(); // FlexPivot ビューの構築中は更新を禁止します fp.BeginUpdate(); // 国を行に表示します fp.RowFields.Add("Country"); // カテゴリと製品を列に表示します fp.ColumnFields.Add("Category"); fp.ColumnFields.Add("Product"); // 売上高の合計をセルに表示します fp.ValueFields.Add("Sales"); // ビューの定義を完了します fp.EndUpdate();</code></example>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.RowFields">
+      <summary>
+        出力テーブル内の行として表示されるフィールドを定義する
+        <see cref="T:C1.FlexPivot.C1FlexPivotField" />オブジェクトのリストを取得します。
+      </summary>
+      <remarks>
+        詳細と例については、
+        <see cref="P:C1.FlexPivot.C1FlexPivotEngine.Fields" />プロパティを参照してください。
+      </remarks>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.ColumnFields">
+      <summary>
+        出力テーブル内の行として表示されるフィールドを定義する
+        <see cref="T:C1.FlexPivot.C1FlexPivotField" />オブジェクトのリストを取得します。
+      </summary>
+      <remarks>
+        詳細と例については、
+        <see cref="P:C1.FlexPivot.C1FlexPivotEngine.Fields" />プロパティを参照してください。
+      </remarks>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.ValueFields">
+      <summary>
+        出力テーブル内の行として表示されるフィールドを定義する
+        <see cref="T:C1.FlexPivot.C1FlexPivotField" />オブジェクトのリストを取得します。
+      </summary>
+      <remarks>
+        詳細と例については、
+        <see cref="P:C1.FlexPivot.C1FlexPivotEngine.Fields" />プロパティを参照してください。
+      </remarks>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.ValueField">
+      <summary>
+        <see cref="P:C1.FlexPivot.C1FlexPivotEngine.ValueFields" />コレクション内の最初の
+        <see cref="T:C1.FlexPivot.C1FlexPivotField" />を取得します。 コレクションが空の場合は、null を取得します。
+      </summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.TransposeFields">
+      <summary>現在のビュー内のフィールドを入れ替えて、行を列にし、 列を行にします。</summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.FilterFields">
+      <summary>
+        出力テーブル内の行として表示されるフィールドを定義する
+        <see cref="T:C1.FlexPivot.C1FlexPivotField" />オブジェクトのリストを取得します。
+      </summary>
+      <remarks>
+        <para>このリストのフィールドは、出力テーブルには表示されませんが、 入力データのフィルタとして使用されます。</para>
+        <para>
+          詳細と例については、
+          <see cref="P:C1.FlexPivot.C1FlexPivotEngine.Fields" />プロパティを参照してください。
+        </para>
+      </remarks>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.IsViewDefined">
+      <summary>FlexPivot ビューが現在定義されているかどうかを判定する値を取得します。</summary>
+      <remarks>
+        FlexPivot ビューが定義されているのは、
+        <see cref="P:C1.FlexPivot.C1FlexPivotEngine.ValueFields" />リストが空でなく、 かつ
+        <see cref="P:C1.FlexPivot.C1FlexPivotEngine.RowFields" />リストか
+        <see cref="P:C1.FlexPivot.C1FlexPivotEngine.ColumnFields" />リストのいずれかが 空でない場合です。
+      </remarks>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.ShowTotalsRows">
+      <summary>小計または総計を含む列が FlexPivot 出力テーブルに含まれるかどうかを判定する値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.ShowTotalsColumns">
+      <summary>小計または総計を含む列が FlexPivot 出力テーブルに含まれるかどうかを判定する値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.ShowKeyColumns">
+      <summary>小計または総計を含む列が FlexPivot 出力テーブルに含まれるかどうかを判定する値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.ShowZeros">
+      <summary>小計または総計を含む列が FlexPivot 出力テーブルに含まれるかどうかを判定する値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.FlexPivotTable">
+      <summary>
+        FlexPivot 分析の出力を含む
+        <see cref="T:System.Data.DataTable" />を 取得します。
+      </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.FlexPivotDefaultView">
+      <summary>
+        データを
+        <see cref="P:C1.FlexPivot.C1FlexPivotEngine.FlexPivotTable" />に公開する デフォルトの
+        <see cref="T:System.ComponentModel.IBindingList" />を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.ItemCount">
+      <summary>データソースに含まれる要素の数を取得します。</summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.FilteredItemCount">
+      <summary>現在のビューに表示される要素の数を取得します。</summary>
+      <remarks>フィルタがアクティブでない場合は、データソース内の要素の数です。 フィルタがアクティブである場合は、フィルタに合致する要素だけが 数えられます。</remarks>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.GetViewTitle">
+      <summary>現在のビューについて記述したタイトルを含む文字列を取得します。</summary>
+      <returns>現在のビューについて記述した文字列。</returns>
+      <remarks>文字列には現在アクティブなフィールドの名前が含まれ、 これをチャートやレポートのキャプションとして使用できます。</remarks>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.GetViewTitle(System.String,System.String)">
+      <summary>現在のビューについて記述したタイトルを含むローカライズされた文字列を取得します。</summary>
+      <param name="by">値と行/列のフィールド名の区切りを示すセパレータとして使用する文字列。</param>
+      <param name="and">行と列のフィールド名の区切りを示すセパレータとして使用する文字列。</param>
+      <returns>現在のビューについて記述した文字列。</returns>
+      <remarks>文字列には現在アクティブなフィールドの名前が含まれ、 これをチャートやレポートのキャプションとして使用できます。</remarks>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.BeginUpdate">
+      <summary>FlexPivot ビューの定義中に、出力テーブルの自動更新を一時停止します。</summary>
+      <remarks>
+        FlexPivot ビューを構成するフィールドが変更されると、
+        <see cref="T:C1.FlexPivot.C1FlexPivotEngine" />は 出力テーブルを更新します。 複数の変更（新しい FlexPivot ビューの定義など）を行う前に、 それらの変更を
+        <see cref="M:C1.FlexPivot.C1FlexPivotEngine.BeginUpdate" />呼び出しと
+        <see cref="M:C1.FlexPivot.C1FlexPivotEngine.EndUpdate" />呼び出しで囲むことで、 パフォーマンスを向上させることができます。
+      </remarks>
+      <example>
+        以下のコードは、
+        <see cref="M:C1.FlexPivot.C1FlexPivotEngine.BeginUpdate" />呼び出しと
+        <see cref="M:C1.FlexPivot.C1FlexPivotEngine.EndUpdate" />呼び出しで変更を囲んで、 新しい FlexPivot ビューを効率よく定義する方法を示します。
+        <code>// データソースを設定します（フィールドリストを設定します） fp.DataSource = GetDataTable(); // FlexPivot ビューの構築中は更新を禁止します fp.BeginUpdate(); // 国を行に表示します fp.RowFields.Add("Country"); // カテゴリと製品を列に表示します fp.ColumnFields.Add("Category"); fp.ColumnFields.Add("Product"); // 売上高の合計をセルに表示します fp.ValueFields.Add("Sales"); // ビューの定義を完了します fp.EndUpdate();</code></example>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.EndUpdate">
+      <summary>FlexPivot ビューの定義が完了したら、出力テーブルの自動更新を再開します。</summary>
+      <example>
+        完全な例については、
+        <see cref="M:C1.FlexPivot.C1FlexPivotEngine.BeginUpdate" />メソッドのドキュメントを参照してください。
+      </example>
+    </member>
+    <member name="E:C1.FlexPivot.C1FlexPivotEngine.Updating">
+      <summary>
+        <see cref="T:C1.FlexPivot.C1FlexPivotEngine" />が 出力
+        <see cref="P:C1.FlexPivot.C1FlexPivotEngine.FlexPivotTable" />の更新を開始する前に発生します。
+      </summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.OnUpdating(System.EventArgs)">
+      <summary>
+        <see cref="E:C1.FlexPivot.C1FlexPivotEngine.Updating" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="E:C1.FlexPivot.C1FlexPivotEngine.Updated">
+      <summary>
+        <see cref="T:C1.FlexPivot.C1FlexPivotEngine" />が FlexPivot 分析を終了し、 出力
+        <see cref="P:C1.FlexPivot.C1FlexPivotEngine.FlexPivotTable" />の準備が整うと発生します。
+      </summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.OnUpdated(System.EventArgs)">
+      <summary>
+        <see cref="E:C1.FlexPivot.C1FlexPivotEngine.Updated" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="E:C1.FlexPivot.C1FlexPivotEngine.LoadedFields">
+      <summary>
+        <see cref="T:C1.FlexPivot.C1FlexPivotEngine" />が現在の DataSource のフィールドのロードを終了すると発生します。
+      </summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.OnLoadedFields(System.EventArgs)">
+      <summary>
+        <see cref="E:C1.FlexPivot.C1FlexPivotEngine.LoadedFields" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.Update">
+      <summary>
+        <see cref="T:C1.FlexPivot.C1FlexPivotEngine" />は、
+        <see cref="P:C1.FlexPivot.C1FlexPivotEngine.FlexPivotTable" />プロパティによって公開された出力テーブルを再構築します。
+      </summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.Dispose">
+      <summary>使用されているリソースをすべてクリーンアップします。</summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.GetFlexPivotKey(System.Data.DataColumn)">
+      <summary>
+        FlexPivot テーブル内の
+        <see cref="T:System.Data.DataColumn" />に関連付けられている
+        <see cref="T:C1.FlexPivot.C1FlexPivotKey" />を取得します。
+      </summary>
+      <param name="column">
+        関連するキーを取得する
+        <see cref="T:System.Data.DataColumn" />。
+      </param>
+      <returns>
+        <paramref name="column" />に関連付けられている
+        <see cref="T:C1.FlexPivot.C1FlexPivotKey" />。
+      </returns>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.GetFlexPivotKey(System.Data.DataRow)">
+      <summary>
+        FlexPivot テーブル内の
+        <see cref="T:System.Data.DataRow" />に関連付けられている
+        <see cref="T:C1.FlexPivot.C1FlexPivotKey" />を取得します。
+      </summary>
+      <param name="row">
+        関連するキーを取得する
+        <see cref="T:System.Data.DataRow" />。
+      </param>
+      <returns>
+        <paramref name="row" />に関連付けられている
+        <see cref="T:C1.FlexPivot.C1FlexPivotKey" />。
+      </returns>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.GetDetail(System.Data.DataRow,System.Data.DataColumn)">
+      <summary>
+        <see cref="P:C1.FlexPivot.C1FlexPivotEngine.FlexPivotTable" />プロパティによって公開される出力テーブル内の特定のセルのコンテンツを定義する生データソース内のオブジェクトのリストを取得します。
+      </summary>
+      <param name="row">
+        FlexPivot セルを保持する
+        <see cref="T:System.Data.DataRow" />。
+      </param>
+      <param name="column">
+        FlexPivot セルを保持する
+        <see cref="T:System.Data.DataColumn" />。
+      </param>
+      <returns>指定された FlexPivot セルのコンテンツを定義する生データソース内の オブジェクトのリスト。</returns>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.GetDetail(System.Data.DataRow,System.String)">
+      <summary>
+        <see cref="P:C1.FlexPivot.C1FlexPivotEngine.FlexPivotTable" />プロパティによって公開される出力テーブル内の特定のセルのコンテンツを定義する生データソース内のオブジェクトのリストを取得します。
+      </summary>
+      <param name="row">
+        FlexPivot セルを保持する
+        <see cref="T:System.Data.DataRow" />。
+      </param>
+      <param name="columnName">FlexPivot セルが含まれる列の名前。</param>
+      <returns>指定された FlexPivot セルのコンテンツを定義する生データソース内の オブジェクトのリスト。</returns>
+    </member>
+    <member name="E:C1.FlexPivot.C1FlexPivotEngine.UpdateProgressChanged">
+      <summary>
+        <see cref="T:C1.FlexPivot.C1FlexPivotEngine" />の更新の進捗状況が変化すると発生します。
+      </summary>
+    </member>
+    <member name="E:C1.FlexPivot.C1FlexPivotEngine.UpdateCompleted">
+      <summary>
+        <see cref="T:C1.FlexPivot.C1FlexPivotEngine" />の更新の終了後に発生します。
+      </summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.CancelUpdate">
+      <summary>保留中の要求操作のキャンセルを要求します。</summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.WriteXml(System.Xml.XmlWriter)">
+      <summary>
+        現在の FlexPivot ビュー定義を
+        <see cref="T:System.Xml.XmlWriter" />に保存します。
+      </summary>
+      <param name="xw">
+        ビュー定義が保存される
+        <see cref="T:System.Xml.XmlWriter" />。
+      </param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.WriteXml(System.String)">
+      <summary>現在の FlexPivot ビュー定義を Xml ファイルに保存します。</summary>
+      <param name="path">保存するファイルの名前。</param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.ReadXml(System.Xml.XmlReader)">
+      <summary>
+        <see cref="T:System.Xml.XmlReader" />から FlexPivot ビュー定義を読み込みます。
+      </summary>
+      <param name="xr">
+        ビュー定義を含む
+        <see cref="T:System.Xml.XmlReader" />。
+      </param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.ReadXml(System.String)">
+      <summary>ファイルから FlexPivot ビュー定義を読み込みます。</summary>
+      <param name="path">ビュー定義を含むファイルの名前。</param>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.ViewDefinition">
+      <summary>FlexPivot ビュー定義を XML 文字列として取得または設定します。</summary>
+      <remarks>このプロパティは通常、現在の FlexPivot ビューを アプリケーション設定として存続させるために使用されます。</remarks>
+      <example>
+        <para>以下のコードは、アプリケーションの終了時に FlexPivot ビューをアプリケーション設定として保存し、 アプリケーションの開始時にそのビューを ロードする方法を示します。</para>
+        <para>このコードは、"FlexPivotView" という名前の文字列プロパティがアプリケーション設定に含まれていることを 前提とします。</para>
+        <code>public Form1() { InitializeComponent(); // デフォルトビューをロードします C1FlexPivotEngine fp = GetFlexPivotEngine(); string view = Properties.Settings.Default.FlexPivotView; if (!string.IsNullOrEmpty(view)) { fp.ViewDefinition = Properties.Settings.Default.FlexPivotView; } } protected override void OnClosed(EventArgs e) { // 現在のビューをデフォルトとして保存します C1FlexPivotEngine fp = GetFlexPivotEngine(); Properties.Settings.Default.FlexPivotView = fp.ViewDefinition; Properties.Settings.Default.Save(); }</code>
+      </example>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.GetUniqueValues(C1.FlexPivot.C1FlexPivotField,System.Exception@,System.Int32,System.Int32)">
+      <summary>
+        <see cref="T:C1.FlexPivot.C1FlexPivotField" />から一意の値のリストを取得します。
+      </summary>
+      <param name="field">
+        値を含む
+        <see cref="T:C1.FlexPivot.C1FlexPivotField" />。
+      </param>
+      <param name="ex">
+        操作中に
+        <see cref="T:System.Exception" />が発生します。
+      </param>
+      <param name="dataLimit">データ値の制限。</param>
+      <param name="uniqueLimit">一意の値の制限。</param>
+      <returns>一意の値のリスト。</returns>
+    </member>
+    <member name="E:C1.FlexPivot.C1FlexPivotEngine.StartUpdating">
+      <summary></summary>
+    </member>
+    <member name="E:C1.FlexPivot.C1FlexPivotEngine.CancelUpdating">
+      <summary></summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.OnStartUpdating(System.EventArgs)">
+      <summary></summary>
+      <param name="e"></param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.OnCancelUpdating(System.EventArgs)">
+      <summary></summary>
+      <param name="e"></param>
+    </member>
+    <member name="T:C1.FlexPivot.C1FlexPivotField">
+      <summary>データソース内の項目のプロパティを表します。</summary>
+      <remarks>
+        <para>
+          <see cref="T:C1.FlexPivot.C1FlexPivotField" />オブジェクトは、出力 FlexPivot テーブル内の「ディメンション」 を表します。
+        </para>
+        <para>
+          出力テーブル内の各行と各列は、
+          <see cref="T:C1.FlexPivot.C1FlexPivotKey" />オブジェクトによって一意に識別されます。これらのオブジェクトには、
+          <see cref="T:C1.FlexPivot.C1FlexPivotField" />オブジェクトのリストと具体的な値が含まれます。
+        </para>
+      </remarks>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotField.Name">
+      <summary>フィールドソース列の名前を取得します。</summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotField.Caption">
+      <summary>ユーザーインタフェースに表示される文字列を取得または設定します。</summary>
+      <remarks>
+        このプロパティが null または空の文字列に設定されている場合は、
+        <see cref="P:C1.FlexPivot.C1FlexPivotField.Name" />プロパティが代わりに使用されます。
+      </remarks>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotField.Width">
+      <summary>このフィールドをユーザーインタフェースに表示するための適切な幅を取得または設定します。</summary>
+      <remarks>このプロパティをゼロまたは負の値に設定すると、プロパティは無効になります。このプロパティを正の値に設定すると、 すべての連結グリッドコントロールで列幅の設定時に その値が使用されます。</remarks>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotField.Type">
+      <summary>フィールドソース列のタイプを取得します。</summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotField.Subtotal">
+      <summary>フィールド値の結合時に使用する小計のタイプを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotField.WeightField">
+      <summary>
+        このフィールドの小計の計算時に重みとして使用する
+        <see cref="T:C1.FlexPivot.C1FlexPivotField" />を 取得または設定します。
+      </summary>
+      <remarks>
+        <para>このプロパティが null に設定されている場合は、すべての値が重み 1 と見なされます。</para>
+        <para>このプロパティを使用すると、加重平均や加重合計を計算できます。 たとえば、データに［Quantity］フィールドと［Price］フィールドがある場合に、 ［Price］フィールドを値フィールドとして使用し、［Quantity］フィールドを 重みとして使用できます。出力には、データの加重平均が含まれます。</para>
+      </remarks>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotField.Format">
+      <summary>フィールド値の表示に使用する書式を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotField.Style">
+      <summary>
+        フィールド値をグリッドに表示するために使用する
+        <see cref="T:C1.FlexPivot.C1FlexPivotFieldStyle" />を取得します。
+      </summary>
+      <remarks>
+        <para>
+          このプロパティを使用すると、スタイルのプロパティを特定の
+          <see cref="T:C1.FlexPivot.C1FlexPivotField" />に割り当てて、 フィールド値をユーザーに表示する方法をカスタマイズできます。
+        </para>
+        <para>複数の値フィールドを含むビューでは、フィールドの外観をカスタマイズすることが 役立つことがあります。</para>
+        <para>たとえば、以下のコードは、2 つの値フィールドを含むビューを作成し、一方のフィールドに 緑色の背景色を与えます。</para>
+        <code>// ビューを作成します var fp = this.c1FlexPivotPage1.FlexPivotEngine; fp.RowFields.Add("ProductName"); fp.ColumnFields.Add("Country"); fp.ValueFields.MaxItems = 2; fp.ValueFields.Add("ExtendedPrice", "Freight"); // ［ExtendedPrice］フィールドに緑色の背景色を与えます var f = fp.Fields["ExtendedPrice"]; f.Style.BackColor = Color.FromArgb(240, 255, 240);</code>
+        <para>
+          <see cref="P:C1.FlexPivot.C1FlexPivotField.StyleHigh" />プロパティと
+          <see cref="P:C1.FlexPivot.C1FlexPivotField.StyleLow" />プロパティを使用して、条件付きスタイルを作成することもできます。
+        </para>
+      </remarks>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotField.StyleHigh">
+      <summary>
+        上位の値の表示に使用する
+        <see cref="T:C1.FlexPivot.C1FlexPivotConditionalFieldStyle" />を取得します。
+      </summary>
+      <remarks>
+        <para>このプロパティを使用すると、フィールドに条件付き書式設定を適用して、 ユーザーに値を表示するときに特定の値を強調することができます。</para>
+        <para>たとえば、以下のコードは、上位 10 % 範囲の値を緑色の背景色と太字で表示し、 下位 10 % 範囲の値を背景色が赤色の太字 で表示します。</para>
+        <code>// すべての値フィールドに書式設定を適用します var fp = this.c1FlexPivotPage1.FlexPivotEngine; foreach (var f in fp.ValueFields) { // 上位 10 % の値を緑色の背景色と太字で表示します var sh = f.StyleHigh; sh.ConditionType = C1.FlexPivot.ConditionType.Percentage; sh.Value = .9; sh.BackColor = Color.FromArgb(210, 255, 210); sh.FontBold = true; // 下位 10 % の値を赤色の背景色と太字で表示します var sl = f.StyleLow; sl.ConditionType = C1.FlexPivot.ConditionType.Percentage; sl.Value = .1; sl.BackColor = Color.FromArgb(255, 210, 210); sl.FontBold = true; }</code>
+      </remarks>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotField.StyleLow">
+      <summary>
+        下位の値の表示に使用する
+        <see cref="T:C1.FlexPivot.C1FlexPivotConditionalFieldStyle" />を取得します。
+      </summary>
+      <remarks>
+        <para>このプロパティを使用すると、フィールドに条件付き書式設定を適用して、 ユーザーに値を表示するときに特定の値を強調することができます。</para>
+        <para>
+          サンプルについては、
+          <see cref="P:C1.FlexPivot.C1FlexPivotField.StyleHigh" />プロパティを参照してください。
+        </para>
+      </remarks>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotField.Filter">
+      <summary>フィールド値の選別に使用するフィルタを取得します。</summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotField.IsActive">
+      <summary>このフィールドが FlexPivot ビューでアクティブであるかどうかを取得または設定します。</summary>
+      <remarks>
+        このプロパティを true に設定すると、このフィールドを 親
+        <see cref="T:C1.FlexPivot.C1FlexPivotEngine" />の
+        <see cref="P:C1.FlexPivot.C1FlexPivotEngine.RowFields" />リストに追加できます。
+      </remarks>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotField.GetUniqueValues">
+      <summary>このフィールドのデータソースに存在する一意の値のリストを取得します。</summary>
+      <returns>このフィールドのデータソースに存在する一意の値のリスト。</returns>
+      <remarks>
+        このリストは、
+        <see cref="P:C1.FlexPivot.C1FlexPivotField.FlexPivotEngine" />がデータを走査して 出力テーブルを構築するときに更新されます。エンジンが出力テーブルを構築する前にこのメソッドを呼び出すと、 空のコレクションが返されます。
+      </remarks>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotField.FlexPivotEngine">
+      <summary>
+        このフィールドを所有する
+        <see cref="T:C1.FlexPivot.C1FlexPivotEngine" />を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotField.ParentList">
+      <summary>
+        このフィールドを含む
+        <see cref="T:C1.FlexPivot.C1FlexPivotFieldList" />を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotField.Lookup">
+      <summary>
+        このフィールドの検索値を含む
+        <see cref="!:IDictionary" />を取得または設定します。
+      </summary>
+      <remarks>この辞書は、コード値を文字列表記に置き換えるために使用されます。</remarks>
+    </member>
+    <member name="E:C1.FlexPivot.C1FlexPivotField.PropertyChanged">
+      <summary>プロパティが変更されるときに発生します。</summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotField.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+      <summary>
+        <see cref="E:C1.FlexPivot.C1FlexPivotField.PropertyChanged" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.ComponentModel.PropertyChangedEventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotField.WriteXml(System.Xml.XmlWriter)">
+      <summary>
+        フィールドを
+        <see cref="T:System.Xml.XmlWriter" />に保存します。
+      </summary>
+      <param name="xw">
+        フィールドが保存される
+        <see cref="T:System.Xml.XmlWriter" />。
+      </param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotField.ReadXml(System.Xml.XmlReader)">
+      <summary>
+        <see cref="T:System.Xml.XmlReader" />からフィールドを読み込みます。
+      </summary>
+      <param name="xr">
+        フィールド情報を含む
+        <see cref="T:System.Xml.XmlReader" />。
+      </param>
+    </member>
+    <member name="F:C1.FlexPivot.Internal.DimensionType.Dimension">
+      <summary>グループの合計を取得します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.Internal.DimensionType.Measure">
+      <summary>グループ内の値の数を取得します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.Internal.DimensionType.Kpi">
+      <summary>グループの平均を取得します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.Internal.DimensionType.NameSet">
+      <summary>グループ内の最大値を取得します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.Internal.DimensionType.Attribute">
+      <summary>グループ内の最大値を取得します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.Internal.DimensionType.Folder">
+      <summary>グループ内の最大値を取得します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.Internal.DimensionType.Hierarchy">
+      <summary>グループ内の最大値を取得します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.Internal.DimensionType.Date">
+      <summary>グループ内の最大値を取得します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.Internal.DimensionType.Currency">
+      <summary>グループ内の最大値を取得します。</summary>
+    </member>
+    <member name="T:C1.FlexPivot.Internal.C1FlexPivotTally">
+      <summary>観察結果を累積し、総統計を返します。</summary>
+    </member>
+    <member name="T:C1.FlexPivot.Internal.Types">
+      <summary>
+        <see cref="T:System.Type" />オブジェクトを処理する静的ヘルパー。
+      </summary>
+    </member>
+    <member name="T:C1.FlexPivot.C1FlexPivotFieldList">
+      <summary>
+        <see cref="T:C1.FlexPivot.C1FlexPivotField" />オブジェクトのリストを表します。
+      </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotFieldList.MaxItems">
+      <summary>このリストで許容されるフィールドの最大数を取得または設定します。</summary>
+      <remarks>負の値は、リストが任意の数の項目を持つことができることを示します。</remarks>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotFieldList.Item(System.String)">
+      <summary>
+        名前に基づいて
+        <see cref="T:C1.FlexPivot.C1FlexPivotField" />を取得します。
+      </summary>
+      <param name="fieldName">取得するフィールドの名前。</param>
+      <returns>
+        要求された
+        <see cref="T:C1.FlexPivot.C1FlexPivotField" />。
+      </returns>
+      <remarks>指定された名前のフィールドがリストになかった場合は、 例外が生成されます。</remarks>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFieldList.Add(System.String[])">
+      <summary>
+        既存の
+        <see cref="T:C1.FlexPivot.C1FlexPivotField" />をリストに追加します。
+      </summary>
+      <param name="fieldNames">リストに追加する 1 つ以上のフィールド名。</param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFieldList.Insert(System.Int32,System.String)">
+      <summary>
+        <see cref="T:C1.FlexPivot.C1FlexPivotField" />をリスト内の指定された位置に挿入します。
+      </summary>
+      <param name="index">フィールドを挿入する位置。</param>
+      <param name="fieldName">
+        既存の
+        <see cref="T:C1.FlexPivot.C1FlexPivotField" />の名前。
+      </param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFieldList.IndexOf(System.String)">
+      <summary>
+        リスト内の特定の
+        <see cref="T:C1.FlexPivot.C1FlexPivotField" />の位置を取得します。
+      </summary>
+      <param name="fieldName">検索するフィールドの名前。</param>
+      <returns>リスト内のフィールドのインデックス。フィールドが リストのメンバでない場合は、-1。</returns>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFieldList.InsertItem(System.Int32,C1.FlexPivot.C1FlexPivotField)">
+      <summary>
+        <see cref="T:C1.FlexPivot.C1FlexPivotField" />をリスト内の指定された位置に挿入します。
+      </summary>
+      <param name="index">フィールドを挿入する位置。</param>
+      <param name="item">
+        リストに追加する
+        <see cref="T:C1.FlexPivot.C1FlexPivotField" />。
+      </param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFieldList.Remove(System.String)">
+      <summary>
+        パラメータで渡された名前と一致する名前を持つ
+        <see cref="T:C1.FlexPivot.C1FlexPivotField" />のうち、 最初に見つかったものを削除します。
+      </summary>
+      <param name="fieldName">
+        削除する
+        <see cref="T:C1.FlexPivot.C1FlexPivotField" />の名前。
+      </param>
+      <returns>項目が正常に削除された場合は true を返し、そうでない場合は false を返します。このメソッドは、 リスト内に項目が見つからなかった場合にも false を返します。</returns>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFieldList.RemoveItem(System.Int32)">
+      <summary>リストから項目を削除します。</summary>
+      <param name="index">リストから削除する項目のインデックス。</param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFieldList.ClearItems">
+      <summary>リストからすべての項目を削除します。</summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFieldList.SetItem(System.Int32,C1.FlexPivot.C1FlexPivotField)">
+      <summary>指定された位置にある項目を置き換えます。</summary>
+      <param name="index">置換する項目のインデックス。</param>
+      <param name="item">指定されたインデックスにある項目の新しい値。</param>
+    </member>
+    <member name="T:C1.FlexPivot.C1FlexPivotFieldStyle">
+      <summary>ユーザーにフィールド値を表示するために使用するスタイル。</summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotFieldStyle.BackColor">
+      <summary>このフィールドのセルの背景の描画に使用する色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotFieldStyle.ForeColor">
+      <summary>このフィールドのセルのコンテンツの描画に使用する色を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotFieldStyle.FontBold">
+      <summary>このフィールドのセルを太字で表示するかどうかを判定する値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotFieldStyle.Field">
+      <summary>
+        このスタイルを所有する
+        <see cref="T:C1.FlexPivot.C1FlexPivotField" />を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotFieldStyle.IsEmpty">
+      <summary>このスタイルが空かどうかを示す値を取得します。</summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFieldStyle.Clear">
+      <summary>このスタイルをクリアします。</summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFieldStyle.WriteXml(System.Xml.XmlWriter,System.String)">
+      <summary>
+        スタイルを
+        <see cref="T:System.Xml.XmlWriter" />に保存します。
+      </summary>
+      <param name="xw">
+        スタイルを保存する
+        <see cref="T:System.Xml.XmlWriter" />。
+      </param>
+      <param name="styleName">
+        保存するスタイルの
+        <see cref="T:System.Xml.XmlWriter" />の名前。
+      </param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFieldStyle.ReadXml(System.Xml.XmlReader)">
+      <summary>
+        <see cref="T:System.Xml.XmlReader" />からスタイルを読み込みます。
+      </summary>
+      <param name="xr">
+        スタイル情報を含む
+        <see cref="T:System.Xml.XmlReader" />。
+      </param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFieldStyle.OnPropertyChanged">
+      <summary>スタイルが変更されていることを親フィールドに通知します。</summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFieldStyle.SaveAttributes(System.Xml.XmlWriter)">
+      <summary>
+        スタイルのプロパティを
+        <see cref="T:System.Xml.XmlWriter" />に保存します。
+      </summary>
+      <param name="xw">
+        スタイルのプロパティを保存する
+        <see cref="T:System.Xml.XmlWriter" />。
+      </param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFieldStyle.LoadAttributes(System.Xml.XmlReader)">
+      <summary>
+        <see cref="T:System.Xml.XmlReader" />からスタイルのプロパティをロードします。
+      </summary>
+      <param name="xr">
+        スタイルのプロパティを含む
+        <see cref="T:System.Xml.XmlReader" />。
+      </param>
+    </member>
+    <member name="T:C1.FlexPivot.ConditionType">
+      <summary>
+        <see cref="T:C1.FlexPivot.C1FlexPivotConditionalFieldStyle" />の適用時に使用する比較のタイプを指定します。
+      </summary>
+    </member>
+    <member name="F:C1.FlexPivot.ConditionType.NotSet">
+      <summary>このスタイルの条件付き書式設定を無効にします。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.ConditionType.Absolute">
+      <summary>フィールド値を指定された絶対値と比較します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.ConditionType.Percentage">
+      <summary>フィールド値をパーセンテージで指定された値と比較します。</summary>
+    </member>
+    <member name="T:C1.FlexPivot.C1FlexPivotConditionalFieldStyle">
+      <summary>値に応じてセルに適用される条件付きスタイル。</summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotConditionalFieldStyle.ConditionType">
+      <summary>このスタイルを適用するかどうかを判定する条件を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotConditionalFieldStyle.Value">
+      <summary>このスタイルを適用するかどうかを判定する閾値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotConditionalFieldStyle.IsEmpty">
+      <summary>このスタイルが空かどうかを示す値を取得します。</summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotConditionalFieldStyle.AppliesTo(System.Double,System.Double,System.Double)">
+      <summary>このスタイルを指定された値に適用するかどうかを判定します。</summary>
+      <param name="value">テストする値。</param>
+      <param name="min">この条件付き書式設定を使用する値の範囲の下限値。</param>
+      <param name="max">この条件付き書式設定を使用する値の範囲の上限値。</param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotConditionalFieldStyle.SaveAttributes(System.Xml.XmlWriter)">
+      <summary>
+        スタイルのプロパティを
+        <see cref="T:System.Xml.XmlWriter" />に保存します。
+      </summary>
+      <param name="xw">
+        スタイルのプロパティを保存する
+        <see cref="T:System.Xml.XmlWriter" />。
+      </param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotConditionalFieldStyle.LoadAttributes(System.Xml.XmlReader)">
+      <summary>
+        <see cref="T:System.Xml.XmlReader" />からスタイルを読み込みます。
+      </summary>
+      <param name="xr">
+        スタイル情報を含む
+        <see cref="T:System.Xml.XmlReader" />。
+      </param>
+    </member>
+    <member name="T:C1.FlexPivot.ConditionOperator">
+      <summary>フィルタ条件で使用できる演算子を表します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.ConditionOperator.None">
+      <summary>演算子を無効にします。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.ConditionOperator.Equals">
+      <summary>値が演算子パラメータと等しい場合は、true を返します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.ConditionOperator.NotEquals">
+      <summary>値が演算子パラメータと等しくない場合は、true を返します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.ConditionOperator.GreaterThan">
+      <summary>値が演算子パラメータより大きい場合は、true を返します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.ConditionOperator.LessThan">
+      <summary>値が演算子パラメータ未満の場合は、true を返します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.ConditionOperator.GreaterThanOrEqualTo">
+      <summary>値が演算子パラメータ以上の場合は true、そうでない場合は false を返します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.ConditionOperator.LessThanOrEqualTo">
+      <summary>値が演算子パラメータ以下の場合は true、そうでない場合は false を返します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.ConditionOperator.Contains">
+      <summary>値の文字列表現に演算子パラメータが含まれている場合は、true を返します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.ConditionOperator.DoesNotContain">
+      <summary>値の文字列表現に演算子パラメータが含まれていない場合は、true を返します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.ConditionOperator.BeginsWith">
+      <summary>値の文字列表現が演算子パラメータで始まる場合は、true を返します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.ConditionOperator.EndsWith">
+      <summary>値の文字列表現が演算子パラメータで終わる場合は、true を返します。</summary>
+    </member>
+    <member name="T:C1.FlexPivot.C1FlexPivotFilter">
+      <summary>フィールドの値の選別に使用するフィルタを表します。</summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFilter.#ctor(C1.FlexPivot.C1FlexPivotField)">
+      <summary>
+        <see cref="T:C1.FlexPivot.C1FlexPivotFilter" />の新しいインスタンスを初期化します。
+      </summary>
+      <param name="field">
+        新しいフィルタを所有する
+        <see cref="T:C1.FlexPivot.C1FlexPivotField" />。
+      </param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFilter.Apply(System.Object)">
+      <summary>フィルタを値に適用します。</summary>
+      <param name="value">テストする値。</param>
+      <returns>値がフィルタに合致する場合は true を返し、そうでない場合は false を返します。</returns>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFilter.Clear">
+      <summary>フィルタをクリアします。</summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotFilter.Field">
+      <summary>このフィルタの対象になるフィールドを取得します。</summary>
+    </member>
+    <member name="E:C1.FlexPivot.C1FlexPivotFilter.PropertyChanged">
+      <summary>プロパティが変更されるときに発生します。</summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFilter.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+      <summary>
+        <see cref="E:C1.FlexPivot.C1FlexPivotFilter.PropertyChanged" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.ComponentModel.PropertyChangedEventArgs" />。
+      </param>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotFilter.Condition1">
+      <summary>1 番目のフィルタ条件を取得します。</summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotFilter.Condition2">
+      <summary>2 番目のフィルタ条件を取得します。</summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotFilter.AndConditions">
+      <summary>フィルタ条件を 'And' 演算子または 'Or' 演算子のどちらと組み合わせるかを 取得または設定します。</summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotFilter.IsCustomFilterActive">
+      <summary>カスタムフィルタがアクティブかどうかを示す値を取得します。</summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotFilter.IsActive">
+      <summary>フィルタがアクティブかどうかを示す値を取得します。</summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotFilter.ShowValues">
+      <summary>出力に含める必要がある値の配列を取得または設定します。</summary>
+      <remarks>このプロパティを null に設定すると、フィルタは、すべての値を出力に含めます。</remarks>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotFilter.Values">
+      <summary>値フィルタリストエディタに表示する値のリストを取得または設定します。</summary>
+      <remarks>このプロパティを null に設定すると、フィルタは、 データソースに存在する値を使用して、値リストを自動的に構築します。</remarks>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFilter.WriteXml(System.Xml.XmlWriter)">
+      <summary>フィルタを XML に保存します。</summary>
+      <param name="xw">
+        フィルタを保存する
+        <see cref="T:System.Xml.XmlWriter" />。
+      </param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFilter.ReadXml(System.Xml.XmlReader)">
+      <summary>フィルタを XML から読み込みます。</summary>
+      <param name="xr">
+        フィルタ定義を保持する
+        <see cref="T:System.Xml.XmlReader" />。
+      </param>
+    </member>
+    <member name="T:C1.FlexPivot.FilterCondition">
+      <summary>
+        <see cref="T:C1.FlexPivot.C1FlexPivotFilter" />内の 1 つの条件を表します。
+      </summary>
+      <remarks>
+        それぞれの
+        <see cref="T:C1.FlexPivot.C1FlexPivotFilter" />は、 'And' または 'Or' 演算子で組み合わせることができる条件を最大 2 つ含みます。
+      </remarks>
+    </member>
+    <member name="P:C1.FlexPivot.FilterCondition.IsActive">
+      <summary>条件がアクティブかどうかを示す値を取得します。</summary>
+    </member>
+    <member name="P:C1.FlexPivot.FilterCondition.Operator">
+      <summary>この条件で使用される演算子を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.FlexPivot.FilterCondition.Parameter">
+      <summary>この条件で使用されるパラメータを取得または設定します。</summary>
+    </member>
+    <member name="M:C1.FlexPivot.FilterCondition.Clear">
+      <summary>
+        <see cref="P:C1.FlexPivot.FilterCondition.Operator" />を 'None'、
+        <see cref="P:C1.FlexPivot.FilterCondition.Parameter" />を null に設定して、この条件をクリアします。
+      </summary>
+    </member>
+    <member name="M:C1.FlexPivot.FilterCondition.Apply(System.Object)">
+      <summary>条件を指定された値に適用します。</summary>
+      <param name="value">テストする値。</param>
+      <returns>値が条件を満たす場合は true、そうでない場合は false。</returns>
+    </member>
+    <member name="E:C1.FlexPivot.FilterCondition.PropertyChanged">
+      <summary>プロパティが変更されるときに発生します。</summary>
+    </member>
+    <member name="M:C1.FlexPivot.FilterCondition.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+      <summary>
+        <see cref="E:C1.FlexPivot.FilterCondition.PropertyChanged" />イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む
+        <see cref="T:System.ComponentModel.PropertyChangedEventArgs" />。
+      </param>
+    </member>
+    <member name="T:C1.FlexPivot.C1FlexPivotKey">
+      <summary>
+        <see cref="T:C1.FlexPivot.C1FlexPivotField" />オブジェクトとそれらの値の組み合わせを表します。
+      </summary>
+      <remarks>
+        <para>
+          出力 FlexPivot テーブル内の各行と各列は、一意の
+          <see cref="T:C1.FlexPivot.C1FlexPivotKey" />によって定義されます。 表のセル内の値は、行と列のキーに一致するすべての項目の 値フィールドの集計を表します。
+        </para>
+        <para>たとえば、列キーが 'Country:UK;Customer:Joe' に設定され、 行キーが 'Category:Desserts;Product:Pie' に設定されている場合、 対応するセルには、次のプロパティを持つすべての項目の集計が含まれます。 'Country:UK;Customer:Joe;Category:Desserts;Product:Pie'。</para>
+      </remarks>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotKey.Fields">
+      <summary>
+        この
+        <see cref="T:C1.FlexPivot.C1FlexPivotKey" />に関連付けられた
+        <see cref="T:C1.FlexPivot.C1FlexPivotField" />ピボットフィールドのリストを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotKey.Values">
+      <summary>
+        この
+        <see cref="T:C1.FlexPivot.C1FlexPivotKey" />に関連付けられた
+        <see cref="T:C1.FlexPivot.C1FlexPivotField" />ピボットフィールドの値の配列を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotKey.ValueField">
+      <summary>
+        この
+        <see cref="T:C1.FlexPivot.C1FlexPivotKey" />に関連付けられた値フィールドを表す
+        <see cref="T:C1.FlexPivot.C1FlexPivotField" />を取得します。
+      </summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotKey.GetFormattedValue(System.Int32)">
+      <summary>
+        <see cref="P:C1.FlexPivot.C1FlexPivotKey.Values" />配列から書式設定された値を取得します。
+      </summary>
+      <param name="index">値を取得するフィールドのインデックス。</param>
+      <returns>指定されたインデックスの書式設定された値。</returns>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotKey.GetFormattedValue(System.Int32,System.Object)">
+      <summary>
+        <see cref="P:C1.FlexPivot.C1FlexPivotKey.Values" />配列から書式設定された値を取得します。
+      </summary>
+      <param name="index">値を取得するフィールドのインデックス。</param>
+      <param name="item">書式設定されていない値を提供するオブジェクト。</param>
+      <returns>指定されたインデックスの書式設定された値。</returns>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotKey.MatchesItem(System.Object)">
+      <summary>
+        指定されたデータオブジェクトがこの
+        <see cref="T:C1.FlexPivot.C1FlexPivotKey" />のコンテンツと一致するかどうかを判定する値を取得します。
+      </summary>
+      <param name="item">生データを含む項目。</param>
+      <returns>
+        <paramref name="item" />がこの
+        <see cref="T:C1.FlexPivot.C1FlexPivotKey" />と一致する場合は、true を返します。
+      </returns>
+      <remarks>
+        <para>
+          一致するかどうかは、キー内の各
+          <see cref="T:C1.FlexPivot.C1FlexPivotField" />の書式設定された値を
+          <paramref name="item" />内の書式設定された値と比較することで判定されます。 このため、生の値が異なる場合でも一致が 起こることがあります。
+        </para>
+      </remarks>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotKey.ToString">
+      <summary>
+        この
+        <see cref="T:C1.FlexPivot.C1FlexPivotKey" />を表す文字列を返します。
+      </summary>
+      <returns>
+        この
+        <see cref="T:C1.FlexPivot.C1FlexPivotKey" />を表す文字列を返します。
+      </returns>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotKey.GetHashCode">
+      <summary>
+        <see cref="T:C1.FlexPivot.C1FlexPivotKey" />オブジェクトのハッシュ関数として機能します。
+      </summary>
+      <returns>
+        <see cref="T:C1.FlexPivot.C1FlexPivotKey" />オブジェクトのハッシュ関数として機能する整数。
+      </returns>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotKey.Equals(System.Object)">
+      <summary>
+        2 つの
+        <see cref="T:C1.FlexPivot.C1FlexPivotKey" />オブジェクトが 同じ
+        <see cref="T:C1.FlexPivot.C1FlexPivotField" />オブジェクトおよび値のセットを表す場合は、true を返します。
+      </summary>
+      <param name="obj">
+        このキーと比較する
+        <see cref="T:C1.FlexPivot.C1FlexPivotKey" />。
+      </param>
+      <returns>2 つのキーが同じフィールドおよび値を表す場合は、true を返します。</returns>
+    </member>
+    <member name="T:C1.FlexPivot.ValueSet`1">
+      <summary>
+        <b>T</b>型の一意の値のコレクションを表します。
+      </summary>
+    </member>
+    <member name="M:C1.FlexPivot.ValueSet`1.#ctor">
+      <summary>
+        <see cref="T:C1.FlexPivot.ValueSet`1" />の新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.FlexPivot.ValueSet`1.#ctor(System.Collections.Generic.IEqualityComparer{`0})">
+      <summary>
+        <see cref="T:C1.FlexPivot.ValueSet`1" />の新しいインスタンスを初期化します。
+      </summary>
+      <param name="comparer">キーを比較する際に使用する比較子。</param>
+    </member>
+    <member name="M:C1.FlexPivot.ValueSet`1.Add(`0)">
+      <summary>値がまだ追加されていない場合に、コレクションに値を追加します。</summary>
+      <param name="value">コレクションに追加する値。</param>
+    </member>
+    <member name="M:C1.FlexPivot.ValueSet`1.Contains(`0)">
+      <summary>コレクションに特定の値が含まれるかどうかを判定します。</summary>
+      <param name="value">検索する値。</param>
+      <returns>コレクションにその値が含まれる場合は True。</returns>
+    </member>
+    <member name="M:C1.FlexPivot.ValueSet`1.Clear">
+      <summary>コレクションからすべてのオブジェクトを削除します。</summary>
+    </member>
+    <member name="P:C1.FlexPivot.ValueSet`1.Count">
+      <summary>コレクション内のオブジェクトの数を取得します。</summary>
+    </member>
+    <member name="M:C1.FlexPivot.ValueSet`1.Sort">
+      <summary>コレクション内の要素をソートします。</summary>
+      <remarks>
+        このメソッドは、要素が
+        <see cref="T:System.IComparable" />インタフェースをサポートしていることを前提とします。
+      </remarks>
+    </member>
+    <member name="M:C1.FlexPivot.ValueSet`1.ToList">
+      <summary>
+        このコレクションから
+        <see cref="T:System.Collections.Generic.List`1" />を作成します。
+      </summary>
+      <returns>
+        このコレクションのオブジェクトを含む
+        <see cref="T:System.Collections.Generic.List`1" />。
+      </returns>
+    </member>
+    <member name="M:C1.FlexPivot.ValueSet`1.ToArray">
+      <summary>このコレクションから配列を作成します。</summary>
+      <returns>このコレクション内のオブジェクトを含む配列。</returns>
+    </member>
+    <member name="T:C1.DataEngine.Connector">
+      <summary>ComponentOne DataEngine データコネクタの基本クラス。</summary>
+      <remarks>データコネクタは、DataEngine テーブルにデータを挿入し、DataEngine にデータをインポートするために使用されます。</remarks>
+    </member>
+    <member name="M:C1.DataEngine.Connector.GetData(System.String,System.Int64)">
+      <summary>データを DataEngine テーブルにインポートします。</summary>
+      <param name="tableName">DataEngine テーブルの名前。</param>
+      <param name="count">インポートする行の数（オプション）。数が 0（デフォルト）の場合は、すべての行をインポートします。</param>
+    </member>
+    <member name="M:C1.DataEngine.Connector.AppendData(System.String,System.Int64)">
+      <summary>DataEngine テーブルの最後にデータを追加します。</summary>
+      <param name="tableName">DataEngine テーブルの名前。</param>
+      <param name="count">インポートする行の数（オプション）。数が 0（デフォルト）の場合は、すべての行をインポートします。</param>
+    </member>
+    <member name="T:C1.DataEngine.DbConnector">
+      <summary>データベースから DataEngine テーブルにデータをインポートするためのコネクタ。</summary>
+    </member>
+    <member name="M:C1.DataEngine.DbConnector.#ctor(C1.DataEngine.Workspace,System.Data.Common.DbConnection,System.Data.Common.DbCommand)">
+      <summary>
+        <see cref="T:System.Data.Common.DbConnection" />クラスの新しいインスタンスを初期化します。
+      </summary>
+      <param name="connection">データベースへの接続に使用する ADO.NET 接続オブジェクト。</param>
+      <param name="command">データベースからデータを取得するための ADO.NET コマンドオブジェクト。</param>
+    </member>
+    <member name="P:C1.DataEngine.DbConnector.Command">
+      <summary>データベースからデータを取得するための ADO.NET コマンドオブジェクトを取得または設定します。</summary>
+    </member>
+    <member name="M:C1.DataEngine.DbConnector.GetData(C1.DataEngine.Workspace,System.Data.DataTable,System.String,System.Int64)">
+      <summary>ADO.NET DataTable から DataEngine テーブルにデータをインポートします。</summary>
+      <param name="table">データのインポート元の ADO.NET DataTable。</param>
+      <param name="tableName">DataEngine テーブルの名前。</param>
+      <param name="count">インポートする行の数（オプション）。数が 0（デフォルト）の場合は、すべての行をインポートします。</param>
+    </member>
+    <member name="T:C1.DataEngine.ObjectConnector`1">
+      <summary>任意の IEnumerable から DataEngine テーブルにデータをインポートするためのコネクタ。</summary>
+      <typeparam name="T">IEnumerable 内の要素の型。</typeparam>
+    </member>
+    <member name="M:C1.DataEngine.ObjectConnector`1.#ctor(C1.DataEngine.Workspace,System.Collections.Generic.IEnumerable{`0})">
+      <summary>
+        <see cref="!:ObjectDataReader`1&lt;T&gt;" />クラスの新しいインスタンスを初期化します。
+      </summary>
+      <param name="data">データのインポート元のコレクション。</param>
+    </member>
+    <member name="M:C1.DataEngine.Workspace.Init(System.String)">
+      <summary>ComponentOne DataEngine を初期化します。</summary>
+      <param name="path">C1.DataEngine データを保存するファイルのフォルダ。</param>
+      <remarks></remarks>
+    </member>
+    <member name="M:C1.DataEngine.Workspace.GetTableData(System.String,System.Int32)">
+      <summary>テーブル内のすべてのデータ行のサイズと列挙子を取得します。</summary>
+      <param name="tableName">データの取得元のテーブルの名前。</param>
+      <param name="limit">返される最大数。0（デフォルト値）の場合は、すべての行が返されます。</param>
+    </member>
+    <member name="M:C1.DataEngine.Workspace.BeginUpdate">
+      <summary>複数のデータバッチが 1 つ以上のテーブルに追加されていることを示します。これにより、データコンシューマーは、すべてのデータ変更が完了するまで更新を一時停止できます。</summary>
+      <remarks>
+        <see cref="M:C1.DataEngine.Connector.GetData(System.String,System.Int64)" />または
+        <see cref="M:C1.DataEngine.Connector.AppendData(System.String,System.Int64)" />を使用して複数のデータインポートを行う場合に、このメソッドを呼び出します。 すべてのデータインポート操作が完了したら、
+        <see cref="!:GetData" />を呼び出します。
+      </remarks>
+      <seealso cref="M:C1.DataEngine.Workspace.EndUpdate" />
+    </member>
+    <member name="M:C1.DataEngine.Workspace.EndUpdate">
+      <summary>複数のデータ変更バッチが完了したことを示します。</summary>
+      <seealso cref="M:C1.DataEngine.Workspace.EndUpdate" />
+    </member>
+    <member name="M:C1.DataEngine.Connector.GetData(C1.DataEngine.Workspace,System.Data.IDataReader,System.String,System.Int64)">
+      <summary>データを DataEngine テーブルにインポートします。</summary>
+      <param name="workspace">DataEngine テーブルを含む作業領域。</param>
+      <param name="reader">データを提供するリーダー。</param>
+      <param name="tableName">DataEngine テーブルの名前。</param>
+      <param name="count">インポートする行の数（オプション）。数が 0（デフォルト）の場合は、すべての行をインポートします。</param>
+    </member>
+    <member name="M:C1.DataEngine.Connector.AppendData(C1.DataEngine.Workspace,System.Data.IDataReader,System.String,System.Int64)">
+      <summary>DataEngine テーブルの最後にデータを追加します。</summary>
+      <param name="workspace">DataEngine テーブルを含む作業領域。</param>
+      <param name="reader">データを提供するリーダー。</param>
+      <param name="tableName">DataEngine テーブルの名前。</param>
+      <param name="count">インポートする行の数（オプション）。数が 0（デフォルト）の場合は、すべての行をインポートします。</param>
+    </member>
+    <member name="T:C1.DataEngine.IDataList">
+      <summary>DataEngine テーブルまたはクエリーの行のコレクションを表します。</summary>
+      <remarks>このコレクションは、プログラムによるデータの取得とデータ連結の両方で使用できます。</remarks>
+    </member>
+    <member name="P:C1.DataEngine.IDataList.ViewLimit">
+      <summary>コレクションに含まれる行の最大数を指定します。0（デフォルト）の場合は、すべての行が含まれます。</summary>
+      <remarks>DataEngine のテーブルやクエリーには大量の行が含まれる可能性があり、これがデータ連結には不適切な場合があります。 データ連結コントロールに表示される行数を制限するには、このプロパティを設定します。</remarks>
+    </member>
+    <member name="T:C1.DataEngine.BaseTable">
+      <summary>DataEngine 基本テーブル（データソースからインポートされた行が挿入されるテーブル）を表します。</summary>
+    </member>
+    <member name="T:C1.DataEngine.JoinQuery">
+      <summary>メインテーブルを 1 つ以上のリンクテーブルと結合する DataEngine クエリーを表します。</summary>
+    </member>
+    <member name="T:C1.DataEngine.Query">
+      <summary>DataEngine クエリー（クエリー操作を適用することで 1 つ以上の基本テーブルから DataEngine によって計算された行が挿入されるテーブル）を表します。</summary>
+    </member>
+    <member name="T:C1.DataEngine.Table">
+      <summary>
+        <see cref="T:C1.DataEngine.BaseTable" />と
+        <see cref="T:C1.DataEngine.Query" />の基本クラスです。
+      </summary>
+    </member>
+    <member name="P:C1.DataEngine.Table.Workspace">
+      <summary>テーブルを含む作業領域。</summary>
+    </member>
+    <member name="P:C1.DataEngine.Table.Name">
+      <summary>作業領域内の基本テーブルまたはクエリーを一意に識別する文字列。</summary>
+    </member>
+    <member name="T:C1.DataEngine.Workspace">
+      <summary>ComponentOne DataEngine へのアクセスを提供します。</summary>
+      <remarks>アプリケーションで複数の作業領域が使用される場合、それらは互いに独立しています。</remarks>
+    </member>
+    <member name="M:C1.DataEngine.Workspace.GetQueryData(System.String,System.Int32)">
+      <summary>クエリー内のすべてのデータ行のサイズと列挙子を取得します。</summary>
+      <param name="queryName">データの取得元のクエリーの名前。</param>
+      <param name="limit">返される最大行数。0（デフォルト値）の場合は、すべての行が返されます。</param>
+    </member>
+    <member name="M:C1.DataEngine.Workspace.Save">
+      <summary>作業領域メタデータをディスクに保存します。</summary>
+      <remarks>
+        メタデータが変更されるたびにそれをディスクに保存するデフォルトの動作をオーバーライドする場合にのみ、このメソッドを使用してください。 作業領域ストレージ（
+        <see cref="M:C1.DataEngine.Workspace.Init(System.String)" />で指定されたフォルダ内）には、基本テーブルやクエリーの（メモリマップされた）データファイルのほか、 すべての基本テーブルとクエリーの構造を記述したメタデータを含む metadata.xml ファイルがあります。新しいテーブルまたはクエリーが作成されると、 メタデータが変更されます。また、クエリーが実行された場合も、変更される可能性があります。ディスクにデータが既に存在する状態で DataEngine を初期化する場合は、 メタデータファイルに最新の情報が含まれている必要があります。デフォルトでは、メタデータが変更されるたびにメタデータファイルが 保存されることで、自動的に最新情報が確保されます。このような自動保存の時間（通常は大した時間ではない）を削減したい場合は、
+        <see cref="!:AutoSave" />プロパティを
+        <b>false</b>に設定し、作業領域で作業が終わった後に Save メソッドを呼び出します。
+      </remarks>
+    </member>
+    <member name="M:C1.DataEngine.Workspace.table(System.String)">
+      <summary>名前に基づいて基本テーブルを取得します。</summary>
+      <param name="name">基本テーブルの名前</param>
+      <returns>基本テーブルを表す動的オブジェクト。</returns>
+      <remarks>
+        動的オブジェクトは、このテーブルに対するクエリーで使用されます。次に例を示します。
+        <code>dynamic od = workspace.table("OderDetails"); dynamic query1 = workspace.query(new { price = Op.Mul(od.UnitPrice, od.Discount) });</code>また、この基本テーブルを表す
+        <see cref="T:C1.DataEngine.BaseTable" />オブジェクトを返す Table プロパティを持ちます。
+        <code>BaseTable t = workspace.table("t1").Table;</code></remarks>
+    </member>
+    <member name="M:C1.DataEngine.Workspace.query(System.String,System.Object)">
+      <summary>1 つのテーブルまたはクエリー（結合以外）に基づくクエリーを作成します。</summary>
+      <param name="name">クエリーの名前。名前を指定した場合は、クエリーの結果がディスクに格納されます。</param>
+      <param name="settings">結果の列およびクエリーの他の設定。</param>
+      <returns>クエリーを表す動的オブジェクト。</returns>
+      <remarks>
+        必要に応じて、この動的オブジェクトをこのクエリーの結果に対するクエリーに使用できます。方法は、
+        <see cref="M:C1.DataEngine.Workspace.table(System.String)" />と同じです。 また、このクエリーを表す
+        <see cref="T:C1.DataEngine.Query" />オブジェクトを返す Query プロパティを持ちます。 これは、次のようなクエリーの実行で使用されます。
+        <code>dynamic query1 = workspace.query(...); query1.Query.Execute();</code></remarks>
+    </member>
+    <member name="M:C1.DataEngine.Workspace.query(System.Object)">
+      <summary>1 つのテーブルまたはクエリー（結合以外）に基づくクエリーを作成します。</summary>
+      <param name="settings">結果の列およびクエリーの他の設定。</param>
+      <returns>クエリーを表す動的オブジェクト。</returns>
+      <remarks>
+        必要に応じて、この動的オブジェクトをこのクエリーの結果に対するクエリーに使用できます。方法は、
+        <see cref="M:C1.DataEngine.Workspace.table(System.String)" />と同じです。 また、このクエリーを表す
+        <see cref="T:C1.DataEngine.Query" />オブジェクトを返す Query プロパティを持ちます。 これは、次のようなクエリーの実行で使用されます。
+        <code>dynamic query1 = workspace.query(...); query1.Query.Execute();</code></remarks>
+    </member>
+    <member name="M:C1.DataEngine.Workspace.join(System.String,System.Dynamic.ExpandoObject,System.Object)">
+      <summary>結合クエリーを作成します。</summary>
+      <param name="name">クエリーの名前。名前を指定した場合は、クエリーの結果がディスクに格納されます。</param>
+      <param name="mainTable">リンクテーブルの結合先のメインテーブル。</param>
+      <param name="settings">結果の列、およびリンクテーブルをメインテーブルに結合するリンク。</param>
+      <returns>クエリーを表す動的オブジェクト。</returns>
+      <remarks>
+        必要に応じて、この動的オブジェクトをこのクエリーの結果に対するクエリーに使用できます。方法は、
+        <see cref="M:C1.DataEngine.Workspace.table(System.String)" />と同じです。 また、このクエリーを表す
+        <see cref="T:C1.DataEngine.Query" />オブジェクトを返す Query プロパティを持ちます。 これは、次のようなクエリーの実行で使用されます。
+        <code>dynamic query1 = workspace.join(...); query1.Query.Execute();</code></remarks>
+    </member>
+    <member name="M:C1.DataEngine.Workspace.join(System.Dynamic.ExpandoObject,System.Object)">
+      <summary>結合クエリーを作成します。</summary>
+      <param name="mainTable">リンクテーブルの結合先のメインテーブル。</param>
+      <param name="settings">結果の列、およびリンクテーブルをメインテーブルに結合するリンク。</param>
+      <returns>クエリーを表す動的オブジェクト。</returns>
+      <remarks>
+        必要に応じて、この動的オブジェクトをこのクエリーの結果に対するクエリーに使用できます。方法は、
+        <see cref="M:C1.DataEngine.Workspace.table(System.String)" />と同じです。 また、このクエリーを表す
+        <see cref="T:C1.DataEngine.Query" />オブジェクトを返す Query プロパティを持ちます。 これは、次のようなクエリーの実行で使用されます。
+        <code>dynamic query1 = workspace.join(...); query1.Query.Execute();</code></remarks>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.ConnectDataEngine(System.String)">
+      <summary>C1.DataEngine テーブルに接続します。</summary>
+      <param name="tableName">接続先のテーブル名。</param>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.Workspace">
+      <summary>DataEngine 作業領域を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.DataEngine.IDataList.Size">
+      <summary>テーブルまたはクエリーの行数を返します。</summary>
+      <remarks>
+        <see cref="P:C1.DataEngine.IDataList.ViewLimit" />が設定されている場合、この数は Count プロパティと異なる可能性があります。その場合、Count は
+        <see cref="P:C1.DataEngine.IDataList.ViewLimit" />値以下になります。
+      </remarks>
+    </member>
+    <member name="M:C1.DataEngine.IDataList.GetItem(System.Int64)">
+      <summary>コレクション要素（行）にアクセスします。IDataRecord インタフェースから行の列値にアクセスできます。</summary>
+      <param name="index">要素（行）の 0 から始まるインデックス。</param>
+      <returns>IDataRecord インタフェースを実装する、指定されたインデックスにある要素（行）。</returns>
+    </member>
+    <member name="T:C1.DataEngine.DateTimeParts">
+      <summary>DbParts 操作で使用され、DateTime 値から抽出する部分を示します。</summary>
+    </member>
+    <member name="T:C1.DataEngine.Column">
+      <summary>クエリーの指定に使用されるクラス。クエリーの作成と実行の方法については、「DataEngine クエリー」を参照してください。</summary>
+    </member>
+    <member name="P:C1.DataEngine.Column.Name">
+      <summary>列の名前を取得します。</summary>
+    </member>
+    <member name="P:C1.DataEngine.Column.Alias">
+      <summary>結合クエリー内のリンクテーブルの列のエイリアスが列の名前と異なる場合に、エイリアスを取得します。そうでない場合は空です。</summary>
+    </member>
+    <member name="P:C1.DataEngine.Column.Table">
+      <summary>列が属するテーブルを取得します。</summary>
+    </member>
+    <member name="P:C1.DataEngine.Column.Type">
+      <summary>列に格納されるデータの型を取得します。</summary>
+    </member>
+    <member name="M:C1.DataEngine.Column.As(System.String)">
+      <summary>必要に応じてエイリアスを指定するために、結合クエリー内のリンクテーブルの列に対して使用されます。</summary>
+      <param name="alias">列名として使用される列のエイリアス。</param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.DataEngine.Column.Eq(System.Object)">
+      <summary>比較演算子 Equals。</summary>
+      <param name="val">値。</param>
+      <returns>列値が指定された値と等しい場合は true。</returns>
+    </member>
+    <member name="M:C1.DataEngine.Column.Gt(System.Object)">
+      <summary>比較演算子 GreaterThan。</summary>
+      <param name="val">値。</param>
+      <returns>列値が指定された値より大きい場合は true。</returns>
+    </member>
+    <member name="M:C1.DataEngine.Column.Lt(System.Object)">
+      <summary>比較演算子 LessThan。</summary>
+      <param name="val">値。</param>
+      <returns>列値が指定された値より小さい場合は true。</returns>
+    </member>
+    <member name="M:C1.DataEngine.Column.Gte(System.Object)">
+      <summary>比較演算子 GreaterThanOrEqual。</summary>
+      <param name="val">値。</param>
+      <returns>列値が指定された値以上の場合は true。</returns>
+    </member>
+    <member name="M:C1.DataEngine.Column.Lte(System.Object)">
+      <summary>比較演算子 LessThanOrEqual。</summary>
+      <param name="val">値。</param>
+      <returns>列値が指定された値以上の場合は true。</returns>
+    </member>
+    <member name="M:C1.DataEngine.Column.Ne(System.Object)">
+      <summary>比較演算子 NotEqual。</summary>
+      <param name="val">値。</param>
+      <returns>列値が指定された値と等しくない場合は true。</returns>
+    </member>
+    <member name="M:C1.DataEngine.Column.Cnt(System.Object)">
+      <summary>文字列型の列の比較演算子 Contains。</summary>
+      <param name="val">文字列。</param>
+      <returns>列値に文字列が含まれる場合は true。</returns>
+    </member>
+    <member name="M:C1.DataEngine.Column.Nc(System.Object)">
+      <summary>文字列型の列の比較演算子 DoesNotContain。</summary>
+      <param name="val">文字列。</param>
+      <returns>列値に文字列が含まれない場合は true。</returns>
+    </member>
+    <member name="M:C1.DataEngine.Column.Bw(System.Object)">
+      <summary>文字列型の列の比較演算子 BeginsWith。</summary>
+      <param name="val">文字列。</param>
+      <returns>列値が文字列から始まる場合は true。</returns>
+    </member>
+    <member name="M:C1.DataEngine.Column.Ew(System.Object)">
+      <summary>文字列型の列の比較演算子 EndsWith。</summary>
+      <param name="val">文字列。</param>
+      <returns>列値が文字列で終わる場合は true。</returns>
+    </member>
+    <member name="T:C1.DataEngine.ColumnDerived">
+      <summary>クエリーの指定に使用されるクラス。クエリーの作成と実行の方法については、「DataEngine クエリー」を参照してください。</summary>
+    </member>
+    <member name="T:C1.DataEngine.ColumnCopy">
+      <summary>クエリーの指定に使用されるクラス。クエリーの作成と実行の方法については、「DataEngine クエリー」を参照してください。</summary>
+    </member>
+    <member name="T:C1.DataEngine.ColumnOp">
+      <summary>クエリーの指定に使用されるクラス。クエリーの作成と実行の方法については、「DataEngine クエリー」を参照してください。</summary>
+    </member>
+    <member name="T:C1.DataEngine.Columns">
+      <summary>クエリーの指定に使用されるクラス。クエリーの作成と実行の方法については、「DataEngine クエリー」を参照してください。</summary>
+    </member>
+    <member name="T:C1.DataEngine.JoinColumns">
+      <summary>クエリーの指定に使用されるクラス。クエリーの作成と実行の方法については、「DataEngine クエリー」を参照してください。</summary>
+    </member>
+    <member name="T:C1.DataEngine.CondValue">
+      <summary>クエリーの指定に使用されるクラス。クエリーの作成と実行の方法については、「DataEngine クエリー」を参照してください。</summary>
+    </member>
+    <member name="T:C1.DataEngine.CondValues">
+      <summary>クエリーの指定に使用されるクラス。クエリーの作成と実行の方法については、「DataEngine クエリー」を参照してください。</summary>
+    </member>
+    <member name="T:C1.DataEngine.ColumnCondition">
+      <summary>クエリーの指定に使用されるクラス。クエリーの作成と実行の方法については、「DataEngine クエリー」を参照してください。</summary>
+    </member>
+    <member name="M:C1.DataEngine.ColumnCondition.Lt(System.Object)">
+      <summary>比較演算子 LessThan。</summary>
+      <param name="val">値。</param>
+      <returns>列値が指定された値より小さい場合は true。</returns>
+    </member>
+    <member name="M:C1.DataEngine.ColumnCondition.Gt(System.Object)">
+      <summary>比較演算子 GreaterThan。</summary>
+      <param name="val">値。</param>
+      <returns>列値が指定された値より大きい場合は true。</returns>
+    </member>
+    <member name="M:C1.DataEngine.ColumnCondition.Lte(System.Object)">
+      <summary>比較演算子 LessThanOrEqual。</summary>
+      <param name="val">値。</param>
+      <returns>列値が指定された値以上の場合は true。</returns>
+    </member>
+    <member name="M:C1.DataEngine.ColumnCondition.Gte(System.Object)">
+      <summary>比較演算子 GreaterThanOrEqual。</summary>
+      <param name="val">値。</param>
+      <returns>列値が指定された値以上の場合は true。</returns>
+    </member>
+    <member name="M:C1.DataEngine.ColumnCondition.Eq(System.Object)">
+      <summary>比較演算子 Equals。</summary>
+      <param name="val">値。</param>
+      <returns>列値が指定された値と等しい場合は true。</returns>
+    </member>
+    <member name="M:C1.DataEngine.ColumnCondition.Ne(System.Object)">
+      <summary>比較演算子 NotEqual。</summary>
+      <param name="val">値。</param>
+      <returns>列値が指定された値と等しくない場合は true。</returns>
+    </member>
+    <member name="M:C1.DataEngine.ColumnCondition.Cnt(System.Object)">
+      <summary>文字列型の列の比較演算子 Contains。</summary>
+      <param name="val">文字列。</param>
+      <returns>列値に文字列が含まれる場合は true。</returns>
+    </member>
+    <member name="M:C1.DataEngine.ColumnCondition.Nc(System.Object)">
+      <summary>文字列型の列の比較演算子 DoesNotContain。</summary>
+      <param name="val">文字列。</param>
+      <returns>列値に文字列が含まれない場合は true。</returns>
+    </member>
+    <member name="M:C1.DataEngine.ColumnCondition.Bw(System.Object)">
+      <summary>文字列型の列の比較演算子 BeginsWith。</summary>
+      <param name="val">文字列。</param>
+      <returns>列値が文字列から始まる場合は true。</returns>
+    </member>
+    <member name="M:C1.DataEngine.ColumnCondition.Ew(System.Object)">
+      <summary>文字列型の列の比較演算子 EndsWith。</summary>
+      <param name="val">文字列。</param>
+      <returns>列値が文字列で終わる場合は true。</returns>
+    </member>
+    <member name="M:C1.DataEngine.ColumnCondition.And">
+      <summary>続く条件を「AND」で接続します。</summary>
+    </member>
+    <member name="M:C1.DataEngine.ColumnCondition.Or">
+      <summary>続く条件を「OR」で接続します。</summary>
+    </member>
+    <member name="T:C1.DataEngine.Condition">
+      <summary>クエリーの指定に使用されるクラス。クエリーの作成と実行の方法については、「DataEngine クエリー」を参照してください。</summary>
+    </member>
+    <member name="T:C1.DataEngine.Op">
+      <summary>クエリーの指定に使用されるクラス。クエリーの作成と実行の方法については、「DataEngine クエリー」を参照してください。</summary>
+    </member>
+    <member name="M:C1.DataEngine.Op.Add(C1.DataEngine.Column,C1.DataEngine.Column)">
+      <summary>加算：2 項単純（集計なし）演算。</summary>
+      <param name="col1">第 1 オペランド。</param>
+      <param name="col2">第 2 オペランド。</param>
+    </member>
+    <member name="M:C1.DataEngine.Op.Sub(C1.DataEngine.Column,C1.DataEngine.Column)">
+      <summary>減算：2 項単純（集計なし）演算。</summary>
+      <param name="col1">第 1 オペランド。</param>
+      <param name="col2">第 2 オペランド。</param>
+    </member>
+    <member name="M:C1.DataEngine.Op.Mul(C1.DataEngine.Column,C1.DataEngine.Column)">
+      <summary>乗算：2 項単純（集計なし）演算。</summary>
+      <param name="col1">第 1 オペランド。</param>
+      <param name="col2">第 2 オペランド。</param>
+    </member>
+    <member name="M:C1.DataEngine.Op.Div(C1.DataEngine.Column,C1.DataEngine.Column)">
+      <summary>除算：2 項単純（集計なし）演算。</summary>
+      <param name="col1">第 1 オペランド。</param>
+      <param name="col2">第 2 オペランド。</param>
+    </member>
+    <member name="M:C1.DataEngine.Op.Mod(C1.DataEngine.Column,C1.DataEngine.Column)">
+      <summary>剰余：2 項単純（集計なし）演算。</summary>
+      <param name="col1">第 1 オペランド。</param>
+      <param name="col2">第 2 オペランド。</param>
+    </member>
+    <member name="M:C1.DataEngine.Op.Rnd(C1.DataEngine.Column,System.Int32)">
+      <summary>丸め：単項単純（集計なし）演算。</summary>
+      <param name="col">オペランド。</param>
+      <param name="precision">丸めた後の小数点以下の桁数。負の値にすることができます。これは 100、1000 などに丸めることを意味します。</param>
+    </member>
+    <member name="M:C1.DataEngine.Op.SubStr(C1.DataEngine.Column,System.Int32,System.Int32)">
+      <summary>部分文字列：文字列に対する単項単純（集計なし）演算。</summary>
+      <param name="col">文字列オペランド。</param>
+      <param name="startIndex">このインデックスから始まる部分文字列を抽出します。</param>
+      <param name="length">部分文字列の長さ。</param>
+    </member>
+    <member name="M:C1.DataEngine.Op.LCase(C1.DataEngine.Column)">
+      <summary>小文字変換：文字列に対する単項単純（集計なし）演算。</summary>
+      <param name="col">文字列オペランド。</param>
+    </member>
+    <member name="M:C1.DataEngine.Op.UCase(C1.DataEngine.Column)">
+      <summary>大文字変換：文字列に対する単項単純（集計なし）演算。</summary>
+      <param name="col">文字列オペランド。</param>
+    </member>
+    <member name="M:C1.DataEngine.Op.Fmt(C1.DataEngine.Column,System.String)">
+      <summary>書式設定：単項単純（集計なし）演算。</summary>
+      <param name="col">オペランド。</param>
+      <param name="format">書式文字列。</param>
+      <remarks>この操作はデータ型ごとに文字列型の列を作成します。これは、列値に ToString(format) メソッドを適用することと同じです。</remarks>
+    </member>
+    <member name="M:C1.DataEngine.Op.Rpl(C1.DataEngine.Column,System.String,System.String)">
+      <summary>置換：文字列に対する単項単純（集計なし）演算。</summary>
+      <param name="col">文字列オペランド。</param>
+      <param name="oldValue">置換元の部分文字列。</param>
+      <param name="newValue">置換先の部分文字列。</param>
+    </member>
+    <member name="M:C1.DataEngine.Op.DtPart(C1.DataEngine.Column,C1.DataEngine.DateTimeParts)">
+      <summary>DateTime 要素：DateTime に対する単項単純（集計なし）演算。</summary>
+      <param name="col">DateTime オペランド。</param>
+      <param name="part">DateTime 値から抽出される部分。</param>
+    </member>
+    <member name="M:C1.DataEngine.Op.Dt(C1.DataEngine.Column,System.String)">
+      <summary>書式設定された DateTime：文字列型の列を生成する、DateTime に対する単項単純（集計なし）演算。</summary>
+      <param name="col">DateTime オペランド。</param>
+      <param name="format">DateTime 書式文字列。</param>
+    </member>
+    <member name="M:C1.DataEngine.Op.Sum(C1.DataEngine.Column)">
+      <summary>合計：集計演算。</summary>
+      <param name="col">オペランド列。</param>
+    </member>
+    <member name="M:C1.DataEngine.Op.Avg(C1.DataEngine.Column)">
+      <summary>平均：集計演算。</summary>
+      <param name="col">オペランド列。</param>
+    </member>
+    <member name="M:C1.DataEngine.Op.First(C1.DataEngine.Column)">
+      <summary>先頭（列順で最初の行の値）：集計演算。</summary>
+      <param name="col">オペランド列。</param>
+    </member>
+    <member name="M:C1.DataEngine.Op.Last(C1.DataEngine.Column)">
+      <summary>末尾（列順で最後の行の値）：集計演算。</summary>
+      <param name="col">オペランド列。</param>
+    </member>
+    <member name="M:C1.DataEngine.Op.Count(C1.DataEngine.Column)">
+      <summary>カウント：集計演算。</summary>
+      <param name="col">オペランド列。</param>
+    </member>
+    <member name="M:C1.DataEngine.Op.Max(C1.DataEngine.Column)">
+      <summary>最大：集計演算。</summary>
+      <param name="col">オペランド列。</param>
+    </member>
+    <member name="M:C1.DataEngine.Op.Min(C1.DataEngine.Column)">
+      <summary>最小：集計演算。</summary>
+      <param name="col">オペランド列。</param>
+    </member>
+    <member name="M:C1.DataEngine.Op.VarP(C1.DataEngine.Column)">
+      <summary>母分散：集計演算。</summary>
+      <param name="col">オペランド列。</param>
+    </member>
+    <member name="M:C1.DataEngine.Op.Var(C1.DataEngine.Column)">
+      <summary>分散：集計演算。</summary>
+      <param name="col">オペランド列。</param>
+    </member>
+    <member name="M:C1.DataEngine.Op.StdP(C1.DataEngine.Column)">
+      <summary>母標準偏差：集計演算。</summary>
+      <param name="col">オペランド列。</param>
+    </member>
+    <member name="M:C1.DataEngine.Op.Std(C1.DataEngine.Column)">
+      <summary>標準偏差：集計演算。</summary>
+      <param name="col">オペランド列。</param>
+    </member>
+    <member name="M:C1.DataEngine.Query.Execute">
+      <summary>クエリーを実行します。</summary>
+      <returns>クエリー結果へのアクセスを提供するオブジェクト。これは、プログラムによるアクセスとデータ連結の両方で使用できます。</returns>
+    </member>
+    <member name="M:C1.DataEngine.Workspace.#ctor">
+      <summary>
+        <see cref="T:C1.DataEngine.Workspace" />クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.DataEngine.Workspace.AutoSave">
+      <summary>メタデータの変更ごとに実行されるディスクへのメタデータの自動保存を有効/無効にします。デフォルト：メタデータの自動保存無効。</summary>
+      <remarks>
+        メタデータが変更されるたびにそれをディスクに保存するデフォルトの動作をオーバーライドする場合にのみ、このプロパティを変更してください。 詳細については、
+        <see cref="M:C1.DataEngine.Workspace.Save" />を参照してください。
+      </remarks>
+    </member>
+    <member name="M:C1.DataEngine.Workspace.TableExists(System.String)">
+      <summary>指定された基本テーブルが作業領域に存在するかどうかを判定します。</summary>
+      <param name="tableName">チェックするテーブル名。</param>
+      <returns>
+        この基本テーブルが作業領域に存在する場合は
+        <b>true</b>、そうでない場合は
+        <b>false</b>。
+      </returns>
+    </member>
+    <member name="M:C1.DataEngine.Workspace.QueryExists(System.String)">
+      <summary>指定されたクエリーが作業領域に存在するかどうかを判定します。</summary>
+      <param name="queryName">チェックするクエリー名。</param>
+      <returns>
+        このクエリーが作業領域に存在する場合は
+        <b>true</b>、そうでない場合は
+        <b>false</b>。
+      </returns>
+    </member>
+    <member name="E:C1.DataEngine.Workspace.Initialize">
+      <summary>
+        <see cref="M:C1.DataEngine.Workspace.Init(System.String)" />メソッドが呼び出され、作業領域が初期化された後に発生します。
+      </summary>
+    </member>
+    <member name="M:C1.DataEngine.Workspace.Dispose">
+      <summary>使用されたすべてのリソースを解放します。</summary>
+    </member>
+    <member name="T:C1.FlexPivot.ShowAs">
+      <summary>出力ビューのセルに適用される計算を指定します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.ShowAs.NoCalculation">
+      <summary>シンプルな集計値を表示します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.ShowAs.DiffRow">
+      <summary>項目とその前の行の項目との差を表示します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.ShowAs.DiffRowPct">
+      <summary>項目とその前の行の項目との差をパーセント値で表示します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.ShowAs.DiffCol">
+      <summary>項目とその前の列の項目との差を表示します。</summary>
+    </member>
+    <member name="F:C1.FlexPivot.ShowAs.DiffColPct">
+      <summary>項目とその前の列の項目との差をパーセント値で表示します。</summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.TotalsBeforeData">
+      <summary>通常のデータ行およびデータ列の前または後に行および列の合計を表示するかどうかを 決定する値を取得または設定します。 この値が true に設定されている場合、データ行の上部に合計行が、 通常のデータ列の左側に合計列が表示されます。</summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.GetDetails(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.Object[],System.Threading.CancellationToken)">
+      <summary>特定の集計値の取得に使用されるソースデータ行にサーバーのクライアントがアクセスできるようにします。</summary>
+      <param name="workspace">サーバーのファイルシステム内で、DataEngine データがファイルに保存されている場所のパス。</param>
+      <param name="table">DataEngine テーブルの名前。</param>
+      <param name="key">
+        集計値（小計）を指定するキー値。
+        <see cref="M:C1.FlexPivot.C1FlexPivotEngine.Exec(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.Threading.CancellationToken)" />のキーと値に関する説明を参照してください。
+      </param>
+      <param name="view">集計を実施するために使用されるビュー定義。</param>
+      <param name="cancelToken">タスクをキャンセルできるようにします。</param>
+      <returns>特定の集計値に関係するソースデータオブジェクトのリスト。</returns>
+      <remarks>DataEngine テーブルには大量の行が含まれる可能性があり、小計の集計にはすべての行のうちのかなりの部分がかかわる可能性があるため、ソースデータをクライアントに提供する際はページングを使用することをお勧めします。</remarks>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.GetDetails(System.Collections.IEnumerable,System.Collections.Generic.Dictionary{System.String,System.Object},System.Object[],System.Threading.CancellationToken)">
+      <summary>特定の集計値の取得に使用されるソースデータ行にサーバーのクライアントがアクセスできるようにします。</summary>
+      <param name="dataSource">データソースコレクション。</param>
+      <param name="key">
+        1 つの集計値（小計）を指定するキー値。
+        <see cref="M:C1.FlexPivot.C1FlexPivotEngine.Exec(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.Threading.CancellationToken)" />のキーと値に関する説明を参照してください。
+      </param>
+      <param name="view">集計を実施するために使用されるビュー定義。</param>
+      <param name="cancelToken">タスクをキャンセルできるようにします。</param>
+      <returns>特定の集計値に関係するソースデータオブジェクトのリスト。</returns>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.GetRawData(System.String,System.String,System.Threading.CancellationToken)">
+      <summary>生ソースデータコレクション全体をサーバーのクライアントからアクセスできるようにします。</summary>
+      <param name="workspace">サーバーのファイルシステム内で、DataEngine データがファイルに保存されている場所のパス。</param>
+      <param name="table">DataEngine テーブルの名前。</param>
+      <param name="cancelToken">タスクをキャンセルできるようにします。</param>
+      <returns>ソースデータオブジェクトのリスト。</returns>
+      <remarks>DataEngine テーブルには大量の行が含まれる可能性があるため、ソースデータをクライアントに提供する際はページングを使用することをお勧めします。</remarks>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.GetRawData(System.Collections.IEnumerable,System.Threading.CancellationToken)">
+      <summary>生ソースデータコレクション全体をサーバーのクライアントからアクセスできるようにします。</summary>
+      <param name="dataSource">データソースコレクション。</param>
+      <param name="cancelToken">タスクをキャンセルできるようにします。</param>
+      <returns>ソースデータオブジェクトのリスト。</returns>
+      <remarks>このメソッドのオーバーロードは、単にソースコレクション（IEnumerable）を IList に変換します。</remarks>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.GetUniqueValues(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.String,System.Threading.CancellationToken)">
+      <summary>サーバーのクライアント向けにフィールドの一意の値をリストします。</summary>
+      <param name="workspace">サーバーのファイルシステム内で、DataEngine データがファイルに保存されている場所のパス。</param>
+      <param name="table">DataEngine テーブルの名前。</param>
+      <param name="view">集計を実施するために使用されるビュー定義。</param>
+      <param name="fieldName">一意の値が提供されるフィールドの名。</param>
+      <param name="cancelToken">タスクをキャンセルできるようにします。</param>
+      <returns>Name（文字列）プロパティと Type（System.Type）プロパティを持つオブジェクトのコレクション。</returns>
+      <remarks>
+        <para>クライアントは、このメソッドを使用して、ユーザーが選択可能な値のリストを示すことができます。</para>
+        <para>値のリストはフィールドの書式によって異なるため（たとえば、値が四捨五入される場合があります）、（フィールド名だけでなく）値をリストするビューを指定する必要があります。</para>
+        <para>クライアントは、ソースデータに大量の行が含まれる場合、値リストの取得にかなり時間がかかる可能性があることを考慮しておく必要があります。</para>
+      </remarks>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.GetUniqueValues(System.Collections.IEnumerable,System.Collections.Generic.Dictionary{System.String,System.Object},System.String,System.Threading.CancellationToken)">
+      <summary>サーバーのクライアント向けにフィールドの一意の値をリストします。</summary>
+      <param name="dataSource">データソースコレクション。</param>
+      <param name="view">集計を実施するために使用されるビュー定義。</param>
+      <param name="fieldName">一意の値が提供されるフィールドの名。</param>
+      <param name="cancelToken">タスクをキャンセルできるようにします。</param>
+      <returns>Name（文字列）プロパティと Type（System.Type）プロパティを持つオブジェクトのコレクション。</returns>
+      <remarks>
+        <para>クライアントは、このメソッドを使用して、ユーザーが選択可能な値のリストを示すことができます。</para>
+        <para>値のリストはフィールドの書式によって異なるため（たとえば、値が四捨五入される場合があります）、（フィールド名だけでなく）値をリストするビューを指定する必要があります。</para>
+        <para>クライアントは、ソースデータに大量の行が含まれる場合、値リストの取得にかなり時間がかかる可能性があることを考慮しておく必要があります。</para>
+      </remarks>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.GetMetadata(System.String,System.String,System.Threading.CancellationToken)">
+      <summary>フィールドとそのタイプをリストし、DataEngine テーブルの他のメタデータを提供します。</summary>
+      <param name="workspace">サーバーのファイルシステム内で、DataEngine データがファイルに保存されている場所のパス。</param>
+      <param name="table">DataEngine テーブルの名前。</param>
+      <param name="cancelToken">タスクをキャンセルできるようにします。</param>
+      <returns>メタデータパートの名前をキーとして、メタデータパートのキー／値のペアを含む辞書。</returns>
+      <remarks>
+        <para>現在、次のメタデータパートがサポートされています。</para>
+        <para>"fields"：フィールド情報を含む IList コレクション。フィールド情報は、Name（文字列）プロパティと Type（System.Type）プロパティを持つオブジェクトです。</para>
+        <para>"rowCount"：DataEngine テーブル内の行数。</para>
+      </remarks>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.GetMetadata(System.Collections.IEnumerable,System.Threading.CancellationToken)">
+      <summary>フィールドとそのタイプをリストし、データソースの他のメタデータを提供します。</summary>
+      <param name="dataSource">データソースコレクション。</param>
+      <param name="cancelToken">タスクをキャンセルできるようにします。</param>
+      <returns>メタデータパートの名前をキーとして、メタデータパートのキー／値のペアを含む辞書。</returns>
+      <remarks>
+        <para>現在、次のメタデータパートがサポートされています。</para>
+        <para>"fields"：フィールド情報を含む IList コレクション。フィールド情報は、Name（文字列）プロパティと Type（System.Type）プロパティを持つオブジェクトです。</para>
+        <para>"rowCount"：データソース内の行数。</para>
+      </remarks>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotField.ShowAs">
+      <summary>フィールドの結果の書式設定方法を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotField.Key">
+      <summary>コレクション内のフィールドを一意に識別するキーを取得します。</summary>
+      <remarks>
+        このプロパティは
+        <see cref="P:C1.FlexPivot.C1FlexPivotField.Name" />と同じになります。ただし、同じ
+        <see cref="P:C1.FlexPivot.C1FlexPivotField.Name" />を持つフィールドが複数ある場合、 このプロパティは一意性を保証するために末尾に数字が追加されます。
+      </remarks>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.GetUniqueValuesCube(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.String,System.Threading.CancellationToken)">
+      <summary>サーバーのクライアント向けにフィールドの一意の値をリストします。</summary>
+      <param name="connection">SQL Server Analysis Service（SSAS）接続文字列。</param>
+      <param name="cubeName">キューブ名。</param>
+      <param name="view">キューブからデータを取得するために使用されるビュー定義。</param>
+      <param name="fieldUniqueName">一意の値が提供されるフィールドの名。</param>
+      <param name="cancelToken">タスクをキャンセルできるようにします。</param>
+      <returns>Name（文字列）プロパティと Type（System.Type）プロパティを持つオブジェクトのコレクション。</returns>
+      <remarks>
+        <para>クライアントは、このメソッドを使用して、ユーザーが選択可能な値のリストを示すことができます。</para>
+      </remarks>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.GetMetadataCube(System.String,System.String,System.Threading.CancellationToken)">
+      <summary>SQL Server Analysis Service（SSAS）キューブのメタデータを含むフィールドをリストします。</summary>
+      <param name="connection">SSAS 接続文字列。</param>
+      <param name="cubeName">キューブ名。</param>
+      <param name="cancelToken">タスクをキャンセルできるようにします。</param>
+      <returns>メタデータパートの名前をキーとして、メタデータパートのキー/値のペアを含む辞書。</returns>
+      <remarks>
+        <para>サポートされているのは、次のメタデータパート 1 つだけです。ここで複数のパートが認められているのは、 DataEngine テーブルおよび DataSource 用の GetMetadata メソッドとの整合性を保つためと、将来の拡張のためです。</para>
+        <para>"fields"：フィールド情報を含む IList コレクション。フィールド情報は、次のプロパティを持つオブジェクトです。</para>
+        <para>Name（文字列）：クライアントがフィールドを認識するためのフィールド名。</para>
+        <para>UniqueName（文字列）：キューブ内でフィールドを識別する名前。</para>
+        <para>DimensionType（列挙）：キューブ内でのフィールドの役割を定義する次の列挙値のいずれか。 ディメンション = 0、メジャー = 1、Kpi = 2、属性 = 4、フォルダ = 5、階層 = 6</para>
+        <para>SubFields（IList）：子フィールドのメタデータオブジェクトのコレクション。</para>
+      </remarks>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotField.WriteAttributes(System.Xml.XmlWriter)">
+      <summary>
+        フィールドの追加属性を
+        <see cref="T:System.Xml.XmlWriter" />に保存します。
+      </summary>
+      <param name="xw">
+        フィールドが保存される
+        <see cref="T:System.Xml.XmlWriter" />。
+      </param>
+    </member>
+    <member name="M:C1.FlexPivot.Internal.C1CubeField.WriteXml(System.Xml.XmlWriter)">
+      <summary>
+        フィールドを
+        <see cref="T:System.Xml.XmlWriter" />に保存します。
+      </summary>
+      <param name="xw">
+        フィールドが保存される
+        <see cref="T:System.Xml.XmlWriter" />。
+      </param>
+    </member>
+    <member name="M:C1.FlexPivot.Internal.C1CubeField.WriteAttributes(System.Xml.XmlWriter)">
+      <summary>
+        フィールドの追加属性を
+        <see cref="T:System.Xml.XmlWriter" />に保存します。
+      </summary>
+      <param name="xw">
+        フィールドが保存される
+        <see cref="T:System.Xml.XmlWriter" />。
+      </param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotConditionalFieldStyle.Clear">
+      <summary>このスタイルをクリアします。</summary>
+    </member>
+    <member name="T:C1.DataEngine.KeepFileType">
+      <summary>
+        作成後に永久的に保持するファイルと、不要になったときに削除するファイルを決定するストラテジーです。
+        <see cref="P:C1.DataEngine.Workspace.KeepFiles" />プロパティで使用されます。
+      </summary>
+    </member>
+    <member name="F:C1.DataEngine.KeepFileType.None">
+      <summary>計算で作成されたすべてのファイルが、不要になった時点で削除されます。ファイルが再度要求された場合は、再作成されます。 このストラテジーは、一度だけ実行する計算や繰り返すことがほとんどない計算に対して、あるいはディスク容量の節約がパフォーマンスより重要である場合にのみ使用してください。</summary>
+    </member>
+    <member name="F:C1.DataEngine.KeepFileType.Index">
+      <summary>計算で作成されたすべてのインデックス（1 つまたは複数のフィールドでソートされたテーブル行 ID）が、将来の計算で再利用される可能性に備えて保持されます。 インデックス（および結合が使用されている場合は結合）は、再作成に大きなコストがかかるデータであるため、最適なパフォーマンスを得るには保持することが重要です。</summary>
+    </member>
+    <member name="F:C1.DataEngine.KeepFileType.IndexAndJoin">
+      <summary>サーバー側 DataEngine のデフォルト。 計算で作成されたインデックスと結合がすべて、将来の計算で再利用される可能性に備えて保持されます。 これらは、再作成に大きなコストがかかるデータであるため、最適なパフォーマンスを得るには保持することが重要です。</summary>
+    </member>
+    <member name="F:C1.DataEngine.KeepFileType.Results">
+      <summary>FlexPivot コントロールのデフォルト。 計算で作成されたすべてのファイルがディスク上に保持されるため、再作成せずに将来の計算で再利用することができます。 このストラテジーは、FlexPivot コントロールには適していますが、複数のクライアントにサービスを提供するサーバー側 DataEngine には、通常適しません。</summary>
+    </member>
+    <member name="T:C1.DataEngine.ClearFileType">
+      <summary>
+        （ディスクのクリーンアップのために）削除するデータファイルの種類。
+        <see cref="M:C1.DataEngine.Workspace.Clear(C1.DataEngine.ClearFileType)" />メソッドで使用されます。
+      </summary>
+    </member>
+    <member name="F:C1.DataEngine.ClearFileType.Index">
+      <summary>計算で作成されたすべてのインデックス（1 つまたは複数のフィールドでソートされたテーブル行 ID）を削除します。</summary>
+    </member>
+    <member name="F:C1.DataEngine.ClearFileType.Projection">
+      <summary>
+        計算で作成されたすべての投影（インデックスのソート順で投影されたフィールド値を含むファイル）を削除します。 投影は、（自動クリーンアップにおいて）対応するインデックスと一緒に保持されます。そのため、
+        <see cref="T:C1.DataEngine.KeepFileType" />列挙に投影に対応する値はありません。 しかし、手動クリーンアップでは、インデックスとは分けて投影を削除することができます。
+      </summary>
+    </member>
+    <member name="F:C1.DataEngine.ClearFileType.Join">
+      <summary>計算で作成されたすべての結合を削除します。</summary>
+    </member>
+    <member name="F:C1.DataEngine.ClearFileType.Results">
+      <summary>計算で作成されたすべての結果ファイル（クライアントに送信されたデータ）を削除します。</summary>
+    </member>
+    <member name="F:C1.DataEngine.ClearFileType.All">
+      <summary>元のテーブルデータも含めて、作業領域のすべてのファイルを削除します。 この値は、注意して使用してください。作業領域のすべての DataEngine データが消去されます。</summary>
+    </member>
+    <member name="M:C1.DataEngine.Workspace.Clear(C1.DataEngine.ClearFileType)">
+      <summary>ディスクからデータファイルを削除します。</summary>
+      <param name="type">削除するデータファイルの種類。</param>
+      <remarks>
+        <para>ClearFileType.All を使用する場合（これがデフォルトの設定で、作業領域からすべてのテーブルが削除されます）、 すべてのデータと構造情報が削除され、作業領域は完全に消去されます。慎重に使用してください。</para>
+        <para>
+          他の ClearFileType フラグ（またはそれらの組み合わせ）は手動のディスククリーンアップで使用され、計算で作成されたデータファイルを削除します。 手動ディスククリーンアップは高度な機能です。
+          <see cref="P:C1.DataEngine.Workspace.KeepFiles" />プロパティを使用したデフォルトの自動ディスククリーンアップでは状況に十分対応できない場合にのみ使用してください。
+        </para>
+      </remarks>
+    </member>
+    <member name="M:C1.DataEngine.Workspace.Clear(System.String,C1.DataEngine.ClearFileType)">
+      <summary>ディスクからテーブルのデータファイルを削除します。</summary>
+      <param name="tableName">削除するテーブルの名前。</param>
+      <param name="type">削除するデータファイルの種類。</param>
+      <remarks>
+        <para>ClearFileType.All を使用する場合（これがデフォルトの設定で、作業領域からテーブルが削除されます）、 元のテーブルデータとそのテーブルの構造情報が、そのテーブルに基づいて計算されたデータと共に削除されます。 慎重に使用してください。また、新しいテーブルを作成する際にこれを使用して、既存のテーブルがないことを保証できます。</para>
+        <para>
+          他の ClearFileType フラグ（またはそれらの組み合わせ）は手動のディスククリーンアップで使用され、そのテーブルに基づいて計算で作成されたデータファイルを削除します。 手動ディスククリーンアップは高度な機能です。
+          <see cref="P:C1.DataEngine.Workspace.KeepFiles" />プロパティを使用したデフォルトの自動ディスククリーンアップでは状況に十分対応できない場合にのみ使用してください。
+        </para>
+      </remarks>
+    </member>
+    <member name="P:C1.DataEngine.Workspace.KeepFiles">
+      <summary>自動的なディスククリーンアップストラテジー。</summary>
+      <remarks>計算で作成されるファイルのうち、将来の再利用のためにどれを保持するかを細かく制御する必要がない場合は、このプロパティをデフォルト値のままにできます。</remarks>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.Exec(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.Threading.CancellationToken,C1.FlexPivot.ProgressDelegate)">
+      <returns>ビューの実行（集計）結果。</returns>
+      <remarks>
+        <para>このメソッドは、サーバーで複数ユーザーによるスレッドセーフなビューの実行をサポートします。このような実行の結果は、 Web などで視覚化のためにクライアントに渡すことを目的としています。</para>
+        <para>
+          このメソッドは、DataEngine の複数の作業領域とテーブルでビューを実行できます。そのために、
+          <see cref="P:C1.FlexPivot.C1FlexPivotEngine.Workspace" />オブジェクトのプールを内部的に保持します。
+        </para>
+        <para>集計結果は、キーを値にマッピングする辞書です。</para>
+        <para>各値は、ビュー内の値フィールドの値を、それらのフィールドがビュー内で指定されている順に表す配列です。 したがって、たとえば、ビューに 2 つの値フィールド V1 および V2 がある場合、各値は配列 [v1, v2] になります。 ここで、v1 はキーに対応する V1 の集計値、v2 は同じキーに対応する V2 の集計値です。</para>
+        <para>
+          キーは、ビュー内の行フィールドと列フィールドの値を、まず行フィールド、次に列フィールドの順、かつフィールドがビュー内で指定されている順に並べた配列です。 この配列の要素の一部またはすべてを
+          <b>null</b>にできます。この場合、対応する値は、 キー内の
+          <b>null</b>が含まれている位置に該当するフィールドのすべての値を集計したものになります。すべての要素が
+          <b>null</b>のキー （このようなキーは辞書内で一意です）は、総計に対応します。
+        </para>
+        <para>たとえば、行フィールド Country（国）、列フィールド Customer（顧客）、値フィールド Withdrawal（入金）および Deposit（出金）があり、集計演算 Sum（合計）が指定されている場合、次のようになります。 キー ["UK", "Joe"] は、v1/v2 をイギリス（UK）の顧客 Joe のすべての入金/出金の合計として、[v1, v2] に対応します。 キー ["UK", null] は、v1/v2 をイギリス（UK）のすべての顧客のすべての入金/出金の合計として、[v1, v2] に対応します。 キー [null, "Joe"] は、v1/v2 を名前 Joe を持つ（すべての国の）すべての顧客のすべての入金/出金の合計として、[v1, v2] に対応します。 キー [null, null] は、v1/v2 をすべての国のすべての顧客のすべての入金/出金の合計として、[v1, v2] に対応します。</para>
+      </remarks>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.Exec(System.Collections.IEnumerable,System.Collections.Generic.Dictionary{System.String,System.Object},System.Threading.CancellationToken,C1.FlexPivot.ProgressDelegate)">
+      <summary>呼び出し元のクライアントに集計結果を返すビューをサーバー側で非同期実行します。</summary>
+      <param name="dataSource">集計用のデータを含むデータソースコレクション。</param>
+      <param name="view">ビューの定義。これは、System.Web.Script.Serialization.JavaScriptSerializer.Deserialize を使用して JSON 形式でビューから取得されます。</param>
+      <param name="cancelToken">タスクをキャンセルできるようにします。</param>
+      <param name="progress">進捗状況の更新を報告するコールバック関数。</param>
+      <returns>ビューの実行（集計）結果。</returns>
+      <remarks>
+        <para>このメソッドは、サーバーで複数ユーザーによるスレッドセーフなビューの実行をサポートします。このような実行の結果は、 Web などで視覚化のためにクライアントに渡すことを目的としています。</para>
+        <para>
+          このメソッドは、複数の dataSource コレクションに対してビューを実行できます。そのために、
+          <see cref="P:C1.FlexPivot.C1FlexPivotEngine.Workspace" />オブジェクトのプールを内部的に保持します。
+        </para>
+        <para>
+          集計結果は、キーを値にマッピングする辞書です。
+          <see cref="!:C1.FlexPivot.C1FlexPivotEngine.Exec(string, string, System.Collections.Generic.Dictionary&lt;string,object&gt;, System.Threading.CancellationToken)" />のキーと値に関する説明を参照してください。
+        </para>
+      </remarks>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.ExecCube(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.Threading.CancellationToken,C1.FlexPivot.ProgressDelegate)">
+      <summary>SQL Server Analysis Service（SSAS）キューブのデータに対するサーバー要求。呼び出し元のクライアントに集計結果を返します。</summary>
+      <param name="connection">SSAS 接続文字列。</param>
+      <param name="cubeName">キューブ名。</param>
+      <param name="view">キューブからデータを取得するために使用されるビュー定義。</param>
+      <param name="cancelToken">タスクをキャンセルできるようにします。</param>
+      <param name="progress">進捗状況の更新を報告するコールバック関数。</param>
+      <returns>集計結果。</returns>
+      <remarks>
+        <para>このメソッドは、キューブからの複数ユーザーによるスレッドセーフな集計データの取得をサポートします。このようなデータの取得は、 Web などで視覚化のためにクライアントに渡すことを目的としています。</para>
+        <para>
+          複数のキューブからデータを取得できます。キューブ名（および接続）は各呼び出しで指定されます。そのために、
+          <see cref="P:C1.FlexPivot.C1FlexPivotEngine.Workspace" />オブジェクトのプールを内部的に保持します。
+        </para>
+        <para>
+          集計結果は、キーを値にマッピングする辞書です。
+          <see cref="!:C1.FlexPivot.C1FlexPivotEngine.Exec(string, string, System.Collections.Generic.Dictionary&lt;string,object&gt;, System.Threading.CancellationToken)" />のキーと値に関する説明を参照してください。
+        </para>
+      </remarks>
+    </member>
+    <member name="T:C1.FlexPivot.ProgressDelegate">
+      <summary>
+        <see cref="M:C1.FlexPivot.C1FlexPivotEngine.Exec(System.Collections.IEnumerable,System.Collections.Generic.Dictionary{System.String,System.Object},System.Threading.CancellationToken,C1.FlexPivot.ProgressDelegate)" />が進捗状況の更新を報告するために使用されます。
+      </summary>
+      <param name="percentProgress">操作が完了した割合（0 ～ 100）</param>
+    </member>
+  </members>
+</doc>

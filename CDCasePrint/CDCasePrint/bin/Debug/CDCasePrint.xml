@@ -1,0 +1,611 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+CDCasePrint
+</name>
+</assembly>
+<members>
+<member name="T:CDCasePrint.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:CDCasePrint.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:CDCasePrint.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:CDCasePrint.DefaultModule.ResultMark">
+ <summary>
+ リストボックス用マーク列挙体
+ </summary>
+</member>
+<member name="M:CDCasePrint.DefaultModule.WriteLstResult(System.Windows.Forms.ListBox,System.String,CDCasePrint.DefaultModule.ResultMark)">
+ <summary>
+ リストボックスに結果マーク込みで文字列を書き込む
+ </summary>
+ <param name="lstResult"></param>
+ <param name="strLog"></param>
+ <param name="ResultMark"></param>
+</member>
+<member name="M:CDCasePrint.DefaultModule.IsNull(System.String)">
+ <summary>
+ NULL判定
+ </summary>
+ <param name="text"></param>
+ <returns></returns>
+</member>
+<member name="M:CDCasePrint.DefaultModule.OutputLogFile(System.String)">
+ <summary>
+ 例外処理内容をログファイルに書き込む
+ </summary>
+ <param name="strExceptionMessage"></param>
+</member>
+<member name="M:CDCasePrint.DefaultModule.GetLinesOfTextFile(System.String)">
+ <summary>
+ ファイルのレコード数をカウントする
+ </summary>
+ <param name="strFileName"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:CDCasePrint.DefaultModule.IsShiftJISOnlyText(System.String)">
+ <summary>
+ Shift-JISで表現できるか判別する
+ </summary>
+ <param name="text">対象文字列</param>
+ <returns>TRUE:表現できる、FALSE:表現できない</returns>
+ <remarks></remarks>
+</member>
+<member name="M:CDCasePrint.DefaultModule.FileBrowse(System.Windows.Forms.TextBox,System.String)">
+ <summary>
+ ファイルを開くダイアログボックス
+ </summary>
+ <param name="txtFile"></param>
+ <param name="strFilter"></param>
+ <returns>フィルタの記述例：JPEGイメージ(*.jpg)|*.jpg|すべてのファイル(*.*)|*.*</returns>
+</member>
+<member name="M:CDCasePrint.DefaultModule.FolderBrowse(System.Windows.Forms.TextBox)">
+ <summary>
+ フォルダを開くコモンダイアログボックスを表示する
+ </summary>
+ <param name="txtFolder"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:CDCasePrint.DefaultModule.GetFilesMostDeep(System.String,System.String[])">
+ <summary>
+ 指定した検索パターンに一致するファイルを最下層まで検索し全て返す
+ </summary>
+ <param name="strRootPath">検索を開始する最上層のディレクトリへのパス</param>
+ <param name="strPatterns">パス内のファイル名と対応させる検索文字列の配列</param>
+ <returns>検索パターンに一致したすべてのファイルパス</returns>
+ <remarks></remarks>
+</member>
+<member name="M:CDCasePrint.DefaultModule.OutputImportLog(System.Windows.Forms.ListBox,System.String,System.String,System.String)">
+ <summary>
+ リストボックスに表示されている文字列をログファイルとして保存する
+ </summary>
+ <param name="lstResult">対象ListBox</param>
+ <param name="strOutputFolder">出力フォルダ</param>
+ <param name="strSign">ファイル名をわかりやすくするためのサインを指定する</param>
+ <remarks>yyyyMMdd_Import_XXの形式で出力する(XXは数字)</remarks>
+</member>
+<member name="M:CDCasePrint.DefaultModule.EnableControls(System.Windows.Forms.Form,System.Boolean)">
+ <summary>
+ コントロールの使用可否を切り替える
+ </summary>
+ <param name="frmForm">対象フォーム</param>
+ <param name="ControlEnabled">True：使用可能、False：使用不可</param>
+ <remarks></remarks>
+</member>
+<member name="M:CDCasePrint.DefaultModule.ExtractZIP(System.String,System.String,System.String)">
+ <summary>
+ 解凍処理
+ </summary>
+</member>
+<member name="M:CDCasePrint.DefaultModule.GetBusinessYear(System.String)">
+ <summary>
+ 日付から年度を求める
+ </summary>
+ <param name="strDate"></param>
+ <returns></returns>
+</member>
+<member name="M:CDCasePrint.DefaultModule.getBusinessDay(System.DateTime,System.Int32)">
+ <summary>
+ 営業日の日数分日付をずらす
+ </summary>
+ <param name="dtDate"></param>
+ <param name="iDiff"></param>
+ <returns></returns>
+</member>
+<member name="M:CDCasePrint.DefaultModule.IsHoliday(System.DateTime)">
+ <summary>
+ 土日祝日判定
+ </summary>
+ <param name="dtDate"></param>
+ <returns>TRUE：土日祝日、FALSE：平日</returns>
+</member>
+<member name="M:CDCasePrint.DefaultModule.GetAge(System.DateTime,System.DateTime)">
+ <summary>
+ 満年齢を求める
+ </summary>
+ <param name="dtDate"></param>
+ <returns></returns>
+</member>
+<member name="M:CDCasePrint.DefaultModule.PeriodCheck(System.String,System.Int32)">
+ <summary>
+ 小数点以下を指定された順位まで付与する
+ NULLの場合は空文字を返す
+ </summary>
+ <param name="strValue"></param>
+ <param name="iPoint"></param>
+ <returns></returns>
+</member>
+<member name="M:CDCasePrint.DefaultModule.SetPrinters(System.Windows.Forms.ComboBox)">
+ <summary>
+ コンピュータにインストールされているプリンタを取得して該当コンボボックスにセットする
+ </summary>
+ <param name="cmbComboBox"></param>
+</member>
+<member name="M:CDCasePrint.SQLProcess.#ctor">
+ <summary>
+ コンストラクタ
+ </summary>
+</member>
+<member name="M:CDCasePrint.SQLProcess.Close">
+ <summary>
+ デストラクタ
+ </summary>
+</member>
+<member name="M:CDCasePrint.SQLProcess.Initialize">
+ <summary>
+ コネクション確立
+ </summary>
+</member>
+<member name="M:CDCasePrint.SQLProcess.DB_SELECT_DATATABLE(System.String)">
+ <summary>
+ SELECT文発行用関数(DATATABLE)
+ </summary>
+ <param name="strSQL"></param>
+ <returns></returns>
+</member>
+<member name="M:CDCasePrint.SQLProcess.DB_EXECUTE_SCALAR(System.String)">
+ <summary>
+ SQL文の結果より単一の値を取得
+ </summary>
+ <param name="strSQL"></param>
+ <returns></returns>
+</member>
+<member name="M:CDCasePrint.SQLProcess.DB_UPDATE(System.String)">
+ <summary>
+ INSERT、DELETE、UPDATE文発行用関数
+ </summary>
+ <param name="strSQL"></param>
+</member>
+<member name="M:CDCasePrint.SQLProcess.DB_SELECT_READER(System.String)">
+ <summary>
+ SELECT文発行用関数(DATA READER)
+ </summary>
+ <param name="strSQL"></param>
+ <returns></returns>
+</member>
+<member name="M:CDCasePrint.SQLProcess.DB_SELECT_DATASET(System.String,System.String)">
+ <summary>
+ SELECT文発行用関数(DATASET)
+ </summary>
+ <param name="strSQL"></param>
+ <param name="srcTable"></param>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.LocationX">
+ <summary>
+ フォーム位置X
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.LocationY">
+ <summary>
+ フォーム位置Y
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.SizeX">
+ <summary>
+ サイズ幅
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.SizeY">
+ <summary>
+ サイズ高さ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.State">
+ <summary>
+ 最大化・最小化状態
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.LocEntryX">
+ <summary>
+ エントリフォーム位置X
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.LocEntryY">
+ <summary>
+ エントリフォーム位置Y
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.SizeEntryX">
+ <summary>
+ エントリフォーム幅
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.SizeEntryY">
+ <summary>
+ エントリフォーム高さ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.LocManageX">
+ <summary>
+ 管理フォーム位置X
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.LocManageY">
+ <summary>
+ 管理フォーム位置Y
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.SizeManageX">
+ <summary>
+ 管理フォーム幅
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.SizeManageY">
+ <summary>
+ 管理フォーム高さ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.StateManage">
+ <summary>
+ 管理フォーム最大化・最小化状態
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.ApplicationName">
+ <summary>
+ アプリケーション名
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.ImportFromFolder">
+ <summary>
+ インポート元フォルダ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.ImportToFolder">
+ <summary>
+ 保存先フォルダ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.ImportLogFolder">
+ <summary>
+ ログ保存先フォルダ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.ZipPassword">
+ <summary>
+ ZIP解凍用パスワード
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.DataDupe">
+ <summary>
+ 重複レコード
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.DataRequired">
+ <summary>
+ 必須項目不備
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.DataDigit">
+ <summary>
+ 桁数不備
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.DataShiftJIS">
+ <summary>
+ データ不備(SJISで表現できない)
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.DataExceed">
+ <summary>
+ 文字数超過
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.SJISErrorCheck">
+ <summary>
+ SJISで表現できない文言
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.ImagePath">
+ <summary>
+ 画像ファイル親パス
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.OutputFolder">
+ <summary>
+ 出力フォルダ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.DataSource">
+ <summary>
+ DataSource
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:CDCasePrint.XmlSettings.InitialCatalog">
+ <summary>
+ InitialCatalog
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:CDCasePrint.XmlSettings.UserID">
+ <summary>
+ UserID
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:CDCasePrint.XmlSettings.Password">
+ <summary>
+ Password
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:CDCasePrint.XmlSettings.TablePrefix">
+ <summary>
+ INTRA-PDC00接続時の接頭語入出力
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.CheckupList">
+ <summary>
+ 対象者一覧1ページあたりの件数
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.LeafletList">
+ <summary>
+ 保健指導対象者名簿1ページあたりの件数
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.Printer_Label">
+ <summary>
+ プリンタドライバ名(ラベル)
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.Printer_Sentlist">
+ <summary>
+ プリンタドライバ名(対象者一覧)の入出力
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.Printer_SentLeaflet">
+ <summary>
+ プリンタドライバ名(保健指導対象者名簿)
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.Printer_Result">
+ <summary>
+ プリンタドライバ名(判定票)
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.Printer_Leaflet">
+ <summary>
+ プリンタドライバ名(リーフレット)
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.HeaderTray">
+ <summary>
+ 重量ヘッダ給紙トレイ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.LabelTray">
+ <summary>
+ ラベル給紙トレイ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.SentlistTray">
+ <summary>
+ 対象者一覧給紙トレイ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.SentLeafletTray">
+ <summary>
+ 保健指導対象者名簿給紙トレイ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.ResultTray">
+ <summary>
+ 判定票給紙トレイ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.LeafletTray">
+ <summary>
+ リーフレット給紙トレイ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.PDFPath">
+ <summary>
+ PDF出力先フォルダ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.VariousOutputFolder">
+ <summary>
+ 各種出力フォルダ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.ExcelDataIncomplete">
+ <summary>
+ データ不備内容
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.ExcelWeightCount">
+ <summary>
+ 重量ヘッダ単位件数
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.ExcelFacilityCount">
+ <summary>
+ 就業判定票_施設別件数
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.ExcelCheckupTargetList">
+ <summary>
+ 就業判定票_対象者一覧
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.ExcelOfficeList">
+ <summary>
+ 発送先事業所一覧
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.ExcelSuccession">
+ <summary>
+ 後納票
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.ExcelWorkOrder">
+ <summary>
+ 作業票
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.ExcelPassword">
+ <summary>
+ エクセルパスワード
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.OfficeCSV">
+ <summary>
+ 局所マスタCSVフルパス
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:CDCasePrint.XmlSettings.BackupFolder">
+ <summary>
+ バックアップフォルダ
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:CDCasePrint.XmlSettings.LoadFromXmlFile">
+ <summary>
+ 設定をXMLファイルから読み込み復元する
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:CDCasePrint.XmlSettings.SaveToXmlFile">
+ <summary>
+ 現在の設定をXMLファイルに保存する
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:CDCasePrint.XmlSettings.LoadFromBinaryFile">
+ <summary>
+ 設定をバイナリファイルから読み込み復元する
+ </summary>
+</member>
+<member name="M:CDCasePrint.XmlSettings.SaveToBinaryFile">
+ <summary>
+ 現在の設定をバイナリファイルに保存する
+ </summary>
+</member>
+<member name="M:CDCasePrint.XmlSettings.LoadFromRegistry">
+ <summary>
+ 設定をレジストリから読み込み復元する
+ </summary>
+</member>
+<member name="M:CDCasePrint.XmlSettings.SaveToRegistry">
+ <summary>
+ 現在の設定をレジストリに保存する
+ </summary>
+</member>
+<member name="M:CDCasePrint.XmlSettings.Dispose">
+ <summary>
+ インスタンスの内容を保存して解放する
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:CDCasePrint.XmlSettings.GetSettingPath">
+ <summary>
+ XMLファイルの保存先を取得する
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:CDCasePrint.XmlSettings.GetSettingRegistry">
+ <summary>
+ レジストリの保存先キーを取得する
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+</members>
+</doc>

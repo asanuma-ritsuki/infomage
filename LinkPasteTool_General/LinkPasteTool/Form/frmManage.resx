@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="C1FGridSummary.ColumnInfo" xml:space="preserve">
+    <value>45,1,0,0,0,100,Columns:0{Width:120;Name:"作業日";Caption:"作業日／ユーザー";Style:"DataType:System.String;TextAlign:LeftCenter;";}	1{Width:50;Name:"合計ロット";Caption:"合計";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	2{Width:50;Name:"合計レコード";Caption:"合計";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	3{Width:50;Name:"進捗率ロット";Caption:"進捗率";Style:"Format:""N1"";DataType:System.Double;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	4{Width:50;Name:"進捗率レコード";Caption:"進捗率";Style:"Format:""N1"";DataType:System.Double;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	5{Width:50;Name:"Y01ロット";Caption:"Y01";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	6{Width:50;Name:"Y01レコード";Caption:"Y01";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	7{Width:50;Name:"Y02ロット";Caption:"Y02";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	8{Width:50;Name:"Y02レコード";Caption:"Y02";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	9{Width:50;Name:"Y03ロット";Caption:"Y03";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	10{Width:50;Name:"Y03レコード";Caption:"Y03";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	11{Width:50;Name:"Y04ロット";Caption:"Y04";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	12{Width:50;Name:"Y04レコード";Caption:"Y04";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	13{Width:50;Name:"Y05ロット";Caption:"Y05";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	14{Width:50;Name:"Y05レコード";Caption:"Y05";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	15{Width:50;Name:"Y06ロット";Caption:"Y06";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	16{Width:50;Name:"Y06レコード";Caption:"Y06";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	17{Width:50;Name:"Y07ロット";Caption:"Y07";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	18{Width:50;Name:"Y07レコード";Caption:"Y07";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	19{Width:50;Name:"Y08ロット";Caption:"Y08";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	20{Width:50;Name:"Y08レコード";Caption:"Y08";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	21{Width:50;Name:"Y09ロット";Caption:"Y09";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	22{Width:50;Name:"Y09レコード";Caption:"Y09";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	23{Width:50;Name:"Y10ロット";Caption:"Y10";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	24{Width:50;Name:"Y10レコード";Caption:"Y10";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	25{Width:50;Name:"Y11ロット";Caption:"Y11";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	26{Width:50;Name:"Y11レコード";Caption:"Y11";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	27{Width:50;Name:"Y12ロット";Caption:"Y12";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	28{Width:50;Name:"Y12レコード";Caption:"Y12";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	29{Width:50;Name:"Y13ロット";Caption:"Y13";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	30{Width:50;Name:"Y13レコード";Caption:"Y13";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	31{Width:50;Name:"Y14ロット";Caption:"Y14";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	32{Width:50;Name:"Y14レコード";Caption:"Y14";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	33{Width:50;Name:"Y15ロット";Caption:"Y15";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	34{Width:50;Name:"Y15レコード";Caption:"Y15";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	35{Width:50;Name:"Y16ロット";Caption:"Y16";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	36{Width:50;Name:"Y16レコード";Caption:"Y16";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	37{Width:50;Name:"Y17ロット";Caption:"Y17";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	38{Width:50;Name:"Y17レコード";Caption:"Y17";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	39{Width:50;Name:"Y18ロット";Caption:"Y18";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	40{Width:50;Name:"Y18レコード";Caption:"Y18";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	41{Width:50;Name:"Y19ロット";Caption:"Y19";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	42{Width:50;Name:"Y19レコード";Caption:"Y19";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	43{Width:50;Name:"Y20ロット";Caption:"Y20";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	44{Width:50;Name:"Y20レコード";Caption:"Y20";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	</value>
+  </data>
+  <data name="C1FGridProgress.ColumnInfo" xml:space="preserve">
+    <value>5,1,0,0,0,205,Columns:0{Width:150;Name:"カテゴリ";Caption:"カテゴリ";Style:"DataType:System.String;TextAlign:LeftCenter;";}	1{Name:"総数";Caption:"総数";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";}	2{Name:"終了数";Caption:"終了数";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";}	3{Name:"残数";Caption:"残数";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";}	4{Name:"進捗率";Caption:"進捗率";Style:"DataType:System.String;TextAlign:RightCenter;";}	</value>
+  </data>
+  <data name="C1FGridContents.ColumnInfo" xml:space="preserve">
+    <value>36,1,0,0,0,100,Columns:0{Width:30;Name:"No";Caption:"No.";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	1{Width:46;Name:"管理ID";Caption:"管理ID";Visible:False;Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	2{Width:43;Name:"連番";Caption:"連番";Visible:False;Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	3{Name:"仮フォルダ";Caption:"仮フォルダ";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	4{Name:"納品フォルダ";Caption:"納品フォルダ";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	5{Name:"レコード番号";Caption:"レコード番号";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	6{Name:"表示用";Caption:"表示用";Style:"DataType:System.String;TextAlign:LeftCenter;";}	7{Name:"行番号";Caption:"行番号";Style:"DataType:System.String;TextAlign:LeftCenter;";}	8{Name:"県名";Caption:"県名";Style:"DataType:System.String;TextAlign:LeftCenter;";}	9{Name:"資料名";Caption:"資料名";Style:"DataType:System.String;TextAlign:LeftCenter;";}	10{Name:"副題";Caption:"副題";Style:"DataType:System.String;TextAlign:LeftCenter;";}	11{Name:"対象年";Caption:"対象年";Style:"DataType:System.String;TextAlign:LeftCenter;";}	12{Name:"刊行者名";Caption:"刊行者名";Style:"DataType:System.String;TextAlign:LeftCenter;";}	13{Name:"刊行年月";Caption:"刊行年月";Style:"DataType:System.String;TextAlign:LeftCenter;";}	14{Name:"分類1";Caption:"分類1";Style:"DataType:System.String;TextAlign:LeftCenter;";}	15{Name:"分類2";Caption:"分類2";Style:"DataType:System.String;TextAlign:LeftCenter;";}	16{Name:"分類番号";Caption:"番号";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	17{Name:"項目";Caption:"項目";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	18{Name:"番号1";Caption:"番号";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	19{Name:"タイトル1";Caption:"タイトル1";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	20{Name:"番号2";Caption:"番号";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	21{Name:"タイトル2";Caption:"タイトル2";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	22{Name:"番号3";Caption:"番号";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	23{Name:"タイトル3";Caption:"タイトル3";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	24{Name:"番号4";Caption:"番号";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	25{Name:"タイトル4";Caption:"タイトル4";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	26{Name:"番号5";Caption:"番号";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	27{Name:"タイトル5";Caption:"タイトル5";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	28{Name:"フォルダ名";Caption:"フォルダ名";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	29{Name:"リンク";Caption:"コマ番号(始め)";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	30{Name:"リンクTO";Caption:"コマ番号(終り)";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	31{Name:"備考";Caption:"備考";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	32{Width:49;Name:"フラグID";Caption:"フラグID";Visible:False;AllowEditing:False;Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	33{Name:"フラグ";Caption:"フラグ";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	34{Name:"変更";Caption:"変更";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	35{Width:50;Name:"確認";Caption:"確認";Style:"DataType:System.Boolean;TextAlign:LeftCenter;ImageAlign:CenterCenter;";}	</value>
+  </data>
+  <data name="C1FGridManage.ColumnInfo" xml:space="preserve">
+    <value>15,1,0,0,0,100,Columns:0{Width:30;Name:"No";Caption:"No.";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	1{Name:"管理ID";Caption:"管理ID";Visible:False;Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	2{Name:"M番号";Caption:"M番号";Style:"DataType:System.String;TextAlign:LeftCenter;";}	3{Name:"県名";Caption:"県名";Style:"DataType:System.String;TextAlign:LeftCenter;";}	4{Name:"仮フォルダ";Caption:"仮フォルダ";Style:"DataType:System.String;TextAlign:LeftCenter;";}	5{Name:"納品フォルダ";Caption:"納品フォルダ";Style:"DataType:System.String;TextAlign:LeftCenter;";}	6{Width:300;Name:"エクセルファイル名";Caption:"エクセルファイル名";Style:"DataType:System.String;TextAlign:LeftCenter;";}	7{Name:"スキャン";Caption:"スキャン数";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	8{Name:"レコード";Caption:"レコード数";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	9{Name:"備考";Caption:"備考";Style:"DataType:System.String;TextAlign:LeftCenter;";}	10{Name:"処理端末";Caption:"処理端末";Style:"DataType:System.String;TextAlign:LeftCenter;";}	11{Name:"開始日時";Caption:"開始日時";Style:"Format:""g"";DataType:System.DateTime;TextAlign:LeftCenter;";}	12{Name:"終了日時";Caption:"終了日時1次";Style:"Format:""g"";DataType:System.DateTime;TextAlign:LeftCenter;";}	13{Name:"終了日時2次";Caption:"終了日時2次";Style:"Format:""g"";DataType:System.DateTime;TextAlign:LeftCenter;";}	14{Name:"処理ユーザー";Caption:"処理ユーザー";Style:"DataType:System.String;TextAlign:LeftCenter;";}	</value>
+  </data>
+  <data name="C1FGridImage.ColumnInfo" xml:space="preserve">
+    <value>11,1,0,0,0,100,Columns:0{Width:30;Name:"No";Caption:"No.";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	1{Name:"管理ID";Caption:"管理ID";Visible:False;Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	2{Name:"M番号";Caption:"M番号";Style:"DataType:System.String;TextAlign:LeftCenter;";}	3{Name:"県名";Caption:"県名";Style:"DataType:System.String;TextAlign:LeftCenter;";}	4{Name:"仮フォルダ";Caption:"仮フォルダ";Style:"DataType:System.String;TextAlign:LeftCenter;";}	5{Name:"納品フォルダ";Caption:"納品フォルダ";Style:"DataType:System.String;TextAlign:LeftCenter;";}	6{Width:300;Name:"エクセルファイル名";Caption:"エクセルファイル名";Style:"DataType:System.String;TextAlign:LeftCenter;";}	7{Name:"ファイル名";Caption:"ファイル名";Style:"DataType:System.String;TextAlign:LeftCenter;";}	8{Name:"フラグ";Caption:"フラグ";Style:"DataType:System.String;TextAlign:LeftCenter;";}	9{Name:"備考";Caption:"備考";Style:"DataType:System.String;TextAlign:LeftCenter;";}	10{Width:50;Name:"確認";Caption:"確認";Style:"DataType:System.Boolean;TextAlign:LeftCenter;ImageAlign:CenterCenter;";}	</value>
+  </data>
+  <data name="C1FGridOutputTo.ColumnInfo" xml:space="preserve">
+    <value>6,1,0,0,0,100,Columns:0{Width:30;Name:"No";Caption:"No.";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	1{Name:"管理ID";Caption:"管理ID";Visible:False;Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	2{Name:"仮フォルダ";Caption:"仮フォルダ";Style:"DataType:System.String;TextAlign:LeftCenter;";}	3{Name:"納品フォルダ";Caption:"納品フォルダ";Style:"DataType:System.String;TextAlign:LeftCenter;";}	4{Name:"出力日時";Caption:"出力日時";Style:"DataType:System.String;TextAlign:LeftCenter;";}	5{Name:"出力日時エクセル";Caption:"エクセル出力日時";Style:"DataType:System.String;TextAlign:LeftCenter;";}	</value>
+  </data>
+  <data name="C1FGridOutputFrom.ColumnInfo" xml:space="preserve">
+    <value>9,1,0,0,0,100,Columns:0{Width:30;Name:"No";Caption:"No.";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	1{Name:"管理ID";Caption:"管理ID";Visible:False;Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	2{Name:"仮フォルダ";Caption:"仮フォルダ";Style:"DataType:System.String;TextAlign:LeftCenter;";}	3{Name:"納品フォルダ";Caption:"納品フォルダ";Style:"DataType:System.String;TextAlign:LeftCenter;";}	4{Name:"出力日時";Caption:"出力日時";Style:"DataType:System.String;TextAlign:LeftCenter;";}	5{Name:"出力日時エクセル";Caption:"エクセル出力日時";Style:"DataType:System.String;TextAlign:LeftCenter;";}	6{Width:50;Name:"目次";Caption:"目次";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	7{Width:50;Name:"フラグ";Caption:"フラグ";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	8{Width:50;Name:"確認";Caption:"確認";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	</value>
+  </data>
+  <data name="C1FGridOutput.ColumnInfo" xml:space="preserve">
+    <value>5,1,0,0,0,155,Columns:0{Width:50;Name:"種別";Caption:"種別";Style:"DataType:System.String;TextAlign:LeftCenter;";}	1{Name:"フラグ";Caption:"フラグ名";Style:"DataType:System.String;TextAlign:LeftCenter;";}	2{Name:"フラグ数";Caption:"フラグ数";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";}	3{Name:"確認数";Caption:"確認数";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";}	4{Name:"残数";Caption:"残数";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";}	</value>
+  </data>
+</root>

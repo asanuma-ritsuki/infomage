@@ -1164,37 +1164,39 @@ Public Class frmImport
                                     If IsNull(row(iCol)) Then
                                         Continue For
                                     End If
-                                    Select Case iCol
-                                        Case 64, 66, 67, 74, 76, 77, 89, 91, 92
-                                            '小数点第一位まで必要な項目
-                                            'Double型に変換できるか確認
-                                            Dim d As Double
-                                            If Not Double.TryParse(row(iCol), d) Then
-                                                blnError = True
-                                            End If
-                                            If Strings.Mid(row(iCol), row(iCol).Length - 1, 1) = "." Then
-                                                '右から2文字目がピリオド(小数点)であった
-                                            Else
-                                                'ピリオドじゃなかった
-                                                blnError = True
-                                            End If
+									Select Case iCol
+										'2018/07/30
+										'チェック項目に「BMI」(109)を追加
+										Case 64, 66, 67, 74, 76, 77, 89, 91, 92, 109
+											'小数点第一位まで必要な項目
+											'Double型に変換できるか確認
+											Dim d As Double
+											If Not Double.TryParse(row(iCol), d) Then
+												blnError = True
+											End If
+											If Strings.Mid(row(iCol), row(iCol).Length - 1, 1) = "." Then
+												'右から2文字目がピリオド(小数点)であった
+											Else
+												'ピリオドじゃなかった
+												blnError = True
+											End If
 
-                                        Case 59, 61, 62
-                                            '小数点第二位まで必要な項目
-                                            'Double型に変換できるか確認
-                                            Dim d As Double
-                                            If Not Double.TryParse(row(iCol), d) Then
-                                                blnError = True
-                                            End If
-                                            If Strings.Mid(row(iCol), row(iCol).Length - 2, 1) = "." Then
-                                                '右から3文字目がピリオド(小数点)であった
-                                            Else
-                                                'ピリオドじゃなかった
-                                                blnError = True
-                                            End If
-                                    End Select
-                                    'エラーフラグが立っていたら不備内容に書き込む
-                                    If blnError Then
+										Case 59, 61, 62
+											'小数点第二位まで必要な項目
+											'Double型に変換できるか確認
+											Dim d As Double
+											If Not Double.TryParse(row(iCol), d) Then
+												blnError = True
+											End If
+											If Strings.Mid(row(iCol), row(iCol).Length - 2, 1) = "." Then
+												'右から3文字目がピリオド(小数点)であった
+											Else
+												'ピリオドじゃなかった
+												blnError = True
+											End If
+									End Select
+									'エラーフラグが立っていたら不備内容に書き込む
+									If blnError Then
 
                                         'NULLだったら
                                         iIncompleteCount += 1
@@ -1525,7 +1527,48 @@ Public Class frmImport
                                 strSQL &= ")"
                                 sqlProcess.DB_UPDATE(strSQL)
 
-                                iRecCountLeaflet += 1
+								'===============================================================
+								'2018/07/30
+								'「BMI」のみ「BMIカロリーマップ(BMIMAP)」のレコードを追加でINSERTする
+								If row(108) = "BMI" Then
+									'リーフレット重複フラグが立っている場合は「T_リーフレット_重複」テーブルに格納する
+									If blnDuplicate Then
+										'重複
+										strSQL = "INSERT INTO T_リーフレット_重複 ("
+									Else
+										strSQL = "INSERT INTO T_リーフレット ("
+									End If
+
+									For iCol As Integer = 0 To strColumnName.Count - 1
+										If iCol = 0 Then
+											strSQL &= strColumnName(iCol)
+										ElseIf iCol = strColumnName.Count - 1 Then
+											'最終項目はカッコで閉じる
+											strSQL &= ", " & strColumnName(iCol) & ") VALUES("
+										Else
+											strSQL &= ", " & strColumnName(iCol)
+										End If
+									Next
+
+									strSQL &= "'" & strLotID & "'"  'ロットID
+									strSQL &= ", " & iRecNumber 'レコード番号
+									For iCol As Integer = 0 To row.Count - 1
+										'シングルクォート「'」が文字列中に発生するとSQL文が破錠してしまうため「''」に置換する
+										'カラム内の改行は「\n」に変換する
+										'帳票タイプは「BMIMAP」に書き換える
+										If iCol = 108 Then
+											'帳票タイプだった
+											strSQL &= ", 'BMIMAP'"
+										Else
+											strSQL &= ", '" & row(iCol).Replace("'", "''").Replace(vbNewLine, "\n") & "'"
+										End If
+									Next
+									strSQL &= ")"
+									sqlProcess.DB_UPDATE(strSQL)
+								End If
+								'===============================================================
+
+								iRecCountLeaflet += 1
 
                             End While
 
@@ -2118,7 +2161,11 @@ Public Class frmImport
 			strSQL &= "SUM(CASE WHEN T1.帳票種別ID = 4 THEN 1 ELSE 0 END) AS 判定票, "
 			strSQL &= "SUM(CASE WHEN T1.帳票種別ID = 5 AND T1.枚数 < 6 THEN 1 ELSE 0 END) AS リーフ件, "
 			strSQL &= "SUM(CASE WHEN T1.帳票種別ID = 5 AND T1.枚数 < 6 THEN T1.枚数 ELSE 0 END) AS リーフ枚, "
-			strSQL &= "SUM(CASE WHEN T1.枚数 = 6 THEN 1 ELSE 0 END) AS リーフ6件, "
+			'2018/08/02
+			'T1.枚数 = 6ではなく6以上に変更、リーフ6枚の追加
+			'strSQL &= "SUM(CASE WHEN T1.枚数 = 6 THEN 1 ELSE 0 END) AS リーフ6件, "
+			strSQL &= "SUM(CASE WHEN T1.枚数 >= 6 THEN 1 ELSE 0 END) AS リーフ6件, "
+			strSQL &= "SUM(CASE WHEN T1.枚数 >= 6 THEN T1.枚数 ELSE 0 END) AS リーフ6枚, "
 			'2018/04/03
 			'重複したリーフレットは全て「T_リーフレット_重複」に退避されているためT1.帳票種別ID = 5では結びつかないため
 			'リーフレット重複件数、枚数はT1.帳票種別ID = 4(判定票)で結びつける
@@ -2206,6 +2253,30 @@ Public Class frmImport
 			strSQL &= ") AS A1"
 			Dim dtLeaflet As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
 
+			'2018/07/31
+			'BMI件数を重量ヘッダ単位で取得する
+			'A～Hの件数を格納する配列を作成する
+			strSQL = "SELECT ISNULL(SUM(CASE WHEN T1.重量ヘッダ = 'A' THEN 1 ELSE 0 END), 0) AS ABMI, "
+			strSQL &= "ISNULL(SUM(CASE WHEN T1.重量ヘッダ = 'B' THEN 1 ELSE 0 END), 0) AS BBMI, "
+			strSQL &= "ISNULL(SUM(CASE WHEN T1.重量ヘッダ = 'C' THEN 1 ELSE 0 END), 0) AS CBMI, "
+			strSQL &= "ISNULL(SUM(CASE WHEN T1.重量ヘッダ = 'D' THEN 1 ELSE 0 END), 0) AS DBMI, "
+			strSQL &= "ISNULL(SUM(CASE WHEN T1.重量ヘッダ = 'E' THEN 1 ELSE 0 END), 0) AS EBMI, "
+			strSQL &= "ISNULL(SUM(CASE WHEN T1.重量ヘッダ = 'F' THEN 1 ELSE 0 END), 0) AS FBMI, "
+			strSQL &= "ISNULL(SUM(CASE WHEN T1.重量ヘッダ = 'G' THEN 1 ELSE 0 END), 0) AS GBMI, "
+			strSQL &= "ISNULL(SUM(CASE WHEN T1.重量ヘッダ = 'H' THEN 1 ELSE 0 END), 0) AS HBMI "
+			strSQL &= "FROM T_印刷管理 AS T1 INNER JOIN "
+			strSQL &= "T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID "
+			strSQL &= "AND T1.会社コード = T2.会社コード "
+			strSQL &= "AND T1.所属事業所コード = T2.所属事業所コード "
+			strSQL &= "AND T1.印刷ID = T2.印刷ID INNER JOIN "
+			strSQL &= "T_リーフレット印刷 AS T3 ON T1.ロットID = T3.ロットID "
+			strSQL &= "AND T2.システムID = T3.システムID "
+			strSQL &= "WHERE T1.ロットID = '" & strLotID & "' "
+			strSQL &= "AND T2.帳票種別ID = 5 "
+			strSQL &= "AND T3.帳票タイプ = 'BMI'"
+			'strSQL &= "GROUP BY T1.重量ヘッダ"
+			Dim dtBMI As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
+
 			'入庫日、発送日、ZIPファイル、局所数の取得
 			strSQL = "SELECT A1.インポート日時, A1.発送日, A1.ZIPファイル, COUNT(A1.カウント) AS 局所数 "
             strSQL &= "FROM (SELECT T1.インポート日時, T1.発送日, T1.ZIPファイル, COUNT(T3.会社コード) AS カウント "
@@ -2251,7 +2322,7 @@ Public Class frmImport
             Dim iTargetList As Integer = sqlProcess.DB_EXECUTE_SCALAR(strSQL)
 
 			ExcelProcess.WriteExcelFile(ExcelOutputCategory.WorkOrder, strExcelFile, dtWeightCount, "",
-										dtCheckup, dtLeaflet, dtLocalCount, iFacilityCount, iCheckupDefect, iLeafDefect, iLeafDupe, iTargetList)
+										dtCheckup, dtLeaflet, dtLocalCount, dtBMI, iFacilityCount, iCheckupDefect, iLeafDefect, iLeafDupe, iTargetList)
 
 		Catch ex As Exception
 

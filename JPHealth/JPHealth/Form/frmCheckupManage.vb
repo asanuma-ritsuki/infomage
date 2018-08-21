@@ -165,12 +165,12 @@ Public Class frmCheckupManage
         UpdateProgress()
         '後納票にチェックが入っている場合、QRチェックがすべて終わっているか確認する
         If Me.chkSuccessDate.Checked Then
-            If Not Me.ProgressBar1.Value = Me.ProgressBar1.Maximum Then
-                '最大値と現在値が同一でなかった場合、チェック未了のため出力できないようにする
-                MessageBox.Show("QRチェックがすべて完了していないため後納票は出力できません" & vbNewLine & "後納票出力のチェックを外して他の帳票を出力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Exit Sub
-            End If
-        End If
+			If Not Me.ProgressBar1.Value = Me.ProgressBar1.Maximum Or Not Me.ProgressBar2.Value = Me.ProgressBar2.Maximum Then
+				'最大値と現在値が同一でなかった場合、チェック未了のため出力できないようにする
+				MessageBox.Show("QRチェックがすべて完了していないため後納票は出力できません" & vbNewLine & "後納票出力のチェックを外して他の帳票を出力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+				Exit Sub
+			End If
+		End If
 
         'チェックボックスがすべてオフの場合はエラーとする
         If Not Me.chkTargetListDate.Checked And Not Me.chkOfficeListDate.Checked And
@@ -762,16 +762,32 @@ Public Class frmCheckupManage
                             strSQL &= "WHERE ロットID = '" & Me.C1FGridDefect(iRow, "ロットID") & "' "
                             strSQL &= "AND レコード番号 = " & Me.C1FGridDefect(iRow, "レコード番号")
                             Dim dtLeafUpdate As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
-                            For iLeafUpdate As Integer = 0 To dtLeafUpdate.Rows.Count - 1
-                                Dim strLeafQR As String = dtLeafUpdate.Rows(iLeafUpdate)("QRコード")
-                                strQRUpdate = strLeafQR.Substring(0, strLeafQR.Length - 2) & "0" & strLeafQR.Substring(strLeafQR.Length - 1, 1)    '末尾から2文字を削った値に0を追加し、末尾の文字列を結合する
+							For iLeafUpdate As Integer = 0 To dtLeafUpdate.Rows.Count - 1
+								Dim strLeafQR As String = dtLeafUpdate.Rows(iLeafUpdate)("QRコード")
+								strQRUpdate = strLeafQR.Substring(0, strLeafQR.Length - 2) & "0" & strLeafQR.Substring(strLeafQR.Length - 1, 1)    '末尾から2文字を削った値に0を追加し、末尾の文字列を結合する
 
-                                strSQL = "UPDATE T_リーフレット印刷 SET QRコード = '" & strQRUpdate & "' "
-                                strSQL &= "WHERE ロットID = '" & Me.C1FGridDefect(iRow, "ロットID") & "' "
-                                strSQL &= "AND レコード番号 = " & Me.C1FGridDefect(iRow, "レコード番号") & " "
-                                sqlProcess.DB_UPDATE(strSQL)
-                            Next
-                        End If
+								strSQL = "UPDATE T_リーフレット印刷 SET QRコード = '" & strQRUpdate & "' "
+								strSQL &= "WHERE ロットID = '" & Me.C1FGridDefect(iRow, "ロットID") & "' "
+								strSQL &= "AND レコード番号 = " & Me.C1FGridDefect(iRow, "レコード番号") & " "
+								sqlProcess.DB_UPDATE(strSQL)
+							Next
+							'2018/08/10
+							'T_リーフ6チェックのQRコード書き換えを追加
+							'リーフレットが同一レコードで複数レコードあった場合はすべてのレコードを更新する
+							strSQL = "SELECT 帳票タイプ, QRコード FROM T_リーフ6チェック "
+							strSQL &= "WHERE ロットID = '" & Me.C1FGridDefect(iRow, "ロットID") & "' "
+							strSQL &= "AND レコード番号 = " & Me.C1FGridDefect(iRow, "レコード番号") & " "
+							Dim dtLeaf6Update As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
+							For iLeaf6Update As Integer = 0 To dtLeaf6Update.Rows.Count - 1
+								Dim strLeaf6QR As String = dtLeaf6Update.Rows(iLeaf6Update)("QRコード")
+								strQRUpdate = strLeaf6QR.Substring(0, strLeaf6QR.Length - 2) & "0" & strLeaf6QR.Substring(strLeaf6QR.Length - 1, 1)    '末尾から2文字を削った値に0を追加し、末尾の文字列を結合する
+
+								strSQL = "UPDATE T_リーフ6チェック SET QRコード = '" & strQRUpdate & "' "
+								strSQL &= "WHERE ロットID = '" & Me.C1FGridDefect(iRow, "ロットID") & "' "
+								strSQL &= "AND レコード番号 = " & Me.C1FGridDefect(iRow, "レコード番号") & " "
+								sqlProcess.DB_UPDATE(strSQL)
+							Next
+						End If
                     End If
 
                     PrintPreparationIndividual(Me.C1FGridDefect(iRow, "ロットID"), Me.C1FGridDefect(iRow, "レコード番号"))
@@ -925,16 +941,38 @@ Public Class frmCheckupManage
         'Me.lblProgress.Text = ""
 
         XmlSettings.LoadFromXmlFile()
-        Me.txtOutputFolder.Text = XmlSettings.Instance.VariousOutputFolder  '保存フォルダ
+		Me.txtOutputFolder.Text = XmlSettings.Instance.VariousOutputFolder  '保存フォルダ
+		'判定票管理画面のプロパティ反映
+		Me.Left = XmlSettings.Instance.CheckupLocationX
+		Me.Top = XmlSettings.Instance.CheckupLocationY
+		Me.Width = XmlSettings.Instance.CheckupSizeX
+		Me.Height = XmlSettings.Instance.CheckupSizeY
+		Me.WindowState = XmlSettings.Instance.CheckupState
 
-    End Sub
+	End Sub
 
     ''' <summary>
     ''' メインメニューへ戻る
     ''' </summary>
     Private Sub BackScreen()
 
-        Dim f As New frmMainMenu
+		XmlSettings.LoadFromXmlFile()
+		If Me.WindowState = FormWindowState.Normal Then
+			XmlSettings.Instance.CheckupLocationX = Me.Left
+			XmlSettings.Instance.CheckupLocationY = Me.Top
+			XmlSettings.Instance.CheckupSizeX = Me.Width
+			XmlSettings.Instance.CheckupSizeY = Me.Height
+			XmlSettings.Instance.CheckupState = Me.WindowState
+		Else
+			XmlSettings.Instance.CheckupLocationX = Me.RestoreBounds.Left
+			XmlSettings.Instance.CheckupLocationY = Me.RestoreBounds.Top
+			XmlSettings.Instance.CheckupSizeX = Me.RestoreBounds.Width
+			XmlSettings.Instance.CheckupSizeY = Me.RestoreBounds.Height
+			XmlSettings.Instance.CheckupState = Me.WindowState
+		End If
+		XmlSettings.SaveToXmlFile()
+
+		Dim f As New frmMainMenu
         m_Context.SetNextContext(f)
 
     End Sub
@@ -1086,9 +1124,17 @@ Public Class frmCheckupManage
 			strSQL &= "SUM(CASE WHEN T1.帳票種別ID = 2 THEN 1 ELSE 0 END) AS 対象者, "
 			strSQL &= "SUM(CASE WHEN T1.帳票種別ID = 3 THEN 1 ELSE 0 END) AS 保健指導, "
 			strSQL &= "SUM(CASE WHEN T1.帳票種別ID = 4 THEN 1 ELSE 0 END) AS 判定票, "
-			strSQL &= "SUM(CASE WHEN T1.帳票種別ID = 5 AND T1.枚数 < 6 THEN 1 ELSE 0 END) AS リーフ件, "
-			strSQL &= "SUM(CASE WHEN T1.帳票種別ID = 5 AND T1.枚数 < 6 THEN T1.枚数 ELSE 0 END) AS リーフ枚, "
-			strSQL &= "SUM(CASE WHEN T1.枚数 = 6 THEN 1 ELSE 0 END) AS リーフ6件, "
+			'2018/08/15
+			'リーフ件、リーフ枚は6枚未満だけではなく全てのリーフ数を出力するように変更
+			'strSQL &= "SUM(CASE WHEN T1.帳票種別ID = 5 AND T1.枚数 < 6 THEN 1 ELSE 0 END) AS リーフ件, "
+			'strSQL &= "SUM(CASE WHEN T1.帳票種別ID = 5 AND T1.枚数 < 6 THEN T1.枚数 ELSE 0 END) AS リーフ枚, "
+			strSQL &= "SUM(CASE WHEN T1.帳票種別ID = 5 THEN 1 ELSE 0 END) AS リーフ件, "
+			strSQL &= "SUM(CASE WHEN T1.帳票種別ID = 5 THEN T1.枚数 ELSE 0 END) AS リーフ枚, "
+			'2018/07/31
+			'T1.枚数 = 6ではなく6以上に変更、リーフ6枚の追加
+			''strSQL &= "SUM(CASE WHEN T1.枚数 = 6 THEN 1 ELSE 0 END) AS リーフ6件, "
+			strSQL &= "SUM(CASE WHEN T1.枚数 >= 6 THEN 1 ELSE 0 END) AS リーフ6件, "
+			strSQL &= "SUM(CASE WHEN T1.枚数 >= 6 THEN T1.枚数 ELSE 0 END) AS リーフ6枚, "
 			'2018/04/03
 			'重複したリーフレットは全て「T_リーフレット_重複」に退避されているためT1.帳票種別ID = 5では結びつかないため
 			'リーフレット重複件数、枚数はT1.帳票種別ID = 4(判定票)で結びつける
@@ -1177,6 +1223,30 @@ Public Class frmCheckupManage
 			strSQL &= ") AS A1"
 			Dim dtLeaflet As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
 
+			'2018/07/31
+			'BMI件数を重量ヘッダ単位で取得する
+			'A～Hの件数を格納する配列を作成する
+			strSQL = "SELECT ISNULL(SUM(CASE WHEN T1.重量ヘッダ = 'A' THEN 1 ELSE 0 END), 0) AS ABMI, "
+			strSQL &= "ISNULL(SUM(CASE WHEN T1.重量ヘッダ = 'B' THEN 1 ELSE 0 END), 0) AS BBMI, "
+			strSQL &= "ISNULL(SUM(CASE WHEN T1.重量ヘッダ = 'C' THEN 1 ELSE 0 END), 0) AS CBMI, "
+			strSQL &= "ISNULL(SUM(CASE WHEN T1.重量ヘッダ = 'D' THEN 1 ELSE 0 END), 0) AS DBMI, "
+			strSQL &= "ISNULL(SUM(CASE WHEN T1.重量ヘッダ = 'E' THEN 1 ELSE 0 END), 0) AS EBMI, "
+			strSQL &= "ISNULL(SUM(CASE WHEN T1.重量ヘッダ = 'F' THEN 1 ELSE 0 END), 0) AS FBMI, "
+			strSQL &= "ISNULL(SUM(CASE WHEN T1.重量ヘッダ = 'G' THEN 1 ELSE 0 END), 0) AS GBMI, "
+			strSQL &= "ISNULL(SUM(CASE WHEN T1.重量ヘッダ = 'H' THEN 1 ELSE 0 END), 0) AS HBMI "
+			strSQL &= "FROM T_印刷管理 AS T1 INNER JOIN "
+			strSQL &= "T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID "
+			strSQL &= "AND T1.会社コード = T2.会社コード "
+			strSQL &= "AND T1.所属事業所コード = T2.所属事業所コード "
+			strSQL &= "AND T1.印刷ID = T2.印刷ID INNER JOIN "
+			strSQL &= "T_リーフレット印刷 AS T3 ON T1.ロットID = T3.ロットID "
+			strSQL &= "AND T2.システムID = T3.システムID "
+			strSQL &= "WHERE T1.ロットID = '" & strLotID & "' "
+			strSQL &= "AND T2.帳票種別ID = 5 "
+			strSQL &= "AND T3.帳票タイプ = 'BMI'"
+			'strSQL &= "GROUP BY T1.重量ヘッダ"
+			Dim dtBMI As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
+
 			Dim iRecordCount As Integer = 0
             Me.C1FGridHeader.BeginUpdate()
             For iRow As Integer = 0 To dt.Rows.Count - 1
@@ -1191,8 +1261,11 @@ Public Class frmCheckupManage
                 Me.C1FGridHeader(iRecordCount, "判定票") = dt.Rows(iRow)("判定票")
                 Me.C1FGridHeader(iRecordCount, "リーフ件") = dt.Rows(iRow)("リーフ件")
                 Me.C1FGridHeader(iRecordCount, "リーフ枚") = dt.Rows(iRow)("リーフ枚")
-                Me.C1FGridHeader(iRecordCount, "リーフ6件") = dt.Rows(iRow)("リーフ6件")
-                Me.C1FGridHeader(iRecordCount, "リーフ重複件") = dt.Rows(iRow)("リーフ重複件")
+				Me.C1FGridHeader(iRecordCount, "リーフ6件") = dt.Rows(iRow)("リーフ6件")
+				'2018/08/01
+				'リーフ6枚の追加
+				Me.C1FGridHeader(iRecordCount, "リーフ6枚") = dt.Rows(iRow)("リーフ6枚")
+				Me.C1FGridHeader(iRecordCount, "リーフ重複件") = dt.Rows(iRow)("リーフ重複件")
                 Me.C1FGridHeader(iRecordCount, "リーフ重複枚") = dt.Rows(iRow)("リーフ重複枚")
 				'Me.C1FGridHeader(iRecordCount, "不備") = dt.Rows(iRow)("不備")
 				'Me.C1FGridHeader(iRecordCount, "修正") = dt.Rows(iRow)("修正")
@@ -1200,34 +1273,87 @@ Public Class frmCheckupManage
 				'不備、修正済を各DATATABLEから取得する
 				Dim iFubi As Integer = 0
 				Dim iSumi As Integer = 0
+				'2018/08/01
+				'BMIの件数をセット
+				Dim iBMI As Integer = 0
 				Select Case dt.Rows(iRow)("ヘッダ")
 					Case "A"
 						iFubi = CInt(dtCheckup.Rows(0)("A")) + CInt(dtLeaflet.Rows(0)("A"))
 						iSumi = CInt(dtCheckup.Rows(0)("A修正済")) + CInt(dtLeaflet.Rows(0)("A修正済"))
+						If dtBMI.Rows.Count = 0 Then
+							iBMI = 0
+						Else
+							iBMI = CInt(dtBMI.Rows(0)("ABMI"))
+						End If
 					Case "B"
 						iFubi = CInt(dtCheckup.Rows(0)("B")) + CInt(dtLeaflet.Rows(0)("B"))
 						iSumi = CInt(dtCheckup.Rows(0)("B修正済")) + CInt(dtLeaflet.Rows(0)("B修正済"))
+						If dtBMI.Rows.Count = 0 Then
+							iBMI = 0
+						Else
+							iBMI = CInt(dtBMI.Rows(0)("BBMI"))
+						End If
 					Case "C"
 						iFubi = CInt(dtCheckup.Rows(0)("C")) + CInt(dtLeaflet.Rows(0)("C"))
 						iSumi = CInt(dtCheckup.Rows(0)("C修正済")) + CInt(dtLeaflet.Rows(0)("C修正済"))
+						If dtBMI.Rows.Count = 0 Then
+							iBMI = 0
+						Else
+							iBMI = CInt(dtBMI.Rows(0)("CBMI"))
+						End If
 					Case "D"
 						iFubi = CInt(dtCheckup.Rows(0)("D")) + CInt(dtLeaflet.Rows(0)("D"))
 						iSumi = CInt(dtCheckup.Rows(0)("D修正済")) + CInt(dtLeaflet.Rows(0)("D修正済"))
+						If dtBMI.Rows.Count = 0 Then
+							iBMI = 0
+						Else
+							iBMI = CInt(dtBMI.Rows(0)("DBMI"))
+						End If
 					Case "E"
 						iFubi = CInt(dtCheckup.Rows(0)("E")) + CInt(dtLeaflet.Rows(0)("E"))
 						iSumi = CInt(dtCheckup.Rows(0)("E修正済")) + CInt(dtLeaflet.Rows(0)("E修正済"))
+						If dtBMI.Rows.Count = 0 Then
+							iBMI = 0
+						Else
+							iBMI = CInt(dtBMI.Rows(0)("EBMI"))
+						End If
 					Case "F"
 						iFubi = CInt(dtCheckup.Rows(0)("F")) + CInt(dtLeaflet.Rows(0)("F"))
 						iSumi = CInt(dtCheckup.Rows(0)("F修正済")) + CInt(dtLeaflet.Rows(0)("F修正済"))
+						If dtBMI.Rows.Count = 0 Then
+							iBMI = 0
+						Else
+							iBMI = CInt(dtBMI.Rows(0)("FBMI"))
+						End If
 					Case "G"
 						iFubi = CInt(dtCheckup.Rows(0)("G")) + CInt(dtLeaflet.Rows(0)("G"))
 						iSumi = CInt(dtCheckup.Rows(0)("G修正済")) + CInt(dtLeaflet.Rows(0)("G修正済"))
+						If dtBMI.Rows.Count = 0 Then
+							iBMI = 0
+						Else
+							iBMI = CInt(dtBMI.Rows(0)("GBMI"))
+						End If
 					Case "H"
 						iFubi = CInt(dtCheckup.Rows(0)("H")) + CInt(dtLeaflet.Rows(0)("H"))
 						iSumi = CInt(dtCheckup.Rows(0)("H修正済")) + CInt(dtLeaflet.Rows(0)("H修正済"))
+						If dtBMI.Rows.Count = 0 Then
+							iBMI = 0
+						Else
+							iBMI = CInt(dtBMI.Rows(0)("HBMI"))
+						End If
 				End Select
 				Me.C1FGridHeader(iRecordCount, "不備") = iFubi
 				Me.C1FGridHeader(iRecordCount, "修正") = iSumi
+				'2018/08/01
+				'リーフBMI件、リーフBMI枚(件×2)をセット
+				Me.C1FGridHeader(iRecordCount, "リーフBMI件") = iBMI
+				Me.C1FGridHeader(iRecordCount, "リーフBMI枚") = iBMI * 2
+				'2018/08/15
+				'リーフ件、リーフ枚は合計数を出力するように変更したため減算しない
+				''BMI件数、枚数をリーフ件、枚から減算する
+				'Me.C1FGridHeader(iRecordCount, "リーフ件") -= iBMI
+				'Me.C1FGridHeader(iRecordCount, "リーフ枚") -= iBMI * 2
+
 			Next
             Me.C1FGridHeader.EndUpdate()
 
@@ -1238,11 +1364,11 @@ Public Class frmCheckupManage
             cs.ForeColor = Color.Black
 
             Me.C1FGridHeader.Subtotal(C1.Win.C1FlexGrid.AggregateEnum.Clear)
-            For i As Integer = 5 To 15
-                '項目のインデックスで回す
-                Me.C1FGridHeader.Subtotal(C1.Win.C1FlexGrid.AggregateEnum.Sum, -1, -1, i, "合計")
-            Next
-            If Me.C1FGridHeader.Rows.Count > 1 Then
+			For i As Integer = 5 To 18
+				'項目のインデックスで回す
+				Me.C1FGridHeader.Subtotal(C1.Win.C1FlexGrid.AggregateEnum.Sum, -1, -1, i, "合計")
+			Next
+			If Me.C1FGridHeader.Rows.Count > 1 Then
                 Me.C1FGridHeader(C1FGridHeader.Rows.Count - 1, "ラベル連番") = "合計"
             End If
 
@@ -1404,10 +1530,11 @@ Public Class frmCheckupManage
 
     End Sub
 
-    ''' <summary>
-    ''' QRチェック件数更新
-    ''' </summary>
-    Private Sub UpdateProgress()
+	''' <summary>
+	''' QRチェック件数更新
+	''' '手差しリーフレット件数更新
+	''' </summary>
+	Private Sub UpdateProgress()
 
         Dim sqlProcess As New SQLProcess
         Dim strSQL As String = ""
@@ -1423,7 +1550,19 @@ Public Class frmCheckupManage
             Me.ProgressBar1.Value = dt.Rows(0)("終了")
             Me.lblCheckProgress.Text = dt.Rows(0)("終了") & " / " & dt.Rows(0)("全数")
 
-        Catch ex As Exception
+			'2018/08/13
+			'手差しリーフレット
+			strSQL = "SELECT COUNT(*) AS 全数, "
+			strSQL &= "ISNULL(SUM(CASE WHEN チェックフラグ = 1 THEN 1 ELSE 0 END), 0) AS 終了 "
+			strSQL &= "FROM T_リーフ6チェック "
+			strSQL &= "WHERE ロットID = '" & Me.cmbLotID.SelectedValue & "'"
+			dt = sqlProcess.DB_SELECT_DATATABLE(strSQL)
+
+			Me.ProgressBar2.Maximum = dt.Rows(0)("全数")
+			Me.ProgressBar2.Value = dt.Rows(0)("終了")
+			Me.lblHandCheckProgress.Text = dt.Rows(0)("終了") & " / " & dt.Rows(0)("全数")
+
+		Catch ex As Exception
 
             Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message & vbNewLine & ex.StackTrace)
             MessageBox.Show("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)

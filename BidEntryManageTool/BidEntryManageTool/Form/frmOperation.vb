@@ -117,9 +117,44 @@
 			Else
 				Dim iIndex As Integer = Me.C1FGridResult.Row
 				Dim f As New frmTraderDetail
-
+				f.ShowDialog(Me)
 			End If
 		End If
+	End Sub
+
+	''' <summary>
+	''' 都道府県コンボボックスインデックス変更時
+	''' </summary>
+	''' <param name="sender"></param>
+	''' <param name="e"></param>
+	Private Sub cmbPrefectures_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles cmbPrefectures.SelectedIndexChanged
+
+		SearchTrader()
+
+	End Sub
+
+	''' <summary>
+	''' 業者コンボボックスインデックス変更時
+	''' </summary>
+	''' <param name="sender"></param>
+	''' <param name="e"></param>
+	Private Sub cmbTrader_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles cmbTrader.SelectedIndexChanged
+
+		SearchTrader()
+
+	End Sub
+
+	''' <summary>
+	''' 新規登録ボタン押下時
+	''' </summary>
+	''' <param name="sender"></param>
+	''' <param name="e"></param>
+	Private Sub btnNew_Click(sender As Object, e As EventArgs) Handles btnNew.Click
+
+		Dim frmNextForm As New frmTraderDetail
+		Me.Visible = False
+		frmNextForm.ShowDialog(Me)
+
 	End Sub
 
 
@@ -187,16 +222,16 @@
 		Dim strWhere As String = " WHERE "
 
 		Try
-			strSQL = "SELECT T1.内部業者番号, T1.履歴連番, T3.業者番号, T3.都道府県コード, T4.都道府県名, T3.業者名, "
+			strSQL = "SELECT T1.内部番号, T1.履歴連番, T3.業者番号, T3.都道府県コード, T4.都道府県名, T3.自治体名, "
 			strSQL &= "T1.有効年度, ISNULL(T1.有効期間From, '1900/01/01') AS 有効期間From, ISNULL(T1.有効期間To, '1900/01/01') AS 有効期間To, "
 			strSQL &= "ISNULL(T1.申請期間From, '1900/01/01') AS 申請期間From, ISNULL(T1.申請期間To, '1900/01/01') AS 申請期間To, "
 			strSQL &= "ISNULL(T1.申請日, '1900/01/01') AS 申請日, ISNULL(T1.認定日, '1900/01/01') AS 認定日, T1.備考 "
 			strSQL &= "FROM T_業者登録 AS T1 INNER JOIN "
-			strSQL &= "(SELECT 内部業者番号, MAX(履歴連番) AS 最大値 "
+			strSQL &= "(SELECT 内部番号, MAX(履歴連番) AS 最大値 "
 			strSQL &= "FROM T_業者登録 "
-			strSQL &= "GROUP BY 内部業者番号) AS T2 ON T1.内部業者番号 = T2.内部業者番号 "
+			strSQL &= "GROUP BY 内部番号) AS T2 ON T1.内部番号 = T2.内部番号 "
 			strSQL &= "AND T1.履歴連番 = T2.最大値 INNER JOIN "
-			strSQL &= "M_業者 AS T3 ON T1.内部業者番号 = T3.内部業者番号 INNER JOIN "
+			strSQL &= "M_自治体 AS T3 ON T1.内部番号 = T3.内部番号 INNER JOIN "
 			strSQL &= "M_都道府県 AS T4 ON T3.都道府県コード = T4.都道府県コード "
 			'都道府県名検索
 			If Not Me.cmbPrefectures.SelectedValue = "00" Then
@@ -206,23 +241,24 @@
 			End If
 			'業者検索
 			If Not Me.cmbTrader.SelectedValue = "00" Then
-				strSQL &= strWhere & "T1.内部業者番号 = '" & Me.cmbTrader.SelectedValue & "' "
+				strSQL &= strWhere & "T1.内部番号 = '" & Me.cmbTrader.SelectedValue & "' "
 				strWhere = " AND "
 			End If
-			strSQL &= "ORDER BY T1.内部業者番号"
+			strSQL &= "ORDER BY T1.内部番号"
 
 			Dim dt As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
 			Dim iRecCount As Integer = 0
+			Me.C1FGridResult.Rows.Count = 1
 			For iRow As Integer = 0 To dt.Rows.Count - 1
 				iRecCount += 1
 				Me.C1FGridResult.Rows.Count = iRecCount + 1
 				Me.C1FGridResult(iRecCount, "No") = iRecCount
-				Me.C1FGridResult(iRecCount, "内部業者番号") = dt.Rows(iRow)("内部業者番号")
+				Me.C1FGridResult(iRecCount, "内部番号") = dt.Rows(iRow)("内部番号")
 				Me.C1FGridResult(iRecCount, "履歴連番") = dt.Rows(iRow)("履歴連番")
 				Me.C1FGridResult(iRecCount, "業者番号") = dt.Rows(iRow)("業者番号")
 				Me.C1FGridResult(iRecCount, "都道府県コード") = dt.Rows(iRow)("都道府県コード")
 				Me.C1FGridResult(iRecCount, "都道府県名") = dt.Rows(iRow)("都道府県名")
-				Me.C1FGridResult(iRecCount, "業者名") = dt.Rows(iRow)("業者名")
+				Me.C1FGridResult(iRecCount, "業者名") = dt.Rows(iRow)("自治体名")
 				Me.C1FGridResult(iRecCount, "有効年度") = dt.Rows(iRow)("有効年度")
 				Me.C1FGridResult(iRecCount, "有効期間From") = IIf(dt.Rows(iRow)("有効期間From") = "1900/01/01", "", CDate(dt.Rows(iRow)("有効期間From")).ToString("yyyy/MM/dd"))
 				Me.C1FGridResult(iRecCount, "有効期間To") = IIf(dt.Rows(iRow)("有効期間To") = "1900/01/01", "", CDate(dt.Rows(iRow)("有効期間To")).ToString("yyyy/MM/dd"))
@@ -259,11 +295,12 @@
 		Dim iIndex As Integer = Me.C1FGridResult.Row
 
 		Try
-			strSQL = "SELECT レコード番号, 団体コード, 自治体名, ISNULL(書類到着日, '1900/01/01') AS 書類到着日, 備考 "
-			strSQL &= "FROM T_自治体登録 "
-			strSQL &= "WHERE 内部業者番号 = '" & Me.C1FGridResult(iIndex, "内部業者番号") & "' "
-			strSQL &= "AND 履歴連番 = " & Me.C1FGridResult(iIndex, "履歴連番") & " "
-			strSQL &= "ORDER BY レコード番号"
+			strSQL = "SELECT T1.レコード番号, T2.団体コード, T1.自治体名, ISNULL(T1.書類到着日, '1900/01/01') AS 書類到着日, T1.備考 "
+			strSQL &= "FROM T_自治体登録 AS T1 INNER JOIN "
+			strSQL &= "M_自治体 AS T2 ON T1.内部番号 = T2.内部番号 "
+			strSQL &= "WHERE T1.内部番号 = '" & Me.C1FGridResult(iIndex, "内部番号") & "' "
+			strSQL &= "AND T1.履歴連番 = " & Me.C1FGridResult(iIndex, "履歴連番") & " "
+			strSQL &= "ORDER BY T1.レコード番号"
 			Dim dt As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
 			Dim iRecCount As Integer = 0
 			For iRow As Integer = 0 To dt.Rows.Count - 1

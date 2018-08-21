@@ -1,0 +1,1457 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>C1.Win.Input.MultiSelect.4</name>
+  </assembly>
+  <members>
+    <member name="T:C1.Win.Input.C1CheckListItem">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckList" /> の 1 つの項目を表します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListItem.#ctor">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckListItem" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListItem.#ctor(System.Object)">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckListItem" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+      <param name="value">新しい項目の値。</param>
+    </member>
+    <member name="P:C1.Win.Input.C1CheckListItem.Enabled">
+      <summary>
+        この項目が有効かどうかを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1CheckListItem.Selected">
+      <summary>
+        項目が選択状態かどうかを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1CheckListItem.Value">
+      <summary>
+        項目の値を取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Input.C1MultiSelect">
+      <summary>
+        ドロップダウン形式のチェックリストを備えたタグエディタベースのコントロール。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.C1MultiSelect.#ctor">
+      <summary>
+        <see cref="T:C1.Win.Input.C1MultiSelect" /> コントロールの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.Input.C1MultiSelect.StylesChanged">
+      <summary>
+        テーマまたは何らかのスタイルが変更されたときに発生します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.C1MultiSelect.OnStylesChanged(System.EventArgs)">
+      <summary>
+        <see cref="E:C1.Win.Input.C1MultiSelect.StylesChanged" /> イベントを発生させます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1MultiSelect.Styles">
+      <summary>
+        スタイルを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1MultiSelect.BorderColor">
+      <summary>
+        コントロールの境界線の色を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1MultiSelect.BorderStyle">
+      <summary>
+        コントロールの境界線の種類を決定する <see cref="P:C1.Win.Input.C1MultiSelect.BorderStyle" /> 値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1MultiSelect.BindingInfo">
+      <summary>
+        データソースなどのデータ連結オプションに関する情報を含みます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1MultiSelect.DisplayMode">
+      <summary>
+        タグモードとテキストモードのどちらであるかを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1MultiSelect.DropDownHeight">
+      <summary>
+        <see cref="T:C1.Win.Input.C1MultiSelect" /> のドロップダウン部分の高さ（ピクセル単位）を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1MultiSelect.DropDownWidth">
+      <summary>
+        <see cref="T:C1.Win.Input.C1MultiSelect" /> のドロップダウン部分の幅（ピクセル単位）を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1MultiSelect.DroppedDown">
+      <summary>
+        <see cref="T:C1.Win.Input.C1MultiSelect" /> にドロップダウン部分を表示するかどうかを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1MultiSelect.HeaderFormat">
+      <summary>
+        コントロール内の選択項目が <see cref="P:C1.Win.Input.C1MultiSelect.MaxHeaderItems" /> より多いときに、ヘッダーコンテンツの作成に使用される書式文字列を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1MultiSelect.IsHeaderFormatVisible">
+      <summary>
+        ヘッダーの書式を表示するかどうかを示す値を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1MultiSelect.Items">
+      <summary>
+        ドロップダウン部分に表示される <see cref="T:C1.Win.Input.C1CheckListItem" /> オブジェクトのコレクションを返します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1MultiSelect.MaxHeaderItems">
+      <summary>
+        コントロールヘッダーに表示する項目の最大数を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1MultiSelect.Placeholder">
+      <summary>
+        コントロールが空のときにヒントとして表示される文字列を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1MultiSelect.SelectedIndex">
+      <summary>
+        ドロップダウンリストの現在の選択項目のインデックスを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1MultiSelect.SelectAllCaption">
+      <summary>
+        すべて選択チェックボックスのキャプションを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1MultiSelect.SelectedItem">
+      <summary>
+        ドロップダウンリストで現在選択されている項目を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1MultiSelect.SelectedItems">
+      <summary>
+        ドロップダウン <see cref="T:C1.Win.Input.C1CheckList" /> コントロールの選択項目のコレクションを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1MultiSelect.SelectionMode">
+      <summary>
+        選択モードを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1MultiSelect.Separator">
+      <summary>
+        テキストモードで項目を区切る区切り文字列を定義します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1MultiSelect.ShowCheckBoxes">
+      <summary>
+        チェックボックスを表示するかどうかを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1MultiSelect.ShowDropDownButton">
+      <summary>
+        ドロップダウンボタンを表示するかどうかを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1MultiSelect.ShowRemoveButton">
+      <summary>
+        各タグに削除ボタンを表示するかどうかを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1MultiSelect.ShowSelectAll">
+      <summary>
+        すべて選択のチェックボックスを表示するかどうかを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1MultiSelect.UnselectAllCaption">
+      <summary>
+        すべて選択解除チェックボックスのキャプションを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1MultiSelect.TagWrap">
+      <summary>
+        タグエディタコントロールで必要に応じて次の行の先頭に自動的にタグを折り返すかどうかを示します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.C1MultiSelect.SelectAll">
+      <summary>
+        現在の <see cref="T:C1.Win.Input.C1MultiSelect" /> コントロールのすべての項目を選択します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.C1MultiSelect.UnselectAll">
+      <summary>
+        現在の <see cref="T:C1.Win.Input.C1MultiSelect" /> コントロールのすべての項目の選択をキャンセルします。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Input.C1CheckList">
+      <summary>
+        各項目のオプションチェックボックス、複数の選択モード、すべての項目を選択/選択解除する機能を備えたリストベースのコントロール。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckList.#ctor">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckList" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1CheckList.BindingInfo">
+      <summary>
+        データ連結に関する情報を含みます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1CheckList.BorderColor">
+      <summary>
+        コントロールの境界線の色を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1CheckList.BorderStyle">
+      <summary>
+        コントロールの境界線の種類を決定する <see cref="P:C1.Win.Input.C1CheckList.BorderStyle" /> 値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1CheckList.Items">
+      <summary>
+        この <see cref="T:C1.Win.Input.C1CheckList" /> の項目のコレクションを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1CheckList.SelectAllCaption">
+      <summary>
+        すべて選択チェックボックスのキャプションを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1CheckList.SelectedItems">
+      <summary>
+        この <see cref="T:C1.Win.Input.C1CheckList" /> の選択項目のコレクションを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1CheckList.SelectionMode">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckList" /> コントロールの項目の選択方法を示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1CheckList.ShowCheckBoxes">
+      <summary>
+        チェックボックスを表示するかどうかを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1CheckList.ShowSelectAll">
+      <summary>
+        すべて選択のチェックボックスを表示するかどうかを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1CheckList.Styles">
+      <summary>
+        C1CheckList のスタイルを取得または設定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckList.ShouldSerializeStyles">
+      <summary>
+        この Styles プロパティが変更されている場合は true、そうでない場合は false を返します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckList.ResetStyles">
+      <summary>
+        Styles プロパティをデフォルト値にリセットします。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1CheckList.UnselectAllCaption">
+      <summary>
+        すべて選択解除チェックボックスのキャプションを取得または設定します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.Input.C1CheckList.SelectionChanged">
+      <summary>
+        項目の選択状態が変更されたときに発生します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.Input.C1CheckList.ApplyItemStyles">
+      <summary>
+        リスト項目にスタイルが適用される前に発生します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckList.SelectAll">
+      <summary>
+        現在の <see cref="T:C1.Win.Input.C1CheckList" /> コントロールのすべての項目を選択します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckList.UnselectAll">
+      <summary>
+        現在の <see cref="T:C1.Win.Input.C1CheckList" /> コントロールのすべての項目の選択をキャンセルします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckList.OnSelectionChanged(System.EventArgs)">
+      <summary>
+        SelectionChanged イベントを発生させます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckList.OnApplyItemStyles(C1.Win.Input.C1CheckListItemStylesEventArgs)">
+      <summary>
+        ApplyItemStyles イベントを発生させます。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Input.C1TagEditor">
+      <summary>
+        タグを表示して編集できるテキストボックスベースのコントロール。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.C1TagEditor.#ctor">
+      <summary>
+        <see cref="T:C1.Win.Input.C1TagEditor" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.Input.C1TagEditor.StylesChanged">
+      <summary>
+        テーマまたは何らかのスタイルが変更されたときに発生します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.C1TagEditor.OnStylesChanged(System.EventArgs)">
+      <summary>
+        <see cref="E:C1.Win.Input.C1TagEditor.StylesChanged" /> イベントを発生させます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1TagEditor.Styles">
+      <summary>
+        スタイルを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1TagEditor.BorderColor">
+      <summary>
+        コントロールの境界線の色を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1TagEditor.BorderStyle">
+      <summary>
+        コントロールの境界線の種類を決定する <see cref="P:C1.Win.Input.C1TagEditor.BorderStyle" /> 値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1TagEditor.DisplayMode">
+      <summary>
+        タグモードとテキストモードのどちらであるかを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1TagEditor.Placeholder">
+      <summary>
+        コントロールが空のときにヒントとして表示される文字列を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1TagEditor.Separator">
+      <summary>
+        テキストモードで項目を区切る区切り文字列を定義します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1TagEditor.ShowRemoveButton">
+      <summary>
+        各タグに削除ボタンを表示するかどうかを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1TagEditor.Tags">
+      <summary>
+        この <see cref="T:C1.Win.Input.C1TagEditor" /> のタグのコレクションを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1TagEditor.TagWrap">
+      <summary>
+        タグエディタコントロールで必要に応じて次の行の先頭に自動的にタグを折り返すかどうかを示します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1TagEditor.BindingInfo">
+      <summary>
+        データ連結に関する情報を含みます。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Input.CheckListBindingInfo">
+      <summary>
+        データ連結に関する情報を含みます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.CheckListBindingInfo.DataSource">
+      <summary>
+        現在の <see cref="T:C1.Win.Input.C1CheckList" /> コントロールのデータソースとして使用されるオブジェクトを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.CheckListBindingInfo.DataMember">
+      <summary>
+        データソース内の特定のレコードセットの名前を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.CheckListBindingInfo.CheckedMemberPath">
+      <summary>
+        各項目の横に配置されるチェックボックスの制御に使用されるプロパティの名前を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.CheckListBindingInfo.DisabledMemberPath">
+      <summary>
+        各項目の有効または無効のステータスの制御に使用されるプロパティの名前を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.CheckListBindingInfo.DisplayMemberPath">
+      <summary>
+        オブジェクトのビジュアル表現として機能するソースオブジェクトの値のパスを取得または設定します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.Input.CheckListBindingInfo.PropertyChanged">
+      <summary>
+        プロパティ値が変更されたときに発生します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.CheckListBindingInfo.OnPropertyChanged(System.String)">
+      <summary>
+        PropertyChanged イベントを発生させます。
+      </summary>
+      <param name="propertyName"></param>
+    </member>
+    <member name="T:C1.Win.Input.MultiSelectBindingInfo">
+      <summary>
+        データソースなどのデータ連結オプションに関する情報を含みます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.MultiSelectBindingInfo.TagsDataSource">
+      <summary>
+        <see cref="T:C1.Win.Input.C1MultiSelect" /> コントロールのタグのデータソースとして使用されるオブジェクトを取得または設定します。
+      </summary>
+      <remarks>このプロパティはオプションです。</remarks>
+    </member>
+    <member name="P:C1.Win.Input.MultiSelectBindingInfo.TagsMemberPath">
+      <summary>
+        <see cref="T:C1.Win.Input.C1MultiSelect" /> コントロールのタグのソースオブジェクトの値のパスを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.MultiSelectBindingInfo.DataSource">
+      <summary>
+        現在の <see cref="T:C1.Win.Input.C1MultiSelect" /> コントロールのドロップダウン部分のデータソースとして使用されるオブジェクトを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.MultiSelectBindingInfo.DataMember">
+      <summary>
+        データソース内の特定のレコードセットの名前を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.MultiSelectBindingInfo.CheckedMemberPath">
+      <summary>
+        各項目の横に配置されるチェックボックスの制御に使用されるプロパティの名前を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.MultiSelectBindingInfo.DisabledMemberPath">
+      <summary>
+        各項目の有効または無効のステータスの制御に使用されるプロパティの名前を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.MultiSelectBindingInfo.DisplayMemberPath">
+      <summary>
+        オブジェクトのビジュアル表現として機能するソースオブジェクトの値のパスを取得または設定します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.Input.MultiSelectBindingInfo.PropertyChanged">
+      <summary>
+        プロパティ値が変更されたときに発生します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.MultiSelectBindingInfo.OnPropertyChanged(System.String)">
+      <summary>
+        PropertyChanged イベントを発生させます。
+      </summary>
+      <param name="propertyName"></param>
+    </member>
+    <member name="T:C1.Win.Input.TagEditorBindingInfo">
+      <summary>
+        データ連結に関する情報を含みます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.TagEditorBindingInfo.DataSource">
+      <summary>
+        現在の <see cref="T:C1.Win.Input.C1TagEditor" /> コントロールのデータソースとして使用されるオブジェクトを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.TagEditorBindingInfo.DisplayMemberPath">
+      <summary>
+        ソースオブジェクトに値を表示するためのパスを取得または設定します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.Input.TagEditorBindingInfo.PropertyChanged">
+      <summary>
+        プロパティ値が変更されたときに発生します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.TagEditorBindingInfo.OnPropertyChanged(System.String)">
+      <summary>
+        PropertyChanged イベントを発生させます。
+      </summary>
+      <param name="propertyName"></param>
+    </member>
+    <member name="T:C1.Win.Input.TagCollection">
+      <summary>
+        タグのコレクションを表します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.TagCollection.Count">
+      <summary>
+        <see cref="T:C1.Win.Input.TagCollection" /> インスタンスに含まれる項目の数を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.TagCollection.IsFixedSize">
+      <summary>
+        <see cref="T:C1.Win.Input.TagCollection" /> インスタンスが固定サイズかどうかを示す値を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.TagCollection.IsReadOnly">
+      <summary>
+        <see cref="T:C1.Win.Input.TagCollection" /> インスタンスが読み取り専用かどうかを示す値を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.TagCollection.IsSynchronized">
+      <summary>
+        <see cref="T:C1.Win.Input.TagCollection" /> インスタンスが同期されるかどうかを示す値を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.TagCollection.SyncRoot">
+      <summary>
+        同期ルートを取得します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.Input.TagCollection.CollectionChanged">
+      <summary>
+        項目の追加または削除のいずれかによって <see cref="T:C1.Win.Input.TagCollection" /> が変更されると発生します。
+      </summary>
+      <remarks>
+        参照：<seealso cref="T:System.Collections.Specialized.INotifyCollectionChanged" />
+      </remarks>
+    </member>
+    <member name="P:C1.Win.Input.TagCollection.Item(System.Int32)">
+      <summary>
+        指定されたインデックス位置のオブジェクトを取得または設定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.TagCollection.Add(System.Object)">
+      <summary>
+        <see cref="T:C1.Win.Input.TagCollection" /> に項目を 1 つ追加します。
+      </summary>
+      <param name="value">
+        <see cref="T:C1.Win.Input.TagCollection" /> に追加する <see cref="T:System.Object" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.Input.TagCollection.AddRange(System.Collections.IEnumerable)">
+      <summary>
+        指定されたコレクション内の項目を <see cref="T:C1.Win.Input.TagCollection" /> の最後に追加します。
+      </summary>
+      <param name="collection">指定された項目コレクション。</param>
+    </member>
+    <member name="M:C1.Win.Input.TagCollection.AddRange(System.Collections.Generic.IEnumerable{System.Object})">
+      <summary>
+        指定されたコレクション内の項目を <see cref="T:C1.Win.Input.TagCollection" /> の最後に追加します。
+      </summary>
+      <param name="collection">指定された項目コレクション。</param>
+    </member>
+    <member name="M:C1.Win.Input.TagCollection.Clear">
+      <summary>
+        <see cref="T:C1.Win.Input.TagCollection" /> からすべての項目を削除します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.TagCollection.Contains(System.Object)">
+      <summary>
+        ある項目が <see cref="T:C1.Win.Input.TagCollection" /> 内にあるかどうかを判定します。
+      </summary>
+      <param name="value">コレクション内で検索する項目。</param>
+    </member>
+    <member name="M:C1.Win.Input.TagCollection.CopyTo(System.Array,System.Int32)">
+      <summary>
+        <see cref="T:C1.Win.Input.TagCollection" /> 全体を、互換性がある 1 次元ターゲット配列の指定されたインデックス位置以降にコピーします。
+      </summary>
+      <param name="array">ターゲット配列。</param>
+      <param name="index">配列の開始インデックス。</param>
+    </member>
+    <member name="M:C1.Win.Input.TagCollection.GetEnumerator">
+      <summary>
+        <see cref="T:C1.Win.Input.TagCollection" /> を反復処理する列挙子を返します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.TagCollection.IndexOf(System.Object)">
+      <summary>
+        指定された項目を検索し、0 から始まるインデックスを返します。
+      </summary>
+      <param name="value">指定された項目。</param>
+    </member>
+    <member name="M:C1.Win.Input.TagCollection.Insert(System.Int32,System.Object)">
+      <summary>
+        <see cref="T:C1.Win.Input.TagCollection" /> の指定されたインデックスに項目を挿入します。
+      </summary>
+      <param name="index">項目のインデックス。</param>
+      <param name="value">指定された項目。</param>
+    </member>
+    <member name="M:C1.Win.Input.TagCollection.Remove(System.Object)">
+      <summary>
+        最初に見つかった指定された項目をコレクションから削除します。
+      </summary>
+      <param name="value">指定された項目。</param>
+    </member>
+    <member name="M:C1.Win.Input.TagCollection.RemoveAt(System.Int32)">
+      <summary>
+        指定されたインデックスにある項目をコレクションから削除します。
+      </summary>
+      <param name="index">指定されたインデックス。</param>
+    </member>
+    <member name="M:C1.Win.Input.TagCollection.OnCollectionChanged(System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+      <summary>
+        すべてのリスナーに対して CollectionChanged イベントを発生させます。
+        この <see cref="T:C1.Win.Input.TagCollection" /> を変更するプロパティ/メソッドは、
+        この仮想メソッドからコレクション変更イベントを発生させます。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Input.C1CheckListSelectedItemCollection">
+      <summary>
+        選択されている <see cref="T:C1.Win.Input.C1CheckListItem" /> オブジェクトのコレクションを表します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1CheckListSelectedItemCollection.Count">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckListSelectedItemCollection" /> インスタンスに含まれる項目の数を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1CheckListSelectedItemCollection.IsFixedSize">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckListSelectedItemCollection" /> インスタンスが固定サイズかどうかを示す値を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1CheckListSelectedItemCollection.IsReadOnly">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckListSelectedItemCollection" /> インスタンスが読み取り専用かどうかを示す値を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1CheckListSelectedItemCollection.IsSynchronized">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckListSelectedItemCollection" /> インスタンスが同期されるかどうかを示す値を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1CheckListSelectedItemCollection.SyncRoot">
+      <summary>
+        同期ルートを取得します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.Input.C1CheckListSelectedItemCollection.CollectionChanged">
+      <summary>
+        項目の追加または削除のいずれかによって <see cref="T:C1.Win.Input.C1CheckListSelectedItemCollection" /> が変更されると発生します。
+      </summary>
+      <remarks>
+        参照：<seealso cref="T:System.Collections.Specialized.INotifyCollectionChanged" />
+      </remarks>
+    </member>
+    <member name="P:C1.Win.Input.C1CheckListSelectedItemCollection.Item(System.Int32)">
+      <summary>
+        指定されたインデックス位置の項目を取得または設定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListSelectedItemCollection.Add(C1.Win.Input.C1CheckListItem)">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckListSelectedItemCollection" /> に項目を 1 つ追加します。
+      </summary>
+      <param name="item">
+        <see cref="T:C1.Win.Input.C1CheckListSelectedItemCollection" /> に追加する <see cref="T:C1.Win.Input.C1CheckListItem" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListSelectedItemCollection.Add(System.Object)">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckListSelectedItemCollection" /> に項目を 1 つ追加します。
+      </summary>
+      <param name="value">
+        <see cref="T:C1.Win.Input.C1CheckListSelectedItemCollection" /> に追加する <see cref="T:C1.Win.Input.C1CheckListItem" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListSelectedItemCollection.AddRange(System.Collections.Generic.IEnumerable{C1.Win.Input.C1CheckListItem})">
+      <summary>
+        指定されたコレクション内の項目を <see cref="T:C1.Win.Input.C1CheckListSelectedItemCollection" /> の最後に追加します。
+      </summary>
+      <param name="collection">指定された項目コレクション。</param>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListSelectedItemCollection.AddRange(System.Collections.IEnumerable)">
+      <summary>
+        指定されたコレクション内の項目を <see cref="T:C1.Win.Input.C1CheckListSelectedItemCollection" /> の最後に追加します。
+      </summary>
+      <param name="collection">指定された項目コレクション。</param>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListSelectedItemCollection.Clear">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckListSelectedItemCollection" /> からすべての項目を削除します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListSelectedItemCollection.Contains(C1.Win.Input.C1CheckListItem)">
+      <summary>
+        ある項目が <see cref="T:C1.Win.Input.C1CheckListSelectedItemCollection" /> 内にあるかどうかを判定します。
+      </summary>
+      <param name="item">コレクション内で検索する項目。</param>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListSelectedItemCollection.Contains(System.Object)">
+      <summary>
+        ある項目が <see cref="T:C1.Win.Input.C1CheckListSelectedItemCollection" /> 内にあるかどうかを判定します。
+      </summary>
+      <param name="value">コレクション内で検索する項目。</param>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListSelectedItemCollection.CopyTo(C1.Win.Input.C1CheckListItem[],System.Int32)">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckListSelectedItemCollection" /> 全体を、互換性がある 1 次元ターゲット配列の指定されたインデックス位置以降にコピーします。
+      </summary>
+      <param name="array">ターゲット配列。</param>
+      <param name="arrayIndex">配列の開始インデックス。</param>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListSelectedItemCollection.CopyTo(System.Array,System.Int32)">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckListSelectedItemCollection" /> 全体を、互換性がある 1 次元ターゲット配列の指定されたインデックス位置以降にコピーします。
+      </summary>
+      <param name="array">ターゲット配列。</param>
+      <param name="index">配列の開始インデックス。</param>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListSelectedItemCollection.GetEnumerator">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckListSelectedItemCollection" /> を反復処理する列挙子を返します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListSelectedItemCollection.IndexOf(C1.Win.Input.C1CheckListItem)">
+      <summary>
+        指定された項目を検索し、0 から始まるインデックスを返します。
+      </summary>
+      <param name="item">指定された項目。</param>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListSelectedItemCollection.IndexOf(System.Object)">
+      <summary>
+        指定された項目を検索し、0 から始まるインデックスを返します。
+      </summary>
+      <param name="value">指定された項目。</param>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListSelectedItemCollection.Insert(System.Int32,C1.Win.Input.C1CheckListItem)">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckListSelectedItemCollection" /> の指定されたインデックスに項目を挿入します。
+      </summary>
+      <param name="index">項目のインデックス。</param>
+      <param name="item">指定された項目。</param>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListSelectedItemCollection.Insert(System.Int32,System.Object)">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckListSelectedItemCollection" /> の指定されたインデックスに項目を挿入します。
+      </summary>
+      <param name="index">項目のインデックス。</param>
+      <param name="value">指定された項目。</param>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListSelectedItemCollection.Remove(C1.Win.Input.C1CheckListItem)">
+      <summary>
+        最初に見つかった指定された項目をコレクションから削除します。
+      </summary>
+      <param name="item">指定された項目。</param>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListSelectedItemCollection.Remove(System.Object)">
+      <summary>
+        最初に見つかった指定された項目をコレクションから削除します。
+      </summary>
+      <param name="value">指定された項目。</param>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListSelectedItemCollection.RemoveAt(System.Int32)">
+      <summary>
+        指定されたインデックスにある項目をコレクションから削除します。
+      </summary>
+      <param name="index">指定されたインデックス。</param>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListSelectedItemCollection.OnCollectionChanged(System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+      <summary>
+        すべてのリスナーに対して CollectionChanged イベントを発生させます。
+        この <see cref="T:C1.Win.Input.C1CheckListSelectedItemCollection" /> を変更するプロパティ/メソッドは、
+        この仮想メソッドからコレクション変更イベントを発生させます。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Input.DisplayMode">
+      <summary>
+        コントロールのテキストの表示方法を定義します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.Input.DisplayMode.Tag">
+      <summary>
+        各項目のタグを表示します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.Input.DisplayMode.Text">
+      <summary>
+        各項目の間に区切り文字を入れてテキストを表示します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Input.SelectionMode">
+      <summary>
+        コントロールの選択動作を定義します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.Input.SelectionMode.None">
+      <summary>
+        ユーザーはどの項目も選択できません。
+      </summary>
+    </member>
+    <member name="F:C1.Win.Input.SelectionMode.Single">
+      <summary>
+        ユーザーは、一度に 1 つの項目だけを選択できます。
+      </summary>
+    </member>
+    <member name="F:C1.Win.Input.SelectionMode.Multiple">
+      <summary>
+        ユーザーは、修飾キーを押し続けずに複数の項目を選択できます。
+      </summary>
+    </member>
+    <member name="F:C1.Win.Input.SelectionMode.Extended">
+      <summary>
+        ユーザーは、対応する修飾キーを押しながら複数の連続する項目を選択できます。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Input.C1CheckListItemStylesEventArgs">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckList" /> クラスの <see cref="E:C1.Win.Input.C1CheckList.ApplyItemStyles" /> イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListItemStylesEventArgs.#ctor">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckListItemStylesEventArgs" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1CheckListItemStylesEventArgs.ItemStyles">
+      <summary>
+        C1CheckList コントロールの項目スタイルを取得します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Input.Localization.Strings">
+      <summary>
+        <see cref="T:C1.Win.Input.Localization.Strings" /> クラスには、ローカライズに使用される静的プロパティが含まれます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Localization.Strings.ResourceManager">
+      <summary>
+        ルックアップリソースとして使用される <see cref="P:C1.Win.Input.Localization.Strings.ResourceManager" /> オブジェクト。
+      </summary>
+      <remarks>
+        カスタムコントロールアセンブリ内でリソースを定義する場合は、
+        このプロパティを有効な値に設定します。
+      </remarks>
+    </member>
+    <member name="P:C1.Win.Input.Localization.Strings.UICulture">
+      <summary>
+        フォールバックカルチャとして使用されるデフォルトの <see cref="T:System.Globalization.CultureInfo" /> オブジェクトを返します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Input.C1CheckListItemCollection">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckListItem" /> オブジェクトのコレクションを表します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1CheckListItemCollection.Count">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckListItemCollection" /> インスタンスに含まれる項目の数を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1CheckListItemCollection.IsFixedSize">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckListItemCollection" /> インスタンスが固定サイズかどうかを示す値を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1CheckListItemCollection.IsReadOnly">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckListItemCollection" /> インスタンスが読み取り専用かどうかを示す値を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1CheckListItemCollection.IsSynchronized">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckListItemCollection" /> インスタンスが同期されるかどうかを示す値を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.C1CheckListItemCollection.SyncRoot">
+      <summary>
+        同期ルートを取得します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.Input.C1CheckListItemCollection.CollectionChanged">
+      <summary>
+        項目の追加または削除のいずれかによって <see cref="T:C1.Win.Input.C1CheckListItemCollection" /> が変更されると発生します。
+      </summary>
+      <remarks>
+        参照：<seealso cref="T:System.Collections.Specialized.INotifyCollectionChanged" />
+      </remarks>
+    </member>
+    <member name="P:C1.Win.Input.C1CheckListItemCollection.Item(System.Int32)">
+      <summary>
+        指定されたインデックス位置の項目を取得または設定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListItemCollection.Add(C1.Win.Input.C1CheckListItem)">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckListItemCollection" /> に項目を 1 つ追加します。
+      </summary>
+      <param name="item">
+        <see cref="T:C1.Win.Input.C1CheckListItemCollection" /> に追加する <see cref="T:C1.Win.Input.C1CheckListItem" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListItemCollection.Add(System.Object)">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckListItemCollection" /> に項目を 1 つ追加します。
+      </summary>
+      <param name="value">
+        <see cref="T:C1.Win.Input.C1CheckListItemCollection" /> に追加する <see cref="T:C1.Win.Input.C1CheckListItem" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListItemCollection.AddRange(System.Collections.Generic.IEnumerable{C1.Win.Input.C1CheckListItem})">
+      <summary>
+        指定されたコレクション内の項目を <see cref="T:C1.Win.Input.C1CheckListItemCollection" /> の最後に追加します。
+      </summary>
+      <param name="collection">指定された項目コレクション。</param>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListItemCollection.AddRange(System.Collections.IEnumerable)">
+      <summary>
+        指定されたコレクション内の項目を <see cref="T:C1.Win.Input.C1CheckListItemCollection" /> の最後に追加します。
+      </summary>
+      <param name="collection">指定された項目コレクション。</param>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListItemCollection.Clear">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckListItemCollection" /> からすべての項目を削除します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListItemCollection.Contains(C1.Win.Input.C1CheckListItem)">
+      <summary>
+        ある項目が <see cref="T:C1.Win.Input.C1CheckListItemCollection" /> 内にあるかどうかを判定します。
+      </summary>
+      <param name="item">コレクション内で検索する項目。</param>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListItemCollection.Contains(System.Object)">
+      <summary>
+        ある項目が <see cref="T:C1.Win.Input.C1CheckListItemCollection" /> 内にあるかどうかを判定します。
+      </summary>
+      <param name="value">コレクション内で検索する項目。</param>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListItemCollection.CopyTo(C1.Win.Input.C1CheckListItem[],System.Int32)">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckListItemCollection" /> 全体を、互換性がある 1 次元ターゲット配列の指定されたインデックス位置以降にコピーします。
+      </summary>
+      <param name="array">ターゲット配列。</param>
+      <param name="arrayIndex">配列の開始インデックス。</param>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListItemCollection.CopyTo(System.Array,System.Int32)">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckListItemCollection" /> 全体を、互換性がある 1 次元ターゲット配列の指定されたインデックス位置以降にコピーします。
+      </summary>
+      <param name="array">ターゲット配列。</param>
+      <param name="index">配列の開始インデックス。</param>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListItemCollection.GetEnumerator">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckListItemCollection" /> を反復処理する列挙子を返します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListItemCollection.IndexOf(C1.Win.Input.C1CheckListItem)">
+      <summary>
+        指定された項目を検索し、0 から始まるインデックスを返します。
+      </summary>
+      <param name="item">指定された項目。</param>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListItemCollection.IndexOf(System.Object)">
+      <summary>
+        指定された項目を検索し、0 から始まるインデックスを返します。
+      </summary>
+      <param name="value">指定された項目。</param>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListItemCollection.Insert(System.Int32,C1.Win.Input.C1CheckListItem)">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckListItemCollection" /> の指定されたインデックスに項目を挿入します。
+      </summary>
+      <param name="index">項目のインデックス。</param>
+      <param name="item">指定された項目。</param>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListItemCollection.Insert(System.Int32,System.Object)">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckListItemCollection" /> の指定されたインデックスに項目を挿入します。
+      </summary>
+      <param name="index">項目のインデックス。</param>
+      <param name="value">指定された項目。</param>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListItemCollection.Remove(C1.Win.Input.C1CheckListItem)">
+      <summary>
+        最初に見つかった指定された項目をコレクションから削除します。
+      </summary>
+      <param name="item">指定された項目。</param>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListItemCollection.Remove(System.Object)">
+      <summary>
+        最初に見つかった指定された項目をコレクションから削除します。
+      </summary>
+      <param name="value">指定された項目。</param>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListItemCollection.RemoveAt(System.Int32)">
+      <summary>
+        指定されたインデックスにある項目をコレクションから削除します。
+      </summary>
+      <param name="index">指定されたインデックス。</param>
+    </member>
+    <member name="M:C1.Win.Input.C1CheckListItemCollection.OnCollectionChanged(System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+      <summary>
+        すべてのリスナーに対して CollectionChanged イベントを発生させます。
+        この <see cref="T:C1.Win.Input.C1CheckListItemCollection" /> を変更するプロパティ/メソッドは、
+        この仮想メソッドからコレクション変更イベントを発生させます。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Input.CheckListItemStyles">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckList" /> 項目のスタイルを表します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.CheckListItemStyles.Default">
+      <summary>
+        デフォルトのスタイルを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.CheckListItemStyles.Selected">
+      <summary>
+        選択スタイルを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.CheckListItemStyles.Hot">
+      <summary>
+        ホットスタイルを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.CheckListItemStyles.HotSelected">
+      <summary>
+        ホット選択スタイルを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.CheckListItemStyles.UnfocusedSelected">
+      <summary>
+        フォーカスがない選択スタイルを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.CheckListItemStyles.Disabled">
+      <summary>
+        無効化されたスタイルを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.CheckListItemStyles.Font">
+      <summary>
+        フォントを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.CheckListItemStyles.HorizontalAlign">
+      <summary>
+        水平方向の配置を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.CheckListItemStyles.VerticalAlign">
+      <summary>
+        垂直方向の配置を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.CheckListItemStyles.WordWrap">
+      <summary>
+        テキストを折り返すことができるかどうかを取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Input.CheckListStyles">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckList" /> のスタイルを表します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.CheckListStyles.Header">
+      <summary>
+        ヘッダーのスタイルを取得します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Input.Theme.MultiSelect.BasePropStyle">
+      <summary>
+        基本プロパティを含む基本スタイル。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.BasePropStyle.BackColor">
+      <summary>
+        背景の描画に使用される <see cref="T:System.Drawing.Color" /> を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.BasePropStyle.Border">
+      <summary>
+        要素の周囲の境界線の太さを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.BasePropStyle.BorderColor">
+      <summary>
+        要素の周囲の境界線の描画に使用される <see cref="T:System.Drawing.Color" /> を取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Input.Theme.MultiSelect.BaseStyle">
+      <summary>
+        基本スタイル。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.BaseStyle.Name">
+      <summary>
+        スタイル名を取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Input.Theme.MultiSelect.BaseContentStyle">
+      <summary>
+        すべての要素と内容の基本スタイル。
+      </summary>
+      <remarks>フォントは含まれません。</remarks>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.BaseContentStyle.ForeColor">
+      <summary>
+        テキストの描画に使用される <see cref="T:System.Drawing.Color" /> を取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Input.Theme.MultiSelect.BaseTheme">
+      <summary>
+        基本テーマクラス。
+      </summary>
+    </member>
+    <member name="E:C1.Win.Input.Theme.MultiSelect.BaseTheme.PropertyChanged">
+      <summary>
+        いずれかのプロパティが変更されるときに発生します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.Theme.MultiSelect.BaseTheme.OnPropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+      <summary>
+        PropertyChanged イベントを呼び出します。
+      </summary>
+      <param name="sender">送信元。</param>
+      <param name="e">イベント引数。</param>
+    </member>
+    <member name="M:C1.Win.Input.Theme.MultiSelect.BaseTheme.#ctor">
+      <summary>
+        <see cref="T:C1.Win.Input.Theme.MultiSelect.BaseTheme" /> コントロールの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.Theme.MultiSelect.BaseTheme.#ctor(C1.Win.Input.Theme.MultiSelect.BaseTheme)">
+      <summary>
+        <see cref="T:C1.Win.Input.Theme.MultiSelect.BaseTheme" /> コントロールの新しいインスタンスを初期化します。
+      </summary>
+      <param name="prototype">プロトタイプ。</param>
+    </member>
+    <member name="M:C1.Win.Input.Theme.MultiSelect.BaseTheme.GetStyle(System.String)">
+      <summary>
+        名前に基づいてスタイルを取得します。
+      </summary>
+      <param name="name">スタイル名。</param>
+      <returns>
+        <see cref="T:C1.Framework.Style" /> オブジェクト。
+      </returns>
+    </member>
+    <member name="M:C1.Win.Input.Theme.MultiSelect.BaseTheme.SetStyle(C1.Framework.Style,System.String)">
+      <summary>
+        既存のスタイルを設定するか、新しいスタイルを追加します。
+      </summary>
+      <param name="value">スタイル。</param>
+      <param name="name">スタイル名。</param>
+    </member>
+    <member name="M:C1.Win.Input.Theme.MultiSelect.BaseTheme.Reset">
+      <summary>
+        すべてのスタイルをデフォルトにリセットします。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.Theme.MultiSelect.BaseTheme.SubscribeOnStyleChanged(C1.Framework.Style)">
+      <summary>
+        スタイルを変更するイベントをサブスクライブします。
+      </summary>
+      <param name="item">サブスクライブするスタイル。</param>
+    </member>
+    <member name="M:C1.Win.Input.Theme.MultiSelect.BaseTheme.UnsubscribeOnStyleChanged(C1.Framework.Style)">
+      <summary>
+        スタイルを変更するイベントをアンサブスクライブします。
+      </summary>
+      <param name="item">アンサブスクライブするスタイル。</param>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.BaseTheme.ComponentType">
+      <summary>
+        コンポーネントのタイプ。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Input.Theme.MultiSelect.DropDownButtonStyle">
+      <summary>
+        <see cref="T:C1.Win.Input.Theme.MultiSelect.DropDownButtonStyle" /> クラスには、画面内の
+        DownButton 要素の外観を決定する表示属性が含まれます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.DropDownButtonStyle.Corners">
+      <summary>
+        要素の角の半径を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.DropDownButtonStyle.Image">
+      <summary>
+        要素の <see cref="P:C1.Win.Input.Theme.MultiSelect.DropDownButtonStyle.Image" /> を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.DropDownButtonStyle.Padding">
+      <summary>
+        要素の辺とそのコンテンツの間のパディングを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.DropDownButtonStyle.Margins">
+      <summary>
+        要素の周囲のマージンの太さを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.DropDownButtonStyle.Hot">
+      <summary>
+        要素がホット状態であるときに使用されるスタイルを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.DropDownButtonStyle.Pressed">
+      <summary>
+        要素が押されたときに使用されるスタイルを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.DropDownButtonStyle.HotPressed">
+      <summary>
+        要素がホット状態で押されたときに使用されるスタイルを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.DropDownButtonStyle.Disabled">
+      <summary>
+        要素が無効になったときに使用されるスタイルを取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Input.Theme.MultiSelect.BaseDropDownButtonStyle">
+      <summary>
+        <see cref="T:C1.Win.Input.Theme.MultiSelect.DropDownButtonStyle" /> スタイルの基本スタイル。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Input.Theme.MultiSelect.MultiSelectStyles">
+      <summary>
+        <see cref="T:C1.Win.Input.Theme.MultiSelect.MultiSelectStyles" /> クラスは、C1MultiSelect コントロールのテーマを表します。
+        このコントロールには、コントロールの外観を定義する表示属性が含まれます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.Theme.MultiSelect.MultiSelectStyles.#ctor(C1.Win.Input.Theme.MultiSelect.MultiSelectStyles)">
+      <summary>
+        <see cref="T:C1.Win.Input.Theme.MultiSelect.TagEditorStyles" /> オブジェクトの新しいインスタンスを初期化します。
+      </summary>
+      <param name="prototype">プロトタイプ。</param>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.MultiSelectStyles.DropDownButton">
+      <summary>
+        画面内の DropDownButton 要素の外観を決定する表示属性を含む <see cref="T:C1.Win.Input.Theme.MultiSelect.DropDownButtonStyle" /> を取得または設定します。
+
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.MultiSelectStyles.TagEditor">
+      <summary>
+        画面内の TagEditor 要素の外観を決定する表示属性を含む <see cref="T:C1.Win.Input.Theme.MultiSelect.TagEditorStyles" /> を取得または設定します。
+
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.MultiSelectStyles.CheckList">
+      <summary>
+        画面内の CheckList 要素の外観を決定する表示属性を含む <see cref="T:C1.Win.Input.CheckListStyles" /> を取得または設定します。
+
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.Theme.MultiSelect.MultiSelectStyles.Reset">
+      <summary>
+        すべてのスタイルをデフォルトにリセットします。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Input.Theme.MultiSelect.RemoveButtonStyle">
+      <summary>
+        <see cref="T:C1.Win.Input.Theme.MultiSelect.RemoveButtonStyle" /> クラスには、画面内の
+        RemoveButton 要素の外観を決定する表示属性が含まれます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.RemoveButtonStyle.Corners">
+      <summary>
+        要素の角の半径を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.RemoveButtonStyle.Image">
+      <summary>
+        要素の <see cref="P:C1.Win.Input.Theme.MultiSelect.RemoveButtonStyle.Image" /> を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.RemoveButtonStyle.Padding">
+      <summary>
+        要素の辺とそのコンテンツの間のパディングを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.RemoveButtonStyle.Margins">
+      <summary>
+        要素の周囲のマージンの太さを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.RemoveButtonStyle.Hot">
+      <summary>
+        要素がホット状態であるときに使用されるスタイルを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.RemoveButtonStyle.Disabled">
+      <summary>
+        要素が無効になったときに使用されるスタイルを取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Input.Theme.MultiSelect.BaseRemoveButtonStyle">
+      <summary>
+        <see cref="T:C1.Win.Input.Theme.MultiSelect.RemoveButtonStyle" /> スタイルの基本スタイル。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Input.Theme.MultiSelect.TagEditorCommonStyle">
+      <summary>
+        <see cref="T:C1.Win.Input.Theme.MultiSelect.TagEditorCommonStyle" /> クラスには、画面内の
+        C1TagEditoron コントロールの外観を決定する表示属性が含まれます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.TagEditorCommonStyle.Font">
+      <summary>
+        要素のテキストフォントを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.TagEditorCommonStyle.Padding">
+      <summary>
+        要素の辺とそのコンテンツの間のパディングを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.TagEditorCommonStyle.Margins">
+      <summary>
+        要素の周囲のマージンの太さを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.TagEditorCommonStyle.Hot">
+      <summary>
+        要素がホット状態であるときに使用されるスタイルを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.TagEditorCommonStyle.Disabled">
+      <summary>
+        要素が無効になったときに使用されるスタイルを取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Input.Theme.MultiSelect.BaseTagEditorCommonStyle">
+      <summary>
+        <see cref="T:C1.Win.Input.Theme.MultiSelect.TagEditorCommonStyle" />  スタイルの基本スタイル。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Input.Theme.MultiSelect.TagEditorStyles">
+      <summary>
+        <see cref="T:C1.Win.Input.Theme.MultiSelect.TagEditorStyles" /> クラスは、C1TagEditor コントロールのテーマを表します。
+        このコントロールには、コントロールの外観を定義する表示属性が含まれます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.Theme.MultiSelect.TagEditorStyles.#ctor(C1.Win.Input.Theme.MultiSelect.TagEditorStyles)">
+      <summary>
+        <see cref="T:C1.Win.Input.Theme.MultiSelect.TagEditorStyles" /> オブジェクトの新しいインスタンスを初期化します。
+      </summary>
+      <param name="prototype">プロトタイプ。</param>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.TagEditorStyles.Common">
+      <summary>
+        画面内の C1TagEditor コントロールの外観を決定する表示属性を含む <see cref="T:C1.Win.Input.Theme.MultiSelect.TagEditorCommonStyle" /> を取得または設定します。
+
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.TagEditorStyles.Tag">
+      <summary>
+        画面内のタグ要素の外観を決定する表示属性を含む <see cref="T:C1.Win.Input.Theme.MultiSelect.TagStyle" /> を取得または設定します。
+
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.TagEditorStyles.RemoveButton">
+      <summary>
+        画面内の RemoveButton 要素の外観を決定する表示属性を含む <see cref="T:C1.Win.Input.Theme.MultiSelect.RemoveButtonStyle" /> を取得または設定します。
+
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.Theme.MultiSelect.TagEditorStyles.Reset">
+      <summary>
+        すべてのスタイルをデフォルトにリセットします。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Input.Theme.MultiSelect.TagStyle">
+      <summary>
+        <see cref="T:C1.Win.Input.Theme.MultiSelect.TagStyle" /> クラスには、画面内の
+        タグ要素の外観を決定する表示属性が含まれます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.TagStyle.Corners">
+      <summary>
+        要素の角の半径を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.TagStyle.Padding">
+      <summary>
+        要素の辺とそのコンテンツの間のパディングを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.TagStyle.Margins">
+      <summary>
+        要素の周囲のマージンの太さを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.TagStyle.Hot">
+      <summary>
+        要素がホット状態であるときに使用されるスタイルを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.TagStyle.Pressed">
+      <summary>
+        要素が押されたときに使用されるスタイルを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.Theme.MultiSelect.TagStyle.Disabled">
+      <summary>
+        要素が無効になったときに使用されるスタイルを取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Input.Theme.MultiSelect.BaseTagStyle">
+      <summary>
+        <see cref="T:C1.Win.Input.Theme.MultiSelect.TagStyle" /> スタイルの基本スタイル。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Input.HeaderStyle">
+      <summary>
+        ヘッダーの <see cref="T:C1.Win.Input.C1CheckList" /> のスタイルを定義します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.HeaderStyle.Font">
+      <summary>
+        フォントを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.HeaderStyle.HorizontalAlign">
+      <summary>
+        水平方向の配置を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.HeaderStyle.VerticalAlign">
+      <summary>
+        垂直方向の配置を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.HeaderStyle.WordWrap">
+      <summary>
+        テキストを折り返すことができるかどうかを取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Input.ItemStyle">
+      <summary>
+        <see cref="T:C1.Win.Input.C1CheckList" /> 項目の状態のスタイルを定義します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.ItemStyle.BackColor">
+      <summary>
+        背景色を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Input.ItemStyle.ForeColor">
+      <summary>
+        前景色を取得または設定します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.Input.C1MultiSelect.SelectionChanged">
+      <summary>
+        項目の選択状態が変更されたときに発生します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Input.C1MultiSelect.OnSelectionChanged(System.EventArgs)">
+      <summary>
+        SelectionChanged イベントを発生させます。
+      </summary>
+    </member>
+  </members>
+</doc>

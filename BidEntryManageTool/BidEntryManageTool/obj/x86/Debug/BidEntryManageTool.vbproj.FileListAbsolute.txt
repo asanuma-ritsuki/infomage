@@ -31,3 +31,16 @@ C:\GitHub\infomage\BidEntryManageTool\BidEntryManageTool\bin\Debug\C1.Win.C1Spli
 C:\GitHub\infomage\BidEntryManageTool\BidEntryManageTool\bin\Debug\C1.Win.C1SplitContainer.4.xml
 C:\GitHub\infomage\BidEntryManageTool\BidEntryManageTool\obj\x86\Debug\BidEntryManageTool.vbprojResolveAssemblyReference.cache
 C:\GitHub\infomage\BidEntryManageTool\BidEntryManageTool\obj\x86\Debug\BidEntryManageTool.frmMaintenance.resources
+C:\GitHub\infomage\BidEntryManageTool\BidEntryManageTool\obj\x86\Debug\BidEntryManageTool.frmTraderDetail.resources
+C:\GitHub\infomage\BidEntryManageTool\BidEntryManageTool\bin\Debug\C1.Win.C1Input.4.dll
+C:\GitHub\infomage\BidEntryManageTool\BidEntryManageTool\bin\Debug\C1.Win.Input.MultiSelect.4.dll
+C:\GitHub\infomage\BidEntryManageTool\BidEntryManageTool\bin\Debug\C1.Win.TreeView.4.dll
+C:\GitHub\infomage\BidEntryManageTool\BidEntryManageTool\bin\Debug\C1.Win.C1Command.4.dll
+C:\GitHub\infomage\BidEntryManageTool\BidEntryManageTool\bin\Debug\C1.Win.C1Input.4.xml
+C:\GitHub\infomage\BidEntryManageTool\BidEntryManageTool\bin\Debug\C1.Win.Input.MultiSelect.4.xml
+C:\GitHub\infomage\BidEntryManageTool\BidEntryManageTool\bin\Debug\C1.Win.TreeView.4.xml
+C:\GitHub\infomage\BidEntryManageTool\BidEntryManageTool\bin\Debug\C1.Win.C1Command.4.xml
+C:\GitHub\infomage\BidEntryManageTool\BidEntryManageTool\bin\Debug\C1.Win.Calendar.4.dll
+C:\GitHub\infomage\BidEntryManageTool\BidEntryManageTool\bin\Debug\C1.Win.Calendar.4.xml
+C:\GitHub\infomage\BidEntryManageTool\BidEntryManageTool\obj\x86\Debug\BidEntryManageTool.Form1.resources
+C:\GitHub\infomage\BidEntryManageTool\BidEntryManageTool\obj\x86\Debug\BidEntryManageTool.frmSelectGroup.resources
