@@ -69,10 +69,10 @@ Partial Class frmMain
 		'C1StatusBar1
 		'
 		Me.C1StatusBar1.AutoSizeElement = C1.Framework.AutoSizeElement.Width
-		Me.C1StatusBar1.Location = New System.Drawing.Point(0, 639)
+		Me.C1StatusBar1.Location = New System.Drawing.Point(0, 638)
 		Me.C1StatusBar1.Name = "C1StatusBar1"
 		Me.C1StatusBar1.RightPaneItems.Add(Me.lblUserName)
-		Me.C1StatusBar1.Size = New System.Drawing.Size(884, 22)
+		Me.C1StatusBar1.Size = New System.Drawing.Size(884, 23)
 		Me.C1StatusBar1.VisualStyle = C1.Win.C1Ribbon.VisualStyle.Office2010Silver
 		'
 		'lblUserName
@@ -95,7 +95,7 @@ Partial Class frmMain
 		'
 		Me.SplitContainer1.Panel2.Controls.Add(Me.GroupBox4)
 		Me.SplitContainer1.Panel2.Controls.Add(Me.GroupBox3)
-		Me.SplitContainer1.Size = New System.Drawing.Size(884, 639)
+		Me.SplitContainer1.Size = New System.Drawing.Size(884, 638)
 		Me.SplitContainer1.SplitterDistance = 451
 		Me.SplitContainer1.TabIndex = 1
 		'
@@ -105,7 +105,7 @@ Partial Class frmMain
 		Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.GroupBox2.Location = New System.Drawing.Point(0, 327)
 		Me.GroupBox2.Name = "GroupBox2"
-		Me.GroupBox2.Size = New System.Drawing.Size(451, 312)
+		Me.GroupBox2.Size = New System.Drawing.Size(451, 311)
 		Me.GroupBox2.TabIndex = 1
 		Me.GroupBox2.TabStop = False
 		Me.GroupBox2.Text = "ロット内先頭リーフレット情報"
@@ -123,7 +123,7 @@ Partial Class frmMain
 		Me.C1FGridLeafInfo.Name = "C1FGridLeafInfo"
 		Me.C1FGridLeafInfo.Rows.DefaultSize = 20
 		Me.C1FGridLeafInfo.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row
-		Me.C1FGridLeafInfo.Size = New System.Drawing.Size(445, 289)
+		Me.C1FGridLeafInfo.Size = New System.Drawing.Size(445, 288)
 		Me.C1FGridLeafInfo.TabIndex = 3
 		Me.C1FGridLeafInfo.VisualStyle = C1.Win.C1FlexGrid.VisualStyle.System
 		'
@@ -282,7 +282,7 @@ Partial Class frmMain
 		Me.GroupBox4.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.GroupBox4.Location = New System.Drawing.Point(0, 89)
 		Me.GroupBox4.Name = "GroupBox4"
-		Me.GroupBox4.Size = New System.Drawing.Size(429, 550)
+		Me.GroupBox4.Size = New System.Drawing.Size(429, 549)
 		Me.GroupBox4.TabIndex = 1
 		Me.GroupBox4.TabStop = False
 		Me.GroupBox4.Text = "社員のリーフレット詳細"
@@ -300,7 +300,7 @@ Partial Class frmMain
 		Me.C1FGridLeafDetail.Name = "C1FGridLeafDetail"
 		Me.C1FGridLeafDetail.Rows.DefaultSize = 20
 		Me.C1FGridLeafDetail.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row
-		Me.C1FGridLeafDetail.Size = New System.Drawing.Size(423, 527)
+		Me.C1FGridLeafDetail.Size = New System.Drawing.Size(423, 526)
 		Me.C1FGridLeafDetail.TabIndex = 3
 		Me.C1FGridLeafDetail.VisualStyle = C1.Win.C1FlexGrid.VisualStyle.System
 		'

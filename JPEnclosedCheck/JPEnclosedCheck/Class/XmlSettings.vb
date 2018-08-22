@@ -1067,7 +1067,7 @@ Public Class XmlSettings
 		_ImagePath = "\\192.168.1.210\02_スチールGr\02_スポット案件\2013-2016_141032021_雄松堂_府県統計資料\99_Entry\01_image"
 
 		'SQLServer接続用
-		_DataSource = "JPSERV\INTRASQL"
+		_DataSource = "INTRA-PDC00\INTRASQL"
 		_InitialCatalog = "JPHealth"
 		_UserID = "sa"
 		_Password = "intra_intra"

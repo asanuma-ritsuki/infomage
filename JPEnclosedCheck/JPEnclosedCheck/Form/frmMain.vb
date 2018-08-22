@@ -135,6 +135,22 @@
 
 		If Me.prgEmployee.Value = Me.prgEmployee.Maximum And Me.prgEmployee.Maximum <> 0 Then
 			Me.lblEmployee.BackColor = Color.LightGreen
+			'メッセージボックスをループさせて「はい」を押下しない限り抜け出さないようにする
+			Dim LoopFlag As Boolean = True
+
+			While LoopFlag = True
+
+				Me.txtScan.BackColor = Color.Yellow
+				PlaySound.Main2()
+				If MessageBox.Show("最後のリーフレットです" & vbNewLine & "封筒に封入して、「はい」を押下してください", "警告", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) = DialogResult.Yes Then
+					Me.txtScan.Text = ""
+					Me.txtScan.Focus()
+					LoopFlag = False
+					Me.txtScan.BackColor = Color.MistyRose
+					Me.prgEmployee.Value = 0
+					Exit Sub
+				End If
+			End While
 		Else
 			Me.lblEmployee.BackColor = Color.White
 		End If
