@@ -129,7 +129,9 @@ Public Class frmPrintPreview
 						C1FlexReport1.DataSource.ConnectionString = strConnectionString
 						C1FlexReport1.DataSource.RecordSource = strSQL
 						'C1FlexReport1.Render()
+						'Me.C1FlexViewer1.RotateView = C1.Win.FlexViewer.FlexViewerRotateView.Rotation90Clockwise
 						Me.C1FlexViewer1.DocumentSource = C1FlexReport1
+
 					End If
 
 				Case 3
