@@ -4395,8 +4395,167 @@ Module PrintProcess
         SetDefaultPrinter(XmlSettings.Instance.Printer_Leaflet)
 
         Try
+			'==================================================
+			'2018/08/30
+			'6枚以上のリーフレットを先から出力するように変更
+			'==================================================
+			'2017/08/09
+			'一社員6枚組のリーフレットの印刷
+			strSQL = "SELECT T1.ロットID, T1.会社コード, T1.所属事業所コード, T1.印刷ID, T1.重量ヘッダ, T1.ラベル連番 "
+			strSQL &= "FROM T_印刷管理 AS T1 INNER JOIN "
+			strSQL &= "T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID "
+			strSQL &= "AND T1.会社コード = T2.会社コード "
+			strSQL &= "AND T1.所属事業所コード = T2.所属事業所コード "
+			strSQL &= "AND T1.印刷ID = T2.印刷ID "
+			strSQL &= "WHERE T1.ロットID = '" & strLotID & "' "
+			strSQL &= "AND T2.枚数 >= 6 "
+			If blnPrintWeightHeader Then
+				'重量ヘッダ単位
+				If strWeightHeader = "全て" Then
+					'検索条件の追加はなし
+				Else
+					strSQL &= "AND T1.重量ヘッダ = '" & strWeightHeader & "' "
+				End If
+			End If
+			strSQL &= "GROUP BY T1.ロットID, T1.会社コード, T1.所属事業所コード, T1.印刷ID, T1.重量ヘッダ, T1.ラベル連番 "
+			strSQL &= "ORDER BY T1.ラベル連番"
+			Dim dtLeaf6Header As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
 
-            If iRecordNumber = 0 Then
+			Dim strHeaderSheet6 As String = ""
+			For iRow As Integer = 0 To dtLeaf6Header.Rows.Count - 1
+				'一社員でリーフレットが6枚存在する重量ヘッダ単位で回す
+				'==================================================
+				'重量ヘッダシート印刷
+				'==================================================
+				'1レコードでも存在したら重量ヘッダシート出力判断
+				If Not dtLeaf6Header.Rows(iRow)("重量ヘッダ") = strHeaderSheet6 Then
+					'前回ヘッダと相違していたらヘッダシートを印刷する
+					strSQL = "SELECT '" & strLotID.Substring(0, 8) & "' AS インポート日, T3.重量ヘッダ, T3.対象者一覧, T3.保健指導名簿, T3.判定票枚数, T3.判定票件数, "
+					strSQL &= "T3.リーフレット枚数, T3.リーフレット件数, T3.総枚数 + 1 AS 総枚数, T3.リーフレット枚数 AS 枚数, "
+					strSQL &= "T3.リーフレット件数 AS 件数, "
+					strSQL &= "(SELECT COUNT(重量ヘッダ) FROM T_印刷管理 "
+					strSQL &= "WHERE ロットID = '" & strLotID & "' "
+					'リーフレットの存在する通数のみ合算
+					strSQL &= "AND 重量ヘッダ = '" & dtLeaf6Header.Rows(iRow)("重量ヘッダ") & "' AND リーフレット枚数 > 0) AS 通数 "
+					strSQL &= "FROM (SELECT T1.重量ヘッダ, "
+					strSQL &= "0 AS 対象者一覧, "
+					strSQL &= "0 AS 保健指導名簿, "   '判定票の方で出力されるので0
+					'strSQL &= "ISNULL(SUM(CASE WHEN T2.帳票種別ID = 3 THEN 1 ELSE 0 END), 0) AS 保健指導名簿, "
+					strSQL &= "0 AS 判定票枚数, "
+					strSQL &= "0 AS 判定票件数, "
+					strSQL &= "ISNULL(SUM(CASE WHEN T2.帳票種別ID = 5 THEN T2.枚数 ELSE 0 END), 0) AS リーフレット枚数, "
+					strSQL &= "ISNULL(SUM(CASE WHEN T2.帳票種別ID = 5 THEN 1 ELSE 0 END), 0) AS リーフレット件数, "
+					strSQL &= "ISNULL(SUM(CASE WHEN T2.帳票種別ID = 5 THEN T2.枚数 ELSE 0 END), 0) AS 総枚数 "
+					strSQL &= "FROM T_印刷管理 AS T1 INNER JOIN "
+					strSQL &= "T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID AND T1.会社コード = T2.会社コード "
+					strSQL &= "AND T1.所属事業所コード = T2.所属事業所コード AND T1.印刷ID = T2.印刷ID "
+					strSQL &= "WHERE T1.ロットID = '" & strLotID & "' "
+					strSQL &= "AND T2.帳票種別ID != 0 " 'ラベル以外
+					strSQL &= "AND T2.帳票種別ID != 2 " '対象者一覧を除外
+					strSQL &= "AND T2.帳票種別ID != 4 " '判定票を除外
+					'2017/08/09
+					'一社員6枚組のみ検索する
+					strSQL &= "AND T2.枚数 >= 6 "
+					strSQL &= "AND T1.重量ヘッダ = '" & dtLeaf6Header.Rows(iRow)("重量ヘッダ") & "' "
+					strSQL &= "GROUP BY T1.重量ヘッダ) AS T3"
+
+					dt = sqlProcess.DB_SELECT_DATATABLE(strSQL)
+					If dt.Rows.Count > 0 Then
+						'結果があった場合印刷
+						Print(strSQL, PrintCategory.WeightHeaderHand)
+
+					End If
+
+				End If
+				'==================================================
+				'リーフレット印刷
+				'==================================================
+				strSQL = "SELECT T1.ロットID, T1.レコード番号 "
+				strSQL &= "FROM T_リーフレット印刷 AS T1 INNER JOIN "
+				strSQL &= "T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID AND T1.レコード番号 = T2.レコード番号 INNER JOIN "
+				strSQL &= "T_判定票管理 AS T3 ON T1.ロットID = T3.ロットID AND T1.レコード番号 = T3.レコード番号 "
+				strSQL &= "WHERE T1.ロットID = '" & strLotID & "' "
+				strSQL &= "AND T2.会社コード = '" & dtLeaf6Header.Rows(iRow)("会社コード") & "' "
+				strSQL &= "AND T2.所属事業所コード = '" & dtLeaf6Header.Rows(iRow)("所属事業所コード") & "' "
+				strSQL &= "AND T2.印刷ID = " & dtLeaf6Header.Rows(iRow)("印刷ID") & " "
+				strSQL &= "AND T3.リーフレット無効 = 0 "    'リーフレット無効が立っているものは印刷対象としない
+				'2017/08/09
+				'一社員6枚組以上のみ検索
+				strSQL &= "AND T2.枚数 >= 6 "
+				strSQL &= "GROUP BY T1.ロットID, T1.レコード番号, T3.所属部名, T3.所属課名, T3.社員コード "
+				'strSQL &= "ORDER BY CASE WHEN ISNULL(T1.所属部課名, '') = '' THEN 1 ELSE 0 END, "
+				'strSQL &= "T1.所属部課名, "
+				strSQL &= "ORDER BY CASE WHEN ISNULL(T3.所属部名, '') = '' THEN 1 ELSE 0 END, "
+				strSQL &= "T3.所属部名, "
+				strSQL &= "CASE WHEN ISNULL(T3.所属課名, '') = '' THEN 1 ELSE 0 END, "
+				strSQL &= "T3.所属課名, T3.社員コード"
+				Dim dtLeaflet6 As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
+				'DATATABLEを回して帳票タイプ単位で印刷する
+				For i As Integer = 0 To dtLeaflet6.Rows.Count - 1
+					strSQL = "SELECT T1.帳票タイプ FROM T_リーフレット印刷 AS T1 INNER JOIN "
+					strSQL &= "M_帳票タイプ AS T2 ON T1.帳票タイプ = T2.帳票タイプ "
+					strSQL &= "WHERE T1.ロットID = '" & strLotID & "' "
+					strSQL &= "AND T1.レコード番号 = " & dtLeaflet6.Rows(i)("レコード番号")
+					Dim dtFormType6 As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
+
+					For iFormType As Integer = 0 To dtFormType6.Rows.Count - 1
+						'特定した帳票タイプを1つずつSQL文にしてプリントする
+						strSQL = "SELECT T1.ロットID, T1.レコード番号, T1.システムID, T1.会社, T1.所属事業所, T1.所属部課名, "
+						strSQL &= "T1.氏名, T1.局所会社名, T1.健康管理施設名, T1.郵便番号, T1.住所, T1.電話番号, T1.年度, "
+						'2018/06/11
+						'受診日を[yyyy/M/d]に変換する
+						strSQL &= "FORMAT(CONVERT(DATE, T4.受診日), 'yyyy年M月d日') AS 受診日, "
+						strSQL &= "T1.帳票タイプ, T1.結果値1, T1.結果値2, T1.結果値3, T1.BOC, T1.EOC, T1.PAR, "
+						strSQL &= "T1.WAS1, T1.WAS2, T1.WAS3, T1.WAS4, T1.WAS5, T1.WAS6, T1.QRコード, T3.ラベル連番, T1.先頭マーク, "
+						strSQL &= "CONVERT(VARCHAR, T1.トータルSEQ) + '-' + CONVERT(VARCHAR, T1.カレントSEQ) AS ページ "
+						strSQL &= "FROM T_リーフレット印刷 AS T1 INNER JOIN "
+						strSQL &= "T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID "
+						strSQL &= "AND T1.レコード番号 = T2.レコード番号 INNER JOIN "
+						strSQL &= "T_印刷管理 AS T3 ON T2.ロットID = T3.ロットID "
+						strSQL &= "AND T2.会社コード = T3.会社コード "
+						strSQL &= "AND T2.所属事業所コード = T3.所属事業所コード "
+						strSQL &= "AND T2.印刷ID = T3.印刷ID INNER JOIN "
+						'==================================================
+						'2018/06/11
+						strSQL &= "T_リーフレット AS T4 ON T1.ロットID = T4.ロットID "
+						strSQL &= "AND T1.レコード番号 = T4.レコード番号 "
+						'==================================================
+						strSQL &= "WHERE T1.ロットID = '" & strLotID & "' "
+						strSQL &= "AND T1.レコード番号 = " & dtLeaflet6.Rows(i)("レコード番号") & " "
+						strSQL &= "AND T2.印刷ID = " & dtLeaf6Header.Rows(iRow)("印刷ID") & " "
+						strSQL &= "AND T1.帳票タイプ = '" & dtFormType6.Rows(iFormType)("帳票タイプ") & "' "
+						strSQL &= "GROUP BY T1.ロットID, T1.レコード番号, T1.システムID, T1.会社, T1.所属事業所, T1.所属部課名, T1.氏名, "
+						strSQL &= "T1.局所会社名, T1.健康管理施設名, T1.郵便番号, T1.住所, T1.電話番号, T1.年度, T4.受診日, T1.帳票タイプ, "
+						strSQL &= "T1.結果値1, T1.結果値2, T1.結果値3, T1.BOC, T1.EOC, T1.PAR, T1.WAS1, T1.WAS2, T1.WAS3, "
+						strSQL &= "T1.WAS4, T1.WAS5, T1.WAS6, T1.QRコード, T3.ラベル連番, T1.先頭マーク, T1.トータルSEQ, T1.カレントSEQ "
+						'印刷処理
+						Print(strSQL, PrintCategory.Leaflet, dtFormType6.Rows(iFormType)("帳票タイプ"))
+						'2018/08/13
+						'T_リーフ6チェックからチェックフラグを外す
+						strSQL = "UPDATE T_リーフ6チェック SET チェックフラグ = 0 "
+						strSQL &= "WHERE ロットID = '" & strLotID & "' "
+						strSQL &= "AND レコード番号 = " & dtLeaflet6.Rows(i)("レコード番号") & " "
+						strSQL &= "AND 帳票タイプ = '" & dtFormType6.Rows(iFormType)("帳票タイプ") & "'"
+						sqlProcess.DB_UPDATE(strSQL)
+
+					Next
+					'該当レコード番号の印刷が終了した段階でT_印刷管理の「リーフレット印刷日時」を更新する
+					WritePrintDate(strLotID, PrintCategory.Leaflet, dtLeaflet6.Rows(i)("レコード番号"), dtLeaf6Header.Rows(iRow)("会社コード"), dtLeaf6Header.Rows(iRow)("所属事業所コード"), dtLeaf6Header.Rows(iRow)("印刷ID"))
+					'該当の会社コード、所属事業所コード、印刷IDすべてのチェックフラグを取り下げる
+					strSQL = "UPDATE T_印刷ソート SET チェックフラグ = 0 "
+					strSQL &= "WHERE ロットID = '" & strLotID & "' "
+					strSQL &= "AND 会社コード = '" & dtLeaf6Header.Rows(iRow)("会社コード") & "' "
+					strSQL &= "AND 所属事業所コード = '" & dtLeaf6Header.Rows(iRow)("所属事業所コード") & "' "
+					strSQL &= "AND 印刷ID = " & dtLeaf6Header.Rows(iRow)("印刷ID")
+					sqlProcess.DB_UPDATE(strSQL)
+
+					strHeaderSheet6 = dtLeaf6Header.Rows(iRow)("重量ヘッダ")
+
+				Next
+			Next
+			'==================================================
+
+			If iRecordNumber = 0 Then
                 'ロットID単位の全印刷
                 'ロットID
                 'ソート順
@@ -4659,162 +4818,7 @@ Module PrintProcess
 
             End If
 
-            '2017/08/09
-            '一社員6枚組のリーフレットの印刷
-            strSQL = "SELECT T1.ロットID, T1.会社コード, T1.所属事業所コード, T1.印刷ID, T1.重量ヘッダ, T1.ラベル連番 "
-            strSQL &= "FROM T_印刷管理 AS T1 INNER JOIN "
-            strSQL &= "T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID "
-            strSQL &= "AND T1.会社コード = T2.会社コード "
-            strSQL &= "AND T1.所属事業所コード = T2.所属事業所コード "
-            strSQL &= "AND T1.印刷ID = T2.印刷ID "
-            strSQL &= "WHERE T1.ロットID = '" & strLotID & "' "
-            strSQL &= "AND T2.枚数 >= 6 "
-            If blnPrintWeightHeader Then
-                '重量ヘッダ単位
-                If strWeightHeader = "全て" Then
-                    '検索条件の追加はなし
-                Else
-                    strSQL &= "AND T1.重量ヘッダ = '" & strWeightHeader & "' "
-                End If
-            End If
-            strSQL &= "GROUP BY T1.ロットID, T1.会社コード, T1.所属事業所コード, T1.印刷ID, T1.重量ヘッダ, T1.ラベル連番 "
-            strSQL &= "ORDER BY T1.ラベル連番"
-            Dim dtLeaf6Header As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
-
-            Dim strHeaderSheet6 As String = ""
-            For iRow As Integer = 0 To dtLeaf6Header.Rows.Count - 1
-                '一社員でリーフレットが6枚存在する重量ヘッダ単位で回す
-                '==================================================
-                '重量ヘッダシート印刷
-                '==================================================
-                '1レコードでも存在したら重量ヘッダシート出力判断
-                If Not dtLeaf6Header.Rows(iRow)("重量ヘッダ") = strHeaderSheet6 Then
-                    '前回ヘッダと相違していたらヘッダシートを印刷する
-                    strSQL = "SELECT '" & strLotID.Substring(0, 8) & "' AS インポート日, T3.重量ヘッダ, T3.対象者一覧, T3.保健指導名簿, T3.判定票枚数, T3.判定票件数, "
-                    strSQL &= "T3.リーフレット枚数, T3.リーフレット件数, T3.総枚数 + 1 AS 総枚数, T3.リーフレット枚数 AS 枚数, "
-                    strSQL &= "T3.リーフレット件数 AS 件数, "
-                    strSQL &= "(SELECT COUNT(重量ヘッダ) FROM T_印刷管理 "
-                    strSQL &= "WHERE ロットID = '" & strLotID & "' "
-                    'リーフレットの存在する通数のみ合算
-                    strSQL &= "AND 重量ヘッダ = '" & dtLeaf6Header.Rows(iRow)("重量ヘッダ") & "' AND リーフレット枚数 > 0) AS 通数 "
-                    strSQL &= "FROM (SELECT T1.重量ヘッダ, "
-                    strSQL &= "0 AS 対象者一覧, "
-                    strSQL &= "0 AS 保健指導名簿, "   '判定票の方で出力されるので0
-                    'strSQL &= "ISNULL(SUM(CASE WHEN T2.帳票種別ID = 3 THEN 1 ELSE 0 END), 0) AS 保健指導名簿, "
-                    strSQL &= "0 AS 判定票枚数, "
-                    strSQL &= "0 AS 判定票件数, "
-                    strSQL &= "ISNULL(SUM(CASE WHEN T2.帳票種別ID = 5 THEN T2.枚数 ELSE 0 END), 0) AS リーフレット枚数, "
-                    strSQL &= "ISNULL(SUM(CASE WHEN T2.帳票種別ID = 5 THEN 1 ELSE 0 END), 0) AS リーフレット件数, "
-                    strSQL &= "ISNULL(SUM(CASE WHEN T2.帳票種別ID = 5 THEN T2.枚数 ELSE 0 END), 0) AS 総枚数 "
-                    strSQL &= "FROM T_印刷管理 AS T1 INNER JOIN "
-                    strSQL &= "T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID AND T1.会社コード = T2.会社コード "
-                    strSQL &= "AND T1.所属事業所コード = T2.所属事業所コード AND T1.印刷ID = T2.印刷ID "
-                    strSQL &= "WHERE T1.ロットID = '" & strLotID & "' "
-                    strSQL &= "AND T2.帳票種別ID != 0 " 'ラベル以外
-                    strSQL &= "AND T2.帳票種別ID != 2 " '対象者一覧を除外
-                    strSQL &= "AND T2.帳票種別ID != 4 " '判定票を除外
-                    '2017/08/09
-                    '一社員6枚組のみ検索する
-                    strSQL &= "AND T2.枚数 >= 6 "
-                    strSQL &= "AND T1.重量ヘッダ = '" & dtLeaf6Header.Rows(iRow)("重量ヘッダ") & "' "
-                    strSQL &= "GROUP BY T1.重量ヘッダ) AS T3"
-
-                    dt = sqlProcess.DB_SELECT_DATATABLE(strSQL)
-                    If dt.Rows.Count > 0 Then
-                        '結果があった場合印刷
-                        Print(strSQL, PrintCategory.WeightHeaderHand)
-
-                    End If
-
-                End If
-                '==================================================
-                'リーフレット印刷
-                '==================================================
-                strSQL = "SELECT T1.ロットID, T1.レコード番号 "
-                strSQL &= "FROM T_リーフレット印刷 AS T1 INNER JOIN "
-                strSQL &= "T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID AND T1.レコード番号 = T2.レコード番号 INNER JOIN "
-                strSQL &= "T_判定票管理 AS T3 ON T1.ロットID = T3.ロットID AND T1.レコード番号 = T3.レコード番号 "
-                strSQL &= "WHERE T1.ロットID = '" & strLotID & "' "
-                strSQL &= "AND T2.会社コード = '" & dtLeaf6Header.Rows(iRow)("会社コード") & "' "
-                strSQL &= "AND T2.所属事業所コード = '" & dtLeaf6Header.Rows(iRow)("所属事業所コード") & "' "
-                strSQL &= "AND T2.印刷ID = " & dtLeaf6Header.Rows(iRow)("印刷ID") & " "
-                strSQL &= "AND T3.リーフレット無効 = 0 "    'リーフレット無効が立っているものは印刷対象としない
-				'2017/08/09
-				'一社員6枚組以上のみ検索
-				strSQL &= "AND T2.枚数 >= 6 "
-                strSQL &= "GROUP BY T1.ロットID, T1.レコード番号, T3.所属部名, T3.所属課名, T3.社員コード "
-                'strSQL &= "ORDER BY CASE WHEN ISNULL(T1.所属部課名, '') = '' THEN 1 ELSE 0 END, "
-                'strSQL &= "T1.所属部課名, "
-                strSQL &= "ORDER BY CASE WHEN ISNULL(T3.所属部名, '') = '' THEN 1 ELSE 0 END, "
-                strSQL &= "T3.所属部名, "
-                strSQL &= "CASE WHEN ISNULL(T3.所属課名, '') = '' THEN 1 ELSE 0 END, "
-                strSQL &= "T3.所属課名, T3.社員コード"
-                Dim dtLeaflet6 As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
-                'DATATABLEを回して帳票タイプ単位で印刷する
-                For i As Integer = 0 To dtLeaflet6.Rows.Count - 1
-                    strSQL = "SELECT T1.帳票タイプ FROM T_リーフレット印刷 AS T1 INNER JOIN "
-                    strSQL &= "M_帳票タイプ AS T2 ON T1.帳票タイプ = T2.帳票タイプ "
-                    strSQL &= "WHERE T1.ロットID = '" & strLotID & "' "
-                    strSQL &= "AND T1.レコード番号 = " & dtLeaflet6.Rows(i)("レコード番号")
-                    Dim dtFormType6 As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
-
-                    For iFormType As Integer = 0 To dtFormType6.Rows.Count - 1
-                        '特定した帳票タイプを1つずつSQL文にしてプリントする
-                        strSQL = "SELECT T1.ロットID, T1.レコード番号, T1.システムID, T1.会社, T1.所属事業所, T1.所属部課名, "
-                        strSQL &= "T1.氏名, T1.局所会社名, T1.健康管理施設名, T1.郵便番号, T1.住所, T1.電話番号, T1.年度, "
-						'2018/06/11
-						'受診日を[yyyy/M/d]に変換する
-						strSQL &= "FORMAT(CONVERT(DATE, T4.受診日), 'yyyy年M月d日') AS 受診日, "
-						strSQL &= "T1.帳票タイプ, T1.結果値1, T1.結果値2, T1.結果値3, T1.BOC, T1.EOC, T1.PAR, "
-						strSQL &= "T1.WAS1, T1.WAS2, T1.WAS3, T1.WAS4, T1.WAS5, T1.WAS6, T1.QRコード, T3.ラベル連番, T1.先頭マーク, "
-                        strSQL &= "CONVERT(VARCHAR, T1.トータルSEQ) + '-' + CONVERT(VARCHAR, T1.カレントSEQ) AS ページ "
-                        strSQL &= "FROM T_リーフレット印刷 AS T1 INNER JOIN "
-                        strSQL &= "T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID "
-                        strSQL &= "AND T1.レコード番号 = T2.レコード番号 INNER JOIN "
-                        strSQL &= "T_印刷管理 AS T3 ON T2.ロットID = T3.ロットID "
-                        strSQL &= "AND T2.会社コード = T3.会社コード "
-                        strSQL &= "AND T2.所属事業所コード = T3.所属事業所コード "
-						strSQL &= "AND T2.印刷ID = T3.印刷ID INNER JOIN "
-						'==================================================
-						'2018/06/11
-						strSQL &= "T_リーフレット AS T4 ON T1.ロットID = T4.ロットID "
-						strSQL &= "AND T1.レコード番号 = T4.レコード番号 "
-						'==================================================
-						strSQL &= "WHERE T1.ロットID = '" & strLotID & "' "
-						strSQL &= "AND T1.レコード番号 = " & dtLeaflet6.Rows(i)("レコード番号") & " "
-                        strSQL &= "AND T2.印刷ID = " & dtLeaf6Header.Rows(iRow)("印刷ID") & " "
-                        strSQL &= "AND T1.帳票タイプ = '" & dtFormType6.Rows(iFormType)("帳票タイプ") & "' "
-                        strSQL &= "GROUP BY T1.ロットID, T1.レコード番号, T1.システムID, T1.会社, T1.所属事業所, T1.所属部課名, T1.氏名, "
-						strSQL &= "T1.局所会社名, T1.健康管理施設名, T1.郵便番号, T1.住所, T1.電話番号, T1.年度, T4.受診日, T1.帳票タイプ, "
-						strSQL &= "T1.結果値1, T1.結果値2, T1.結果値3, T1.BOC, T1.EOC, T1.PAR, T1.WAS1, T1.WAS2, T1.WAS3, "
-                        strSQL &= "T1.WAS4, T1.WAS5, T1.WAS6, T1.QRコード, T3.ラベル連番, T1.先頭マーク, T1.トータルSEQ, T1.カレントSEQ "
-                        '印刷処理
-                        Print(strSQL, PrintCategory.Leaflet, dtFormType6.Rows(iFormType)("帳票タイプ"))
-						'2018/08/13
-						'T_リーフ6チェックからチェックフラグを外す
-						strSQL = "UPDATE T_リーフ6チェック SET チェックフラグ = 0 "
-						strSQL &= "WHERE ロットID = '" & strLotID & "' "
-						strSQL &= "AND レコード番号 = " & dtLeaflet6.Rows(i)("レコード番号") & " "
-						strSQL &= "AND 帳票タイプ = '" & dtFormType6.Rows(iFormType)("帳票タイプ") & "'"
-						sqlProcess.DB_UPDATE(strSQL)
-
-					Next
-                    '該当レコード番号の印刷が終了した段階でT_印刷管理の「リーフレット印刷日時」を更新する
-                    WritePrintDate(strLotID, PrintCategory.Leaflet, dtLeaflet6.Rows(i)("レコード番号"), dtLeaf6Header.Rows(iRow)("会社コード"), dtLeaf6Header.Rows(iRow)("所属事業所コード"), dtLeaf6Header.Rows(iRow)("印刷ID"))
-                    '該当の会社コード、所属事業所コード、印刷IDすべてのチェックフラグを取り下げる
-                    strSQL = "UPDATE T_印刷ソート SET チェックフラグ = 0 "
-                    strSQL &= "WHERE ロットID = '" & strLotID & "' "
-                    strSQL &= "AND 会社コード = '" & dtLeaf6Header.Rows(iRow)("会社コード") & "' "
-                    strSQL &= "AND 所属事業所コード = '" & dtLeaf6Header.Rows(iRow)("所属事業所コード") & "' "
-                    strSQL &= "AND 印刷ID = " & dtLeaf6Header.Rows(iRow)("印刷ID")
-                    sqlProcess.DB_UPDATE(strSQL)
-
-                    strHeaderSheet6 = dtLeaf6Header.Rows(iRow)("重量ヘッダ")
-
-                Next
-            Next
-
-        Catch ex As Exception
+		Catch ex As Exception
 
             Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message & vbNewLine & ex.StackTrace)
             MessageBox.Show("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -4848,8 +4852,153 @@ Module PrintProcess
         SetDefaultPrinter(XmlSettings.Instance.Printer_Leaflet)
 
         Try
-            'T_印刷管理内の対象ロットを重量ヘッダ、会社コード、所属事業所コードを考慮して回す
-            strSQL = "SELECT ロットID, 会社コード, 所属事業所コード, 印刷ID, 重量ヘッダ, ラベル連番 "
+			'==================================================
+			'2018/08/30
+			'6枚以上のリーフレットを先から出力するように変更
+			'==================================================
+			'2017/08/09
+			'一社員6枚組のリーフレットの印刷
+			strSQL = "SELECT T1.ロットID, T1.会社コード, T1.所属事業所コード, T1.印刷ID, T1.重量ヘッダ, T1.ラベル連番 "
+			strSQL &= "FROM T_印刷管理個別 AS T1 INNER JOIN "
+			strSQL &= "T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID "
+			strSQL &= "AND T1.会社コード = T2.会社コード "
+			strSQL &= "AND T1.所属事業所コード = T2.所属事業所コード "
+			strSQL &= "AND T1.印刷ID = T2.印刷ID "
+			strSQL &= "WHERE T1.ロットID = '" & strLotID & "' "
+			strSQL &= "AND T2.枚数 >= 6 "
+			strSQL &= "GROUP BY T1.ロットID, T1.会社コード, T1.所属事業所コード, T1.印刷ID, T1.重量ヘッダ, T1.ラベル連番 "
+			strSQL &= "ORDER BY T1.ラベル連番"
+			Dim dtLeaf6Header As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
+
+			Dim strHeaderSheet6 As String = ""
+			For iRow As Integer = 0 To dtLeaf6Header.Rows.Count - 1
+				'一社員でリーフレットが6枚存在する重量ヘッダ単位で回す
+				'==================================================
+				'重量ヘッダシート印刷
+				'==================================================
+				'1レコードでも存在したら重量ヘッダシート出力判断
+				If Not dtLeaf6Header.Rows(iRow)("重量ヘッダ") = strHeaderSheet6 Then
+					'前回ヘッダと相違していたらヘッダシートを印刷する
+					strSQL = "SELECT '" & strLotID.Substring(0, 8) & "' AS インポート日, T3.重量ヘッダ, T3.対象者一覧, T3.保健指導名簿, T3.判定票枚数, T3.判定票件数, "
+					strSQL &= "T3.リーフレット枚数, T3.リーフレット件数, T3.総枚数 + 1 AS 総枚数, T3.リーフレット枚数 AS 枚数, "
+					strSQL &= "T3.リーフレット件数 AS 件数, "
+					strSQL &= "(SELECT COUNT(重量ヘッダ) FROM T_印刷管理個別 "
+					strSQL &= "WHERE ロットID = '" & strLotID & "' "
+					'リーフレットの存在する通数のみ合算
+					strSQL &= "AND 重量ヘッダ = '" & dtLeaf6Header.Rows(iRow)("重量ヘッダ") & "' AND リーフレット枚数 > 0) AS 通数 "
+					strSQL &= "FROM (SELECT T1.重量ヘッダ, "
+					strSQL &= "0 AS 対象者一覧, "
+					strSQL &= "0 AS 保健指導名簿, "   '判定票の方で出力されるので0
+					'strSQL &= "ISNULL(SUM(CASE WHEN T2.帳票種別ID = 3 THEN 1 ELSE 0 END), 0) AS 保健指導名簿, "
+					strSQL &= "0 AS 判定票枚数, "
+					strSQL &= "0 AS 判定票件数, "
+					strSQL &= "ISNULL(SUM(CASE WHEN T2.帳票種別ID = 5 THEN T2.枚数 ELSE 0 END), 0) AS リーフレット枚数, "
+					strSQL &= "ISNULL(SUM(CASE WHEN T2.帳票種別ID = 5 THEN 1 ELSE 0 END), 0) AS リーフレット件数, "
+					strSQL &= "ISNULL(SUM(CASE WHEN T2.帳票種別ID = 5 THEN T2.枚数 ELSE 0 END), 0) AS 総枚数 "
+					strSQL &= "FROM T_印刷管理個別 AS T1 INNER JOIN "
+					strSQL &= "T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID AND T1.会社コード = T2.会社コード "
+					strSQL &= "AND T1.所属事業所コード = T2.所属事業所コード AND T1.印刷ID = T2.印刷ID "
+					strSQL &= "WHERE T1.ロットID = '" & strLotID & "' "
+					strSQL &= "AND T2.帳票種別ID != 0 " 'ラベル以外
+					strSQL &= "AND T2.帳票種別ID != 2 " '対象者一覧を除外
+					strSQL &= "AND T2.帳票種別ID != 4 " '判定票を除外
+					'2017/08/09
+					'一社員6枚組のみ検索する
+					strSQL &= "AND T2.枚数 >= 6 "
+					strSQL &= "AND T1.重量ヘッダ = '" & dtLeaf6Header.Rows(iRow)("重量ヘッダ") & "' "
+					strSQL &= "GROUP BY T1.重量ヘッダ) AS T3"
+
+					dt = sqlProcess.DB_SELECT_DATATABLE(strSQL)
+					If dt.Rows.Count > 0 Then
+						'結果があった場合印刷
+						Print(strSQL, PrintCategory.WeightHeaderHand)
+
+					End If
+
+				End If
+				'==================================================
+				'リーフレット印刷
+				'==================================================
+				strSQL = "SELECT T1.ロットID, T1.レコード番号 "
+				strSQL &= "FROM T_リーフレット印刷 AS T1 INNER JOIN "
+				strSQL &= "T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID AND T1.レコード番号 = T2.レコード番号 INNER JOIN "
+				strSQL &= "T_判定票管理 AS T3 ON T1.ロットID = T3.ロットID AND T1.レコード番号 = T3.レコード番号 "
+				strSQL &= "WHERE T1.ロットID = '" & strLotID & "' "
+				strSQL &= "AND T2.会社コード = '" & dtLeaf6Header.Rows(iRow)("会社コード") & "' "
+				strSQL &= "AND T2.所属事業所コード = '" & dtLeaf6Header.Rows(iRow)("所属事業所コード") & "' "
+				strSQL &= "AND T2.印刷ID = " & dtLeaf6Header.Rows(iRow)("印刷ID") & " "
+				strSQL &= "AND T3.リーフレット無効 = 0 "    'リーフレット無効が立っているものは印刷対象としない
+				'2017/08/09
+				'一社員6枚組のみ検索
+				strSQL &= "AND T2.枚数 >= 6 "
+				strSQL &= "GROUP BY T1.ロットID, T1.レコード番号, T3.所属部名, T3.所属課名, T3.社員コード "
+				'strSQL &= "ORDER BY CASE WHEN ISNULL(T1.所属部課名, '') = '' THEN 1 ELSE 0 END, "
+				'strSQL &= "T1.所属部課名, "
+				strSQL &= "ORDER BY CASE WHEN ISNULL(T3.所属部名, '') = '' THEN 1 ELSE 0 END, "
+				strSQL &= "T3.所属部名, "
+				strSQL &= "CASE WHEN ISNULL(T3.所属課名, '') = '' THEN 1 ELSE 0 END, "
+				strSQL &= "T3.所属課名, T3.社員コード"
+				Dim dtLeaflet6 As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
+				'DATATABLEを回して帳票タイプ単位で印刷する
+				For i As Integer = 0 To dtLeaflet6.Rows.Count - 1
+					strSQL = "SELECT T1.帳票タイプ FROM T_リーフレット印刷 AS T1 INNER JOIN "
+					strSQL &= "M_帳票タイプ AS T2 ON T1.帳票タイプ = T2.帳票タイプ "
+					strSQL &= "WHERE T1.ロットID = '" & strLotID & "' "
+					strSQL &= "AND T1.レコード番号 = " & dtLeaflet6.Rows(i)("レコード番号")
+					Dim dtFormType6 As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
+
+					For iFormType As Integer = 0 To dtFormType6.Rows.Count - 1
+						'特定した帳票タイプを1つずつSQL文にしてプリントする
+						strSQL = "SELECT T1.ロットID, T1.レコード番号, T1.システムID, T1.会社, T1.所属事業所, T1.所属部課名, "
+						strSQL &= "T1.氏名, T1.局所会社名, T1.健康管理施設名, T1.郵便番号, T1.住所, T1.電話番号, T1.年度, "
+						'2018/06/11
+						'受診日を[yyyy/M/d]に変換する
+						strSQL &= "FORMAT(CONVERT(DATE, T4.受診日), 'yyyy年M月d日') AS 受診日, "
+						strSQL &= "T1.帳票タイプ, T1.結果値1, T1.結果値2, T1.結果値3, T1.BOC, T1.EOC, T1.PAR, "
+						strSQL &= "T1.WAS1, T1.WAS2, T1.WAS3, T1.WAS4, T1.WAS5, T1.WAS6, T1.QRコード, T3.ラベル連番, T1.先頭マーク, "
+						strSQL &= "CONVERT(VARCHAR, T1.トータルSEQ) + '-' + CONVERT(VARCHAR, T1.カレントSEQ) AS ページ "
+						strSQL &= "FROM T_リーフレット印刷 AS T1 INNER JOIN "
+						strSQL &= "T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID "
+						strSQL &= "AND T1.レコード番号 = T2.レコード番号 INNER JOIN "
+						strSQL &= "T_印刷管理個別 AS T3 ON T2.ロットID = T3.ロットID "
+						strSQL &= "AND T2.会社コード = T3.会社コード "
+						strSQL &= "AND T2.所属事業所コード = T3.所属事業所コード "
+						strSQL &= "AND T2.印刷ID = T3.印刷ID INNER JOIN "
+						'==================================================
+						'2018/06/11
+						strSQL &= "T_リーフレット AS T4 ON T1.ロットID = T4.ロットID "
+						strSQL &= "AND T1.レコード番号 = T4.レコード番号 "
+						'==================================================
+						strSQL &= "WHERE T1.ロットID = '" & strLotID & "' "
+						strSQL &= "AND T1.レコード番号 = " & dtLeaflet6.Rows(i)("レコード番号") & " "
+						strSQL &= "AND T2.印刷ID = " & dtLeaf6Header.Rows(iRow)("印刷ID") & " "
+						strSQL &= "AND T1.帳票タイプ = '" & dtFormType6.Rows(iFormType)("帳票タイプ") & "' "
+						strSQL &= "GROUP BY T1.ロットID, T1.レコード番号, T1.システムID, T1.会社, T1.所属事業所, T1.所属部課名, T1.氏名, "
+						strSQL &= "T1.局所会社名, T1.健康管理施設名, T1.郵便番号, T1.住所, T1.電話番号, T1.年度, T4.受診日, T1.帳票タイプ, "
+						strSQL &= "T1.結果値1, T1.結果値2, T1.結果値3, T1.BOC, T1.EOC, T1.PAR, T1.WAS1, T1.WAS2, T1.WAS3, "
+						strSQL &= "T1.WAS4, T1.WAS5, T1.WAS6, T1.QRコード, T3.ラベル連番, T1.先頭マーク, T1.トータルSEQ, T1.カレントSEQ "
+						'印刷処理
+						Print(strSQL, PrintCategory.Leaflet, dtFormType6.Rows(iFormType)("帳票タイプ"))
+
+					Next
+					'該当レコード番号の印刷が終了した段階でT_印刷管理の「リーフレット印刷日時」を更新する
+					WritePrintDate(strLotID, PrintCategory.Leaflet, dtLeaflet6.Rows(i)("レコード番号"), dtLeaf6Header.Rows(iRow)("会社コード"), dtLeaf6Header.Rows(iRow)("所属事業所コード"), dtLeaf6Header.Rows(iRow)("印刷ID"))
+					'該当の会社コード、所属事業所コード、印刷IDすべてのチェックフラグを取り下げる
+					strSQL = "UPDATE T_印刷ソート SET チェックフラグ = 0 "
+					strSQL &= "WHERE ロットID = '" & strLotID & "' "
+					strSQL &= "AND 会社コード = '" & dtLeaf6Header.Rows(iRow)("会社コード") & "' "
+					strSQL &= "AND 所属事業所コード = '" & dtLeaf6Header.Rows(iRow)("所属事業所コード") & "' "
+					strSQL &= "AND 印刷ID = " & dtLeaf6Header.Rows(iRow)("印刷ID")
+					sqlProcess.DB_UPDATE(strSQL)
+
+					strHeaderSheet6 = dtLeaf6Header.Rows(iRow)("重量ヘッダ")
+
+				Next
+			Next
+			'==================================================
+
+			'T_印刷管理内の対象ロットを重量ヘッダ、会社コード、所属事業所コードを考慮して回す
+			strSQL = "SELECT ロットID, 会社コード, 所属事業所コード, 印刷ID, 重量ヘッダ, ラベル連番 "
             strSQL &= "FROM T_印刷管理個別 "
             strSQL &= "WHERE ロットID = '" & strLotID & "' "
             strSQL &= "ORDER BY ラベル連番"
@@ -4989,147 +5138,7 @@ Module PrintProcess
 
             Next
 
-            '2017/08/09
-            '一社員6枚組のリーフレットの印刷
-            strSQL = "SELECT T1.ロットID, T1.会社コード, T1.所属事業所コード, T1.印刷ID, T1.重量ヘッダ, T1.ラベル連番 "
-			strSQL &= "FROM T_印刷管理個別 AS T1 INNER JOIN "
-			strSQL &= "T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID "
-            strSQL &= "AND T1.会社コード = T2.会社コード "
-            strSQL &= "AND T1.所属事業所コード = T2.所属事業所コード "
-            strSQL &= "AND T1.印刷ID = T2.印刷ID "
-            strSQL &= "WHERE T1.ロットID = '" & strLotID & "' "
-            strSQL &= "AND T2.枚数 >= 6 "
-            strSQL &= "GROUP BY T1.ロットID, T1.会社コード, T1.所属事業所コード, T1.印刷ID, T1.重量ヘッダ, T1.ラベル連番 "
-            strSQL &= "ORDER BY T1.ラベル連番"
-            Dim dtLeaf6Header As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
-
-            Dim strHeaderSheet6 As String = ""
-            For iRow As Integer = 0 To dtLeaf6Header.Rows.Count - 1
-                '一社員でリーフレットが6枚存在する重量ヘッダ単位で回す
-                '==================================================
-                '重量ヘッダシート印刷
-                '==================================================
-                '1レコードでも存在したら重量ヘッダシート出力判断
-                If Not dtLeaf6Header.Rows(iRow)("重量ヘッダ") = strHeaderSheet6 Then
-                    '前回ヘッダと相違していたらヘッダシートを印刷する
-                    strSQL = "SELECT '" & strLotID.Substring(0, 8) & "' AS インポート日, T3.重量ヘッダ, T3.対象者一覧, T3.保健指導名簿, T3.判定票枚数, T3.判定票件数, "
-                    strSQL &= "T3.リーフレット枚数, T3.リーフレット件数, T3.総枚数 + 1 AS 総枚数, T3.リーフレット枚数 AS 枚数, "
-                    strSQL &= "T3.リーフレット件数 AS 件数, "
-					strSQL &= "(SELECT COUNT(重量ヘッダ) FROM T_印刷管理個別 "
-					strSQL &= "WHERE ロットID = '" & strLotID & "' "
-                    'リーフレットの存在する通数のみ合算
-                    strSQL &= "AND 重量ヘッダ = '" & dtLeaf6Header.Rows(iRow)("重量ヘッダ") & "' AND リーフレット枚数 > 0) AS 通数 "
-                    strSQL &= "FROM (SELECT T1.重量ヘッダ, "
-                    strSQL &= "0 AS 対象者一覧, "
-                    strSQL &= "0 AS 保健指導名簿, "   '判定票の方で出力されるので0
-                    'strSQL &= "ISNULL(SUM(CASE WHEN T2.帳票種別ID = 3 THEN 1 ELSE 0 END), 0) AS 保健指導名簿, "
-                    strSQL &= "0 AS 判定票枚数, "
-                    strSQL &= "0 AS 判定票件数, "
-                    strSQL &= "ISNULL(SUM(CASE WHEN T2.帳票種別ID = 5 THEN T2.枚数 ELSE 0 END), 0) AS リーフレット枚数, "
-                    strSQL &= "ISNULL(SUM(CASE WHEN T2.帳票種別ID = 5 THEN 1 ELSE 0 END), 0) AS リーフレット件数, "
-                    strSQL &= "ISNULL(SUM(CASE WHEN T2.帳票種別ID = 5 THEN T2.枚数 ELSE 0 END), 0) AS 総枚数 "
-					strSQL &= "FROM T_印刷管理個別 AS T1 INNER JOIN "
-					strSQL &= "T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID AND T1.会社コード = T2.会社コード "
-                    strSQL &= "AND T1.所属事業所コード = T2.所属事業所コード AND T1.印刷ID = T2.印刷ID "
-                    strSQL &= "WHERE T1.ロットID = '" & strLotID & "' "
-                    strSQL &= "AND T2.帳票種別ID != 0 " 'ラベル以外
-                    strSQL &= "AND T2.帳票種別ID != 2 " '対象者一覧を除外
-                    strSQL &= "AND T2.帳票種別ID != 4 " '判定票を除外
-                    '2017/08/09
-                    '一社員6枚組のみ検索する
-                    strSQL &= "AND T2.枚数 >= 6 "
-                    strSQL &= "AND T1.重量ヘッダ = '" & dtLeaf6Header.Rows(iRow)("重量ヘッダ") & "' "
-                    strSQL &= "GROUP BY T1.重量ヘッダ) AS T3"
-
-                    dt = sqlProcess.DB_SELECT_DATATABLE(strSQL)
-                    If dt.Rows.Count > 0 Then
-                        '結果があった場合印刷
-                        Print(strSQL, PrintCategory.WeightHeaderHand)
-
-                    End If
-
-                End If
-                '==================================================
-                'リーフレット印刷
-                '==================================================
-                strSQL = "SELECT T1.ロットID, T1.レコード番号 "
-                strSQL &= "FROM T_リーフレット印刷 AS T1 INNER JOIN "
-                strSQL &= "T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID AND T1.レコード番号 = T2.レコード番号 INNER JOIN "
-                strSQL &= "T_判定票管理 AS T3 ON T1.ロットID = T3.ロットID AND T1.レコード番号 = T3.レコード番号 "
-                strSQL &= "WHERE T1.ロットID = '" & strLotID & "' "
-                strSQL &= "AND T2.会社コード = '" & dtLeaf6Header.Rows(iRow)("会社コード") & "' "
-                strSQL &= "AND T2.所属事業所コード = '" & dtLeaf6Header.Rows(iRow)("所属事業所コード") & "' "
-                strSQL &= "AND T2.印刷ID = " & dtLeaf6Header.Rows(iRow)("印刷ID") & " "
-                strSQL &= "AND T3.リーフレット無効 = 0 "    'リーフレット無効が立っているものは印刷対象としない
-                '2017/08/09
-                '一社員6枚組のみ検索
-                strSQL &= "AND T2.枚数 >= 6 "
-                strSQL &= "GROUP BY T1.ロットID, T1.レコード番号, T3.所属部名, T3.所属課名, T3.社員コード "
-                'strSQL &= "ORDER BY CASE WHEN ISNULL(T1.所属部課名, '') = '' THEN 1 ELSE 0 END, "
-                'strSQL &= "T1.所属部課名, "
-                strSQL &= "ORDER BY CASE WHEN ISNULL(T3.所属部名, '') = '' THEN 1 ELSE 0 END, "
-                strSQL &= "T3.所属部名, "
-                strSQL &= "CASE WHEN ISNULL(T3.所属課名, '') = '' THEN 1 ELSE 0 END, "
-                strSQL &= "T3.所属課名, T3.社員コード"
-                Dim dtLeaflet6 As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
-                'DATATABLEを回して帳票タイプ単位で印刷する
-                For i As Integer = 0 To dtLeaflet6.Rows.Count - 1
-                    strSQL = "SELECT T1.帳票タイプ FROM T_リーフレット印刷 AS T1 INNER JOIN "
-                    strSQL &= "M_帳票タイプ AS T2 ON T1.帳票タイプ = T2.帳票タイプ "
-                    strSQL &= "WHERE T1.ロットID = '" & strLotID & "' "
-                    strSQL &= "AND T1.レコード番号 = " & dtLeaflet6.Rows(i)("レコード番号")
-                    Dim dtFormType6 As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
-
-                    For iFormType As Integer = 0 To dtFormType6.Rows.Count - 1
-                        '特定した帳票タイプを1つずつSQL文にしてプリントする
-                        strSQL = "SELECT T1.ロットID, T1.レコード番号, T1.システムID, T1.会社, T1.所属事業所, T1.所属部課名, "
-						strSQL &= "T1.氏名, T1.局所会社名, T1.健康管理施設名, T1.郵便番号, T1.住所, T1.電話番号, T1.年度, "
-						'2018/06/11
-						'受診日を[yyyy/M/d]に変換する
-						strSQL &= "FORMAT(CONVERT(DATE, T4.受診日), 'yyyy年M月d日') AS 受診日, "
-						strSQL &= "T1.帳票タイプ, T1.結果値1, T1.結果値2, T1.結果値3, T1.BOC, T1.EOC, T1.PAR, "
-						strSQL &= "T1.WAS1, T1.WAS2, T1.WAS3, T1.WAS4, T1.WAS5, T1.WAS6, T1.QRコード, T3.ラベル連番, T1.先頭マーク, "
-                        strSQL &= "CONVERT(VARCHAR, T1.トータルSEQ) + '-' + CONVERT(VARCHAR, T1.カレントSEQ) AS ページ "
-                        strSQL &= "FROM T_リーフレット印刷 AS T1 INNER JOIN "
-                        strSQL &= "T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID "
-                        strSQL &= "AND T1.レコード番号 = T2.レコード番号 INNER JOIN "
-						strSQL &= "T_印刷管理個別 AS T3 ON T2.ロットID = T3.ロットID "
-						strSQL &= "AND T2.会社コード = T3.会社コード "
-                        strSQL &= "AND T2.所属事業所コード = T3.所属事業所コード "
-						strSQL &= "AND T2.印刷ID = T3.印刷ID INNER JOIN "
-						'==================================================
-						'2018/06/11
-						strSQL &= "T_リーフレット AS T4 ON T1.ロットID = T4.ロットID "
-						strSQL &= "AND T1.レコード番号 = T4.レコード番号 "
-						'==================================================
-						strSQL &= "WHERE T1.ロットID = '" & strLotID & "' "
-						strSQL &= "AND T1.レコード番号 = " & dtLeaflet6.Rows(i)("レコード番号") & " "
-                        strSQL &= "AND T2.印刷ID = " & dtLeaf6Header.Rows(iRow)("印刷ID") & " "
-                        strSQL &= "AND T1.帳票タイプ = '" & dtFormType6.Rows(iFormType)("帳票タイプ") & "' "
-                        strSQL &= "GROUP BY T1.ロットID, T1.レコード番号, T1.システムID, T1.会社, T1.所属事業所, T1.所属部課名, T1.氏名, "
-						strSQL &= "T1.局所会社名, T1.健康管理施設名, T1.郵便番号, T1.住所, T1.電話番号, T1.年度, T4.受診日, T1.帳票タイプ, "
-						strSQL &= "T1.結果値1, T1.結果値2, T1.結果値3, T1.BOC, T1.EOC, T1.PAR, T1.WAS1, T1.WAS2, T1.WAS3, "
-                        strSQL &= "T1.WAS4, T1.WAS5, T1.WAS6, T1.QRコード, T3.ラベル連番, T1.先頭マーク, T1.トータルSEQ, T1.カレントSEQ "
-                        '印刷処理
-                        Print(strSQL, PrintCategory.Leaflet, dtFormType6.Rows(iFormType)("帳票タイプ"))
-
-                    Next
-                    '該当レコード番号の印刷が終了した段階でT_印刷管理の「リーフレット印刷日時」を更新する
-                    WritePrintDate(strLotID, PrintCategory.Leaflet, dtLeaflet6.Rows(i)("レコード番号"), dtLeaf6Header.Rows(iRow)("会社コード"), dtLeaf6Header.Rows(iRow)("所属事業所コード"), dtLeaf6Header.Rows(iRow)("印刷ID"))
-                    '該当の会社コード、所属事業所コード、印刷IDすべてのチェックフラグを取り下げる
-                    strSQL = "UPDATE T_印刷ソート SET チェックフラグ = 0 "
-                    strSQL &= "WHERE ロットID = '" & strLotID & "' "
-                    strSQL &= "AND 会社コード = '" & dtLeaf6Header.Rows(iRow)("会社コード") & "' "
-                    strSQL &= "AND 所属事業所コード = '" & dtLeaf6Header.Rows(iRow)("所属事業所コード") & "' "
-                    strSQL &= "AND 印刷ID = " & dtLeaf6Header.Rows(iRow)("印刷ID")
-                    sqlProcess.DB_UPDATE(strSQL)
-
-                    strHeaderSheet6 = dtLeaf6Header.Rows(iRow)("重量ヘッダ")
-
-                Next
-            Next
-
-        Catch ex As Exception
+		Catch ex As Exception
 
 			Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message & vbNewLine & ex.StackTrace)
 			MessageBox.Show("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)

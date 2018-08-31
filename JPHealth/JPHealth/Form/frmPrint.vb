@@ -213,28 +213,28 @@ Public Class frmPrint
         'End If
         Dim blnPrintWeightHeader As Boolean = True  'TRUE：重量ヘッダ単位、FALSE：個別印刷
 
-        If Me.chkSelectedPrint.Checked Then
-            '個別印刷
-            Dim iChecked As Integer = 0
-            For iRow As Integer = 1 To Me.C1FGridResult.Rows.Count - 1
-                If Me.C1FGridResult(iRow, "CHK") Then
-                    iChecked += 1
-                End If
-            Next
-            If iChecked = 0 Then
-                MessageBox.Show("下段グリッドより印刷対象にチェックを入れてください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Exit Sub
-            End If
+		Dim iChecked As Integer = 0
+		If Me.chkSelectedPrint.Checked Then
+			'個別印刷
+			For iRow As Integer = 1 To Me.C1FGridResult.Rows.Count - 1
+				If Me.C1FGridResult(iRow, "CHK") Then
+					iChecked += 1
+				End If
+			Next
+			If iChecked = 0 Then
+				MessageBox.Show("下段グリッドより印刷対象にチェックを入れてください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+				Exit Sub
+			End If
 
-            If MessageBox.Show("選択対象を印刷します" & vbNewLine & "インポート日時：" & Me.cmbLotID.SelectedItem.ToString & vbNewLine & "印刷対象：" & Me.cmbPrintClass.SelectedItem.ToString & vbNewLine &
-                               "選択件数：" & iChecked & "件" & vbNewLine & "よろしいですか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) = DialogResult.No Then
-                Exit Sub
-            End If
+			If MessageBox.Show("選択対象を印刷します" & vbNewLine & "インポート日時：" & Me.cmbLotID.SelectedItem.ToString & vbNewLine & "印刷対象：" & Me.cmbPrintClass.SelectedItem.ToString & vbNewLine &
+							   "選択件数：" & iChecked & "件" & vbNewLine & "よろしいですか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) = DialogResult.No Then
+				Exit Sub
+			End If
 
-            blnPrintWeightHeader = False    '個別印刷
-        Else
-            '重量単位の印刷
-            If Me.cmbWeightHeader.SelectedIndex < 0 Then
+			blnPrintWeightHeader = False    '個別印刷
+		Else
+			'重量単位の印刷
+			If Me.cmbWeightHeader.SelectedIndex < 0 Then
                 MessageBox.Show("重量ヘッダを選択してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
             End If
@@ -336,10 +336,19 @@ Public Class frmPrint
                     End If
             End Select
 
-            MessageBox.Show("印刷処理が完了しました" & vbNewLine & "インポート日時：" & Me.cmbLotID.SelectedItem.ToString & vbNewLine & "印刷対象：" & cmbPrintClass.SelectedItem.ToString & vbNewLine &
-                        "重量ヘッダ：" & Me.cmbWeightHeader.SelectedItem.ToString, "確認", MessageBoxButtons.OK, MessageBoxIcon.Information)
+			If blnPrintWeightHeader Then
+				'重量ヘッダ単位
+				MessageBox.Show("印刷処理が完了しました" & vbNewLine & "インポート日時：" & Me.cmbLotID.SelectedItem.ToString & vbNewLine & "印刷対象：" & cmbPrintClass.SelectedItem.ToString & vbNewLine &
+						"重量ヘッダ：" & Me.cmbWeightHeader.SelectedItem.ToString, "確認", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-            EnableControls(Me, True)
+			Else
+				'個別
+				MessageBox.Show("選択対象の印刷が完了しました" & vbNewLine & "インポート日時：" & Me.cmbLotID.SelectedItem.ToString & vbNewLine & "印刷対象：" & Me.cmbPrintClass.SelectedItem.ToString & vbNewLine &
+						"選択件数：" & iChecked & "件", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+			End If
+
+			EnableControls(Me, True)
             SearchGrid()
 
         Catch ex As Exception
