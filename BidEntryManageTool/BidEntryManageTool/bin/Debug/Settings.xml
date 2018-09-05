@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <XmlSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <LocationX>18</LocationX>
-  <LocationY>23</LocationY>
-  <SizeX>1236</SizeX>
-  <SizeY>683</SizeY>
+  <LocationX>6</LocationX>
+  <LocationY>11</LocationY>
+  <SizeX>1409</SizeX>
+  <SizeY>1082</SizeY>
   <State>0</State>
   <LocEntryX>100</LocEntryX>
   <LocEntryY>100</LocEntryY>

@@ -175,15 +175,16 @@
 		Try
 			'都道府県名の取得
 			strSQL = "SELECT T2.都道府県コード, T2.都道府県名 "
-			strSQL &= "FROM M_業者 AS T1 INNER JOIN "
+			strSQL &= "FROM M_自治体 AS T1 INNER JOIN "
 			strSQL &= "M_都道府県 AS T2 ON T1.都道府県コード = T2.都道府県コード "
+			strSQL &= "WHERE T1.業者フラグ = 1 "
 			strSQL &= "GROUP BY T2.都道府県コード, T2.都道府県名 "
 			strSQL &= "ORDER BY T2.都道府県コード"
 			Dim dt As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
 			SetComboValue(Me.cmbPrefectures, dt, True, True)
 			'業者の取得
-			strSQL = "SELECT 内部業者番号, 業者名 FROM M_業者 "
-			strSQL &= "ORDER BY 内部業者番号"
+			strSQL = "SELECT 内部番号, 自治体名 AS 業者名 FROM M_自治体 "
+			strSQL &= "ORDER BY 内部番号"
 			dt = sqlProcess.DB_SELECT_DATATABLE(strSQL)
 			SetComboValue(Me.cmbTrader, dt, True, False)
 

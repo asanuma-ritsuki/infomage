@@ -24,14 +24,14 @@ Partial Class frmSelectGroup
 	Private Sub InitializeComponent()
 		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSelectGroup))
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-		Me.Panel1 = New System.Windows.Forms.Panel()
-		Me.btnSelect = New System.Windows.Forms.Button()
-		Me.btnCancel = New System.Windows.Forms.Button()
 		Me.cmbPrefectures = New System.Windows.Forms.ComboBox()
 		Me.Label2 = New System.Windows.Forms.Label()
+		Me.Panel1 = New System.Windows.Forms.Panel()
+		Me.btnSelectAll = New System.Windows.Forms.Button()
+		Me.btnCancel = New System.Windows.Forms.Button()
+		Me.btnSelect = New System.Windows.Forms.Button()
 		Me.GroupBox2 = New System.Windows.Forms.GroupBox()
 		Me.C1FGridMuni = New C1.Win.C1FlexGrid.C1FlexGrid()
-		Me.btnSelectAll = New System.Windows.Forms.Button()
 		Me.GroupBox1.SuspendLayout()
 		Me.Panel1.SuspendLayout()
 		Me.GroupBox2.SuspendLayout()
@@ -49,35 +49,6 @@ Partial Class frmSelectGroup
 		Me.GroupBox1.TabIndex = 1
 		Me.GroupBox1.TabStop = False
 		Me.GroupBox1.Text = "検索"
-		'
-		'Panel1
-		'
-		Me.Panel1.Controls.Add(Me.btnSelectAll)
-		Me.Panel1.Controls.Add(Me.btnCancel)
-		Me.Panel1.Controls.Add(Me.btnSelect)
-		Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-		Me.Panel1.Location = New System.Drawing.Point(0, 526)
-		Me.Panel1.Name = "Panel1"
-		Me.Panel1.Size = New System.Drawing.Size(1024, 35)
-		Me.Panel1.TabIndex = 2
-		'
-		'btnSelect
-		'
-		Me.btnSelect.Location = New System.Drawing.Point(937, 6)
-		Me.btnSelect.Name = "btnSelect"
-		Me.btnSelect.Size = New System.Drawing.Size(75, 25)
-		Me.btnSelect.TabIndex = 0
-		Me.btnSelect.Text = "選　択"
-		Me.btnSelect.UseVisualStyleBackColor = True
-		'
-		'btnCancel
-		'
-		Me.btnCancel.Location = New System.Drawing.Point(856, 6)
-		Me.btnCancel.Name = "btnCancel"
-		Me.btnCancel.Size = New System.Drawing.Size(75, 25)
-		Me.btnCancel.TabIndex = 1
-		Me.btnCancel.Text = "キャンセル"
-		Me.btnCancel.UseVisualStyleBackColor = True
 		'
 		'cmbPrefectures
 		'
@@ -97,13 +68,51 @@ Partial Class frmSelectGroup
 		Me.Label2.Text = "都道府県："
 		Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
 		'
+		'Panel1
+		'
+		Me.Panel1.Controls.Add(Me.btnSelectAll)
+		Me.Panel1.Controls.Add(Me.btnCancel)
+		Me.Panel1.Controls.Add(Me.btnSelect)
+		Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
+		Me.Panel1.Location = New System.Drawing.Point(0, 504)
+		Me.Panel1.Name = "Panel1"
+		Me.Panel1.Size = New System.Drawing.Size(1024, 35)
+		Me.Panel1.TabIndex = 2
+		'
+		'btnSelectAll
+		'
+		Me.btnSelectAll.Location = New System.Drawing.Point(12, 6)
+		Me.btnSelectAll.Name = "btnSelectAll"
+		Me.btnSelectAll.Size = New System.Drawing.Size(75, 25)
+		Me.btnSelectAll.TabIndex = 2
+		Me.btnSelectAll.Text = "全て選択"
+		Me.btnSelectAll.UseVisualStyleBackColor = True
+		'
+		'btnCancel
+		'
+		Me.btnCancel.Location = New System.Drawing.Point(856, 6)
+		Me.btnCancel.Name = "btnCancel"
+		Me.btnCancel.Size = New System.Drawing.Size(75, 25)
+		Me.btnCancel.TabIndex = 1
+		Me.btnCancel.Text = "キャンセル"
+		Me.btnCancel.UseVisualStyleBackColor = True
+		'
+		'btnSelect
+		'
+		Me.btnSelect.Location = New System.Drawing.Point(937, 6)
+		Me.btnSelect.Name = "btnSelect"
+		Me.btnSelect.Size = New System.Drawing.Size(75, 25)
+		Me.btnSelect.TabIndex = 0
+		Me.btnSelect.Text = "選　択"
+		Me.btnSelect.UseVisualStyleBackColor = True
+		'
 		'GroupBox2
 		'
 		Me.GroupBox2.Controls.Add(Me.C1FGridMuni)
 		Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.GroupBox2.Location = New System.Drawing.Point(0, 70)
 		Me.GroupBox2.Name = "GroupBox2"
-		Me.GroupBox2.Size = New System.Drawing.Size(1024, 456)
+		Me.GroupBox2.Size = New System.Drawing.Size(1024, 434)
 		Me.GroupBox2.TabIndex = 3
 		Me.GroupBox2.TabStop = False
 		Me.GroupBox2.Text = "自治体一覧"
@@ -128,22 +137,14 @@ Partial Class frmSelectGroup
 		Me.C1FGridMuni.Rows.DefaultSize = 23
 		Me.C1FGridMuni.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row
 		Me.C1FGridMuni.ShowCellLabels = True
-		Me.C1FGridMuni.Size = New System.Drawing.Size(1018, 433)
+		Me.C1FGridMuni.Size = New System.Drawing.Size(1018, 411)
 		Me.C1FGridMuni.TabIndex = 6
 		Me.C1FGridMuni.VisualStyle = C1.Win.C1FlexGrid.VisualStyle.System
-		'
-		'btnSelectAll
-		'
-		Me.btnSelectAll.Location = New System.Drawing.Point(12, 6)
-		Me.btnSelectAll.Name = "btnSelectAll"
-		Me.btnSelectAll.Size = New System.Drawing.Size(75, 25)
-		Me.btnSelectAll.TabIndex = 2
-		Me.btnSelectAll.Text = "全て選択"
-		Me.btnSelectAll.UseVisualStyleBackColor = True
 		'
 		'frmSelectGroup
 		'
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
+		Me.CaptionDisplayMode = BidEntryManageTool.frmTempForm.StatusDisplayMode.ShowAll
 		Me.ClientSize = New System.Drawing.Size(1024, 561)
 		Me.Controls.Add(Me.GroupBox2)
 		Me.Controls.Add(Me.Panel1)

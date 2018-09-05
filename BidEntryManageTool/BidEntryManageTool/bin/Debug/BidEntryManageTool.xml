@@ -1865,6 +1865,61 @@ BidEntryManageTool
  初期化処理
  </summary>
 </member>
+<member name="M:BidEntryManageTool.frmSelectGroup.SearchGrid">
+ <summary>
+ 都道府県名を検索条件にして検索した値をグリッドにセットする
+ </summary>
+</member>
+<member name="M:BidEntryManageTool.frmSelectTrader.frmSelectTrader_Load(System.Object,System.EventArgs)">
+ <summary>
+ フォームロード時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:BidEntryManageTool.frmSelectTrader.Initialize">
+ <summary>
+ 初期化処理	
+ </summary>
+</member>
+<member name="M:BidEntryManageTool.frmSelectTrader.SearchGrid">
+ <summary>
+ 都道府県、業者名を指定して検索した値をグリッドにセットする
+ </summary>
+</member>
+<member name="M:BidEntryManageTool.frmSelectTrader.SelectTrader">
+ <summary>
+ 業者選択時動作
+ </summary>
+</member>
+<member name="M:BidEntryManageTool.frmSelectTrader.btnSearch_Click(System.Object,System.EventArgs)">
+ <summary>
+ 検索ボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:BidEntryManageTool.frmSelectTrader.btnCancel_Click(System.Object,System.EventArgs)">
+ <summary>
+ キャンセルボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:BidEntryManageTool.frmSelectTrader.btnSelect_Click(System.Object,System.EventArgs)">
+ <summary>
+ 選択ボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:BidEntryManageTool.frmSelectTrader.C1FGridResult_DoubleClick(System.Object,System.EventArgs)">
+ <summary>
+ グリッドダブルクリック時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
 <member name="P:BidEntryManageTool.frmTraderDetail.InnerNumber">
  <summary>
  内部番号の値を読み込みまたは設定する
@@ -1874,6 +1929,20 @@ BidEntryManageTool
 <member name="M:BidEntryManageTool.frmTraderDetail.frmTraderDetail_Load(System.Object,System.EventArgs)">
  <summary>
  フォームロード時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:BidEntryManageTool.frmTraderDetail.btnBack_Click(System.Object,System.EventArgs)">
+ <summary>
+ 戻るボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:BidEntryManageTool.frmTraderDetail.btnTraderSelect_Click(System.Object,System.EventArgs)">
+ <summary>
+ 業者選択ボタン押下時
  </summary>
  <param name="sender"></param>
  <param name="e"></param>

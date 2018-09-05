@@ -150,6 +150,12 @@
     <Compile Include="Form\frmSelectGroup.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form\frmSelectTrader.Designer.vb">
+      <DependentUpon>frmSelectTrader.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmSelectTrader.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form\frmTraderDetail.Designer.vb">
       <DependentUpon>frmTraderDetail.vb</DependentUpon>
     </Compile>
@@ -198,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\frmSelectGroup.resx">
       <DependentUpon>frmSelectGroup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmSelectTrader.resx">
+      <DependentUpon>frmSelectTrader.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\frmTraderDetail.resx">
       <DependentUpon>frmTraderDetail.vb</DependentUpon>
