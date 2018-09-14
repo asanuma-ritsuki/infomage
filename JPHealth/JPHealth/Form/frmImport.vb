@@ -1173,12 +1173,19 @@ Public Class frmImport
 											Dim d As Double
 											If Not Double.TryParse(row(iCol), d) Then
 												blnError = True
-											End If
-											If Strings.Mid(row(iCol), row(iCol).Length - 1, 1) = "." Then
-												'右から2文字目がピリオド(小数点)であった
 											Else
-												'ピリオドじゃなかった
-												blnError = True
+												'2018/09/06
+												'Double型だと整数値もスルーしてしまうため桁数が3桁未満は全てエラーとする
+												If row(iCol).Length < 3 Then
+													blnError = True
+												Else
+													If Strings.Mid(row(iCol), row(iCol).Length - 1, 1) = "." Then
+														'右から2文字目がピリオド(小数点)であった
+													Else
+														'ピリオドじゃなかった
+														blnError = True
+													End If
+												End If
 											End If
 
 										Case 59, 61, 62
@@ -1187,12 +1194,19 @@ Public Class frmImport
 											Dim d As Double
 											If Not Double.TryParse(row(iCol), d) Then
 												blnError = True
-											End If
-											If Strings.Mid(row(iCol), row(iCol).Length - 2, 1) = "." Then
-												'右から3文字目がピリオド(小数点)であった
 											Else
-												'ピリオドじゃなかった
-												blnError = True
+												'2018/09/06
+												'Double型だと整数値もスルーしてしまうため桁数が3桁未満は全てエラーとする
+												If row(iCol).Length < 3 Then
+													blnError = True
+												Else
+													If Strings.Mid(row(iCol), row(iCol).Length - 2, 1) = "." Then
+														'右から3文字目がピリオド(小数点)であった
+													Else
+														'ピリオドじゃなかった
+														blnError = True
+													End If
+												End If
 											End If
 									End Select
 									'エラーフラグが立っていたら不備内容に書き込む
@@ -1519,12 +1533,12 @@ Public Class frmImport
 
 								strSQL &= "'" & strLotID & "'"  'ロットID
                                 strSQL &= ", " & iRecNumber 'レコード番号
-                                For iCol As Integer = 0 To row.Count - 1
-                                    'シングルクォート「'」が文字列中に発生するとSQL文が破錠してしまうため「''」に置換する
-                                    'カラム内の改行は「\n」に変換する
-                                    strSQL &= ", '" & row(iCol).Replace("'", "''").Replace(vbNewLine, "\n") & "'"
-                                Next
-                                strSQL &= ")"
+								For iCol As Integer = 0 To row.Count - 1
+									'シングルクォート「'」が文字列中に発生するとSQL文が破錠してしまうため「''」に置換する
+									'カラム内の改行は「\n」に変換する
+									strSQL &= ", '" & row(iCol).Replace("'", "''").Replace(vbNewLine, "\n") & "'"
+								Next
+								strSQL &= ")"
                                 sqlProcess.DB_UPDATE(strSQL)
 
 								'===============================================================

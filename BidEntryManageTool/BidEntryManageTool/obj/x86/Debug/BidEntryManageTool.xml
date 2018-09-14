@@ -1926,6 +1926,12 @@ BidEntryManageTool
  </summary>
  <returns></returns>
 </member>
+<member name="P:BidEntryManageTool.frmTraderDetail.IsNew">
+ <summary>
+ 新規追加か、更新かを判断する
+ </summary>
+ <returns></returns>
+</member>
 <member name="M:BidEntryManageTool.frmTraderDetail.frmTraderDetail_Load(System.Object,System.EventArgs)">
  <summary>
  フォームロード時
@@ -1943,6 +1949,13 @@ BidEntryManageTool
 <member name="M:BidEntryManageTool.frmTraderDetail.btnTraderSelect_Click(System.Object,System.EventArgs)">
  <summary>
  業者選択ボタン押下時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:BidEntryManageTool.frmTraderDetail.btnRegist_Click(System.Object,System.EventArgs)">
+ <summary>
+ 新規登録ボタン押下時
  </summary>
  <param name="sender"></param>
  <param name="e"></param>

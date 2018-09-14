@@ -15,8 +15,8 @@
   <SizeManageY>0</SizeManageY>
   <StateManage>0</StateManage>
   <ApplicationName>JP健診 就業判定票発送業務支援ツール</ApplicationName>
-  <CheckupLocationX>884</CheckupLocationX>
-  <CheckupLocationY>114</CheckupLocationY>
+  <CheckupLocationX>1008</CheckupLocationX>
+  <CheckupLocationY>176</CheckupLocationY>
   <CheckupSizeX>1500</CheckupSizeX>
   <CheckupSizeY>850</CheckupSizeY>
   <CheckupState>0</CheckupState>
@@ -25,7 +25,7 @@
   <PrintSizeX>1200</PrintSizeX>
   <PrintSizeY>900</PrintSizeY>
   <PrintState>0</PrintState>
-  <ImportFromFolder>C:\JPTemp\01_Import\20180822</ImportFromFolder>
+  <ImportFromFolder>C:\JPTemp\01_Import\20180905</ImportFromFolder>
   <ImportToFolder>C:\JPTemp\02_Out</ImportToFolder>
   <ImportLogFolder>C:\JPTemp\03_Log</ImportLogFolder>
   <ZipPassword>Jp-Mbp@</ZipPassword>

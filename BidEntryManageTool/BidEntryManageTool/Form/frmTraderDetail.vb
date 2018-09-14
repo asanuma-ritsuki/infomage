@@ -3,6 +3,7 @@
 #Region "プライベート変数"
 
 	Private _InnerNumber As String
+	Private _IsNew As Boolean
 
 #End Region
 
@@ -21,6 +22,18 @@
 		End Set
 	End Property
 
+	''' <summary>
+	''' 新規追加か、更新かを判断する
+	''' </summary>
+	''' <returns></returns>
+	Public Property IsNew() As Boolean
+		Get
+			Return _IsNew
+		End Get
+		Set(value As Boolean)
+			_IsNew = value
+		End Set
+	End Property
 
 #End Region
 
@@ -71,6 +84,74 @@
 
 	End Sub
 
+	''' <summary>
+	''' 新規登録ボタン押下時
+	''' </summary>
+	''' <param name="sender"></param>
+	''' <param name="e"></param>
+	Private Sub btnRegist_Click(sender As Object, e As EventArgs) Handles btnRegist.Click
+		'入力チェック
+		'業者名
+		If IsNull(txtTraderName.Text) Then
+			MessageBox.Show("業者名を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+			Me.txtTraderName.Focus()
+			Me.txtTraderName.SelectAll()
+			Exit Sub
+		End If
+		'有効年度
+		If Me.cmbYear.SelectedItems.Count = 0 Then
+			MessageBox.Show("有効年度を1つ以上選択してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+			Me.cmbYear.Focus()
+			Exit Sub
+		End If
+		'有効期間
+		If IsDBNull(Me.dtpEffectiveFrom.Value) Then
+			'From
+			MessageBox.Show("有効期間の開始日を選択してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+			Me.dtpEffectiveFrom.Focus()
+			Exit Sub
+		ElseIf IsDBNull(Me.dtpEffectiveTo.Value) Then
+			'To
+			MessageBox.Show("有効期間の終了日を選択してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+			Me.dtpEffectiveTo.Focus()
+			Exit Sub
+		Else
+			'FromとToの日付が逆転していたら
+			Dim dtFrom As Date = CDate(Me.dtpEffectiveFrom.Value)
+			Dim dtTo As Date = CDate(Me.dtpEffectiveTo.Value)
+			Dim iCompare As Integer = DateTime.Compare(dtFrom, dtTo)
+			If iCompare > 0 Then
+				'ToよりFromのほうが後なのでエラー
+				MessageBox.Show("有効期間の日付が逆転しています", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+				Me.dtpEffectiveFrom.Focus()
+				Exit Sub
+			End If
+		End If
+
+		If MessageBox.Show("入力した内容で業者を登録します" & vbNewLine & "よろしいですか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then
+			Exit Sub
+		End If
+
+		Dim strSQL As String = ""
+		Dim sqlProcess As New SQLProcess
+
+		Try
+			'履歴番号の特定
+			strSQL = "SELECT "
+		Catch ex As Exception
+
+			Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message & vbNewLine & ex.StackTrace)
+			MessageBox.Show("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+		Finally
+
+			sqlProcess.Close()
+
+		End Try
+
+
+	End Sub
+
 
 #End Region
 
@@ -96,12 +177,19 @@
 			Dim dt As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
 			SetComboValue(Me.cmbPrefectures, dt, False, True)
 			'年度一覧の取得
-			strSQL = "SELECT 年度ID, 年度 FROM M_年度 "
-			strSQL &= "ORDER BY 年度ID"
-			dt = sqlProcess.DB_SELECT_DATATABLE(strSQL)
-			For iRow As Integer = 0 To dt.Rows.Count - 1
+			ViewYear()
 
-			Next
+			'新規登録か更新かで処理を分岐させる
+			If IsNew() Then
+				'新規登録
+				Me.btnUpdate.Visible = False    '更新ボタンを非表示にする
+				Me.btnDelete.Visible = False    '削除ボタンを非表示にする
+
+			Else
+				'更新
+				'内部番号をもとに各コントロールに値をセットする
+
+			End If
 
 		Catch ex As Exception
 
@@ -125,13 +213,16 @@
 		Dim sqlProcess As New SQLProcess
 
 		Try
-			strSQL = "SELECT 年度 FROM M_年度 "
+			strSQL = "SELECT 年度ID, 年度 FROM M_年度 "
 			strSQL &= "ORDER BY 年度ID"
 			Dim dt As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
 
-			For iRow As Integer = 0 To dt.Rows.Count - 1
+			Me.cmbYear.BindingInfo.DataSource = dt
+			Me.cmbYear.BindingInfo.DisplayMemberPath = "年度"
 
-			Next
+			Me.cmbYear.SelectAllCaption = "すべての項目を選択する"
+			Me.cmbYear.UnselectAllCaption = "すべての項目を選択解除する"
+
 		Catch ex As Exception
 
 			Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message & vbNewLine & ex.StackTrace)
@@ -143,6 +234,12 @@
 
 		End Try
 
+	End Sub
+
+	Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+		For i As Integer = 0 To Me.cmbYear.SelectedItems.Count - 1
+			MessageBox.Show(Me.cmbYear.SelectedItems(i).Value)
+		Next
 	End Sub
 
 #End Region

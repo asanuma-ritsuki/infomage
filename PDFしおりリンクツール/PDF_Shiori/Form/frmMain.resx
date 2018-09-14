@@ -1,0 +1,992 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="c1CommandHolder1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>267, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>43</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 12</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>992, 771</value>
+  </data>
+  <data name="c1SplitContainer1.CollapsingAreaColor" type="System.Drawing.Color, System.Drawing">
+    <value>DimGray</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="c1SplitContainer1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="c1SplitContainer1.FixedLineColor" type="System.Drawing.Color, System.Drawing">
+    <value>DimGray</value>
+  </data>
+  <data name="c1SplitContainer1.HeaderForeColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
+  <data name="c1SplitContainer1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 27</value>
+  </data>
+  <data name="fgrFilelist.ColumnInfo" xml:space="preserve">
+    <value>2,1,0,0,0,90,Columns:0{AllowSorting:False;Name:"No.";Caption:"No.";AllowDragging:False;AllowResizing:False;AllowEditing:False;}	1{AllowSorting:False;AllowFiltering:None;Name:"ファイル名";Caption:"ファイル名";AllowDragging:False;AllowEditing:False;}	</value>
+  </data>
+  <data name="fgrFilelist.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="fgrFilelist.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 15</value>
+  </data>
+  <data name="fgrFilelist.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 621</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="fgrFilelist.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;fgrFilelist.Name" xml:space="preserve">
+    <value>fgrFilelist</value>
+  </data>
+  <data name="&gt;&gt;fgrFilelist.Type" xml:space="preserve">
+    <value>C1.Win.C1FlexGrid.C1FlexGrid, C1.Win.C1FlexGrid.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da</value>
+  </data>
+  <data name="&gt;&gt;fgrFilelist.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;fgrFilelist.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="groupBox1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 61</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 639</value>
+  </data>
+  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>ファイル一覧</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
+    <value>c1SplitterPanel1</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="cmbLot.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="cmbLot.Caption" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cmbLot.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 3</value>
+  </data>
+  <data name="cmbLot.PropBag" xml:space="preserve">
+    <value>&lt;?xml version="1.0"?&gt;&lt;Blob&gt;&lt;Styles type="C1.Win.C1List.Design.ContextWrapper"&gt;&lt;Data&gt;Style6{}Inactive{ForeColor:InactiveCaptionText;BackColor:InactiveCaption;}EvenRow{BackColor:Aqua;}Group{Border:None,,0, 0, 0, 0;AlignVert:Center;BackColor:ControlDark;}Normal{}Style9{AlignHorz:Near;}OddRow{}Style1{}Style5{}Selected{ForeColor:WindowText;BackColor:239, 239, 247;}Style8{}Style4{}HighlightRow{ForeColor:HighlightText;BackColor:Highlight;}RecordSelector{AlignImage:Center;}Footer{}Style10{}Style3{}Style7{}Caption{AlignHorz:Center;}Heading{Wrap:True;Border:Raised,,1, 1, 1, 1;AlignVert:Center;BackColor:Control;ForeColor:ControlText;}Style11{}Style2{}&lt;/Data&gt;&lt;/Styles&gt;&lt;Splits&gt;&lt;C1.Win.C1List.ListBoxView AllowColSelect="False" Name="Split[0,0]" DefRecSelWidth="17" VerticalScrollGroup="1" HorizontalScrollGroup="1"&gt;&lt;ClientRect&gt;0, 0, 118, 98&lt;/ClientRect&gt;&lt;Height&gt;98&lt;/Height&gt;&lt;BorderSide&gt;Right&lt;/BorderSide&gt;&lt;VScrollBar /&gt;&lt;HScrollBar /&gt;&lt;CaptionStyle parent="Style2" me="Style9" /&gt;&lt;EvenRowStyle parent="EvenRow" me="Style7" /&gt;&lt;FooterStyle parent="Footer" me="Style3" /&gt;&lt;GroupStyle parent="Group" me="Style11" /&gt;&lt;HeadingStyle parent="Heading" me="Style2" /&gt;&lt;HighLightRowStyle parent="HighlightRow" me="Style6" /&gt;&lt;InactiveStyle parent="Inactive" me="Style4" /&gt;&lt;OddRowStyle parent="OddRow" me="Style8" /&gt;&lt;RecordSelectorStyle parent="RecordSelector" me="Style10" /&gt;&lt;SelectedStyle parent="Selected" me="Style5" /&gt;&lt;Style parent="Normal" me="Style1" /&gt;&lt;/C1.Win.C1List.ListBoxView&gt;&lt;/Splits&gt;&lt;NamedStyles&gt;&lt;Style parent="" me="Normal" /&gt;&lt;Style parent="Normal" me="Heading" /&gt;&lt;Style parent="Heading" me="Footer" /&gt;&lt;Style parent="Heading" me="Caption" /&gt;&lt;Style parent="Heading" me="Inactive" /&gt;&lt;Style parent="Normal" me="Selected" /&gt;&lt;Style parent="Normal" me="HighlightRow" /&gt;&lt;Style parent="Normal" me="EvenRow" /&gt;&lt;Style parent="Normal" me="OddRow" /&gt;&lt;Style parent="Heading" me="RecordSelector" /&gt;&lt;Style parent="Caption" me="Group" /&gt;&lt;/NamedStyles&gt;&lt;vertSplits&gt;1&lt;/vertSplits&gt;&lt;horzSplits&gt;1&lt;/horzSplits&gt;&lt;Layout&gt;Modified&lt;/Layout&gt;&lt;DefaultRecSelWidth&gt;17&lt;/DefaultRecSelWidth&gt;&lt;/Blob&gt;</value>
+  </data>
+  <data name="cmbLot.Size" type="System.Drawing.Size, System.Drawing">
+    <value>186, 20</value>
+  </data>
+  <data name="cmbLot.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="cmbLot.Text" xml:space="preserve">
+    <value>選択してください</value>
+  </data>
+  <data name="btnEnd.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="btnEnd.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnEnd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>118, 29</value>
+  </data>
+  <data name="btnEnd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnEnd.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="btnEnd.Text" xml:space="preserve">
+    <value>終了</value>
+  </data>
+  <data name="&gt;&gt;btnEnd.Name" xml:space="preserve">
+    <value>btnEnd</value>
+  </data>
+  <data name="&gt;&gt;btnEnd.Type" xml:space="preserve">
+    <value>C1.Win.C1Input.C1Button, C1.Win.C1Input.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a</value>
+  </data>
+  <data name="&gt;&gt;btnEnd.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;btnEnd.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnLoad.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="btnLoad.Location" type="System.Drawing.Point, System.Drawing">
+    <value>37, 29</value>
+  </data>
+  <data name="btnLoad.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnLoad.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="btnLoad.Text" xml:space="preserve">
+    <value>開始</value>
+  </data>
+  <data name="&gt;&gt;btnLoad.Name" xml:space="preserve">
+    <value>btnLoad</value>
+  </data>
+  <data name="&gt;&gt;btnLoad.Type" xml:space="preserve">
+    <value>C1.Win.C1Input.C1Button, C1.Win.C1Input.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a</value>
+  </data>
+  <data name="&gt;&gt;btnLoad.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;btnLoad.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 61</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>c1SplitterPanel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <assembly alias="C1.Win.C1SplitContainer.4" name="C1.Win.C1SplitContainer.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da" />
+  <data name="c1SplitterPanel1.Dock" type="C1.Win.C1SplitContainer.PanelDockStyle, C1.Win.C1SplitContainer.4">
+    <value>Left</value>
+  </data>
+  <data name="c1SplitterPanel1.MinWidth" type="System.Int32, mscorlib">
+    <value>200</value>
+  </data>
+  <data name="c1SplitterPanel1.SizeRatio" type="System.Double, mscorlib">
+    <value>20.243</value>
+  </data>
+  <data name="c1SplitterPanel1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="c1SplitterPanel1.Text" xml:space="preserve">
+    <value>ロット選択</value>
+  </data>
+  <data name="c1SplitterPanel1.Width" type="System.Int32, mscorlib">
+    <value>200</value>
+  </data>
+  <data name="&gt;&gt;c1SplitterPanel1.Name" xml:space="preserve">
+    <value>c1SplitterPanel1</value>
+  </data>
+  <data name="&gt;&gt;c1SplitterPanel1.Type" xml:space="preserve">
+    <value>C1.Win.C1SplitContainer.C1SplitterPanel, C1.Win.C1SplitContainer.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da</value>
+  </data>
+  <data name="&gt;&gt;c1SplitterPanel1.Parent" xml:space="preserve">
+    <value>c1SplitContainer1</value>
+  </data>
+  <data name="&gt;&gt;c1SplitterPanel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rivImage.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="rivImage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="rivImage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>736, 426</value>
+  </data>
+  <data name="rivImage.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;rivImage.Name" xml:space="preserve">
+    <value>rivImage</value>
+  </data>
+  <data name="&gt;&gt;rivImage.Type" xml:space="preserve">
+    <value>Leadtools.WinForms.RasterImageViewer, Leadtools.WinForms, Version=17.5.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907</value>
+  </data>
+  <data name="&gt;&gt;rivImage.Parent" xml:space="preserve">
+    <value>c1SplitterPanel2</value>
+  </data>
+  <data name="&gt;&gt;rivImage.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnZoomFit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnZoomFit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 187</value>
+  </data>
+  <data name="btnZoomFit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 40</value>
+  </data>
+  <data name="btnZoomFit.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnZoomFit.Text" xml:space="preserve">
+    <value>FIT</value>
+  </data>
+  <data name="&gt;&gt;btnZoomFit.Name" xml:space="preserve">
+    <value>btnZoomFit</value>
+  </data>
+  <data name="&gt;&gt;btnZoomFit.Type" xml:space="preserve">
+    <value>C1.Win.C1Input.C1Button, C1.Win.C1Input.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a</value>
+  </data>
+  <data name="&gt;&gt;btnZoomFit.Parent" xml:space="preserve">
+    <value>panel3</value>
+  </data>
+  <data name="&gt;&gt;btnZoomFit.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnZoomOut.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnZoomOut.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 141</value>
+  </data>
+  <data name="btnZoomOut.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 40</value>
+  </data>
+  <data name="btnZoomOut.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnZoomOut.Text" xml:space="preserve">
+    <value>縮小</value>
+  </data>
+  <data name="&gt;&gt;btnZoomOut.Name" xml:space="preserve">
+    <value>btnZoomOut</value>
+  </data>
+  <data name="&gt;&gt;btnZoomOut.Type" xml:space="preserve">
+    <value>C1.Win.C1Input.C1Button, C1.Win.C1Input.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a</value>
+  </data>
+  <data name="&gt;&gt;btnZoomOut.Parent" xml:space="preserve">
+    <value>panel3</value>
+  </data>
+  <data name="&gt;&gt;btnZoomOut.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnZoomIn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnZoomIn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 95</value>
+  </data>
+  <data name="btnZoomIn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 40</value>
+  </data>
+  <data name="btnZoomIn.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnZoomIn.Text" xml:space="preserve">
+    <value>拡大</value>
+  </data>
+  <data name="&gt;&gt;btnZoomIn.Name" xml:space="preserve">
+    <value>btnZoomIn</value>
+  </data>
+  <data name="&gt;&gt;btnZoomIn.Type" xml:space="preserve">
+    <value>C1.Win.C1Input.C1Button, C1.Win.C1Input.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a</value>
+  </data>
+  <data name="&gt;&gt;btnZoomIn.Parent" xml:space="preserve">
+    <value>panel3</value>
+  </data>
+  <data name="&gt;&gt;btnZoomIn.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnRightRotate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnRightRotate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 49</value>
+  </data>
+  <data name="btnRightRotate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 40</value>
+  </data>
+  <data name="btnRightRotate.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnRightRotate.Text" xml:space="preserve">
+    <value>右回転</value>
+  </data>
+  <data name="&gt;&gt;btnRightRotate.Name" xml:space="preserve">
+    <value>btnRightRotate</value>
+  </data>
+  <data name="&gt;&gt;btnRightRotate.Type" xml:space="preserve">
+    <value>C1.Win.C1Input.C1Button, C1.Win.C1Input.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a</value>
+  </data>
+  <data name="&gt;&gt;btnRightRotate.Parent" xml:space="preserve">
+    <value>panel3</value>
+  </data>
+  <data name="&gt;&gt;btnRightRotate.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnLeftRotate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 3</value>
+  </data>
+  <data name="btnLeftRotate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 40</value>
+  </data>
+  <data name="btnLeftRotate.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnLeftRotate.Text" xml:space="preserve">
+    <value>左回転</value>
+  </data>
+  <data name="&gt;&gt;btnLeftRotate.Name" xml:space="preserve">
+    <value>btnLeftRotate</value>
+  </data>
+  <data name="&gt;&gt;btnLeftRotate.Type" xml:space="preserve">
+    <value>C1.Win.C1Input.C1Button, C1.Win.C1Input.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a</value>
+  </data>
+  <data name="&gt;&gt;btnLeftRotate.Parent" xml:space="preserve">
+    <value>panel3</value>
+  </data>
+  <data name="&gt;&gt;btnLeftRotate.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="panel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>736, 0</value>
+  </data>
+  <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 426</value>
+  </data>
+  <data name="panel3.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;panel3.Name" xml:space="preserve">
+    <value>panel3</value>
+  </data>
+  <data name="&gt;&gt;panel3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel3.Parent" xml:space="preserve">
+    <value>c1SplitterPanel2</value>
+  </data>
+  <data name="&gt;&gt;panel3.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="imvSelectedImage.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="imvSelectedImage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="imvSelectedImage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>788, 426</value>
+  </data>
+  <data name="imvSelectedImage.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;imvSelectedImage.Name" xml:space="preserve">
+    <value>imvSelectedImage</value>
+  </data>
+  <data name="&gt;&gt;imvSelectedImage.Type" xml:space="preserve">
+    <value>Leadtools.WinForms.RasterImageViewer, Leadtools.WinForms, Version=17.5.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907</value>
+  </data>
+  <data name="&gt;&gt;imvSelectedImage.Parent" xml:space="preserve">
+    <value>c1SplitterPanel2</value>
+  </data>
+  <data name="&gt;&gt;imvSelectedImage.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="txtSelectIndex.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="txtSelectIndex.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtSelectIndex.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 16pt</value>
+  </data>
+  <data name="txtSelectIndex.Location" type="System.Drawing.Point, System.Drawing">
+    <value>28, 0</value>
+  </data>
+  <data name="txtSelectIndex.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txtSelectIndex.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 8, 0, 0</value>
+  </data>
+  <data name="txtSelectIndex.Size" type="System.Drawing.Size, System.Drawing">
+    <value>622, 41</value>
+  </data>
+  <data name="txtSelectIndex.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="txtSelectIndex.Tag" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;txtSelectIndex.Name" xml:space="preserve">
+    <value>txtSelectIndex</value>
+  </data>
+  <data name="&gt;&gt;txtSelectIndex.Type" xml:space="preserve">
+    <value>C1.Win.C1Input.C1TextBox, C1.Win.C1Input.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a</value>
+  </data>
+  <data name="&gt;&gt;txtSelectIndex.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;txtSelectIndex.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="txtSelectKaisou.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="txtSelectKaisou.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtSelectKaisou.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 16pt</value>
+  </data>
+  <data name="txtSelectKaisou.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="txtSelectKaisou.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txtSelectKaisou.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 8, 0, 0</value>
+  </data>
+  <data name="txtSelectKaisou.Size" type="System.Drawing.Size, System.Drawing">
+    <value>28, 41</value>
+  </data>
+  <data name="txtSelectKaisou.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="txtSelectKaisou.Tag" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="txtSelectKaisou.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;txtSelectKaisou.Name" xml:space="preserve">
+    <value>txtSelectKaisou</value>
+  </data>
+  <data name="&gt;&gt;txtSelectKaisou.Type" xml:space="preserve">
+    <value>C1.Win.C1Input.C1TextBox, C1.Win.C1Input.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a</value>
+  </data>
+  <data name="&gt;&gt;txtSelectKaisou.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;txtSelectKaisou.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnAbort.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="btnAbort.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnAbort.Location" type="System.Drawing.Point, System.Drawing">
+    <value>650, 0</value>
+  </data>
+  <data name="btnAbort.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 41</value>
+  </data>
+  <data name="btnAbort.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnAbort.Text" xml:space="preserve">
+    <value>中止</value>
+  </data>
+  <data name="&gt;&gt;btnAbort.Name" xml:space="preserve">
+    <value>btnAbort</value>
+  </data>
+  <data name="&gt;&gt;btnAbort.Type" xml:space="preserve">
+    <value>C1.Win.C1Input.C1Button, C1.Win.C1Input.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a</value>
+  </data>
+  <data name="&gt;&gt;btnAbort.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;btnAbort.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnEditIndex.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="btnEditIndex.Location" type="System.Drawing.Point, System.Drawing">
+    <value>696, 0</value>
+  </data>
+  <data name="btnEditIndex.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 41</value>
+  </data>
+  <data name="btnEditIndex.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnEditIndex.Text" xml:space="preserve">
+    <value>編集</value>
+  </data>
+  <data name="&gt;&gt;btnEditIndex.Name" xml:space="preserve">
+    <value>btnEditIndex</value>
+  </data>
+  <data name="&gt;&gt;btnEditIndex.Type" xml:space="preserve">
+    <value>C1.Win.C1Input.C1Button, C1.Win.C1Input.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a</value>
+  </data>
+  <data name="&gt;&gt;btnEditIndex.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;btnEditIndex.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnConfirm.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="btnConfirm.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnConfirm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>742, 0</value>
+  </data>
+  <data name="btnConfirm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 41</value>
+  </data>
+  <data name="btnConfirm.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnConfirm.Text" xml:space="preserve">
+    <value>確定</value>
+  </data>
+  <data name="&gt;&gt;btnConfirm.Name" xml:space="preserve">
+    <value>btnConfirm</value>
+  </data>
+  <data name="&gt;&gt;btnConfirm.Type" xml:space="preserve">
+    <value>C1.Win.C1Input.C1Button, C1.Win.C1Input.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a</value>
+  </data>
+  <data name="&gt;&gt;btnConfirm.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;btnConfirm.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="panel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 426</value>
+  </data>
+  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>788, 41</value>
+  </data>
+  <data name="panel2.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;panel2.Name" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
+    <value>c1SplitterPanel2</value>
+  </data>
+  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="c1SplitterPanel2.Height" type="System.Int32, mscorlib">
+    <value>488</value>
+  </data>
+  <data name="c1SplitterPanel2.MinHeight" type="System.Int32, mscorlib">
+    <value>488</value>
+  </data>
+  <data name="c1SplitterPanel2.MinWidth" type="System.Int32, mscorlib">
+    <value>788</value>
+  </data>
+  <data name="c1SplitterPanel2.SizeRatio" type="System.Double, mscorlib">
+    <value>68.061</value>
+  </data>
+  <data name="c1SplitterPanel2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="c1SplitterPanel2.Text" xml:space="preserve">
+    <value>選択ファイル</value>
+  </data>
+  <data name="c1SplitterPanel2.Width" type="System.Int32, mscorlib">
+    <value>788</value>
+  </data>
+  <data name="&gt;&gt;c1SplitterPanel2.Name" xml:space="preserve">
+    <value>c1SplitterPanel2</value>
+  </data>
+  <data name="&gt;&gt;c1SplitterPanel2.Type" xml:space="preserve">
+    <value>C1.Win.C1SplitContainer.C1SplitterPanel, C1.Win.C1SplitContainer.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da</value>
+  </data>
+  <data name="&gt;&gt;c1SplitterPanel2.Parent" xml:space="preserve">
+    <value>c1SplitContainer1</value>
+  </data>
+  <data name="&gt;&gt;c1SplitterPanel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="fgrIndexlist.ColumnInfo" xml:space="preserve">
+    <value>7,1,0,0,0,90,Columns:0{AllowSorting:False;Name:"No.";Caption:"No.";AllowDragging:False;AllowResizing:False;AllowEditing:False;}	1{Name:"Shiori_ID";Caption:"Shiori_ID";Visible:False;AllowResizing:False;}	2{Width:60;AllowSorting:False;Name:"階層";Caption:"階層";AllowDragging:False;AllowResizing:False;AllowEditing:False;}	3{Width:300;AllowSorting:False;Name:"しおり";Caption:"しおり";AllowDragging:False;AllowEditing:False;}	4{AllowSorting:False;Name:"リンクファイル名";Caption:"リンクファイル名";AllowDragging:False;AllowEditing:False;}	5{AllowSorting:False;Name:"削除";Caption:"削除";AllowDragging:False;AllowResizing:False;Style:"DataType:System.Boolean;TextAlign:LeftCenter;ImageAlign:CenterCenter;";}	6{AllowSorting:False;Name:"備考";Caption:"備考";AllowDragging:False;AllowResizing:False;}	</value>
+  </data>
+  <data name="fgrIndexlist.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="fgrIndexlist.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="fgrIndexlist.Size" type="System.Drawing.Size, System.Drawing">
+    <value>788, 208</value>
+  </data>
+  <data name="fgrIndexlist.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;fgrIndexlist.Name" xml:space="preserve">
+    <value>fgrIndexlist</value>
+  </data>
+  <data name="&gt;&gt;fgrIndexlist.Type" xml:space="preserve">
+    <value>C1.Win.C1FlexGrid.C1FlexGrid, C1.Win.C1FlexGrid.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da</value>
+  </data>
+  <data name="&gt;&gt;fgrIndexlist.Parent" xml:space="preserve">
+    <value>c1SplitterPanel3</value>
+  </data>
+  <data name="&gt;&gt;fgrIndexlist.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="c1SplitterPanel3.Height" type="System.Int32, mscorlib">
+    <value>229</value>
+  </data>
+  <data name="c1SplitterPanel3.MinHeight" type="System.Int32, mscorlib">
+    <value>229</value>
+  </data>
+  <data name="c1SplitterPanel3.MinWidth" type="System.Int32, mscorlib">
+    <value>788</value>
+  </data>
+  <data name="c1SplitterPanel3.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="c1SplitterPanel3.Text" xml:space="preserve">
+    <value>しおり一覧</value>
+  </data>
+  <data name="c1SplitterPanel3.Width" type="System.Int32, mscorlib">
+    <value>788</value>
+  </data>
+  <data name="&gt;&gt;c1SplitterPanel3.Name" xml:space="preserve">
+    <value>c1SplitterPanel3</value>
+  </data>
+  <data name="&gt;&gt;c1SplitterPanel3.Type" xml:space="preserve">
+    <value>C1.Win.C1SplitContainer.C1SplitterPanel, C1.Win.C1SplitContainer.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da</value>
+  </data>
+  <data name="&gt;&gt;c1SplitterPanel3.Parent" xml:space="preserve">
+    <value>c1SplitContainer1</value>
+  </data>
+  <data name="&gt;&gt;c1SplitterPanel3.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="c1SplitContainer1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>992, 721</value>
+  </data>
+  <data name="c1SplitContainer1.SplitterColor" type="System.Drawing.Color, System.Drawing">
+    <value>DimGray</value>
+  </data>
+  <data name="c1SplitContainer1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;c1SplitContainer1.Name" xml:space="preserve">
+    <value>c1SplitContainer1</value>
+  </data>
+  <data name="&gt;&gt;c1SplitContainer1.Type" xml:space="preserve">
+    <value>C1.Win.C1SplitContainer.C1SplitContainer, C1.Win.C1SplitContainer.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da</value>
+  </data>
+  <data name="&gt;&gt;c1SplitContainer1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;c1SplitContainer1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="txtFileCount.Label" xml:space="preserve">
+    <value>ファイル数：</value>
+  </data>
+  <data name="txtFileCount.Text" xml:space="preserve">
+    <value>0000</value>
+  </data>
+  <data name="txtLinkCount.Label" xml:space="preserve">
+    <value>リンク済み件数</value>
+  </data>
+  <data name="txtLinkCount.Text" xml:space="preserve">
+    <value>0000/0000</value>
+  </data>
+  <data name="btnBackMenu.LargeImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <data name="btnBackMenu.SmallImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAA0tJREFUOE9tkm1ME3ccxy97iEvMkr2YIzFEAwtmAj4sRjSLkWxTcdZhjME3iLoG
+        ESo+bNFt0o4bD7oq2mK0EVTAp6BsKg+KEkgsYCtDxdKiIoWOQutRaAvH9QHb4+67azni4ye5N3ffz+//
+        vX9+xOtIj+g+TTvcJvvltKFJcbHPkFP23yOZuuPxrqNaffbhm39kkte/EKPvsqfYFJGtMVaVN1HOhzbv
+        y+HxCdZJv2SHR/1sz6ArUFbT4f5JUaXfuKd8tai8Iktlis658NRotI5yLMfjiZVBRaMV0/DCw05ysNpd
+        vFR+2bsyVZ0rqgSx+4R5huxUZ/WjQQY8z4P2BvGjQofknJYp+y3Gx2mskxYHE9OOp4QHSI/+u6a0/llY
+        NtsZfHtQj8XHrEjY14I77RSG3BOiKrRgOQQDfnQ+7cWiDYVDidsqPiHSyPrKPjsNrdGJuL2CfNKBZRUM
+        FqnsiDnYha9krSi9ZRFHADQ9Bp/Hhey8y754SX4BkXmozjTJcZCXmRB9oBMLNG7EqYcQr6YQqxxAnIpC
+        1H4Diq52h1syDA3niANnrzQE49bnNRHp+dVDoQ8hlJXPMDtTh6gCC2J338OWAj2+2deMub91IWL7XdhG
+        vPB5PXA7HdA2tweiv1e0EFtybtgCwcnwgBB1918gIrUBkl+14hvg59NGfJ7aCPU/3UKDcWEAhbutHcG5
+        3/2uJ1Zs1Tie9DrE6BQdvWM4LlSeZswTwGcbqrHjWDtGhPqUfRCXrjWy81blthJrMytqyqsfiNH34/Gz
+        mJV8DWfqukG9sIGyWSEjy/0xSaSKSCdrl0v/rPLRHn84zHGvfmearn4aCTtvo3/AjufPe/gm3QN2yaaC
+        /oSNykgiI6P04x8ySkryNPWCzIINCBfl84bF0N1yof0YcKLNYIG5x8xrW9oDm7M0bKwkPyO8SCHWpp+J
+        XJmqalaorsM5TGHC64aHdsHPuMGMjsBBCbXtAzAYTfwO+TkIclFKyt8fivoUq9KK58SvL7yzdPMhRlly
+        E633H8Ni6QudiraHnVCfq8XXm/Jd8yV5yoWri2aK2pskJpIfLZD8Fb0wufCIsGW6qDVyS0xSrvnLJHnj
+        vCTyfOy6wsUESX4gxgUI4n8J2aN5JRn3pwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="btnBackMenu.Text" xml:space="preserve">
+    <value>戻る</value>
+  </data>
+  <data name="&gt;&gt;c1StatusBar1.Name" xml:space="preserve">
+    <value>c1StatusBar1</value>
+  </data>
+  <data name="&gt;&gt;c1StatusBar1.Type" xml:space="preserve">
+    <value>C1.Win.C1Ribbon.C1StatusBar, C1.Win.C1Ribbon.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da</value>
+  </data>
+  <data name="&gt;&gt;c1StatusBar1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;c1StatusBar1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>1000, 800</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Form1</value>
+  </data>
+  <data name="&gt;&gt;c1CommandHolder1.Name" xml:space="preserve">
+    <value>c1CommandHolder1</value>
+  </data>
+  <data name="&gt;&gt;c1CommandHolder1.Type" xml:space="preserve">
+    <value>C1.Win.C1Command.C1CommandHolder, C1.Win.C1Command.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=e808566f358766d8</value>
+  </data>
+  <data name="&gt;&gt;c1CommandLink1.Name" xml:space="preserve">
+    <value>c1CommandLink1</value>
+  </data>
+  <data name="&gt;&gt;c1CommandLink1.Type" xml:space="preserve">
+    <value>C1.Win.C1Command.C1CommandLink, C1.Win.C1Command.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=e808566f358766d8</value>
+  </data>
+  <data name="&gt;&gt;txtFileCount.Name" xml:space="preserve">
+    <value>txtFileCount</value>
+  </data>
+  <data name="&gt;&gt;txtFileCount.Type" xml:space="preserve">
+    <value>C1.Win.C1Ribbon.RibbonTextBox, C1.Win.C1Ribbon.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da</value>
+  </data>
+  <data name="&gt;&gt;txtLinkCount.Name" xml:space="preserve">
+    <value>txtLinkCount</value>
+  </data>
+  <data name="&gt;&gt;txtLinkCount.Type" xml:space="preserve">
+    <value>C1.Win.C1Ribbon.RibbonTextBox, C1.Win.C1Ribbon.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da</value>
+  </data>
+  <data name="&gt;&gt;btnBackMenu.Name" xml:space="preserve">
+    <value>btnBackMenu</value>
+  </data>
+  <data name="&gt;&gt;btnBackMenu.Type" xml:space="preserve">
+    <value>C1.Win.C1Ribbon.RibbonButton, C1.Win.C1Ribbon.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>frmMain</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>C1.Win.C1Ribbon.C1RibbonForm, C1.Win.C1Ribbon.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da</value>
+  </data>
+  <data name="c1CommandLink1.Text" xml:space="preserve">
+    <value>新規コマンド</value>
+  </data>
+  <data name="c1MainMenu1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="c1MainMenu1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="c1MainMenu1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>992, 27</value>
+  </data>
+  <data name="&gt;&gt;c1MainMenu1.Name" xml:space="preserve">
+    <value>c1MainMenu1</value>
+  </data>
+  <data name="&gt;&gt;c1MainMenu1.Type" xml:space="preserve">
+    <value>C1.Win.C1Command.C1MainMenu, C1.Win.C1Command.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=e808566f358766d8</value>
+  </data>
+  <data name="&gt;&gt;c1MainMenu1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;c1MainMenu1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+</root>

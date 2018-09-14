@@ -64,7 +64,7 @@ Partial Class frmImport
 		Me.Panel1.Controls.Add(Me.Label5)
 		Me.Panel1.Controls.Add(Me.btnPrintPreparation)
 		Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-		Me.Panel1.Location = New System.Drawing.Point(0, 489)
+		Me.Panel1.Location = New System.Drawing.Point(0, 490)
 		Me.Panel1.Name = "Panel1"
 		Me.Panel1.Size = New System.Drawing.Size(784, 34)
 		Me.Panel1.TabIndex = 1
@@ -315,7 +315,7 @@ Partial Class frmImport
 		Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.Panel3.Location = New System.Drawing.Point(0, 144)
 		Me.Panel3.Name = "Panel3"
-		Me.Panel3.Size = New System.Drawing.Size(784, 345)
+		Me.Panel3.Size = New System.Drawing.Size(784, 346)
 		Me.Panel3.TabIndex = 3
 		'
 		'lstResult
@@ -325,7 +325,7 @@ Partial Class frmImport
 		Me.lstResult.ItemHeight = 17
 		Me.lstResult.Location = New System.Drawing.Point(0, 0)
 		Me.lstResult.Name = "lstResult"
-		Me.lstResult.Size = New System.Drawing.Size(784, 345)
+		Me.lstResult.Size = New System.Drawing.Size(784, 346)
 		Me.lstResult.TabIndex = 0
 		'
 		'frmImport

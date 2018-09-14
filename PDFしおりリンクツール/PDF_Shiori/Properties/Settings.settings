@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="PDF_Shiori.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SQL_DataSource" Type="System.String" Scope="User">
+      <Value Profile="(Default)">INTRA-PDC00\INTRASQL</Value>
+    </Setting>
+    <Setting Name="SQL_DataBase" Type="System.String" Scope="User">
+      <Value Profile="(Default)">InTools</Value>
+    </Setting>
+    <Setting Name="SQL_UserID" Type="System.String" Scope="User">
+      <Value Profile="(Default)">sa</Value>
+    </Setting>
+    <Setting Name="SQL_PassWord" Type="System.String" Scope="User">
+      <Value Profile="(Default)">intra_intra</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

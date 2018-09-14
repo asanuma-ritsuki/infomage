@@ -890,7 +890,7 @@ Public Class XmlSettings
 		_LocEntryY = 100
 		_SizeEntryX = 1024
 		_SizeEntryY = 400
-		_ApplicationName = "JP健診 就業判定票発送業務支援ツール"
+		_ApplicationName = "入札参加資格情報管理ツール"
 		'インポート画面
 		_ImportFromFolder = "E:\JPTemp\01_Import"
 		_ImportToFolder = "E:\JPTemp\02_Out"

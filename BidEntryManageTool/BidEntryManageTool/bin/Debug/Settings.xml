@@ -14,7 +14,7 @@
   <SizeManageX>0</SizeManageX>
   <SizeManageY>0</SizeManageY>
   <StateManage>0</StateManage>
-  <ApplicationName>JP健診 就業判定票発送業務支援ツール</ApplicationName>
+  <ApplicationName>入札参加資格情報管理ツール</ApplicationName>
   <ImportFromFolder>E:\JPTemp\01_Import</ImportFromFolder>
   <ImportToFolder>E:\JPTemp\02_Out</ImportToFolder>
   <ImportLogFolder>E:\JPTemp\03_Log</ImportLogFolder>

@@ -31,6 +31,8 @@ Partial Class frmTraderDetail
 		Me.Button2 = New System.Windows.Forms.Button()
 		Me.Button1 = New System.Windows.Forms.Button()
 		Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+		Me.btnUpdate = New System.Windows.Forms.Button()
+		Me.Button3 = New System.Windows.Forms.Button()
 		Me.dtpCertification = New C1.Win.Calendar.C1DateEdit()
 		Me.dtpApplication = New C1.Win.Calendar.C1DateEdit()
 		Me.dtpApplicationTo = New C1.Win.Calendar.C1DateEdit()
@@ -73,16 +75,6 @@ Partial Class frmTraderDetail
 		Me.Label1 = New System.Windows.Forms.Label()
 		Me.txtTraderNumber = New System.Windows.Forms.TextBox()
 		Me.btnTraderSelect = New System.Windows.Forms.Button()
-		Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-		Me.btnUpdate = New System.Windows.Forms.Button()
-		Me.dtpArrival = New C1.Win.Calendar.C1DateEdit()
-		Me.Label23 = New System.Windows.Forms.Label()
-		Me.txtMuniRemarks = New System.Windows.Forms.TextBox()
-		Me.Label22 = New System.Windows.Forms.Label()
-		Me.Label21 = New System.Windows.Forms.Label()
-		Me.txtMuni = New System.Windows.Forms.TextBox()
-		Me.Label20 = New System.Windows.Forms.Label()
-		Me.txtGroupCode = New System.Windows.Forms.TextBox()
 		Me.GroupBox1.SuspendLayout()
 		CType(Me.C1FGridHistory, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBox2.SuspendLayout()
@@ -95,8 +87,6 @@ Partial Class frmTraderDetail
 		CType(Me.dtpApplicationFrom, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.dtpEffectiveTo, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.dtpEffectiveFrom, System.ComponentModel.ISupportInitialize).BeginInit()
-		Me.GroupBox3.SuspendLayout()
-		CType(Me.dtpArrival, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
 		'GroupBox1
@@ -105,7 +95,7 @@ Partial Class frmTraderDetail
 		Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Left
 		Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
 		Me.GroupBox1.Name = "GroupBox1"
-		Me.GroupBox1.Size = New System.Drawing.Size(200, 618)
+		Me.GroupBox1.Size = New System.Drawing.Size(200, 739)
 		Me.GroupBox1.TabIndex = 1
 		Me.GroupBox1.TabStop = False
 		Me.GroupBox1.Text = "履歴情報"
@@ -130,7 +120,7 @@ Partial Class frmTraderDetail
 		Me.C1FGridHistory.Rows.DefaultSize = 23
 		Me.C1FGridHistory.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row
 		Me.C1FGridHistory.ShowCellLabels = True
-		Me.C1FGridHistory.Size = New System.Drawing.Size(194, 595)
+		Me.C1FGridHistory.Size = New System.Drawing.Size(194, 716)
 		Me.C1FGridHistory.TabIndex = 6
 		Me.C1FGridHistory.VisualStyle = C1.Win.C1FlexGrid.VisualStyle.System
 		'
@@ -139,9 +129,9 @@ Partial Class frmTraderDetail
 		Me.GroupBox2.Controls.Add(Me.C1FlexGrid1)
 		Me.GroupBox2.Controls.Add(Me.Panel1)
 		Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Right
-		Me.GroupBox2.Location = New System.Drawing.Point(1031, 0)
+		Me.GroupBox2.Location = New System.Drawing.Point(643, 0)
 		Me.GroupBox2.Name = "GroupBox2"
-		Me.GroupBox2.Size = New System.Drawing.Size(253, 618)
+		Me.GroupBox2.Size = New System.Drawing.Size(444, 739)
 		Me.GroupBox2.TabIndex = 2
 		Me.GroupBox2.TabStop = False
 		Me.GroupBox2.Text = "自治体情報"
@@ -166,7 +156,7 @@ Partial Class frmTraderDetail
 		Me.C1FlexGrid1.Rows.DefaultSize = 23
 		Me.C1FlexGrid1.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row
 		Me.C1FlexGrid1.ShowCellLabels = True
-		Me.C1FlexGrid1.Size = New System.Drawing.Size(247, 564)
+		Me.C1FlexGrid1.Size = New System.Drawing.Size(438, 685)
 		Me.C1FlexGrid1.TabIndex = 7
 		Me.C1FlexGrid1.VisualStyle = C1.Win.C1FlexGrid.VisualStyle.System
 		'
@@ -175,15 +165,15 @@ Partial Class frmTraderDetail
 		Me.Panel1.Controls.Add(Me.Button2)
 		Me.Panel1.Controls.Add(Me.Button1)
 		Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-		Me.Panel1.Location = New System.Drawing.Point(3, 584)
+		Me.Panel1.Location = New System.Drawing.Point(3, 705)
 		Me.Panel1.Name = "Panel1"
-		Me.Panel1.Size = New System.Drawing.Size(247, 31)
+		Me.Panel1.Size = New System.Drawing.Size(438, 31)
 		Me.Panel1.TabIndex = 0
 		'
 		'Button2
 		'
 		Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.Button2.Location = New System.Drawing.Point(82, 3)
+		Me.Button2.Location = New System.Drawing.Point(273, 3)
 		Me.Button2.Name = "Button2"
 		Me.Button2.Size = New System.Drawing.Size(75, 25)
 		Me.Button2.TabIndex = 2
@@ -193,7 +183,7 @@ Partial Class frmTraderDetail
 		'Button1
 		'
 		Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.Button1.Location = New System.Drawing.Point(163, 3)
+		Me.Button1.Location = New System.Drawing.Point(354, 3)
 		Me.Button1.Name = "Button1"
 		Me.Button1.Size = New System.Drawing.Size(75, 25)
 		Me.Button1.TabIndex = 1
@@ -202,6 +192,8 @@ Partial Class frmTraderDetail
 		'
 		'GroupBox4
 		'
+		Me.GroupBox4.Controls.Add(Me.btnUpdate)
+		Me.GroupBox4.Controls.Add(Me.Button3)
 		Me.GroupBox4.Controls.Add(Me.dtpCertification)
 		Me.GroupBox4.Controls.Add(Me.dtpApplication)
 		Me.GroupBox4.Controls.Add(Me.dtpApplicationTo)
@@ -244,13 +236,32 @@ Partial Class frmTraderDetail
 		Me.GroupBox4.Controls.Add(Me.Label1)
 		Me.GroupBox4.Controls.Add(Me.txtTraderNumber)
 		Me.GroupBox4.Controls.Add(Me.btnTraderSelect)
-		Me.GroupBox4.Dock = System.Windows.Forms.DockStyle.Top
+		Me.GroupBox4.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.GroupBox4.Location = New System.Drawing.Point(200, 0)
 		Me.GroupBox4.Name = "GroupBox4"
-		Me.GroupBox4.Size = New System.Drawing.Size(831, 468)
+		Me.GroupBox4.Size = New System.Drawing.Size(443, 739)
 		Me.GroupBox4.TabIndex = 6
 		Me.GroupBox4.TabStop = False
 		Me.GroupBox4.Text = "業者情報"
+		'
+		'btnUpdate
+		'
+		Me.btnUpdate.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.btnUpdate.Location = New System.Drawing.Point(281, 708)
+		Me.btnUpdate.Name = "btnUpdate"
+		Me.btnUpdate.Size = New System.Drawing.Size(75, 25)
+		Me.btnUpdate.TabIndex = 56
+		Me.btnUpdate.Text = "更　新"
+		Me.btnUpdate.UseVisualStyleBackColor = True
+		'
+		'Button3
+		'
+		Me.Button3.Location = New System.Drawing.Point(295, 517)
+		Me.Button3.Name = "Button3"
+		Me.Button3.Size = New System.Drawing.Size(75, 25)
+		Me.Button3.TabIndex = 48
+		Me.Button3.Text = "業者選択"
+		Me.Button3.UseVisualStyleBackColor = True
 		'
 		'dtpCertification
 		'
@@ -269,7 +280,7 @@ Partial Class frmTraderDetail
 			Or C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) _
 			Or C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd), C1.Win.C1Input.FormatInfoInheritFlags)
 		Me.dtpCertification.ImagePadding = New System.Windows.Forms.Padding(0)
-		Me.dtpCertification.Location = New System.Drawing.Point(508, 206)
+		Me.dtpCertification.Location = New System.Drawing.Point(118, 537)
 		Me.dtpCertification.Name = "dtpCertification"
 		Me.dtpCertification.Size = New System.Drawing.Size(140, 24)
 		Me.dtpCertification.TabIndex = 47
@@ -293,7 +304,7 @@ Partial Class frmTraderDetail
 			Or C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) _
 			Or C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd), C1.Win.C1Input.FormatInfoInheritFlags)
 		Me.dtpApplication.ImagePadding = New System.Windows.Forms.Padding(0)
-		Me.dtpApplication.Location = New System.Drawing.Point(508, 176)
+		Me.dtpApplication.Location = New System.Drawing.Point(118, 507)
 		Me.dtpApplication.Name = "dtpApplication"
 		Me.dtpApplication.Size = New System.Drawing.Size(140, 24)
 		Me.dtpApplication.TabIndex = 46
@@ -317,7 +328,7 @@ Partial Class frmTraderDetail
 			Or C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) _
 			Or C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd), C1.Win.C1Input.FormatInfoInheritFlags)
 		Me.dtpApplicationTo.ImagePadding = New System.Windows.Forms.Padding(0)
-		Me.dtpApplicationTo.Location = New System.Drawing.Point(685, 147)
+		Me.dtpApplicationTo.Location = New System.Drawing.Point(295, 478)
 		Me.dtpApplicationTo.Name = "dtpApplicationTo"
 		Me.dtpApplicationTo.Size = New System.Drawing.Size(140, 24)
 		Me.dtpApplicationTo.TabIndex = 45
@@ -341,7 +352,7 @@ Partial Class frmTraderDetail
 			Or C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) _
 			Or C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd), C1.Win.C1Input.FormatInfoInheritFlags)
 		Me.dtpApplicationFrom.ImagePadding = New System.Windows.Forms.Padding(0)
-		Me.dtpApplicationFrom.Location = New System.Drawing.Point(508, 147)
+		Me.dtpApplicationFrom.Location = New System.Drawing.Point(118, 478)
 		Me.dtpApplicationFrom.Name = "dtpApplicationFrom"
 		Me.dtpApplicationFrom.Size = New System.Drawing.Size(140, 24)
 		Me.dtpApplicationFrom.TabIndex = 44
@@ -365,7 +376,7 @@ Partial Class frmTraderDetail
 			Or C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) _
 			Or C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd), C1.Win.C1Input.FormatInfoInheritFlags)
 		Me.dtpEffectiveTo.ImagePadding = New System.Windows.Forms.Padding(0)
-		Me.dtpEffectiveTo.Location = New System.Drawing.Point(685, 116)
+		Me.dtpEffectiveTo.Location = New System.Drawing.Point(295, 447)
 		Me.dtpEffectiveTo.Name = "dtpEffectiveTo"
 		Me.dtpEffectiveTo.Size = New System.Drawing.Size(140, 24)
 		Me.dtpEffectiveTo.TabIndex = 43
@@ -389,7 +400,7 @@ Partial Class frmTraderDetail
 			Or C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) _
 			Or C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd), C1.Win.C1Input.FormatInfoInheritFlags)
 		Me.dtpEffectiveFrom.ImagePadding = New System.Windows.Forms.Padding(0)
-		Me.dtpEffectiveFrom.Location = New System.Drawing.Point(508, 116)
+		Me.dtpEffectiveFrom.Location = New System.Drawing.Point(118, 447)
 		Me.dtpEffectiveFrom.Name = "dtpEffectiveFrom"
 		Me.dtpEffectiveFrom.Size = New System.Drawing.Size(140, 24)
 		Me.dtpEffectiveFrom.TabIndex = 42
@@ -399,7 +410,7 @@ Partial Class frmTraderDetail
 		'btnDelete
 		'
 		Me.btnDelete.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.btnDelete.Location = New System.Drawing.Point(669, 437)
+		Me.btnDelete.Location = New System.Drawing.Point(6, 708)
 		Me.btnDelete.Name = "btnDelete"
 		Me.btnDelete.Size = New System.Drawing.Size(75, 25)
 		Me.btnDelete.TabIndex = 41
@@ -409,11 +420,11 @@ Partial Class frmTraderDetail
 		'btnRegist
 		'
 		Me.btnRegist.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.btnRegist.Location = New System.Drawing.Point(750, 437)
+		Me.btnRegist.Location = New System.Drawing.Point(362, 708)
 		Me.btnRegist.Name = "btnRegist"
 		Me.btnRegist.Size = New System.Drawing.Size(75, 25)
 		Me.btnRegist.TabIndex = 40
-		Me.btnRegist.Text = "登　録"
+		Me.btnRegist.Text = "新規登録"
 		Me.btnRegist.UseVisualStyleBackColor = True
 		'
 		'txtInnerNumber
@@ -426,15 +437,15 @@ Partial Class frmTraderDetail
 		'
 		'txtRemarks
 		'
-		Me.txtRemarks.Location = New System.Drawing.Point(508, 235)
+		Me.txtRemarks.Location = New System.Drawing.Point(118, 567)
 		Me.txtRemarks.Multiline = True
 		Me.txtRemarks.Name = "txtRemarks"
-		Me.txtRemarks.Size = New System.Drawing.Size(317, 143)
+		Me.txtRemarks.Size = New System.Drawing.Size(317, 135)
 		Me.txtRemarks.TabIndex = 38
 		'
 		'Label19
 		'
-		Me.Label19.Location = New System.Drawing.Point(402, 234)
+		Me.Label19.Location = New System.Drawing.Point(12, 566)
 		Me.Label19.Name = "Label19"
 		Me.Label19.Size = New System.Drawing.Size(100, 25)
 		Me.Label19.TabIndex = 37
@@ -443,7 +454,7 @@ Partial Class frmTraderDetail
 		'
 		'Label18
 		'
-		Me.Label18.Location = New System.Drawing.Point(402, 203)
+		Me.Label18.Location = New System.Drawing.Point(12, 534)
 		Me.Label18.Name = "Label18"
 		Me.Label18.Size = New System.Drawing.Size(100, 25)
 		Me.Label18.TabIndex = 35
@@ -452,7 +463,7 @@ Partial Class frmTraderDetail
 		'
 		'Label17
 		'
-		Me.Label17.Location = New System.Drawing.Point(402, 173)
+		Me.Label17.Location = New System.Drawing.Point(12, 504)
 		Me.Label17.Name = "Label17"
 		Me.Label17.Size = New System.Drawing.Size(100, 25)
 		Me.Label17.TabIndex = 33
@@ -461,7 +472,7 @@ Partial Class frmTraderDetail
 		'
 		'Label15
 		'
-		Me.Label15.Location = New System.Drawing.Point(654, 144)
+		Me.Label15.Location = New System.Drawing.Point(264, 475)
 		Me.Label15.Name = "Label15"
 		Me.Label15.Size = New System.Drawing.Size(25, 25)
 		Me.Label15.TabIndex = 32
@@ -470,7 +481,7 @@ Partial Class frmTraderDetail
 		'
 		'Label16
 		'
-		Me.Label16.Location = New System.Drawing.Point(402, 143)
+		Me.Label16.Location = New System.Drawing.Point(12, 474)
 		Me.Label16.Name = "Label16"
 		Me.Label16.Size = New System.Drawing.Size(100, 25)
 		Me.Label16.TabIndex = 29
@@ -479,7 +490,7 @@ Partial Class frmTraderDetail
 		'
 		'Label14
 		'
-		Me.Label14.Location = New System.Drawing.Point(654, 114)
+		Me.Label14.Location = New System.Drawing.Point(264, 445)
 		Me.Label14.Name = "Label14"
 		Me.Label14.Size = New System.Drawing.Size(25, 25)
 		Me.Label14.TabIndex = 28
@@ -488,7 +499,7 @@ Partial Class frmTraderDetail
 		'
 		'Label13
 		'
-		Me.Label13.Location = New System.Drawing.Point(402, 113)
+		Me.Label13.Location = New System.Drawing.Point(12, 444)
 		Me.Label13.Name = "Label13"
 		Me.Label13.Size = New System.Drawing.Size(100, 25)
 		Me.Label13.TabIndex = 25
@@ -497,7 +508,7 @@ Partial Class frmTraderDetail
 		'
 		'Label12
 		'
-		Me.Label12.Location = New System.Drawing.Point(402, 54)
+		Me.Label12.Location = New System.Drawing.Point(12, 385)
 		Me.Label12.Name = "Label12"
 		Me.Label12.Size = New System.Drawing.Size(100, 25)
 		Me.Label12.TabIndex = 24
@@ -506,11 +517,12 @@ Partial Class frmTraderDetail
 		'
 		'cmbYear
 		'
-		Me.cmbYear.Location = New System.Drawing.Point(508, 54)
+		Me.cmbYear.Location = New System.Drawing.Point(118, 385)
 		Me.cmbYear.Name = "cmbYear"
 		Me.cmbYear.ShowSelectAll = True
-		Me.cmbYear.Size = New System.Drawing.Size(180, 50)
+		Me.cmbYear.Size = New System.Drawing.Size(317, 50)
 		Me.cmbYear.TabIndex = 23
+		Me.cmbYear.TagWrap = True
 		'
 		'Label11
 		'
@@ -666,6 +678,7 @@ Partial Class frmTraderDetail
 		'cmbPrefectures
 		'
 		Me.cmbPrefectures.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+		Me.cmbPrefectures.Enabled = False
 		Me.cmbPrefectures.FormattingEnabled = True
 		Me.cmbPrefectures.Location = New System.Drawing.Point(118, 84)
 		Me.cmbPrefectures.Name = "cmbPrefectures"
@@ -694,6 +707,7 @@ Partial Class frmTraderDetail
 		'
 		Me.txtTraderNumber.Location = New System.Drawing.Point(118, 54)
 		Me.txtTraderNumber.Name = "txtTraderNumber"
+		Me.txtTraderNumber.ReadOnly = True
 		Me.txtTraderNumber.Size = New System.Drawing.Size(278, 24)
 		Me.txtTraderNumber.TabIndex = 1
 		'
@@ -706,124 +720,12 @@ Partial Class frmTraderDetail
 		Me.btnTraderSelect.Text = "業者選択"
 		Me.btnTraderSelect.UseVisualStyleBackColor = True
 		'
-		'GroupBox3
-		'
-		Me.GroupBox3.Controls.Add(Me.btnUpdate)
-		Me.GroupBox3.Controls.Add(Me.dtpArrival)
-		Me.GroupBox3.Controls.Add(Me.Label23)
-		Me.GroupBox3.Controls.Add(Me.txtMuniRemarks)
-		Me.GroupBox3.Controls.Add(Me.Label22)
-		Me.GroupBox3.Controls.Add(Me.Label21)
-		Me.GroupBox3.Controls.Add(Me.txtMuni)
-		Me.GroupBox3.Controls.Add(Me.Label20)
-		Me.GroupBox3.Controls.Add(Me.txtGroupCode)
-		Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.GroupBox3.Location = New System.Drawing.Point(200, 468)
-		Me.GroupBox3.Name = "GroupBox3"
-		Me.GroupBox3.Size = New System.Drawing.Size(831, 150)
-		Me.GroupBox3.TabIndex = 7
-		Me.GroupBox3.TabStop = False
-		Me.GroupBox3.Text = "自治体詳細"
-		'
-		'btnUpdate
-		'
-		Me.btnUpdate.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.btnUpdate.Location = New System.Drawing.Point(750, 105)
-		Me.btnUpdate.Name = "btnUpdate"
-		Me.btnUpdate.Size = New System.Drawing.Size(75, 25)
-		Me.btnUpdate.TabIndex = 56
-		Me.btnUpdate.Text = "更　新"
-		Me.btnUpdate.UseVisualStyleBackColor = True
-		'
-		'dtpArrival
-		'
-		Me.dtpArrival.AllowSpinLoop = False
-		Me.dtpArrival.AutoSize = False
-		Me.dtpArrival.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-		Me.dtpArrival.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit
-		Me.dtpArrival.DisplayFormat.CustomFormat = "yyyy年MM月dd日"
-		Me.dtpArrival.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.CustomFormat
-		Me.dtpArrival.DisplayFormat.Inherit = CType((((C1.Win.C1Input.FormatInfoInheritFlags.NullText Or C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) _
-			Or C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) _
-			Or C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd), C1.Win.C1Input.FormatInfoInheritFlags)
-		Me.dtpArrival.EditFormat.CustomFormat = "yyyy年MM月dd日"
-		Me.dtpArrival.EditFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.CustomFormat
-		Me.dtpArrival.EditFormat.Inherit = CType((((C1.Win.C1Input.FormatInfoInheritFlags.NullText Or C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) _
-			Or C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) _
-			Or C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd), C1.Win.C1Input.FormatInfoInheritFlags)
-		Me.dtpArrival.ImagePadding = New System.Windows.Forms.Padding(0)
-		Me.dtpArrival.Location = New System.Drawing.Point(118, 100)
-		Me.dtpArrival.Name = "dtpArrival"
-		Me.dtpArrival.Size = New System.Drawing.Size(140, 24)
-		Me.dtpArrival.TabIndex = 55
-		Me.dtpArrival.Tag = Nothing
-		Me.dtpArrival.VisibleButtons = C1.Win.C1Input.DropDownControlButtonFlags.DropDown
-		'
-		'Label23
-		'
-		Me.Label23.Location = New System.Drawing.Point(12, 97)
-		Me.Label23.Name = "Label23"
-		Me.Label23.Size = New System.Drawing.Size(100, 25)
-		Me.Label23.TabIndex = 54
-		Me.Label23.Text = "書類到着日："
-		Me.Label23.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-		'
-		'txtMuniRemarks
-		'
-		Me.txtMuniRemarks.Location = New System.Drawing.Point(508, 40)
-		Me.txtMuniRemarks.Multiline = True
-		Me.txtMuniRemarks.Name = "txtMuniRemarks"
-		Me.txtMuniRemarks.Size = New System.Drawing.Size(317, 54)
-		Me.txtMuniRemarks.TabIndex = 53
-		'
-		'Label22
-		'
-		Me.Label22.Location = New System.Drawing.Point(402, 39)
-		Me.Label22.Name = "Label22"
-		Me.Label22.Size = New System.Drawing.Size(100, 25)
-		Me.Label22.TabIndex = 52
-		Me.Label22.Text = "備考："
-		Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-		'
-		'Label21
-		'
-		Me.Label21.Location = New System.Drawing.Point(12, 69)
-		Me.Label21.Name = "Label21"
-		Me.Label21.Size = New System.Drawing.Size(100, 25)
-		Me.Label21.TabIndex = 51
-		Me.Label21.Text = "自治体名："
-		Me.Label21.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-		'
-		'txtMuni
-		'
-		Me.txtMuni.Location = New System.Drawing.Point(118, 70)
-		Me.txtMuni.Name = "txtMuni"
-		Me.txtMuni.Size = New System.Drawing.Size(278, 24)
-		Me.txtMuni.TabIndex = 50
-		'
-		'Label20
-		'
-		Me.Label20.Location = New System.Drawing.Point(12, 39)
-		Me.Label20.Name = "Label20"
-		Me.Label20.Size = New System.Drawing.Size(100, 25)
-		Me.Label20.TabIndex = 49
-		Me.Label20.Text = "団体コード："
-		Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-		'
-		'txtGroupCode
-		'
-		Me.txtGroupCode.Location = New System.Drawing.Point(118, 40)
-		Me.txtGroupCode.Name = "txtGroupCode"
-		Me.txtGroupCode.Size = New System.Drawing.Size(121, 24)
-		Me.txtGroupCode.TabIndex = 48
-		'
 		'frmTraderDetail
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.CaptionDisplayMode = BidEntryManageTool.frmTempForm.StatusDisplayMode.ShowAll
-		Me.ClientSize = New System.Drawing.Size(1284, 640)
-		Me.Controls.Add(Me.GroupBox3)
+		Me.ClientSize = New System.Drawing.Size(1087, 761)
 		Me.Controls.Add(Me.GroupBox4)
 		Me.Controls.Add(Me.GroupBox2)
 		Me.Controls.Add(Me.GroupBox1)
@@ -833,7 +735,6 @@ Partial Class frmTraderDetail
 		Me.Controls.SetChildIndex(Me.GroupBox1, 0)
 		Me.Controls.SetChildIndex(Me.GroupBox2, 0)
 		Me.Controls.SetChildIndex(Me.GroupBox4, 0)
-		Me.Controls.SetChildIndex(Me.GroupBox3, 0)
 		Me.GroupBox1.ResumeLayout(False)
 		CType(Me.C1FGridHistory, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.GroupBox2.ResumeLayout(False)
@@ -847,9 +748,6 @@ Partial Class frmTraderDetail
 		CType(Me.dtpApplicationFrom, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.dtpEffectiveTo, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.dtpEffectiveFrom, System.ComponentModel.ISupportInitialize).EndInit()
-		Me.GroupBox3.ResumeLayout(False)
-		Me.GroupBox3.PerformLayout()
-		CType(Me.dtpArrival, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 
@@ -900,19 +798,11 @@ Partial Class frmTraderDetail
 	Friend WithEvents Label1 As Label
 	Friend WithEvents txtTraderNumber As TextBox
 	Friend WithEvents btnTraderSelect As Button
-	Friend WithEvents GroupBox3 As GroupBox
 	Friend WithEvents dtpEffectiveTo As C1.Win.Calendar.C1DateEdit
 	Friend WithEvents dtpCertification As C1.Win.Calendar.C1DateEdit
 	Friend WithEvents dtpApplication As C1.Win.Calendar.C1DateEdit
 	Friend WithEvents dtpApplicationTo As C1.Win.Calendar.C1DateEdit
 	Friend WithEvents dtpApplicationFrom As C1.Win.Calendar.C1DateEdit
 	Friend WithEvents btnUpdate As Button
-	Friend WithEvents dtpArrival As C1.Win.Calendar.C1DateEdit
-	Friend WithEvents Label23 As Label
-	Friend WithEvents txtMuniRemarks As TextBox
-	Friend WithEvents Label22 As Label
-	Friend WithEvents Label21 As Label
-	Friend WithEvents txtMuni As TextBox
-	Friend WithEvents Label20 As Label
-	Friend WithEvents txtGroupCode As TextBox
+	Friend WithEvents Button3 As Button
 End Class

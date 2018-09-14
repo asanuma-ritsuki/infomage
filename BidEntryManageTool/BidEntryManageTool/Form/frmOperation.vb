@@ -117,6 +117,8 @@
 			Else
 				Dim iIndex As Integer = Me.C1FGridResult.Row
 				Dim f As New frmTraderDetail
+				f.IsNew = False '更新モード
+				f.InnerNumber = Me.C1FGridResult(iIndex, "内部番号")
 				f.ShowDialog(Me)
 			End If
 		End If
@@ -152,6 +154,7 @@
 	Private Sub btnNew_Click(sender As Object, e As EventArgs) Handles btnNew.Click
 
 		Dim frmNextForm As New frmTraderDetail
+		frmNextForm.IsNew = True
 		Me.Visible = False
 		frmNextForm.ShowDialog(Me)
 
