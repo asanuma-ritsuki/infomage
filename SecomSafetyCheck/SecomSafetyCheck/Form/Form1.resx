@@ -120,7 +120,45 @@
   <metadata name="C1CommandHolder1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="C1FGridRecovery.ColumnInfo" xml:space="preserve">
+    <value>10,1,0,0,0,100,Columns:0{Width:30;Name:"No";Caption:"No.";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	1{Width:46;Name:"管理ID";Caption:"管理ID";Visible:False;Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	2{Width:43;Name:"連番";Caption:"連番";Visible:False;Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	3{Width:50;Name:"ID";Caption:"ID";AllowEditing:False;Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	4{Width:70;Name:"事業会社";Caption:"事業会社";Style:"ComboList:""MSH|MSC|MCBP|MSE|MSL|MSCS|MST"";DataType:System.String;TextAlign:LeftCenter;";}	5{Width:120;Name:"組織コード";Caption:"組織コード";AllowEditing:False;Style:"DataType:System.String;TextAlign:GeneralCenter;";}	6{Width:120;Name:"第１階層組織コード";Caption:"第１階層組織コード";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	7{Width:120;Name:"第２階層組織コード";Caption:"第２階層組織コード";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	8{Width:120;Name:"第３階層組織コード";Caption:"第３階層組織コード";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	9{Width:120;Name:"組織名称";Caption:"組織名称";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	</value>
+  </data>
+  <data name="C1FGridCount.ColumnInfo" xml:space="preserve">
+    <value>11,1,0,0,0,100,Columns:0{Width:30;Name:"No";Caption:"No.";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	1{Width:46;Name:"管理ID";Caption:"管理ID";Visible:False;Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	2{Width:43;Name:"連番";Caption:"連番";Visible:False;Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	3{Width:150;Name:"料金項目";Caption:"料金項目";Style:"DataType:System.String;TextAlign:GeneralCenter;";}	4{Width:80;Name:"MSH";Caption:"MSH";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";}	5{Width:80;Name:"MSC";Caption:"MSC";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";}	6{Width:80;Name:"MCBP";Caption:"MCBP";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";}	7{Width:80;Name:"MSE";Caption:"MSE";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";}	8{Width:80;Name:"MSL";Caption:"MSL";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";}	9{Width:80;Name:"MSCS";Caption:"MSCS";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";}	10{Width:80;Name:"MST";Caption:"MST";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";}	</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblUser.SmallImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAk5JREFUOE+F011IU2EcBvAXW40W7MJhsVW2NtMkE2oULJmujT4WBuVg3Qw9bGHt
+        okhKJZa5mCwXTsukNpJGLSwKLfyYDoSl0iRZRUEIdiFUQh/WhVctiaf/eddFTFcP/OBw/s/7cg7nPWy5
+        XHcwa+ScaiJ2dS/u1m+YdlexBrqdSyS88K90Hmem/ktafHzagk9TN/Fh3I+R1hKcsrBuGm8iK3kxW244
+        cybigR1421OFd9F6JCI1GGwrw62T8h80tpI8XsyWuE+N10Ednl0rxWzEgFR/JRYe7cOgZzNo3EyKeDFb
+        koEiIHoEiFnTho8CA4eRvFIgbtBOSnkxW5KtGqD3APDkUFrfQeCBCUMNykUa/3+D0YvKBdwrB3qMaXSd
+        6t6NMxbJHI29pJgXs6XFxrrmO4qBkI77FdyJcXceVLksSuMTZD0vLhsHc2y/oJn2ulbwRYmmdXhctwbl
+        lewLTTuJkcjE6tI4mddIjxyaC+H0Qw9evYhjLBaG2aeH+b4ZUpt0hlplZDXvZyb/cv772mQtvDNeVIcF
+        pAC0j3bAPmyHeN/cZwbbz4aoupWs4ov+jsqvgn0yXd7TZUByfhYVt41wvXTBOeWEPqqH1CX9RtVjZOlh
+        kjgkd7RBLWxjNujDemg8hRASAoTnAgwjBugGdFA0K35S9Twp4IsyoqSHa2QmNikVpJ/lNfKv6jY1VAEV
+        FG7Foswp+852sTfUayRb+IqMiO+1kVSQalJHmoifiAfIR84SC8n6P+QQ8TOtJWpSSEqIePq2EQ1RkD9/
+        JGO/ATRaBGnugBbzAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="lblDate.SmallImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAm5JREFUOE+dU99LU2EYPjdBRH+EN5E3spuisgsLCiqJopvsh1AsAylwmaAzN80Z
+        jrQNjJy5NaebbFNwVC5JrFwZQ8zUNJaa7mim2/TC1jS3ec7Teb/NYRdD6IOX5/m+873P+7wv5+NoZezL
+        gKHZfI6wyWg8RWiy2I4T1ut0ZYQ6ne4GYWNj435Cp9N5NTMrU8E9rNcPQ1oSEqCqqmouiVt7hgqFgqFc
+        LocgCMi7lAefzweuriMErT0IjS0AtWURZaYFFBvmcauBR0H9LPJrp3Hx/iTOV/hwpvQrTtwdR07RGLJv
+        j+JQ4UhCYH5ZxJwUfEjEbFDETEDE9yUBWlcUms4oKu2/WaisEShb11BmXccdcxgy+VCYCVDUOkKotgWh
+        sgRQagpAYVhEYcNPXH+0gMvaH7hQPY9cNY+TSh45JX5kF/shy/eGOfurTxBFkcUD63BaHt8UsRETGF+N
+        CFj5FcfB03Jw7e6h1EWl4V1aTsmRPwLjy+E4vnzjceTsTXC2l4N44pqAutmDoroXrEK5dGk7F43liFdf
+        wfo1GZaO7WXnFU/7Ew7anntTlejDdr6ZtE3JxMnB1NE90rBj6B2YSAhYXB9TSelsU2VC6t17YDemF2Nw
+        e5IC5q73O7ZAtqkyJXdn7UqdMwFTZ3+qqrb9c9J2ogWqGJKmTZwPxaX/I8b42FwUrr7xhECz421KgAZD
+        ttc2BKiMHqxI0w6uxlk7M8EYE6k0eTDij6LrTbKFJnsfWnp8qDEPMNvW3inoHYMo0Xej9fUkaloGoJDO
+        n7l90Jg/sDv6jjHca0q28Lith5GtOJxb8M9+p2DP+f8Xx/0FVprFZHBAY+wAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEALCwAAAEAGAC4TQQAFgAAACgAAAAsAQAAWAIAAAEAGAAAAAAAkE0EAAAAAAAAAAAAAAAAAAAA
@@ -4827,45 +4865,7 @@
         AAA=
 </value>
   </data>
-  <data name="lblUser.SmallImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAk5JREFUOE+F011IU2EcBvAXW40W7MJhsVW2NtMkE2oULJmujT4WBuVg3Qw9bGHt
-        okhKJZa5mCwXTsukNpJGLSwKLfyYDoSl0iRZRUEIdiFUQh/WhVctiaf/eddFTFcP/OBw/s/7cg7nPWy5
-        XHcwa+ScaiJ2dS/u1m+YdlexBrqdSyS88K90Hmem/ktafHzagk9TN/Fh3I+R1hKcsrBuGm8iK3kxW244
-        cybigR1421OFd9F6JCI1GGwrw62T8h80tpI8XsyWuE+N10Ednl0rxWzEgFR/JRYe7cOgZzNo3EyKeDFb
-        koEiIHoEiFnTho8CA4eRvFIgbtBOSnkxW5KtGqD3APDkUFrfQeCBCUMNykUa/3+D0YvKBdwrB3qMaXSd
-        6t6NMxbJHI29pJgXs6XFxrrmO4qBkI77FdyJcXceVLksSuMTZD0vLhsHc2y/oJn2ulbwRYmmdXhctwbl
-        lewLTTuJkcjE6tI4mddIjxyaC+H0Qw9evYhjLBaG2aeH+b4ZUpt0hlplZDXvZyb/cv772mQtvDNeVIcF
-        pAC0j3bAPmyHeN/cZwbbz4aoupWs4ov+jsqvgn0yXd7TZUByfhYVt41wvXTBOeWEPqqH1CX9RtVjZOlh
-        kjgkd7RBLWxjNujDemg8hRASAoTnAgwjBugGdFA0K35S9Twp4IsyoqSHa2QmNikVpJ/lNfKv6jY1VAEV
-        FG7Foswp+852sTfUayRb+IqMiO+1kVSQalJHmoifiAfIR84SC8n6P+QQ8TOtJWpSSEqIePq2EQ1RkD9/
-        JGO/ATRaBGnugBbzAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="lblDate.SmallImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAm5JREFUOE+dU99LU2EYPjdBRH+EN5E3spuisgsLCiqJopvsh1AsAylwmaAzN80Z
-        jrQNjJy5NaebbFNwVC5JrFwZQ8zUNJaa7mim2/TC1jS3ec7Teb/NYRdD6IOX5/m+873P+7wv5+NoZezL
-        gKHZfI6wyWg8RWiy2I4T1ut0ZYQ6ne4GYWNj435Cp9N5NTMrU8E9rNcPQ1oSEqCqqmouiVt7hgqFgqFc
-        LocgCMi7lAefzweuriMErT0IjS0AtWURZaYFFBvmcauBR0H9LPJrp3Hx/iTOV/hwpvQrTtwdR07RGLJv
-        j+JQ4UhCYH5ZxJwUfEjEbFDETEDE9yUBWlcUms4oKu2/WaisEShb11BmXccdcxgy+VCYCVDUOkKotgWh
-        sgRQagpAYVhEYcNPXH+0gMvaH7hQPY9cNY+TSh45JX5kF/shy/eGOfurTxBFkcUD63BaHt8UsRETGF+N
-        CFj5FcfB03Jw7e6h1EWl4V1aTsmRPwLjy+E4vnzjceTsTXC2l4N44pqAutmDoroXrEK5dGk7F43liFdf
-        wfo1GZaO7WXnFU/7Ew7anntTlejDdr6ZtE3JxMnB1NE90rBj6B2YSAhYXB9TSelsU2VC6t17YDemF2Nw
-        e5IC5q73O7ZAtqkyJXdn7UqdMwFTZ3+qqrb9c9J2ogWqGJKmTZwPxaX/I8b42FwUrr7xhECz421KgAZD
-        ttc2BKiMHqxI0w6uxlk7M8EYE6k0eTDij6LrTbKFJnsfWnp8qDEPMNvW3inoHYMo0Xej9fUkaloGoJDO
-        n7l90Jg/sDv6jjHca0q28Lith5GtOJxb8M9+p2DP+f8Xx/0FVprFZHBAY+wAAAAASUVORK5CYII=
-</value>
-  </data>
   <metadata name="Timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>183, 17</value>
   </metadata>
-  <data name="C1FGridRecovery.ColumnInfo" xml:space="preserve">
-    <value>10,1,0,0,0,100,Columns:0{Width:30;Name:"No";Caption:"No.";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	1{Width:46;Name:"管理ID";Caption:"管理ID";Visible:False;Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	2{Width:43;Name:"連番";Caption:"連番";Visible:False;Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	3{Width:50;Name:"ID";Caption:"ID";AllowEditing:False;Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	4{Width:70;Name:"事業会社";Caption:"事業会社";Style:"ComboList:""MSH|MSC|MCBP|MSE|MSL|MSCS|MST"";DataType:System.String;TextAlign:LeftCenter;";}	5{Width:120;Name:"組織コード";Caption:"組織コード";AllowEditing:False;Style:"DataType:System.String;TextAlign:GeneralCenter;";}	6{Width:120;Name:"第１階層組織コード";Caption:"第１階層組織コード";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	7{Width:120;Name:"第２階層組織コード";Caption:"第２階層組織コード";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	8{Width:120;Name:"第３階層組織コード";Caption:"第３階層組織コード";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	9{Width:120;Name:"組織名称";Caption:"組織名称";AllowEditing:False;Style:"DataType:System.String;TextAlign:LeftCenter;";}	</value>
-  </data>
-  <data name="C1FGridCount.ColumnInfo" xml:space="preserve">
-    <value>11,1,0,0,0,100,Columns:0{Width:30;Name:"No";Caption:"No.";Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	1{Width:46;Name:"管理ID";Caption:"管理ID";Visible:False;Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	2{Width:43;Name:"連番";Caption:"連番";Visible:False;Style:"DataType:System.Int32;TextAlign:GeneralCenter;";}	3{Width:150;Name:"料金項目";Caption:"料金項目";Style:"DataType:System.String;TextAlign:GeneralCenter;";}	4{Width:80;Name:"MSH";Caption:"MSH";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";}	5{Width:80;Name:"MSC";Caption:"MSC";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";}	6{Width:80;Name:"MCBP";Caption:"MCBP";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";}	7{Width:80;Name:"MSE";Caption:"MSE";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";}	8{Width:80;Name:"MSL";Caption:"MSL";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";}	9{Width:80;Name:"MSCS";Caption:"MSCS";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";}	10{Width:80;Name:"MST";Caption:"MST";Style:"Format:""N0"";DataType:System.Int32;TextAlign:GeneralCenter;";}	</value>
-  </data>
 </root>

@@ -64,7 +64,9 @@ Public Class frmTempForm
 
 	Public Property CaptionDisplayMode() As StatusDisplayMode
 		Get
-			If C1StatusBar1.Visible = True Then
+			If LabelHost1.Visible = True Then
+				Return StatusDisplayMode.TitleOnly
+			ElseIf C1StatusBar1.Visible = True Then
 				Return StatusDisplayMode.ShowAll
 			Else
 				Return StatusDisplayMode.None
@@ -78,6 +80,26 @@ Public Class frmTempForm
 				Case StatusDisplayMode.ShowAll
 					'全て表示
 					C1StatusBar1.Visible = True
+				Case StatusDisplayMode.TitleOnly
+					'サンプル表記なし
+					C1StatusBar1.Visible = True
+					'ステータスバーの文言を除去
+					LabelHost1.Visible = False
+					RibbonLabel1.Visible = False
+					RibbonSeparator3.Visible = False
+					LabelHost2.Visible = False
+					RibbonLabel2.Visible = False
+					RibbonSeparator4.Visible = False
+					LabelHost3.Visible = False
+					RibbonLabel3.Visible = False
+					RibbonSeparator5.Visible = False
+					LabelHost4.Visible = False
+					RibbonLabel4.Visible = False
+					RibbonSeparator7.Visible = False
+					LabelHost5.Visible = False
+					RibbonLabel5.Visible = False
+					RibbonSeparator8.Visible = False
+
 			End Select
 		End Set
 

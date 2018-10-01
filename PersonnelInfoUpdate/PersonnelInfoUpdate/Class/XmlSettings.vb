@@ -43,8 +43,9 @@ Public Class XmlSettings
 	Private _PrintState As Integer
 
 	'インポート画面
-	Private _ImportFromFolder As String 'インポート元フォルダ
-	Private _ImportToFolder As String   '保存先フォルダ
+	Private _ImportExcelFile As String 'インポートエクセル
+	Private _ImportUsrFile As String    '利用者情報ファイル
+	Private _ImportSaveFolder As String   '保存先フォルダ
 	Private _ImportLogFolder As String  'ログ保存先フォルダ
 	Private _ZipPassword As String  'ZIP解凍用パスワード
 	'不備内容項目
@@ -441,15 +442,28 @@ Public Class XmlSettings
 	'インポート画面
 
 	''' <summary>
-	''' インポート元フォルダ
+	''' インポートエクセル
 	''' </summary>
 	''' <returns></returns>
-	Public Property ImportFromFolder() As String
+	Public Property ImportExcelFile() As String
 		Get
-			Return _ImportFromFolder
+			Return _ImportExcelFile
 		End Get
 		Set(value As String)
-			_ImportFromFolder = value
+			_ImportExcelFile = value
+		End Set
+	End Property
+
+	''' <summary>
+	''' インポート利用者情報ファイル
+	''' </summary>
+	''' <returns></returns>
+	Public Property ImportUsrFile() As String
+		Get
+			Return _ImportUsrFile
+		End Get
+		Set(value As String)
+			_ImportUsrFile = value
 		End Set
 	End Property
 
@@ -457,12 +471,12 @@ Public Class XmlSettings
 	''' 保存先フォルダ
 	''' </summary>
 	''' <returns></returns>
-	Public Property ImportToFolder() As String
+	Public Property ImportSaveFolder() As String
 		Get
-			Return _ImportToFolder
+			Return _ImportSaveFolder
 		End Get
 		Set(value As String)
-			_ImportToFolder = value
+			_ImportSaveFolder = value
 		End Set
 	End Property
 
@@ -1052,9 +1066,11 @@ Public Class XmlSettings
 		_PrintState = FormWindowState.Normal
 
 		'インポート画面
-		_ImportFromFolder = "E:\JPTemp\01_Import"
-		_ImportToFolder = "E:\JPTemp\02_Out"
-		_ImportLogFolder = "E:\JPTemp\03_Log"
+
+		_ImportExcelFile = "C:\SecomTemp\01_Input\test.xlsx"
+		_ImportUsrFile = "C:\SecomTemp\01_Input\usr.csv"
+		_ImportSaveFolder = "C:\SecomTemp\02_Output"
+		_ImportLogFolder = "C:\SecomTemp\03_Log"
 		_ZipPassword = "Jp-Mbp@"
 		_DataDupe = "重複レコード"
 		_DataRequired = "必須項目不備"
@@ -1067,8 +1083,8 @@ Public Class XmlSettings
 		_ImagePath = "\\192.168.1.210\02_スチールGr\02_スポット案件\2013-2016_141032021_雄松堂_府県統計資料\99_Entry\01_image"
 
 		'SQLServer接続用
-		_DataSource = "JPSERV\INTRASQL"
-		_InitialCatalog = "JPHealth"
+		_DataSource = "INTRA-PDC00\INTRASQL"
+		_InitialCatalog = "PersonnelInfo"
 		_UserID = "sa"
 		_Password = "intra_intra"
 		_TablePrefix = "[DailyReport_Test].[dbo]."

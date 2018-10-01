@@ -27,6 +27,7 @@ Partial Class frmMain
 		Me.GroupBox2 = New System.Windows.Forms.GroupBox()
 		Me.C1FGridSum = New C1.Win.C1FlexGrid.C1FlexGrid()
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+		Me.chkDeleted = New C1.Win.C1Input.C1CheckBox()
 		Me.btnAfterUpdate = New C1.Win.C1Input.C1Button()
 		Me.btnCSVOut = New C1.Win.C1Input.C1Button()
 		Me.btnImport = New C1.Win.C1Input.C1Button()
@@ -42,6 +43,7 @@ Partial Class frmMain
 		Me.GroupBox2.SuspendLayout()
 		CType(Me.C1FGridSum, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBox1.SuspendLayout()
+		CType(Me.chkDeleted, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.btnAfterUpdate, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.btnCSVOut, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.btnImport, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -103,6 +105,7 @@ Partial Class frmMain
 		'
 		'GroupBox1
 		'
+		Me.GroupBox1.Controls.Add(Me.chkDeleted)
 		Me.GroupBox1.Controls.Add(Me.btnAfterUpdate)
 		Me.GroupBox1.Controls.Add(Me.btnCSVOut)
 		Me.GroupBox1.Controls.Add(Me.btnImport)
@@ -118,6 +121,22 @@ Partial Class frmMain
 		Me.GroupBox1.TabIndex = 0
 		Me.GroupBox1.TabStop = False
 		Me.GroupBox1.Text = "検索・各種処理"
+		'
+		'chkDeleted
+		'
+		Me.chkDeleted.BackColor = System.Drawing.Color.Transparent
+		Me.chkDeleted.BorderColor = System.Drawing.Color.Transparent
+		Me.chkDeleted.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.chkDeleted.ForeColor = System.Drawing.Color.Black
+		Me.chkDeleted.Location = New System.Drawing.Point(96, 95)
+		Me.chkDeleted.Name = "chkDeleted"
+		Me.chkDeleted.Padding = New System.Windows.Forms.Padding(1)
+		Me.chkDeleted.Size = New System.Drawing.Size(200, 24)
+		Me.chkDeleted.TabIndex = 8
+		Me.chkDeleted.Text = "削除済みロットを表示する"
+		Me.chkDeleted.UseVisualStyleBackColor = False
+		Me.chkDeleted.Value = Nothing
+		Me.chkDeleted.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Black
 		'
 		'btnAfterUpdate
 		'
@@ -151,6 +170,8 @@ Partial Class frmMain
 		Me.cmbOffice.AllowSpinLoop = False
 		Me.cmbOffice.AutoSize = False
 		Me.cmbOffice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+		Me.cmbOffice.Cursor = System.Windows.Forms.Cursors.Arrow
+		Me.cmbOffice.DropDownStyle = C1.Win.C1Input.DropDownStyle.DropDownList
 		Me.cmbOffice.GapHeight = 0
 		Me.cmbOffice.ImagePadding = New System.Windows.Forms.Padding(0)
 		Me.cmbOffice.ItemsDisplayMember = ""
@@ -160,6 +181,8 @@ Partial Class frmMain
 		Me.cmbOffice.Size = New System.Drawing.Size(200, 25)
 		Me.cmbOffice.TabIndex = 4
 		Me.cmbOffice.Tag = Nothing
+		Me.cmbOffice.TextDetached = True
+		Me.cmbOffice.TranslateValue = True
 		'
 		'C1Label2
 		'
@@ -171,12 +194,14 @@ Partial Class frmMain
 		Me.C1Label2.Size = New System.Drawing.Size(80, 25)
 		Me.C1Label2.TabIndex = 3
 		Me.C1Label2.Tag = Nothing
+		Me.C1Label2.Text = "事業所："
 		Me.C1Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		Me.C1Label2.TextDetached = True
 		Me.C1Label2.Value = "事業所："
 		'
 		'btnSearch
 		'
-		Me.btnSearch.Location = New System.Drawing.Point(366, 62)
+		Me.btnSearch.Location = New System.Drawing.Point(366, 31)
 		Me.btnSearch.Name = "btnSearch"
 		Me.btnSearch.Size = New System.Drawing.Size(75, 25)
 		Me.btnSearch.TabIndex = 2
@@ -221,7 +246,9 @@ Partial Class frmMain
 		Me.C1Label1.Size = New System.Drawing.Size(80, 25)
 		Me.C1Label1.TabIndex = 0
 		Me.C1Label1.Tag = Nothing
+		Me.C1Label1.Text = "処理日："
 		Me.C1Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		Me.C1Label1.TextDetached = True
 		Me.C1Label1.Value = "処理日："
 		'
 		'Panel2
@@ -272,7 +299,6 @@ Partial Class frmMain
 		'frmMain
 		'
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
-		Me.CaptionDisplayMode = PersonnelInfoUpdate.frmTempForm.StatusDisplayMode.ShowAll
 		Me.ClientSize = New System.Drawing.Size(1016, 739)
 		Me.Controls.Add(Me.Panel2)
 		Me.Controls.Add(Me.Panel1)
@@ -285,6 +311,7 @@ Partial Class frmMain
 		Me.GroupBox2.ResumeLayout(False)
 		CType(Me.C1FGridSum, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.GroupBox1.ResumeLayout(False)
+		CType(Me.chkDeleted, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.btnAfterUpdate, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.btnCSVOut, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.btnImport, System.ComponentModel.ISupportInitialize).EndInit()
@@ -316,4 +343,5 @@ Partial Class frmMain
 	Friend WithEvents Panel2 As Panel
 	Friend WithEvents GroupBox3 As GroupBox
 	Friend WithEvents C1FGridResult As C1.Win.C1FlexGrid.C1FlexGrid
+	Friend WithEvents chkDeleted As C1.Win.C1Input.C1CheckBox
 End Class

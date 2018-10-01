@@ -88,6 +88,67 @@
 
 	End Sub
 
+	'Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+	'	Dim strSQL As String = ""
+	'	Dim sqlProcess As New SQLProcess
+
+	'	Try
+	'		strSQL = "SELECT JOB_ID, Shiori_ID, 項目1, 項目2, 項目3, 項目4, しおり "
+	'		strSQL &= "FROM T_しおりツール_しおりリスト "
+	'		strSQL &= "WHERE JOB_ID = 4"
+	'		Dim dt As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
+	'		Dim iCount As Integer = 0
+
+	'		For iRow As Integer = 0 To dt.Rows.Count - 1
+	'			iCount += 1
+	'			Dim strShiori As String = dt.Rows(iRow)("しおり").Replace("'", "''")
+	'			Dim strItem1 As String = dt.Rows(iRow)("項目1").Replace("'", "''")
+	'			Dim strItem2 As String = dt.Rows(iRow)("項目2").Replace("'", "''")
+	'			Dim strItem3 As String = dt.Rows(iRow)("項目3").Replace("'", "''")
+	'			Dim strItem4 As String = dt.Rows(iRow)("項目4").Replace("'", "''")
+
+	'			If Not IsNull(strItem4) Then
+	'				strShiori = strShiori.Replace(strItem4, "_" & strItem4)
+	'			End If
+	'			If Not IsNull(strItem3) Then
+	'				strShiori = strShiori.Replace(strItem3, "_" & strItem3)
+	'			End If
+	'			If Not IsNull(strItem2) Then
+	'				strShiori = strShiori.Replace(strItem2, "_" & strItem2)
+	'			End If
+	'			If Not IsNull(strItem1) Then
+	'				strShiori = strShiori.Replace(strItem1, "_" & strItem1)
+	'			End If
+	'			If Strings.Left(strShiori, 1) = "_" Then
+	'				strShiori = strShiori.Remove(0, 1)
+	'			End If
+	'			strSQL = "INSERT INTO T_しおりリストTEMP(JOB_ID, Shiori_ID, しおり) VALUES("
+	'			strSQL &= dt.Rows(iRow)("JOB_ID")
+	'			strSQL &= ", " & dt.Rows(iRow)("Shiori_ID")
+	'			strSQL &= ", '" & strShiori & "')"
+	'			sqlProcess.DB_UPDATE(strSQL)
+
+	'			strSQL = "UPDATE T_しおりツール_しおりリスト SET しおり = '" & strShiori & "' "
+	'			strSQL &= "WHERE JOB_ID = " & dt.Rows(iRow)("JOB_ID") & " "
+	'			strSQL &= "AND Shiori_ID = " & dt.Rows(iRow)("Shiori_ID")
+	'			sqlProcess.DB_UPDATE(strSQL)
+	'		Next
+
+	'		MessageBox.Show("終了しました" & vbNewLine & iCount & "件", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+	'	Catch ex As Exception
+
+	'		MessageBox.Show(ex.Message)
+
+	'	Finally
+
+	'		sqlProcess.Close()
+
+	'	End Try
+
+	'End Sub
+
 #End Region
 
 End Class

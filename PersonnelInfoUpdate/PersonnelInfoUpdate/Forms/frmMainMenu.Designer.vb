@@ -189,7 +189,6 @@ Partial Class frmMainMenu
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.CaptionDisplayMode = PersonnelInfoUpdate.frmTempForm.StatusDisplayMode.ShowAll
 		Me.ClientSize = New System.Drawing.Size(469, 339)
 		Me.Controls.Add(Me.btnExit)
 		Me.Controls.Add(Me.btnMaintenance)

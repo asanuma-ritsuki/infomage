@@ -597,4 +597,77 @@ Module ExcelProcess
 	'	End Try
 	'End Sub
 
+	''' <summary>
+	''' 対象エクセルファイルから必要必要なレコードを取得してDATATABLEに格納して返す
+	''' </summary>
+	''' <param name="strExcelFile"></param>
+	''' <param name="iStartRec"></param>
+	''' <returns></returns>
+	Public Function ReadExcel(ByVal strExcelFile As String, ByVal iStartRec As Integer) As DataTable
+
+		Dim wb As New C1XLBook
+
+		Try
+			wb.Load(strExcelFile)
+			Dim sheet As XLSheet = wb.Sheets(0) '先頭のシートを指定
+
+			'DATATABLEの作成
+			Dim ds As New DataSet()
+			Dim dt As New DataTable()
+			'データ型一覧
+			'Type.GetType("System.String")
+			'Type.GetType("System.Int32")
+			'Type.GetType("System.Boolean")
+			'Type.GetType("System.DateTime")
+			'Type.GetType("System.Decimal")
+
+			'項目の追加
+			dt.Columns.Add("発令日", Type.GetType("System.String"))
+			dt.Columns.Add("辞令", Type.GetType("System.String"))
+			dt.Columns.Add("ユーザーID", Type.GetType("System.String"))
+			dt.Columns.Add("利用者名称", Type.GetType("System.String"))
+			dt.Columns.Add("利用者名称カナ", Type.GetType("System.String"))
+			dt.Columns.Add("役職コード", Type.GetType("System.String"))
+			dt.Columns.Add("組織コード1", Type.GetType("System.String"))
+			dt.Columns.Add("組織コード2", Type.GetType("System.String"))
+			dt.Columns.Add("組織コード3", Type.GetType("System.String"))
+			dt.Columns.Add("組織コード4", Type.GetType("System.String"))
+			dt.Columns.Add("組織コード5", Type.GetType("System.String"))
+			dt.Columns.Add("海外", Type.GetType("System.String"))
+			dt.Columns.Add("管理者権限", Type.GetType("System.String"))
+			dt.Columns.Add("部門管理者権限", Type.GetType("System.String"))
+			Dim strColName As String() = {"ID", "発令日", "辞令", "ユーザーID", "利用者名称", "利用者名称カナ", "役職コード",
+			"組織コード1", "組織コード2", "組織コード3", "組織コード4", "組織コード5", "海外", "管理者権限", "部門管理者権限"}
+
+			For iRow As Integer = iStartRec To 200
+				'発令日に値がない場合ブレークする
+				If IsNull(sheet(iRow, 1).Value) Then
+					Exit For
+				End If
+				'カラムで回す
+				Dim row As DataRow = dt.NewRow()
+				For iCol As Integer = 1 To 14
+					row(strColName(iCol)) = IIf(IsNull(sheet(iRow, iCol).Value), "", sheet(iRow, iCol).Value)
+				Next
+				dt.Rows.Add(row)
+			Next
+			'すべて格納し終えたらDATASETにDATATABLEを追加する
+			ds.Tables.Add(dt)
+			dt.TableName = "DT_異動情報"
+			Return dt
+
+		Catch ex As Exception
+
+			Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message & vbNewLine & ex.StackTrace)
+			MessageBox.Show("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+			Return Nothing
+
+		Finally
+
+			wb.Dispose()
+
+		End Try
+
+	End Function
+
 End Module

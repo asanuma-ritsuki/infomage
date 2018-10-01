@@ -50,6 +50,8 @@ Partial Class Form1
 		Me.lstResult = New System.Windows.Forms.ListBox()
 		Me.Panel1 = New System.Windows.Forms.Panel()
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+		Me.Label15 = New System.Windows.Forms.Label()
+		Me.numWait = New System.Windows.Forms.NumericUpDown()
 		Me.btnOutput = New C1.Win.C1Input.C1Button()
 		Me.btnStart = New C1.Win.C1Input.C1Button()
 		Me.txtUsrSearchlistError = New System.Windows.Forms.TextBox()
@@ -89,8 +91,6 @@ Partial Class Form1
 		Me.Panel3 = New System.Windows.Forms.Panel()
 		Me.GroupBox3 = New System.Windows.Forms.GroupBox()
 		Me.C1FGridCount = New C1.Win.C1FlexGrid.C1FlexGrid()
-		Me.numWait = New System.Windows.Forms.NumericUpDown()
-		Me.Label15 = New System.Windows.Forms.Label()
 		CType(Me.C1CommandHolder1, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.C1StatusBar1, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.C1DockingTab1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -100,6 +100,7 @@ Partial Class Form1
 		Me.GroupBox2.SuspendLayout()
 		Me.Panel1.SuspendLayout()
 		Me.GroupBox1.SuspendLayout()
+		CType(Me.numWait, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.btnOutput, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.btnStart, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.C1DockingTabPage2.SuspendLayout()
@@ -111,7 +112,6 @@ Partial Class Form1
 		Me.Panel3.SuspendLayout()
 		Me.GroupBox3.SuspendLayout()
 		CType(Me.C1FGridCount, System.ComponentModel.ISupportInitialize).BeginInit()
-		CType(Me.numWait, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
 		'C1MainMenu1
@@ -122,7 +122,7 @@ Partial Class Form1
 		Me.C1MainMenu1.Location = New System.Drawing.Point(0, 0)
 		Me.C1MainMenu1.Name = "C1MainMenu1"
 		Me.C1MainMenu1.Size = New System.Drawing.Size(784, 27)
-		Me.C1MainMenu1.VisualStyleBase = C1.Win.C1Command.VisualStyle.Office2007Blue
+		Me.C1MainMenu1.VisualStyleBase = C1.Win.C1Command.VisualStyle.Office2010Black
 		'
 		'C1CommandHolder1
 		'
@@ -245,9 +245,8 @@ Partial Class Form1
 		Me.C1DockingTab1.Size = New System.Drawing.Size(784, 511)
 		Me.C1DockingTab1.TabIndex = 5
 		Me.C1DockingTab1.TabsSpacing = 5
-		Me.C1DockingTab1.TabStyle = C1.Win.C1Command.TabStyleEnum.Office2007
-		Me.C1DockingTab1.VisualStyle = C1.Win.C1Command.VisualStyle.Office2007Silver
-		Me.C1DockingTab1.VisualStyleBase = C1.Win.C1Command.VisualStyle.Office2007Blue
+		Me.C1DockingTab1.VisualStyle = C1.Win.C1Command.VisualStyle.Office2010Black
+		Me.C1DockingTab1.VisualStyleBase = C1.Win.C1Command.VisualStyle.Office2010Black
 		'
 		'C1DockingTabPage1
 		'
@@ -339,6 +338,25 @@ Partial Class Form1
 		Me.GroupBox1.TabIndex = 0
 		Me.GroupBox1.TabStop = False
 		Me.GroupBox1.Text = "インポート"
+		'
+		'Label15
+		'
+		Me.Label15.Location = New System.Drawing.Point(417, 206)
+		Me.Label15.Name = "Label15"
+		Me.Label15.Size = New System.Drawing.Size(79, 25)
+		Me.Label15.TabIndex = 31
+		Me.Label15.Text = "ウェイト："
+		Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		'
+		'numWait
+		'
+		Me.numWait.Location = New System.Drawing.Point(502, 206)
+		Me.numWait.Maximum = New Decimal(New Integer() {5, 0, 0, 0})
+		Me.numWait.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+		Me.numWait.Name = "numWait"
+		Me.numWait.Size = New System.Drawing.Size(100, 24)
+		Me.numWait.TabIndex = 30
+		Me.numWait.Value = New Decimal(New Integer() {2, 0, 0, 0})
 		'
 		'btnOutput
 		'
@@ -720,25 +738,6 @@ Partial Class Form1
 		Me.C1FGridCount.TabIndex = 6
 		Me.C1FGridCount.VisualStyle = C1.Win.C1FlexGrid.VisualStyle.System
 		'
-		'numWait
-		'
-		Me.numWait.Location = New System.Drawing.Point(502, 206)
-		Me.numWait.Maximum = New Decimal(New Integer() {5, 0, 0, 0})
-		Me.numWait.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
-		Me.numWait.Name = "numWait"
-		Me.numWait.Size = New System.Drawing.Size(100, 24)
-		Me.numWait.TabIndex = 30
-		Me.numWait.Value = New Decimal(New Integer() {2, 0, 0, 0})
-		'
-		'Label15
-		'
-		Me.Label15.Location = New System.Drawing.Point(417, 206)
-		Me.Label15.Name = "Label15"
-		Me.Label15.Size = New System.Drawing.Size(79, 25)
-		Me.Label15.TabIndex = 31
-		Me.Label15.Text = "ウェイト："
-		Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-		'
 		'Form1
 		'
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -751,6 +750,7 @@ Partial Class Form1
 		Me.Name = "Form1"
 		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
 		Me.Text = "Form1"
+		Me.VisualStyleHolder = C1.Win.C1Ribbon.VisualStyle.Office2010Black
 		CType(Me.C1CommandHolder1, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.C1StatusBar1, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.C1DockingTab1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -761,6 +761,7 @@ Partial Class Form1
 		Me.Panel1.ResumeLayout(False)
 		Me.GroupBox1.ResumeLayout(False)
 		Me.GroupBox1.PerformLayout()
+		CType(Me.numWait, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.btnOutput, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.btnStart, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.C1DockingTabPage2.ResumeLayout(False)
@@ -772,7 +773,6 @@ Partial Class Form1
 		Me.Panel3.ResumeLayout(False)
 		Me.GroupBox3.ResumeLayout(False)
 		CType(Me.C1FGridCount, System.ComponentModel.ISupportInitialize).EndInit()
-		CType(Me.numWait, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 
