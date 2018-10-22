@@ -164,7 +164,14 @@ Public Class frmPrintPreview
 					If dt.Rows.Count > 0 Then
 						'プレビュー表示
 						Dim C1FlexReport1 As New C1FlexReport
-						C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "保健指導名簿")
+						'2018/10/01
+						'かんぽ生命とそれ以外でテンプレートを分岐させる
+						If frm.txtCompanyCode.Text = XmlSettings.Instance.KanpoCode Then
+							'かんぽ生命
+							C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "保健指導名簿_かんぽ")
+						Else
+							C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "保健指導名簿")
+						End If
 						'接続文字列、SQL文の設定
 						C1FlexReport1.DataSource.ConnectionString = strConnectionString
 						C1FlexReport1.DataSource.RecordSource = strSQL

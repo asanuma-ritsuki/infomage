@@ -24,6 +24,9 @@ Partial Class frmImport
 	Private Sub InitializeComponent()
 		Me.Panel1 = New System.Windows.Forms.Panel()
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+		Me.C1Label6 = New C1.Win.C1Input.C1Label()
+		Me.btnImportUsrBrowse = New C1.Win.C1Input.C1Button()
+		Me.txtImportUsr = New C1.Win.C1Input.C1TextBox()
 		Me.C1Label5 = New C1.Win.C1Input.C1Label()
 		Me.numStart = New System.Windows.Forms.NumericUpDown()
 		Me.cmbOffice = New C1.Win.C1Input.C1ComboBox()
@@ -39,8 +42,12 @@ Partial Class frmImport
 		Me.txtSaveFolder = New C1.Win.C1Input.C1TextBox()
 		Me.txtLogFolder = New C1.Win.C1Input.C1TextBox()
 		Me.lstResult = New System.Windows.Forms.ListBox()
+		Me.btnDelete = New C1.Win.C1Input.C1Button()
 		Me.Panel1.SuspendLayout()
 		Me.GroupBox1.SuspendLayout()
+		CType(Me.C1Label6, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.btnImportUsrBrowse, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.txtImportUsr, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.C1Label5, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.numStart, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.cmbOffice, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -55,6 +62,7 @@ Partial Class frmImport
 		CType(Me.btnImportExcelBrowse, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.txtSaveFolder, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.txtLogFolder, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.btnDelete, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
 		'Panel1
@@ -63,11 +71,15 @@ Partial Class frmImport
 		Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
 		Me.Panel1.Location = New System.Drawing.Point(0, 0)
 		Me.Panel1.Name = "Panel1"
-		Me.Panel1.Size = New System.Drawing.Size(792, 148)
+		Me.Panel1.Size = New System.Drawing.Size(792, 187)
 		Me.Panel1.TabIndex = 1
 		'
 		'GroupBox1
 		'
+		Me.GroupBox1.Controls.Add(Me.btnDelete)
+		Me.GroupBox1.Controls.Add(Me.C1Label6)
+		Me.GroupBox1.Controls.Add(Me.btnImportUsrBrowse)
+		Me.GroupBox1.Controls.Add(Me.txtImportUsr)
 		Me.GroupBox1.Controls.Add(Me.C1Label5)
 		Me.GroupBox1.Controls.Add(Me.numStart)
 		Me.GroupBox1.Controls.Add(Me.cmbOffice)
@@ -85,29 +97,65 @@ Partial Class frmImport
 		Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
 		Me.GroupBox1.Name = "GroupBox1"
-		Me.GroupBox1.Size = New System.Drawing.Size(792, 148)
+		Me.GroupBox1.Size = New System.Drawing.Size(792, 187)
 		Me.GroupBox1.TabIndex = 11
 		Me.GroupBox1.TabStop = False
 		Me.GroupBox1.Text = "インポート設定"
+		'
+		'C1Label6
+		'
+		Me.C1Label6.BackColor = System.Drawing.Color.Transparent
+		Me.C1Label6.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.C1Label6.ForeColor = System.Drawing.Color.Black
+		Me.C1Label6.Location = New System.Drawing.Point(12, 52)
+		Me.C1Label6.Name = "C1Label6"
+		Me.C1Label6.Size = New System.Drawing.Size(124, 25)
+		Me.C1Label6.TabIndex = 15
+		Me.C1Label6.Tag = Nothing
+		Me.C1Label6.Text = "利用者情報CSV："
+		Me.C1Label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		Me.C1Label6.TextDetached = True
+		Me.C1Label6.Value = ""
+		'
+		'btnImportUsrBrowse
+		'
+		Me.btnImportUsrBrowse.Location = New System.Drawing.Point(660, 54)
+		Me.btnImportUsrBrowse.Name = "btnImportUsrBrowse"
+		Me.btnImportUsrBrowse.Size = New System.Drawing.Size(30, 25)
+		Me.btnImportUsrBrowse.TabIndex = 17
+		Me.btnImportUsrBrowse.Text = "..."
+		Me.btnImportUsrBrowse.UseVisualStyleBackColor = True
+		'
+		'txtImportUsr
+		'
+		Me.txtImportUsr.AllowDrop = True
+		Me.txtImportUsr.AutoSize = False
+		Me.txtImportUsr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+		Me.txtImportUsr.Location = New System.Drawing.Point(142, 54)
+		Me.txtImportUsr.Name = "txtImportUsr"
+		Me.txtImportUsr.Size = New System.Drawing.Size(512, 25)
+		Me.txtImportUsr.TabIndex = 16
+		Me.txtImportUsr.Tag = Nothing
+		Me.txtImportUsr.TextDetached = True
 		'
 		'C1Label5
 		'
 		Me.C1Label5.BackColor = System.Drawing.Color.Transparent
 		Me.C1Label5.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.C1Label5.ForeColor = System.Drawing.Color.Black
-		Me.C1Label5.Location = New System.Drawing.Point(434, 116)
+		Me.C1Label5.Location = New System.Drawing.Point(434, 147)
 		Me.C1Label5.Name = "C1Label5"
-		Me.C1Label5.Size = New System.Drawing.Size(128, 25)
+		Me.C1Label5.Size = New System.Drawing.Size(181, 25)
 		Me.C1Label5.TabIndex = 14
 		Me.C1Label5.Tag = Nothing
-		Me.C1Label5.Text = "行目からインポートする"
-		Me.C1Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		Me.C1Label5.Text = "行目からエクセルをインポートする"
+		Me.C1Label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
 		Me.C1Label5.TextDetached = True
 		Me.C1Label5.Value = ""
 		'
 		'numStart
 		'
-		Me.numStart.Location = New System.Drawing.Point(375, 116)
+		Me.numStart.Location = New System.Drawing.Point(375, 147)
 		Me.numStart.Name = "numStart"
 		Me.numStart.Size = New System.Drawing.Size(53, 24)
 		Me.numStart.TabIndex = 13
@@ -125,7 +173,7 @@ Partial Class frmImport
 		Me.cmbOffice.ImagePadding = New System.Windows.Forms.Padding(0)
 		Me.cmbOffice.ItemsDisplayMember = ""
 		Me.cmbOffice.ItemsValueMember = ""
-		Me.cmbOffice.Location = New System.Drawing.Point(142, 116)
+		Me.cmbOffice.Location = New System.Drawing.Point(142, 147)
 		Me.cmbOffice.Name = "cmbOffice"
 		Me.cmbOffice.Size = New System.Drawing.Size(200, 25)
 		Me.cmbOffice.TabIndex = 12
@@ -138,7 +186,7 @@ Partial Class frmImport
 		Me.C1Label4.BackColor = System.Drawing.Color.Transparent
 		Me.C1Label4.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.C1Label4.ForeColor = System.Drawing.Color.Black
-		Me.C1Label4.Location = New System.Drawing.Point(12, 116)
+		Me.C1Label4.Location = New System.Drawing.Point(12, 147)
 		Me.C1Label4.Name = "C1Label4"
 		Me.C1Label4.Size = New System.Drawing.Size(124, 25)
 		Me.C1Label4.TabIndex = 11
@@ -186,7 +234,7 @@ Partial Class frmImport
 		'
 		'btnLogFolderBrowse
 		'
-		Me.btnLogFolderBrowse.Location = New System.Drawing.Point(660, 85)
+		Me.btnLogFolderBrowse.Location = New System.Drawing.Point(660, 116)
 		Me.btnLogFolderBrowse.Name = "btnLogFolderBrowse"
 		Me.btnLogFolderBrowse.Size = New System.Drawing.Size(30, 25)
 		Me.btnLogFolderBrowse.TabIndex = 9
@@ -198,7 +246,7 @@ Partial Class frmImport
 		Me.C1Label2.BackColor = System.Drawing.Color.Transparent
 		Me.C1Label2.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.C1Label2.ForeColor = System.Drawing.Color.Black
-		Me.C1Label2.Location = New System.Drawing.Point(12, 52)
+		Me.C1Label2.Location = New System.Drawing.Point(12, 83)
 		Me.C1Label2.Name = "C1Label2"
 		Me.C1Label2.Size = New System.Drawing.Size(124, 25)
 		Me.C1Label2.TabIndex = 2
@@ -210,7 +258,7 @@ Partial Class frmImport
 		'
 		'btnSaveFolderBrowse
 		'
-		Me.btnSaveFolderBrowse.Location = New System.Drawing.Point(660, 54)
+		Me.btnSaveFolderBrowse.Location = New System.Drawing.Point(660, 85)
 		Me.btnSaveFolderBrowse.Name = "btnSaveFolderBrowse"
 		Me.btnSaveFolderBrowse.Size = New System.Drawing.Size(30, 25)
 		Me.btnSaveFolderBrowse.TabIndex = 8
@@ -222,7 +270,7 @@ Partial Class frmImport
 		Me.C1Label3.BackColor = System.Drawing.Color.Transparent
 		Me.C1Label3.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.C1Label3.ForeColor = System.Drawing.Color.Black
-		Me.C1Label3.Location = New System.Drawing.Point(12, 83)
+		Me.C1Label3.Location = New System.Drawing.Point(12, 114)
 		Me.C1Label3.Name = "C1Label3"
 		Me.C1Label3.Size = New System.Drawing.Size(124, 25)
 		Me.C1Label3.TabIndex = 3
@@ -246,7 +294,7 @@ Partial Class frmImport
 		Me.txtSaveFolder.AllowDrop = True
 		Me.txtSaveFolder.AutoSize = False
 		Me.txtSaveFolder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-		Me.txtSaveFolder.Location = New System.Drawing.Point(142, 54)
+		Me.txtSaveFolder.Location = New System.Drawing.Point(142, 85)
 		Me.txtSaveFolder.Name = "txtSaveFolder"
 		Me.txtSaveFolder.Size = New System.Drawing.Size(512, 25)
 		Me.txtSaveFolder.TabIndex = 5
@@ -258,7 +306,7 @@ Partial Class frmImport
 		Me.txtLogFolder.AllowDrop = True
 		Me.txtLogFolder.AutoSize = False
 		Me.txtLogFolder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-		Me.txtLogFolder.Location = New System.Drawing.Point(142, 85)
+		Me.txtLogFolder.Location = New System.Drawing.Point(142, 116)
 		Me.txtLogFolder.Name = "txtLogFolder"
 		Me.txtLogFolder.Size = New System.Drawing.Size(512, 25)
 		Me.txtLogFolder.TabIndex = 6
@@ -270,10 +318,19 @@ Partial Class frmImport
 		Me.lstResult.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.lstResult.FormattingEnabled = True
 		Me.lstResult.ItemHeight = 17
-		Me.lstResult.Location = New System.Drawing.Point(0, 148)
+		Me.lstResult.Location = New System.Drawing.Point(0, 187)
 		Me.lstResult.Name = "lstResult"
-		Me.lstResult.Size = New System.Drawing.Size(792, 400)
+		Me.lstResult.Size = New System.Drawing.Size(792, 361)
 		Me.lstResult.TabIndex = 2
+		'
+		'btnDelete
+		'
+		Me.btnDelete.Location = New System.Drawing.Point(705, 156)
+		Me.btnDelete.Name = "btnDelete"
+		Me.btnDelete.Size = New System.Drawing.Size(75, 25)
+		Me.btnDelete.TabIndex = 18
+		Me.btnDelete.Text = "削　除"
+		Me.btnDelete.UseVisualStyleBackColor = True
 		'
 		'frmImport
 		'
@@ -288,6 +345,9 @@ Partial Class frmImport
 		Me.Controls.SetChildIndex(Me.lstResult, 0)
 		Me.Panel1.ResumeLayout(False)
 		Me.GroupBox1.ResumeLayout(False)
+		CType(Me.C1Label6, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.btnImportUsrBrowse, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.txtImportUsr, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.C1Label5, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.numStart, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.cmbOffice, System.ComponentModel.ISupportInitialize).EndInit()
@@ -302,6 +362,7 @@ Partial Class frmImport
 		CType(Me.btnImportExcelBrowse, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.txtSaveFolder, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.txtLogFolder, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.btnDelete, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 
@@ -324,4 +385,8 @@ Partial Class frmImport
 	Friend WithEvents cmbOffice As C1.Win.C1Input.C1ComboBox
 	Friend WithEvents C1Label5 As C1.Win.C1Input.C1Label
 	Friend WithEvents numStart As NumericUpDown
+	Friend WithEvents C1Label6 As C1.Win.C1Input.C1Label
+	Friend WithEvents btnImportUsrBrowse As C1.Win.C1Input.C1Button
+	Friend WithEvents txtImportUsr As C1.Win.C1Input.C1TextBox
+	Friend WithEvents btnDelete As C1.Win.C1Input.C1Button
 End Class

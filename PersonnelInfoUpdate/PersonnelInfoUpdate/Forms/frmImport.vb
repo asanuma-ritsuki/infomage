@@ -52,7 +52,7 @@
 	''' </summary>
 	''' <param name="sender"></param>
 	''' <param name="e"></param>
-	Private Sub TextBox_DragEnter(sender As Object, e As DragEventArgs) Handles txtImportExcel.DragEnter, txtSaveFolder.DragEnter, txtLogFolder.DragEnter
+	Private Sub TextBox_DragEnter(sender As Object, e As DragEventArgs) Handles txtImportExcel.DragEnter, txtImportUsr.DragEnter, txtSaveFolder.DragEnter, txtLogFolder.DragEnter
 
 		If e.Data.GetDataPresent(DataFormats.FileDrop) Then
 			e.Effect = DragDropEffects.Copy
@@ -71,8 +71,23 @@
 
 		Dim strFiles As String() = CType(e.Data.GetData(DataFormats.FileDrop, False), String())
 
-		If System.IO.File.Exists(strFiles(0)) Then
+		If System.IO.File.Exists(strFiles(0)) And System.IO.Path.GetExtension(strFiles(0)) = ".xlsx" Then
 			Me.txtImportExcel.Text = strFiles(0)
+		End If
+
+	End Sub
+
+	''' <summary>
+	''' インポート利用者情報ドラッグドロップ時
+	''' </summary>
+	''' <param name="sender"></param>
+	''' <param name="e"></param>
+	Private Sub txtImportUsr_DragDrop(sender As Object, e As DragEventArgs) Handles txtImportUsr.DragDrop
+
+		Dim strFiles As String() = CType(e.Data.GetData(DataFormats.FileDrop, False), String())
+
+		If System.IO.File.Exists(strFiles(0)) And System.IO.Path.GetExtension(strFiles(0)) = ".csv" Then
+			Me.txtImportUsr.Text = strFiles(0)
 		End If
 
 	End Sub
@@ -105,6 +120,18 @@
 	Private Sub btnImportExcelBrowse_Click(sender As Object, e As EventArgs) Handles btnImportExcelBrowse.Click
 
 		Dim strFilter As String = "Excelファイル(*.xlsx)|*.xlsx"
+		Me.txtImportExcel.Text = FileBrowse(Me.txtImportExcel, strFilter)
+
+	End Sub
+
+	''' <summary>
+	''' インポート利用者情報ブラウズボタン押下時
+	''' </summary>
+	''' <param name="sender"></param>
+	''' <param name="e"></param>
+	Private Sub btnImportUsrBrowse_Click(sender As Object, e As EventArgs) Handles btnImportUsrBrowse.Click
+
+		Dim strFilter As String = "CSVファイル(*.csv)|*.csv"
 		Me.txtImportExcel.Text = FileBrowse(Me.txtImportExcel, strFilter)
 
 	End Sub
@@ -174,6 +201,8 @@
 		Dim strImportDate As String = Date.Now.ToString("yyyyMMdd")
 		'インポートエクセルファイル
 		Dim strImportExcel As String = Me.txtImportExcel.Text
+		'利用者情報CSV
+		Dim strImportUsr As String = Me.txtImportUsr.Text
 		'開始行
 		Dim iStartRec As Integer = Me.numStart.Value
 		'保存先フォルダ
@@ -193,6 +222,7 @@
 		WriteLstResult(Me.lstResult, "ログフォルダ：" & strLogFolder)
 
 		Dim iCount As Integer = 0
+		Dim iRecCount As Integer = 0
 		Dim strSQL As String = ""
 		Dim sqlProcess As New SQLProcess
 		Dim dt As DataTable = Nothing
@@ -204,6 +234,7 @@
 			'ロット管理テーブルへのINSERT
 			'==================================================
 			'すでに取り込み済みのエクセルファイルかどうかをチェックする
+			WriteLstResult(Me.lstResult, "ロット管理テーブルへのINSERT：" & strLotID)
 			strSQL = "SELECT COUNT(*) FROM T_ロット管理 "
 			strSQL &= "WHERE エクセルファイル = '" & System.IO.Path.GetFileName(strImportExcel) & "'"
 			Dim iExist As Integer = sqlProcess.DB_EXECUTE_SCALAR(strSQL)
@@ -223,6 +254,7 @@
 			'==================================================
 			'対象エクセルから値を取り出してT_異動情報に書き込む
 			'==================================================
+			WriteLstResult(Me.lstResult, "エクセルファイルの読み込み開始：" & System.IO.Path.GetFileName(strImportExcel))
 			dt = ReadExcel(strImportExcel, iStartRec)
 			strSQL = "SELECT ISNULL(MAX(レコード番号), 0) + 1 AS レコード番号 "
 			strSQL &= "FROM T_異動情報 "
@@ -234,22 +266,84 @@
 				strSQL &= "'" & strLotID & "'"
 				strSQL &= ", " & iRecNumber
 				strSQL &= ", '" & IIf(IsDate(dt.Rows(iRow)("発令日")), CDate(dt.Rows(iRow)("発令日")).ToString("yyyy/MM/dd"), dt.Rows(iRow)("発令日")) & "'"
-				strSQL &= ", '" & dt.Rows(iRow)("辞令") & "'"
-				strSQL &= ", '" & dt.Rows(iRow)("ユーザーID") & "'"
-				strSQL &= ", '" & dt.Rows(iRow)("利用者名称") & "'"
-				strSQL &= ", '" & dt.Rows(iRow)("利用者名称カナ") & "'"
-				strSQL &= ", '" & dt.Rows(iRow)("役職コード") & "'"
-				strSQL &= ", '" & dt.Rows(iRow)("組織コード1") & "'"
-				strSQL &= ", '" & dt.Rows(iRow)("組織コード2") & "'"
-				strSQL &= ", '" & dt.Rows(iRow)("組織コード3") & "'"
-				strSQL &= ", '" & dt.Rows(iRow)("組織コード4") & "'"
-				strSQL &= ", '" & dt.Rows(iRow)("組織コード5") & "'"
-				strSQL &= ", " & IIf(dt.Rows(iRow)("海外") = "○", 1, 0)
-				strSQL &= ", " & IIf(dt.Rows(iRow)("管理者権限") = "○", 1, 0)
-				strSQL &= ", " & IIf(dt.Rows(iRow)("部門管理者権限") = "○", 1, 0) & ")"
+				strSQL &= ", '" & dt.Rows(iRow)("辞令").ToString.Trim(" ").Trim("　") & "'"
+				strSQL &= ", '" & dt.Rows(iRow)("ユーザーID").ToString.Trim(" ").Trim("　") & "'"
+				strSQL &= ", '" & dt.Rows(iRow)("利用者名称").ToString.Trim(" ").Trim("　") & "'"
+				strSQL &= ", '" & dt.Rows(iRow)("利用者名称カナ").ToString.Trim(" ").Trim("　") & "'"
+				strSQL &= ", '" & dt.Rows(iRow)("役職コード").ToString.Trim(" ").Trim("　") & "'"
+				strSQL &= ", '" & dt.Rows(iRow)("組織コード1").ToString.Trim(" ").Trim("　") & "'"
+				strSQL &= ", '" & dt.Rows(iRow)("組織コード2").ToString.Trim(" ").Trim("　") & "'"
+				strSQL &= ", '" & dt.Rows(iRow)("組織コード3").ToString.Trim(" ").Trim("　") & "'"
+				strSQL &= ", '" & dt.Rows(iRow)("組織コード4").ToString.Trim(" ").Trim("　") & "'"
+				strSQL &= ", '" & dt.Rows(iRow)("組織コード5").ToString.Trim(" ").Trim("　") & "'"
+				strSQL &= ", " & IIf(dt.Rows(iRow)("海外").ToString.Trim(" ").Trim("　") = "○", 1, 0)
+				strSQL &= ", " & IIf(dt.Rows(iRow)("管理者権限").ToString.Trim(" ").Trim("　") = "○", 1, 0)
+				strSQL &= ", " & IIf(dt.Rows(iRow)("部門管理者権限").ToString.Trim(" ").Trim("　") = "○", 1, 0) & ")"
 				sqlProcess.DB_UPDATE(strSQL)
 				iRecNumber += 1
 			Next
+			WriteLstResult(Me.lstResult, "エクセルファイルの読み込み終了：" & System.IO.Path.GetFileName(strImportExcel))
+			'==================================================
+			'利用者情報CSVを読み込んでT_利用者情報に書き込む
+			'==================================================
+			WriteLstResult(Me.lstResult, "利用者情報CSVの読み込み開始：" & System.IO.Path.GetFileName(strImportUsr))
+
+			Using parser As New CSVParser(strImportUsr, System.Text.Encoding.GetEncoding("Shift-JIS"))
+				parser.Delimiter = ","  'カンマ区切り
+
+				parser.HasFieldsEnclosedInQuotes = True 'データ内にデリミタがあっても区切らない
+				parser.TrimWhiteSpace = False   '空白を削除しない
+
+				iRecCount = 0
+
+				parser.ReadFields() 'ヘッダ業を読み飛ばす
+				'最終行まで読み込み
+				While Not parser.EndOfData
+					'レコード番号の最大値を取得
+					strSQL = "SELECT ISNULL(MAX(レコード番号), 0) + 1 FROM T_利用者情報 "
+					strSQL &= "WHERE ロットID = '" & strLotID & "'"
+					iRecNumber = sqlProcess.DB_EXECUTE_SCALAR(strSQL)
+
+					Dim row As String() = parser.ReadFields()   '1行読み込み、項目を配列に代入
+
+					'T_利用者情報テーブルに書き込み
+					strSQL = "INSERT INTO T_利用者情報(ロットID, レコード番号, 更新区分, 社員番号, 利用者名称, 利用者名称カナ, "
+					strSQL &= "役職コード別名, 所属組織コード1, 有効期間From, 有効期間To, 連絡優先フラグ, IVR有りフラグ, "
+					strSQL &= "所属組織コード2, 所属組織コード3, 所属組織コード4, 所属組織コード5, メールアドレス1, メールアドレス2, "
+					strSQL &= "電話番号1, 電話番号2, 都道府県コード, 勤務地都道府県コード) VALUES("
+					strSQL &= "'" & strLotID & "'"
+					strSQL &= ", " & iRecNumber
+					strSQL &= ", '" & row(0).Trim(" ").Trim("　") & "'"  '更新区分
+					strSQL &= ", '" & row(1).Trim(" ").Trim("　") & "'"  '社員番号
+					strSQL &= ", N'" & row(2).Trim(" ").Trim("　") & "'"  '利用者名称
+					strSQL &= ", N'" & row(3).Trim(" ").Trim("　") & "'"  '利用者名称カナ
+					strSQL &= ", '" & row(4).Trim(" ").Trim("　") & "'"  '役職コード別名
+					strSQL &= ", '" & row(5).Trim(" ").Trim("　") & "'"  '所属組織コード1
+					strSQL &= ", '" & row(6).Trim(" ").Trim("　") & "'"  '有効期間From
+					strSQL &= ", '" & row(7).Trim(" ").Trim("　") & "'"  '有効期間To
+					strSQL &= ", '" & row(8).Trim(" ").Trim("　") & "'"  '連絡優先フラグ
+					strSQL &= ", '" & row(9).Trim(" ").Trim("　") & "'"  'IVR有りフラグ
+					strSQL &= ", '" & row(10).Trim(" ").Trim("　") & "'" '所属組織コード2
+					strSQL &= ", '" & row(11).Trim(" ").Trim("　") & "'" '所属組織コード3
+					strSQL &= ", '" & row(12).Trim(" ").Trim("　") & "'" '所属組織コード4
+					strSQL &= ", '" & row(13).Trim(" ").Trim("　") & "'" '所属組織コード5
+					strSQL &= ", '" & row(14).Trim(" ").Trim("　") & "'" 'メールアドレス1
+					strSQL &= ", '" & row(15).Trim(" ").Trim("　") & "'" 'メールアドレス2
+					strSQL &= ", '" & row(16).Trim(" ").Trim("　") & "'" '電話番号1
+					strSQL &= ", '" & row(17).Trim(" ").Trim("　") & "'" '電話番号2
+					strSQL &= ", '" & row(18).Trim(" ").Trim("　") & "'" '都道府県コード
+					strSQL &= ", '" & row(19).Trim(" ").Trim("　") & "')"    '勤務地都道府県コード
+					sqlProcess.DB_UPDATE(strSQL)
+				End While
+
+			End Using
+			WriteLstResult(Me.lstResult, "利用者情報CSVの読み込み終了：" & System.IO.Path.GetFileName(strImportUsr))
+			'==================================================
+			'データマッチング処理
+			'==================================================
+			WriteLstResult(Me.lstResult, "データマッチング処理開始")
+
+			WriteLstResult(Me.lstResult, "データマッチング処理終了")
 
 			MessageBox.Show("インポート処理が終了しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
@@ -292,6 +386,43 @@
 			Me.cmbOffice.ItemsDataSource = dt
 			Me.cmbOffice.ItemsDisplayMember = "事業所"
 			Me.cmbOffice.ItemsValueMember = "事業所ID"
+
+		Catch ex As Exception
+
+			Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message & vbNewLine & ex.StackTrace)
+			MessageBox.Show("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+		Finally
+
+			sqlProcess.Close()
+
+		End Try
+
+	End Sub
+
+	''' <summary>
+	''' データベース削除(テスト用)
+	''' </summary>
+	''' <param name="sender"></param>
+	''' <param name="e"></param>
+	Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+
+		If MessageBox.Show("利用者情報と異動情報を削除します" & vbNewLine & "よろしいですか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then
+			Exit Sub
+		End If
+
+		Dim strSQL As String = ""
+		Dim sqlProcess As New SQLProcess
+
+		Try
+			strSQL = "DELETE FROM T_利用者情報"
+			sqlProcess.DB_UPDATE(strSQL)
+			strSQL = "DELETE FROM T_異動情報"
+			sqlProcess.DB_UPDATE(strSQL)
+			strSQL = "DELETE FROM T_ロット管理"
+			sqlProcess.DB_UPDATE(strSQL)
+
+			MessageBox.Show("該当テーブルを削除しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
 		Catch ex As Exception
 

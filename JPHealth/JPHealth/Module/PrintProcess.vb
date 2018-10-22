@@ -3478,7 +3478,9 @@ Module PrintProcess
         Dim sqlProcess As New SQLProcess
         Dim strSQL As String = ""
 
-        Try
+		'2018/10/02
+		'かんぽ生命用帳票タイプ（肝機能5、血糖5、脂質5、尿酸5、貧血5）の追加
+		Try
             '帳票タイプによって、結果値1、結果値2、結果値3に入る値を変える
             Select Case strType
                 Case "血圧3", "血圧4"
@@ -3491,8 +3493,8 @@ Module PrintProcess
                     strValue2 = dtValue.Rows(0)("血圧1回拡張期")
                     strVAlue3 = ""
 
-                Case "血糖3", "血糖4"
-                    strSQL = "SELECT HbA1c, 空腹時血糖, 随時血糖 FROM T_リーフレット "
+				Case "血糖3", "血糖4", "血糖5"
+					strSQL = "SELECT HbA1c, 空腹時血糖, 随時血糖 FROM T_リーフレット "
                     strSQL &= "WHERE ロットID = '" & strLotID & "' "
                     strSQL &= "AND システムID = '" & strSystemID & "' "
                     strSQL &= "AND 帳票タイプ = '" & strType & "'"
@@ -3508,8 +3510,8 @@ Module PrintProcess
 					End If
                     strVAlue3 = ""
 
-                Case "脂質3", "脂質4"
-                    strSQL = "SELECT LDLコレステロール, HDLコレステロール, 中性脂肪 FROM T_リーフレット "
+				Case "脂質3", "脂質4", "脂質5"
+					strSQL = "SELECT LDLコレステロール, HDLコレステロール, 中性脂肪 FROM T_リーフレット "
                     strSQL &= "WHERE ロットID = '" & strLotID & "' "
                     strSQL &= "AND システムID = '" & strSystemID & "' "
                     strSQL &= "AND 帳票タイプ = '" & strType & "'"
@@ -3518,8 +3520,8 @@ Module PrintProcess
                     strValue2 = dtValue.Rows(0)("HDLコレステロール")
                     strVAlue3 = dtValue.Rows(0)("中性脂肪")
 
-                Case "肝機能3", "肝機能4"
-                    strSQL = "SELECT GOT, GPT, ガンマGTP FROM T_リーフレット "
+				Case "肝機能3", "肝機能4", "肝機能5"
+					strSQL = "SELECT GOT, GPT, ガンマGTP FROM T_リーフレット "
                     strSQL &= "WHERE ロットID = '" & strLotID & "' "
                     strSQL &= "AND システムID = '" & strSystemID & "' "
                     strSQL &= "AND 帳票タイプ = '" & strType & "'"
@@ -3528,8 +3530,8 @@ Module PrintProcess
                     strValue2 = dtValue.Rows(0)("GPT")
                     strVAlue3 = dtValue.Rows(0)("ガンマGTP")
 
-                Case "貧血3", "貧血4"
-                    strSQL = "SELECT 血色素量 FROM T_リーフレット "
+				Case "貧血3", "貧血4", "貧血5"
+					strSQL = "SELECT 血色素量 FROM T_リーフレット "
                     strSQL &= "WHERE ロットID = '" & strLotID & "' "
                     strSQL &= "AND システムID = '" & strSystemID & "' "
                     strSQL &= "AND 帳票タイプ = '" & strType & "'"
@@ -3538,8 +3540,8 @@ Module PrintProcess
                     strValue2 = ""
                     strVAlue3 = ""
 
-                Case "尿酸3", "尿酸4"
-                    strSQL = "SELECT 尿酸 FROM T_リーフレット "
+				Case "尿酸3", "尿酸4", "尿酸5"
+					strSQL = "SELECT 尿酸 FROM T_リーフレット "
                     strSQL &= "WHERE ロットID = '" & strLotID & "' "
                     strSQL &= "AND システムID = '" & strSystemID & "' "
                     strSQL &= "AND 帳票タイプ = '" & strType & "'"
@@ -4064,10 +4066,10 @@ Module PrintProcess
                     'strSQL &= "所属課名, 社員コード"
                     dt = sqlProcess.DB_SELECT_DATATABLE(strSQL)
                     If dt.Rows.Count > 0 Then
-                        '印刷処理
-                        Print(strSQL, PrintCategory.LeafletList)
+						'印刷処理
+						Print(strSQL, PrintCategory.LeafletList, , dtPrintManage.Rows(iRow)("会社コード"))
 
-                    End If
+					End If
 
                     '==================================================
                     '判定票印刷
@@ -4298,10 +4300,10 @@ Module PrintProcess
                 strSQL &= "T1.所属課名, T1.社員コード"
                 dt = sqlProcess.DB_SELECT_DATATABLE(strSQL)
                 If dt.Rows.Count > 0 Then
-                    '印刷処理
-                    Print(strSQL, PrintCategory.LeafletList)
+					'印刷処理
+					Print(strSQL, PrintCategory.LeafletList, , dtPrintManage.Rows(iRow)("会社コード"))
 
-                End If
+				End If
 
                 '==================================================
                 '判定票印刷
@@ -4872,7 +4874,7 @@ Module PrintProcess
 
 			Dim strHeaderSheet6 As String = ""
 			For iRow As Integer = 0 To dtLeaf6Header.Rows.Count - 1
-				'一社員でリーフレットが6枚存在する重量ヘッダ単位で回す
+				'一社員でリーフレットが6枚以上存在する重量ヘッダ単位で回す
 				'==================================================
 				'重量ヘッダシート印刷
 				'==================================================
@@ -5153,10 +5155,15 @@ Module PrintProcess
 
     End Sub
 
-    ''' <summary>
-    ''' 印刷処理
-    ''' </summary>
-    Public Sub Print(ByVal strSQL As String, ByVal prtCategory As PrintCategory, Optional ByVal strLeafletPattern As String = "")
+	''' <summary>
+	''' 印刷処理
+	''' </summary>
+	''' <param name="strSQL"></param>
+	''' <param name="prtCategory"></param>
+	''' <param name="strLeafletPattern"></param>
+	''' <param name="strCompanyCode">会社コード</param>
+	''' <remarks>2018/10/02 かんぽ生命対応で会社コードオプションを追加</remarks>
+	Public Sub Print(ByVal strSQL As String, ByVal prtCategory As PrintCategory, Optional ByVal strLeafletPattern As String = "", Optional ByVal strCompanyCode As String = "")
 
 		''==================================================
 		''デバッグ用(この囲み以外はコメントアウトする)
@@ -5371,7 +5378,13 @@ Module PrintProcess
 
 				Case PrintCategory.LeafletList
 					'保健指導対象者名簿
-					C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "保健指導名簿")
+					'2018/10/02
+					'かんぽ生命かどうかの判断
+					If strCompanyCode = XmlSettings.Instance.KanpoCode Then
+						C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "保健指導名簿_かんぽ")
+					Else
+						C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "保健指導名簿")
+					End If
 					'接続文字列、SQL文の設定
 					C1FlexReport1.DataSource.ConnectionString = strConnectionString
 					C1FlexReport1.DataSource.RecordSource = strSQL
@@ -5403,7 +5416,13 @@ Module PrintProcess
 
 				Case PrintCategory.LeafletListIndividual
 					'保健指導対象者名簿個別
-					C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "保健指導名簿_個別")
+					'2018/10/02
+					'かんぽ生命かどうかの判断
+					If strCompanyCode = XmlSettings.Instance.KanpoCode Then
+						C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "保健指導名簿_かんぽ_個別")
+					Else
+						C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "保健指導名簿_個別")
+					End If
 					'接続文字列、SQL文の設定
 					C1FlexReport1.DataSource.ConnectionString = strConnectionString
 					C1FlexReport1.DataSource.RecordSource = strSQL
@@ -5516,11 +5535,11 @@ Module PrintProcess
 
 	End Sub
 
-    ''' <summary>
-    ''' 通常使うプリンタに設定する
-    ''' </summary>
-    ''' <param name="printerName"></param>
-    Private Sub SetDefaultPrinter(ByVal printerName As String)
+	''' <summary>
+	''' 通常使うプリンタに設定する
+	''' </summary>
+	''' <param name="printerName"></param>
+	Private Sub SetDefaultPrinter(ByVal printerName As String)
         'WshNetworkオブジェクトを作成する
         Dim t As Type = Type.GetTypeFromProgID("WScript.Network")
         Dim wshNetwork As Object = Activator.CreateInstance(t)

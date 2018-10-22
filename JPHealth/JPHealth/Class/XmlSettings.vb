@@ -104,6 +104,10 @@ Public Class XmlSettings
 	'バックアップ
 	Private _BackupFolder As String 'バックアップフォルダ
 
+	'2018/10/02
+	'かんぽ生命特定用コード
+	Private _KanpoCode As String
+
 #End Region
 
 #Region "プロパティ"
@@ -1022,6 +1026,19 @@ Public Class XmlSettings
 		End Set
 	End Property
 
+	'==================================================
+	'2018/10/02
+	'かんぽ生命特定用コード
+	'==================================================
+	Public Property KanpoCode() As String
+		Get
+			Return _KanpoCode
+		End Get
+		Set(value As String)
+			_KanpoCode = value
+		End Set
+	End Property
+
 #End Region
 
 #Region "コンストラクタ"
@@ -1110,6 +1127,10 @@ Public Class XmlSettings
 
 		'バックアップフォルダ
 		_BackupFolder = "E:\JPTemp\06_バックアップ"
+
+		'2018/10/02
+		'かんぽ生命特定用コード
+		_KanpoCode = "5001"
 
 	End Sub
 

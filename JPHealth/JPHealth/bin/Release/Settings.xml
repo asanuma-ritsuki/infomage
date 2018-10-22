@@ -15,17 +15,17 @@
   <SizeManageY>0</SizeManageY>
   <StateManage>0</StateManage>
   <ApplicationName>JP健診 就業判定票発送業務支援ツール</ApplicationName>
-  <CheckupLocationX>160</CheckupLocationX>
-  <CheckupLocationY>175</CheckupLocationY>
+  <CheckupLocationX>164</CheckupLocationX>
+  <CheckupLocationY>178</CheckupLocationY>
   <CheckupSizeX>1500</CheckupSizeX>
   <CheckupSizeY>850</CheckupSizeY>
   <CheckupState>0</CheckupState>
-  <PrintLocationX>184</PrintLocationX>
-  <PrintLocationY>176</PrintLocationY>
+  <PrintLocationX>284</PrintLocationX>
+  <PrintLocationY>356</PrintLocationY>
   <PrintSizeX>1200</PrintSizeX>
   <PrintSizeY>900</PrintSizeY>
   <PrintState>0</PrintState>
-  <ImportFromFolder>C:\JPTemp\01_Import\20180913</ImportFromFolder>
+  <ImportFromFolder>C:\JPTemp\01_Import\20181002</ImportFromFolder>
   <ImportToFolder>C:\JPTemp\02_Out</ImportToFolder>
   <ImportLogFolder>C:\JPTemp\03_Log</ImportLogFolder>
   <ZipPassword>Jp-Mbp@</ZipPassword>
@@ -67,4 +67,5 @@
   <ExcelPassword>kenkan</ExcelPassword>
   <OfficeCSV>E:\JPTemp\01_Import\局所マスタ\Group_20170714.csv</OfficeCSV>
   <BackupFolder>E:\JPTemp\06_バックアップ</BackupFolder>
+  <KanpoCode>5001</KanpoCode>
 </XmlSettings>

@@ -61,7 +61,7 @@ ORDER BY
       <DataSource>
         <Name>ラベル</Name>
         <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLOLEDB.1;Password=intra_intra;Persist Security Info=True;User ID=sa;Initial Catalog=JPHealth;Data Source=JPSERV\INTRASQL</ConnectionString>
+        <ConnectionString>Provider=SQLOLEDB.1;Password=intra_intra;Persist Security Info=True;User ID=sa;Initial Catalog=JPHealth;Data Source=INTRA-PDC00\INTRASQL</ConnectionString>
         <RecordSource>SELECT 
 	T1.ロットID,
 	T1.会社コード,
@@ -85,11 +85,11 @@ FROM
 	M_局所 AS T4 ON T1.会社コード = T4.会社コード
 		AND T1.所属事業所コード = T4.局所コード
 WHERE
-	--T1.帳票種別ID = 0
-	--AND T1.ロットID = '20170726174419' 
+	T1.帳票種別ID = 0
+	AND T1.ロットID = '20180914114755' 
 	--AND (T2.ラベル連番 BETWEEN 674 AND 674)
-	T1.会社コード = '3001'
-	AND T1.所属事業所コード = '015970'
+	AND T1.会社コード = '2001'
+	AND T1.所属事業所コード = '030260'
 	--AND T2.重量ヘッダ = 'F'
 ORDER BY
 	T2.ラベル連番
@@ -219,9 +219,9 @@ ORDER BY
       <TextField>
         <Name>QRテキスト</Name>
         <Section>Detail</Section>
-        <Left>2600</Left>
+        <Left>2670</Left>
         <Top>2090</Top>
-        <Width>1500</Width>
+        <Width>1430</Width>
         <Height>172</Height>
         <Align>RightMiddle</Align>
         <Font>
@@ -236,18 +236,18 @@ ORDER BY
       <TextField>
         <Name>Field1</Name>
         <Section>Detail</Section>
-        <Left>180</Left>
-        <Top>1946</Top>
-        <Width>1686</Width>
-        <Height>346</Height>
-        <Align>LeftMiddle</Align>
+        <Left>120</Left>
+        <Top>1668</Top>
+        <Width>2550</Width>
+        <Height>624</Height>
+        <Align>CenterMiddle</Align>
         <Font>
           <Name>ＭＳ Ｐゴシック</Name>
-          <Size>11.25</Size>
+          <Size>10.5</Size>
           <GdiCharSet>128</GdiCharSet>
         </Font>
         <Text>
-          <Value sys="string">就業判定票在中</Value>
+          <Value sys="string">就業判定票在中(健康診断)</Value>
         </Text>
       </TextField>
       <TextField>
@@ -265,9 +265,9 @@ ORDER BY
       <TextField>
         <Name>Field3</Name>
         <Section>Detail</Section>
-        <Left>2000</Left>
-        <Top>2090</Top>
-        <Width>519</Width>
+        <Left>2850</Left>
+        <Top>1894</Top>
+        <Width>440</Width>
         <Height>172</Height>
         <Align>LeftMiddle</Align>
         <WordWrap>false</WordWrap>

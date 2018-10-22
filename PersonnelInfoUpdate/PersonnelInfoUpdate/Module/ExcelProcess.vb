@@ -639,7 +639,7 @@ Module ExcelProcess
 			Dim strColName As String() = {"ID", "発令日", "辞令", "ユーザーID", "利用者名称", "利用者名称カナ", "役職コード",
 			"組織コード1", "組織コード2", "組織コード3", "組織コード4", "組織コード5", "海外", "管理者権限", "部門管理者権限"}
 
-			For iRow As Integer = iStartRec To 200
+			For iRow As Integer = iStartRec To 1000
 				'発令日に値がない場合ブレークする
 				If IsNull(sheet(iRow, 1).Value) Then
 					Exit For
