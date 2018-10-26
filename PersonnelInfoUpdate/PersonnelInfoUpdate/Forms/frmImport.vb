@@ -26,7 +26,7 @@
 	Private Sub frmImport_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
 
 		XmlSettings.LoadFromXmlFile()
-		XmlSettings.Instance.ImportExcelFile = Me.txtImportExcel.Text
+		'XmlSettings.Instance.ImportExcelFile = Me.txtImportExcel.Text
 		XmlSettings.Instance.ImportSaveFolder = Me.txtSaveFolder.Text
 		XmlSettings.Instance.ImportLogFolder = Me.txtLogFolder.Text
 		XmlSettings.SaveToXmlFile()
@@ -307,7 +307,7 @@
 					Dim row As String() = parser.ReadFields()   '1行読み込み、項目を配列に代入
 
 					'T_利用者情報テーブルに書き込み
-					strSQL = "INSERT INTO T_利用者情報(ロットID, レコード番号, 更新区分, 社員番号, 利用者名称, 利用者名称カナ, "
+					strSQL = "INSERT INTO T_利用者情報(ロットID, 社員番号, 利用者名称, 利用者名称カナ, "
 					strSQL &= "役職コード別名, 所属組織コード1, 有効期間From, 有効期間To, 連絡優先フラグ, IVR有りフラグ, "
 					strSQL &= "所属組織コード2, 所属組織コード3, 所属組織コード4, 所属組織コード5, メールアドレス1, メールアドレス2, "
 					strSQL &= "電話番号1, 電話番号2, 都道府県コード, 勤務地都道府県コード) VALUES("
@@ -315,8 +315,8 @@
 					strSQL &= ", " & iRecNumber
 					strSQL &= ", '" & row(0).Trim(" ").Trim("　") & "'"  '更新区分
 					strSQL &= ", '" & row(1).Trim(" ").Trim("　") & "'"  '社員番号
-					strSQL &= ", N'" & row(2).Trim(" ").Trim("　") & "'"  '利用者名称
-					strSQL &= ", N'" & row(3).Trim(" ").Trim("　") & "'"  '利用者名称カナ
+					strSQL &= ", '" & row(2).Trim(" ").Trim("　") & "'"  '利用者名称
+					strSQL &= ", '" & row(3).Trim(" ").Trim("　") & "'"  '利用者名称カナ
 					strSQL &= ", '" & row(4).Trim(" ").Trim("　") & "'"  '役職コード別名
 					strSQL &= ", '" & row(5).Trim(" ").Trim("　") & "'"  '所属組織コード1
 					strSQL &= ", '" & row(6).Trim(" ").Trim("　") & "'"  '有効期間From
@@ -342,8 +342,68 @@
 			'データマッチング処理
 			'==================================================
 			WriteLstResult(Me.lstResult, "データマッチング処理開始")
+			If Not DataCheck(strLotID, Me.lstResult) Then
+				MessageBox.Show("データマッチング処理に失敗しました", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+				Exit Sub
+			End If
+			'不備内容をテキストファイルに書き出す
+			'不備内容が0件の場合はファイルを出力しない
+			Dim iErrorCount As Integer = 0
+			strSQL = "SELECT COUNT(*) FROM T_不備内容 "
+			strSQL &= "WHERE ロットID = '" & strLotID & "'"
+			If sqlProcess.DB_EXECUTE_SCALAR(strSQL) > 0 Then
+				Dim strLogFile As String = Me.txtLogFolder.Text & "\" & strLotID & "_不備内容.txt"
+				Using sw As New System.IO.StreamWriter(strLogFile, False, System.Text.Encoding.GetEncoding("Shift-JIS"))
+					Dim strWriteLine As String = "ロットID" & vbTab & "レコード番号" & vbTab & "シーケンス" & vbTab & "発令日" & vbTab &
+					"辞令" & vbTab & "ユーザーID" & vbTab & "利用者名称" & vbTab & "利用者名称カナ" & vbTab & "役職コード" & vbTab &
+					"組織コード1" & vbTab & "組織コード2" & vbTab & "組織コード3" & vbTab & "組織コード4" & vbTab & "組織コード5" & vbTab &
+					"不備項目" & vbTab & "不備説明" & vbTab & "不備内容"
+					sw.WriteLine(strWriteLine)
+
+					strSQL = "SELECT ロットID, レコード番号, シーケンス, 発令日, 辞令, ユーザーID, 利用者名称, 利用者名称カナ, 役職コード, "
+					strSQL &= "組織コード1, 組織コード2, 組織コード3, 組織コード4, 組織コード5, 不備項目, 不備説明, 不備内容 "
+					strSQL &= "FROM T_不備内容 "
+					strSQL &= "WHERE ロットID = '" & strLotID & "' "
+					strSQL &= "ORDER BY レコード番号, シーケンス"
+					Dim dtLog As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
+					For iRow As Integer = 0 To dtLog.Rows.Count - 1
+						strWriteLine = dtLog.Rows(iRow)("ロットID")
+						strWriteLine &= vbTab & dtLog.Rows(iRow)("レコード番号")
+						strWriteLine &= vbTab & dtLog.Rows(iRow)("シーケンス")
+						strWriteLine &= vbTab & dtLog.Rows(iRow)("発令日")
+						strWriteLine &= vbTab & dtLog.Rows(iRow)("辞令")
+						strWriteLine &= vbTab & dtLog.Rows(iRow)("ユーザーID")
+						strWriteLine &= vbTab & dtLog.Rows(iRow)("利用者名称")
+						strWriteLine &= vbTab & dtLog.Rows(iRow)("利用者名称カナ")
+						strWriteLine &= vbTab & dtLog.Rows(iRow)("役職コード")
+						strWriteLine &= vbTab & dtLog.Rows(iRow)("組織コード1")
+						strWriteLine &= vbTab & dtLog.Rows(iRow)("組織コード2")
+						strWriteLine &= vbTab & dtLog.Rows(iRow)("組織コード3")
+						strWriteLine &= vbTab & dtLog.Rows(iRow)("組織コード4")
+						strWriteLine &= vbTab & dtLog.Rows(iRow)("組織コード5")
+						strWriteLine &= vbTab & dtLog.Rows(iRow)("不備項目")
+						strWriteLine &= vbTab & dtLog.Rows(iRow)("不備説明")
+						strWriteLine &= vbTab & dtLog.Rows(iRow)("不備内容")
+						sw.WriteLine(strWriteLine)
+					Next
+					iErrorCount = dtLog.Rows.Count
+				End Using
+				WriteLstResult(Me.lstResult, "不備内容書き込み終了：" & iErrorCount & "件：" & strLogFile)
+			End If
 
 			WriteLstResult(Me.lstResult, "データマッチング処理終了")
+
+			'==================================================
+			'出力テーブルへの書き込み
+			'不備が1件でもあった場合は処理を中断する
+			'==================================================
+			If iErrorCount > 0 Then
+				MessageBox.Show("インポート処理が完了しました" & vbNewLine & "不備データを修正してからCSV出力を行ってください", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information)
+			Else
+				MessageBox.Show("インポート処理が完了しました" & vbNewLine & "CSV出力を行ってください", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information)
+			End If
+			WriteLstResult(Me.lstResult, "出力テーブルへの書き込み開始")
+			WriteLstResult(Me.lstResult, "出力テーブルへの書き込み終了")
 
 			MessageBox.Show("インポート処理が終了しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
@@ -372,7 +432,7 @@
 
 		Me.btnBack.Text = "閉じる"
 		XmlSettings.LoadFromXmlFile()
-		Me.txtImportExcel.Text = XmlSettings.Instance.ImportExcelFile
+		'Me.txtImportExcel.Text = XmlSettings.Instance.ImportExcelFile
 		Me.txtSaveFolder.Text = XmlSettings.Instance.ImportSaveFolder
 		Me.txtLogFolder.Text = XmlSettings.Instance.ImportLogFolder
 

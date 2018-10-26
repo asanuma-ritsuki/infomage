@@ -162,6 +162,7 @@
     <Compile Include="Forms\frmTempForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Module\DataMatching.vb" />
     <Compile Include="Module\DefaultModule.vb" />
     <Compile Include="Module\ExcelProcess.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -183,18 +184,23 @@
   <ItemGroup>
     <EmbeddedResource Include="Forms\frmConnectionProperty.resx">
       <DependentUpon>frmConnectionProperty.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmImport.resx">
       <DependentUpon>frmImport.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMainMenu.resx">
       <DependentUpon>frmMainMenu.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmTempForm.resx">
       <DependentUpon>frmTempForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">

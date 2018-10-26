@@ -81,3 +81,6 @@ C:\GitHub\infomage\JPHealth\JPHealth\bin\Release\C1.Win.C1FlexGrid.ImportExport.
 C:\GitHub\infomage\JPHealth\JPHealth\obj\x86\Release\JPHealth.frmPrintPreview.resources
 C:\GitHub\infomage\JPHealth\JPHealth\obj\x86\Release\JPHealth.vbproj.CoreCompileInputs.cache
 C:\GitHub\infomage\JPHealth\JPHealth\obj\x86\Release\JPHealth.vbproj.CopyComplete
+C:\GitHub\infomage\JPHealth\JPHealth\bin\Release\Template\QRコード.png
+C:\GitHub\infomage\JPHealth\JPHealth\bin\Release\Template\下段01.png
+C:\GitHub\infomage\JPHealth\JPHealth\bin\Release\Template\下段02.png

@@ -96,6 +96,7 @@
     <Reference Include="C1.Win.BarCode.4">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="C1.Win.Bitmap.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Chart.4">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -405,6 +406,15 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Template\QRコード.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\下段01.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\下段02.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Template\差出人宛先.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

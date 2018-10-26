@@ -253,24 +253,35 @@ Module ExcelProcess
 
 					'後納票シート
 					'出力日付の出力
-					sheet(0, 5).Value = StrConv(strOutputDate, VbStrConv.Wide)
+					sheet(0, 8).Value = StrConv(strOutputDate, VbStrConv.Wide)
 					'宛先と日付印イメージの読み込み
+					'2018/10/22
+					'QRコードと下段に新たに2つのイメージを読み込む
 					Dim strDestImage As String = Application.StartupPath & "\Template\差出人宛先.png"
 					Dim strMark As String = Application.StartupPath & "\Template\日付印.png"
+					Dim strQR As String = Application.StartupPath & "\Template\QRコード.png"
+					Dim strLower01 As String = Application.StartupPath & "\Template\下段01.png"
+					Dim strLower02 As String = Application.StartupPath & "\Template\下段02.png"
 					Dim imgDest As Image = Image.FromFile(strDestImage)
 					Dim imgMark As Image = Image.FromFile(strMark)
-					sheet(4, 1).Value = imgMark
-					sheet(4, 4).Value = imgDest
+					Dim imgQR As Image = Image.FromFile(strQR)
+					Dim imgLower01 As Image = Image.FromFile(strLower01)
+					Dim imgLower02 As Image = Image.FromFile(strLower02)
+					sheet(5, 1).Value = imgMark
+					sheet(5, 7).Value = imgDest
+					sheet(6, 4).Value = imgQR
+					sheet(32, 1).Value = imgLower01
+					sheet(32, 6).Value = imgLower02
 
 					'各レコードの出力
 					For iRow = 0 To dt.Rows.Count - 1
-						sheet(iRow + 15, 1).Value = dt.Rows(iRow)("郵便物の種類")
-						sheet(iRow + 15, 2).Value = dt.Rows(iRow)("特殊取扱書類")
-						sheet(iRow + 15, 3).Value = dt.Rows(iRow)("重量")
-						sheet(iRow + 15, 4).Value = CInt(dt.Rows(iRow)("差出通数"))
-						sheet(iRow + 15, 5).Value = CInt(dt.Rows(iRow)("一通の料金"))
-						sheet(iRow + 15, 6).Value = CInt(dt.Rows(iRow)("合計金額"))
-						sheet(iRow + 15, 7).Value = dt.Rows(iRow)("備考")
+						sheet(iRow + 16, 1).Value = dt.Rows(iRow)("郵便物の種類")
+						sheet(iRow + 16, 2).Value = dt.Rows(iRow)("特殊取扱書類")
+						sheet(iRow + 16, 3).Value = dt.Rows(iRow)("重量")
+						sheet(iRow + 16, 7).Value = CInt(dt.Rows(iRow)("差出通数"))
+						sheet(iRow + 16, 8).Value = CInt(dt.Rows(iRow)("一通の料金"))
+						sheet(iRow + 16, 9).Value = CInt(dt.Rows(iRow)("合計金額"))
+						sheet(iRow + 16, 10).Value = dt.Rows(iRow)("備考")
 					Next
 
 					'後納票差出明細シート

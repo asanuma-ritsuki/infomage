@@ -40,7 +40,7 @@
         "Entry"
         {
         "MsmKey" = "8:_28FDD40EF41F750ECBE90A2BDECC846E"
-        "OwnerKey" = "8:_6E626016BB0382C123F6FC5E4060F4C2"
+        "OwnerKey" = "8:_EBA048813F48D442064A2C8FAE80DAB6"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -70,13 +70,13 @@
         "Entry"
         {
         "MsmKey" = "8:_28FDD40EF41F750ECBE90A2BDECC846E"
-        "OwnerKey" = "8:_EBA048813F48D442064A2C8FAE80DAB6"
+        "OwnerKey" = "8:_AE086334E5243657669193F10AE3A139"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_28FDD40EF41F750ECBE90A2BDECC846E"
-        "OwnerKey" = "8:_AE086334E5243657669193F10AE3A139"
+        "OwnerKey" = "8:_6E626016BB0382C123F6FC5E4060F4C2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -190,7 +190,7 @@
         "Entry"
         {
         "MsmKey" = "8:_7EC16916192E43FCE548A989EEAFC8FF"
-        "OwnerKey" = "8:_6E626016BB0382C123F6FC5E4060F4C2"
+        "OwnerKey" = "8:_28FDD40EF41F750ECBE90A2BDECC846E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -250,7 +250,7 @@
         "Entry"
         {
         "MsmKey" = "8:_7EC16916192E43FCE548A989EEAFC8FF"
-        "OwnerKey" = "8:_28FDD40EF41F750ECBE90A2BDECC846E"
+        "OwnerKey" = "8:_6E626016BB0382C123F6FC5E4060F4C2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -310,6 +310,12 @@
         "Entry"
         {
         "MsmKey" = "8:_9852AE778476A08F31C31C96BB38C461"
+        "OwnerKey" = "8:_F9DB7CE27F78FD01D6EC8E4E4A8DE102"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_9852AE778476A08F31C31C96BB38C461"
         "OwnerKey" = "8:_F09EE2A5875104D0E9DC4B46B1CE01B2"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -334,7 +340,7 @@
         "Entry"
         {
         "MsmKey" = "8:_C35D0617258EA73DA0B42B72EFCAD978"
-        "OwnerKey" = "8:_6E626016BB0382C123F6FC5E4060F4C2"
+        "OwnerKey" = "8:_9852AE778476A08F31C31C96BB38C461"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -363,8 +369,20 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_C35D0617258EA73DA0B42B72EFCAD978"
+        "OwnerKey" = "8:_6E626016BB0382C123F6FC5E4060F4C2"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_D57624DFF7BF1E8E356B8DFDC6017620"
         "OwnerKey" = "8:_55065A040C484047AFC37C12DB7243C7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D57624DFF7BF1E8E356B8DFDC6017620"
+        "OwnerKey" = "8:_F9DB7CE27F78FD01D6EC8E4E4A8DE102"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -394,7 +412,7 @@
         "Entry"
         {
         "MsmKey" = "8:_EBA048813F48D442064A2C8FAE80DAB6"
-        "OwnerKey" = "8:_55065A040C484047AFC37C12DB7243C7"
+        "OwnerKey" = "8:_9852AE778476A08F31C31C96BB38C461"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -407,6 +425,18 @@
         {
         "MsmKey" = "8:_EBA048813F48D442064A2C8FAE80DAB6"
         "OwnerKey" = "8:_F09EE2A5875104D0E9DC4B46B1CE01B2"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EBA048813F48D442064A2C8FAE80DAB6"
+        "OwnerKey" = "8:_55065A040C484047AFC37C12DB7243C7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EBA048813F48D442064A2C8FAE80DAB6"
+        "OwnerKey" = "8:_AE086334E5243657669193F10AE3A139"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -425,6 +455,12 @@
         {
         "MsmKey" = "8:_F09EE2A5875104D0E9DC4B46B1CE01B2"
         "OwnerKey" = "8:_025B0FF04CBA88681BCB98A0A0A24498"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F9DB7CE27F78FD01D6EC8E4E4A8DE102"
+        "OwnerKey" = "8:_55065A040C484047AFC37C12DB7243C7"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -496,6 +532,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_F9DB7CE27F78FD01D6EC8E4E4A8DE102"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_D57624DFF7BF1E8E356B8DFDC6017620"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -538,12 +580,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_EBA048813F48D442064A2C8FAE80DAB6"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_453E98559A51C0D09FFF3FCAA1ABF3AF"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -562,6 +598,18 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_9852AE778476A08F31C31C96BB38C461"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_EBA048813F48D442064A2C8FAE80DAB6"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_28FDD40EF41F750ECBE90A2BDECC846E"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -575,12 +623,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_C35D0617258EA73DA0B42B72EFCAD978"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_9852AE778476A08F31C31C96BB38C461"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -712,11 +754,16 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:C1.Win.FlexViewer.4, Version=4.0.20171.260, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:C1.Win.FlexViewer.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_01C6F76DEE3A579F58E2BE3FF16D9529"
+                    {
+                    "Name" = "8:C1.Win.FlexViewer.4.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
-            "SourcePath" = "8:c1.win.flexviewer.4.dll"
+            "SourcePath" = "8:C1.Win.FlexViewer.4.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4BE54B2D872F4238A28D0CA32E845B37"
@@ -738,9 +785,14 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:C1.Win.FlexReport.4, Version=4.0.20171.260, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:C1.Win.FlexReport.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_025B0FF04CBA88681BCB98A0A0A24498"
+                    {
+                    "Name" = "8:C1.Win.FlexReport.4.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:C1.Win.FlexReport.4.dll"
             "TargetName" = "8:"
@@ -764,9 +816,14 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:C1.Win.C1InputPanel.4, Version=4.0.20171.260, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:C1.Win.C1InputPanel.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_1EEFEE1AD016497AA9075658DDDB5028"
+                    {
+                    "Name" = "8:C1.Win.C1InputPanel.4.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:C1.Win.C1InputPanel.4.dll"
             "TargetName" = "8:"
@@ -790,9 +847,14 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:C1.Win.C1DX.4, Version=4.0.20171.260, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:C1.Win.C1DX.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_28FDD40EF41F750ECBE90A2BDECC846E"
+                    {
+                    "Name" = "8:C1.Win.C1DX.4.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:C1.Win.C1DX.4.dll"
             "TargetName" = "8:"
@@ -819,6 +881,11 @@
             "AssemblyAsmDisplayName" = "8:ClosedXML, Version=0.90.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_3D0356D9D7866A4CA58D86731FB27B31"
+                    {
+                    "Name" = "8:ClosedXML.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:ClosedXML.dll"
             "TargetName" = "8:"
@@ -862,9 +929,14 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:C1.Win.BarCode.4, Version=4.0.20171.260, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:C1.Win.BarCode.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_453E98559A51C0D09FFF3FCAA1ABF3AF"
+                    {
+                    "Name" = "8:C1.Win.BarCode.4.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:C1.Win.BarCode.4.dll"
             "TargetName" = "8:"
@@ -891,6 +963,11 @@
             "AssemblyAsmDisplayName" = "8:DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_540F7323F9E5B55D249BC1BA89D5D919"
+                    {
+                    "Name" = "8:DocumentFormat.OpenXml.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:DocumentFormat.OpenXml.dll"
             "TargetName" = "8:"
@@ -914,9 +991,14 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:C1.Win.FlexChart.4, Version=4.0.20171.260, Culture=neutral, PublicKeyToken=3aa2920c09e0aefd, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:C1.Win.FlexChart.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=3aa2920c09e0aefd, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_635DE65CA4E5DB201FB4C6A4D0C17C43"
+                    {
+                    "Name" = "8:C1.Win.FlexChart.4.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:C1.Win.FlexChart.4.dll"
             "TargetName" = "8:"
@@ -943,6 +1025,11 @@
             "AssemblyAsmDisplayName" = "8:FastMember.Signed, Version=1.0.0.9, Culture=neutral, PublicKeyToken=9e8f22703bef9a29, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_6BAF5722D26D0A795C6A5AF9AE21D981"
+                    {
+                    "Name" = "8:FastMember.Signed.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:FastMember.Signed.dll"
             "TargetName" = "8:"
@@ -966,9 +1053,14 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:C1.C1Pdf.4, Version=4.0.20171.260, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:C1.C1Pdf.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_6E626016BB0382C123F6FC5E4060F4C2"
+                    {
+                    "Name" = "8:C1.C1Pdf.4.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:C1.C1Pdf.4.dll"
             "TargetName" = "8:"
@@ -992,9 +1084,14 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:C1.Win.4, Version=4.0.20171.260, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:C1.Win.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_7EC16916192E43FCE548A989EEAFC8FF"
+                    {
+                    "Name" = "8:C1.Win.4.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:C1.Win.4.dll"
             "TargetName" = "8:"
@@ -1021,6 +1118,11 @@
             "AssemblyAsmDisplayName" = "8:System.IO.FileSystem.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_8540C3A3EFD45BBC9E75CFE1F813312B"
+                    {
+                    "Name" = "8:System.IO.FileSystem.Primitives.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:System.IO.FileSystem.Primitives.dll"
             "TargetName" = "8:"
@@ -1044,9 +1146,14 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:C1.Win.ImportServices.4, Version=4.0.20171.260, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:C1.Win.ImportServices.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_8C086F2890F7E9DE45CB1BB8B28D25CC"
+                    {
+                    "Name" = "8:C1.Win.ImportServices.4.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:C1.Win.ImportServices.4.dll"
             "TargetName" = "8:"
@@ -1070,9 +1177,14 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:C1.Win.C1Ribbon.4, Version=4.0.20171.260, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:C1.Win.C1Ribbon.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_9257820011CE1E286ED6C31AC6746DB0"
+                    {
+                    "Name" = "8:C1.Win.C1Ribbon.4.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:C1.Win.C1Ribbon.4.dll"
             "TargetName" = "8:"
@@ -1096,9 +1208,14 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:C1.Win.C1Chart.4, Version=4.0.20171.260, Culture=neutral, PublicKeyToken=a22e16972c085838, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:C1.Win.C1Chart.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=a22e16972c085838, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_98343BFBFFCE2832DDAE216DD3A36F30"
+                    {
+                    "Name" = "8:C1.Win.C1Chart.4.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:C1.Win.C1Chart.4.dll"
             "TargetName" = "8:"
@@ -1122,9 +1239,14 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:C1.C1Excel.4, Version=4.0.20171.260, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:C1.C1Excel.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_9852AE778476A08F31C31C96BB38C461"
+                    {
+                    "Name" = "8:C1.C1Excel.4.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:C1.C1Excel.4.dll"
             "TargetName" = "8:"
@@ -1151,6 +1273,11 @@
             "AssemblyAsmDisplayName" = "8:System.IO.Compression.FileSystem, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 "ScatterAssemblies"
                 {
+                    "_9CDAB6028D20D4F242A47BD193A3FFF8"
+                    {
+                    "Name" = "8:System.IO.Compression.FileSystem.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:System.IO.Compression.FileSystem.dll"
             "TargetName" = "8:"
@@ -1174,9 +1301,14 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:C1.C1Word.4, Version=4.0.20171.260, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:C1.C1Word.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_AE086334E5243657669193F10AE3A139"
+                    {
+                    "Name" = "8:C1.C1Word.4.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:C1.C1Word.4.dll"
             "TargetName" = "8:"
@@ -1200,9 +1332,14 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:C1.C1Zip.4, Version=4.0.20171.260, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:C1.C1Zip.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_C35D0617258EA73DA0B42B72EFCAD978"
+                    {
+                    "Name" = "8:C1.C1Zip.4.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:C1.C1Zip.4.dll"
             "TargetName" = "8:"
@@ -1226,9 +1363,14 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:C1.Win.C1FlexGrid.4, Version=4.0.20171.260, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:C1.Win.C1FlexGrid.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_D57624DFF7BF1E8E356B8DFDC6017620"
+                    {
+                    "Name" = "8:C1.Win.C1FlexGrid.4.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:C1.Win.C1FlexGrid.4.dll"
             "TargetName" = "8:"
@@ -1252,9 +1394,14 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:C1.Win.C1Input.4, Version=4.0.20171.260, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:C1.Win.C1Input.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_E012EE47436E412D18632338DA36336E"
+                    {
+                    "Name" = "8:C1.Win.C1Input.4.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:C1.Win.C1Input.4.dll"
             "TargetName" = "8:"
@@ -1278,9 +1425,14 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:C1.Win.C1Command.4, Version=4.0.20171.260, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:C1.Win.C1Command.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_E359A3150E9B6866978B1626F55518FC"
+                    {
+                    "Name" = "8:C1.Win.C1Command.4.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:C1.Win.C1Command.4.dll"
             "TargetName" = "8:"
@@ -1307,6 +1459,11 @@
             "AssemblyAsmDisplayName" = "8:System.IO.Packaging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_E9F773BACA36FC98680EC731918643BC"
+                    {
+                    "Name" = "8:System.IO.Packaging.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:System.IO.Packaging.dll"
             "TargetName" = "8:"
@@ -1330,9 +1487,14 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:C1.Win.Bitmap.4, Version=4.0.20171.260, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:C1.Win.Bitmap.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_EBA048813F48D442064A2C8FAE80DAB6"
+                    {
+                    "Name" = "8:C1.Win.Bitmap.4.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:C1.Win.Bitmap.4.dll"
             "TargetName" = "8:"
@@ -1356,11 +1518,47 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:C1.Win.C1Document.4, Version=4.0.20171.260, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:C1.Win.C1Document.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_F09EE2A5875104D0E9DC4B46B1CE01B2"
+                    {
+                    "Name" = "8:C1.Win.C1Document.4.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:C1.Win.C1Document.4.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_4BE54B2D872F4238A28D0CA32E845B37"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F9DB7CE27F78FD01D6EC8E4E4A8DE102"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:C1.Win.C1FlexGrid.ImportExport.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_F9DB7CE27F78FD01D6EC8E4E4A8DE102"
+                    {
+                    "Name" = "8:C1.Win.C1FlexGrid.ImportExport.4.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:C1.Win.C1FlexGrid.ImportExport.4.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4BE54B2D872F4238A28D0CA32E845B37"
@@ -1413,9 +1611,14 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:C1.Win.C1Chart3D.4, Version=4.0.20171.260, Culture=neutral, PublicKeyToken=a22e16972c085838, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:C1.Win.C1Chart3D.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=a22e16972c085838, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_FEEA2FAD81521B1D77F491EAC33E5DC6"
+                    {
+                    "Name" = "8:C1.Win.C1Chart3D.4.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:C1.Win.C1Chart3D.4.dll"
             "TargetName" = "8:"
@@ -1491,15 +1694,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:JPHealth"
-        "ProductCode" = "8:{0E57993A-ECA7-4F3A-BB83-C57ED3C4DB07}"
-        "PackageCode" = "8:{9BA9D022-8622-4FEA-BCBA-0C5BB27B85A7}"
+        "ProductCode" = "8:{0E2AA75E-145F-4113-BB59-BF8512902F4A}"
+        "PackageCode" = "8:{9DA979A3-B95B-4925-9658-FB6216023912}"
         "UpgradeCode" = "8:{D98ED328-E81B-4F5C-9B88-EE07BF5E70C3}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.304"
+        "ProductVersion" = "8:1.0.306"
         "Manufacturer" = "8:Infomage"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
