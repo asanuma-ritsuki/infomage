@@ -1066,7 +1066,6 @@ Public Class XmlSettings
 		_PrintState = FormWindowState.Normal
 
 		'インポート画面
-
 		_ImportExcelFile = "C:\SecomTemp\01_Input\test.xlsx"
 		_ImportUsrFile = "C:\SecomTemp\01_Input\usr.csv"
 		_ImportSaveFolder = "C:\SecomTemp\02_Output"
@@ -1078,6 +1077,9 @@ Public Class XmlSettings
 		_DataShiftJIS = "データ不備(SJISで表現できない)"
 		_DataExceed = "文字数超過"
 		_SJISErrorCheck = "?,？,･,・"
+
+		'出力関連
+		_OutputFolder = "C:\SecomTemp\02_Output"
 
 		'イメージ関連
 		_ImagePath = "\\192.168.1.210\02_スチールGr\02_スポット案件\2013-2016_141032021_雄松堂_府県統計資料\99_Entry\01_image"

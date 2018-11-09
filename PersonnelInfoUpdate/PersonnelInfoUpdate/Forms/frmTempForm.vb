@@ -1,5 +1,6 @@
 ﻿Imports System.Runtime.InteropServices
 
+<System.Diagnostics.DebuggerStepThrough()>
 Public Class frmTempForm
 
 #Region "変数宣言"
@@ -89,17 +90,16 @@ Public Class frmTempForm
 					RibbonSeparator3.Visible = False
 					LabelHost2.Visible = False
 					RibbonLabel2.Visible = False
-					RibbonSeparator4.Visible = False
+					RibbonSeparator5.Visible = False
 					LabelHost3.Visible = False
 					RibbonLabel3.Visible = False
-					RibbonSeparator5.Visible = False
-					LabelHost4.Visible = False
-					RibbonLabel4.Visible = False
 					RibbonSeparator7.Visible = False
 					LabelHost5.Visible = False
 					RibbonLabel5.Visible = False
 					RibbonSeparator8.Visible = False
-
+					LabelHost6.Visible = False
+					RibbonLabel6.Visible = False
+					RibbonSeparator9.Visible = False
 			End Select
 		End Set
 

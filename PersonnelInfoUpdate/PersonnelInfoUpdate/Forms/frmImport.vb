@@ -27,7 +27,7 @@
 
 		XmlSettings.LoadFromXmlFile()
 		'XmlSettings.Instance.ImportExcelFile = Me.txtImportExcel.Text
-		XmlSettings.Instance.ImportSaveFolder = Me.txtSaveFolder.Text
+		'XmlSettings.Instance.ImportSaveFolder = Me.txtSaveFolder.Text
 		XmlSettings.Instance.ImportLogFolder = Me.txtLogFolder.Text
 		XmlSettings.SaveToXmlFile()
 
@@ -52,7 +52,7 @@
 	''' </summary>
 	''' <param name="sender"></param>
 	''' <param name="e"></param>
-	Private Sub TextBox_DragEnter(sender As Object, e As DragEventArgs) Handles txtImportExcel.DragEnter, txtImportUsr.DragEnter, txtSaveFolder.DragEnter, txtLogFolder.DragEnter
+	Private Sub TextBox_DragEnter(sender As Object, e As DragEventArgs) Handles txtImportExcel.DragEnter, txtImportUsr.DragEnter, txtLogFolder.DragEnter
 
 		If e.Data.GetDataPresent(DataFormats.FileDrop) Then
 			e.Effect = DragDropEffects.Copy
@@ -71,7 +71,7 @@
 
 		Dim strFiles As String() = CType(e.Data.GetData(DataFormats.FileDrop, False), String())
 
-		If System.IO.File.Exists(strFiles(0)) And System.IO.Path.GetExtension(strFiles(0)) = ".xlsx" Then
+		If System.IO.File.Exists(strFiles(0)) And (System.IO.Path.GetExtension(strFiles(0)) = ".xlsx" Or System.IO.Path.GetExtension(strFiles(0)) = ".xls") Then
 			Me.txtImportExcel.Text = strFiles(0)
 		End If
 
@@ -97,7 +97,7 @@
 	''' </summary>
 	''' <param name="sender"></param>
 	''' <param name="e"></param>
-	Private Sub TextBox_DragDrop(sender As Object, e As DragEventArgs) Handles txtSaveFolder.DragDrop, txtLogFolder.DragDrop
+	Private Sub TextBox_DragDrop(sender As Object, e As DragEventArgs) Handles txtLogFolder.DragDrop
 
 		Dim strFiles As String() = CType(e.Data.GetData(DataFormats.FileDrop, False), String())
 		Dim txtFolder As TextBox = CType(sender, TextBox)
@@ -119,7 +119,7 @@
 	''' <param name="e"></param>
 	Private Sub btnImportExcelBrowse_Click(sender As Object, e As EventArgs) Handles btnImportExcelBrowse.Click
 
-		Dim strFilter As String = "Excelファイル(*.xlsx)|*.xlsx"
+		Dim strFilter As String = "Excelファイル(*.xlsx)|*.xlsx|Excel2003ファイル(*.xls)|*.xls"
 		Me.txtImportExcel.Text = FileBrowse(Me.txtImportExcel, strFilter)
 
 	End Sub
@@ -132,18 +132,7 @@
 	Private Sub btnImportUsrBrowse_Click(sender As Object, e As EventArgs) Handles btnImportUsrBrowse.Click
 
 		Dim strFilter As String = "CSVファイル(*.csv)|*.csv"
-		Me.txtImportExcel.Text = FileBrowse(Me.txtImportExcel, strFilter)
-
-	End Sub
-
-	''' <summary>
-	''' 保存先フォルダブラウズボタン押下時
-	''' </summary>
-	''' <param name="sender"></param>
-	''' <param name="e"></param>
-	Private Sub btnSaveFolderBrowse_Click(sender As Object, e As EventArgs) Handles btnSaveFolderBrowse.Click
-
-		Me.txtSaveFolder.Text = FolderBrowse(Me.txtSaveFolder)
+		Me.txtImportUsr.Text = FileBrowse(Me.txtImportUsr, strFilter)
 
 	End Sub
 
@@ -170,10 +159,6 @@
 			MessageBox.Show("インポートエクセルファイルを指定してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
 			Exit Sub
 		End If
-		If Not System.IO.Directory.Exists(Me.txtSaveFolder.Text) Then
-			MessageBox.Show("保存先フォルダを指定してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
-			Exit Sub
-		End If
 		If Not System.IO.Directory.Exists(Me.txtLogFolder.Text) Then
 			MessageBox.Show("ログフォルダを指定してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
 			Exit Sub
@@ -196,6 +181,8 @@
 
 		'インポート日時を取得
 		Dim dateImportDate As DateTime = DateTime.Now
+		'ロットID
+		Dim strLotID As String = dateImportDate.ToString("yyyyMMddHHmmss")  'ロットIDを作成
 		Dim strImportDateTime As String = dateImportDate.ToString("yyyy/MM/dd HH:mm:ss")
 		'保存フォルダ作成用
 		Dim strImportDate As String = Date.Now.ToString("yyyyMMdd")
@@ -205,20 +192,18 @@
 		Dim strImportUsr As String = Me.txtImportUsr.Text
 		'開始行
 		Dim iStartRec As Integer = Me.numStart.Value
-		'保存先フォルダ
-		Dim strSaveFolder As String = Me.txtSaveFolder.Text & "\" & strImportDate
 		'ログ保存先フォルダ
-		Dim strLogFolder As String = Me.txtLogFolder.Text & "\" & strImportDate
+		Dim strLogFolder As String = Me.txtLogFolder.Text & "\" & strLotID
 
 		'インポート開始
 		WriteLstResult(Me.lstResult, "インポート開始")
 		WriteLstResult(Me.lstResult, "インポートエクセルファイル：" & strImportExcel)
 		WriteLstResult(Me.lstResult, Me.numStart.Value & "行目からインポート")
-		WriteLstResult(Me.lstResult, "保存先フォルダ：" & strSaveFolder)
-		If Not System.IO.Directory.Exists(strSaveFolder) Then
-			System.IO.Directory.CreateDirectory(strSaveFolder)
-			WriteLstResult(Me.lstResult, "フォルダ作成：" & strSaveFolder)
-		End If
+		'WriteLstResult(Me.lstResult, "保存先フォルダ：" & strSaveFolder)
+		'If Not System.IO.Directory.Exists(strSaveFolder) Then
+		'	System.IO.Directory.CreateDirectory(strSaveFolder)
+		'	WriteLstResult(Me.lstResult, "フォルダ作成：" & strSaveFolder)
+		'End If
 		WriteLstResult(Me.lstResult, "ログフォルダ：" & strLogFolder)
 
 		Dim iCount As Integer = 0
@@ -226,7 +211,6 @@
 		Dim strSQL As String = ""
 		Dim sqlProcess As New SQLProcess
 		Dim dt As DataTable = Nothing
-		Dim strLotID As String = dateImportDate.ToString("yyyyMMddHHmmss")  'ロットIDを作成
 		WriteLstResult(Me.lstResult, "ロットID：" & strLotID)
 
 		Try
@@ -236,7 +220,8 @@
 			'すでに取り込み済みのエクセルファイルかどうかをチェックする
 			WriteLstResult(Me.lstResult, "ロット管理テーブルへのINSERT：" & strLotID)
 			strSQL = "SELECT COUNT(*) FROM T_ロット管理 "
-			strSQL &= "WHERE エクセルファイル = '" & System.IO.Path.GetFileName(strImportExcel) & "'"
+			strSQL &= "WHERE エクセルファイル = '" & System.IO.Path.GetFileName(strImportExcel) & "' "
+			strSQL &= "AND 削除フラグ = 0"
 			Dim iExist As Integer = sqlProcess.DB_EXECUTE_SCALAR(strSQL)
 			If iExist > 0 Then
 				MessageBox.Show("取り込み済みのエクセルファイルです" & vbNewLine & "内容を確認してファイル名を変更してからインポートしてください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -265,20 +250,21 @@
 				strSQL &= "役職コード, 組織コード1, 組織コード2, 組織コード3, 組織コード4, 組織コード5, 海外, 管理者権限, 部門管理者権限) VALUES("
 				strSQL &= "'" & strLotID & "'"
 				strSQL &= ", " & iRecNumber
-				strSQL &= ", '" & IIf(IsDate(dt.Rows(iRow)("発令日")), CDate(dt.Rows(iRow)("発令日")).ToString("yyyy/MM/dd"), dt.Rows(iRow)("発令日")) & "'"
-				strSQL &= ", '" & dt.Rows(iRow)("辞令").ToString.Trim(" ").Trim("　") & "'"
-				strSQL &= ", '" & dt.Rows(iRow)("ユーザーID").ToString.Trim(" ").Trim("　") & "'"
-				strSQL &= ", '" & dt.Rows(iRow)("利用者名称").ToString.Trim(" ").Trim("　") & "'"
-				strSQL &= ", '" & dt.Rows(iRow)("利用者名称カナ").ToString.Trim(" ").Trim("　") & "'"
-				strSQL &= ", '" & dt.Rows(iRow)("役職コード").ToString.Trim(" ").Trim("　") & "'"
-				strSQL &= ", '" & dt.Rows(iRow)("組織コード1").ToString.Trim(" ").Trim("　") & "'"
-				strSQL &= ", '" & dt.Rows(iRow)("組織コード2").ToString.Trim(" ").Trim("　") & "'"
-				strSQL &= ", '" & dt.Rows(iRow)("組織コード3").ToString.Trim(" ").Trim("　") & "'"
-				strSQL &= ", '" & dt.Rows(iRow)("組織コード4").ToString.Trim(" ").Trim("　") & "'"
-				strSQL &= ", '" & dt.Rows(iRow)("組織コード5").ToString.Trim(" ").Trim("　") & "'"
-				strSQL &= ", " & IIf(dt.Rows(iRow)("海外").ToString.Trim(" ").Trim("　") = "○", 1, 0)
-				strSQL &= ", " & IIf(dt.Rows(iRow)("管理者権限").ToString.Trim(" ").Trim("　") = "○", 1, 0)
-				strSQL &= ", " & IIf(dt.Rows(iRow)("部門管理者権限").ToString.Trim(" ").Trim("　") = "○", 1, 0) & ")"
+				strSQL &= ", '" & dt.Rows(iRow)("発令日").ToString.Replace(" 0:00:00", "").Trim(" ").Trim("　") & "'"
+				'strSQL &= ", '" & IIf(IsDate(dt.Rows(iRow)("発令日")), CDate(dt.Rows(iRow)("発令日")).ToString("yyyy/MM/dd"), dt.Rows(iRow)("発令日")) & "'"
+				strSQL &= ", '" & dt.Rows(iRow)("辞令").ToString.Replace(vbTab, "").Trim(" ").Trim("　") & "'"
+				strSQL &= ", '" & dt.Rows(iRow)("ユーザーID").ToString.Replace(vbTab, "").Trim(" ").Trim("　") & "'"
+				strSQL &= ", '" & dt.Rows(iRow)("利用者名称").ToString.Replace(vbTab, "").Trim(" ").Trim("　") & "'"
+				strSQL &= ", '" & dt.Rows(iRow)("利用者名称カナ").ToString.Replace(vbTab, "").Trim(" ").Trim("　") & "'"
+				strSQL &= ", '" & dt.Rows(iRow)("役職コード").ToString.Replace(vbTab, "").Trim(" ").Trim("　") & "'"
+				strSQL &= ", '" & dt.Rows(iRow)("組織コード1").ToString.Replace(vbTab, "").Trim(" ").Trim("　") & "'"
+				strSQL &= ", '" & dt.Rows(iRow)("組織コード2").ToString.Replace(vbTab, "").Trim(" ").Trim("　") & "'"
+				strSQL &= ", '" & dt.Rows(iRow)("組織コード3").ToString.Replace(vbTab, "").Trim(" ").Trim("　") & "'"
+				strSQL &= ", '" & dt.Rows(iRow)("組織コード4").ToString.Replace(vbTab, "").Trim(" ").Trim("　") & "'"
+				strSQL &= ", '" & dt.Rows(iRow)("組織コード5").ToString.Replace(vbTab, "").Trim(" ").Trim("　") & "'"
+				strSQL &= ", " & IIf(dt.Rows(iRow)("海外").ToString.Replace(vbTab, "").Trim(" ").Trim("　") = "○", 1, 0)
+				strSQL &= ", " & IIf(dt.Rows(iRow)("管理者権限").ToString.Replace(vbTab, "").Trim(" ").Trim("　") = "○", 1, 0)
+				strSQL &= ", " & IIf(dt.Rows(iRow)("部門管理者権限").ToString.Replace(vbTab, "").Trim(" ").Trim("　") = "○", 1, 0) & ")"
 				sqlProcess.DB_UPDATE(strSQL)
 				iRecNumber += 1
 			Next
@@ -296,13 +282,9 @@
 
 				iRecCount = 0
 
-				parser.ReadFields() 'ヘッダ業を読み飛ばす
+				parser.ReadFields() 'ヘッダ行を読み飛ばす
 				'最終行まで読み込み
 				While Not parser.EndOfData
-					'レコード番号の最大値を取得
-					strSQL = "SELECT ISNULL(MAX(レコード番号), 0) + 1 FROM T_利用者情報 "
-					strSQL &= "WHERE ロットID = '" & strLotID & "'"
-					iRecNumber = sqlProcess.DB_EXECUTE_SCALAR(strSQL)
 
 					Dim row As String() = parser.ReadFields()   '1行読み込み、項目を配列に代入
 
@@ -312,8 +294,6 @@
 					strSQL &= "所属組織コード2, 所属組織コード3, 所属組織コード4, 所属組織コード5, メールアドレス1, メールアドレス2, "
 					strSQL &= "電話番号1, 電話番号2, 都道府県コード, 勤務地都道府県コード) VALUES("
 					strSQL &= "'" & strLotID & "'"
-					strSQL &= ", " & iRecNumber
-					strSQL &= ", '" & row(0).Trim(" ").Trim("　") & "'"  '更新区分
 					strSQL &= ", '" & row(1).Trim(" ").Trim("　") & "'"  '社員番号
 					strSQL &= ", '" & row(2).Trim(" ").Trim("　") & "'"  '利用者名称
 					strSQL &= ", '" & row(3).Trim(" ").Trim("　") & "'"  '利用者名称カナ
@@ -352,7 +332,11 @@
 			strSQL = "SELECT COUNT(*) FROM T_不備内容 "
 			strSQL &= "WHERE ロットID = '" & strLotID & "'"
 			If sqlProcess.DB_EXECUTE_SCALAR(strSQL) > 0 Then
-				Dim strLogFile As String = Me.txtLogFolder.Text & "\" & strLotID & "_不備内容.txt"
+				Dim strFolder As String = Me.txtLogFolder.Text & "\" & strLotID
+				If Not System.IO.Directory.Exists(strFolder) Then
+					My.Computer.FileSystem.CreateDirectory(strFolder)
+				End If
+				Dim strLogFile As String = strFolder & "\" & "不備内容_" & Me.cmbOffice.Text & "_" & strLotID & ".txt"
 				Using sw As New System.IO.StreamWriter(strLogFile, False, System.Text.Encoding.GetEncoding("Shift-JIS"))
 					Dim strWriteLine As String = "ロットID" & vbTab & "レコード番号" & vbTab & "シーケンス" & vbTab & "発令日" & vbTab &
 					"辞令" & vbTab & "ユーザーID" & vbTab & "利用者名称" & vbTab & "利用者名称カナ" & vbTab & "役職コード" & vbTab &
@@ -402,10 +386,8 @@
 			Else
 				MessageBox.Show("インポート処理が完了しました" & vbNewLine & "CSV出力を行ってください", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information)
 			End If
-			WriteLstResult(Me.lstResult, "出力テーブルへの書き込み開始")
-			WriteLstResult(Me.lstResult, "出力テーブルへの書き込み終了")
 
-			MessageBox.Show("インポート処理が終了しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information)
+			OutputListLog(Me.lstResult, strLogFolder, "インポート", Me.cmbOffice.Text, strLotID)
 
 		Catch ex As Exception
 
@@ -433,7 +415,7 @@
 		Me.btnBack.Text = "閉じる"
 		XmlSettings.LoadFromXmlFile()
 		'Me.txtImportExcel.Text = XmlSettings.Instance.ImportExcelFile
-		Me.txtSaveFolder.Text = XmlSettings.Instance.ImportSaveFolder
+		'Me.txtSaveFolder.Text = XmlSettings.Instance.ImportSaveFolder
 		Me.txtLogFolder.Text = XmlSettings.Instance.ImportLogFolder
 
 		Dim strSQL As String = ""
@@ -480,6 +462,8 @@
 			strSQL = "DELETE FROM T_異動情報"
 			sqlProcess.DB_UPDATE(strSQL)
 			strSQL = "DELETE FROM T_ロット管理"
+			sqlProcess.DB_UPDATE(strSQL)
+			strSQL = "DELETE FROM T_不備内容"
 			sqlProcess.DB_UPDATE(strSQL)
 
 			MessageBox.Show("該当テーブルを削除しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information)

@@ -172,7 +172,7 @@ Partial Class frmMainMenu
 		Me.btnMaintenance.Name = "btnMaintenance"
 		Me.btnMaintenance.Size = New System.Drawing.Size(250, 50)
 		Me.btnMaintenance.TabIndex = 15
-		Me.btnMaintenance.Text = "各種メンテナンス"
+		Me.btnMaintenance.Text = "マ ス タ 管 理"
 		Me.btnMaintenance.UseVisualStyleBackColor = True
 		'
 		'btnOperation

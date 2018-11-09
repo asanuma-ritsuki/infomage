@@ -85,6 +85,12 @@
     <Reference Include="C1.Win.C1List.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=6b24f8f981dbd7bc, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Ribbon.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.Calendar.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack-Core.1.1.2\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack-Shell.1.1.1\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -120,22 +126,22 @@
     <Compile Include="Class\SQLProcess.vb" />
     <Compile Include="Class\VBStrings.vb" />
     <Compile Include="Class\XmlSettings.vb" />
-    <Compile Include="Forms\frmAfterUpdate.Designer.vb">
-      <DependentUpon>frmAfterUpdate.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\frmAfterUpdate.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Forms\frmConnectionProperty.Designer.vb">
       <DependentUpon>frmConnectionProperty.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmConnectionProperty.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmCSVOut.Designer.vb">
-      <DependentUpon>frmCSVOut.vb</DependentUpon>
+    <Compile Include="Forms\frmCorrection.Designer.vb">
+      <DependentUpon>frmCorrection.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmCSVOut.vb">
+    <Compile Include="Forms\frmCorrection.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmExtraction.Designer.vb">
+      <DependentUpon>frmExtraction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmExtraction.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\frmImport.Designer.vb">
@@ -154,6 +160,18 @@
       <DependentUpon>frmMainMenu.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmMainMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMasterManage.Designer.vb">
+      <DependentUpon>frmMasterManage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMasterManage.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmOutput.Designer.vb">
+      <DependentUpon>frmOutput.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmOutput.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\frmTempForm.Designer.vb">
@@ -186,6 +204,12 @@
       <DependentUpon>frmConnectionProperty.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCorrection.resx">
+      <DependentUpon>frmCorrection.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmExtraction.resx">
+      <DependentUpon>frmExtraction.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmImport.resx">
       <DependentUpon>frmImport.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -197,6 +221,12 @@
     <EmbeddedResource Include="Forms\frmMainMenu.resx">
       <DependentUpon>frmMainMenu.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMasterManage.resx">
+      <DependentUpon>frmMasterManage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmOutput.resx">
+      <DependentUpon>frmOutput.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmTempForm.resx">
       <DependentUpon>frmTempForm.vb</DependentUpon>
@@ -223,6 +253,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\xfn.png" />
     <None Include="Resources\stickman.png" />
     <None Include="Resources\resultset_previous.png" />

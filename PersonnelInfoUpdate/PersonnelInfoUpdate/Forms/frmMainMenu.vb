@@ -70,8 +70,8 @@
 	''' <param name="e"></param>
 	Private Sub btnMaintenance_Click(sender As Object, e As EventArgs) Handles btnMaintenance.Click
 
-		'Dim f As New frmMaintenance
-		'm_Context.SetNextContext(f)
+		Dim f As New frmMasterManage
+		m_Context.SetNextContext(f)
 
 	End Sub
 

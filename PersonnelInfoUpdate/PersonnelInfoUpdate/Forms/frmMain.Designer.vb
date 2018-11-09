@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmMain
 	Inherits frmTempForm
 
 	'フォームがコンポーネントの一覧をクリーンアップするために dispose をオーバーライドします。
-	<System.Diagnostics.DebuggerNonUserCode()> _
+	<System.Diagnostics.DebuggerNonUserCode()>
 	Protected Overrides Sub Dispose(ByVal disposing As Boolean)
 		Try
 			If disposing AndAlso components IsNot Nothing Then
@@ -20,13 +20,18 @@ Partial Class frmMain
 	'メモ: 以下のプロシージャは Windows フォーム デザイナーで必要です。
 	'Windows フォーム デザイナーを使用して変更できます。  
 	'コード エディターを使って変更しないでください。
-	<System.Diagnostics.DebuggerStepThrough()> _
+	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
 		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
 		Me.Panel1 = New System.Windows.Forms.Panel()
 		Me.GroupBox2 = New System.Windows.Forms.GroupBox()
 		Me.C1FGridSum = New C1.Win.C1FlexGrid.C1FlexGrid()
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+		Me.btnDelete = New C1.Win.C1Input.C1Button()
+		Me.txtOffice = New C1.Win.C1Input.C1TextBox()
+		Me.txtLotID = New C1.Win.C1Input.C1TextBox()
+		Me.C1Label3 = New C1.Win.C1Input.C1Label()
+		Me.btnCorrection = New C1.Win.C1Input.C1Button()
 		Me.chkDeleted = New C1.Win.C1Input.C1CheckBox()
 		Me.btnAfterUpdate = New C1.Win.C1Input.C1Button()
 		Me.btnCSVOut = New C1.Win.C1Input.C1Button()
@@ -43,6 +48,11 @@ Partial Class frmMain
 		Me.GroupBox2.SuspendLayout()
 		CType(Me.C1FGridSum, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBox1.SuspendLayout()
+		CType(Me.btnDelete, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.txtOffice, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.txtLotID, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.C1Label3, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.btnCorrection, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.chkDeleted, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.btnAfterUpdate, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.btnCSVOut, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -64,7 +74,7 @@ Partial Class frmMain
 		Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
 		Me.Panel1.Location = New System.Drawing.Point(0, 0)
 		Me.Panel1.Name = "Panel1"
-		Me.Panel1.Size = New System.Drawing.Size(1016, 192)
+		Me.Panel1.Size = New System.Drawing.Size(1156, 192)
 		Me.Panel1.TabIndex = 1
 		'
 		'GroupBox2
@@ -73,7 +83,7 @@ Partial Class frmMain
 		Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.GroupBox2.Location = New System.Drawing.Point(447, 0)
 		Me.GroupBox2.Name = "GroupBox2"
-		Me.GroupBox2.Size = New System.Drawing.Size(569, 192)
+		Me.GroupBox2.Size = New System.Drawing.Size(709, 192)
 		Me.GroupBox2.TabIndex = 1
 		Me.GroupBox2.TabStop = False
 		Me.GroupBox2.Text = "集計"
@@ -97,7 +107,7 @@ Partial Class frmMain
 		Me.C1FGridSum.Rows.DefaultSize = 20
 		Me.C1FGridSum.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row
 		Me.C1FGridSum.ShowCellLabels = True
-		Me.C1FGridSum.Size = New System.Drawing.Size(563, 169)
+		Me.C1FGridSum.Size = New System.Drawing.Size(703, 169)
 		Me.C1FGridSum.StyleInfo = resources.GetString("C1FGridSum.StyleInfo")
 		Me.C1FGridSum.SubtotalPosition = C1.Win.C1FlexGrid.SubtotalPositionEnum.BelowData
 		Me.C1FGridSum.TabIndex = 1
@@ -105,6 +115,11 @@ Partial Class frmMain
 		'
 		'GroupBox1
 		'
+		Me.GroupBox1.Controls.Add(Me.btnDelete)
+		Me.GroupBox1.Controls.Add(Me.txtOffice)
+		Me.GroupBox1.Controls.Add(Me.txtLotID)
+		Me.GroupBox1.Controls.Add(Me.C1Label3)
+		Me.GroupBox1.Controls.Add(Me.btnCorrection)
 		Me.GroupBox1.Controls.Add(Me.chkDeleted)
 		Me.GroupBox1.Controls.Add(Me.btnAfterUpdate)
 		Me.GroupBox1.Controls.Add(Me.btnCSVOut)
@@ -121,6 +136,65 @@ Partial Class frmMain
 		Me.GroupBox1.TabIndex = 0
 		Me.GroupBox1.TabStop = False
 		Me.GroupBox1.Text = "検索・各種処理"
+		'
+		'btnDelete
+		'
+		Me.btnDelete.Location = New System.Drawing.Point(349, 125)
+		Me.btnDelete.Name = "btnDelete"
+		Me.btnDelete.Size = New System.Drawing.Size(75, 25)
+		Me.btnDelete.TabIndex = 14
+		Me.btnDelete.Text = "削　除"
+		Me.btnDelete.UseVisualStyleBackColor = True
+		'
+		'txtOffice
+		'
+		Me.txtOffice.AllowDrop = True
+		Me.txtOffice.AutoSize = False
+		Me.txtOffice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+		Me.txtOffice.Location = New System.Drawing.Point(242, 125)
+		Me.txtOffice.Name = "txtOffice"
+		Me.txtOffice.ReadOnly = True
+		Me.txtOffice.Size = New System.Drawing.Size(89, 25)
+		Me.txtOffice.TabIndex = 13
+		Me.txtOffice.Tag = Nothing
+		Me.txtOffice.TextDetached = True
+		'
+		'txtLotID
+		'
+		Me.txtLotID.AllowDrop = True
+		Me.txtLotID.AutoSize = False
+		Me.txtLotID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+		Me.txtLotID.Location = New System.Drawing.Point(96, 125)
+		Me.txtLotID.Name = "txtLotID"
+		Me.txtLotID.ReadOnly = True
+		Me.txtLotID.Size = New System.Drawing.Size(140, 25)
+		Me.txtLotID.TabIndex = 12
+		Me.txtLotID.Tag = Nothing
+		Me.txtLotID.TextDetached = True
+		'
+		'C1Label3
+		'
+		Me.C1Label3.BackColor = System.Drawing.Color.Transparent
+		Me.C1Label3.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.C1Label3.ForeColor = System.Drawing.Color.Black
+		Me.C1Label3.Location = New System.Drawing.Point(10, 123)
+		Me.C1Label3.Name = "C1Label3"
+		Me.C1Label3.Size = New System.Drawing.Size(80, 25)
+		Me.C1Label3.TabIndex = 11
+		Me.C1Label3.Tag = Nothing
+		Me.C1Label3.Text = "選択ロット："
+		Me.C1Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		Me.C1Label3.TextDetached = True
+		Me.C1Label3.Value = "選択ロット："
+		'
+		'btnCorrection
+		'
+		Me.btnCorrection.Location = New System.Drawing.Point(112, 161)
+		Me.btnCorrection.Name = "btnCorrection"
+		Me.btnCorrection.Size = New System.Drawing.Size(100, 25)
+		Me.btnCorrection.TabIndex = 9
+		Me.btnCorrection.Text = "不備修正"
+		Me.btnCorrection.UseVisualStyleBackColor = True
 		'
 		'chkDeleted
 		'
@@ -140,16 +214,16 @@ Partial Class frmMain
 		'
 		'btnAfterUpdate
 		'
-		Me.btnAfterUpdate.Location = New System.Drawing.Point(218, 161)
+		Me.btnAfterUpdate.Location = New System.Drawing.Point(324, 161)
 		Me.btnAfterUpdate.Name = "btnAfterUpdate"
 		Me.btnAfterUpdate.Size = New System.Drawing.Size(100, 25)
 		Me.btnAfterUpdate.TabIndex = 7
-		Me.btnAfterUpdate.Text = "更新後処理"
+		Me.btnAfterUpdate.Text = "データ抽出"
 		Me.btnAfterUpdate.UseVisualStyleBackColor = True
 		'
 		'btnCSVOut
 		'
-		Me.btnCSVOut.Location = New System.Drawing.Point(112, 161)
+		Me.btnCSVOut.Location = New System.Drawing.Point(218, 161)
 		Me.btnCSVOut.Name = "btnCSVOut"
 		Me.btnCSVOut.Size = New System.Drawing.Size(100, 25)
 		Me.btnCSVOut.TabIndex = 6
@@ -257,7 +331,7 @@ Partial Class frmMain
 		Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.Panel2.Location = New System.Drawing.Point(0, 192)
 		Me.Panel2.Name = "Panel2"
-		Me.Panel2.Size = New System.Drawing.Size(1016, 524)
+		Me.Panel2.Size = New System.Drawing.Size(1156, 556)
 		Me.Panel2.TabIndex = 2
 		'
 		'GroupBox3
@@ -266,7 +340,7 @@ Partial Class frmMain
 		Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.GroupBox3.Location = New System.Drawing.Point(0, 0)
 		Me.GroupBox3.Name = "GroupBox3"
-		Me.GroupBox3.Size = New System.Drawing.Size(1016, 524)
+		Me.GroupBox3.Size = New System.Drawing.Size(1156, 556)
 		Me.GroupBox3.TabIndex = 0
 		Me.GroupBox3.TabStop = False
 		Me.GroupBox3.Text = "ロット一覧"
@@ -277,6 +351,7 @@ Partial Class frmMain
 		Me.C1FGridResult.AllowEditing = False
 		Me.C1FGridResult.AllowFiltering = True
 		Me.C1FGridResult.AutoClipboard = True
+		Me.C1FGridResult.AutoResize = True
 		Me.C1FGridResult.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.FixedSingle
 		Me.C1FGridResult.ColumnInfo = resources.GetString("C1FGridResult.ColumnInfo")
 		Me.C1FGridResult.Dock = System.Windows.Forms.DockStyle.Fill
@@ -290,7 +365,7 @@ Partial Class frmMain
 		Me.C1FGridResult.Rows.DefaultSize = 20
 		Me.C1FGridResult.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row
 		Me.C1FGridResult.ShowCellLabels = True
-		Me.C1FGridResult.Size = New System.Drawing.Size(1010, 501)
+		Me.C1FGridResult.Size = New System.Drawing.Size(1150, 533)
 		Me.C1FGridResult.StyleInfo = resources.GetString("C1FGridResult.StyleInfo")
 		Me.C1FGridResult.SubtotalPosition = C1.Win.C1FlexGrid.SubtotalPositionEnum.BelowData
 		Me.C1FGridResult.TabIndex = 0
@@ -299,7 +374,7 @@ Partial Class frmMain
 		'frmMain
 		'
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
-		Me.ClientSize = New System.Drawing.Size(1016, 739)
+		Me.ClientSize = New System.Drawing.Size(1156, 771)
 		Me.Controls.Add(Me.Panel2)
 		Me.Controls.Add(Me.Panel1)
 		Me.Name = "frmMain"
@@ -311,6 +386,11 @@ Partial Class frmMain
 		Me.GroupBox2.ResumeLayout(False)
 		CType(Me.C1FGridSum, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.GroupBox1.ResumeLayout(False)
+		CType(Me.btnDelete, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.txtOffice, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.txtLotID, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.C1Label3, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.btnCorrection, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.chkDeleted, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.btnAfterUpdate, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.btnCSVOut, System.ComponentModel.ISupportInitialize).EndInit()
@@ -344,4 +424,9 @@ Partial Class frmMain
 	Friend WithEvents GroupBox3 As GroupBox
 	Friend WithEvents C1FGridResult As C1.Win.C1FlexGrid.C1FlexGrid
 	Friend WithEvents chkDeleted As C1.Win.C1Input.C1CheckBox
+	Friend WithEvents btnCorrection As C1.Win.C1Input.C1Button
+	Friend WithEvents C1Label3 As C1.Win.C1Input.C1Label
+	Friend WithEvents txtLotID As C1.Win.C1Input.C1TextBox
+	Friend WithEvents txtOffice As C1.Win.C1Input.C1TextBox
+	Friend WithEvents btnDelete As C1.Win.C1Input.C1Button
 End Class

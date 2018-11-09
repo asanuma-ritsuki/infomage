@@ -31,22 +31,22 @@ Partial Class frmTempForm
 		Me.RibbonSeparator3 = New C1.Win.C1Ribbon.RibbonSeparator()
 		Me.LabelHost2 = New PersonnelInfoUpdate.LabelHost()
 		Me.RibbonLabel2 = New C1.Win.C1Ribbon.RibbonLabel()
-		Me.RibbonSeparator4 = New C1.Win.C1Ribbon.RibbonSeparator()
+		Me.RibbonSeparator5 = New C1.Win.C1Ribbon.RibbonSeparator()
 		Me.LabelHost3 = New PersonnelInfoUpdate.LabelHost()
 		Me.RibbonLabel3 = New C1.Win.C1Ribbon.RibbonLabel()
-		Me.RibbonSeparator5 = New C1.Win.C1Ribbon.RibbonSeparator()
-		Me.LabelHost4 = New PersonnelInfoUpdate.LabelHost()
-		Me.RibbonLabel4 = New C1.Win.C1Ribbon.RibbonLabel()
 		Me.RibbonSeparator7 = New C1.Win.C1Ribbon.RibbonSeparator()
+		Me.LabelHost5 = New PersonnelInfoUpdate.LabelHost()
+		Me.RibbonLabel5 = New C1.Win.C1Ribbon.RibbonLabel()
+		Me.RibbonSeparator8 = New C1.Win.C1Ribbon.RibbonSeparator()
+		Me.LabelHost6 = New PersonnelInfoUpdate.LabelHost()
+		Me.RibbonLabel6 = New C1.Win.C1Ribbon.RibbonLabel()
+		Me.RibbonSeparator9 = New C1.Win.C1Ribbon.RibbonSeparator()
 		Me.lblUser = New C1.Win.C1Ribbon.RibbonLabel()
 		Me.RibbonSeparator1 = New C1.Win.C1Ribbon.RibbonSeparator()
 		Me.lblDate = New C1.Win.C1Ribbon.RibbonLabel()
 		Me.RibbonSeparator2 = New C1.Win.C1Ribbon.RibbonSeparator()
 		Me.btnBack = New C1.Win.C1Ribbon.RibbonButton()
 		Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-		Me.LabelHost5 = New PersonnelInfoUpdate.LabelHost()
-		Me.RibbonLabel5 = New C1.Win.C1Ribbon.RibbonLabel()
-		Me.RibbonSeparator8 = New C1.Win.C1Ribbon.RibbonSeparator()
 		CType(Me.C1StatusBar1, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
@@ -59,16 +59,16 @@ Partial Class frmTempForm
 		Me.C1StatusBar1.LeftPaneItems.Add(Me.RibbonSeparator3)
 		Me.C1StatusBar1.LeftPaneItems.Add(Me.LabelHost2)
 		Me.C1StatusBar1.LeftPaneItems.Add(Me.RibbonLabel2)
-		Me.C1StatusBar1.LeftPaneItems.Add(Me.RibbonSeparator4)
+		Me.C1StatusBar1.LeftPaneItems.Add(Me.RibbonSeparator5)
 		Me.C1StatusBar1.LeftPaneItems.Add(Me.LabelHost3)
 		Me.C1StatusBar1.LeftPaneItems.Add(Me.RibbonLabel3)
-		Me.C1StatusBar1.LeftPaneItems.Add(Me.RibbonSeparator5)
-		Me.C1StatusBar1.LeftPaneItems.Add(Me.LabelHost4)
-		Me.C1StatusBar1.LeftPaneItems.Add(Me.RibbonLabel4)
 		Me.C1StatusBar1.LeftPaneItems.Add(Me.RibbonSeparator7)
 		Me.C1StatusBar1.LeftPaneItems.Add(Me.LabelHost5)
 		Me.C1StatusBar1.LeftPaneItems.Add(Me.RibbonLabel5)
 		Me.C1StatusBar1.LeftPaneItems.Add(Me.RibbonSeparator8)
+		Me.C1StatusBar1.LeftPaneItems.Add(Me.LabelHost6)
+		Me.C1StatusBar1.LeftPaneItems.Add(Me.RibbonLabel6)
+		Me.C1StatusBar1.LeftPaneItems.Add(Me.RibbonSeparator9)
 		Me.C1StatusBar1.Location = New System.Drawing.Point(0, 706)
 		Me.C1StatusBar1.Name = "C1StatusBar1"
 		Me.C1StatusBar1.RightPaneItems.Add(Me.lblUser)
@@ -114,9 +114,9 @@ Partial Class frmTempForm
 		Me.RibbonLabel2.Name = "RibbonLabel2"
 		Me.RibbonLabel2.Text = "…要修正"
 		'
-		'RibbonSeparator4
+		'RibbonSeparator5
 		'
-		Me.RibbonSeparator4.Name = "RibbonSeparator4"
+		Me.RibbonSeparator5.Name = "RibbonSeparator5"
 		'
 		'LabelHost3
 		'
@@ -132,27 +132,45 @@ Partial Class frmTempForm
 		Me.RibbonLabel3.Name = "RibbonLabel3"
 		Me.RibbonLabel3.Text = "…出力済"
 		'
-		'RibbonSeparator5
-		'
-		Me.RibbonSeparator5.Name = "RibbonSeparator5"
-		'
-		'LabelHost4
-		'
-		Me.LabelHost4.BackColor = System.Drawing.Color.DeepSkyBlue
-		Me.LabelHost4.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-		Me.LabelHost4.Height = 16
-		Me.LabelHost4.Name = "LabelHost4"
-		Me.LabelHost4.Text = "サンプル"
-		Me.LabelHost4.Width = 50
-		'
-		'RibbonLabel4
-		'
-		Me.RibbonLabel4.Name = "RibbonLabel4"
-		Me.RibbonLabel4.Text = "…修正済"
-		'
 		'RibbonSeparator7
 		'
 		Me.RibbonSeparator7.Name = "RibbonSeparator7"
+		'
+		'LabelHost5
+		'
+		Me.LabelHost5.BackColor = System.Drawing.Color.DeepSkyBlue
+		Me.LabelHost5.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+		Me.LabelHost5.Height = 16
+		Me.LabelHost5.Name = "LabelHost5"
+		Me.LabelHost5.Text = "サンプル"
+		Me.LabelHost5.Width = 50
+		'
+		'RibbonLabel5
+		'
+		Me.RibbonLabel5.Name = "RibbonLabel5"
+		Me.RibbonLabel5.Text = "…納品済"
+		'
+		'RibbonSeparator8
+		'
+		Me.RibbonSeparator8.Name = "RibbonSeparator8"
+		'
+		'LabelHost6
+		'
+		Me.LabelHost6.BackColor = System.Drawing.Color.Gray
+		Me.LabelHost6.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+		Me.LabelHost6.Height = 16
+		Me.LabelHost6.Name = "LabelHost6"
+		Me.LabelHost6.Text = "サンプル"
+		Me.LabelHost6.Width = 50
+		'
+		'RibbonLabel6
+		'
+		Me.RibbonLabel6.Name = "RibbonLabel6"
+		Me.RibbonLabel6.Text = "…削除済"
+		'
+		'RibbonSeparator9
+		'
+		Me.RibbonSeparator9.Name = "RibbonSeparator9"
 		'
 		'lblUser
 		'
@@ -182,24 +200,6 @@ Partial Class frmTempForm
 		'
 		'Timer1
 		'
-		'
-		'LabelHost5
-		'
-		Me.LabelHost5.BackColor = System.Drawing.Color.Gray
-		Me.LabelHost5.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-		Me.LabelHost5.Height = 16
-		Me.LabelHost5.Name = "LabelHost5"
-		Me.LabelHost5.Text = "サンプル"
-		Me.LabelHost5.Width = 50
-		'
-		'RibbonLabel5
-		'
-		Me.RibbonLabel5.Name = "RibbonLabel5"
-		Me.RibbonLabel5.Text = "…納品済"
-		'
-		'RibbonSeparator8
-		'
-		Me.RibbonSeparator8.Name = "RibbonSeparator8"
 		'
 		'frmTempForm
 		'
@@ -231,14 +231,14 @@ Partial Class frmTempForm
 	Friend WithEvents RibbonSeparator3 As C1.Win.C1Ribbon.RibbonSeparator
 	Friend WithEvents LabelHost2 As LabelHost
 	Friend WithEvents RibbonLabel2 As C1.Win.C1Ribbon.RibbonLabel
-	Friend WithEvents RibbonSeparator4 As C1.Win.C1Ribbon.RibbonSeparator
 	Friend WithEvents LabelHost3 As LabelHost
 	Friend WithEvents RibbonLabel3 As C1.Win.C1Ribbon.RibbonLabel
 	Friend WithEvents RibbonSeparator5 As C1.Win.C1Ribbon.RibbonSeparator
-	Friend WithEvents LabelHost4 As LabelHost
-	Friend WithEvents RibbonLabel4 As C1.Win.C1Ribbon.RibbonLabel
 	Friend WithEvents RibbonSeparator7 As C1.Win.C1Ribbon.RibbonSeparator
 	Friend WithEvents LabelHost5 As LabelHost
 	Friend WithEvents RibbonLabel5 As C1.Win.C1Ribbon.RibbonLabel
 	Friend WithEvents RibbonSeparator8 As C1.Win.C1Ribbon.RibbonSeparator
+	Friend WithEvents LabelHost6 As LabelHost
+	Friend WithEvents RibbonLabel6 As C1.Win.C1Ribbon.RibbonLabel
+	Friend WithEvents RibbonSeparator9 As C1.Win.C1Ribbon.RibbonSeparator
 End Class

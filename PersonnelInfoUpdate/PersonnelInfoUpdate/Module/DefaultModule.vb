@@ -1,8 +1,9 @@
 ﻿Imports System.Text
 Imports C1.Win.C1FlexGrid
 Imports C1.C1Zip
+Imports Microsoft.WindowsAPICodePack
 
-'<System.Diagnostics.DebuggerStepThrough()>
+<System.Diagnostics.DebuggerStepThrough()>
 Module DefaultModule
 
 	''' <summary>
@@ -230,6 +231,30 @@ Module DefaultModule
 	End Function
 
 	''' <summary>
+	''' フォルダを開くコモンダイアログボックスを表示する(WindowsAPICodePack使用)
+	''' </summary>
+	''' <param name="strFolder"></param>
+	''' <returns></returns>
+	Public Function FolderBrowse(ByVal strFolder As String) As String
+		Dim ofd As New Dialogs.CommonOpenFileDialog("フォルダ選択")
+		'フォルダ選択モードにする
+		ofd.IsFolderPicker = True
+		'初期フォルダ
+		ofd.InitialDirectory = strFolder
+
+		If ofd.ShowDialog() = Dialogs.CommonFileDialogResult.Ok Then
+			Return ofd.FileName
+		Else
+			If IsNull(strFolder) Then
+				Return ""
+			Else
+				Return strFolder
+			End If
+		End If
+
+	End Function
+
+	''' <summary>
 	''' 指定した検索パターンに一致するファイルを最下層まで検索し全て返す
 	''' </summary>
 	''' <param name="strRootPath">検索を開始する最上層のディレクトリへのパス</param>
@@ -305,6 +330,30 @@ Module DefaultModule
 		'Next
 
 		WriteLstResult(lstResult, "ログ保存：" & strOutputImportLog, ResultMark.InformationMark)
+
+	End Sub
+
+	''' <summary>
+	''' リストボックスに表示されている文字列をログファイルとして保存する
+	''' </summary>
+	''' <param name="lstResult">対象のリストボックス</param>
+	''' <param name="strOutputFolder">出力フォルダ</param>
+	''' <param name="strSign">出力種別</param>
+	''' <param name="strSign2">事業所ID</param>
+	''' <param name="strLotID">ロットID</param>
+	Public Sub OutputListLog(ByVal lstResult As ListBox, ByVal strOutputFolder As String, ByVal strSign As String, ByVal strSign2 As String, ByVal strLotID As String)
+
+		If Not System.IO.Directory.Exists(strOutputFolder) Then
+			My.Computer.FileSystem.CreateDirectory(strOutputFolder)
+		End If
+		Dim strOutputFile As String = strOutputFolder & "\" & strSign & "_" & strSign2 & "_" & strLotID & ".log"
+		Using sw As New System.IO.StreamWriter(strOutputFile, False, System.Text.Encoding.GetEncoding("Shift-JIS"))
+			'テキストの書き込み
+			For j As Integer = 0 To lstResult.Items.Count - 1
+				sw.WriteLine(lstResult.Items(j))
+			Next
+
+		End Using
 
 	End Sub
 
