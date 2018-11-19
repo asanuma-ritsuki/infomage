@@ -1,0 +1,307 @@
+<?xml version="1.0"?>
+<Reports>
+  <FormatVersion>1.0 1.0.0.0</FormatVersion>
+  <Report ref="1">
+    <Name>法学新報掲載記事_1</Name>
+    <DataSourceName>法学新報掲載記事</DataSourceName>
+    <Layout>
+      <Width>9225</Width>
+      <Margin>1411.2</Margin>
+      <MarginTop>849.6</MarginTop>
+      <MarginRight>1699.2</MarginRight>
+      <MarginBottom>849.6</MarginBottom>
+      <Orientation>Portrait</Orientation>
+      <PaperSize>A4</PaperSize>
+    </Layout>
+    <Font>
+      <Name>ＭＳ ゴシック</Name>
+      <GdiCharSet>0</GdiCharSet>
+    </Font>
+    <DataSources>
+      <DataSource>
+        <Name>DataSource1</Name>
+        <DataProvider>OLEDB</DataProvider>
+        <ConnectionString>Provider=SQLOLEDB.1;Password=intra_intra;Persist Security Info=True;User ID=sa;Initial Catalog=chuo-u_magagine;Data Source=INTRA-PDC00\INTRASQL</ConnectionString>
+        <RecordSource>SELECT T_ImagePath.ImagePath
+FROM T_ImagePath Where ArticleNo=7;</RecordSource>
+      </DataSource>
+      <DataSource>
+        <Name>法学新報掲載記事</Name>
+        <DataProvider>OLEDB</DataProvider>
+        <ConnectionString>Provider=SQLOLEDB.1;Password=intra_intra;Persist Security Info=True;User ID=sa;Initial Catalog=chuo-u_magagine;Data Source=INTRA-PDC00\INTRASQL</ConnectionString>
+        <RecordSource>SELECT
+	T2.変換フォルダ + '\' + T2.変換ファイル名 AS ImagePath,
+	'法学新報 第' + CONVERT(VARCHAR, T1.巻) + '巻第' + CONVERT(VARCHAR, T1.号) + '号(' + CONVERT(VARCHAR, T1.年) + '年' + CONVERT(VARCHAR, T1.月) + '月発行)所収記事' AS ヘッダ,
+	'中央大学史資料集　第29集' AS フッタ
+FROM
+	T_ヘッダ情報 AS T1 INNER JOIN
+	T_ファイル情報 AS T2 ON T1.ID = T2.ID
+WHERE
+	T2.変換フォルダ = 'C:\ChuoTemp\02_Work\001\02'
+</RecordSource>
+      </DataSource>
+    </DataSources>
+    <Sections>
+      <Section>
+        <Name>Detail</Name>
+        <Background type="Solid">
+          <Color>FFFFFFFF</Color>
+        </Background>
+        <SubSections>
+          <SubSection>
+            <Height>13680</Height>
+          </SubSection>
+        </SubSections>
+        <Type>Detail</Type>
+        <OnPrint>' -- style script start
+detail.BackColor = iif(_styleCtr mod 2 = 0, rgb(255,255,255),rgb(240,240,240))
+_styleCtr = _styleCtr + 1
+' -- style script end
+</OnPrint>
+      </Section>
+      <Section>
+        <Name>Header</Name>
+        <Background type="Solid">
+          <Color>FFFFFFFF</Color>
+        </Background>
+        <SubSections>
+          <SubSection />
+        </SubSections>
+        <Type>Header</Type>
+      </Section>
+      <Section>
+        <Name>Footer</Name>
+        <SubSections>
+          <SubSection />
+        </SubSections>
+        <Type>Footer</Type>
+      </Section>
+      <Section>
+        <Name>PageHeader</Name>
+        <Background type="Solid">
+          <Color>FFC2DCFF</Color>
+        </Background>
+        <SubSections>
+          <SubSection>
+            <Background type="Solid">
+              <Color>FFFFFFFF</Color>
+            </Background>
+            <Height>284</Height>
+            <AutoHeight>CanShrink</AutoHeight>
+          </SubSection>
+        </SubSections>
+        <Type>PageHeader</Type>
+      </Section>
+      <Section>
+        <Name>PageFooter</Name>
+        <Background type="Solid">
+          <Color>FFFFFFFF</Color>
+        </Background>
+        <SubSections>
+          <SubSection>
+            <Height>284</Height>
+          </SubSection>
+        </SubSections>
+        <Type>PageFooter</Type>
+      </Section>
+    </Sections>
+    <Fields>
+      <ImageField>
+        <Name>Image3</Name>
+        <Section>Detail</Section>
+        <Left>0</Left>
+        <Top>285</Top>
+        <Width>9225</Width>
+        <Height>13110</Height>
+        <PictureAlign>RightTop</PictureAlign>
+        <Picture>
+          <Expression>=ImagePath</Expression>
+        </Picture>
+      </ImageField>
+      <TextField>
+        <Name>Field2</Name>
+        <Section>PageHeader</Section>
+        <Left>0</Left>
+        <Top>0</Top>
+        <Width>9225</Width>
+        <Height>284</Height>
+        <Align>CenterMiddle</Align>
+        <Font>
+          <Name>ＭＳ ゴシック</Name>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Expression>ヘッダ</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field1</Name>
+        <Section>PageFooter</Section>
+        <Left>0</Left>
+        <Top>0</Top>
+        <Width>9225</Width>
+        <Height>284</Height>
+        <Align>CenterMiddle</Align>
+        <Font>
+          <Name>ＭＳ ゴシック</Name>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Expression>フッタ</Expression>
+        </Text>
+      </TextField>
+    </Fields>
+  </Report>
+  <Report ref="1">
+    <Name>法学新報掲載記事_2</Name>
+    <DataSourceName>法学新報掲載記事</DataSourceName>
+    <Layout>
+      <Width>9225</Width>
+      <Margin>1411.2</Margin>
+      <MarginTop>849.6</MarginTop>
+      <MarginRight>1699.2</MarginRight>
+      <MarginBottom>849.6</MarginBottom>
+      <Orientation>Portrait</Orientation>
+      <PaperSize>A4</PaperSize>
+    </Layout>
+    <Font>
+      <Name>ＭＳ ゴシック</Name>
+      <GdiCharSet>0</GdiCharSet>
+    </Font>
+    <DataSources>
+      <DataSource>
+        <Name>DataSource1</Name>
+        <DataProvider>OLEDB</DataProvider>
+        <ConnectionString>Provider=SQLOLEDB.1;Password=intra_intra;Persist Security Info=True;User ID=sa;Initial Catalog=chuo-u_magagine;Data Source=INTRA-PDC00\INTRASQL</ConnectionString>
+        <RecordSource>SELECT T_ImagePath.ImagePath
+FROM T_ImagePath Where ArticleNo=7;</RecordSource>
+      </DataSource>
+      <DataSource>
+        <Name>法学新報掲載記事</Name>
+        <DataProvider>OLEDB</DataProvider>
+        <ConnectionString>Provider=SQLOLEDB.1;Password=intra_intra;Persist Security Info=True;User ID=sa;Initial Catalog=chuo-u_magagine;Data Source=INTRA-PDC00\INTRASQL</ConnectionString>
+        <RecordSource>SELECT
+	T2.変換フォルダ + '\' + T2.変換ファイル名 AS ImagePath,
+	'法学新報 第' + CONVERT(VARCHAR, T1.巻) + '巻第' + CONVERT(VARCHAR, T1.号) + '号(' + CONVERT(VARCHAR, T1.年) + '年' + CONVERT(VARCHAR, T1.月) + '月発行)所収記事' AS ヘッダ,
+	'中央大学史資料集　第29集' AS フッタ
+FROM
+	T_ヘッダ情報 AS T1 INNER JOIN
+	T_ファイル情報 AS T2 ON T1.ID = T2.ID
+WHERE
+	T2.変換フォルダ = 'C:\ChuoTemp\02_Work\001\02'
+</RecordSource>
+      </DataSource>
+    </DataSources>
+    <Sections>
+      <Section>
+        <Name>Detail</Name>
+        <Background type="Solid">
+          <Color>FFFFFFFF</Color>
+        </Background>
+        <SubSections>
+          <SubSection>
+            <Height>7125</Height>
+          </SubSection>
+        </SubSections>
+        <Type>Detail</Type>
+        <OnPrint>' -- style script start
+detail.BackColor = iif(_styleCtr mod 2 = 0, rgb(255,255,255),rgb(240,240,240))
+_styleCtr = _styleCtr + 1
+' -- style script end
+</OnPrint>
+      </Section>
+      <Section>
+        <Name>Header</Name>
+        <Background type="Solid">
+          <Color>FFFFFFFF</Color>
+        </Background>
+        <SubSections>
+          <SubSection />
+        </SubSections>
+        <Type>Header</Type>
+      </Section>
+      <Section>
+        <Name>Footer</Name>
+        <SubSections>
+          <SubSection />
+        </SubSections>
+        <Type>Footer</Type>
+      </Section>
+      <Section>
+        <Name>PageHeader</Name>
+        <Background type="Solid">
+          <Color>FFC2DCFF</Color>
+        </Background>
+        <SubSections>
+          <SubSection>
+            <Background type="Solid">
+              <Color>FFFFFFFF</Color>
+            </Background>
+            <Height>284</Height>
+            <AutoHeight>CanShrink</AutoHeight>
+          </SubSection>
+        </SubSections>
+        <Type>PageHeader</Type>
+      </Section>
+      <Section>
+        <Name>PageFooter</Name>
+        <Background type="Solid">
+          <Color>FFFFFFFF</Color>
+        </Background>
+        <SubSections>
+          <SubSection>
+            <Height>284</Height>
+          </SubSection>
+        </SubSections>
+        <Type>PageFooter</Type>
+      </Section>
+    </Sections>
+    <Fields>
+      <ImageField>
+        <Name>Image3</Name>
+        <Section>Detail</Section>
+        <Left>0</Left>
+        <Top>285</Top>
+        <Width>9225</Width>
+        <Height>6555</Height>
+        <PictureAlign>RightTop</PictureAlign>
+        <PictureScale>Scale</PictureScale>
+        <Picture>
+          <Expression>=ImagePath</Expression>
+        </Picture>
+      </ImageField>
+      <TextField>
+        <Name>Field2</Name>
+        <Section>PageHeader</Section>
+        <Left>0</Left>
+        <Top>0</Top>
+        <Width>9225</Width>
+        <Height>284</Height>
+        <Align>CenterMiddle</Align>
+        <Font>
+          <Name>ＭＳ ゴシック</Name>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Expression>ヘッダ</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field1</Name>
+        <Section>PageFooter</Section>
+        <Left>0</Left>
+        <Top>0</Top>
+        <Width>9225</Width>
+        <Height>284</Height>
+        <Align>CenterMiddle</Align>
+        <Font>
+          <Name>ＭＳ ゴシック</Name>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Expression>フッタ</Expression>
+        </Text>
+      </TextField>
+    </Fields>
+  </Report>
+</Reports>
