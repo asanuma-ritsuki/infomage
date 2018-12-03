@@ -40,7 +40,6 @@ Partial Class frmMain
 		Me.Label1 = New System.Windows.Forms.Label()
 		Me.GroupBox2 = New System.Windows.Forms.GroupBox()
 		Me.lstResult = New System.Windows.Forms.ListBox()
-		Me.Button1 = New System.Windows.Forms.Button()
 		Me.GroupBox1.SuspendLayout()
 		CType(Me.numPercent, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBox2.SuspendLayout()
@@ -48,7 +47,6 @@ Partial Class frmMain
 		'
 		'GroupBox1
 		'
-		Me.GroupBox1.Controls.Add(Me.Button1)
 		Me.GroupBox1.Controls.Add(Me.txtFlagString)
 		Me.GroupBox1.Controls.Add(Me.Label7)
 		Me.GroupBox1.Controls.Add(Me.txtLogFolder)
@@ -216,15 +214,6 @@ Partial Class frmMain
 		Me.lstResult.Size = New System.Drawing.Size(778, 367)
 		Me.lstResult.TabIndex = 0
 		'
-		'Button1
-		'
-		Me.Button1.Location = New System.Drawing.Point(702, 28)
-		Me.Button1.Name = "Button1"
-		Me.Button1.Size = New System.Drawing.Size(75, 23)
-		Me.Button1.TabIndex = 14
-		Me.Button1.Text = "Button1"
-		Me.Button1.UseVisualStyleBackColor = True
-		'
 		'frmMain
 		'
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -262,5 +251,4 @@ Partial Class frmMain
 	Friend WithEvents lstResult As ListBox
 	Friend WithEvents txtFlagString As TextBox
 	Friend WithEvents Label7 As Label
-	Friend WithEvents Button1 As Button
 End Class

@@ -11,7 +11,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyTitle("EmbedCaption")>
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("EmbedCaption")>
+<Assembly: AssemblyProduct("キャプション挿入ツール")>
 <Assembly: AssemblyCopyright("Copyright ©  2018")>
 <Assembly: AssemblyTrademark("")>
 
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' 既定値にすることができます:
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("1.0.0.0")>
-<Assembly: AssemblyFileVersion("1.0.0.0")>
+<Assembly: AssemblyVersion("1.0.1.1")>
+<Assembly: AssemblyFileVersion("1.0.1.1")>

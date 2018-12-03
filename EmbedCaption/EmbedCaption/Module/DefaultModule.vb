@@ -448,27 +448,31 @@ Module DefaultModule
 
 	'End Sub
 
-	''' <summary>
-	''' コントロールの使用可否を切り替える
-	''' </summary>
-	''' <param name="frmForm">対象フォーム</param>
-	''' <param name="ControlEnabled">True：使用可能、False：使用不可</param>
-	''' <remarks></remarks>
-	Public Sub EnableControls(ByVal frmForm As Form, ByVal ControlEnabled As Boolean)
+	'''' <summary>
+	'''' コントロールの使用可否を切り替える
+	'''' </summary>
+	'''' <param name="frmForm">対象フォーム</param>
+	'''' <param name="ControlEnabled">True：使用可能、False：使用不可</param>
+	'''' <remarks></remarks>
+	'Public Sub EnableControls(ByVal frmForm As Form, ByVal ControlEnabled As Boolean)
 
-		Try
-			For Each oControl As Control In frmForm.Controls
-				oControl.Enabled = ControlEnabled
-			Next
+	'	Try
+	'		For Each oControl As Control In frmForm.Controls
+	'			If oControl.Name = "btnAbort" Then
+	'				oControl.Enabled = Not ControlEnabled
+	'			Else
+	'				oControl.Enabled = ControlEnabled
+	'			End If
+	'		Next
 
-		Catch ex As Exception
+	'	Catch ex As Exception
 
-			Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message & vbNewLine & ex.StackTrace)
-			MessageBox.Show("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+	'		Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message & vbNewLine & ex.StackTrace)
+	'		MessageBox.Show("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
-		End Try
+	'	End Try
 
-	End Sub
+	'End Sub
 
 	'''' <summary>
 	'''' 解凍処理
