@@ -218,8 +218,7 @@
       <summary>指定した形式とサイズを使用して、現在のグラフイメージを取得します。</summary>
       <param name="imgfmt">イメージ形式。</param>
       <param name="sz">イメージサイズ</param>///
-      <returns>現在のグラフ表示のイメージ。</returns>
-    </member>
+      <returns>現在のグラフ表示のイメージ。</returns></member>
     <member name="M:C1.Win.C1Chart.C1Chart.GetImage(System.Drawing.Imaging.ImageFormat)">
       <summary>指定した形式を使用して、現在のグラフイメージを取得します。</summary>
       <param name="imgfmt">イメージ形式。</param>
@@ -416,8 +415,7 @@
     <member name="M:C1.Win.C1Chart.C1Chart.GenerateHistogramData(System.Double[],System.Double[],System.Double,System.Double[]@,System.Double[]@,System.Double[]@)">
       <summary>
         ローデータの値の配列と指定した区間の境界の値からヒストグラムデータを生成します。 正規化は正規化の区間幅を指定して行われます。
-        <para>グラフコントロールはヒストグラムのグラフ種別も提供していますが、 本メソッドを使用してヒストグラムに類似するグラフを作成することができます。</para>
-      </summary>
+        <para>グラフコントロールはヒストグラムのグラフ種別も提供していますが、 本メソッドを使用してヒストグラムに類似するグラフを作成することができます。</para></summary>
       <param name="RawData">データ値を格納している Double 型の配列を指定します。</param>
       <param name="Boundaries">ヒストグラム区間の境界を指定します。境界値の配列は内部でソートされ、重複した境界の値が削除されます。</param>
       <param name="NormalizationWidth">正規化に使用される区間の幅を指定します。 ゼロ以下の値を指定した場合は、正規化が行われません。</param>
@@ -442,8 +440,7 @@
       <returns>正常に行われたかどうかを示すブール型の値を返します。</returns>
       <remarks>
         連続した境界値は区間を示します。区間の数は境界の数より一つ小さい値になります。 例えば、Start = 1、IncrementalWidth = 2 および Count= 4 の場合は、1、3、5、7、9 の境界値の4つの区間（1-3、3-5、5-7、7-9）が作成されます。
-        <para>一つだけデーセットを使用する場合は、すべての区間の幅が均等なので、区間数の正規化が必要ではありません。 しかしながら、複数のデータセットを使用して異なる区間の幅が設定されている場合は、正規化を行うとより一貫した結果が返されます。</para>
-      </remarks>
+        <para>一つだけデーセットを使用する場合は、すべての区間の幅が均等なので、区間数の正規化が必要ではありません。 しかしながら、複数のデータセットを使用して異なる区間の幅が設定されている場合は、正規化を行うとより一貫した結果が返されます。</para></remarks>
       <exception cref="T:System.ArgumentNullException">RawData が null のときにスローされます。</exception>
       <exception cref="T:System.ArgumentException">RawData 配列が短過ぎるときにスローされます。</exception>
     </member>
@@ -554,8 +551,7 @@
       <summary>特定のテーマに基づいて、自動的な色生成を指定する値を取得または設定します。</summary>
       <remarks>
         デフォルト値は ColorGeneration.Custom です。これは、C1Chart の標準の色生成方法を 指定します。その他のオプションは、Microsoft Office のカラーテーマに 類似しています。
-        <para>このプロパティの特別な設定として、ColorGeneration.CopyToCustom があります。 ColorGeneration プロパティを CopyToCustom 値に設定すると、現在の色が Custom 色生成にコピーされ、このプロパティは自動的に ColorGeneration.Custom に設定されて、 詳細なカスタマイズを行うことができます。チャートデータが文字列、ファイル、 またはデザイナによってロードされると、必ずこの操作が自動的に 実行されます。色のカスタマイズは各 ChartDataSeries の LineStyle と SymbolStyle に対して行われるため、これらのカスタマイズは 現在の状態値と Custom 状態値の両方に影響します。</para>
-      </remarks>
+        <para>このプロパティの特別な設定として、ColorGeneration.CopyToCustom があります。 ColorGeneration プロパティを CopyToCustom 値に設定すると、現在の色が Custom 色生成にコピーされ、このプロパティは自動的に ColorGeneration.Custom に設定されて、 詳細なカスタマイズを行うことができます。チャートデータが文字列、ファイル、 またはデザイナによってロードされると、必ずこの操作が自動的に 実行されます。色のカスタマイズは各 ChartDataSeries の LineStyle と SymbolStyle に対して行われるため、これらのカスタマイズは 現在の状態値と Custom 状態値の両方に影響します。</para></remarks>
     </member>
     <member name="P:C1.Win.C1Chart.C1Chart.VisualEffects">
       <summary>VisualEffects オブジェクトを取得します。</summary>
@@ -1162,8 +1158,7 @@
       <returns>内部的に、Double（VB の場合）または double（C# の場合）値に適切に変換された、 デフォルトデータ型の配列を含むオブジェクト。</returns>
       <remarks>
         <para>渡される配列はオブジェクトですが、基本的なデータ型は Single、Double、Integer、 Int16、Int64、Decimal、DateTime（VB の場合）、または float、double、int、 Int16、Int64、decimal、DateTime (C# の場合)です。PointData が ChartDataArray によって 管理される場合は、PointF オブジェクトの配列も返すことができます。</para>Visual Basic では、戻り値を明示的に変換する必要はありません。 ただし、C# の強い型付けでは明示的な変換が必要です。
-        <para>すべての値は、Double（VB の場合）または double（C# の場合）データ型として内部に格納されることに注意してください。 適切なデフォルトデータ型となるように、自動的にデータ変換が行われます。</para>
-      </remarks>
+        <para>すべての値は、Double（VB の場合）または double（C# の場合）データ型として内部に格納されることに注意してください。 適切なデフォルトデータ型となるように、自動的にデータ変換が行われます。</para></remarks>
     </member>
     <member name="M:C1.Win.C1Chart.ChartDataArray.CopyDataOut(System.Type)">
       <summary>指定したデータ型を使用し、ChartDataArray からデータをコピーします。</summary>
@@ -1171,8 +1166,7 @@
       <returns>内部的に、Double（VB の場合）または double（C# の場合）値に適切に変換された、 指定したデータ型の配列を含むオブジェクト。</returns>
       <remarks>
         <para>渡される配列はオブジェクトですが、基本的なデータ型は Single、Double、Integer、 Int16、Int64、Decimal、DateTime（VB の場合）、または float、double、int、 Int16、Int64、decimal、DateTime (C# の場合)です。PointData が ChartDataArray によって 管理される場合は、PointF オブジェクトの配列も返すことができます。</para>Visual Basic では、戻り値を明示的に変換する必要はありません。 ただし、C# の強い型付けでは明示的な変換が必要です。
-        <para>すべての値は、Double（VB の場合）または double（C# の場合）データ型として内部に格納されることに注意してください。 指定したデータ型に応じて、データ変換が自動的に行われます。</para>
-      </remarks>
+        <para>すべての値は、Double（VB の場合）または double（C# の場合）データ型として内部に格納されることに注意してください。 指定したデータ型に応じて、データ変換が自動的に行われます。</para></remarks>
     </member>
     <member name="M:C1.Win.C1Chart.ChartDataArray.Add(System.Object)">
       <summary>新しい値を ChartArrayArray の末尾に追加します。</summary>
@@ -1273,8 +1267,7 @@
       <summary>ヒストグラム区間を指定するために使用される方法を取得または設定します。</summary>
       <remarks>
         区間の境界は以下のいずれかの方法で設定可能になります。
-        <para>Automatic メソッドを使用する場合、グラフは、データの最大値と最小値を使用して、区間をデータ平均の３つの標準偏差内に分布するよ うに制限することによって、区間の上限値と下限値を計算します。区間数はオプションです。区間の境界は均等に計算します。</para><para>SemiAutomatic メソッドを使用する場合、区間の上限値と下限値、および区間数を指定します。区間の境界は均等に計算します。</para><para>XDataBoundaries メソッドを使用する場合、データセットの X 値を使用して各区間の境界を明示的に設定します。X 値をソートして、重複値を削除します。結果の各昇順値を使用して、次の区間の境界を決定します。したがって、１番目と２番目の結果の X 値は先頭の区間を定義し、次に続く各 X 値は次の区間の最後を指定します。N 個の区間を指定するには N+1 個の一意の X 値が必要であることに注意してください。</para>
-      </remarks>
+        <para>Automatic メソッドを使用する場合、グラフは、データの最大値と最小値を使用して、区間をデータ平均の３つの標準偏差内に分布するよ うに制限することによって、区間の上限値と下限値を計算します。区間数はオプションです。区間の境界は均等に計算します。</para><para>SemiAutomatic メソッドを使用する場合、区間の上限値と下限値、および区間数を指定します。区間の境界は均等に計算します。</para><para>XDataBoundaries メソッドを使用する場合、データセットの X 値を使用して各区間の境界を明示的に設定します。X 値をソートして、重複値を削除します。結果の各昇順値を使用して、次の区間の境界を決定します。したがって、１番目と２番目の結果の X 値は先頭の区間を定義し、次に続く各 X 値は次の区間の最後を指定します。N 個の区間を指定するには N+1 個の一意の X 値が必要であることに注意してください。</para></remarks>
     </member>
     <member name="P:C1.Win.C1Chart.ChartHistogram.IntervalNumber">
       <summary>ヒストグラムの区関数を取得または設定します。</summary>
@@ -2155,39 +2148,11 @@
       <remarks>
         <para>
           次のアクションが利用可能です。
-          <list type="bullet">
-            <item>
-              <term>Rotate - グラフ（3D 効果を持つグラフのみ）を回転します。</term>
-            </item>
-            <item>
-              <term>Scale - グラフのスケールを変更します。</term>
-            </item>
-            <item>
-              <term>Translate - グラフをスクロールします。</term>
-            </item>
-            <item>
-              <term>Zoom - 表示するグラフの枠領域を選択します。</term>
-            </item>
-          </list>
-        </para>
+          <list type="bullet"><item><term>Rotate - グラフ（3D 効果を持つグラフのみ）を回転します。</term></item><item><term>Scale - グラフのスケールを変更します。</term></item><item><term>Translate - グラフをスクロールします。</term></item><item><term>Zoom - 表示するグラフの枠領域を選択します。</term></item></list></para>
         <para>スケール、移動、ズームの各アクションは、直交座標を持つグラフに利用できます。 各アクションは、指定したキーボード修飾子（［Alt］キー、［Ctrl］キー、［Shift］キー）を押しながら、 ユーザーがマウスをプロット領域の上でドラッグすると呼び出されます。</para>
         <para>
           デフォルトアクションマップには、次のアクションが含まれます。
-          <list type="bullet">
-            <item>
-              <term>rotate - 左マウスボタン。</term>
-            </item>
-            <item>
-              <term>scale - ［Ctrl］ + 左マウスボタン。</term>
-            </item>
-            <item>
-              <term>translate - ［Shift］ + 左マウスボタン。</term>
-            </item>
-            <item>
-              <term>zoom - [Alt］ + 左マウスボタン。</term>
-            </item>
-          </list>
-        </para>
+          <list type="bullet"><item><term>rotate - 左マウスボタン。</term></item><item><term>scale - ［Ctrl］ + 左マウスボタン。</term></item><item><term>translate - ［Shift］ + 左マウスボタン。</term></item><item><term>zoom - [Alt］ + 左マウスボタン。</term></item></list></para>
       </remarks>
       <seealso cref="T:C1.Win.C1Chart.Interaction" />
     </member>
@@ -2845,8 +2810,7 @@
       <returns>内部的に、Double（VB の場合）または double（C# の場合）値に適切に変換された、 デフォルトデータ型の配列を含むオブジェクト。</returns>
       <remarks>
         <para>渡される配列はオブジェクトですが、基本的なデータ型は Single、Double、Integer、 Int16、Int64、Decimal、DateTime（VB の場合）、または float、double、int、 Int16、Int64、decimal、DateTime (C# の場合)です。PointData が ChartCoordArray によって 管理される場合は、PointF オブジェクトの配列も返されます。</para>Visual Basic では、戻り値を明示的に変換する必要はありませんが、 C# では、戻り値を適切なデータ型に変換する必要があります。
-        <para>すべての値は、Double（VB の場合）または double（C# の場合）データ型として内部に格納されることに注意してください。 適切なデフォルトデータ型となるように、自動的にデータ変換が行われます。</para>
-      </remarks>
+        <para>すべての値は、Double（VB の場合）または double（C# の場合）データ型として内部に格納されることに注意してください。 適切なデフォルトデータ型となるように、自動的にデータ変換が行われます。</para></remarks>
     </member>
     <member name="M:C1.Win.C1Chart.ChartCoordArray.CopyDataOut(System.Type)">
       <summary>指定したデータ型を使用して、ChartCoordArray からデータをコピーします。</summary>
@@ -2854,8 +2818,7 @@
       <returns>内部的に、Double（VB の場合）または double（C# の場合）値に適切に変換された、 指定したデータ型の配列を含むオブジェクト。</returns>
       <remarks>
         <para>渡される配列はオブジェクトですが、基本的なデータ型は Single、Double、Integer、 Int16、Int64、Decimal、DateTime（VB の場合）、または float、double、int、 Int16、Int64、decimal、DateTime (C# の場合)です。PointData が ChartCoordArray によって 管理される場合は、PointF オブジェクトの配列も返されます。</para>Visual Basic では、戻り値を明示的に変換する必要はありませんが、 C# では、戻り値を適切なデータ型に変換する必要があります。
-        <para>すべての値は、Double（VB の場合）または double（C# の場合）データ型として内部に格納されることに注意してください。 指定したデータ型に応じて、データ変換が自動的に行われます。</para>
-      </remarks>
+        <para>すべての値は、Double（VB の場合）または double（C# の場合）データ型として内部に格納されることに注意してください。 指定したデータ型に応じて、データ変換が自動的に行われます。</para></remarks>
     </member>
     <member name="M:C1.Win.C1Chart.ChartCoordArray.Add(System.Object)">
       <summary>新しい値を ChartCoordArray の末尾に追加します。</summary>
@@ -5049,37 +5012,7 @@
       <summary>凡例内に表示する近似曲線に関連付けられたテキストを取得または設定します。</summary>
       <remarks>
         Text プロパティは、凡例の描画時に適切な値に置き換えられるキーワードを含みます。 キーワードは角カッコ（［］）に入れる必要があります。
-        <list type="table">
-          <listheader>
-            <term>キーワード</term>
-            <description>Value</description>
-          </listheader>
-          <item>
-            <term>#DSLABEL</term>
-            <description>適切なデータセットのラベル</description>
-          </item>
-          <item>
-            <term>#TRENDTYPE</term>
-            <description>近似曲線のタイプ</description>
-          </item>
-          <item>
-            <term>#SHORTTRENDTYPE</term>
-            <description>近似曲線の短いタイプ</description>
-          </item>
-          <item>
-            <term>#NTERMS</term>
-            <description>回帰近似曲線の項の数</description>
-          </item>
-          <item>
-            <term>#PERIOD</term>
-            <description>移動平均近似曲線の区間</description>
-          </item>
-          <item>
-            <term>#FORMULA</term>
-            <description>回帰式の数式</description>
-          </item>
-        </list>
-      </remarks>
+        <list type="table"><listheader><term>キーワード</term><description>Value</description></listheader><item><term>#DSLABEL</term><description>適切なデータセットのラベル</description></item><item><term>#TRENDTYPE</term><description>近似曲線のタイプ</description></item><item><term>#SHORTTRENDTYPE</term><description>近似曲線の短いタイプ</description></item><item><term>#NTERMS</term><description>回帰近似曲線の項の数</description></item><item><term>#PERIOD</term><description>移動平均近似曲線の区間</description></item><item><term>#FORMULA</term><description>回帰式の数式</description></item></list></remarks>
       <seealso cref="T:C1.Win.C1Chart.TrendLine" />
     </member>
     <member name="P:C1.Win.C1Chart.TrendLine.DataArray">
@@ -5337,14 +5270,12 @@
     <member name="P:C1.Win.C1Chart.ValueLabel.MovingNumericValue">
       <summary>
         ドラッグ操作中に、移動中の ValueLabel の新しい ValueLabel 数値を取得します。
-        <remarks>この値は、マウスによって ValueLabel がドラッグされている間だけ NumericValue プロパティの値と異なるので、 ValueLabel.ValueChanging イベントで非常に便利です。</remarks>
-      </summary>
+        <remarks>この値は、マウスによって ValueLabel がドラッグされている間だけ NumericValue プロパティの値と異なるので、 ValueLabel.ValueChanging イベントで非常に便利です。</remarks></summary>
     </member>
     <member name="P:C1.Win.C1Chart.ValueLabel.MovingDateTimeValue">
       <summary>
         ドラッグ操作中に、移動中の ValueLabel の新しい ValueLabel DateTimeValue を取得します。
-        <remarks>この値は、マウスによって ValueLabel がドラッグされている間だけ DateTimeValue プロパティの値と異なるので、 ValueLabel.ValueChanging イベントで非常に便利です。</remarks>
-      </summary>
+        <remarks>この値は、マウスによって ValueLabel がドラッグされている間だけ DateTimeValue プロパティの値と異なるので、 ValueLabel.ValueChanging イベントで非常に便利です。</remarks></summary>
     </member>
     <member name="M:C1.Win.C1Chart.C1Chart.ShowProperties(System.Drawing.Rectangle@)">
       <summary>実行時に、グラフプロパティダイアログを表示します。</summary>

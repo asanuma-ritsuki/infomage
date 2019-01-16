@@ -6323,15 +6323,6 @@
       <summary>このメソッドは内部使用専用です。</summary>
       <param name="e"></param>
     </member>
-    <member name="E:C1.Win.C1Input.ComboBoxItemList.ListChanged">
-      <summary>項目が追加、削除、変更、または移動されたとき、あるいはリスト全体が更新されたときに発生します。</summary>
-    </member>
-    <member name="M:C1.Win.C1Input.ComboBoxItemList.OnListChanged">
-      <summary>
-        提供された引数を使用して
-        <see cref="E:C1.Win.C1Input.ComboBoxItemList.ListChanged" />イベントを発生させます。
-      </summary>
-    </member>
     <member name="E:C1.Win.C1Input.C1CheckBox.ValueChanged">
       <summary>Value プロパティが変更されたときに発生します。</summary>
     </member>
@@ -6543,6 +6534,138 @@
       </summary>
       <param name="g">グラフィックオブジェクト。</param>
       <param name="bounds">画像を描画する四角形。</param>
+    </member>
+    <member name="M:C1.Win.C1Input.ComboBoxItemList.#ctor(C1.Win.C1Input.C1ComboBox)">
+      <summary>
+        <see cref="T:C1.Win.C1Input.ComboBoxItemList" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.ComboBoxItemList.Item(System.Int32)">
+      <summary>
+        指定されたインデックス位置の項目を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.ComboBoxItemList.Count">
+      <summary>
+        <see cref="T:C1.Win.C1Input.ComboBoxItemList" /> インスタンスに含まれる項目の数を取得します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.ComboBoxItemList.Add(System.Object)">
+      <summary>
+        <see cref="T:C1.Win.C1Input.ComboBoxItemList" /> に項目を 1 つ追加します。
+      </summary>
+      <param name="value">
+        <see cref="T:C1.Win.C1Input.ComboBoxItemList" /> に追加する <see cref="T:System.Object" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.ComboBoxItemList.AddRange(System.Collections.Generic.IEnumerable{System.Object})">
+      <summary>
+        指定されたコレクション内の項目を <see cref="T:C1.Win.C1Input.ComboBoxItemList" /> の最後に追加します。
+      </summary>
+      <param name="collection">指定された項目コレクション。</param>
+    </member>
+    <member name="M:C1.Win.C1Input.ComboBoxItemList.Clear">
+      <summary>
+        <see cref="T:C1.Win.C1Input.ComboBoxItemList" /> からすべての項目を削除します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.ComboBoxItemList.Contains(System.Object)">
+      <summary>
+        ある項目が <see cref="T:C1.Win.C1Input.ComboBoxItemList" /> 内にあるかどうかを判定します。
+      </summary>
+      <param name="value">コレクション内で検索する項目。</param>
+    </member>
+    <member name="M:C1.Win.C1Input.ComboBoxItemList.IndexOf(System.Object)">
+      <summary>
+        指定された項目を検索し、0 から始まるインデックスを返します。
+      </summary>
+      <param name="value">指定された項目。</param>
+    </member>
+    <member name="M:C1.Win.C1Input.ComboBoxItemList.Insert(System.Int32,System.Object)">
+      <summary>
+        <see cref="T:C1.Win.C1Input.ComboBoxItemList" /> の指定されたインデックスに項目を挿入します。
+      </summary>
+      <param name="index">項目のインデックス。</param>
+      <param name="value">指定された項目。</param>
+    </member>
+    <member name="M:C1.Win.C1Input.ComboBoxItemList.InsertRange(System.Int32,System.Collections.Generic.IEnumerable{System.Object})">
+      <summary>
+        <see cref="T:C1.Win.C1Input.ComboBoxItemList" /> の指定されたインデックスに複数の項目を挿入します。
+      </summary>
+      <param name="index">項目のインデックス。</param>
+      <param name="collection">指定された項目コレクション。</param>
+    </member>
+    <member name="M:C1.Win.C1Input.ComboBoxItemList.Remove(System.Object)">
+      <summary>
+        最初に見つかった指定された項目をコレクションから削除します。
+      </summary>
+      <param name="value">指定された項目。</param>
+    </member>
+    <member name="M:C1.Win.C1Input.ComboBoxItemList.RemoveAt(System.Int32)">
+      <summary>
+        指定されたインデックスにある項目をコレクションから削除します。
+      </summary>
+      <param name="index">指定されたインデックス。</param>
+    </member>
+    <member name="M:C1.Win.C1Input.ComboBoxItemList.RemoveAll(System.Predicate{System.Object})">
+      <summary>
+        指定された述語で定義された条件に一致するすべての項目を削除します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.ComboBoxItemList.RemoveRange(System.Int32,System.Int32)">
+      <summary>
+        <see cref="T:C1.Win.C1Input.ComboBoxItemList" /> からある範囲の要素を削除します。
+      </summary>
+      <param name="index">項目のインデックス。</param>
+      <param name="count">削除する項目数。</param>
+    </member>
+    <member name="M:C1.Win.C1Input.ComboBoxItemList.GetEnumerator">
+      <summary>
+        <see cref="T:C1.Win.C1Input.ComboBoxItemList" /> を反復処理する列挙子を返します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.C1Input.ComboBoxItemList.CollectionChanged">
+      <summary>
+        項目の追加または削除のいずれかによって <see cref="T:C1.Win.C1Input.ComboBoxItemList" /> が変更されると発生します。
+      </summary>
+      <remarks>
+        参照：<seealso cref="T:System.Collections.Specialized.INotifyCollectionChanged" />
+      </remarks>
+    </member>
+    <member name="M:C1.Win.C1Input.ComboBoxItemList.OnCollectionChanged(System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+      <summary>
+        CollectionChanged イベントを発生させます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.ComboBoxItemList.OnCollectionChanged(System.Collections.Specialized.NotifyCollectionChangedAction,System.Object,System.Int32)">
+      <summary>
+        CollectionChanged イベントを発生させます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.ComboBoxItemList.OnCollectionChanged(System.Collections.Specialized.NotifyCollectionChangedAction,System.Collections.Generic.IEnumerable{System.Object})">
+      <summary>
+        CollectionChanged イベントを発生させます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.ComboBoxItemList.OnCollectionChanged(System.Collections.Specialized.NotifyCollectionChangedAction,System.Collections.Generic.IEnumerable{System.Object},System.Int32)">
+      <summary>
+        CollectionChanged イベントを発生させます。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.ComboBoxItemList.OnCollectionReset">
+      <summary>
+        CollectionChanged イベントを発生させます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1DropDownControl.ImageTransparentColor">
+      <summary>
+        画像内で透明として扱われる色を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.NumericEditCalculator.ShowDecimalSeparator">
+      <summary>
+        数の入力時に小数部分が入力されない場合に、小数点を表示するかどうか示す値を取得または設定します。
+      </summary>
     </member>
   </members>
 </doc>

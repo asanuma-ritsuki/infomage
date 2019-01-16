@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "GetLab", "GetLab\GetLab.vbproj", "{7365561C-D3C1-4CE2-8A9C-1CF1E1BDAE50}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "setup", "setup\setup.vdproj", "{392B45BE-4AD1-48A6-BAE9-AA0B471600EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7365561C-D3C1-4CE2-8A9C-1CF1E1BDAE50}.Debug|x64.ActiveCfg = Debug|x64
+		{7365561C-D3C1-4CE2-8A9C-1CF1E1BDAE50}.Debug|x64.Build.0 = Debug|x64
+		{7365561C-D3C1-4CE2-8A9C-1CF1E1BDAE50}.Debug|x86.ActiveCfg = Debug|x86
+		{7365561C-D3C1-4CE2-8A9C-1CF1E1BDAE50}.Debug|x86.Build.0 = Debug|x86
+		{7365561C-D3C1-4CE2-8A9C-1CF1E1BDAE50}.Release|x64.ActiveCfg = Release|x64
+		{7365561C-D3C1-4CE2-8A9C-1CF1E1BDAE50}.Release|x64.Build.0 = Release|x64
+		{7365561C-D3C1-4CE2-8A9C-1CF1E1BDAE50}.Release|x86.ActiveCfg = Release|x86
+		{7365561C-D3C1-4CE2-8A9C-1CF1E1BDAE50}.Release|x86.Build.0 = Release|x86
+		{392B45BE-4AD1-48A6-BAE9-AA0B471600EE}.Debug|x64.ActiveCfg = Debug
+		{392B45BE-4AD1-48A6-BAE9-AA0B471600EE}.Debug|x86.ActiveCfg = Debug
+		{392B45BE-4AD1-48A6-BAE9-AA0B471600EE}.Release|x64.ActiveCfg = Release
+		{392B45BE-4AD1-48A6-BAE9-AA0B471600EE}.Release|x86.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

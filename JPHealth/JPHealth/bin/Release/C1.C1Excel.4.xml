@@ -190,8 +190,7 @@
         次のコードでは、
         <see cref="T:C1.C1Excel.C1XLBook" />を
         <see cref="T:System.IO.MemoryStream" />へ保存し、内容をクリアします。その後、ワークブックを同じストリームから再度ロードします。
-        <code>
-          <![CDATA[
+        <code><![CDATA[
           // ワークブックを新しい MemoryStream へ保存します
           MemoryStream ms = new MemoryStream();
           _book.Save(ms);
@@ -201,9 +200,7 @@
           // MemoryStream から再度ロードします
           ms.Position = 0;
           _book.Load(ms);
-          ]]>
-        </code>
-      </example>
+          ]]></code></example>
     </member>
     <member name="M:C1.C1Excel.C1XLBook.Save(System.IO.Stream,C1.C1Excel.FileFormat)">
       <summary>
@@ -494,8 +491,7 @@
           <see cref="P:C1.C1Excel.XLCell.Value" />　プロパティの値へ直接
           <see cref="P:C1.C1Excel.XLPictureShape.Image" />オブジェクトを設定します。ただし、配置とスケーリング引数を持つコンストラクタを用いて、コード内で
           <b>XLPictureShape</b>　オブジェクトを生成する方法も提供されています。
-        </para>
-      </remarks>
+        </para></remarks>
     </member>
     <member name="M:C1.C1Excel.XLPictureShape.#ctor(System.Drawing.Image,System.Int32,System.Int32)">
       <summary>
@@ -508,8 +504,7 @@
       <param name="y">セルに対する新しい図形の垂直位置を twips 単位で示します。</param>
       <example>
         次のコードを使用し、セルに画像を追加します。画像は元のサイズで左上端から 30twips の間隔でレンダリングされます:
-        <code>
-          <![CDATA[
+        <code><![CDATA[
           // シートおよびセルを取得します
           XLSheet sheet = c1ExcelBook1.Sheets[0];
           XLCell  cell  = sheet[row, col];
@@ -519,9 +514,7 @@
           
           // XLPictureShape オブジェクトをセルの値として設定します
           cell.Value = pic;
-          ]]>
-        </code>
-      </example>
+          ]]></code></example>
     </member>
     <member name="M:C1.C1Excel.XLPictureShape.#ctor(System.Drawing.Image,System.Int32,System.Int32,System.Int32,System.Int32)">
       <summary>
@@ -536,8 +529,7 @@
       <param name="height">画像の高さ（twips 単位）。</param>
       <example>
         次のコードを使用すると、セルに画像を追加できます。画像は長方形内に描画され、セルの中央に境界線より 60twip の間隔で表示されます:
-        <code>
-          <![CDATA[
+        <code><![CDATA[
           // シートおよびセルを宣言します
           XLSheet sheet = c1ExcelBook1.Sheets[0];
           XLCell  cell  = sheet[row, col];
@@ -556,9 +548,7 @@
           
           // セルの Value プロパティへ XLPictureShape を設定します
           cell.Value = pic;
-          ]]>
-        </code>
-      </example>
+          ]]></code></example>
     </member>
     <member name="M:C1.C1Excel.XLPictureShape.#ctor(System.Drawing.Image,System.Drawing.Rectangle)">
       <summary>
@@ -573,8 +563,7 @@
       </param>
       <example>
         次のコードを使用し、セルに画像を追加します。画像は長方形内に描画され、セルの中央に境界線から 60twip の間隔で表示されます:
-        <code>
-          <![CDATA[
+        <code><![CDATA[
           // シートおよびセルを宣言します
           XLSheet sheet = c1ExcelBook1.Sheets[0];
           XLCell  cell  = sheet[row, col];
@@ -592,9 +581,7 @@
           
           // セルの Value プロパティへ XLPictureShape を設定します
           cell.Value = pic;
-          ]]>
-        </code>
-      </example>
+          ]]></code></example>
     </member>
     <member name="M:C1.C1Excel.XLPictureShape.#ctor(System.Drawing.Image)">
       <summary>
@@ -623,8 +610,7 @@
       <remarks>本コンストラクタは、セル・画像サイズに基づいて画像の表示サイズ、位置、クリッピングなどを自動調整します。</remarks>
       <example>
         次のコードを使用し、セルに画像を追加します。この場合、画像はセルの中央に配置され、画像の縦横比 を保持し、セルのサイズに合わせて表示されます。
-        <code>
-          <![CDATA[
+        <code><![CDATA[
           // シートおよびセルを取得します
           XLSheet sheet = c1ExcelBook1.Sheets[0];
           XLCell  cell  = sheet[row, col];
@@ -643,9 +629,7 @@
           
           // セルの Value プロパティに XLPictureShape を設定します
           cell.Value = pic;
-          ]]>
-        </code>
-      </example>
+          ]]></code></example>
     </member>
     <member name="M:C1.C1Excel.XLPictureShape.#ctor(C1.C1Excel.XLSheet,System.Drawing.Image,System.Int32,System.Int32,System.Int32,System.Int32)">
       <summary>
@@ -1172,8 +1156,7 @@
       <example>
         たとえば、次のコードでは新規
         <see cref="T:C1.C1Excel.C1XLBook" />を作成して、10 × 10 のテーブルを持つ最初のシートを配置します：
-        <code>
-          <![CDATA[
+        <code><![CDATA[
           C1XLBook book = new C1XLBook();
           XLSheet sheet = book.Sheets[0];
           for (int r = 0; r < 10; r++)
@@ -1185,9 +1168,7 @@
             }
           }
           book.Save(@"c:\temp\test.xls");
-          ]]>
-        </code>
-      </example>
+          ]]></code></example>
     </member>
     <member name="M:C1.C1Excel.XLCell.Clone">
       <summary>値も含めてこのセルのコピーを作成します。</summary>
@@ -1209,17 +1190,14 @@
         <b>SetValue</b>メソッドを実行すると、セルの
         <b>Value</b>および
         <b>Style</b>プロパティを同時に設 定することが可能になります。このメソッドを使用すると、以下の例のようにメンテナンスの容易なコードを作成できます。
-        <code>
-          <![CDATA[
+        <code><![CDATA[
           // セルの値およびスタイルを設定します (SetValue メソッドを使用)
           sheet[0,0].SetValue("Hello", styleBold);
           
           // セルの値およびスタイルを設定します (SetValue メソッドを使用せずに)
           sheet[0,0].Value = "Hello";
           sheet[0,0].Style = styleBold;
-          ]]>
-        </code>
-      </remarks>
+          ]]></code></remarks>
     </member>
     <member name="P:C1.C1Excel.XLCell.Value">
       <summary>セルに保持された値を取得または設定します。</summary>
@@ -2406,13 +2384,10 @@
       </remarks>
       <example>
         下のコードは、左、中央、および右の部分を含むヘッダを作成します。
-        <code>
-          <![CDATA[
+        <code><![CDATA[
           PrintSettings ps = sheet.PrintSettings;
           ps.Header = "&LHeader Left&CHeader Center&RHeader Right";
-          ]]>
-        </code>
-      </example>
+          ]]></code></example>
     </member>
     <member name="P:C1.C1Excel.XLPrintSettings.Footer">
       <summary>シートの印刷時にページフッタとして表示する文字列を取得または設定します。</summary>
@@ -2565,14 +2540,11 @@
       <remarks>コレクションには、コレクションからの行のカウント、列挙、追加、および削除を実行するメソッドが含まれます。</remarks>
       <example>
         シートのインデクサを用いると、行が自動的に生成できることに注意してください。たとえば次のコードでは、(3,3) の座標のセルを取得し、4つの行と4つの列が自動生成されます。
-        <code>
-          <![CDATA[
+        <code><![CDATA[
           C1XLBook book = new C1XLBook();
           sheet = book.Sheets[0];
           XLCell cell   = sheet[3,3]; // 4行4列を作成します
-          ]]>
-        </code>
-      </example>
+          ]]></code></example>
     </member>
     <member name="M:C1.C1Excel.XLRowCollection.Clear">
       <summary>コレクションからすべてのアイテムを削除します。</summary>
@@ -2693,14 +2665,11 @@
       </remarks>
       <example>
         シートのインデクサを用いると、行が自動的に生成できることに注意してください。たとえば次のコードでは、(3,3) の座標のセルを取得し、4つの行と4つの列が自動生成されます。
-        <code>
-          <![CDATA[
+        <code><![CDATA[
           C1XLBook book  = new C1XLBook();
           XLSheet  sheet = book.Sheets[0];
           XLCell   cell  = sheet[3,3]; // 4行4列を作成します
-          ]]>
-        </code>
-      </example>
+          ]]></code></example>
     </member>
     <member name="M:C1.C1Excel.XLColumnCollection.Clear">
       <summary>コレクションからすべてのアイテムを削除します。</summary>
@@ -2842,16 +2811,13 @@
       <summary>指定された行の後で強制的に改ページされるかどうかを取得または設定します。</summary>
       <example>
         次のコードは、シート上の10行目ごとに強制改ページを挿入し、他のすべての行で改ページをクリアします。
-        <code>
-          <![CDATA[
+        <code><![CDATA[
           C1.C1Excel.XLSheet sheet = c1XLBook1.Sheets[0];
           for (int r = 0; r < sheet.Rows.Count; r++)
           {
             sheet.Rows[r].PageBreak = (r > 0 && r % 10 == 0);
           }
-          ]]>
-        </code>
-      </example>
+          ]]></code></example>
     </member>
     <member name="P:C1.C1Excel.XLRow.Height">
       <summary>行の高さを twips 単位で取得または設定します。</summary>
@@ -3022,14 +2988,11 @@
         ブックのシートのコレクションを取得する
         <see cref="T:C1.C1Excel.C1XLBook" />の
         <see cref="P:C1.C1Excel.C1XLBook.Sheets" />プロパティを用います。たとえば、以下のコードではブック上の最初のシートへの参照を取得し、シート名を印刷します。
-        <code>
-          <![CDATA[
+        <code><![CDATA[
           C1XLBook book = new C1XLBook();
           XLSheet sheet = book.Sheets[0];
           Debug.WriteLine(sheet.Name);
-          ]]>
-        </code>
-      </example>
+          ]]></code></example>
     </member>
     <member name="M:C1.C1Excel.XLSheetCollection.Add">
       <summary>
@@ -3204,15 +3167,12 @@
         個々のシートを取得するため、
         <see cref="T:C1.C1Excel.C1XLBook" />の
         <see cref="P:C1.C1Excel.C1XLBook.Sheets" />インデクサを使用します。たとえば、以下のコードでは最初のシートへの参照を取得し、シート上の行および列の数を印刷します。
-        <code>
-          <![CDATA[
+        <code><![CDATA[
           C1XLBook book = new C1XLBook();
           XLSheet sheet = book.Sheets[0];
           Debug.WriteLine("Sheet has {0} rows and {1} columns", 
             sheet.Rows.Count, sheet.Columns.Count);
-          ]]>
-        </code>
-      </example>
+          ]]></code></example>
     </member>
     <member name="M:C1.C1Excel.XLSheet.Clone">
       <summary>このシートのコピーを生成します。</summary>
@@ -3226,8 +3186,7 @@
       </remarks>
       <example>
         以下のコードでは、テンプレート シートを含むブックをロード、シートを12枚コピー、テンプレート シートを削除し、最後に新しい名前でファイルを保存します。
-        <code>
-          <![CDATA[
+        <code><![CDATA[
           // テンプレートシートを含むブックをロードします
           _c1xl.Load(@"c:\temp\template.xls");
           
@@ -3244,9 +3203,7 @@
           // テンプレートシートを削除し、新しい名前で保存します
           _c1xl.Sheets.Remove("Template");
           _c1xl.Save(@"C:\temp\expense_report.xls");
-          ]]>
-        </code>
-      </example>
+          ]]></code></example>
     </member>
     <member name="M:C1.C1Excel.XLSheet.GetCell(System.Int32,System.Int32)">
       <summary>指定した座標にあるセルへの参照を取得します。セルが存在しなければ null を返します。</summary>
@@ -3445,8 +3402,7 @@
       </remarks>
       <example>
         以下のコードは、データエントリ シートを作成します。ほとんどのセルをロックし、データ入力用のセルだけを編集可能にします。
-        <code>
-          <![CDATA[
+        <code><![CDATA[
           // 単一のロックされたシートから開始します
           _c1xl.Clear();
           XLSheet sheet = _c1xl.Sheets[0];
@@ -3469,9 +3425,7 @@
           
           // ブックを保存します
           _c1xl.Save(@"c:\temp\Protected.xls");
-          ]]>
-        </code>
-      </example>
+          ]]></code></example>
     </member>
     <member name="P:C1.C1Excel.XLSheet.Visible">
       <summary>シートを表示にするかどうかを取得または設定します。</summary>
@@ -3514,14 +3468,11 @@
       </summary>
       <example>
         以下のコードは、シートのヘッダを生成し、向きを横長にします。
-        <code>
-          <![CDATA[
+        <code><![CDATA[
           XLPrintSettings pp = sheet.PrintSettings();
           pp.Landscape = true;
           pp.Header = "&LLeft Header&CCenter Header&RRight Header";
-          ]]>
-        </code>
-      </example>
+          ]]></code></example>
     </member>
     <member name="P:C1.C1Excel.XLSheet.Shapes">
       <summary>

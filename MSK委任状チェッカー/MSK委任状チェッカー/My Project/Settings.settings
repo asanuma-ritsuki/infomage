@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="DataSource" Type="System.String" Scope="User">
+      <Value Profile="(Default)">INTRA-PDC00\INTRASQL</Value>
+    </Setting>
+    <Setting Name="DataBase" Type="System.String" Scope="User">
+      <Value Profile="(Default)">MSK_Soufujou</Value>
+    </Setting>
+    <Setting Name="UserID" Type="System.String" Scope="User">
+      <Value Profile="(Default)">sa</Value>
+    </Setting>
+    <Setting Name="PW" Type="System.String" Scope="User">
+      <Value Profile="(Default)">intra_intra</Value>
+    </Setting>
+    <Setting Name="ParentFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\\hydra\01_制作Gr\05_定期案件\□三井住友海上運送保険\02_作業フォルダ</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

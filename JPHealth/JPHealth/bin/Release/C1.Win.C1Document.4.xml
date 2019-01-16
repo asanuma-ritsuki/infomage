@@ -265,8 +265,7 @@
         </para><para>
           デフォルト値は、
           <see cref="F:C1.Win.C1Document.BordersModeEnum.Default" />です。
-        </para>
-      </summary>
+        </para></summary>
     </member>
     <member name="P:C1.Win.C1Document.CompatibilityOptions.KeepImages">
       <summary>
@@ -283,8 +282,7 @@
     <member name="P:C1.Win.C1Document.CompatibilityOptions.StretchBarCodesAsImages">
       <summary>
         バーコードを画像として引き伸ばすかどうかを示す値を取得または設定します。
-        <para>デフォルト値は false です。これは以前のバージョンと互換性があります。</para>
-      </summary>
+        <para>デフォルト値は false です。これは以前のバージョンと互換性があります。</para></summary>
     </member>
     <member name="P:C1.Win.C1Document.CompatibilityOptions.UseGdiLinesInPdfExport">
       <summary>
@@ -1040,8 +1038,7 @@
       <summary>
         ソースから
         <see cref="T:C1.Win.C1Document.C1Document" />オブジェクトを作成および管理できる型の抽象基本クラスです。
-        <para>派生クラスは、SSRS レポートなどの特定のソースのための実装を提供します。</para><para>共通の基本クラス（C1DocumentSource）は、さまざまな種類のドキュメントやレポートに対して統一的に作業（プレビュー、印刷など）を行うことを可能にします。</para>
-      </summary>
+        <para>派生クラスは、SSRS レポートなどの特定のソースのための実装を提供します。</para><para>共通の基本クラス（C1DocumentSource）は、さまざまな種類のドキュメントやレポートに対して統一的に作業（プレビュー、印刷など）を行うことを可能にします。</para></summary>
     </member>
     <member name="M:C1.Win.C1Document.C1DocumentSource.#ctor">
       <summary>
@@ -2177,8 +2174,7 @@
         <para>
           デフォルトの列幅は
           <b>"auto"</b>です。
-        </para>
-      </summary>
+        </para></summary>
     </member>
     <member name="P:C1.Win.C1Document.PageColumn.Spacing">
       <summary>
@@ -2186,8 +2182,7 @@
         <para>
           デフォルトの列スペーシングは
           <b>5mm</b>です。
-        </para>
-      </summary>
+        </para></summary>
     </member>
     <member name="T:C1.Win.C1Document.PageColumnCollection">
       <summary>
@@ -2779,15 +2774,12 @@
       <summary>
         現在のスタイルの親である
         <see cref="T:C1.Win.C1Document.Style" />を取得または設定します。
-        <para>
-          <b>null</b>でない場合、そのスタイルは、明示的に設定されていない現在のスタイルの非アンビエントプロパティの値を提供します。
-        </para><para>
-          <b>null</b>の場合、そのプロパティはデフォルト値を持ちます。
+        <para><b>null</b>でない場合、そのスタイルは、明示的に設定されていない現在のスタイルの非アンビエントプロパティの値を提供します。
+        </para><para><b>null</b>の場合、そのプロパティはデフォルト値を持ちます。
         </para><para>
           デフォルトでは、このプロパティは
           <b>null</b>です。
-        </para>
-      </summary>
+        </para></summary>
       <remarks>
         初期状態では、
         <see cref="T:C1.Win.C1Document.Style" />オブジェクトは、明示的に設定されたプロパティを持ちません。
@@ -2826,30 +2818,24 @@
       <summary>
         現在のスタイルのアンビエント親である
         <see cref="T:C1.Win.C1Document.Style" />を取得または設定します。
-        <para>
-          <b>null</b>でない場合、そのスタイルは、明示的に設定されていない現在のスタイルのアンビエントプロパティの値を提供します。
-        </para><para>
-          <b>null</b>の場合、そのプロパティは、このスタイルを保持するオブジェクトのスタイルから継承されます。
+        <para><b>null</b>でない場合、そのスタイルは、明示的に設定されていない現在のスタイルのアンビエントプロパティの値を提供します。
+        </para><para><b>null</b>の場合、そのプロパティは、このスタイルを保持するオブジェクトのスタイルから継承されます。
         </para><para>
           デフォルトでは、このプロパティは
           <b>null</b>です。
-        </para>
-      </summary>
+        </para></summary>
       <remarks>
         初期状態では、
         <see cref="T:C1.Win.C1Document.Style" />オブジェクトは、明示的に設定されたプロパティを持ちません。
         これは、すべてのアンビエントプロパティ（フォントなど）の実効値は それが
         <b>null</b>でない値に設定されていない限り、このスタイルを保持するオブジェクトのスタイルから継承されることを意味します。
         <b>null</b>でない値に設定されている場合は、そのスタイルから継承されます。
-        <para>
-          <b>AmbientParent</b>が指定されている場合でも、そのスタイルまたは独自のアンビエント親（スタイルまたは包含するオブジェクト）のいずれかに明示的に設定されているアンビエントプロパティだけが現在のスタイルに伝搬されます。
+        <para><b>AmbientParent</b>が指定されている場合でも、そのスタイルまたは独自のアンビエント親（スタイルまたは包含するオブジェクト）のいずれかに明示的に設定されているアンビエントプロパティだけが現在のスタイルに伝搬されます。
           詳細については、以下の例を参照してください。
-        </para>
-      </remarks>
+        </para></remarks>
       <example>
         たとえば、次のコードでは
-        <code>
-          <![CDATA[
+        <code><![CDATA[
           C1PrintDocument doc = new C1PrintDocument();
           RenderArea ra = new RenderArea();
           ra.Style.FontBold = true;
@@ -2857,10 +2843,8 @@
           ra.Style.AmbientParent = doc.Style;
           ra.Children.Add(rt);
           doc.Body.Children.Add(ra);
-          ]]>
-        </code>"my text" はやはり太字で印刷されます。一方、次のコードでは
-        <code>
-          <![CDATA[
+          ]]></code>"my text" はやはり太字で印刷されます。一方、次のコードでは
+        <code><![CDATA[
           C1PrintDocument doc = new C1PrintDocument();
           doc.Style.FontBold = false; // この行が異なります!
           RenderArea ra = new RenderArea();
@@ -2869,8 +2853,7 @@
           ra.Style.AmbientParent = doc.Style;
           ra.Children.Add(rt);
           doc.Body.Children.Add(ra);
-          ]]>
-        </code>"my text" は通常の（太字でない）フォントで印刷されます。これは、テキストオブジェクトの
+          ]]></code>"my text" は通常の（太字でない）フォントで印刷されます。これは、テキストオブジェクトの
         <b>AmbientParent</b>に割り当てられたスタイルに対して、
         <see cref="!:C1.C1Preview.Style.FontBold" />が明示的に
         <b>false</b>に 設定されているためです。
@@ -2885,8 +2868,7 @@
         このプロパティは、
         <b>非アンビエント</b>です（明示的に設定されていない場合は、現在のスタイルの
         <see cref="P:C1.Win.C1Document.Style.Parent" />から継承されます）。
-        <para>デフォルトでは、画像はなしです。</para>
-      </remarks>
+        <para>デフォルトでは、画像はなしです。</para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.BackgroundImageName">
       <summary>
@@ -2897,8 +2879,7 @@
         このプロパティは、
         <b>非アンビエント</b>です（明示的に設定されていない場合は、現在のスタイルの
         <see cref="P:C1.Win.C1Document.Style.Parent" />から継承されます）。
-        <para>デフォルトは、空の文字列です。</para>
-      </remarks>
+        <para>デフォルトは、空の文字列です。</para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.Brush">
       <summary>
@@ -2911,16 +2892,14 @@
         このプロパティは、
         <b>非アンビエント</b>です（明示的に設定されていない場合は、現在のスタイルの
         <see cref="P:C1.Win.C1Document.Style.Parent" />から継承されます）。
-        <para>デフォルトでは、ブラシはなしです。</para>
-      </remarks>
+        <para>デフォルトでは、ブラシはなしです。</para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.ForeColor">
       <summary>テキスト（前景）色を取得または設定します。</summary>
       <remarks>
         このプロパティは、
         <b>アンビエント</b>です（明示的に設定されていない場合は、現在のスタイルのオーナーを包含するオブジェクトのスタイルから継承されます）。
-        <para>デフォルトは、黒色です。</para>
-      </remarks>
+        <para>デフォルトは、黒色です。</para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.Rotation">
       <summary>
@@ -2930,32 +2909,28 @@
         このプロパティは、
         <b>非アンビエント</b>です（明示的に設定されていない場合は、現在のスタイルの
         <see cref="P:C1.Win.C1Document.Style.Parent" />から継承されます）。
-        <para>デフォルトは０です。</para>
-      </remarks>
+        <para>デフォルトは０です。</para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.TextAlignHorz">
       <summary>水平方向のテキスト配置を取得または設定します。</summary>
       <remarks>
         このプロパティは、
         <b>アンビエント</b>です（明示的に設定されていない場合は、現在のスタイルのオーナーを包含するオブジェクトのスタイルから継承されます）。
-        <para>デフォルトは左揃えです。</para>
-      </remarks>
+        <para>デフォルトは左揃えです。</para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.TextAlignVert">
       <summary>垂直方向のテキスト配置を取得または設定します。</summary>
       <remarks>
         このプロパティは、
         <b>アンビエント</b>です（明示的に設定されていない場合は、現在のスタイルのオーナーを包含するオブジェクトのスタイルから継承されます）。
-        <para>デフォルトは上揃えです。</para>
-      </remarks>
+        <para>デフォルトは上揃えです。</para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.LineSpacing">
       <summary>テキストの行スペーシング（パーセント単位）を取得または設定します。</summary>
       <remarks>
         このプロパティは、
         <b>アンビエント</b>です（明示的に設定されていない場合は、現在のスタイルのオーナーを包含するオブジェクトのスタイルから継承されます）。
-        <para>デフォルトは、100% です（標準の行スペーシング）。</para>
-      </remarks>
+        <para>デフォルトは、100% です（標準の行スペーシング）。</para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.WordWrap">
       <summary>現在の行に十分なスペースがない場合、テキストが自動的に次の行に折り返されるかどうかを示す値を取得または設定します。</summary>
@@ -2965,8 +2940,7 @@
         <para>
           デフォルトは
           <b>true</b>です。
-        </para>
-      </remarks>
+        </para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.HyperlinkAttrs">
       <summary>
@@ -2976,8 +2950,7 @@
       <remarks>
         このプロパティは、
         <b>アンビエント</b>です（明示的に設定されていない場合は、現在のスタイルのオーナーを包含するオブジェクトのスタイルから継承されます）。
-        <para>デフォルトは、ハイパーリンクを青色のテキストで強調表示します。</para>
-      </remarks>
+        <para>デフォルトは、ハイパーリンクを青色のテキストで強調表示します。</para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.VisitedHyperlinkAttrs">
       <summary>
@@ -2987,8 +2960,7 @@
       <remarks>
         このプロパティは、
         <b>アンビエント</b>です（明示的に設定されていない場合は、現在のスタイルのオーナーを包含するオブジェクトのスタイルから継承されます）。
-        <para>デフォルトは、表示済みのハイパーリンクをマゼンタ色のテキストで強調表示します。</para>
-      </remarks>
+        <para>デフォルトは、表示済みのハイパーリンクをマゼンタ色のテキストで強調表示します。</para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.HoverHyperlinkAttrs">
       <summary>
@@ -2998,8 +2970,7 @@
       <remarks>
         このプロパティは、
         <b>アンビエント</b>です（明示的に設定されていない場合は、現在のスタイルのオーナーを包含するオブジェクトのスタイルから継承されます）。
-        <para>デフォルトは、マウスが置かれたハイパーリンクを下線付きテキストにします。</para>
-      </remarks>
+        <para>デフォルトは、マウスが置かれたハイパーリンクを下線付きテキストにします。</para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.ActiveHyperlinkAttrs">
       <summary>
@@ -3009,8 +2980,7 @@
       <remarks>
         このプロパティは、
         <b>アンビエント</b>です（明示的に設定されていない場合は、現在のスタイルのオーナーを包含するオブジェクトのスタイルから継承されます）。
-        <para>デフォルトは、アクティブなハイパーリンクを強調表示しません。</para>
-      </remarks>
+        <para>デフォルトは、アクティブなハイパーリンクを強調表示しません。</para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.MeasureTrailingSpaces">
       <summary>テキストの測定時に各テキスト行の末尾のスペースを考慮するかどうかを 示す値を取得または設定します。</summary>
@@ -3020,8 +2990,7 @@
         <para>
           デフォルトは
           <b>false</b>です。
-        </para>
-      </remarks>
+        </para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.Padding">
       <summary>パディング（スタイルオーナーのコンテンツと境界線の間に追加されるホワイトスペース）を取得または設定します。</summary>
@@ -3033,8 +3002,7 @@
           このプロパティは、
           <b>非アンビエント</b>です（明示的に設定されていない場合は、現在のスタイルの
           <see cref="P:C1.Win.C1Document.Style.Parent" />から継承されます）。
-        </para><para>デフォルトでは、パディングはなしです。</para>
-      </remarks>
+        </para><para>デフォルトでは、パディングはなしです。</para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.Spacing">
       <summary>現在のスタイルのオーナーと周囲のオブジェクトの間のスペーシングを取得または設定します。</summary>
@@ -3046,8 +3014,7 @@
           このプロパティは、
           <b>非アンビエント</b>です（明示的に設定されていない場合は、現在のスタイルの
           <see cref="P:C1.Win.C1Document.Style.Parent" />から継承されます）。
-        </para><para>デフォルトでは、スペーシングはなしです。</para>
-      </remarks>
+        </para><para>デフォルトでは、スペーシングはなしです。</para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.Borders">
       <summary>現在のスタイルのオーナーオブジェクトの周囲に描画される境界線を取得または設定します。</summary>
@@ -3059,8 +3026,7 @@
           このプロパティは、
           <b>非アンビエント</b>です（明示的に設定されていない場合は、現在のスタイルの
           <see cref="P:C1.Win.C1Document.Style.Parent" />から継承されます）。
-        </para><para>デフォルトでは、境界線はなしです。</para>
-      </remarks>
+        </para><para>デフォルトでは、境界線はなしです。</para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.Shadow">
       <summary>
@@ -3076,8 +3042,7 @@
       <remarks>
         このプロパティは、
         <b>アンビエント</b>です（明示的に設定されていない場合は、現在のスタイルのオーナーを包含するオブジェクトのスタイルから継承されます）。
-        <para>デフォルトは、左/上に整列し、水平/垂直に拡大し、アスペクト比を維持します。</para>
-      </remarks>
+        <para>デフォルトは、左/上に整列し、水平/垂直に拡大し、アスペクト比を維持します。</para></remarks>
       <seealso cref="P:C1.Win.C1Document.Style.BackgroundImageAlign" />
     </member>
     <member name="P:C1.Win.C1Document.Style.BackgroundImageAlign">
@@ -3086,8 +3051,7 @@
         このプロパティは、
         <b>非アンビエント</b>です（明示的に設定されていない場合は、現在のスタイルの
         <see cref="P:C1.Win.C1Document.Style.Parent" />から継承されます）。
-        <para>デフォルトは、左/上に整列し、水平/垂直に拡大し、アスペクト比を維持します。</para>
-      </remarks>
+        <para>デフォルトは、左/上に整列し、水平/垂直に拡大し、アスペクト比を維持します。</para></remarks>
       <seealso cref="P:C1.Win.C1Document.Style.ImageAlign" />
     </member>
     <member name="P:C1.Win.C1Document.Style.BackColor">
@@ -3099,8 +3063,7 @@
         このプロパティは、
         <b>非アンビエント</b>です（明示的に設定されていない場合は、現在のスタイルの
         <see cref="P:C1.Win.C1Document.Style.Parent" />から継承されます）。
-        <para>デフォルトは、透明な背景色です。</para>
-      </remarks>
+        <para>デフォルトは、透明な背景色です。</para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.MinOrphanLines">
       <summary>ページブレークの前後で１ページに許容される孤立したテキスト行の最小数を取得または設定します。</summary>
@@ -3108,8 +3071,7 @@
         このプロパティは、
         <b>非アンビエント</b>です（明示的に設定されていない場合は、現在のスタイルの
         <see cref="P:C1.Win.C1Document.Style.Parent" />から継承されます）。
-        <para>デフォルトは０です。</para>
-      </remarks>
+        <para>デフォルトは０です。</para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.ClientAreaOnly">
       <summary>
@@ -3148,8 +3110,7 @@
         このプロパティは、
         <b>非アンビエント</b>です（明示的に設定されていない場合は、現在のスタイルの
         <see cref="P:C1.Win.C1Document.Style.Parent" />から継承されます）。
-        <para>デフォルトでは、ブラシはなしです。</para>
-      </remarks>
+        <para>デフォルトでは、ブラシはなしです。</para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.ShapeFillColor">
       <summary>
@@ -3163,8 +3124,7 @@
         このプロパティは、
         <b>非アンビエント</b>です（明示的に設定されていない場合は、現在のスタイルの
         <see cref="P:C1.Win.C1Document.Style.Parent" />から継承されます）。
-        <para>デフォルトは、透明な塗りつぶし色です。</para>
-      </remarks>
+        <para>デフォルトは、透明な塗りつぶし色です。</para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.ShapeLine">
       <summary>図形オブジェクト（RenderLine、RenderRectangle など）を描画するために使用される線のスタイルを取得または設定します。</summary>
@@ -3172,8 +3132,7 @@
         このプロパティは、
         <b>非アンビエント</b>です（明示的に設定されていない場合は、現在のスタイルの
         <see cref="P:C1.Win.C1Document.Style.Parent" />から継承されます）。
-        <para>デフォルトは、太さ 1pt の黒い線です。</para>
-      </remarks>
+        <para>デフォルトは、太さ 1pt の黒い線です。</para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.TextIndent">
       <summary>テキストブロックの１行目のインデントを取得または設定します。</summary>
@@ -3181,24 +3140,21 @@
         このプロパティは、
         <b>非アンビエント</b>です（明示的に設定されていない場合は、現在のスタイルの
         <see cref="P:C1.Win.C1Document.Style.Parent" />から継承されます）。
-        <para>デフォルトは０です。</para>
-      </remarks>
+        <para>デフォルトは０です。</para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.CharSpacing">
       <summary>テキスト内の文字間のスペーシングを取得または設定します。</summary>
       <remarks>
         このプロパティは、
         <b>アンビエント</b>です（明示的に設定されていない場合は、現在のスタイルのオーナーを包含するオブジェクトのスタイルから継承されます）。
-        <para>デフォルトは、０です（標準のスペーシング）。</para>
-      </remarks>
+        <para>デフォルトは、０です（標準のスペーシング）。</para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.CharWidth">
       <summary>テキスト内の文字の幅の増減量（パーセント単位）を取得または設定します。</summary>
       <remarks>
         このプロパティは、
         <b>アンビエント</b>です（明示的に設定されていない場合は、現在のスタイルのオーナーを包含するオブジェクトのスタイルから継承されます）。
-        <para>デフォルトは、100 です（標準の幅）。</para>
-      </remarks>
+        <para>デフォルトは、100 です（標準の幅）。</para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.JustifyLastLine">
       <summary>
@@ -3213,8 +3169,7 @@
         <para>
           デフォルトは
           <b>false</b>です。
-        </para>
-      </remarks>
+        </para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.JustifyEndOfLines">
       <summary>
@@ -3229,36 +3184,31 @@
         <para>
           デフォルトは
           <b>true</b>です。
-        </para>
-      </remarks>
+        </para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.WordWrapMode">
       <summary>
         テキスト行を折り返す場合に、単語を分割する方法を示す値を取得または設定します。
-        <para>
-          <see cref="P:C1.Win.C1Document.Style.WordWrap" />が
+        <para><see cref="P:C1.Win.C1Document.Style.WordWrap" />が
           <b>false</b>の場合、このプロパティは無視されます。
         </para><para>
           デフォルト値は
           <see cref="!:C1.C1Preview.WordWrapMode.Normal" />です。
-        </para>
-      </summary>
+        </para></summary>
     </member>
     <member name="P:C1.Win.C1Document.Style.FontName">
       <summary>フォントの名前を取得または設定します。</summary>
       <remarks>
         このプロパティは、
         <b>アンビエント</b>です（明示的に設定されていない場合は、現在のスタイルのオーナーを包含するオブジェクトのスタイルから継承されます）。
-        <para>デフォルトは Arial です。</para>
-      </remarks>
+        <para>デフォルトは Arial です。</para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.FontSize">
       <summary>フォントの em サイズを取得または設定します。</summary>
       <remarks>
         このプロパティは、
         <b>アンビエント</b>です（明示的に設定されていない場合は、現在のスタイルのオーナーを包含するオブジェクトのスタイルから継承されます）。
-        <para>デフォルトは 10 です。</para>
-      </remarks>
+        <para>デフォルトは 10 です。</para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.FontStyle">
       <summary>フォントのスタイルを取得または設定します。</summary>
@@ -3268,8 +3218,7 @@
         <para>
           デフォルトは
           <b>false</b>です。
-        </para>
-      </remarks>
+        </para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.FontWeight">
       <summary>フォントウェイトを取得または設定します。</summary>
@@ -3279,8 +3228,7 @@
         <para>
           デフォルトは
           <b>false</b>です。
-        </para>
-      </remarks>
+        </para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.TextDecoration">
       <summary>フォントが下線付きかどうかを示す値を取得または設定します。</summary>
@@ -3290,8 +3238,7 @@
         <para>
           デフォルトは
           <b>false</b>です。
-        </para>
-      </remarks>
+        </para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.TextPosition">
       <summary>テキストのレンダリング方法として 標準、上付き文字、または下付き文字を示す値を取得または設定します。</summary>
@@ -3299,8 +3246,7 @@
         このプロパティは、
         <b>非アンビエント</b>です（明示的に設定されていない場合は、現在のスタイルの
         <see cref="P:C1.Win.C1Document.Style.Parent" />から継承されます）。
-        <para>デフォルトは、標準テキストです。</para>
-      </remarks>
+        <para>デフォルトは、標準テキストです。</para></remarks>
     </member>
     <member name="T:C1.Win.C1Document.PropsHashTable`1">
       <summary>
@@ -3505,29 +3451,23 @@
         </para>
         <paramref name="str" />文字列は、以下のいずれかの形式の有効な
         <see cref="T:C1.Win.C1Document.Unit" />値を含む必要があります。
-        <list type="bullet">
-          <item>
+        <list type="bullet"><item>
             自動。
             文字列
             <b>"auto"</b>によって表されます。
             正確なセマンティクスは、現在の単位が関連付けられているオブジェクトのタイプによって異なります。
-          </item>
-          <item>
+          </item><item>
             単位修飾子がない数値（
             <b>"8"</b>、
             <b>"100.12"</b>など）。
             <para>
               この場合は、
               <see cref="!:C1PrintDocument.DefaultUnit" />によって測定単位が決定されます。
-            </para>
-          </item>
-          <item>
+            </para></item><item>
             測定単位付きの数値（
             <b>"28mm"</b>、
             <b>"7in"</b>など）。
-          </item>
-        </list>
-      </remarks>
+          </item></list></remarks>
     </member>
     <member name="M:C1.Win.C1Document.Unit.#ctor(System.Double,C1.Win.C1Document.UnitTypeEnum)">
       <summary>
@@ -3570,64 +3510,18 @@
       <summary>
         <see cref="T:C1.Win.C1Document.UnitTypeEnum" />値を文字列表現に変換します。
         次の表に例を示します。
-        <list type="bullet">
-          <item>
-            <description>
-              <term>Default</term>空文字列
-            </description>
-          </item>
-          <item>
-            <description>
-              <term>Document</term>「doc」
-            </description>
-          </item>
-          <item>
-            <description>
-              <term>Inch</term>「in」
-            </description>
-          </item>
-          <item>
-            <description>
-              <term>Millimeter</term>「mm」
-            </description>
-          </item>
-          <item>
-            <description>
-              <term>Pica</term>「pc」
-            </description>
-          </item>
-          <item>
-            <description>
-              <term>Pixel</term>「pix」
-            </description>
-          </item>
-          <item>
-            <description>
-              <term>Point</term>「pt」
-            </description>
-          </item>
-          <item>
-            <description>
-              <term>Twip</term>「tw」
-            </description>
-          </item>
-          <item>
-            <description>
-              <term>InHs</term>「inhs」
-            </description>
-          </item>
-          <item>
-            <description>
-              <term>Centimeters</term>「cm」
-            </description>
-          </item>
-          <item>
-            <description>
-              <term>Percent</term>「%」
-            </description>
-          </item>
-        </list>
-      </summary>
+        <list type="bullet"><item><description><term>Default</term>空文字列
+            </description></item><item><description><term>Document</term>「doc」
+            </description></item><item><description><term>Inch</term>「in」
+            </description></item><item><description><term>Millimeter</term>「mm」
+            </description></item><item><description><term>Pica</term>「pc」
+            </description></item><item><description><term>Pixel</term>「pix」
+            </description></item><item><description><term>Point</term>「pt」
+            </description></item><item><description><term>Twip</term>「tw」
+            </description></item><item><description><term>InHs</term>「inhs」
+            </description></item><item><description><term>Centimeters</term>「cm」
+            </description></item><item><description><term>Percent</term>「%」
+            </description></item></list></summary>
       <param name="value">
         変換する
         <see cref="T:C1.Win.C1Document.UnitTypeEnum" />。
@@ -5731,13 +5625,7 @@
     <member name="P:C1.Win.C1Document.BarcodeSizeOptions.ModuleSize">
       <summary>
         バーコードモジュールのサイズ（twips 単位）を取得または設定します。
-        <para>0 は、デフォルト値を意味します。デフォルト値は、バーコードタイプによって異なります。</para><list type="bullet">
-          <item>シンプルな「バー」バーコードの場合は、15 twips です。</item>
-          <item>マトリックスバーコード（QRCode、DataMatrix）の場合は、75 twips です。</item>
-          <item>RSS スタック型バーコード（RSSStacked、RSSExpandedStacked）の場合は、45 twips です。</item>
-          <item>合成バーコードの場合は、45 twips です。</item>
-        </list>
-      </summary>
+        <para>0 は、デフォルト値を意味します。デフォルト値は、バーコードタイプによって異なります。</para><list type="bullet"><item>シンプルな「バー」バーコードの場合は、15 twips です。</item><item>マトリックスバーコード（QRCode、DataMatrix）の場合は、75 twips です。</item><item>RSS スタック型バーコード（RSSStacked、RSSExpandedStacked）の場合は、45 twips です。</item><item>合成バーコードの場合は、45 twips です。</item></list></summary>
     </member>
     <member name="P:C1.Win.C1Document.BarcodeSizeOptions.NarrowWideRatio">
       <summary>狭いバーと広いバーの比率を取得または設定します。</summary>
@@ -5857,36 +5745,29 @@
       </remarks>
       <example>
         次のサンプルは、Text プロパティを使用して、値「123456」を Code39 エンコーディングバーコードにエンコードする方法を示します。
-        <code>
-          <![CDATA[
+        <code><![CDATA[
           RenderBarCode rbc = new RenderBarCode();
           rbc.BarCodeType = BarCodeType.Code39;
           rbc.Text = "123456";
           doc.Body.Children.Add(rbc);
-          ]]>
-        </code>
-      </example>
+          ]]></code></example>
     </member>
     <member name="P:C1.Win.C1Document.RenderBarCode.BarCodeType">
       <summary>
         バーコードの生成時に使用するエンコーディングのタイプを取得または設定します。
-        <para>BarCodeType.None は、このプロパティの有効な値ではありません。</para>
-      </summary>
+        <para>BarCodeType.None は、このプロパティの有効な値ではありません。</para></summary>
       <remarks>
         選択されたエンコーディングが
         <see cref="P:C1.Win.C1Document.RenderBarCode.Text" />プロパティに保存された値に適用されて、オブジェクトに表示されるバーコード画像が生成されます。
       </remarks>
       <example>
         次のサンプルは、BarCodeType プロパティを使用して、値「123456」を Code39 エンコーディングバーコードにエンコードする方法を示します。
-        <code>
-          <![CDATA[
+        <code><![CDATA[
           RenderBarCode rbc = new RenderBarCode();
           rbc.BarCodeType = BarCodeType.Code39;
           rbc.Text = "123456";
           doc.Body.Children.Add(rbc);
-          ]]>
-        </code>
-      </example>
+          ]]></code></example>
     </member>
     <member name="P:C1.Win.C1Document.RenderBarCode.Options">
       <summary>
@@ -6409,12 +6290,9 @@
       <summary>
         「AssemblyName,FullTypeName」の形式のアセンブリ名を使用して型名をシリアライズします。
         次に例を示します。
-        <code>
-          <![CDATA[
+        <code><![CDATA[
           C1.FlexReport.CustomFields.4,C1.FlexReport.CustomFields.SuperLabel
-          ]]>
-        </code>
-      </summary>
+          ]]></code></summary>
     </member>
     <member name="T:C1.Win.C1Document.Serialization.C1WriterReaderBase">
       <summary>
@@ -6812,14 +6690,6 @@
       <param name="clipRect"></param>
       <param name="containerRect"></param>
       <returns></returns>
-    </member>
-    <member name="M:C1.Win.C1Document.Util.C1Graphics.DrawRtf(System.String,System.Int32,System.Int32,C1.Win.Interop.Rect,System.Boolean)">
-      <summary>RTF テキストを描画します。</summary>
-      <param name="rtf"></param>
-      <param name="firstCharIndex"></param>
-      <param name="length"></param>
-      <param name="bounds"></param>
-      <param name="detectUrls"></param>
     </member>
     <member name="P:C1.Win.C1Document.Util.C1Graphics.Transform">
       <summary>変換マトリックスを取得または設定します。</summary>
@@ -7452,12 +7322,9 @@
       <summary>
         相対パスを返します。
         次に例を示します。
-        <code>
-          <![CDATA[
+        <code><![CDATA[
           GetRelativePath("c:\temp", "c:\temp\qq\zz.txt") returns "qq\zz.txt"
-          ]]>
-        </code>
-      </summary>
+          ]]></code></summary>
       <param name="basePath"></param>
       <param name="path"></param>
       <returns></returns>
@@ -8327,8 +8194,7 @@
         現在のエクスポート形式によってサポートされる
         <see cref="T:C1.Win.C1Document.DocumentInfo" />クラスのフィールドを示す フラグの組み合わせを取得します。
         この実装は次のすべての組み合わせを返します。
-        <b>Author</b> <b>Creator</b> <b>Title</b> <b>Operator</b> <b>Subject</b> <b>Keywords</b> <b>CreationTime</b> <b>RevisionTime</b> <b>Manager</b> <b>Company</b> <b>Comment</b>
-      </summary>
+        <b>Author</b><b>Creator</b><b>Title</b><b>Operator</b><b>Subject</b><b>Keywords</b><b>CreationTime</b><b>RevisionTime</b><b>Manager</b><b>Company</b><b>Comment</b></summary>
     </member>
     <member name="T:C1.Win.C1Document.Export.DocxExportProvider">
       <summary>DOCX 形式へのエクスポートを記述します。</summary>
@@ -8679,8 +8545,7 @@
         このプロパティは、
         <b>非アンビエント</b>です（明示的に設定されていない場合は、現在のスタイルの
         <see cref="P:C1.Win.C1Document.Style.Parent" />から継承されます）。
-        <para>デフォルトは 0 です。</para>
-      </remarks>
+        <para>デフォルトは 0 です。</para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.TextFitMode">
       <summary>有効な領域内にテキストを収める方法を示す値を取得または設定します。</summary>
@@ -8688,8 +8553,7 @@
         このプロパティは、
         <b>非アンビエント</b>です（明示的に設定されていない場合は、現在のスタイルの
         <see cref="P:C1.Win.C1Document.Style.Parent" />から継承されます）。
-        <para>デフォルトは 0 です。</para>
-      </remarks>
+        <para>デフォルトは 0 です。</para></remarks>
     </member>
     <member name="P:C1.Win.C1Document.Style.FontStretch">
       <summary>フォントストレッチを取得または設定します。</summary>
@@ -8699,8 +8563,7 @@
         <para>
           デフォルトは
           <b>false</b>です。
-        </para>
-      </remarks>
+        </para></remarks>
     </member>
     <member name="M:C1.Win.C1Document.C1FoundPosition.GetFragmentRange(C1.Win.C1Document.RenderFragment)">
       <summary>
@@ -11375,8 +11238,7 @@
         印刷時にページが拡大縮小される方法を示す値を取得または設定します。
         <para>
           デフォルト値は、<see cref="F:C1.Win.C1Document.PageScaling.FitToPaper" /> です。
-        </para>
-      </summary>
+        </para></summary>
     </member>
     <member name="M:C1.Win.C1Document.Serialization.C1XmlNodeReader.ReadDictionary(System.Collections.IDictionary,System.Type,C1.Win.C1Document.Serialization.ReadUnknownObjectDelegate)">
       <summary>
@@ -11386,6 +11248,60 @@
       <param name="type"></param>
       <param name="readUnknownItem"></param>
       <returns></returns>
+    </member>
+    <member name="T:C1.Win.C1Document.MeasurementDevice">
+      <summary>
+        <see cref="T:C1.Win.C1Document.C1Document" /> または <b>C1FlexReport</b> のオブジェクトの測定に使用されるデバイス（プリンタまたは画面）を定義します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Document.MeasurementDevice.Printer">
+      <summary>
+        プリンタデバイスを使用して、ドキュメント要素のサイズを測定します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Document.MeasurementDevice.Screen">
+      <summary>
+        システム画面デバイスを使用して、ドキュメント要素のサイズを測定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Document.C1Document.MeasurementPrinterName">
+      <summary>
+        GDI/GDI+ 関数を使用する際、ドキュメントオブジェクトのレイアウトの測定/計算に使用される <see cref="T:System.Drawing.Graphics" /> を提供するために使用されるプリンタの名前を取得または設定します。
+        このプロパティは、<see cref="P:C1.Win.C1Document.C1Document.MeasurementDevice" /> が <see cref="F:C1.Win.C1Document.MeasurementDevice.Printer" /> に設定されている場合にのみ使用されます。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Document.C1Document.MeasurementDevice">
+      <summary>
+        GDI/GDI+ 関数を使用する際、ドキュメントオブジェクトのレイアウトの測定/計算に使用される <see cref="T:System.Drawing.Graphics" /> を提供するために使用されるデバイスのタイプを取得または設定します。
+        このプロパティが <see cref="F:C1.Win.C1Document.MeasurementDevice.Printer" /> に設定されている場合、
+        <see cref="P:C1.Win.C1Document.C1Document.MeasurementPrinterName" /> でプリンタを指定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Document.Util.C1Graphics.DrawRtf(System.Drawing.Graphics,System.String,System.Int32,System.Int32,C1.Win.Interop.Rect,System.Boolean,System.Drawing.Color)">
+      <summary>
+        RTF テキストを描画します。
+      </summary>
+      <param name="measurementGraphics"></param>
+      <param name="rtf"></param>
+      <param name="firstCharIndex"></param>
+      <param name="length"></param>
+      <param name="bounds"></param>
+      <param name="detectUrls"></param>
+      <param name="backColor"></param>
+    </member>
+    <member name="M:C1.Win.C1Document.Utils.GetDcDpi(System.IntPtr)">
+      <summary>
+        指定されたデバイスコンテキストの解像度を取得します。
+      </summary>
+      <param name="dc">テストするデバイスコンテキスト。</param>
+      <returns>
+        <see cref="T:System.Drawing.PointF" /> 構造体。ここで、
+        <see cref="P:System.Drawing.PointF.X" /> は水平 DPI、<see cref="P:System.Drawing.PointF.Y" /> は垂直 DPI を表します。
+        エラーが発生した場合は、<see cref="F:System.Drawing.PointF.Empty" /> が返されます。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Document.FlexChart.DataLabel.CreateSame">
+      <inheritdoc />
     </member>
   </members>
 </doc>

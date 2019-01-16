@@ -67,8 +67,7 @@
       <summary>
         SSRS が以下の認証タイプをサポートする場合は、この設定を使用します。
         <b>RSWindowsNegotiate</b>、
-        <b>RSWindowsKerberos</b>
-      </summary>
+        <b>RSWindowsKerberos</b></summary>
     </member>
     <member name="F:C1.Win.C1Ssrs.AuthenticationType.NTLM">
       <summary>

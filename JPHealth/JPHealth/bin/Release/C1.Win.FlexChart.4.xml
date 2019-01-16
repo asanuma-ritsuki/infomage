@@ -3201,10 +3201,64 @@
       <summary>プロット領域の名前を取得または設定します。</summary>
     </member>
     <member name="P:C1.Win.Chart.PlotArea.Width">
-      <summary>プロット領域の幅を取得または設定します。</summary>
+      <summary>プロット領域の幅を取得します。</summary>
+      <remarks>
+        プロット領域の幅を設定する場合は、Width プロパティが返す GridLength オブジェクトの各プロパティをそれぞれ変更します。プロット領域の幅は、固定値、相対値、自動調整のいずれかで指定することができます。
+        <para>なお、複数のプロット領域を使用する場合は、先頭のプロット領域に指定された幅のみが有効で、それ以外のプロット領域は先頭のプロット領域と同じ幅に調整されます（それぞれの花設定は無視されます）。</para>
+      </remarks>
+      <example>
+        次のコードでは、すべてのプロット領域の幅を指定します。
+        <code>
+          <![CDATA[
+            flexChart1.PlotAreas.Add(new PlotArea { Name = "plot1", Row = 0 });
+            flexChart1.PlotAreas.Add(new PlotArea { Row = 1 });
+            flexChart1.PlotAreas.Add(new PlotArea { Name = "plot2", Row = 2 });
+            flexChart1.PlotAreas.Add(new PlotArea { Row = 3 });
+            flexChart1.PlotAreas.Add(new PlotArea { Name = "plot3", Row = 4 });
+
+            // すべてのプロット領域の幅を 300px （固定値）に設定します。
+            flexChart1.PlotAreas[0].Width.Value = 300;
+            flexChart1.PlotAreas[0].Width.UnitType = GridUnitType.Pixel;
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="P:C1.Win.Chart.PlotArea.Height">
-      <summary>プロット領域の高さを取得または設定します。</summary>
+      <summary>プロット領域の高さを取得します。</summary>
+      <remarks>
+        プロット領域の高さを設定する場合は、Height プロパティが返す GridLength オブジェクトの各プロパティをそれぞれ変更します。プロット領域の高さは、固定値、相対値、自動調整のいずれかで指定することができます。
+      </remarks>
+      <example>
+        次のコードでは、各プロット領域の高さを指定します。
+        <code>
+          <![CDATA[
+            flexChart1.PlotAreas.Add(new PlotArea { Name = "plot1", Row = 0 });
+            flexChart1.PlotAreas.Add(new PlotArea { Row = 1 });
+            flexChart1.PlotAreas.Add(new PlotArea { Name = "plot2", Row = 2 });
+            flexChart1.PlotAreas.Add(new PlotArea { Row = 3 });
+            flexChart1.PlotAreas.Add(new PlotArea { Name = "plot3", Row = 4 });
+
+            // plot1 の高さを 100px （固定値）に設定します。
+            flexChart1.PlotAreas[0].Height.Value = 100;
+            flexChart1.PlotAreas[0].Height.UnitType = GridUnitType.Pixel;
+
+            // plot1 と plot2 の間隔を 0.5* （相対値）に設定します
+            flexChart1.PlotAreas[1].Height.Value = 0.5;
+            flexChart1.PlotAreas[1].Height.UnitType = GridUnitType.Star;
+
+            // plot2 の高さを 2* （相対値）に設定します。
+            flexChart1.PlotAreas[2].Height.Value = 2;
+            flexChart1.PlotAreas[2].Height.UnitType = GridUnitType.Star;
+
+            // plot2 と plot3 の間隔を 10px （固定値）に設定します
+            flexChart1.PlotAreas[3].Height.Value = 20;
+            flexChart1.PlotAreas[3].Height.UnitType = GridUnitType.Pixel;
+
+            // plot3 の高さを自動調整します。
+            flexChart1.PlotAreas[4].Height.UnitType = GridUnitType.Auto;
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="P:C1.Win.Chart.FlexChart.PlotAreas">
       <summary>チャートプロット領域のコレクションを取得します。</summary>
@@ -3763,6 +3817,832 @@
     <member name="P:C1.Win.Chart.RenderNodeEventArgs.IsTitle">
       <summary>
         ノードがタイトルノードかどうかを取得します。
+      </summary>
+    </member>
+    <member name="T:C1.Chart.DateTimeGroupProvider">
+      <summary>
+        1 か月を超える DateTime 値の基本グループを提供します。
+        デフォルトのグループが提供されますが、グループと書式の明示的な選択も可能です。
+      </summary>
+    </member>
+    <member name="M:C1.Chart.DateTimeGroupProvider.#ctor">
+      <summary>
+        このコンストラクタを使用すると、軸範囲に基づいてグループを自動生成できます。
+      </summary>
+    </member>
+    <member name="M:C1.Chart.DateTimeGroupProvider.#ctor(C1.Chart.IAxis)">
+      <summary>
+        このコンストラクタを使用すると、軸範囲と軸の MajorUnit 値に基づいて
+        グループを自動生成できます。
+      </summary>
+      <param name="axis"></param>
+    </member>
+    <member name="M:C1.Chart.DateTimeGroupProvider.GetLevels(C1.Chart.IRange)">
+      <summary>
+        このメソッドは、FlexChart によって最初に呼び出され、クラスで提供されるグループ
+        レベルの数を提供します。
+      </summary>
+      <param name="range">
+        軸データの全範囲を指定します。
+      </param>
+      <returns>グループレベルの数を指定します。</returns>
+    </member>
+    <member name="P:C1.Chart.DateTimeGroupProvider.GroupTypes">
+      <summary>
+        TimeUnits 列挙を使用して、グループ指定子のコレクションを取得します。各指定子のインデックスは（レベル - 1）を示します。指定子は、コレクションの Add、Insert、および Remove メソッドを使用して変更できます。値が指定されない場合は、範囲に基づいて値が自動的に選択されます。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.DateTimeGroupProvider.GroupFormats">
+      <summary>
+        各グループの TimeUnits 列挙をキーにして、書式の辞書を取得します。各値は、数値の string.Format() とその後に続けて年を指定します。ただし、TimeUnits.Month は例外で、書式に {1} が含まれていない場合、年は含まれません。
+        <para>デフォルトの書式は Day = "{0}"、Week = "Week {0}"、Month = "MMM"、Quarter = "Q{0}"、Year = "{0}" です。</para>
+      </summary>
+    </member>
+    <member name="M:C1.Chart.DateTimeGroupProvider.GetRanges(C1.Chart.IRange,System.Int32)">
+      <summary>
+        GroupTypes コレクション内の該当するエントリによって指定されるレベルの IRange 値のリストを返します。
+      </summary>
+      <param name="range">
+        軸の全範囲を指定します。
+      </param>
+      <param name="level">
+        GroupTypes コレクション内の該当するエントリによって指定されるレベルの IRange 値のレベルを指定します。
+      </param>
+      <returns></returns>
+    </member>
+    <member name="T:C1.Chart.TimeUnits">
+      <summary>
+        時間軸の単位を指定します。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.TimeUnits.Day">
+      <summary>
+        日単位で測定される時間単位。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.TimeUnits.Week">
+      <summary>
+        年の最初の週で始まる、週単位で測定される時間単位。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.TimeUnits.Month">
+      <summary>
+        各月の最初の日で始まる、月単位で測定される時間単位。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.TimeUnits.Quarter">
+      <summary>
+        各四半期の最初の日で始まる、四半期単位で測定される時間単位。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.TimeUnits.Year">
+      <summary>
+        各年の最初の日で始まる、年単位で測定される時間単位。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.IAxis.GroupNames">
+      <summary>
+        グループ名を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.IAxis.GroupItemsPath">
+      <summary>
+        項目パスを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.IAxis.LabelMin">
+      <summary>
+        軸の最小値に常にラベルを付けるかどうかを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.IAxis.LabelMax">
+      <summary>
+        軸の最大値に常にラベルを付けるかどうかを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.IAxis.TimeUnit">
+      <summary>
+        時間ベースの軸の単位を取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.Chart.IAxesProvider">
+      <summary>
+        カラー軸などの補助軸。
+      </summary>
+    </member>
+    <member name="T:C1.Chart.IDistributionSeries">
+      <summary>
+        一般的な分布系列
+      </summary>
+    </member>
+    <member name="P:C1.Chart.IDistributionSeries.BinWidth">
+      <summary>
+        ビン幅を取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.Chart.IHistogramSeries">
+      <summary>
+        ヒストグラム系列
+      </summary>
+    </member>
+    <member name="P:C1.Chart.IHistogramSeries.NormalCurve">
+      <summary>
+        正規曲線を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.IHistogramSeries.HistogramAppearance">
+      <summary>
+        ヒストグラムの外観を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.IHistogramSeries.CumulativeMode">
+      <summary>
+        累積モード状態を取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.Chart.INormalCurve">
+      <summary>
+        正規曲線。<see href="http://helpcentral.componentone.com/nethelp/c1chart2d/frequencygraph.html"></see>
+      </summary>
+    </member>
+    <member name="P:C1.Chart.INormalCurve.Visible">
+      <summary>
+        正規曲線の表示/非表示を取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.Chart.HistogramAppearance">
+      <summary>
+        ヒストグラムの外観の列挙。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.HistogramAppearance.Histogram">
+      <summary>
+        ヒストグラム
+      </summary>
+    </member>
+    <member name="F:C1.Chart.HistogramAppearance.FrequencyPolygon">
+      <summary>
+        度数多角形
+      </summary>
+    </member>
+    <member name="F:C1.Chart.HistogramAppearance.HistogramAndFrequencyPolygon">
+      <summary>
+        ヒストグラムと度数多角形
+      </summary>
+    </member>
+    <member name="P:C1.Win.Chart.Axis.LabelMin">
+      <summary>
+        軸の最小値に常にラベルを付けるかどうかを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Chart.Axis.LabelMax">
+      <summary>
+        軸の最大値に常にラベルを付けるかどうかを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Chart.Axis.TickLength">
+      <summary>
+        目盛りの長さを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Chart.Axis.TimeUnit">
+      <summary>
+        時間ベースの軸の単位を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Chart.Axis.GroupVisibilityLevel">
+      <summary>
+        折りたたみ可能なグループの表示制限レベルを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Chart.Histogram.HistogramAppearance">
+      <summary>
+        外観タイプを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Chart.Histogram.CumulativeMode">
+      <summary>
+        累積モード状態を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Chart.NormalCurve.Visible">
+      <summary>
+        正規曲線の表示/非表示を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Chart.NormalCurve.LineStyle">
+      <summary>
+        正規曲線のラインスタイルを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Chart.Histogram.NormalCurve">
+      <summary>
+        正規曲線を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Chart.Histogram.FrequencyPolygonStyle">
+      <summary>
+        度数多角形のスタイルを取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.Chart.NormalCurve">
+      <summary>
+        正規曲線を表します。
+      </summary>
+    </member>
+    <member name="T:C1.Chart.AnimationTransformEventArgs">
+      <summary>
+        AnimationTransform イベントの引数を指定します。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.AnimationTransformEventArgs.State">
+      <summary>
+        アニメーションの状態を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.AnimationTransformEventArgs.AxisType">
+      <summary>
+        軸タイプを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.AnimationTransformEventArgs.End">
+      <summary>
+        終了位置を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.AnimationTransformEventArgs.Position">
+      <summary>
+        アニメーションの位置を取得します（0.0 ～ 1.0）。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.AnimationTransformEventArgs.Series">
+      <summary>
+        現在の系列を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.AnimationTransformEventArgs.PointIndex">
+      <summary>
+        現在のポイントインデックスを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.AnimationTransformEventArgs.Start">
+      <summary>
+        開始位置を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.AnimationTransformEventArgs.Cancel">
+      <summary>
+        デフォルトのアニメーションをキャンセルするかどうか。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.AnimationTransformEventArgs.Value">
+      <summary>
+        データ座標の値にある取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.Chart.AnimationType">
+      <summary>
+        アニメーションタイプを指定します。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.AnimationType.All">
+      <summary>
+        すべての系列がアニメーションします。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.AnimationType.Series">
+      <summary>
+        系列ごとのアニメーション。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.AnimationType.Points">
+      <summary>
+        ポイントごとのアニメーション。
+      </summary>
+    </member>
+    <member name="T:C1.Chart.AnimationDirection">
+      <summary>
+        アニメーションの方向を指定します。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.AnimationDirection.X">
+      <summary>
+        X （水平）方向。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.AnimationDirection.Y">
+      <summary>
+        Y（垂直）方向。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.AnimationDirection.XY">
+      <summary>
+        両（X および Y）方向。
+      </summary>
+    </member>
+    <member name="T:C1.Chart.SliceAttribute">
+      <summary>
+        FlexPie アニメーションのスライス属性を指定します。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.SliceAttribute.None">
+      <summary>
+        属性なし（アニメーションが無効）。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.SliceAttribute.Radius">
+      <summary>
+        半径または円グラフセグメント。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.SliceAttribute.Sweep">
+      <summary>
+        円グラフセグメントの移動。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.SliceAttribute.Angle">
+      <summary>
+        円グラフセグメントの角度。
+      </summary>
+    </member>
+    <member name="T:C1.Chart.AnimationState">
+      <summary>
+        アニメーションの状態を指定します。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.AnimationState.Load">
+      <summary>
+        データロード時のアニメーション。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.AnimationState.Update">
+      <summary>
+        データ更新時のアニメーション。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.AnimationState.Delete">
+      <summary>
+        データ系列削除時のアニメーション。
+      </summary>
+    </member>
+    <member name="T:C1.Chart.AnimationSettings">
+      <summary>
+        アニメーションの設定。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.AnimationSettings.None">
+      <summary>
+        アニメーションが無効。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.AnimationSettings.Load">
+      <summary>
+        データのロード中にアニメーションを表示します。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.AnimationSettings.Update">
+      <summary>
+        データの更新中にアニメーションを表示します。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.AnimationSettings.AxesLoad">
+      <summary>
+        データのロード中に軸をアニメーションします。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.AnimationSettings.AxesUpdate">
+      <summary>
+        データの更新中に軸をアニメーションします。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.AnimationSettings.Axes">
+      <summary>
+        データのロードまたは更新中に軸をアニメーションします。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.AnimationSettings.All">
+      <summary>
+        すべてのアニメーションを表示します。
+      </summary>
+    </member>
+    <member name="T:C1.Chart.AnimationOptions">
+      <summary>
+        アニメーションオプションを保存します。
+      </summary>
+    </member>
+    <member name="E:C1.Chart.AnimationOptions.PropertyChanged">
+      <summary>
+        プロパティ値が変更されたときに発生します。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.AnimationOptions.FPS">
+      <summary>
+        FPS（毎秒のフレーム数）を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.AnimationOptions.Duration">
+      <summary>
+        アニメーション期間を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.AnimationOptions.Easing">
+      <summary>
+        アニメーションのイージングを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.AnimationOptions.Type">
+      <summary>
+        アニメーションタイプを取得または設定します。
+      </summary>
+    </member>
+    <member name="M:C1.Chart.AnimationOptions.OnPropertyChanged(System.String)">
+      <summary>
+        プロパティが変更されたときに呼び出されます。
+      </summary>
+      <param name="propertyName">プロパティ名。</param>
+    </member>
+    <member name="T:C1.Chart.AnimationLoadOptions">
+      <summary>
+        ロードアニメーションオプションを保存します。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.AnimationLoadOptions.Direction">
+      <summary>
+        アニメーションの方向を取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.Chart.PieAnimationOptions">
+      <summary>
+        FlexPie コントロールのアニメーションオプションを保存します。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.PieAnimationOptions.Attributes">
+      <summary>
+        アニメーションのスライス属性を取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.Chart.Easing">
+      <summary>
+        イージング関数を指定します。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.IDataLabel.Overlapping">
+      <summary>
+        重なりを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.IDataLabel.OverlappingOptions">
+      <summary>
+        重なりオプションを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.IDataLabel.ContentOptions">
+      <summary>
+        コンテンツオプションを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.IDataLabel.Angle">
+      <summary>
+        回転角度を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.IDataLabel.MaxWidth">
+      <summary>
+        最大幅を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.IDataLabel.MaxLines">
+      <summary>
+        行の最大数を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.IDataLabel.MaxAutoLabels">
+      <summary>
+        自動ラベルの最大数を取得または設定します。
+      </summary>
+    </member>
+    <member name="M:C1.Chart.SeriesBase.GetDataRect(C1.Chart._Rect)">
+      <summary>
+        境界四角形をデータ座標で取得します。
+      </summary>
+      <param name="currentRect">現在の境界四角形。</param>
+      <returns>データ座標で表された四角形。</returns>
+    </member>
+    <member name="F:C1.Chart.SymbolMarker.Circle">
+      <summary>
+        円を使用して各データポイントをマークします。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.SymbolMarker.Cross">
+      <summary>
+        十字を使用して各データポイントをマークします。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.SymbolMarker.DiagCross">
+      <summary>
+        斜め十字を使用して各データポイントをマークします。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.SymbolMarker.Diamond">
+      <summary>
+        塗りつぶしたひし形を使用して各データポイントをマークします。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.SymbolMarker.HorizontalLine">
+      <summary>
+        短い水平線を使用して各データポイントをマークします。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.SymbolMarker.InvertedTri">
+      <summary>
+        塗りつぶした逆三角形を使用して各データポイントをマークします。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.SymbolMarker.OpenDiamond">
+      <summary>
+        ひし形の輪郭線を使用して各データポイントをマークします。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.SymbolMarker.OpenInvertedTri">
+      <summary>
+        逆三角形の輪郭線を使用して各データポイントをマークします。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.SymbolMarker.OpenTri">
+      <summary>
+        三角形の輪郭線を使用して各データポイントをマークします。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.SymbolMarker.Square">
+      <summary>
+        正方形の輪郭線を使用して各データポイントをマークします。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.SymbolMarker.Star">
+      <summary>
+        塗りつぶした星形を使用して各データポイントをマークします。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.SymbolMarker.Tri">
+      <summary>
+        塗りつぶした三角形を使用して各データポイントをマークします。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.SymbolMarker.VerticalLine">
+      <summary>
+        短い垂直線を使用して各データポイントをマークします。
+      </summary>
+    </member>
+    <member name="T:C1.Chart.AxisGroupSeparator">
+      <summary>
+        区切られた軸グループの外観を指定します。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.AxisGroupSeparator.None">
+      <summary>
+        区切りなし。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.AxisGroupSeparator.Vertical">
+      <summary>
+        垂直方向の線。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.AxisGroupSeparator.Horizontal">
+      <summary>
+        水平方向の線。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.AxisGroupSeparator.Grid">
+      <summary>
+        グリッド（垂直線と水平線）。
+      </summary>
+    </member>
+    <member name="T:C1.Chart.DatetimeAxisGroupType">
+      <summary>
+        時間軸のグループタイプを指定します。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.DatetimeAxisGroupType.None">
+      <summary>
+        グループ化なし。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.DatetimeAxisGroupType.Year">
+      <summary>
+        年でグループ化します。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.DatetimeAxisGroupType.Quarter">
+      <summary>
+        四半期でグループ化します。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.DatetimeAxisGroupType.Month">
+      <summary>
+        月でグループ化します。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.DatetimeAxisGroupType.Day">
+      <summary>
+        日でグループ化します。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.DatetimeAxisGroupType.Hour">
+      <summary>
+        時間でグループ化します。
+      </summary>
+    </member>
+    <member name="T:C1.Chart.LinePatternEnum">
+      <summary>
+        この列挙型のメンバを使用して、ChartStyle クラスの LinePattern プロパティの値を設定します。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.LinePatternEnum.Dash">
+      <summary>
+        破線。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.LinePatternEnum.DashDot">
+      <summary>
+        点とダッシュが交互する線。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.LinePatternEnum.DashDotDot">
+      <summary>
+        1 つのダッシュと 2 つの点の連続から成る線。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.LinePatternEnum.Dot">
+      <summary>
+        点線。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.LinePatternEnum.None">
+      <summary>
+        線は描画されません。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.LinePatternEnum.Solid">
+      <summary>
+        実線。
+      </summary>
+    </member>
+    <member name="T:C1.Chart.LegendScrollBars">
+      <summary>
+        凡例内に表示するスクロールバーを指定します。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.LegendScrollBars.None">
+      <summary>
+        スクロールバーは表示されません。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.LegendScrollBars.Vertical">
+      <summary>
+        すべての凡例項目を表示するのに十分な高さがない場合は、垂直スクロールバーを表示します。
+      </summary>
+    </member>
+    <member name="T:C1.Chart.GridUnitType">
+      <summary>
+        GridUnitType 列挙を使用して、GridLength が保持する
+        値の種類を示します。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.GridUnitType.Auto">
+      <summary>
+        値は、制約なしでコンテンツを計算する必要があることを示します。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.GridUnitType.Pixel">
+      <summary>
+        値は、ピクセルとして表されます。
+      </summary>
+    </member>
+    <member name="F:C1.Chart.GridUnitType.Star">
+      <summary>
+        値は、使用可能なスペースの加重比率として表されます。
+      </summary>
+    </member>
+    <member name="T:C1.Chart.GridLength">
+      <summary>
+        GridLength は、スター単位タイプを明示的にサポートする、システム内のさまざまな
+        長さ関連プロパティに対して使用されるタイプです。たとえば、グリッドで使用される
+        ColumnDefinition と RowDefinition の "Width" プロパティと "Height" プロパティが該当します。
+      </summary>
+    </member>
+    <member name="M:C1.Chart.GridLength.#ctor(System.Double)">
+      <summary>
+        GridLength をピクセル単位の絶対値で初期化するコンストラクタ。
+      </summary>
+      <param name="pixels">デバイス非依存ピクセル数を指定します。</param>
+    </member>
+    <member name="M:C1.Chart.GridLength.#ctor(System.Double,C1.Chart.GridUnitType)">
+      <summary>
+        GridLength を初期化し、保持する値の種類を指定するコンストラクタ。
+
+      </summary>
+      <param name="value">
+        この GridLength インスタンスに格納される値。
+
+      </param>
+      <param name="unit">
+        この GridLength インスタンスに格納される値のタイプ。
+
+      </param>
+    </member>
+    <member name="P:C1.Chart.GridLength.Value">
+      <summary>
+        この GridLength インスタンスの値の部分を返します。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.GridLength.UnitType">
+      <summary>
+        この GridLength インスタンスの単位タイプを返します。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.GridLength.IsStar">
+      <summary>
+        この GridLength インスタンスが使用可能なスペースの加重比率を保持する場合は、<c>true</c> を返します。
+
+      </summary>
+    </member>
+    <member name="P:C1.Chart.GridLength.IsAbsolute">
+      <summary>
+        この GridLength インスタンスが絶対（ピクセル）値を保持する場合は、<c>true</c> を返します。
+
+      </summary>
+    </member>
+    <member name="P:C1.Chart.GridLength.IsAuto">
+      <summary>
+        この GridLength インスタンスが自動である（指定されない）場合は、<c>true</c> を返します。
+
+      </summary>
+    </member>
+    <member name="P:C1.Chart.GridLength.Auto">
+      <summary>
+        初期化された自動 GridLength 値を返します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Chart.ChartStyle.LinePattern">
+      <summary>
+        線パターンを取得または設定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Chart.FlexPie.SaveImage(System.IO.Stream,C1.Win.Chart.ImageFormat,System.Int32,System.Int32)">
+      <summary>
+        指定された形式とサイズを使用して、チャート画像をストリームに保存します。
+      </summary>
+      <param name="stream">出力ストリーム。</param>
+      <param name="fmt">画像形式。</param>
+      <param name="w">画像の幅。</param>
+      <param name="h">画像の高さ。</param>
+    </member>
+    <member name="P:C1.Win.Chart.FlexPie.AnimationLoad">
+      <summary>
+        ロードアニメーションオプションを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Chart.FlexPie.AnimationUpdate">
+      <summary>
+        更新アニメーションオプションを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Chart.FlexPie.AnimationSettings">
+      <summary>
+        アニメーション設定を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Chart.Legend.ScrollBars">
+      <summary>
+        凡例に表示されるスクロールバーを取得または設定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.Chart.FlexChart.DrawChart(System.Drawing.Graphics,System.Drawing.Size)">
+      <summary>
+        指定されたグラフィックに指定されたサイズでチャートを描画します。
+      </summary>
+      <param name="g">グラフィック。</param>
+      <param name="sz">チャートのサイズ。</param>
+    </member>
+    <member name="P:C1.Win.Chart.FlexChart.AnimationLoad">
+      <summary>
+        ロードアニメーションオプションを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Chart.FlexChart.AnimationUpdate">
+      <summary>
+        更新アニメーションオプションを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.Chart.FlexChart.AnimationSettings">
+      <summary>
+        アニメーション設定を取得または設定します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.Chart.FlexChart.AnimationTransform">
+      <summary>
+        アニメーション変換中に発生します。
       </summary>
     </member>
   </members>

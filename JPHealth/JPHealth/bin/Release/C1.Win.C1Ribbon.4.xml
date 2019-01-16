@@ -6,11 +6,11 @@
   <members>
     <member name="T:C1.Win.C1Ribbon.C1Ribbon">
       <summary>リボンコントロール。</summary>
-      <remarks>リボンコントロールは、従来のメニューとツールバーモデルの代替として機能します。 リボンは、関連するコマンドをタブとグループに編成し、コマンドを見つけやすくします。</remarks>
+      <remarks>リボンコントロールは、従来のメニューとツールバーモデルの代替として機能します。リボンは、関連するコマンドをタブとグループに編成し、コマンドを見つけやすくします。</remarks>
     </member>
     <member name="M:C1.Win.C1Ribbon.C1Ribbon.#ctor">
       <summary>
-        <see cref="T:C1.Win.C1Ribbon.C1Ribbon" />の新しいインスタンスを作成します。 C1Ribbon は、親コンテナの上部に自動的にドッキングされます。
+        <see cref="T:C1.Win.C1Ribbon.C1Ribbon" />の新しいインスタンスを作成します。C1Ribbon は、親コンテナの上部に自動的にドッキングされます。
       </summary>
     </member>
     <member name="M:C1.Win.C1Ribbon.C1Ribbon.Dispose(System.Boolean)">
@@ -87,7 +87,7 @@
       <summary>項目を C1Ribbon に追加したり、C1Ribbon から削除したりする間のパフォーマンスを維持します。</summary>
       <remarks>
         多数の項目を C1Ribbon に追加するときは、
-        <b>BeginUpdate</b>メソッドを使用して、 項目追加のたびに項目コレクションで内部状態が更新されることがないようにする必要があります。 項目追加作業が完了したら、
+        <b>BeginUpdate</b>メソッドを使用して、項目追加のたびに項目コレクションで内部状態が更新されることがないようにする必要があります。項目追加作業が完了したら、
         <see cref="M:C1.Win.C1Ribbon.C1Ribbon.EndUpdate" />メソッドを呼び出して 通常の処理を再開します。
       </remarks>
     </member>
@@ -104,7 +104,7 @@
       <remarks>
         たとえば、
         <see cref="T:C1.Win.C1Ribbon.RibbonTextBox" />項目は内部で TextBox コントロールを使用します。この TextBox を
-        <b>GetHostRibbonItem</b>メソッドに渡した場合、 オーナーの RibbonTextBox 項目が返されます。
+        <b>GetHostRibbonItem</b>メソッドに渡した場合、オーナーの RibbonTextBox 項目が返されます。
       </remarks>
     </member>
     <member name="M:C1.Win.C1Ribbon.C1Ribbon.GetItemByName(System.String)">
@@ -184,7 +184,7 @@
       <summary>ニーモニック文字を処理します。</summary>
     </member>
     <member name="P:C1.Win.C1Ribbon.C1Ribbon.ApplicationMenu">
-      <summary>リボンの左上隅のアプリケーションメニューを表し、 ボタンの外観を制御できるオブジェクトを取得します。</summary>
+      <summary>リボンの左上隅のアプリケーションメニューを表し、ボタンの外観を制御できるオブジェクトを取得します。</summary>
     </member>
     <member name="P:C1.Win.C1Ribbon.C1Ribbon.Qat">
       <summary>クイックアクセスツールバー（QAT）を表すオブジェクトを取得します。</summary>
@@ -252,7 +252,7 @@
     </member>
     <member name="P:C1.Win.C1Ribbon.C1Ribbon.RibbonStyle">
       <summary>
-        <see cref="P:C1.Win.C1Ribbon.C1Ribbon.VisualStyle" />プロパティが Custom に設定されている場合に、 外観の設定のカスタマイズに使用される
+        <see cref="P:C1.Win.C1Ribbon.C1Ribbon.VisualStyle" />プロパティが Custom に設定されている場合に、外観の設定のカスタマイズに使用される
         <see cref="P:C1.Win.C1Ribbon.C1Ribbon.RibbonStyle" />オブジェクトを 取得または設定します。
       </summary>
     </member>
@@ -275,7 +275,7 @@
       <summary>選択したタブインデックスを取得または設定します。</summary>
     </member>
     <member name="P:C1.Win.C1Ribbon.C1Ribbon.QatItemNames">
-      <summary>QAT 上の項目名のリストを指定する文字列を取得または設定します。 これにより、ユーザーが実行時に追加した QAT 項目を保全できます。</summary>
+      <summary>QAT 上の項目名のリストを指定する文字列を取得または設定します。これにより、ユーザーが実行時に追加した QAT 項目を保全できます。</summary>
     </member>
     <member name="P:C1.Win.C1Ribbon.C1Ribbon.TextRenderingHint">
       <summary>
@@ -320,12 +320,12 @@
       <summary>ユーザーがツールチップ内のハイパーリンクをクリックするときに発生するイベント。</summary>
       <remarks>
         <para>
-          デフォルトで、ツールチップはマウスを使って表示できないのでクリックできません。 マウスを使ってツールチップを表示し、クリックできるようにするには、
+          デフォルトで、ツールチップはマウスを使って表示できないのでクリックできません。マウスを使ってツールチップを表示し、クリックできるようにするには、
           <see cref="P:C1.Win.C1Ribbon.ToolTipSettings.HitTestVisible" />プロパティを true に設定する必要があります。
         </para>
         <para>
-          ハイパーリンクは、HTML ソーステキストで「A」タグを使用して作成されます。 ハイパーリンクがクリックされると、
-          <b>ToolTipLinkClicked</b>イベントが発生し、リンクに関する情報を提供します。 その後、イベントハンドラは対応するアクションを実行できます。
+          ハイパーリンクは、HTML ソーステキストで「A」タグを使用して作成されます。ハイパーリンクがクリックされると、
+          <b>ToolTipLinkClicked</b>イベントが発生し、リンクに関する情報を提供します。その後、イベントハンドラは対応するアクションを実行できます。
         </para>
       </remarks>
     </member>
@@ -349,15 +349,15 @@
         <see cref="T:C1.Win.C1Ribbon.C1Ribbon" />と共に使用する ステータスバーコントロールを表します。
       </summary>
       <remarks>
-        ステータスバーは、アプリケーションウィンドウ下部の水平領域で、 ここに、アプリケーションは各種のステータス情報を表示できます。
-        <b>C1StatusBar</b>は、左ペインと右ペインに分割され、それぞれ、 ラベル（
+        ステータスバーは、アプリケーションウィンドウ下部の水平領域で、ここに、アプリケーションは各種のステータス情報を表示できます。
+        <b>C1StatusBar</b>は、左ペインと右ペインに分割され、それぞれ、ラベル（
         <see cref="T:C1.Win.C1Ribbon.RibbonLabel" />）、ボタン（
         <see cref="T:C1.Win.C1Ribbon.RibbonButton" />）などの 一連の項目を格納できます。
       </remarks>
     </member>
     <member name="M:C1.Win.C1Ribbon.C1StatusBar.#ctor">
       <summary>
-        <see cref="T:C1.Win.C1Ribbon.C1StatusBar" />の新しいインスタンスを作成します。 C1StatusBar は、親コンテナの下部に自動的にドッキングされます。
+        <see cref="T:C1.Win.C1Ribbon.C1StatusBar" />の新しいインスタンスを作成します。C1StatusBar は、親コンテナの下部に自動的にドッキングされます。
       </summary>
     </member>
     <member name="M:C1.Win.C1Ribbon.C1StatusBar.Dispose(System.Boolean)">
@@ -423,7 +423,7 @@
       <summary>項目を C1StatusBar に追加したり、C1StatusBar から削除したりする間のパフォーマンスを維持します。</summary>
       <remarks>
         多数の項目を C1StatusBar に追加するときは、
-        <b>BeginUpdate</b>メソッドを使用して、 項目追加のたびに項目のコレクションで内部状態が更新されることがないようにする必要があります。 項目追加作業が完了したら、
+        <b>BeginUpdate</b>メソッドを使用して、項目追加のたびに項目のコレクションで内部状態が更新されることがないようにする必要があります。項目追加作業が完了したら、
         <see cref="M:C1.Win.C1Ribbon.C1StatusBar.EndUpdate" />メソッドを呼び出して 通常の処理を再開します。
       </remarks>
     </member>
@@ -508,7 +508,7 @@
     </member>
     <member name="P:C1.Win.C1Ribbon.C1StatusBar.RibbonStyle">
       <summary>
-        <see cref="P:C1.Win.C1Ribbon.C1StatusBar.VisualStyle" />プロパティが Custom に設定されている場合に、 外観の設定のカスタマイズに使用される
+        <see cref="P:C1.Win.C1Ribbon.C1StatusBar.VisualStyle" />プロパティが Custom に設定されている場合に、外観の設定のカスタマイズに使用される
         <see cref="P:C1.Win.C1Ribbon.C1StatusBar.RibbonStyle" />オブジェクトを 取得または設定します。
       </summary>
     </member>
@@ -570,12 +570,12 @@
       <summary>ユーザーがツールチップ内のハイパーリンクをクリックするときに発生するイベント。</summary>
       <remarks>
         <para>
-          デフォルトで、ツールチップはマウスを使って表示できないのでクリックできません。 マウスを使ってツールチップを表示し、クリックできるようにするには、
+          デフォルトで、ツールチップはマウスを使って表示できないのでクリックできません。マウスを使ってツールチップを表示し、クリックできるようにするには、
           <see cref="P:C1.Win.C1Ribbon.ToolTipSettings.HitTestVisible" />プロパティを true に設定する必要があります。
         </para>
         <para>
-          ハイパーリンクは、HTML ソーステキストで「A」タグを使用して作成されます。 ハイパーリンクがクリックされると、
-          <b>ToolTipLinkClicked</b>イベントが発生し、リンクに関する情報を提供します。 その後、イベントハンドラは対応するアクションを実行できます。
+          ハイパーリンクは、HTML ソーステキストで「A」タグを使用して作成されます。ハイパーリンクがクリックされると、
+          <b>ToolTipLinkClicked</b>イベントが発生し、リンクに関する情報を提供します。その後、イベントハンドラは対応するアクションを実行できます。
         </para>
       </remarks>
     </member>
@@ -753,10 +753,10 @@
       <summary>オートコンプリート機能を無効にします。</summary>
     </member>
     <member name="F:C1.Win.C1Ribbon.ComboBoxAutoCompleteMode.Suggest">
-      <summary>Edit コントロールに関連付けられた補助ドロップダウンリストを表示します。 このドロップダウンには、１つ以上のコンプリート文字列候補がリストされます。</summary>
+      <summary>Edit コントロールに関連付けられた補助ドロップダウンリストを表示します。このドロップダウンには、１つ以上のコンプリート文字列候補がリストされます。</summary>
     </member>
     <member name="F:C1.Win.C1Ribbon.ComboBoxAutoCompleteMode.Append">
-      <summary>最も可能性の高い文字列候補の残りの部分を既存の文字の末尾に追加して、 追加した文字を強調表示します。</summary>
+      <summary>最も可能性の高い文字列候補の残りの部分を既存の文字の末尾に追加して、追加した文字を強調表示します。</summary>
     </member>
     <member name="T:C1.Win.C1Ribbon.RibbonNumberFormat">
       <summary>
@@ -875,7 +875,7 @@
       <summary>画像は、コントロールのクライアント矩形内で拡大されます。</summary>
     </member>
     <member name="F:C1.Win.C1Ribbon.BackgroundImageLayout.TileStretch">
-      <summary>画像は９つの部分に分割され、コントロールのクライアント矩形内に並べて表示されます。 中央の画像部分は引き伸ばされ、隅の画像部分は元のサイズで表示されます。</summary>
+      <summary>画像は９つの部分に分割され、コントロールのクライアント矩形内に並べて表示されます。中央の画像部分は引き伸ばされ、隅の画像部分は元のサイズで表示されます。</summary>
     </member>
     <member name="T:C1.Win.C1Ribbon.FontPadding">
       <summary>コンポーネントでテキストのクリッピングを避けるために埋め込みを使用するかどうかを指定します。</summary>
@@ -1145,7 +1145,7 @@
     </member>
     <member name="F:C1.Win.C1Ribbon.RibbonEventType.HighlightedIndexChanged">
       <summary>
-        <see cref="P:C1.Win.C1Ribbon.RibbonComboBox.HighlightedIndex" />プロパティ、 または
+        <see cref="P:C1.Win.C1Ribbon.RibbonComboBox.HighlightedIndex" />プロパティ、または
         <see cref="T:C1.Win.C1Ribbon.RibbonGallery" />内の強調表示した項目が変更されると常に発生します。
       </summary>
     </member>
@@ -1558,7 +1558,7 @@
     <member name="M:C1.Win.C1Ribbon.StyleGlyphSet.Update(C1.Win.C1Ribbon.StyleGlyph,System.Drawing.Image,System.Boolean)">
       <summary>
         指定された
-        <see cref="T:C1.Win.C1Ribbon.StyleGlyph" />に関連付けられた画像を更新し、 新しい画像をこの
+        <see cref="T:C1.Win.C1Ribbon.StyleGlyph" />に関連付けられた画像を更新し、新しい画像をこの
         <see cref="T:C1.Win.C1Ribbon.StyleGlyphSet" />から 破棄できるかどうか（つまり、グリフセットが画像を所有しているかどうか）を決定します。
       </summary>
     </member>
@@ -1668,10 +1668,10 @@
       <remarks>
         <para>
           大量の項目をコレクションに追加する場合、
-          <b>BeginUpdate</b>メソッドを使用し、 リストに項目が１つ追加されるたびにコレクションの内部状態が更新されないようにする必要があります。 リストへの項目の追加タスクが完了したら、
+          <b>BeginUpdate</b>メソッドを使用し、リストに項目が１つ追加されるたびにコレクションの内部状態が更新されないようにする必要があります。リストへの項目の追加タスクが完了したら、
           <see cref="M:C1.Win.C1Ribbon.RibbonItemCollectionBase.EndUpdate" />メソッドを呼び出して通常の処理を再開します。
         </para>
-        <para>この項目の追加方法により、パフォーマンスが大幅に向上します。 10 または 20 を超える数の項目をリストに追加する場合にお勧めします。</para>
+        <para>この項目の追加方法により、パフォーマンスが大幅に向上します。10 または 20 を超える数の項目をリストに追加する場合にお勧めします。</para>
       </remarks>
       <example>
         <para>
@@ -2052,7 +2052,7 @@
         </para>
         <para>
           このメソッドを使用し、
-          <see cref="T:C1.Win.C1Ribbon.RibbonToolBar" />オブジェクトに含まれ、 コレクションの直接のメンバでない
+          <see cref="T:C1.Win.C1Ribbon.RibbonToolBar" />オブジェクトに含まれ、コレクションの直接のメンバでない
           <see cref="T:C1.Win.C1Ribbon.RibbonItem" />オブジェクトを 取得できます。
         </para>
       </remarks>
@@ -2114,13 +2114,13 @@
     <member name="M:C1.Win.C1Ribbon.RibbonQatItemCollection.OnRemoveComplete(System.Int32,System.Object)">
       <summary>
         <see cref="T:C1.Win.C1Ribbon.RibbonItem" />を
-        <see cref="T:C1.Win.C1Ribbon.RibbonQatItemCollection" />インスタンスから削除した後に、 追加のカスタム処理を実行します。
+        <see cref="T:C1.Win.C1Ribbon.RibbonQatItemCollection" />インスタンスから削除した後に、追加のカスタム処理を実行します。
       </summary>
     </member>
     <member name="M:C1.Win.C1Ribbon.RibbonQatItemCollection.OnSetComplete(System.Int32,System.Object,System.Object)">
       <summary>
         <see cref="T:C1.Win.C1Ribbon.RibbonItem" />を
-        <see cref="T:C1.Win.C1Ribbon.RibbonQatItemCollection" />インスタンスで設定した後に、 追加のカスタム処理を実行します。
+        <see cref="T:C1.Win.C1Ribbon.RibbonQatItemCollection" />インスタンスで設定した後に、追加のカスタム処理を実行します。
       </summary>
     </member>
     <member name="M:C1.Win.C1Ribbon.RibbonQatItemCollection.OnClear">
@@ -2426,8 +2426,8 @@
     </member>
     <member name="T:C1.Win.C1Ribbon.RibbonApplicationMenu">
       <summary>
-        アプリケーションウィンドウの左上隅にあるメインの大きい丸いボタンは、 従来の［ファイル］メニューにあった機能を格納するドロップダウンメニュー （
-        <see cref="T:C1.Win.C1Ribbon.RibbonApplicationMenu" />）を表示します。 通常、アプリケーションボタンにはアプリケーションアイコンを表示します。
+        アプリケーションウィンドウの左上隅にあるメインの大きい丸いボタンは、従来の［ファイル］メニューにあった機能を格納するドロップダウンメニュー （
+        <see cref="T:C1.Win.C1Ribbon.RibbonApplicationMenu" />）を表示します。通常、アプリケーションボタンにはアプリケーションアイコンを表示します。
       </summary>
     </member>
     <member name="T:C1.Win.C1Ribbon.RibbonDropDownBase">
@@ -2667,7 +2667,7 @@
     </member>
     <member name="P:C1.Win.C1Ribbon.RibbonApplicationMenu.ColoredButton">
       <summary>アプリケーションメニューボタンの色を取得または設定します。</summary>
-      <remarks>このプロパティは、Office2007 視覚スタイルに表示される丸いアプリケーションボタンの色には影響を与えません。 矩形のボタンにのみ影響を与えます （Win7Look プロパティが True に設定されている場合、 またはコントロールに Office2010 または Windows7 視覚スタイルが「適用されている」場合）。</remarks>
+      <remarks>このプロパティは、Office2007 視覚スタイルに表示される丸いアプリケーションボタンの色には影響を与えません。矩形のボタンにのみ影響を与えます（Win7Look プロパティが True に設定されている場合、またはコントロールに Office2010 または Windows7 視覚スタイルが「適用されている」場合）。</remarks>
     </member>
     <member name="P:C1.Win.C1Ribbon.RibbonApplicationMenu.Text">
       <summary>アプリケーションメニューに関連付けられたテキストを取得または設定します。</summary>
@@ -2905,7 +2905,7 @@
     </member>
     <member name="P:C1.Win.C1Ribbon.RibbonSplitButton.LargeItemDropDownWidth">
       <summary>値が 100 より大きい場合に大きい項目を含むドロップダウンメニューの幅を取得または設定します。</summary>
-      <remarks>この値が 100 より小さい場合、小さい項目がドロップダウンメニューに表示されます。 大きいボタンとメニューは［説明］テキストを表示します。 このプロパティの値はアプリケーションメニューの各要素で無視されます。</remarks>
+      <remarks>この値が 100 より小さい場合、小さい項目がドロップダウンメニューに表示されます。大きいボタンとメニューは［説明］テキストを表示します。このプロパティの値はアプリケーションメニューの各要素で無視されます。</remarks>
     </member>
     <member name="P:C1.Win.C1Ribbon.RibbonSplitButton.MaxDropDownItems">
       <summary>ドロップダウンリストに表示する項目の最大数を取得または設定します。</summary>
@@ -3248,7 +3248,7 @@
     </member>
     <member name="T:C1.Win.C1Ribbon.RibbonItemContainer">
       <summary>
-        <see cref="T:C1.Win.C1Ribbon.RibbonItemContainer" />は、 他のリボン項目を格納できる
+        <see cref="T:C1.Win.C1Ribbon.RibbonItemContainer" />は、他のリボン項目を格納できる
         <see cref="T:C1.Win.C1Ribbon.RibbonItem" />です。
         <see cref="T:C1.Win.C1Ribbon.RibbonToolBar" />、
         <see cref="T:C1.Win.C1Ribbon.RibbonToggleGroup" />、
@@ -4057,12 +4057,6 @@
         <see cref="E:C1.Win.C1Ribbon.RibbonGalleryItem.ShowContextMenu" />イベントを起こします。
       </summary>
     </member>
-    <member name="P:C1.Win.C1Ribbon.RibbonGalleryItem.Text">
-      <summary>
-        この
-        <see cref="T:C1.Win.C1Ribbon.RibbonGalleryItem" />の識別に使用するテキストを取得または設定します。
-      </summary>
-    </member>
     <member name="P:C1.Win.C1Ribbon.RibbonGalleryItem.VerticalLayout">
       <summary>テキストを画像の下に表示するかどうかを示す値を取得または設定します。</summary>
     </member>
@@ -4330,7 +4324,7 @@
     </member>
     <member name="P:C1.Win.C1Ribbon.RibbonMenu.LargeItemDropDownWidth">
       <summary>値が 100 より大きい場合に大きい項目を含むドロップダウンメニューの幅を取得または設定します。</summary>
-      <remarks>この値が 100 より小さい場合、小さい項目がドロップダウンメニューに表示されます。 大きいボタンとメニューは［説明］テキストを表示します。 このプロパティの値はアプリケーションメニューの各要素で無視されます。</remarks>
+      <remarks>この値が 100 より小さい場合、小さい項目がドロップダウンメニューに表示されます。大きいボタンとメニューは［説明］テキストを表示します。このプロパティの値はアプリケーションメニューの各要素で無視されます。</remarks>
     </member>
     <member name="P:C1.Win.C1Ribbon.RibbonMenu.MaxDropDownItems">
       <summary>ドロップダウンリストに表示する項目の最大数を取得または設定します。</summary>
@@ -4589,7 +4583,7 @@
       <summary>
         <see cref="T:C1.Win.C1Ribbon.C1Ribbon" />コントロール内のプログレスバー項目を表します。
       </summary>
-      <remarks>プログレスバーは、時間のかかる処理（ファイルのコピー、ドキュメントの印刷など）の 進行状況を視覚的に示します。 ProgressBar コントロールは、処理の進行状況に応じて、システムの強調表示色で 左端から右端まで塗りつぶされるバーを表示します。</remarks>
+      <remarks>プログレスバーは、時間のかかる処理（ファイルのコピー、ドキュメントの印刷など）の 進行状況を視覚的に示します。ProgressBar コントロールは、処理の進行状況に応じて、システムの強調表示色で 左端から右端まで塗りつぶされるバーを表示します。</remarks>
     </member>
     <member name="M:C1.Win.C1Ribbon.RibbonProgressBar.#ctor">
       <summary>
@@ -4641,7 +4635,7 @@
         <see cref="T:C1.Win.C1Ribbon.C1Ribbon" />コントロール内のクイックアクセスツールバー（QAT）を表します。
       </summary>
       <remarks>
-        QAT は、よく使うコマンドを格納するユーザーカスタマイズ可能なツールバーです。 通常、このツールバーは、［保存］、［元に戻す］、［繰り返し］などのコマンドを表示します。 開いているリボンタブに関係なく、一番手前に配置されます。QAT は、 リボンの上または下に配置できます（
+        QAT は、よく使うコマンドを格納するユーザーカスタマイズ可能なツールバーです。通常、このツールバーは、［保存］、［元に戻す］、［繰り返し］などのコマンドを表示します。開いているリボンタブに関係なく、一番手前に配置されます。QAT は、リボンの上または下に配置できます（
         <see cref="P:C1.Win.C1Ribbon.RibbonQat.BelowRibbon" />を参照）。
       </remarks>
     </member>
@@ -4843,7 +4837,7 @@
       <summary>このタブの表示／非表示を取得または設定します。</summary>
     </member>
     <member name="P:C1.Win.C1Ribbon.RibbonTab.Selected">
-      <summary>このタブが現在選択されているかどうかを取得または設定します。 一度に選択できるのは１つのタブのみです。</summary>
+      <summary>このタブが現在選択されているかどうかを取得または設定します。一度に選択できるのは１つのタブのみです。</summary>
     </member>
     <member name="P:C1.Win.C1Ribbon.RibbonTab.Groups">
       <summary>このタブ上の項目グループのコレクションを取得します。</summary>
@@ -5224,7 +5218,7 @@
       <summary>上／下ボタンがクリックされたとき、それらの組み込み処理の前に発生します。</summary>
     </member>
     <member name="T:C1.Win.C1Ribbon.RibbonToggleButton">
-      <summary>チェックボックスのように動作するボタン。トグルグループ内で使用すると、 ラジオボタンとして動作します（１つをオンにするとそれ以外のすべてがオフになります）。</summary>
+      <summary>チェックボックスのように動作するボタン。トグルグループ内で使用すると、ラジオボタンとして動作します（１つをオンにするとそれ以外のすべてがオフになります）。</summary>
     </member>
     <member name="M:C1.Win.C1Ribbon.RibbonToggleButton.#ctor">
       <summary>
@@ -5272,8 +5266,8 @@
     <member name="T:C1.Win.C1Ribbon.RibbonToggleGroup">
       <summary>
         他の
-        <see cref="T:C1.Win.C1Ribbon.RibbonItem" />要素のコンテナ。 この要素に含まれる任意の
-        <see cref="T:C1.Win.C1Ribbon.RibbonToggleButton" />は、 ラジオボタンのように動作します。
+        <see cref="T:C1.Win.C1Ribbon.RibbonItem" />要素のコンテナ。この要素に含まれる任意の
+        <see cref="T:C1.Win.C1Ribbon.RibbonToggleButton" />は、ラジオボタンのように動作します。
       </summary>
     </member>
     <member name="M:C1.Win.C1Ribbon.RibbonToggleGroup.#ctor">
@@ -5535,7 +5529,7 @@
       <summary>テキスト内のアンパサンド（&amp;）を非表示にするかどうかを取得または設定します。</summary>
       <remarks>
         アンパサンド（&amp;）は、HTML では
-        <b>&amp;amp</b>としてエンコードします。 正しくエンコードされていないアンパサンドは非表示になりません。
+        <b>&amp;amp</b>としてエンコードします。正しくエンコードされていないアンパサンドは非表示になりません。
       </remarks>
     </member>
     <member name="P:C1.Win.C1Ribbon.ToolTipSettings.UseFading">
@@ -5543,11 +5537,11 @@
     </member>
     <member name="P:C1.Win.C1Ribbon.ToolTipSettings.Opacity">
       <summary>ツールチップの不透明度を取得または設定します。</summary>
-      <remarks>このプロパティは、 値をゼロ（完全に透明）と１（完全に不透明）の間に設定する必要があります。</remarks>
+      <remarks>このプロパティは、値をゼロ（完全に透明）と１（完全に不透明）の間に設定する必要があります。</remarks>
     </member>
     <member name="P:C1.Win.C1Ribbon.ToolTipSettings.HitTestVisible">
       <summary>マウスを使ってツールチップを表示するかどうかを決める値を取得または設定します。</summary>
-      <remarks>ツールチップにクリック可能な領域（ハイパーリンクなど）を追加する場合は、このプロパティを true に設定します。 この場合、マウスを使ってツールチップを表示できます。 このプロパティはツールチップの下のコントロールにマウスイベントを渡すのではなく、 マウスイベントそのものを処理します。</remarks>
+      <remarks>ツールチップにクリック可能な領域（ハイパーリンクなど）を追加する場合は、このプロパティを true に設定します。この場合、マウスを使ってツールチップを表示できます。このプロパティはツールチップの下のコントロールにマウスイベントを渡すのではなく、マウスイベントそのものを処理します。</remarks>
     </member>
     <member name="P:C1.Win.C1Ribbon.ToolTipSettings.MaximumWidth">
       <summary>ツールチップの最大幅を取得または設定します。</summary>
@@ -5559,7 +5553,7 @@
       <summary>
         リボンフォームを表します。
         <see cref="T:C1.Win.C1Ribbon.C1Ribbon" />と
-        <see cref="T:C1.Win.C1Ribbon.C1StatusBar" />コントロールを表示するために設計されています。 リボンフォームは、Office 2007 で見られるように、角がより丸くなり、 リボンはタイトルバー領域にその項目を表示できます。
+        <see cref="T:C1.Win.C1Ribbon.C1StatusBar" />コントロールを表示するために設計されています。リボンフォームは、Office 2007 で見られるように、角がより丸くなり、リボンはタイトルバー領域にその項目を表示できます。
       </summary>
     </member>
     <member name="M:C1.Win.C1Ribbon.C1RibbonForm.DisableGlassEffects">
@@ -5691,7 +5685,7 @@
     </member>
     <member name="P:C1.Win.C1Ribbon.C1RibbonForm.RibbonStyle">
       <summary>
-        <see cref="P:C1.Win.C1Ribbon.C1RibbonForm.VisualStyle" />プロパティが Custom に設定されている場合に、 外観の設定のカスタマイズに使用される
+        <see cref="P:C1.Win.C1Ribbon.C1RibbonForm.VisualStyle" />プロパティが Custom に設定されている場合に、外観の設定のカスタマイズに使用される
         <see cref="P:C1.Win.C1Ribbon.C1RibbonForm.RibbonStyle" />オブジェクトを 取得または設定します。
       </summary>
     </member>
@@ -7178,6 +7172,196 @@
     </member>
     <member name="P:C1.Win.C1Ribbon.RibbonApplicationMenu.Appearance">
       <summary>アプリケーションメニューの外観を取得または設定します。</summary>
+    </member>
+    <member name="T:C1.Win.C1Ribbon.RibbonGalleryBaseItem">
+      <summary>
+        ドロップダウンギャラリー内の基本要素。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Ribbon.RibbonGalleryBaseItem.Text">
+      <summary>
+        <see cref="T:C1.Win.C1Ribbon.RibbonGalleryItem" /> に関連付けられたテキストを取得または設定します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Ribbon.RibbonGalleryLabel">
+      <summary>
+        ドロップダウンギャラリー内のラベル要素。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Ribbon.RibbonGalleryLabel.#ctor">
+      <summary>
+        <see cref="T:C1.Win.C1Ribbon.RibbonGalleryLabel" /> の新しいインスタンスを作成します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Ribbon.RibbonGalleryLabel.#ctor(System.String)">
+      <summary>
+        <see cref="T:C1.Win.C1Ribbon.RibbonGalleryLabel" /> の新しいインスタンスを作成します。
+      </summary>
+      <param name="text">
+        <see cref="!:Text" /> プロパティの初期値。
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Ribbon.RibbonGalleryLabel.#ctor(System.String,System.Drawing.Image)">
+      <summary>
+        <see cref="T:C1.Win.C1Ribbon.RibbonGalleryLabel" /> の新しいインスタンスを作成します。
+      </summary>
+      <param name="text">
+        <see cref="!:Text" /> プロパティの初期値。
+      </param>
+      <param name="smallImage">
+        <see cref="P:C1.Win.C1Ribbon.RibbonItem.SmallImage" /> プロパティの初期値。
+      </param>
+    </member>
+    <member name="F:C1.Win.C1Ribbon.StyleColor.StatusBarSeparator">
+      <summary>
+        C1StatusBar 上のリボン要素間のセパレータの色。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Ribbon.StyleConst.StatusBarSeparatorVerticalPadding">
+      <summary>
+        C1StatusBar 上の RibbonSeparator 要素の上下のパディング。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Ribbon.StyleConst.StatusBarSeparatorHorizontalPadding">
+      <summary>
+        C1StatusBar 上の RibbonSeparator 要素の左右のパディング。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Ribbon.StyleGlyph.ArrowRight">
+      <summary>
+        右スクロールボタン上に表示される白黒画像。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Ribbon.StyleGlyph.ArrowLeft">
+      <summary>
+        左スクロールボタン上に表示される白黒画像。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Ribbon.RibbonGalleryItemCollection.AddLabel(System.String)">
+      <summary>
+        コレクションに <see cref="T:C1.Win.C1Ribbon.RibbonGalleryLabel" /> 項目を追加します。
+      </summary>
+      <param name="text"> 新しい GalleryLabel に表示するテキスト。</param>
+    </member>
+    <member name="F:C1.Win.C1Ribbon.AppMenuAppearance.Compact">
+      <summary>
+        タブ見出しを閉じないポップアップメニュー。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Ribbon.StyleBrush.ToolBarHot">
+      <summary>
+        ツールバーの「ホット」状態の要素の背景。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Ribbon.StyleBrush.ToolBarPressed">
+      <summary>
+        ツールバーの押された状態の要素の背景。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Ribbon.StyleBrush.ToolBarToggled">
+      <summary>
+        押下状態の RibbonToggleButton など、ツールバー上の切り替え可能要素の背景。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Ribbon.StyleBrush.AppMenuHotItem">
+      <summary>
+        アプリケーションメニューの「ホット」状態の項目の背景。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Ribbon.StyleBrush.AppMenuPressedItem">
+      <summary>
+        アプリケーションメニューの押された状態の項目の背景。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Ribbon.StyleColor.ToolBarText">
+      <summary>
+        ツールバーの要素の通常のテキスト色。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Ribbon.StyleColor.ToolBarDisabledText">
+      <summary>
+        ツールバー要素の無効状態のテキストの色。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Ribbon.StyleColor.ToolBarHotText">
+      <summary>
+        ツールバーの「ホット」状態の要素のテキスト色。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Ribbon.StyleColor.ToolBarPressedText">
+      <summary>
+        押下されたツールバー要素のテキスト色。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Ribbon.StyleColor.ToolBarArrow">
+      <summary>
+        リボンツールバーにあるドロップダウン矢印の色。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Ribbon.StyleColor.ToolBarArrowDisabled">
+      <summary>
+        リボンツールバーにある無効状態のドロップダウン矢印の色。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Ribbon.StyleColor.ToolBarArrowHot">
+      <summary>
+        リボンツールバーにある「ホット」状態のドロップダウン矢印の色。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Ribbon.StyleColor.ToolBarArrowPressed">
+      <summary>
+        リボンツールバーにある押された状態のドロップダウン矢印の色。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Ribbon.StyleColor.ToolBarHotToggledBorder">
+      <summary>
+        （マウスポインタが置かれている）ツールバーの「ホット」状態の切り替え可能要素の境界線の色。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Ribbon.StyleColor.ToolBarToggledText">
+      <summary>
+        押下状態の RibbonToggleButton など、ツールバーの切り替え可能要素のテキスト色。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Ribbon.StyleColor.AppMenuItemText">
+      <summary>
+        アプリケーションメニュー項目の通常のテキスト色。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Ribbon.StyleColor.AppMenuItemDisabledText">
+      <summary>
+        アプリケーションメニューの無効状態の項目のテキスト色。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Ribbon.StyleColor.AppMenuItemHotText">
+      <summary>
+        アプリケーションメニューの「ホット」状態の項目のテキスト色。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Ribbon.StyleColor.AppMenuItemPressedText">
+      <summary>
+        押下されたアプリケーションメニュー項目のテキスト色。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Ribbon.StyleColor.AppMenuSubmenuArrow">
+      <summary>
+        アプリケーションメニュー項目の状態のサブメニュー矢印の通常の色。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Ribbon.StyleColor.AppMenuDisabledSubmenuArrow">
+      <summary>
+        アプリケーションメニュー項目の無効状態のサブメニュー矢印の色。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Ribbon.StyleColor.AppMenuHotSubmenuArrow">
+      <summary>
+        アプリケーションメニュー項目の「ホット」状態のサブメニュー矢印の色。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Ribbon.StyleColor.AppMenuPressedSubmenuArrow">
+      <summary>
+        アプリケーションメニュー項目のサブメニューが表示されているときの矢印の色。
+      </summary>
     </member>
   </members>
 </doc>

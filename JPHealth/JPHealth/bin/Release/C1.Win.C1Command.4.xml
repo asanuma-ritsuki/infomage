@@ -7187,5 +7187,143 @@
         タブに表示するテキストの配置を指定する値を取得または設定します。
       </summary>
     </member>
+    <member name="P:C1.Win.C1Command.FloatingEventArgs.FormBorderStyle">
+      <summary>
+        フローティングウィンドウの境界線スタイルを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.FloatingEventArgs.MaximizeBox">
+      <summary>
+        フローティングウィンドウのキャプションバーに最大化ボタンを表示するかどうかを示す値を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1Command.ImageTransparentColor">
+      <summary>
+        画像内で透明として扱われる色を取得または設定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Command.C1Command.ShouldSerializeImageTransparentColor">
+      <summary>
+        この ImageTransparentColor プロパティが変更されている場合は true、そうでない場合は false を返します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Command.C1Command.ResetImageTransparentColor">
+      <summary>
+        ImageTransparentColor プロパティをデフォルト値にリセットします。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.UIStringsEnum.NavBarOptionsMenuCancelButtonText">
+      <summary>
+        NavBar のオプションメニュー内のキャンセルボタンのテキスト。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.UIStringsEnum.NavBarOptionsMenuLabelText">
+      <summary>
+        NavBar のオプションメニュー内のラベルのテキスト。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.UIStringsEnum.NavBarOptionsMenuMoveDownButtonText">
+      <summary>
+        NavBar のオプションメニュー内の下に移動ボタンのテキスト。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.UIStringsEnum.NavBarOptionsMenuMoveUpButtonText">
+      <summary>
+        NavBar のオプションメニュー内の上に移動ボタンのテキスト。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.UIStringsEnum.NavBarOptionsMenuOkButtonText">
+      <summary>
+        NavBar のオプションメニュー内の OK ボタンのテキスト。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.UIStringsEnum.NavBarOptionsMenuResetButtonText">
+      <summary>
+        NavBar のオプションメニュー内のリセットボタンのテキスト。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.TabSizeModeEnum.Default">
+      <summary>
+        デフォルトのサイズ変更モードです。
+      </summary>
+      <remarks>
+        <see cref="P:C1.Win.C1Command.C1DockingTab.TabSizeMode" /> が Default に設定されている場合は、
+        テーマ適用時にテーマの TabSizeMode でオーバーライドされます。
+      </remarks>
+    </member>
+    <member name="E:C1.Win.C1Command.C1DockingManager.TabPageMoved">
+      <summary>
+        ユーザーがタブを移動したときに発生します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.C1Command.C1DockingTab.TabPageMoved">
+      <summary>
+        ユーザーがタブを移動したときに発生します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Command.C1DockingTab.OnMouseClick(System.Windows.Forms.MouseEventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.MouseClick" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:System.Windows.Forms.MouseEventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Command.C1DockingTab.OnMouseCaptureChanged(System.EventArgs)">
+      <summary>
+        <see cref="E:System.Windows.Forms.Control.MouseCaptureChanged" /> イベントを発生させます。
+      </summary>
+      <param name="e">
+        イベントデータを含む <see cref="T:System.EventArgs" />。
+      </param>
+    </member>
+    <member name="P:C1.Win.C1Command.AllDockingTabs.DockingTabs">
+      <summary>
+        このプロパティは内部使用専用です。
+      </summary>
+      <remarks>
+        C1CommandDock 内にないすべての C1DockingTab を保存します
+      </remarks>
+    </member>
+    <member name="P:C1.Win.C1Command.C1DockingTabReflector.ParentName">
+      <summary>
+        このプロパティは内部使用専用です。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Command.TabPageMovedEventArgs">
+      <summary>
+        TabPageMoved イベントのデータを提供します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.TabPageMovedEventArgs.OldIndex">
+      <summary>
+        移動されたタブページの古いインデックスを示します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.TabPageMovedEventArgs.NewIndex">
+      <summary>
+        移動されたタブページの新しいインデックスを示します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.TabPageMovedEventArgs.TabPage">
+      <summary>
+        タブページを示します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Command.TabPageMovedEventArgs.#ctor(C1.Win.C1Command.C1DockingTabPage,System.Int32,System.Int32)">
+      <summary>
+        TabPageMovedEventArgs クラスの新しいインスタンスを初期化します
+      </summary>
+      <param name="oldIndex">移動されたタブページの古いインデックスを示します。</param>
+      <param name="tabPage">タブページを示します。</param>
+      <param name="newIndex">移動されたタブページの古いインデックスを示します。</param>
+    </member>
+    <member name="T:C1.Win.C1Command.TabPageMovedEventHandler">
+      <summary>
+        TabPageMoved イベントを処理するメソッドを表します。
+      </summary>
+      <param name="sender">イベントのソース。</param>
+      <param name="e">イベントデータを含む TabPageMovedEventArgs オブジェクト。</param>
+    </member>
   </members>
 </doc>

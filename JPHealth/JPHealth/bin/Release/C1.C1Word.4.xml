@@ -539,11 +539,6 @@
       <param name="rc">描画する四角形。</param>
       <param name="sf">描画する文字列書式。</param>
     </member>
-    <member name="M:C1.C1Word.C1WordDocument.DrawParagraph(System.Drawing.RectangleF,C1.C1Word.Objects.RtfParagraph)">
-      <summary>このドキュメントの次の位置に段落を描画します。</summary>
-      <param name="rc">描画する四角形。</param>
-      <param name="paragraph">描画する段落オブジェクト。</param>
-    </member>
     <member name="M:C1.C1Word.C1WordDocument.DrawImage(System.Drawing.Image,System.Drawing.RectangleF)">
       <summary>コンテンツの配置を指定して画像/ビットマップを描画します。</summary>
       <param name="image">描画する画像/ビットマップ。</param>
@@ -8455,7 +8450,6 @@
     </member>
     <member name="M:C1.C1Word.Canvas.TextFadeLeftShape.#ctor(C1.C1Word.Canvas.IShapeContainer,System.Int32,System.Int32,System.Int32,System.Int32)">
       <summary>
-
         <see cref="T:C1.C1Word.Canvas.TextFadeLeftShape" />の新しいインスタンスを初期化します。
       </summary>
       <param name="container">
@@ -10741,60 +10735,6 @@
     <member name="T:C1.C1Word.Design.DesignStrings">
       <summary>デザイナーが使用する UI 文字列を含む静的クラスです。</summary>
     </member>
-    <member name="T:C1.Util.CodeRange">
-      <summary>文字コードの範囲を表します。</summary>
-    </member>
-    <member name="M:C1.Util.CodeRange.#ctor(System.Char)">
-      <summary>文字コードの範囲のコンストラクタです。</summary>
-      <param name="ch">追加文字。</param>
-    </member>
-    <member name="M:C1.Util.CodeRange.#ctor(System.Char,System.Char)">
-      <summary>文字コードの範囲のコンストラクタです。</summary>
-      <param name="first">最初の文字コード。</param>
-      <param name="last">最後の文字コード。</param>
-    </member>
-    <member name="M:C1.Util.CodeRange.Clone">
-      <summary></summary>
-      <returns></returns>
-    </member>
-    <member name="M:C1.Util.CodeRange.Contains(C1.Util.CodeRange)">
-      <summary></summary>
-      <param name="cr"></param>
-      <returns></returns>
-    </member>
-    <member name="P:C1.Util.CodeRange.First">
-      <summary>文字の開始コードです。</summary>
-    </member>
-    <member name="P:C1.Util.CodeRange.Last">
-      <summary>文字の終了コードです。</summary>
-    </member>
-    <member name="T:C1.Util.CodeRanges">
-      <summary>
-        一意の
-        <see cref="T:C1.Util.CodeRange" />オブジェクトのコレクションを表します。コレクション内のすべての CodeRange オブジェクトは重ならず、First フィールドに 基づいてソートされています。
-      </summary>
-    </member>
-    <member name="M:C1.Util.CodeRanges.AddNoCheck(C1.Util.CodeRange)">
-      <summary>
-        現在のオブジェクトに
-        <see cref="T:C1.Util.CodeRange" />オブジェクトをチェックなしで追加します。通常はデシリアライズ中に使用されます。
-      </summary>
-      <param name="cr">
-        追加する
-        <see cref="T:C1.Util.CodeRange" />。
-      </param>
-    </member>
-    <member name="M:C1.Util.CodeRanges.GetGlyphs">
-      <summary>このコード範囲のリストに含まれる文字の配列を取得します。</summary>
-      <returns>文字の配列。</returns>
-    </member>
-    <member name="M:C1.Util.CodeRanges.ContainsAllChars">
-      <summary>
-        この
-        <see cref="T:C1.Util.CodeRanges" />に 0x0000 ～ 0xFFFF のすべての文字が 含まれるかどうかを示す値を取得します。
-      </summary>
-      <returns></returns>
-    </member>
     <member name="P:C1.C1Word.Objects.RtfSection.Header">
       <summary>このセクションのページの Word/RTF ヘッダーを取得します。</summary>
     </member>
@@ -10924,39 +10864,6 @@
     </member>
     <member name="P:C1.C1Word.Objects.RtfDiagonalObject.BackwardDiagonalStyle">
       <summary>この境界線の右下がり斜線のスタイルを取得または設定します。</summary>
-    </member>
-    <member name="M:C1.Util.CodeRanges.Add(System.Char[])">
-      <summary></summary>
-      <param name="chars"></param>
-    </member>
-    <member name="M:C1.Util.CodeRanges.Add(System.String)">
-      <summary></summary>
-      <param name="s"></param>
-    </member>
-    <member name="M:C1.Util.CodeRanges.Add(System.Char)">
-      <summary></summary>
-      <param name="c"></param>
-    </member>
-    <member name="M:C1.Util.CodeRanges.Add(C1.Util.CodeRange)">
-      <summary></summary>
-      <param name="cr"></param>
-    </member>
-    <member name="M:C1.Util.CodeRanges.Add(System.Char,System.Char)">
-      <summary></summary>
-      <param name="first"></param>
-      <param name="last"></param>
-    </member>
-    <member name="M:C1.Util.CodeRanges.Add(System.Collections.Generic.IEnumerable{C1.Util.CodeRange})">
-      <summary></summary>
-      <param name="crs"></param>
-    </member>
-    <member name="M:C1.Util.CodeRanges.Clone">
-      <summary></summary>
-      <returns></returns>
-    </member>
-    <member name="M:C1.Util.CodeRanges.AssignFrom(C1.Util.CodeRanges)">
-      <summary></summary>
-      <param name="source"></param>
     </member>
     <member name="P:C1.C1Word.Canvas.DrawingShape.IsHidden">
       <summary>
@@ -11271,35 +11178,6 @@
       <param name="owner">オーナー Word/RTF オブジェクト。</param>
       <param name="bmp">ピクチャの指定されたビットマップオブジェクト。</param>
     </member>
-    <member name="T:C1.Util.FontShaping">
-      <summary>文字の形成（アラビア文字、インド文字など）をサポートするためのクラスです。</summary>
-    </member>
-    <member name="T:C1.Util.MetafileConverterBase">
-      <summary>内部使用専用。メタファイルを列挙するために使用される抽象基本クラスです。メタファイルを PDF、Word などの形式に変換するために使用されます。</summary>
-    </member>
-    <member name="T:C1.Util.MetafileConverterBase.ClipRegion">
-      <summary>内部使用専用。</summary>
-    </member>
-    <member name="T:C1.Util.MetafileConverterBase.MetaFont">
-      <summary>内部使用専用。</summary>
-    </member>
-    <member name="P:C1.Util.MetafileConverterBase.MetaFont.Font">
-      <summary>このメタフォントの GDI+ 近似フォントを取得します。</summary>
-    </member>
-    <member name="P:C1.Util.MetafileConverterBase.MetaFont.FontAngle">
-      <summary>このメタフォントの角度を取得します。</summary>
-    </member>
-    <member name="P:C1.Util.MetafileConverterBase.MetaFont.WidthCoeff">
-      <summary>このメタフォントの幅係数を取得します。</summary>
-    </member>
-    <member name="M:C1.Util.MetafileConverterBase.MetaFont.op_Implicit(C1.Util.MetafileConverterBase.MetaFont)~System.Drawing.Font">
-      <summary>暗黙的に GDI+ フォントに変換します。</summary>
-      <param name="mf">メタフォントオブジェクト。</param>
-      <returns>メタフォントの GDI+ 近似フォント。</returns>
-    </member>
-    <member name="T:C1.Util.ReferenceDC">
-      <summary>内部使用専用。</summary>
-    </member>
     <member name="P:C1.C1Word.Objects.RtfBorderObject.TopSpace">
       <summary>この境界線の上側のスペースを取得または設定します。</summary>
     </member>
@@ -11343,6 +11221,37 @@
       <summary>
         東アジアテキストであることを指定する値を取得または設定します。
       </summary>
+    </member>
+    <member name="M:C1.C1Word.C1WordDocument.LoadFromText(System.IO.Stream)">
+      <summary>
+        ドキュメントを読み取り可能なテキストストリームからロードします。
+      </summary>
+      <param name="stream">読み取り可能なテキストストリーム。</param>
+    </member>
+    <member name="M:C1.C1Word.C1WordDocument.DrawParagraph(System.Drawing.RectangleF,C1.C1Word.Objects.RtfParagraph,System.Boolean)">
+      <summary>
+        このドキュメントの次の位置に段落を描画します。
+      </summary>
+      <param name="rc">描画する四角形。</param>
+      <param name="paragraph">描画する段落オブジェクト。</param>
+      <param name="overlapping">重なるか、既存の TextBox オブジェクトがないか。</param>
+    </member>
+    <member name="P:C1.C1Word.Objects.RtfObject.HeaderFooter">
+      <summary>
+        このオブジェクトの Word/RTF 親ヘッダーまたはフッターオブジェクトを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Word.Objects.RtfParagraph.LeftChars">
+      <summary>
+        この段落の左の文字の値を取得または設定します。
+      </summary>
+      <value>段落の左の文字。</value>
+    </member>
+    <member name="F:C1.C1Word.RtfListType.EnclosedCircle">
+      <summary>閉じた円。</summary>
+    </member>
+    <member name="F:C1.C1Word.RtfListType.FullWidthBullet">
+      <summary>全角ビュレット。</summary>
     </member>
   </members>
 </doc>

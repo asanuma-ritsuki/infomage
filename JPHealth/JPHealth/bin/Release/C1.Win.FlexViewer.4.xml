@@ -1875,7 +1875,7 @@
       <summary>StatusBar コントロールを取得します。</summary>
     </member>
     <member name="P:C1.Win.FlexViewer.C1FlexViewer.Busy">
-      <summary>ビューアペインが現在ビジーであるかどうかを示すフラグを取得または設定します。 一部のアクション（特にプレビューペインの状態を大きく変える可能性があるアクション）は、 このフラグを独自に設定し、このフラグが別の操作によって設定されている場合は 実行できなくなります。ビューアペインのプロパティを変更したり、 ビューアペインのメソッドを呼び出す前には、このフラグをテストする必要があります。</summary>
+      <summary>ビューアペインが現在ビジーであるかどうかを示すフラグを取得または設定します。一部のアクション（特にプレビューペインの状態を大きく変える可能性があるアクション）は、このフラグを独自に設定し、このフラグが別の操作によって設定されている場合は 実行できなくなります。ビューアペインのプロパティを変更したり、ビューアペインのメソッドを呼び出す前には、このフラグをテストする必要があります。</summary>
       <value>Busy フラグの値。</value>
     </member>
     <member name="P:C1.Win.FlexViewer.C1FlexViewer.StatusText">
@@ -1912,7 +1912,7 @@
       <summary>プレビューに表示されているページ数を取得します。</summary>
     </member>
     <member name="P:C1.Win.FlexViewer.C1FlexViewer.PageIndex">
-      <summary>現在表示されているページの 0 から始まるインデックスを取得または設定します。 複数のページが表示されている場合、このプロパティは、最も多く表面が表示されている ページを示します。 このプロパティが設定された場合は、新しい開始ページの左上隅がプレビューウィンドウの 左上隅に配置されます。</summary>
+      <summary>現在表示されているページの 0 から始まるインデックスを取得または設定します。複数のページが表示されている場合、このプロパティは、最も多く表面が表示されている ページを示します。このプロパティが設定された場合は、新しい開始ページの左上隅がプレビューウィンドウの 左上隅に配置されます。</summary>
     </member>
     <member name="P:C1.Win.FlexViewer.C1FlexViewer.PageSetCount">
       <summary>非連続モードでのページセットの数を取得します。</summary>
@@ -2000,18 +2000,18 @@
       <param name="updateHistory">前の位置を履歴に追加するかどうかを指定します。</param>
     </member>
     <member name="M:C1.Win.FlexViewer.C1FlexViewer.PageSetup">
-      <summary>標準のページ設定ダイアログボックスを呼び出します。 ユーザーがダイアログの［OK］をクリックすると、現在ロードされているドキュメントがリフローされます （リフローがサポートされている場合）。</summary>
+      <summary>標準のページ設定ダイアログボックスを呼び出します。ユーザーがダイアログの［OK］をクリックすると、現在ロードされているドキュメントがリフローされます（リフローがサポートされている場合）。</summary>
       <returns>
         ユーザーがダイアログの［OK］をクリックした場合は
-        <b>true</b>、 ダイアログをキャンセルした場合は
+        <b>true</b>、ダイアログをキャンセルした場合は
         <b>false</b>。
       </returns>
     </member>
     <member name="M:C1.Win.FlexViewer.C1FlexViewer.Print">
-      <summary>標準の印刷ダイアログを表示します。これを使用して、 現在ロードされているドキュメントを印刷できます。</summary>
+      <summary>標準の印刷ダイアログを表示します。これを使用して、現在ロードされているドキュメントを印刷できます。</summary>
       <returns>
         ユーザーがダイアログの［OK］をクリックした場合は
-        <b>true</b>、 ダイアログをキャンセルした場合は
+        <b>true</b>、ダイアログをキャンセルした場合は
         <b>false</b>。
       </returns>
     </member>
@@ -2660,7 +2660,7 @@
       </summary>
     </member>
     <member name="P:C1.Win.FlexViewer.C1FlexViewerDialog.Busy">
-      <summary>ビューアペインが現在ビジーであるかどうかを示すフラグを取得または設定します。 一部のアクション（特にプレビューペインの状態を大きく変える可能性があるアクション）は、 このフラグを独自に設定し、このフラグが別の操作によって設定されている場合は 実行できなくなります。ビューアペインのプロパティを変更したり、 ビューアペインのメソッドを呼び出す前には、このフラグをテストする必要があります。</summary>
+      <summary>ビューアペインが現在ビジーであるかどうかを示すフラグを取得または設定します。一部のアクション（特にプレビューペインの状態を大きく変える可能性があるアクション）は、このフラグを独自に設定し、このフラグが別の操作によって設定されている場合は 実行できなくなります。ビューアペインのプロパティを変更したり、ビューアペインのメソッドを呼び出す前には、このフラグをテストする必要があります。</summary>
       <value>Busy フラグの値。</value>
     </member>
     <member name="P:C1.Win.FlexViewer.C1FlexViewerDialog.StatusText">
@@ -2697,7 +2697,7 @@
       <summary>プレビューに表示されているページ数を取得します。</summary>
     </member>
     <member name="P:C1.Win.FlexViewer.C1FlexViewerDialog.PageIndex">
-      <summary>現在表示されているページの 0 から始まるインデックスを取得または設定します。 複数のページが表示されている場合、このプロパティは、最も多く表面が表示されている ページを示します。 このプロパティが設定された場合は、新しい開始ページの左上隅がプレビューウィンドウの 左上隅に配置されます。</summary>
+      <summary>現在表示されているページの 0 から始まるインデックスを取得または設定します。複数のページが表示されている場合、このプロパティは、最も多く表面が表示されている ページを示します。このプロパティが設定された場合は、新しい開始ページの左上隅がプレビューウィンドウの 左上隅に配置されます。</summary>
     </member>
     <member name="P:C1.Win.FlexViewer.C1FlexViewerDialog.PageSetCount">
       <summary>非連続モードでのページセットの数を取得します。</summary>
@@ -2815,18 +2815,18 @@
       <param name="updateHistory">前の位置を履歴に追加するかどうかを指定します。</param>
     </member>
     <member name="M:C1.Win.FlexViewer.C1FlexViewerDialog.PageSetup">
-      <summary>標準のページ設定ダイアログボックスを呼び出します。 ユーザーがダイアログの［OK］をクリックすると、現在ロードされているドキュメントがリフローされます （リフローがサポートされている場合）。</summary>
+      <summary>標準のページ設定ダイアログボックスを呼び出します。ユーザーがダイアログの［OK］をクリックすると、現在ロードされているドキュメントがリフローされます（リフローがサポートされている場合）。</summary>
       <returns>
         ユーザーがダイアログの［OK］をクリックした場合は
-        <b>true</b>、 ダイアログをキャンセルした場合は
+        <b>true</b>、ダイアログをキャンセルした場合は
         <b>false</b>。
       </returns>
     </member>
     <member name="M:C1.Win.FlexViewer.C1FlexViewerDialog.Print">
-      <summary>標準の印刷ダイアログを表示します。これを使用して、 現在ロードされているドキュメントを印刷できます。</summary>
+      <summary>標準の印刷ダイアログを表示します。これを使用して、現在ロードされているドキュメントを印刷できます。</summary>
       <returns>
         ユーザーがダイアログの［OK］をクリックした場合は
-        <b>true</b>、 ダイアログをキャンセルした場合は
+        <b>true</b>、ダイアログをキャンセルした場合は
         <b>false</b>。
       </returns>
     </member>
@@ -2864,12 +2864,12 @@
       <summary>使用されているリソースをすべてクリーンアップします。</summary>
     </member>
     <member name="P:C1.Win.FlexViewer.C1FlexViewerPane.Busy">
-      <summary>ビューアペインが現在ビジーであるかどうかを示すフラグを取得または設定します。 一部のアクション（特にプレビューペインの状態を大きく変える可能性があるアクション）は、 このフラグを独自に設定し、このフラグが別の操作によって設定されている場合は 実行できなくなります。ビューアペインのプロパティを変更したり、 ビューアペインのメソッドを呼び出す前には、このフラグをテストする必要があります。</summary>
+      <summary>ビューアペインが現在ビジーであるかどうかを示すフラグを取得または設定します。一部のアクション（特にプレビューペインの状態を大きく変える可能性があるアクション）は、このフラグを独自に設定し、このフラグが別の操作によって設定されている場合は 実行できなくなります。ビューアペインのプロパティを変更したり、ビューアペインのメソッドを呼び出す前には、このフラグをテストする必要があります。</summary>
       <value>Busy フラグの値。</value>
     </member>
     <member name="T:C1.Win.FlexViewer.C1FlexViewerPane.BusySection">
       <summary>
-        <see cref="T:C1.Win.FlexViewer.C1FlexViewerPane" />のビジーセクションを提供するヘルパークラス。 これは、コンストラクタで
+        <see cref="T:C1.Win.FlexViewer.C1FlexViewerPane" />のビジーセクションを提供するヘルパークラス。これは、コンストラクタで
         <see cref="P:C1.Win.FlexViewer.C1FlexViewerPane.Busy" />フラグを設定し、
         <see cref="M:C1.Win.FlexViewer.C1FlexViewerPane.BusySection.Dispose" />メソッドでフラグを解除します。
         <para>使い方:</para><code>
@@ -2892,7 +2892,7 @@
     </member>
     <member name="M:C1.Win.FlexViewer.C1FlexViewerPane.BusySection.Dispose">
       <summary>
-        ビジーセクションを破棄し、 プレビューペインの
+        ビジーセクションを破棄し、プレビューペインの
         <see cref="P:C1.Win.FlexViewer.C1FlexViewerPane.Busy" />フラグを解除します。
       </summary>
     </member>
@@ -3164,7 +3164,7 @@
       <summary>プレビューに表示されているページ数を取得します。</summary>
     </member>
     <member name="P:C1.Win.FlexViewer.C1FlexViewerPane.PageIndex">
-      <summary>現在表示されているページの 0 から始まるインデックスを取得または設定します。 複数のページが表示されている場合、このプロパティは、最も多く表面が表示されている ページを示します。 このプロパティが設定された場合は、新しい開始ページの左上隅がプレビューウィンドウの 左上隅に配置されます。</summary>
+      <summary>現在表示されているページの 0 から始まるインデックスを取得または設定します。複数のページが表示されている場合、このプロパティは、最も多く表面が表示されている ページを示します。このプロパティが設定された場合は、新しい開始ページの左上隅がプレビューウィンドウの 左上隅に配置されます。</summary>
     </member>
     <member name="P:C1.Win.FlexViewer.C1FlexViewerPane.PageSetCount">
       <summary>非連続モードでのページセットの数を取得します。</summary>
@@ -3266,18 +3266,18 @@
       <summary>ビューアに関連付けられたページ設定を取得または設定します。</summary>
     </member>
     <member name="M:C1.Win.FlexViewer.C1FlexViewerPane.PageSetup">
-      <summary>標準のページ設定ダイアログボックスを呼び出します。 ユーザーがダイアログの［OK］をクリックすると、現在ロードされているドキュメントがリフローされます （リフローがサポートされている場合）。</summary>
+      <summary>標準のページ設定ダイアログボックスを呼び出します。ユーザーがダイアログの［OK］をクリックすると、現在ロードされているドキュメントがリフローされます（リフローがサポートされている場合）。</summary>
       <returns>
         ユーザーがダイアログの［OK］をクリックした場合は
-        <b>true</b>、 ダイアログをキャンセルした場合は
+        <b>true</b>、ダイアログをキャンセルした場合は
         <b>false</b>。
       </returns>
     </member>
     <member name="M:C1.Win.FlexViewer.C1FlexViewerPane.Print">
-      <summary>標準の印刷ダイアログを表示します。これを使用して、 現在ロードされているドキュメントを印刷できます。</summary>
+      <summary>標準の印刷ダイアログを表示します。これを使用して、現在ロードされているドキュメントを印刷できます。</summary>
       <returns>
         ユーザーがダイアログの［OK］をクリックした場合は
-        <b>true</b>、 ダイアログをキャンセルした場合は
+        <b>true</b>、ダイアログをキャンセルした場合は
         <b>false</b>。
       </returns>
     </member>
@@ -4749,6 +4749,29 @@
     </member>
     <member name="P:C1.Win.FlexViewer.C1FlexViewerPane.LimitSearchToCurrentPage">
       <summary>テキスト検索を現在のページに制限するかどうかを示す値を取得または設定します。</summary>
+    </member>
+    <member name="T:C1.Win.FlexViewer.INavigationTarget">
+      <summary>
+        <see cref="T:C1.Win.FlexViewer.C1FlexViewerPane" /> のスクロール位置をカプセル化します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.FlexViewer.C1FlexViewerPane.GetNavigationTarget">
+      <summary>
+        現在のスクロール位置をカプセル化するオブジェクトを返します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.FlexViewer.C1FlexViewerPane.NavigateTo(C1.Win.FlexViewer.INavigationTarget)">
+      <summary>
+        指定されたターゲット位置に移動します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.FlexViewer.C1FlexViewerPane.NavigateToOutlineNode(C1.Win.C1Document.OutlineNode)">
+      <summary>
+        指定された <see cref="T:C1.Win.C1Document.OutlineNode" /> に移動します。
+      </summary>
+      <param name="outlineNode">
+        <see cref="P:C1.Win.C1Document.C1Document.Outlines" /> ツリーのアウトラインノード。
+      </param>
     </member>
   </members>
 </doc>

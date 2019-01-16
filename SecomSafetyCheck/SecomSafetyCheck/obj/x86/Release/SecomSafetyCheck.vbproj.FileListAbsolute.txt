@@ -39,3 +39,6 @@ C:\GitHub\infomage\SecomSafetyCheck\SecomSafetyCheck\obj\x86\Release\SecomSafety
 C:\GitHub\infomage\SecomSafetyCheck\SecomSafetyCheck\obj\x86\Release\SecomSafetyCheck.pdb
 C:\GitHub\infomage\SecomSafetyCheck\SecomSafetyCheck\bin\x86\Release\master.mdb
 C:\GitHub\infomage\SecomSafetyCheck\SecomSafetyCheck\bin\x86\Release\Template\Template.xlsx
+C:\GitHub\infomage\SecomSafetyCheck\SecomSafetyCheck\obj\x86\Release\SecomSafetyCheck.vbprojAssemblyReference.cache
+C:\GitHub\infomage\SecomSafetyCheck\SecomSafetyCheck\obj\x86\Release\SecomSafetyCheck.vbproj.CoreCompileInputs.cache
+C:\GitHub\infomage\SecomSafetyCheck\SecomSafetyCheck\obj\x86\Release\SecomSafetyCheck.vbproj.CopyComplete

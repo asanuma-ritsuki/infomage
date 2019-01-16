@@ -56,8 +56,8 @@ namespace PDF_Shiori
         {
             string strSQL = "";
             SQLProcess sqlProcess = new SQLProcess();
-
-            strSQL = "SELECT T1.JOB_ID,T1.作番,T4.名称 AS 顧客名,T3.エンドユーザー1 + T3.エンドユーザー2 AS エンドユーザー,T2.案件名1 + T2.案件名2 AS 案件名,T1.ジョブ名,T5.ロット総数,T5.ロット総数 - T5.ロット完了数 AS ロット完了数,T1.出力日時,T1.更新日時,T1.削除フラグ";
+			/*T1.出力日時,*/
+            strSQL = "SELECT T1.JOB_ID,T1.作番,T4.名称 AS 顧客名,T3.エンドユーザー1 + T3.エンドユーザー2 AS エンドユーザー,T2.案件名1 + T2.案件名2 AS 案件名,T1.ジョブ名,T5.ロット総数,T5.ロット総数 - T5.ロット完了数 AS ロット完了数,T1.更新日時,T1.削除フラグ";
             strSQL += " FROM T_しおりツール_ジョブリスト AS T1";
             strSQL += " INNER JOIN DailyReport_Test.dbo.T_案件管理 AS T2 ON T1.作番 = T2.作番コード";
             strSQL += " INNER JOIN DailyReport_Test.dbo.M_顧客 AS T3 ON T2.顧客ID = T3.顧客ID";

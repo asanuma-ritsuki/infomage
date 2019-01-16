@@ -1,0 +1,1103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5C876539-FE61-4185-8404-58D15466F278}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Sub Main</StartupObject>
+    <RootNamespace>ImageReplaceTool</RootNamespace>
+    <AssemblyName>ImageReplaceTool</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsFormsWithCustomSubMain</MyType>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>ImageReplaceTool.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>ImageReplaceTool.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DocumentationFile>ImageReplaceTool.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DocumentationFile>ImageReplaceTool.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Stacked_books.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="C1.Win.4, Version=4.0.20183.338, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL" />
+    <Reference Include="c1.win.c1flexgrid.4, Version=4.0.20183.338, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="c1.win.c1ribbon.4, Version=4.0.20183.338, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class\CElement.vb" />
+    <Compile Include="Class\clsWinApp.vb" />
+    <Compile Include="Class\SQLProcess.vb" />
+    <Compile Include="Class\XmlSettings.vb" />
+    <Compile Include="Form\frmConnectionProperty.Designer.vb">
+      <DependentUpon>frmConnectionProperty.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmConnectionProperty.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmLogin.Designer.vb">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmMainMenu.Designer.vb">
+      <DependentUpon>frmMainMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmMainMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmTempForm.Designer.vb">
+      <DependentUpon>frmTempForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmTempForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\DefaultModule.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Form\frmConnectionProperty.resx">
+      <DependentUpon>frmConnectionProperty.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmLogin.resx">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmMainMenu.resx">
+      <DependentUpon>frmMainMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmTempForm.resx">
+      <DependentUpon>frmTempForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\house_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hide_slide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insert_endnote.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insert_table_of_authorities.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ipod_cast.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_b.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_c.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_e.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_escape.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_f.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_g.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_h.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_i.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_j.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_k.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_l.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_m.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_p.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_q.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_t.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_u.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_v.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_w.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_y.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_z.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\label.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\layered_pane.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\layouts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\layouts_design.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\layouts_four_grid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\layouts_header.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\layouts_header_footer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line_numbers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mark_citation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mark_entry.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mark_to_download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mask.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\match_field.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ocr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_break.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_footer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_header.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_number.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_numbers_in_margins_insert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_orientation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_size.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_update.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_acrobat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_actionscript.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_c.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_camera.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_cd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_code_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_compress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_cplusplus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_csharp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_cup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_database.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_dvd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_excel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_flash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_get.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_h.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_horizontal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_lightning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_magnify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_medal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_office.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_paint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_paintbrush.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_php.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_picture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_powerpoint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_put.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_ruby.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_stack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_text_width.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_tux.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_vector.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_width.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_word.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_world.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_wrench.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_zip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_width.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paginator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\panel_resize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\panel_resize_actual.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper_airplane.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\people_panel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\publisher_bookmark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\radio_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\radiobutton_group.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\raw_access_logs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reading_view.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\receipt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\receipt_excel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\receipt_share.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\receipt_stamp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh_all.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\regex_split.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\regular_expression.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\regular_expression_delimiter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\regular_expression_search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reset_windows_position.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rules.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sitemap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sitemap_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sitemap_application.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\size_horizontal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\size_vertical.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\slider.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\slider_050.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\slider_100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\slider_vertical.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\slider_vertical_050.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\slider_vertical_100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snowman_head.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sort.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sort_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sort_alphabel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sort_alphabel_column.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sort_alphabel_descending.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sort_date.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sort_date_descending.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sort_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sort_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sort_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sort_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sort_number.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sort_number_column.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sort_number_descending.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sort_price.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sort_price_descending.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sort_quantity.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sort_quantity_descending.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sort_rating.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sort_rating_descending.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sort_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sound_wave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\split_panel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\split_panel_vertical.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\splitter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\splitter_horizontal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sport_golf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\synchronous_scrolling.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tab_content.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tab_content_vertical.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\text_pagination.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\textfield.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\textfield_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\textfield_clear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\textfield_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\textfield_format.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\textfield_hidden.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\textfield_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\textfield_password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\to_do_list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\to_do_list_checked_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\to_do_list_checked_all.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toilet_pan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolbar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolbar_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolbar_bookmark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolbar_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolbar_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolbar_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolbar_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tooth.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\track_changes_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tree_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_cook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_cook_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_cook_female.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_cook_female_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_medical.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_medical_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_medical_female.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_medical_female_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_muslim.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_sailor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_sailor_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_trooper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_trooper_captain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vdividedbox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\view_side_by_side.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yacht.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\accept_document.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\address_block.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\align_above.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\align_bellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\align_center.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\align_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\align_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\align_none.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\align_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application_double.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application_get.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application_lightning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application_put.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application_side_contract.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application_side_expand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application_side_list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application_side_tree.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application_split.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application_tile_horizontal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blogs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_navigation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_navigation_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_toggle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buttons.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_import.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check_box_uncheck.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chefs_hat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\color_picker_transparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comment_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross_reference.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\curriculum_vitae.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cushion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\default_address.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\define_name.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dish.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\do_not_disturb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_break.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_center.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_copies.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_font.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_hash_tag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_import.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_margins.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_page.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_page_last.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_page_next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_page_previous.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_prepare.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_redirect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_rename.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_shred.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_spacing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_split.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_stand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_tag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_todo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_tree.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_vertical.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_view_book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_white_torn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\documentation_tools.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_mathematics.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\envelopes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error_log.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\export_excel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\finish_and_merge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flag_cyprus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flag_wto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flag_wwf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flask_empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\from_other_resources.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\from_text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\glass_of_milk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\greeting_line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\group_box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\handout_master.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hdividedbox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heart_empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hide_detail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\administrator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stacked_books.ico" />
+    <Content Include="Stacked_books.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>

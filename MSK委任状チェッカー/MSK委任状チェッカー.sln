@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MSK委任状チェッカー", "MSK委任状チェッカー\MSK委任状チェッカー.vbproj", "{9C9C04A1-99B4-4FA6-B16E-D1978EFC78F1}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MSK委任状チェッカーsetup", "MSK委任状チェッカーsetup\MSK委任状チェッカーsetup.vdproj", "{2049D58F-0841-4441-9E7F-581955AC4601}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9C9C04A1-99B4-4FA6-B16E-D1978EFC78F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C9C04A1-99B4-4FA6-B16E-D1978EFC78F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C9C04A1-99B4-4FA6-B16E-D1978EFC78F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C9C04A1-99B4-4FA6-B16E-D1978EFC78F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2049D58F-0841-4441-9E7F-581955AC4601}.Debug|Any CPU.ActiveCfg = Debug
+		{2049D58F-0841-4441-9E7F-581955AC4601}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

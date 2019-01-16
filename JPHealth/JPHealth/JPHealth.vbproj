@@ -96,7 +96,9 @@
     <Reference Include="C1.Win.BarCode.4">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="C1.Win.Bitmap.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.Bitmap.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="C1.Win.C1Chart.4">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -109,7 +111,7 @@
     <Reference Include="C1.Win.C1FlexGrid.4">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="C1.Win.C1FlexGrid.ImportExport.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1FlexGrid.ImportExport.4, Version=4.0.20183.338, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Input.4">
       <SpecificVersion>False</SpecificVersion>
     </Reference>

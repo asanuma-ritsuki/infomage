@@ -5,10 +5,10 @@
   </assembly>
   <members>
     <member name="T:C1.BarCode.INotify">
-      <summary>これは内部使用専用です。 バーコードの通知インタフェース。</summary>
+      <summary>これは内部使用専用です。バーコードの通知インタフェース。</summary>
     </member>
     <member name="M:C1.BarCode.INotify.ChangeValue(System.Object)">
-      <summary>これは内部使用専用です。 プロパティが変更されると呼び出されます。</summary>
+      <summary>これは内部使用専用です。プロパティが変更されると呼び出されます。</summary>
       <param name="sender">プロパティが変更されたオブジェクト。</param>
     </member>
     <member name="T:C1.BarCode.BarCodeException">
@@ -392,7 +392,7 @@
     </member>
     <member name="P:C1.BarCode.QRCodeOptions.Version">
       <summary>QRCode のバージョンを取得または設定します。</summary>
-      <remarks>Model プロパティが Model1 に設定されている場合は 1 ～ 14 の値を、Model2 の場合は 1 ～ 40 の値を指定してください。 -1 が指定された場合は、この値に最適なバージョンが自動的に決定されます。</remarks>
+      <remarks>Model プロパティが Model1 に設定されている場合は 1 ～ 14 の値を、Model2 の場合は 1 ～ 40 の値を指定してください。-1 が指定された場合は、この値に最適なバージョンが自動的に決定されます。</remarks>
     </member>
     <member name="P:C1.BarCode.QRCodeOptions.Mask">
       <summary>バーコードのマスクに使用されるパターンを取得または設定します。</summary>
@@ -531,18 +531,18 @@
         構造番号は、ECC モードが
         <see cref="T:DataMatrixEccMode.ECC200" />である場合にのみ使用されます。
       </remarks>
-      <value>構造的連接シンボル内の現在のシンボルの構造番号。 構造番号は０から始まり、シンボル量および最大シンボル数（16）より小さくなければなりません。</value>
+      <value>構造的連接シンボル内の現在のシンボルの構造番号。構造番号は０から始まり、シンボル量および最大シンボル数（16）より小さくなければなりません。</value>
     </member>
     <member name="P:C1.BarCode.DataMatrixOptions.FileIdentifier">
       <summary>関連する構造的連接シンボルグループのファイル識別子を取得または設定します。</summary>
-      <remarks>有効なファイル識別子値は [1,254] 以内である必要があります。 ファイル識別子を０に設定すると、シンボルのファイル識別子が自動的に計算されます。</remarks>
+      <remarks>有効なファイル識別子値は [1,254] 以内である必要があります。ファイル識別子を０に設定すると、シンボルのファイル識別子が自動的に計算されます。</remarks>
       <value>ファイル識別子。</value>
     </member>
     <member name="T:C1.BarCode.DataMatrixEccMode">
       <summary>ECC モードの列挙。</summary>
     </member>
     <member name="F:C1.BarCode.DataMatrixEccMode.ECC000">
-      <summary>ECC000。このモードは、CRC チェックサムだけを付けてデータをエンコードします。その他の誤り検出ビットは含まれません。 通常、この ECC モードでエンコードされたデータは、最小限のシンボルサイズしか必要としません。</summary>
+      <summary>ECC000。このモードは、CRC チェックサムだけを付けてデータをエンコードします。その他の誤り検出ビットは含まれません。通常、この ECC モードでエンコードされたデータは、最小限のシンボルサイズしか必要としません。</summary>
     </member>
     <member name="F:C1.BarCode.DataMatrixEccMode.ECC050">
       <summary>ECC050。</summary>
@@ -557,16 +557,16 @@
       <summary>ECC140。</summary>
     </member>
     <member name="F:C1.BarCode.DataMatrixEccMode.ECC200">
-      <summary>ECC200。これは推奨の ECC モードです。 この ECC モードでエンコードされたデータは、リード・ソロモン誤り検出/訂正アルゴリズムによって保護されます。</summary>
+      <summary>ECC200。これは推奨の ECC モードです。この ECC モードでエンコードされたデータは、リード・ソロモン誤り検出/訂正アルゴリズムによって保護されます。</summary>
     </member>
     <member name="T:C1.BarCode.DataMatrixEcc200SymbolSize">
       <summary>ECC200 モードのシンボルサイズの列挙。</summary>
     </member>
     <member name="F:C1.BarCode.DataMatrixEcc200SymbolSize.SquareAuto">
-      <summary>SquareAuto。 データが入る最小の正方形シンボルサイズが自動的に選択されます。</summary>
+      <summary>SquareAuto。データが入る最小の正方形シンボルサイズが自動的に選択されます。</summary>
     </member>
     <member name="F:C1.BarCode.DataMatrixEcc200SymbolSize.RectangularAuto">
-      <summary>RectangularAuto。 データが入る最小の長方形シンボルサイズが自動的に選択されます。</summary>
+      <summary>RectangularAuto。データが入る最小の長方形シンボルサイズが自動的に選択されます。</summary>
     </member>
     <member name="F:C1.BarCode.DataMatrixEcc200SymbolSize.Square10">
       <summary>Square10。10×10 正方形シンボルを表します。</summary>
@@ -686,7 +686,7 @@
       <summary>ECC000-140 モードのシンボルサイズの列挙。</summary>
     </member>
     <member name="F:C1.BarCode.DataMatrixEcc000_140SymbolSize.Auto">
-      <summary>自動。 データが入る最小のシンボルサイズが自動的に選択されます。</summary>
+      <summary>自動。データが入る最小のシンボルサイズが自動的に選択されます。</summary>
     </member>
     <member name="F:C1.BarCode.DataMatrixEcc000_140SymbolSize.Square9">
       <summary>Square9。9×9 正方形シンボルを表します。</summary>
@@ -835,10 +835,10 @@
       <summary>MicroPDF417 エンコーディングのバージョン。</summary>
     </member>
     <member name="F:C1.BarCode.MicroPDF417SymbolVersion.ColumnPriorAuto">
-      <summary>シンボルサイズ自動。 データが入る最小の列優先シンボルサイズが自動的に選択されます。</summary>
+      <summary>シンボルサイズ自動。データが入る最小の列優先シンボルサイズが自動的に選択されます。</summary>
     </member>
     <member name="F:C1.BarCode.MicroPDF417SymbolVersion.RowPriorAuto">
-      <summary>シンボルサイズ自動。 データが入る最小の行優先シンボルサイズが自動的に選択されます。</summary>
+      <summary>シンボルサイズ自動。データが入る最小の行優先シンボルサイズが自動的に選択されます。</summary>
     </member>
     <member name="F:C1.BarCode.MicroPDF417SymbolVersion.Version1X11">
       <summary>バージョン 1X11。1 列 11 行のシンボルです。</summary>
@@ -997,7 +997,7 @@
       <summary>GS1 バーコードを CC-A 付加バーコードと合成します。</summary>
     </member>
     <member name="T:C1.BarCode.BarStyle">
-      <summary>これは内部使用専用です。 内部バーコードスタイルを定義します。</summary>
+      <summary>これは内部使用専用です。内部バーコードスタイルを定義します。</summary>
     </member>
     <member name="T:C1.BarCode.CodeType">
       <summary>バーコードコントロールがバーコードの生成に使用するコードのタイプ。</summary>
@@ -1018,7 +1018,7 @@
       <summary>Interleaved 2 of 5 は数字だけを使用します。</summary>
     </member>
     <member name="F:C1.BarCode.CodeType.Matrix_2_of_5">
-      <summary>Matrix 2 of 5 は、３本の黒バーと２本の白バーから成る比較的高密度のバーコードです。 Matrix_2_of_5 は数字だけを使用します。</summary>
+      <summary>Matrix 2 of 5 は、３本の黒バーと２本の白バーから成る比較的高密度のバーコードです。Matrix_2_of_5 は数字だけを使用します。</summary>
     </member>
     <member name="F:C1.BarCode.CodeType.Code39">
       <summary>Code 39 は、大文字、数字、% * $ /. , - + を使用します。</summary>
@@ -1036,7 +1036,7 @@
       <summary>Code 128 C は数字だけを使用します。</summary>
     </member>
     <member name="F:C1.BarCode.CodeType.Code_128auto">
-      <summary>Code 128 Auto は、ASCII 文字セット全体を使用します。 最小のバーコードになるように、Code 128 A、B、および C から１つが自動的に選択されます。</summary>
+      <summary>Code 128 Auto は、ASCII 文字セット全体を使用します。最小のバーコードになるように、Code 128 A、B、および C から１つが自動的に選択されます。</summary>
     </member>
     <member name="F:C1.BarCode.CodeType.Code_93">
       <summary>Code 93 は、大文字、数字、% $ * / , + - を使用します。</summary>
@@ -1057,70 +1057,70 @@
       <summary>EAN-8 は、数字（７個の数字とチェックデジット）だけを使用します。</summary>
     </member>
     <member name="F:C1.BarCode.CodeType.EAN_13">
-      <summary>EAN-13 は、数字（12 個の数字とチェックデジット）だけを使用します。 文字列内に数字が 12 個だけある場合は、チェックサムを計算し、それを 13 番目の位置に付加します。 13 個の数字がある場合は、チェックサムを検証し、それが正しくない場合はエラーを生成します。</summary>
+      <summary>EAN-13 は、数字（12 個の数字とチェックデジット）だけを使用します。文字列内に数字が 12 個だけある場合は、チェックサムを計算し、それを 13 番目の位置に付加します。13 個の数字がある場合は、チェックサムを検証し、それが正しくない場合はエラーを生成します。</summary>
     </member>
     <member name="F:C1.BarCode.CodeType.UPC_A">
       <summary>UPC-A は、数字（11 個の数字とチェックデジット）だけを使用します。</summary>
     </member>
     <member name="F:C1.BarCode.CodeType.UPC_E0">
-      <summary>UPC-E0 は数字だけを使用します。 Zero Suppression の UPC シンボルに使用されます。 Caption プロパティには、６桁の UPC-E コードまたは完全な 11 桁（必須のコードタイプ０を含む）の UPC-A コードを入力する必要があります。 11 桁のコードが入力された場合、バーコードコントロールは、可能であればそれを６桁の UPC-E コードに変換します。 11 桁のコードを６桁のコードに変換できない場合は、何も表示されません。</summary>
+      <summary>UPC-E0 は数字だけを使用します。Zero Suppression の UPC シンボルに使用されます。Caption プロパティには、６桁の UPC-E コードまたは完全な 11 桁（必須のコードタイプ０を含む）の UPC-A コードを入力する必要があります。11 桁のコードが入力された場合、バーコードコントロールは、可能であればそれを６桁の UPC-E コードに変換します。11 桁のコードを６桁のコードに変換できない場合は、何も表示されません。</summary>
     </member>
     <member name="F:C1.BarCode.CodeType.UPC_E1">
-      <summary>UPC-E1 は数字だけを使用します。主に小売業界で在庫ラベルに使用されます。 UPC-E1 の入力文字列の長さは数字６個です。</summary>
+      <summary>UPC-E1 は数字だけを使用します。主に小売業界で在庫ラベルに使用されます。UPC-E1 の入力文字列の長さは数字６個です。</summary>
     </member>
     <member name="F:C1.BarCode.CodeType.RM4SCC">
-      <summary>Royal Mail RM4SCC は、文字と数字（チェックデジット付き）だけを使用します。 これは、イギリスのロイヤルメールで使用されるバーコードです。</summary>
+      <summary>Royal Mail RM4SCC は、文字と数字（チェックデジット付き）だけを使用します。これは、イギリスのロイヤルメールで使用されるバーコードです。</summary>
     </member>
     <member name="F:C1.BarCode.CodeType.UCCEAN128">
-      <summary>UCC/EAN –128 は、ASCII 文字セット全体を使用します。 HIBC アプリケーションで使用される特殊な Code 128 です。</summary>
+      <summary>UCC/EAN –128 は、ASCII 文字セット全体を使用します。HIBC アプリケーションで使用される特殊な Code 128 です。</summary>
     </member>
     <member name="F:C1.BarCode.CodeType.QRCode">
-      <summary>QRCode は、英数字やバイトデータに加えて、日本語の漢字やかな文字も扱うことができる２次元バーコードです。 このバーコードは最大 7,366 文字をエンコードできます。</summary>
+      <summary>QRCode は、英数字やバイトデータに加えて、日本語の漢字やかな文字も扱うことができる２次元バーコードです。このバーコードは最大 7,366 文字をエンコードできます。</summary>
     </member>
     <member name="F:C1.BarCode.CodeType.Code49">
       <summary>Code 49 は、２次元高密度スタック型バーコードです。ASCII 文字セット全体をエンコードします。</summary>
     </member>
     <member name="F:C1.BarCode.CodeType.JapanesePostal">
-      <summary>これは、日本の郵便制度で使用されるバーコードです。 20 桁の英数字をエンコードします。これには、７桁の郵便番号の後に、必要に応じて番地や部屋番号などの情報が含まれます。 エンコードするデータはハイフンを含むことができます。</summary>
+      <summary>これは、日本の郵便制度で使用されるバーコードです。20 桁の英数字をエンコードします。これには、７桁の郵便番号の後に、必要に応じて番地や部屋番号などの情報が含まれます。エンコードするデータはハイフンを含むことができます。</summary>
     </member>
     <member name="F:C1.BarCode.CodeType.Pdf417">
-      <summary>Pdf417 は、よく使用されている２次元高密度バーコードです。最大 1,108 バイトの情報をエンコードできます。 このバーコードは、小さなバーコードを積み重ねて構成されます。 ASCII 文字セット全体をエンコードします。 最大 2,725 データ文字をエンコードできます。</summary>
+      <summary>Pdf417 は、よく使用されている２次元高密度バーコードです。最大 1,108 バイトの情報をエンコードできます。このバーコードは、小さなバーコードを積み重ねて構成されます。ASCII 文字セット全体をエンコードします。最大 2,725 データ文字をエンコードできます。</summary>
     </member>
     <member name="F:C1.BarCode.CodeType.EAN128FNC1">
-      <summary>EAN128FNC1 は UCC/EAN-128（EAN128）バーコードタイプの１つで、任意の場所に FNC1 文字を挿入したり、バーサイズを調整することができるなど、UCC/EAN-128 にはない機能をサポートしています。 FNC1 文字を挿入するには、実行時に Text プロパティに "\n"（C# の場合）または "vbLf"（VB の場合）を設定します。</summary>
+      <summary>EAN128FNC1 は UCC/EAN-128（EAN128）バーコードタイプの１つで、任意の場所に FNC1 文字を挿入したり、バーサイズを調整することができるなど、UCC/EAN-128 にはない機能をサポートしています。FNC1 文字を挿入するには、実行時に Text プロパティに "\n"（C# の場合）または "vbLf"（VB の場合）を設定します。</summary>
     </member>
     <member name="F:C1.BarCode.CodeType.RSS14">
-      <summary>RSS14 は、コンポジットコンポーネント（CC）で拡張された EAN および UPC 情報を小さなスペースにエンコードできる省スペースシンボル（Reduced Space Symbology：RSS）の１つです。 このバージョンは、全方向型 POS スキャナと共に使用される 14 桁の EAN.UCC 品目識別用です。</summary>
+      <summary>RSS14 は、コンポジットコンポーネント（CC）で拡張された EAN および UPC 情報を小さなスペースにエンコードできる省スペースシンボル（Reduced Space Symbology：RSS）の１つです。このバージョンは、全方向型 POS スキャナと共に使用される 14 桁の EAN.UCC 品目識別用です。</summary>
     </member>
     <member name="F:C1.BarCode.CodeType.RSS14Truncated">
-      <summary>RSS14Truncated は、コンポジットコンポーネント（CC）で拡張された EAN および UPC 情報を小さなスペースにエンコードできる省スペースシンボル（Reduced Space Symbology：RSS）の１つです。 このバージョンは、小さな品目に使用される、インジケータデジット付きの 14 桁の EAN.UCC 品目識別用です。POS スキャナ用ではありません。</summary>
+      <summary>RSS14Truncated は、コンポジットコンポーネント（CC）で拡張された EAN および UPC 情報を小さなスペースにエンコードできる省スペースシンボル（Reduced Space Symbology：RSS）の１つです。このバージョンは、小さな品目に使用される、インジケータデジット付きの 14 桁の EAN.UCC 品目識別用です。POS スキャナ用ではありません。</summary>
     </member>
     <member name="F:C1.BarCode.CodeType.RSS14Stacked">
-      <summary>RSS14Stacked は、コンポジットコンポーネント（CC）で拡張された EAN および UPC 情報を小さなスペースにエンコードできる省スペースシンボル（Reduced Space Symbology：RSS）の１つです。 このバージョンは、RSS14Truncated では広すぎる場合に２段に積み重ねられること以外は、RSS14Truncated と同じです。</summary>
+      <summary>RSS14Stacked は、コンポジットコンポーネント（CC）で拡張された EAN および UPC 情報を小さなスペースにエンコードできる省スペースシンボル（Reduced Space Symbology：RSS）の１つです。このバージョンは、RSS14Truncated では広すぎる場合に２段に積み重ねられること以外は、RSS14Truncated と同じです。</summary>
     </member>
     <member name="F:C1.BarCode.CodeType.RSS14StackedOmnidirectional">
-      <summary>RSS14StackedOmnidirectional は、コンポジットコンポーネント（CC）で拡張された EAN および UPC 情報を小さなスペースにエンコードできる省スペースシンボル（Reduced Space Symbology：RSS）の１つです。 このバージョンは、RSS14 では広すぎる場合に２段に積み重ねられること以外は、RSS14 と同じです。</summary>
+      <summary>RSS14StackedOmnidirectional は、コンポジットコンポーネント（CC）で拡張された EAN および UPC 情報を小さなスペースにエンコードできる省スペースシンボル（Reduced Space Symbology：RSS）の１つです。このバージョンは、RSS14 では広すぎる場合に２段に積み重ねられること以外は、RSS14 と同じです。</summary>
     </member>
     <member name="F:C1.BarCode.CodeType.RSSExpanded">
-      <summary>RSSExpanded は、コンポジットコンポーネント（CC）で拡張された EAN および UPC 情報を小さなスペースにエンコードできる省スペースシンボル（Reduced Space Symbology：RSS）の１つです。 このバージョンは、全方向型 POS スキャナと共に使用される、AI 要素文字列（有効期限、重量など）付きの 14 桁の EAN.UCC 品目識別用です。</summary>
+      <summary>RSSExpanded は、コンポジットコンポーネント（CC）で拡張された EAN および UPC 情報を小さなスペースにエンコードできる省スペースシンボル（Reduced Space Symbology：RSS）の１つです。このバージョンは、全方向型 POS スキャナと共に使用される、AI 要素文字列（有効期限、重量など）付きの 14 桁の EAN.UCC 品目識別用です。</summary>
     </member>
     <member name="F:C1.BarCode.CodeType.RSSExpandedStacked">
-      <summary>RSSExpandedStacked は、コンポジットコンポーネント（CC）で拡張された EAN および UPC 情報を小さなスペースにエンコードできる省スペースシンボル（Reduced Space Symbology：RSS）の１つです。 このバージョンは、RSSExpanded では広すぎる場合に２段に積み重ねられること以外は、RSSExpanded と同じです。</summary>
+      <summary>RSSExpandedStacked は、コンポジットコンポーネント（CC）で拡張された EAN および UPC 情報を小さなスペースにエンコードできる省スペースシンボル（Reduced Space Symbology：RSS）の１つです。このバージョンは、RSSExpanded では広すぎる場合に２段に積み重ねられること以外は、RSSExpanded と同じです。</summary>
     </member>
     <member name="F:C1.BarCode.CodeType.RSSLimited">
-      <summary>RSS Limited は、コンポジットコンポーネント（CC）で拡張された EAN および UPC 情報を小さなスペースにエンコードできる省スペースシンボル（Reduced Space Symbology：RSS）の１つです。 このバージョンは、０または１のインジケータデジット付きの 14 桁の EAN.UCC 品目識別用です。POS スキャナでスキャンされない小さなシンボルに使用されます。</summary>
+      <summary>RSS Limited は、コンポジットコンポーネント（CC）で拡張された EAN および UPC 情報を小さなスペースにエンコードできる省スペースシンボル（Reduced Space Symbology：RSS）の１つです。このバージョンは、０または１のインジケータデジット付きの 14 桁の EAN.UCC 品目識別用です。POS スキャナでスキャンされない小さなシンボルに使用されます。</summary>
     </member>
     <member name="F:C1.BarCode.CodeType.DataMatrix">
       <summary>Data Matrix は、正方形または長方形のマトリックスパターンに並べられた正方形モジュールから成る２次元高密度バーコードです。</summary>
     </member>
     <member name="F:C1.BarCode.CodeType.MicroPDF417">
-      <summary>MicroPDF417 は、PDF417 から派生された２次元多段バーコードです。 Micro-PDF417 は、データをできる限り小さなサイズの２次元シンボル（最大 150 バイト、英数字 250 文字、数字 366 桁）にエンコードする必要があるアプリケーション用に設計されています。</summary>
+      <summary>MicroPDF417 は、PDF417 から派生された２次元多段バーコードです。Micro-PDF417 は、データをできる限り小さなサイズの２次元シンボル（最大 150 バイト、英数字 250 文字、数字 366 桁）にエンコードする必要があるアプリケーション用に設計されています。</summary>
     </member>
     <member name="F:C1.BarCode.CodeType.IntelligentMail">
       <summary>Intelligent Mail（以前の 4-State Customer Barcode）は、米国内の郵便に使用される 65 本のバーコードです。</summary>
     </member>
     <member name="T:C1.BarCode.BarEngine">
-      <summary>これは内部使用専用です。 バーコードレンダリングエンジンの実装。</summary>
+      <summary>これは内部使用専用です。バーコードレンダリングエンジンの実装。</summary>
     </member>
     <member name="M:C1.BarCode.BarEngine.CheckFixLength(System.String,C1.BarCode.BarStyle,System.Int32)">
       <summary>Text プロパティにテキストを設定する前に、固定長をチェックしてください。</summary>
@@ -1130,19 +1130,19 @@
       <returns></returns>
     </member>
     <member name="M:C1.BarCode.BarEngine.DrawEx(C1.BarCode.IDrawingDevice,C1.Win.Interop.Rect,System.String)">
-      <summary>これは内部使用専用です。 バーコードを描画します。</summary>
+      <summary>これは内部使用専用です。バーコードを描画します。</summary>
       <param name="dc">描画するデバイス。範囲を計算するには null を渡します</param>
       <param name="bounds">範囲。</param>
       <param name="tstrData">データ。</param>
     </member>
     <member name="M:C1.BarCode.BarEngine.CalculateSize2(C1.BarCode.IDrawingDevice,System.String)">
-      <summary>これは内部使用専用です。 バーコードのサイズを計算します。</summary>
+      <summary>これは内部使用専用です。バーコードのサイズを計算します。</summary>
       <param name="measureDevice"></param>
       <param name="tstrData"></param>
       <returns>計算されたサイズを返します。</returns>
     </member>
     <member name="M:C1.BarCode.BarEngine.CalculateSize(C1.BarCode.IDrawingDevice,System.String,C1.Win.Interop.Size)">
-      <summary>これは内部使用専用です。 バーコードを自動サイズ変更します。</summary>
+      <summary>これは内部使用専用です。バーコードを自動サイズ変更します。</summary>
       <param name="measureDevice"></param>
       <param name="tstrData"></param>
       <param name="barSize"></param>
@@ -1159,7 +1159,7 @@
       <summary>バーエンジンのキャプションラベルを取得します。</summary>
     </member>
     <member name="M:C1.BarCode.BarEngine.IsRssStackedBarcode(C1.BarCode.CodeType)">
-      <summary>これは内部使用専用です。 バーコードが RSS スタック型バーコードかどうかを示す値を取得します。</summary>
+      <summary>これは内部使用専用です。バーコードが RSS スタック型バーコードかどうかを示す値を取得します。</summary>
       <param name="codeType"></param>
       <returns></returns>
     </member>
@@ -1169,7 +1169,7 @@
       <returns></returns>
     </member>
     <member name="M:C1.BarCode.BarEngine.IsMatrixBarcode(C1.BarCode.CodeType)">
-      <summary>これは内部使用専用です。 バーコードが「マトリックス」バーコード（QRCode、DataMatrix など）かどうかを示す値を取得します。</summary>
+      <summary>これは内部使用専用です。バーコードが「マトリックス」バーコード（QRCode、DataMatrix など）かどうかを示す値を取得します。</summary>
       <param name="codeType"></param>
       <returns></returns>
     </member>
@@ -1191,7 +1191,7 @@
     </member>
     <member name="M:C1.BarCode.BarEngine.CalculateCompositeBarcodeSize(C1.BarCode.IDrawingDevice,C1.Win.Interop.Rect,C1.BarCode.BarCodeCaptionPosition,System.Single,C1.BarCode.BarCodeDirection,C1.BarCode.BarEngine[],System.String[],System.Boolean,C1.Win.Interop.Rect[]@,System.Double@)">
       <summary>合成バーコードの範囲内の各子バーコードの範囲を計算します。</summary>
-      <remarks>1) 固定モジュールサイズを使用して、各子バーコードのサイズを計算します。 2) 実際の合成範囲に合わせてバーコードサイズを拡大縮小します。</remarks>
+      <remarks>1) 固定モジュールサイズを使用して、各子バーコードのサイズを計算します。2) 実際の合成範囲に合わせてバーコードサイズを拡大縮小します。</remarks>
       <param name="measureDevice">計算に使用される IMesureDevice インタフェース。</param>
       <param name="bounds">合成バーコードの範囲。これは回転されていない範囲です。</param>
       <param name="captionPosition">キャプションラベルの位置。</param>
@@ -1221,7 +1221,7 @@
     </member>
     <member name="P:C1.BarCode.BarEngine.IsAutoModuleSize">
       <summary>モジュールサイズが自動計算されるかどうかを示します。</summary>
-      <remarks>IsAutoModuleSize が true の場合は、OnCalculateSize および OnRender の前にモジュールサイズが自動計算されます。 IsAutoModuleSize が false の場合は、モジュールサイズとして FixedModuleSize が使用されます。</remarks>
+      <remarks>IsAutoModuleSize が true の場合は、OnCalculateSize および OnRender の前にモジュールサイズが自動計算されます。IsAutoModuleSize が false の場合は、モジュールサイズとして FixedModuleSize が使用されます。</remarks>
     </member>
     <member name="P:C1.BarCode.BarEngine.FixedModuleSize">
       <summary>IsAutoModuleSize が false の場合に、固定されたモジュールサイズを使用してサイズを計算し、レンダリングします。</summary>
@@ -1361,25 +1361,25 @@
       <summary>バーコード全体の高さ。</summary>
     </member>
     <member name="T:C1.BarCode.IDrawingDevice">
-      <summary>これは内部使用専用です。 何らかのコンテキストで実際の描画に使用される共通インタフェースを定義します。</summary>
+      <summary>これは内部使用専用です。何らかのコンテキストで実際の描画に使用される共通インタフェースを定義します。</summary>
     </member>
     <member name="M:C1.BarCode.IDrawingDevice.MeasureString(System.String)">
-      <summary>これは内部使用専用です。 指定された文字列を測定します。</summary>
+      <summary>これは内部使用専用です。指定された文字列を測定します。</summary>
       <param name="text">測定する文字列。</param>
       <returns>文字列のサイズを返します。</returns>
     </member>
     <member name="M:C1.BarCode.IDrawingDevice.FillRectangle(C1.Win.Interop.Rect)">
-      <summary>これは内部使用専用です。 四角形の内部を塗りつぶします。</summary>
+      <summary>これは内部使用専用です。四角形の内部を塗りつぶします。</summary>
       <param name="bounds">塗りつぶす四角形。</param>
     </member>
     <member name="M:C1.BarCode.IDrawingDevice.DrawRectangle(C1.Win.Interop.Rect,System.Int32,System.Drawing.Color)">
-      <summary>これは内部使用専用です。 四角形を描画します。</summary>
+      <summary>これは内部使用専用です。四角形を描画します。</summary>
       <param name="bounds">描画する四角形。</param>
       <param name="strokeThickness">ストロークの太さ。</param>
       <param name="stroke">ストロークの色。</param>
     </member>
     <member name="M:C1.BarCode.IDrawingDevice.DrawString(System.String,C1.Win.Interop.Point)">
-      <summary>これは内部使用専用です。 指定されたテキスト文字列を描画します。</summary>
+      <summary>これは内部使用専用です。指定されたテキスト文字列を描画します。</summary>
       <param name="text">描画する文字列。</param>
       <param name="point">描画されるテキストの左上隅。</param>
     </member>
@@ -1406,10 +1406,10 @@
       <summary>バーコード画像としてエンコードされる値を取得または設定します。</summary>
       <remarks>
         <para>
-          一部のエンコーディングは任意の長さの英数字値をサポートします。その他の エンコーディングは、数値または特定の文字セットに制限されます。 詳細については、
+          一部のエンコーディングは任意の長さの英数字値をサポートします。その他の エンコーディングは、数値または特定の文字セットに制限されます。詳細については、
           <see cref="P:C1.Win.BarCode.C1BarCode.CodeType" />列挙を 参照してください。
         </para>
-        <para>現在のエンコーディングに対して無効な文字を使用すると、 コントロールには空白の画像が表示されます。</para>
+        <para>現在のエンコーディングに対して無効な文字を使用すると、コントロールには空白の画像が表示されます。</para>
       </remarks>
     </member>
     <member name="P:C1.Win.BarCode.C1BarCode.CaptionPosition">
@@ -1511,6 +1511,350 @@
     </member>
     <member name="P:C1.BarCode.BarEngine.UsedFromReports">
       <summary>BarEngine が C1FlexReport または C1Document から使用されるかどうかを示します。</summary>
+    </member>
+    <member name="P:C1.Win.BarCode.C1BarCode.MicroQRCodeOptions">
+      <summary>
+        MicroQRCode のオプション。
+      </summary>
+    </member>
+    <member name="T:C1.BarCode.MicroQRCodeErrorLevel">
+      <summary>
+        MicroQRCode のエラー修正レベルを指定します。
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.MicroQRCodeErrorLevel.None">
+      <summary>
+        なし
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.MicroQRCodeErrorLevel.L">
+      <summary>
+        低
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.MicroQRCodeErrorLevel.M">
+      <summary>
+        中
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.MicroQRCodeErrorLevel.Q">
+      <summary>
+        良
+      </summary>
+    </member>
+    <member name="T:C1.BarCode.MicroQRCodeMask">
+      <summary>
+        MicroQRCode のマスクパターン参照を設定します。
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.MicroQRCodeMask.Auto">
+      <summary>
+        自動設定。
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.MicroQRCodeMask.Mask00">
+      <summary>
+        パターン 000。
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.MicroQRCodeMask.Mask01">
+      <summary>
+        パターン 001。
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.MicroQRCodeMask.Mask10">
+      <summary>
+        パターン 010。
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.MicroQRCodeMask.Mask11">
+      <summary>
+        パターン 011。
+      </summary>
+    </member>
+    <member name="T:C1.BarCode.MicroQRVersion">
+      <summary>
+        MicroQRCode のバージョンを設定します。
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.MicroQRVersion.Auto">
+      <summary>
+        自動的に推定された QR コードのバージョン
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.MicroQRVersion.M1">
+      <summary>
+        バージョン M1（11 モジュール）のマイクロ QR コードを指定します。
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.MicroQRVersion.M2">
+      <summary>
+        バージョン M2（13 モジュール）のマイクロ QR コードを指定します。
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.MicroQRVersion.M3">
+      <summary>
+        バージョン M3（15 モジュール）のマイクロ QR コードを指定します。
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.MicroQRVersion.M4">
+      <summary>
+        バージョン M4（17 モジュール）のマイクロ QR コードを指定します。
+      </summary>
+    </member>
+    <member name="T:C1.BarCode.MicroQRCodeOptions">
+      <summary>
+        MicroQRCode バーコード固有の情報を表します。
+      </summary>
+    </member>
+    <member name="M:C1.BarCode.MicroQRCodeOptions.#ctor">
+      <summary>
+        <see cref="T:C1.BarCode.MicroQRCodeOptions" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.BarCode.MicroQRCodeOptions.#ctor(System.String)">
+      <summary>
+        <see cref="T:C1.BarCode.MicroQRCodeOptions" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.BarCode.MicroQRCodeOptions.Equals(System.Object)">
+      <summary>
+        指定された <see cref="T:System.Object" /> がこのインスタンスと等しいかどうかを判定します。
+      </summary>
+      <param name="obj">
+        現在の <see cref="T:System.Object" /> と比較する <see cref="T:System.Object" />。
+      </param>
+      <returns>
+        指定された <see cref="T:System.Object" /> がこのインスタンスと等しい場合は <c>true</c>、そうでない場合は <c>false</c></returns>
+    </member>
+    <member name="M:C1.BarCode.MicroQRCodeOptions.GetHashCode">
+      <summary>
+        オーバーライドされます。このオブジェクトの文字列表現のハッシュコードを返します。
+      </summary>
+      <returns>32 ビット符号付き整数のハッシュコード。</returns>
+    </member>
+    <member name="M:C1.BarCode.MicroQRCodeOptions.ToString">
+      <summary>
+        このインスタンスを表す <see cref="T:System.String" /> を返します。
+      </summary>
+      <returns>
+        このインスタンスを表す <see cref="T:System.String" /></returns>
+    </member>
+    <member name="P:C1.BarCode.MicroQRCodeOptions.ErrorLevel">
+      <summary>
+        バーコードのエラー修正レベルを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.BarCode.MicroQRCodeOptions.Version">
+      <summary>
+        MicroQRCode のバージョンを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.BarCode.MicroQRCodeOptions.Mask">
+      <summary>
+        バーコードのマスクに使用されるパターンを取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.BarCode.MicroQRCodeOptions.EncodingCodePage">
+      <summary>
+        デザイナでエンコーディングを指定するための設計時プロパティ。
+      </summary>
+    </member>
+    <member name="M:C1.BarCode.MicroQRCodeOptions.Clone">
+      <summary>
+        現在のインスタンスをコピーした新しいオブジェクトを作成します。
+      </summary>
+      <returns>このインスタンスをコピーした新しいオブジェクト。</returns>
+    </member>
+    <member name="M:C1.BarCode.MicroQRCodeOptions.AssignFrom(C1.BarCode.BarCodeOptionsBase)">
+      <summary>
+        プロパティを別の <see cref="T:C1.BarCode.BarCodeOptionsBase" /> から現在のオブジェクトに割り当てます（コピーします）。
+      </summary>
+      <param name="source">プロパティのコピー元のオブジェクト。</param>
+    </member>
+    <member name="T:C1.BarCode.MaxiCodeMode">
+      <summary>
+        MaxiCode モード。
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.MaxiCodeMode.Mode2">
+      <summary>
+        最大 9 桁の郵便番号を使用する米国内運送用のモードです。
+        このモードでは、数字で約 138 文字をエンコードできます。
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.MaxiCodeMode.Mode3">
+      <summary>
+        最大 6 桁の英数字郵便番号を使用する国際運送用のモードです。
+        このモードでは、約 93 文字をエンコードできます。
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.MaxiCodeMode.Mode4">
+      <summary>
+        標準シンボル用のモードです。運送業以外の目的で一般的な情報をエンコードします。
+        このモードでは、約 90 文字をエンコードできます。
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.MaxiCodeMode.Mode5">
+      <summary>
+        高いエラー修正レベルで一般的な情報をエンコードする堅牢なシンボルを提供します。
+        このモードでは、約 74 文字をエンコードできます。
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.MaxiCodeMode.Mode6">
+      <summary>
+        リーダープログラム用です。スキャナメーカーは、このモードを使用してバーコードリーダーをプログラムできます。
+      </summary>
+    </member>
+    <member name="T:C1.BarCode.MaxiCodeOptions">
+      <summary>
+        MaxiCode バーコード固有の情報を表します。
+      </summary>
+    </member>
+    <member name="M:C1.BarCode.MaxiCodeOptions.#ctor">
+      <summary>
+        <see cref="T:C1.BarCode.MaxiCodeOptions" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.BarCode.MaxiCodeOptions.#ctor(System.String)">
+      <summary>
+        <see cref="T:C1.BarCode.MaxiCodeOptions" /> クラスの新しいインスタンスを初期化します。
+      </summary>
+    </member>
+    <member name="M:C1.BarCode.MaxiCodeOptions.Equals(System.Object)">
+      <summary>
+        指定された <see cref="T:System.Object" /> がこのインスタンスと等しいかどうかを判定します。
+      </summary>
+      <param name="obj">
+        現在の <see cref="T:System.Object" /> と比較する <see cref="T:System.Object" />。
+      </param>
+      <returns>
+        指定された <see cref="T:System.Object" /> がこのインスタンスと等しい場合は <c>true</c>、そうでない場合は <c>false</c></returns>
+    </member>
+    <member name="M:C1.BarCode.MaxiCodeOptions.GetHashCode">
+      <summary>
+        オーバーライドされます。このインスタンスの文字列表現のハッシュコードを返します。
+      </summary>
+    </member>
+    <member name="M:C1.BarCode.MaxiCodeOptions.ToString">
+      <summary>
+        このインスタンスを表す <see cref="T:System.String" /> を返します。
+      </summary>
+      <returns>
+        このインスタンスを表す <see cref="T:System.String" /></returns>
+    </member>
+    <member name="P:C1.BarCode.MaxiCodeOptions.Mode">
+      <summary>
+        MaxiCode モードを取得または設定します。
+      </summary>
+    </member>
+    <member name="M:C1.BarCode.MaxiCodeOptions.Clone">
+      <summary>
+        現在のインスタンスをコピーした新しいオブジェクトを作成します。
+      </summary>
+      <returns>このインスタンスをコピーした新しいオブジェクト。</returns>
+    </member>
+    <member name="M:C1.BarCode.MaxiCodeOptions.AssignFrom(C1.BarCode.BarCodeOptionsBase)">
+      <summary>
+        プロパティを別の <see cref="T:C1.BarCode.BarCodeOptionsBase" /> から現在のオブジェクトに割り当てます（コピーします）。
+      </summary>
+      <param name="source"></param>
+    </member>
+    <member name="F:C1.BarCode.CodeType.MicroQRCode">
+      <summary>
+        マイクロ QR コードは、QR コード 2005 の一種です。他の通常の QR コードと比べると、位置検出パターンが 1 つしかなく、バーコードサイズが小さいため、バーコード画像のスペースに厳しい制約があるアプリケーションで使用できます。
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.CodeType.ITF14">
+      <summary>
+        ITF14 バーコードは、GTIN（国際取引商品番号）をエンコードする Interleaved 2 of 5 バーコードの GS1 実装です。連続型のバーコードで、セルフチェック機能を持ち、双方向にデコード可能です。また、常に 14 桁をエンコードします。ITF14 は、一般に、製品の梱包段階で使用されます。
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.CodeType.Code11">
+      <summary>
+        Code 11（USD-8 とも呼ばれる）は、数値をエンコードする高密度のバーコードシンボルで、1977 年に Intermec によって開発されました。当初は、通信機器のラベルに使用されていました。このシンボルは分離型で、0～9 の数字、ダッシュ（-）、スタート/ストップキャラクタをエンコードできます。
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.CodeType.SSCC18">
+      <summary>
+        18 桁のシリアル梱包番号（SSCC-18）バーコード。このタイプのバーコードは、サーマル 4" x 8" または 4" x 8¼"（またはローカル単位で相当する長さ）のラベルの下側 2 インチ（またはローカル単位で相当する長さ）の余白に印刷することができます。
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.CodeType.Telepen">
+      <summary>
+        Telepen は、コード切り替えのためのシフト文字を使用せずに、2 種類の幅のバーとスペースだけを使用して ASCII 128 文字すべてを表すバーコードシンボルで、1972 年に英国で設計されました。
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.CodeType.Pharmacode">
+      <summary>
+        Pharmacode（製薬バイナリコードとも呼ばれる）は、製薬業界で包装制御システムとして使用されるバーコード標準です。
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.CodeType.PZN">
+      <summary>
+        PZN（Pharma-Zentral-Nummer）は、ドイツの製薬業界で医薬品およびヘルスケア製品を識別するために使用されるバーコード標準です。
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.CodeType.HIBCCode128">
+      <summary>
+        医療産業バーコード 128 の実装です。
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.CodeType.HIBCCode39">
+      <summary>
+        医療産業バーコード 39 の実装です。
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.CodeType.ISBN">
+      <summary>
+        国際標準図書番号（ISBN）は、市販の書籍に使用される特別な識別子で、「978」または「979」の開始番号に加えて 9 桁の数値をエンコードします。
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.CodeType.ISSN">
+      <summary>
+        国際標準逐次刊行物番号（ISSN）は、定期的に刊行される雑誌などの印刷物または電子出版物に使用される 8 桁の数値です。この ISSN システムは、1971 年に国際標準として起草され、1975 年に ISO 3297 として発行されました。
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.CodeType.ISMN">
+      <summary>
+        国際標準楽譜番号（ISMN、ISO 10957）は、ISO によって開発され、楽譜出版物に使用される英数字 13 文字の識別子です。
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.CodeType.Iata25">
+      <summary>
+        IATA 2 of 5 バーコードを表します。
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.CodeType.Bc412">
+      <summary>
+        BC412 バーコードは、半導体ウエハー識別アプリケーションのニーズに応えるために IBM によって考案されました。
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.CodeType.Plessey">
+      <summary>
+        MSI バーコード（Modified Plessey とも呼ばれる）は、MSI Data Corporation によって開発された数字シンボルで、主に在庫管理用の商品棚のマーキングに使用されます。MSI Plessey は連続型でセルフチェック機能を持ちますが、複数のモジュールチェックサム状態を提供します。
+      </summary>
+    </member>
+    <member name="F:C1.BarCode.CodeType.IntelligentMailPackage">
+      <summary>
+        インテリジェント郵便小包バーコード（IMPB：Intelligent Mail Package Barcode）。
+      </summary>
+    </member>
+    <member name="M:C1.BarCode.IDrawingDevice.FillPolygon(C1.Win.Interop.Point[])">
+      <summary>
+        内部使用。
+        指定された多角形を塗りつぶします。
+      </summary>
+      <param name="bounds"></param>
+    </member>
+    <member name="M:C1.BarCode.IDrawingDevice.DrawEllipse(C1.Win.Interop.Point,System.Double,System.Double,System.Double)">
+      <summary>
+        内部使用。
+      </summary>
+      <param name="center"></param>
+      <param name="rx"></param>
+      <param name="ry"></param>
+      <param name="width"></param>
     </member>
   </members>
 </doc>
