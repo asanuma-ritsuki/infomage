@@ -203,18 +203,26 @@ Public Class frmPrintPreview
 					strSQL &= "T1.視力判定, T1.聴力判定, T1.血圧判定, T1.尿糖判定, T1.尿蛋白判定, T1.血中脂質判定, T1.肝機能判定, "
 					strSQL &= "T1.腎機能判定, T1.尿酸判定, T1.血液判定, T1.血糖判定, T1.胸部X線判定結果, T1.心電図判定結果, "
 					strSQL &= "T1.総合成績判定, T1.就業区分, T1.胸部X線所見, T1.胸部X線判定, T1.心電図所見, T1.心電図判定, "
-					strSQL &= "T1.既往歴, T1.自覚症状, T1.診察所見, T1.総合コメント, T1.産業医の意見, T1.QRコード, T4.ラベル連番 "
-					strSQL &= "FROM T_判定票印刷 AS T1 INNER JOIN "
-					strSQL &= "T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID "
+                    strSQL &= "T1.既往歴, T1.自覚症状, T1.診察所見, T1.総合コメント, T1.産業医の意見, T1.QRコード, T4.ラベル連番, "
+                    '2019/05/07
+                    '3項目追加
+                    strSQL &= "T3.年度, ISNULL(T6.印影画像パス, '') AS 産業医印影, ISNULL(T7.印影画像パス, '') AS 判定医印影 "
+                    strSQL &= "FROM T_判定票印刷 AS T1 INNER JOIN "
+                    strSQL &= "T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID "
 					strSQL &= "AND T1.レコード番号 = T2.レコード番号 INNER JOIN "
 					strSQL &= "T_判定票管理 AS T3 ON T1.ロットID = T3.ロットID "
 					strSQL &= "AND T1.レコード番号 = T3.レコード番号 INNER JOIN "
 					strSQL &= "T_印刷管理 AS T4 ON T2.ロットID = T4.ロットID "
 					strSQL &= "AND T2.会社コード = T4.会社コード "
 					strSQL &= "AND T2.所属事業所コード = T4.所属事業所コード "
-					strSQL &= "AND T2.印刷ID = T4.印刷ID "
-					strSQL &= "WHERE T1.ロットID = '" & frm.txtLotID.Text & "' "
-					strSQL &= "AND T1.システムID = '" & frm.C1FGridResult(frm.C1FGridResult.Row, "システムID") & "' "
+                    strSQL &= "AND T2.印刷ID = T4.印刷ID LEFT OUTER JOIN "
+                    '2019/05/07
+                    '3テーブル追加
+                    strSQL &= "T_医師 AS T5 ON T1.ロットID = T5.ロットID AND T1.レコード番号 = T5.レコード番号 LEFT OUTER JOIN "
+                    strSQL &= "M_産業医 AS T6 ON T5.産業医ID = T6.産業医ID LEFT OUTER JOIN "
+                    strSQL &= "M_判定医 AS T7 ON T5.判定医ID = T7.判定医ID "
+                    strSQL &= "WHERE T1.ロットID = '" & frm.txtLotID.Text & "' "
+                    strSQL &= "AND T1.システムID = '" & frm.C1FGridResult(frm.C1FGridResult.Row, "システムID") & "' "
 					strSQL &= "AND T2.会社コード = '" & frm.txtCompanyCode.Text & "' "
 					strSQL &= "AND T2.所属事業所コード = '" & frm.txtOfficeCode.Text & "' "
 					strSQL &= "AND T2.印刷ID = " & frm.txtPrintID.Text & " "
@@ -228,9 +236,15 @@ Public Class frmPrintPreview
 					If dt.Rows.Count > 0 Then
 						'プレビュー表示
 						Dim C1FlexReport1 As New C1FlexReport
-						C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "判定票")
-						'接続文字列、SQL文の設定
-						C1FlexReport1.DataSource.ConnectionString = strConnectionString
+                        '2019/05/07
+                        '年度が「2019」以降の場合は新テンプレートとする
+                        If CInt(dt.Rows(0)("年度")) >= 2019 Then
+                            C1FlexReport1.Load(Application.StartupPath & "\Template\result2019.flxr", "判定票")
+                        Else
+                            C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "判定票")
+                        End If
+                        '接続文字列、SQL文の設定
+                        C1FlexReport1.DataSource.ConnectionString = strConnectionString
 						C1FlexReport1.DataSource.RecordSource = strSQL
 						Me.C1FlexViewer1.DocumentSource = C1FlexReport1
 					End If

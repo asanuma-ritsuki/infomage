@@ -426,7 +426,7 @@
     <member name="P:C1.Win.C1Command.C1Command.ShortcutText">
       <summary>コマンドに関連付けられたショートカットテキストを取得または設定します。</summary>
       <remarks>
-        <para>&gt;このプロパティを使用してショートカットをローカライズします。</para>
+        <para>このプロパティを使用してショートカットをローカライズします。</para>
         <para>
           <see cref="P:C1.Win.C1Command.C1Command.Shortcut" />プロパティが空または
           <see cref="P:C1.Win.C1Command.C1Command.ShowShortcut" />False の場合、
@@ -1580,96 +1580,6 @@
     <member name="P:C1.Win.C1Command.C1CommandMenu.CloseOnItemClick">
       <summary>項目がクリックされたときにメニューを閉じるかどうかを示す値を取得または設定します。</summary>
     </member>
-    <member name="T:C1.Win.C1Command.C1CommandMsgHook">
-      <summary>このクラスは内部使用専用です。</summary>
-    </member>
-    <member name="T:C1.Win.C1Command.LocalWindowsHook">
-      <summary>このクラスは内部使用専用です。</summary>
-    </member>
-    <member name="F:C1.Win.C1Command.LocalWindowsHook.m_hhook">
-      <summary>フックコード。</summary>
-    </member>
-    <member name="F:C1.Win.C1Command.LocalWindowsHook.m_filterFunc">
-      <summary>FilterFunc 値。</summary>
-    </member>
-    <member name="F:C1.Win.C1Command.LocalWindowsHook.m_hookType">
-      <summary>HookType 値。</summary>
-    </member>
-    <member name="M:C1.Win.C1Command.LocalWindowsHook.OnHookInvoked(C1.Win.C1Command.HookEventArgs)">
-      <summary>このメソッドは内部使用専用です。</summary>
-      <param name="e"></param>
-    </member>
-    <member name="M:C1.Win.C1Command.LocalWindowsHook.#ctor(C1.Win.C1Command.HookType)">
-      <summary>LocalWindowsHook クラスの新しいインスタンスを初期化します。</summary>
-      <param name="hook"></param>
-    </member>
-    <member name="M:C1.Win.C1Command.LocalWindowsHook.#ctor(C1.Win.C1Command.HookType,C1.Win.C1Command.LocalWindowsHook.HookProc)">
-      <summary>LocalWindowsHook クラスの新しいインスタンスを初期化します。</summary>
-      <param name="hook"></param>
-      <param name="func"></param>
-    </member>
-    <member name="M:C1.Win.C1Command.LocalWindowsHook.CoreHookProc(System.Int32,System.IntPtr,System.IntPtr)">
-      <summary>デフォルトのフィルタ関数。</summary>
-      <param name="code">フックコード。</param>
-      <param name="wParam">WPARAM 引数。</param>
-      <param name="lParam">LPARAM 引数。</param>
-      <returns></returns>
-    </member>
-    <member name="M:C1.Win.C1Command.LocalWindowsHook.Install">
-      <summary>フックをインストールします。</summary>
-    </member>
-    <member name="M:C1.Win.C1Command.LocalWindowsHook.Uninstall">
-      <summary>フックをアンインストールします。</summary>
-    </member>
-    <member name="M:C1.Win.C1Command.LocalWindowsHook.SetWindowsHookEx(C1.Win.C1Command.HookType,C1.Win.C1Command.LocalWindowsHook.HookProc,System.IntPtr,System.Int32)">
-      <summary>Win32: SetWindowsHookEx()</summary>
-      <param name="code"></param>
-      <param name="func"></param>
-      <param name="hInstance"></param>
-      <param name="threadID"></param>
-      <returns></returns>
-    </member>
-    <member name="M:C1.Win.C1Command.LocalWindowsHook.UnhookWindowsHookEx(System.IntPtr)">
-      <summary>Win32: UnhookWindowsHookEx()</summary>
-      <param name="hhook"></param>
-      <returns></returns>
-    </member>
-    <member name="M:C1.Win.C1Command.LocalWindowsHook.CallNextHookEx(System.IntPtr,System.Int32,System.IntPtr,System.IntPtr)">
-      <summary>Win32: CallNextHookEx()</summary>
-      <param name="hhook"></param>
-      <param name="code"></param>
-      <param name="wParam"></param>
-      <param name="lParam"></param>
-      <returns></returns>
-    </member>
-    <member name="E:C1.Win.C1Command.LocalWindowsHook.HookInvoked">
-      <summary>HookInvoked イベント。</summary>
-    </member>
-    <member name="P:C1.Win.C1Command.LocalWindowsHook.FilterFunc">
-      <summary>FilterFunc 値。</summary>
-    </member>
-    <member name="T:C1.Win.C1Command.LocalWindowsHook.HookProc">
-      <summary>フィルタ関数のデリゲートです。</summary>
-      <param name="code">フックコード。</param>
-      <param name="wParam">WPARAM 引数。</param>
-      <param name="lParam">LPARAM 引数。</param>
-      <returns></returns>
-    </member>
-    <member name="T:C1.Win.C1Command.LocalWindowsHook.HookEventHandler">
-      <summary>Hook イベントを処理するメソッドを表します。</summary>
-      <param name="sender">イベントのソース。</param>
-      <param name="e">イベントデータを含む HookEventArgs。</param>
-    </member>
-    <member name="M:C1.Win.C1Command.C1CommandMsgHook.C1CommandMsgHookProc(System.Int32,System.IntPtr,System.IntPtr)">
-      <summary>C1CommandMsgHookProc クラスの新しいインスタンスを初期化します。</summary>
-      <param name="code"></param>
-      <param name="wParam"></param>
-      <param name="lParam"></param>
-      <returns></returns>
-    </member>
-    <member name="M:C1.Win.C1Command.C1CommandMsgHook.#ctor">
-      <summary>C1CommandMsgHookProc クラスの新しいインスタンスを初期化します。</summary>
-    </member>
     <member name="T:C1.Win.C1Command.C1ContextMenu">
       <summary>コンテキストメニューです。</summary>
     </member>
@@ -2413,7 +2323,7 @@
     <member name="M:C1.Win.C1Command.C1DockingTabPage.DockTo(C1.Win.C1Command.C1DockingTabPage)">
       <summary>ページを別のターゲットページにドッキングします。</summary>
       <param name="targetPage">ターゲットページ。</param>
-      <remarks>ページはターゲットページの次のページになります。このページをドッキングする場合は、まず DockTo(C1DockingTab)/&gt;</remarks>
+      <remarks>ページはターゲットページの次のページになります。このページをドッキングしたい場合は、最初にDockTo(C1DockingTab) を使用してください。</remarks>
     </member>
     <member name="M:C1.Win.C1Command.C1DockingTabPage.DockTo(C1.Win.C1Command.C1DockingTab)">
       <summary>ページをターゲット DockingTab にドッキングします。</summary>
@@ -6551,69 +6461,6 @@
     <member name="T:C1.Win.C1Command.C1Stack">
       <summary>System.Collections.ArrayList に基づいたインデックスアクセスによる単純なスタックです。</summary>
     </member>
-    <member name="T:C1.Win.C1Command.HookEventArgs">
-      <summary>Hook イベントのデータを提供します。</summary>
-    </member>
-    <member name="F:C1.Win.C1Command.HookEventArgs.HookCode">
-      <summary>フックコード。</summary>
-    </member>
-    <member name="F:C1.Win.C1Command.HookEventArgs.wParam">
-      <summary>WPARAM 引数。</summary>
-    </member>
-    <member name="F:C1.Win.C1Command.HookEventArgs.lParam">
-      <summary>LPARAM 引数。</summary>
-    </member>
-    <member name="T:C1.Win.C1Command.HookType">
-      <summary>フックのタイプ。</summary>
-    </member>
-    <member name="F:C1.Win.C1Command.HookType.WH_MSGFILTER">
-      <summary>ダイアログボックス、メッセージボックス、メニュー、またはスクロールバーの入力イベントの結果として生成されるメッセージを監視するフックプロシージャをインストールします。</summary>
-    </member>
-    <member name="F:C1.Win.C1Command.HookType.WH_JOURNALRECORD">
-      <summary>システムメッセージキューにポストされた入力メッセージを記録するフックプロシージャをインストールします。</summary>
-    </member>
-    <member name="F:C1.Win.C1Command.HookType.WH_JOURNALPLAYBACK">
-      <summary>WH_JOURNALRECORD フックプロシージャによって以前に記録されたメッセージをポストするフックプロシージャをインストールします。</summary>
-    </member>
-    <member name="F:C1.Win.C1Command.HookType.WH_KEYBOARD">
-      <summary>キーストロークメッセージを監視するフックプロシージャをインストールします。</summary>
-    </member>
-    <member name="F:C1.Win.C1Command.HookType.WH_GETMESSAGE">
-      <summary>メッセージキューにポストされたメッセージを監視するフックプロシージャをインストールします。</summary>
-    </member>
-    <member name="F:C1.Win.C1Command.HookType.WH_CALLWNDPROC">
-      <summary>システムが目的のウィンドウプロシージャにメッセージを送る前にメッセージを監視するフックプロシージャをインストールします。</summary>
-    </member>
-    <member name="F:C1.Win.C1Command.HookType.WH_CBT">
-      <summary>コンピュータベースのトレーニング（CBT）アプリケーションに役立つ通知を受け取るフックプロシージャをインストールします。</summary>
-    </member>
-    <member name="F:C1.Win.C1Command.HookType.WH_SYSMSGFILTER">
-      <summary>ダイアログボックス、メッセージボックス、メニュー、またはスクロールバーの入力イベントの結果として生成されるメッセージを監視するフックプロシージャをインストールします。</summary>
-    </member>
-    <member name="F:C1.Win.C1Command.HookType.WH_MOUSE">
-      <summary>マウスメッセージを監視するフックプロシージャをインストールします。</summary>
-    </member>
-    <member name="F:C1.Win.C1Command.HookType.WH_HARDWARE">
-      <summary>このフックは、現在のところ Win32 に実装されていません。</summary>
-    </member>
-    <member name="F:C1.Win.C1Command.HookType.WH_DEBUG">
-      <summary>他のフックプロシージャのデバッグに役立つフックプロシージャをインストールします。</summary>
-    </member>
-    <member name="F:C1.Win.C1Command.HookType.WH_SHELL">
-      <summary>シェルアプリケーションに役立つ通知を受け取るフックプロシージャをインストールします。</summary>
-    </member>
-    <member name="F:C1.Win.C1Command.HookType.WH_FOREGROUNDIDLE">
-      <summary>アプリケーションのフォアグラウンドスレッドがアイドル状態なろうとしているときに呼び出されるフックプロシージャをインストールします。</summary>
-    </member>
-    <member name="F:C1.Win.C1Command.HookType.WH_CALLWNDPROCRET">
-      <summary>目的のウィンドウプロシージャによってメッセージが処理された後にメッセージを監視するフックプロシージャをインストールします。</summary>
-    </member>
-    <member name="F:C1.Win.C1Command.HookType.WH_KEYBOARD_LL">
-      <summary>低レベルのキーボード入力イベントを監視するフックプロシージャをインストールします。</summary>
-    </member>
-    <member name="F:C1.Win.C1Command.HookType.WH_MOUSE_LL">
-      <summary>低レベルのマウス入力イベントを監視するフックプロシージャをインストールします。</summary>
-    </member>
     <member name="P:C1.Win.C1Command.MeasureLinkEventArgs.Link">
       <summary>計測する必要があるリンクを指定します。</summary>
     </member>
@@ -7324,6 +7171,18 @@
       </summary>
       <param name="sender">イベントのソース。</param>
       <param name="e">イベントデータを含む TabPageMovedEventArgs オブジェクト。</param>
+    </member>
+    <member name="T:C1.Win.C1Command.C1NavBar">
+      <summary>
+        Outlook スタイルのナビゲーションバーコントロールを表します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuItemCollection.OnCollectionChanged(System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+      <summary>
+        すべてのリスナーに対して CollectionChanged イベントを発生させます。
+        この <see cref="T:C1.Win.C1Command.RadialMenuItemCollection" /> を変更するプロパティ/メソッドは、
+        この仮想メソッドからコレクション変更イベントを発生させます。
+      </summary>
     </member>
   </members>
 </doc>

@@ -21,48 +21,64 @@
 
 #Region "オブジェクトイベント"
 
-	''' <summary>
-	''' テキストボックスドラッグエンター時
-	''' </summary>
-	''' <param name="sender"></param>
-	''' <param name="e"></param>
-	Private Sub txt_DragEnter(sender As Object, e As DragEventArgs) Handles txtOfficeCSV.DragEnter, txtBackupFolder.DragEnter
+    ''' <summary>
+    ''' テキストボックスドラッグエンター時
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub txt_DragEnter(sender As Object, e As DragEventArgs) Handles txtOfficeCSV.DragEnter, txtBackupFolder.DragEnter, txtSangyouImagePath.DragEnter, txtHanteiImagePath.DragEnter, txtSangyouCSV.DragEnter, txtHanteiCSV.DragEnter
 
-		If e.Data.GetDataPresent(DataFormats.FileDrop) Then
-			e.Effect = DragDropEffects.Copy
-		Else
-			e.Effect = DragDropEffects.None
-		End If
+        If e.Data.GetDataPresent(DataFormats.FileDrop) Then
+            e.Effect = DragDropEffects.Copy
+        Else
+            e.Effect = DragDropEffects.None
+        End If
 
-	End Sub
+    End Sub
 
-	''' <summary>
-	''' テキストボックスドラッグドロップ時
-	''' </summary>
-	''' <param name="sender"></param>
-	''' <param name="e"></param>
-	Private Sub txt_DragDrop(sender As Object, e As DragEventArgs) Handles txtOfficeCSV.DragDrop, txtBackupFolder.DragDrop
+    ''' <summary>
+    ''' テキストボックスドラッグドロップ時
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub txt_DragDrop(sender As Object, e As DragEventArgs) Handles txtOfficeCSV.DragDrop, txtBackupFolder.DragDrop, txtSangyouCSV.DragDrop, txtHanteiCSV.DragDrop
 
-		Dim strFiles As String() = CType(e.Data.GetData(DataFormats.FileDrop, False), String())
-		Dim txtFile As TextBox = CType(sender, TextBox)
+        Dim strFiles As String() = CType(e.Data.GetData(DataFormats.FileDrop, False), String())
+        Dim txtFile As TextBox = CType(sender, TextBox)
 
-		If System.IO.Directory.Exists(strFiles(0)) Then
-			txtFile.Text = strFiles(0)
-			Exit Sub
-		End If
+        If System.IO.Directory.Exists(strFiles(0)) Then
+            txtFile.Text = strFiles(0)
+            Exit Sub
+        End If
 
-		If System.IO.File.Exists(strFiles(0)) Then
-			txtFile.Text = strFiles(0)
-		End If
+        If System.IO.File.Exists(strFiles(0)) Then
+            txtFile.Text = strFiles(0)
+        End If
 
-	End Sub
+    End Sub
 
-	''' <summary>
-	''' 局所CSVブラウズボタン押下時
-	''' </summary>
-	''' <param name="sender"></param>
-	''' <param name="e"></param>
-	Private Sub btnOutputFolderBrowse_Click(sender As Object, e As EventArgs) Handles btnOutputFolderBrowse.Click
+    ''' <summary>
+    ''' テキストボックスドラッグドロップ時(JPEGのみ)
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub txt_DragDropJpeg(sender As Object, e As DragEventArgs) Handles txtSangyouImagePath.DragDrop, txtHanteiImagePath.DragDrop
+
+        Dim strFiles As String() = CType(e.Data.GetData(DataFormats.FileDrop, False), String())
+        Dim txtFile As TextBox = CType(sender, TextBox)
+
+        If System.IO.File.Exists(strFiles(0)) And System.IO.Path.GetExtension(strFiles(0)) = ".jpg" Then
+            txtFile.Text = strFiles(0)
+        End If
+
+    End Sub
+
+    ''' <summary>
+    ''' 局所CSVブラウズボタン押下時
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub btnOutputFolderBrowse_Click(sender As Object, e As EventArgs) Handles btnOutputFolderBrowse.Click
 
 		Me.txtOfficeCSV.Text = FileBrowse(Me.txtOfficeCSV, "CSVファイル|*.csv")
 
@@ -348,6 +364,8 @@
         SearchHoliday()
         SearchFormEx()
         SearchLot()
+        SearchGridSangyou()
+        SearchGridHantei()
 
     End Sub
 
@@ -920,6 +938,646 @@
 		End Try
 
 	End Sub
+
+
+#End Region
+
+#Region "産業医タブ"
+
+    ''' <summary>
+    ''' 印影画像パステキストボックス値変更時
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub txtSangyouImagePath_TextChanged(sender As Object, e As EventArgs) Handles txtSangyouImagePath.TextChanged
+        If System.IO.File.Exists(Me.txtSangyouImagePath.Text) Then
+            Me.picSangyou.Image = New Bitmap(Me.txtSangyouImagePath.Text)
+        Else
+            Me.picSangyou.Image = Nothing
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' グリッドダブルクリック時
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub C1FGridSangyou_DoubleClick(sender As Object, e As EventArgs) Handles C1FGridSangyou.DoubleClick
+
+        Dim iIndex As Integer = Me.C1FGridSangyou.Row
+        Me.numSangyou.Value = Me.C1FGridSangyou(iIndex, "No")
+        Me.txtSangyouArea.Text = Me.C1FGridSangyou(iIndex, "エリア名")
+        Me.txtSangyouFacility.Text = Me.C1FGridSangyou(iIndex, "施設名")
+        Me.txtSangyouDoctor.Text = Me.C1FGridSangyou(iIndex, "医師名")
+        Me.txtSangyouRemarks.Text = Me.C1FGridSangyou(iIndex, "備考")
+        Me.txtSangyouImagePath.Text = Me.C1FGridSangyou(iIndex, "印影画像パス")
+
+    End Sub
+
+
+    ''' <summary>
+    ''' 新規
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub btnSangyouNew_Click(sender As Object, e As EventArgs) Handles btnSangyouNew.Click
+        '入力チェック
+        If Me.numSangyou.Value = 0 Then
+            MessageBox.Show("産業医IDを指定してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+        If IsNull(Me.txtSangyouDoctor.Text) Then
+            MessageBox.Show("医師名を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+        If Not System.IO.File.Exists(Me.txtSangyouImagePath.Text) Then
+            MessageBox.Show("印影画像をドラッグ＆ドロップしてください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+
+        If MessageBox.Show("産業医を新規追加します" & vbNewLine & "よろしいですか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then
+            Exit Sub
+        End If
+
+        'すでに登録されている産業医IDか調べる
+        Dim strSQL As String = ""
+        Dim sqlProcess As New SQLProcess
+
+        Try
+            strSQL = "SELECT COUNT(*) FROM M_産業医 "
+            strSQL &= "WHERE 産業医ID = " & Me.numSangyou.Value
+            If sqlProcess.DB_EXECUTE_SCALAR(strSQL) > 0 Then
+                MessageBox.Show("既に登録されているNo.です", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            Else
+                strSQL = "INSERT INTO M_産業医(産業医ID, エリア名, 施設名, 医師名, 備考, 印影画像パス) VALUES("
+                strSQL &= Me.numSangyou.Value
+                strSQL &= ", '" & Me.txtSangyouArea.Text & "'"
+                strSQL &= ", '" & Me.txtSangyouFacility.Text & "'"
+                strSQL &= ", '" & Me.txtSangyouDoctor.Text & "'"
+                strSQL &= ", '" & Me.txtSangyouRemarks.Text & "'"
+                strSQL &= ", '" & Me.txtSangyouImagePath.Text & "')"
+                sqlProcess.DB_UPDATE(strSQL)
+
+            End If
+
+            SearchGridSangyou()
+            ClearValueSangyou()
+
+        Catch ex As Exception
+
+            Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message & vbNewLine & ex.StackTrace)
+            MessageBox.Show("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        Finally
+
+            sqlProcess.Close()
+
+        End Try
+    End Sub
+
+    ''' <summary>
+    ''' 更新
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub btnSangyouUpdate_Click(sender As Object, e As EventArgs) Handles btnSangyouUpdate.Click
+
+        If Me.numSangyou.Value = 0 Then
+            MessageBox.Show("産業医IDを指定してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+        If IsNull(Me.txtSangyouDoctor.Text) Then
+            MessageBox.Show("医師名を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+        If MessageBox.Show("指定した産業医ID[" & Me.numSangyou.Value & "]の値を更新します" & vbNewLine & "よろしいですか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) = DialogResult.No Then
+            Exit Sub
+        End If
+
+        Dim strSQL As String = ""
+        Dim sqlProcess As New SQLProcess
+
+        Try
+            strSQL = "UPDATE M_産業医 SET "
+            strSQL &= "エリア名 = '" & Me.txtSangyouArea.Text & "'"
+            strSQL &= ", 施設名 = '" & Me.txtSangyouFacility.Text & "'"
+            strSQL &= ", 医師名 = '" & Me.txtSangyouDoctor.Text & "'"
+            strSQL &= ", 備考 = '" & Me.txtSangyouRemarks.Text & "'"
+            strSQL &= ", 印影画像パス = '" & Me.txtSangyouImagePath.Text & "' "
+            strSQL &= "WHERE 産業医ID = " & numSangyou.Value
+            sqlProcess.DB_UPDATE(strSQL)
+
+            SearchGridSangyou()
+
+        Catch ex As Exception
+
+            Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message & vbNewLine & ex.StackTrace)
+            MessageBox.Show("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        Finally
+
+            sqlProcess.Close()
+
+        End Try
+
+    End Sub
+
+    ''' <summary>
+    ''' 削除
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub btnSangyouDelete_Click(sender As Object, e As EventArgs) Handles btnSangyouDelete.Click
+
+        If Me.numSangyou.Value = 0 Then
+            MessageBox.Show("産業医IDを指定してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+        If MessageBox.Show("指定した産業医ID[" & Me.numSangyou.Value & "]を削除します" & vbNewLine & "よろしいですか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) = DialogResult.No Then
+            Exit Sub
+        End If
+
+        Dim strSQL As String = ""
+        Dim sqlProcess As New SQLProcess
+
+        Try
+            strSQL = "DELETE FROM M_産業医 "
+            strSQL &= "WHERE 産業医ID = " & Me.numSangyou.Value
+            sqlProcess.DB_UPDATE(strSQL)
+
+            SearchGridSangyou()
+            ClearValueSangyou()
+
+        Catch ex As Exception
+
+            Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message & vbNewLine & ex.StackTrace)
+            MessageBox.Show("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        Finally
+
+            sqlProcess.Close()
+
+        End Try
+
+    End Sub
+
+    ''' <summary>
+    ''' 産業医グリッド表示
+    ''' </summary>
+    Private Sub SearchGridSangyou()
+
+        Me.C1FGridSangyou.Rows.Count = 1
+        Dim strSQL As String = ""
+        Dim sqlProcess As New SQLProcess
+
+        Try
+            strSQL = "SELECT 産業医ID, エリア名, 施設名, 医師名, 備考, 印影画像パス "
+            strSQL &= "FROM M_産業医 "
+            strSQL &= "ORDER BY 産業医ID"
+            Dim dt As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
+
+            For iRow As Integer = 0 To dt.Rows.Count - 1
+                Me.C1FGridSangyou.Rows.Count += 1
+                Me.C1FGridSangyou(Me.C1FGridSangyou.Rows.Count - 1, "No") = dt.Rows(iRow)("産業医ID")
+                Me.C1FGridSangyou(Me.C1FGridSangyou.Rows.Count - 1, "エリア名") = dt.Rows(iRow)("エリア名")
+                Me.C1FGridSangyou(Me.C1FGridSangyou.Rows.Count - 1, "施設名") = dt.Rows(iRow)("施設名")
+                Me.C1FGridSangyou(Me.C1FGridSangyou.Rows.Count - 1, "医師名") = dt.Rows(iRow)("医師名")
+                Me.C1FGridSangyou(Me.C1FGridSangyou.Rows.Count - 1, "備考") = dt.Rows(iRow)("備考")
+                Me.C1FGridSangyou(Me.C1FGridSangyou.Rows.Count - 1, "印影画像パス") = dt.Rows(iRow)("印影画像パス")
+            Next
+
+        Catch ex As Exception
+
+            Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message & vbNewLine & ex.StackTrace)
+            MessageBox.Show("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        Finally
+
+            sqlProcess.Close()
+
+        End Try
+
+    End Sub
+
+    ''' <summary>
+    ''' 値初期化
+    ''' </summary>
+    Private Sub ClearValueSangyou()
+
+        Me.numSangyou.Value = 0
+        Me.txtSangyouArea.Text = ""
+        Me.txtSangyouFacility.Text = ""
+        Me.txtSangyouDoctor.Text = ""
+        Me.txtSangyouRemarks.Text = ""
+        Me.txtSangyouImagePath.Text = ""
+
+    End Sub
+
+    ''' <summary>
+    ''' 産業医インポートボタン押下時
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub btnSangyouImport_Click(sender As Object, e As EventArgs) Handles btnSangyouImport.Click
+
+        If Not System.IO.File.Exists(Me.txtSangyouCSV.Text) Then
+            MessageBox.Show("産業医マスタCSVファイルを指定してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+        If MessageBox.Show("※他の端末で印刷等が動作していないことを確認して「はい」を押下してください", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) = DialogResult.No Then
+            Exit Sub
+        End If
+        If MessageBox.Show("産業医マスタを更新します" & vbNewLine & "よろしいですか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then
+            Exit Sub
+        End If
+
+        Dim sqlProcess As New SQLProcess
+        Dim strSQL As String = ""
+        Dim iRecCount As Integer = 0
+        Dim iUpdateCount As Integer = 0
+
+        Try
+            '既に登録されているレコードは削除せず、同一IDがインポートされた際はUPDATEを行う
+            Using parser As New CSVParser(Me.txtSangyouCSV.Text, System.Text.Encoding.GetEncoding("Shift-JIS"))
+                parser.Delimiter = ","  'カンマ区切り
+                parser.TrimWhiteSpace = False   '空白を削除しない
+
+                parser.ReadFields() 'ヘッダを読み飛ばす
+
+                While Not parser.EndOfData
+
+                    Dim row As String() = parser.ReadFields()   '1行読込、項目を配列に代入
+                    If Not row.Length = 6 Then
+                        MessageBox.Show("CSVファイルの項目数が合致しません(" & row.Length & "項目)" & vbNewLine & "正常に6項目存在するか確認してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                    End If
+                    If Not System.IO.File.Exists(row(5)) Then
+                        MessageBox.Show("印影画像が存在しません" & vbNewLine & row(5) & vbNewLine & "所在を確認してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                    End If
+                    '既に登録されているIDか確認
+                    strSQL = "SELECT COUNT(*) FROM M_産業医 "
+                    strSQL &= "WHERE 産業医ID = " & row(0)
+                    If sqlProcess.DB_EXECUTE_SCALAR(strSQL) > 0 Then
+                        '既に登録されていた
+                        strSQL = "UPDATE M_産業医 SET "
+                        strSQL &= "エリア名 = '" & row(1) & "'"
+                        strSQL &= ", 施設名 = '" & row(2) & "'"
+                        strSQL &= ", 医師名 = '" & row(3) & "'"
+                        strSQL &= ", 備考 = '" & row(4) & "'"
+                        strSQL &= ", 印影画像パス = '" & row(5) & "' "
+                        strSQL &= "WHERE 産業医ID = " & row(0)
+                        sqlProcess.DB_UPDATE(strSQL)
+                        iUpdateCount += 1
+                    Else
+                        '新規登録
+                        strSQL = "INSERT INTO M_産業医(産業医ID, エリア名, 施設名, 医師名, 備考, 印影画像パス) VALUES("
+                        strSQL &= row(0)    '産業医ID
+                        strSQL &= ", '" & row(1) & "'"  'エリア名
+                        strSQL &= ", '" & row(2) & "'"  '施設名
+                        strSQL &= ", '" & row(3) & "'"  '医師名
+                        strSQL &= ", '" & row(4) & "'"  '備考
+                        strSQL &= ", '" & row(5) & "')"  '印影画像パス
+                        sqlProcess.DB_UPDATE(strSQL)
+                        iRecCount += 1
+                    End If
+
+                End While
+
+            End Using
+
+            MessageBox.Show("産業医マスタのインポートが完了しました" & vbNewLine & "新規：" & iRecCount & "件" & vbNewLine & "更新：" & iUpdateCount & "件", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            SearchGridSangyou()
+
+        Catch ex As Exception
+
+            Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message & vbNewLine & ex.StackTrace)
+            MessageBox.Show("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        Finally
+
+            sqlProcess.Close()
+
+        End Try
+    End Sub
+
+#End Region
+
+#Region "判定医タブ"
+
+    ''' <summary>
+    ''' 印影画像パステキストボックス値変更時
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub txtHanteiImagePath_TextChanged(sender As Object, e As EventArgs) Handles txtHanteiImagePath.TextChanged
+        If System.IO.File.Exists(Me.txtHanteiImagePath.Text) Then
+            Me.picHantei.Image = New Bitmap(Me.txtHanteiImagePath.Text)
+        Else
+            Me.picHantei.Image = Nothing
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' グリッドダブルクリック時
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub C1FGridHantei_DoubleClick(sender As Object, e As EventArgs) Handles C1FGridHantei.DoubleClick
+
+        Dim iIndex As Integer = Me.C1FGridHantei.Row
+        Me.numHantei.Value = Me.C1FGridHantei(iIndex, "No")
+        Me.txtHanteiMedical.Text = Me.C1FGridHantei(iIndex, "医療機関名")
+        Me.txtHanteiDoctor.Text = Me.C1FGridHantei(iIndex, "医師名")
+        Me.txtHanteiRemarks.Text = Me.C1FGridHantei(iIndex, "備考")
+        Me.txtHanteiImagePath.Text = Me.C1FGridHantei(iIndex, "印影画像パス")
+
+    End Sub
+
+
+    ''' <summary>
+    ''' 新規
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub btnHanteiNew_Click(sender As Object, e As EventArgs) Handles btnHanteiNew.Click
+        '入力チェック
+        If Me.numHantei.Value = 0 Then
+            MessageBox.Show("判定医IDを指定してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+        If IsNull(Me.txtHanteiDoctor.Text) Then
+            MessageBox.Show("医師名を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+        If Not System.IO.File.Exists(Me.txtHanteiImagePath.Text) Then
+            MessageBox.Show("印影画像をドラッグ＆ドロップしてください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+
+        If MessageBox.Show("判定医を新規追加します" & vbNewLine & "よろしいですか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then
+            Exit Sub
+        End If
+
+        'すでに登録されている判定医IDか調べる
+        Dim strSQL As String = ""
+        Dim sqlProcess As New SQLProcess
+
+        Try
+            strSQL = "SELECT COUNT(*) FROM M_判定医 "
+            strSQL &= "WHERE 判定医ID = " & Me.numHantei.Value
+            If sqlProcess.DB_EXECUTE_SCALAR(strSQL) > 0 Then
+                MessageBox.Show("既に登録されているNo.です", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            Else
+                strSQL = "INSERT INTO M_判定医(判定医ID, 医療機関名, 医師名, 備考, 印影画像パス) VALUES("
+                strSQL &= Me.numHantei.Value
+                strSQL &= ", '" & Me.txtHanteiMedical.Text & "'"
+                strSQL &= ", '" & Me.txtHanteiDoctor.Text & "'"
+                strSQL &= ", '" & Me.txtHanteiRemarks.Text & "'"
+                strSQL &= ", '" & Me.txtHanteiImagePath.Text & "')"
+                sqlProcess.DB_UPDATE(strSQL)
+
+            End If
+
+            SearchGridHantei()
+            ClearValueHantei()
+
+        Catch ex As Exception
+
+            Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message & vbNewLine & ex.StackTrace)
+            MessageBox.Show("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        Finally
+
+            sqlProcess.Close()
+
+        End Try
+
+    End Sub
+
+    ''' <summary>
+    ''' 更新
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub btnHanteiUpdate_Click(sender As Object, e As EventArgs) Handles btnHanteiUpdate.Click
+
+        If Me.numHantei.Value = 0 Then
+            MessageBox.Show("判定医IDを指定してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+        If IsNull(Me.txtHanteiDoctor.Text) Then
+            MessageBox.Show("判定医を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+        If MessageBox.Show("指定した判定医ID[" & Me.numHantei.Value & "]の値を更新します" & vbNewLine & "よろしいですか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) = DialogResult.No Then
+            Exit Sub
+        End If
+
+        Dim strSQL As String = ""
+        Dim sqlProcess As New SQLProcess
+
+        Try
+            strSQL = "UPDATE M_判定医 SET "
+            strSQL &= "医療機関名 = '" & Me.txtHanteiMedical.Text & "'"
+            strSQL &= ", 医師名 = '" & Me.txtHanteiDoctor.Text & "'"
+            strSQL &= ", 備考 = '" & Me.txtHanteiRemarks.Text & "'"
+            strSQL &= ", 印影画像パス = '" & Me.txtHanteiImagePath.Text & "' "
+            strSQL &= "WHERE 判定医ID = " & Me.numHantei.Value
+            sqlProcess.DB_UPDATE(strSQL)
+
+            SearchGridHantei()
+
+        Catch ex As Exception
+
+            Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message & vbNewLine & ex.StackTrace)
+            MessageBox.Show("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        Finally
+
+            sqlProcess.Close()
+
+        End Try
+
+    End Sub
+
+    ''' <summary>
+    ''' 削除
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub btnHanteiDelete_Click(sender As Object, e As EventArgs) Handles btnHanteiDelete.Click
+
+        If Me.numHantei.Value = 0 Then
+            MessageBox.Show("判定医IDを指定してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+        If MessageBox.Show("指定した判定医ID[" & Me.numHantei.Value & "]を削除します" & vbNewLine & "よろしいですか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) = DialogResult.No Then
+            Exit Sub
+        End If
+
+        Dim strSQL As String = ""
+        Dim sqlProcess As New SQLProcess
+
+        Try
+            strSQL = "DELETE FROM M_判定医 "
+            strSQL &= "WHERE 判定医ID = " & Me.numHantei.Value
+            sqlProcess.DB_UPDATE(strSQL)
+
+            SearchGridHantei()
+            ClearValueHantei()
+
+        Catch ex As Exception
+
+            Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message & vbNewLine & ex.StackTrace)
+            MessageBox.Show("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        Finally
+
+            sqlProcess.Close()
+
+        End Try
+
+    End Sub
+
+
+    ''' <summary>
+    ''' 判定医グリッド表示
+    ''' </summary>
+    Private Sub SearchGridHantei()
+
+        Me.C1FGridHantei.Rows.Count = 1
+        Dim strSQL As String = ""
+        Dim sqlProcess As New SQLProcess
+
+        Try
+            strSQL = "SELECT 判定医ID, 医療機関名, 医師名, 備考, 印影画像パス "
+            strSQL &= "FROM M_判定医 "
+            strSQL &= "ORDER BY 判定医ID"
+            Dim dt As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
+
+            For iRow As Integer = 0 To dt.Rows.Count - 1
+                Me.C1FGridHantei.Rows.Count += 1
+                Me.C1FGridHantei(Me.C1FGridHantei.Rows.Count - 1, "No") = dt.Rows(iRow)("判定医ID")
+                Me.C1FGridHantei(Me.C1FGridHantei.Rows.Count - 1, "医療機関名") = dt.Rows(iRow)("医療機関名")
+                Me.C1FGridHantei(Me.C1FGridHantei.Rows.Count - 1, "医師名") = dt.Rows(iRow)("医師名")
+                Me.C1FGridHantei(Me.C1FGridHantei.Rows.Count - 1, "備考") = dt.Rows(iRow)("備考")
+                Me.C1FGridHantei(Me.C1FGridHantei.Rows.Count - 1, "印影画像パス") = dt.Rows(iRow)("印影画像パス")
+            Next
+
+        Catch ex As Exception
+
+            Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message & vbNewLine & ex.StackTrace)
+            MessageBox.Show("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        Finally
+
+            sqlProcess.Close()
+
+        End Try
+    End Sub
+
+    ''' <summary>
+    ''' 値初期化
+    ''' </summary>
+    Private Sub ClearValueHantei()
+
+        Me.numHantei.Value = 0
+        Me.txtHanteiMedical.Text = ""
+        Me.txtHanteiDoctor.Text = ""
+        Me.txtHanteiRemarks.Text = ""
+        Me.txtHanteiImagePath.Text = ""
+
+    End Sub
+
+    ''' <summary>
+    ''' 判定医インポートボタン押下時
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub btnHanteiImport_Click(sender As Object, e As EventArgs) Handles btnHanteiImport.Click
+
+        If Not System.IO.File.Exists(Me.txtHanteiCSV.Text) Then
+            MessageBox.Show("判定医マスタCSVファイルを指定してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+        If MessageBox.Show("※他の端末で印刷等が動作していないことを確認して「はい」を押下してください", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) = DialogResult.No Then
+            Exit Sub
+        End If
+        If MessageBox.Show("判定医マスタを更新します" & vbNewLine & "よろしいですか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then
+            Exit Sub
+        End If
+
+        Dim sqlProcess As New SQLProcess
+        Dim strSQL As String = ""
+        Dim iRecCount As Integer = 0
+        Dim iUpdateCount As Integer = 0
+
+        Try
+            '既に登録されているレコードは削除せず、同一IDがインポートされた際はUPDATEを行う
+            Using parser As New CSVParser(Me.txtHanteiCSV.Text, System.Text.Encoding.GetEncoding("Shift-JIS"))
+                parser.Delimiter = ","  'カンマ区切り
+                parser.TrimWhiteSpace = False   '空白を削除しない
+
+                parser.ReadFields() 'ヘッダを読み飛ばす
+
+                While Not parser.EndOfData
+
+                    Dim row As String() = parser.ReadFields()   '1行読込、項目を配列に代入
+                    If Not row.Length = 5 Then
+                        MessageBox.Show("CSVファイルの項目数が合致しません(" & row.Length & "項目)" & vbNewLine & "正常に5項目存在するか確認してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                    End If
+                    If Not System.IO.File.Exists(row(4)) Then
+                        MessageBox.Show("印影画像が存在しません" & vbNewLine & row(4) & vbNewLine & "所在を確認してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                    End If
+                    '既に登録されているIDか確認
+                    strSQL = "SELECT COUNT(*) FROM M_判定医 "
+                    strSQL &= "WHERE 判定医ID = " & row(0)
+                    If sqlProcess.DB_EXECUTE_SCALAR(strSQL) > 0 Then
+                        '既に登録されていた
+                        strSQL = "UPDATE M_判定医 SET "
+                        strSQL &= "医療機関名 = '" & row(1) & "'"
+                        strSQL &= ", 医師名 = '" & row(2) & "'"
+                        strSQL &= ", 備考 = '" & row(3) & "'"
+                        strSQL &= ", 印影画像パス = '" & row(4) & "' "
+                        strSQL &= "WHERE 判定医ID = " & row(0)
+                        sqlProcess.DB_UPDATE(strSQL)
+                        iUpdateCount += 1
+                    Else
+                        '新規登録
+                        strSQL = "INSERT INTO M_判定医(判定医ID, 医療機関名, 医師名, 備考, 印影画像パス) VALUES("
+                        strSQL &= row(0)    '判定医ID
+                        strSQL &= ", '" & row(1) & "'"  '医療機関名
+                        strSQL &= ", '" & row(2) & "'"  '医師名
+                        strSQL &= ", '" & row(3) & "'"  '備考
+                        strSQL &= ", '" & row(4) & "')"  '印影画像パス
+                        sqlProcess.DB_UPDATE(strSQL)
+                        iRecCount += 1
+                    End If
+
+                End While
+
+            End Using
+
+            MessageBox.Show("判定医マスタのインポートが完了しました" & vbNewLine & "新規：" & iRecCount & "件" & vbNewLine & "更新：" & iUpdateCount & "件", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            SearchGridHantei()
+
+        Catch ex As Exception
+
+            Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message & vbNewLine & ex.StackTrace)
+            MessageBox.Show("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        Finally
+
+            sqlProcess.Close()
+
+        End Try
+
+    End Sub
 
 #End Region
 End Class

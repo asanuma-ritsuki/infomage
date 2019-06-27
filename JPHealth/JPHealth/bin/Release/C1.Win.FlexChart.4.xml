@@ -1333,6 +1333,11 @@
     <member name="P:C1.Win.Chart.Series.AxisY">
       <summary>系列の y 軸を取得または設定します。</summary>
     </member>
+    <member name="P:C1.Win.Chart.Series.Tooltip">
+      <summary>
+        系列のツールチップテンプレートを取得または設定します。
+      </summary>
+    </member>
     <member name="M:C1.Win.Chart.Series.LoadBoundData">
       <summary>連結データを内部チャート配列に強制的にロードします。</summary>
     </member>
@@ -1590,6 +1595,13 @@
     </member>
     <member name="P:C1.Win.Chart.Interaction.AxisScrollbar.Maximum">
       <summary>範囲コントロールの設定可能な最大値を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.Win.Chart.Interaction.AxisScrollbar.SmallChange">
+      <summary>
+        下限値または上限値スクロールボックスが小さく移動したときに、
+        LowerValue プロパティまたは UpperValue プロパティを
+        加算または減算する値を取得または設定します。
+      </summary>
     </member>
     <member name="P:C1.Win.Chart.Interaction.AxisScrollbar.Orientation">
       <summary>C1RangeSlider が水平方向と垂直方向のどちらであるかを示す値を取得または設定します。</summary>
@@ -2369,6 +2381,16 @@
     <member name="P:C1.Win.Chart.FlexPieSlice.Value">
       <summary>値を取得または設定します。</summary>
     </member>
+    <member name="T:C1.Win.Chart.FlexPieSliceCollection">
+      <summary>
+        <see cref="T:C1.Win.Chart.FlexPieSlice" /> オブジェクトの強く型付けされた順序付きコレクションを提供します。
+      </summary>
+    </member>
+    <member name="E:C1.Win.Chart.FlexPieSlice.PropertyChanged">
+      <summary>
+        プロパティが変更されたときに発生します。
+      </summary>
+    </member>
     <member name="M:C1.Win.Chart.FlexPieSlice.#ctor(System.Double,System.String)">
       <summary>FlexPieSlice クラスのインスタンスを作成します。</summary>
       <param name="value"></param>
@@ -2944,6 +2966,11 @@
     </member>
     <member name="F:C1.Chart.PieLabelPosition.Circular">
       <summary>項目を円グラフセグメント内で円周方向に表示します。</summary>
+    </member>
+    <member name="F:C1.Chart.PieLabelPosition.Auto">
+      <summary>
+        自動ラベル位置。
+      </summary>
     </member>
     <member name="T:C1.Chart.QuartileCalculation">
       <summary>箱ひげ図系列の四分位数の計算方法を指定します。</summary>
@@ -4644,6 +4671,24 @@
       <summary>
         アニメーション変換中に発生します。
       </summary>
+    </member>
+    <member name="T:C1.Win.Chart.Strings">
+      <summary>
+        デザイナによって使用される UI 文字列を含む静的クラス。
+      </summary>
+    </member>
+    <member name="P:C1.Chart.Annotation.IAnnotationBase.Bounds">
+      <summary>
+        境界ボックスをピクセル座標で取得します。
+      </summary>
+    </member>
+    <member name="M:C1.Chart.Annotation.IAnnotationBase.Distance(System.Double,System.Double)">
+      <summary>
+        注釈から指定されたポイントまでの距離を返します。
+      </summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <returns></returns>
     </member>
   </members>
 </doc>

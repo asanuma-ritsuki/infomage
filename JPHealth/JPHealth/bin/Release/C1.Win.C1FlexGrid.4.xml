@@ -2135,7 +2135,7 @@
                // ちらつきを避けるため描画を保留します。
               flex.BeginUpdate();
               flex.Rows.Count = 1;
-              for (int i = 1; i &lt; 10000; i++)
+              for (int i = 1; i < 10000; i++)
                 flex.AddItem("Row " + i.ToString());
             }
             finally
@@ -2736,17 +2736,17 @@
           
           // タブを区切りに使用して、100 行を追加します。
           flex.ClipSeparators = "\t\n";
-          for (int i = 0; i &lt; 100; i++)
+          for (int i = 0; i < 100; i++)
             flex.AddItem("\tcol1\tcol2\tcol3");
           
           // パイプを区切りに使用して、先頭に 100 行を追加します。
           flex.ClipSeparators = "|;";
-          for (int i = 0; i &lt; 100; i++)
+          for (int i = 0; i < 100; i++)
             flex.AddItem("|col1|col2|col3", 0);
           
           // オブジェクト配列を使用して、末尾に 100 行を追加します。
           object[] items = { "col1", "col2", "col3" };
-          for (int i = 0; i &lt; 100; i++)
+          for (int i = 0; i < 100; i++)
             flex.AddItem(items, flex.Rows.Count, flex.Cols.Fixed);
           
           // 描画を復元します。
@@ -9052,10 +9052,10 @@
             
             Private Sub printDocument1_PrintPage(ByVal sender As System.Object, ByVal e As System.Drawing.Printing.PrintPageEventArgs)
               ' １つめのグリッドをレンダリングします。
-              If (_g1.CurrentPage &lt; _g1.PageCount) Then
+              If (_g1.CurrentPage < _g1.PageCount) Then
                 _g1.PrintPage(e) e.HasMorePages = True
               ' ２つめのグリッドをレンダリングします。
-              ElseIf (_g2.CurrentPage &lt; _g2.PageCount) Then
+              ElseIf (_g2.CurrentPage < _g2.PageCount) Then
                 _g2.PrintPage(e)
                 e.HasMorePages = _g2.CurrentPage < _g2.PageCount
               End If
@@ -12755,13 +12755,13 @@
         </para>
         <code>
           <![CDATA[
-          var list = new List&lt;MyDataObject&gt;();
-          for (var i = 0; i &lt; 100; i++)
+          var list = new List<MyDataObject>();
+          for (var i = 0; i < 100; i++)
           {
             list.Add(new MyDataObject(i));
           }
-          grid.DataSource = new SortableBindingList&lt;MyDataObject&gt;(list);
-          grid.SortDescriptions = new List&lt;GroupDescription&gt;()
+          grid.DataSource = new SortableBindingList<MyDataObject>(list);
+          grid.SortDescriptions = new List<GroupDescription>()
           {
             new GroupDescription("Country"),
             new GroupDescription("Product"),
@@ -13116,102 +13116,6 @@
           ]]>
         </code>
       </example>
-    </member>
-    <member name="T:C1.Win.BaseStyle">
-      <summary>
-        基本スタイル。
-      </summary>
-    </member>
-    <member name="P:C1.Win.BaseStyle.Name">
-      <summary>
-        スタイル名を取得または設定します。
-      </summary>
-    </member>
-    <member name="M:C1.Win.BaseStyle.ToString">
-      <summary>
-        現在のオブジェクトを表す文字列を返します。
-      </summary>
-      <returns></returns>
-    </member>
-    <member name="T:C1.Win.BaseTheme">
-      <summary>
-        基本テーマ。
-      </summary>
-    </member>
-    <member name="P:C1.Win.BaseTheme.Name">
-      <summary>
-        テーマ名を取得します。
-      </summary>
-    </member>
-    <member name="M:C1.Win.BaseTheme.ToString">
-      <summary>
-        現在のオブジェクトを表す文字列を返します。
-      </summary>
-      <returns></returns>
-    </member>
-    <member name="T:C1.Win.BaseThemeProvider">
-      <summary>
-        基本 ThemeProvider。
-      </summary>
-    </member>
-    <member name="E:C1.Win.BaseThemeProvider.PropertyChanged">
-      <summary>
-        プロパティの変更時に発生します。
-      </summary>
-    </member>
-    <member name="M:C1.Win.BaseThemeProvider.OnPropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
-      <summary>
-        <see cref="E:C1.Win.BaseThemeProvider.PropertyChanged" /> イベントを発生させます。
-      </summary>
-      <param name="sender">
-        <see cref="T:System.Object" /> イベントの送信元。
-      </param>
-      <param name="e">
-        イベントデータを含む <see cref="T:System.ComponentModel.PropertyChangedEventArgs" />。
-      </param>
-    </member>
-    <member name="M:C1.Win.BaseThemeProvider.Dispose(System.Boolean)">
-      <summary>
-        すべてのアンマネージリソースを解放します。
-      </summary>
-      <param name="disposing"></param>
-    </member>
-    <member name="M:C1.Win.BaseThemeProvider.Dispose">
-      <summary>
-        すべてのアンマネージリソースを解放します。
-      </summary>
-    </member>
-    <member name="T:C1.Win.StyledPropertyCollection">
-      <summary>
-        <see cref="T:C1.Win.StyledProperty" /> オブジェクトの閉じたコレクション。
-      </summary>
-    </member>
-    <member name="E:C1.Win.StyledPropertyCollection.PropertyChanged">
-      <summary>
-        プロパティの変更時に発生します。
-      </summary>
-    </member>
-    <member name="M:C1.Win.StyledPropertyCollection.OnPropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
-      <summary>
-        <see cref="E:C1.Win.StyledPropertyCollection.PropertyChanged" /> イベントを発生させます。
-      </summary>
-      <param name="sender">
-        <see cref="T:System.Object" /> イベントの送信元。
-      </param>
-      <param name="e">
-        イベントデータを含む <see cref="T:System.ComponentModel.PropertyChangedEventArgs" />。
-      </param>
-    </member>
-    <member name="M:C1.Win.StyledPropertyCollection.Dispose(System.Boolean)">
-      <summary>
-        すべてのアンマネージリソースを解放します。
-      </summary>
-      <param name="disposing"></param>
-    </member>
-    <member name="M:C1.Win.StyledPropertyCollection.Dispose">
-      <summary>
-        すべてのアンマネージリソースを解放します。
-      </summary>
     </member>
     <member name="T:C1.Win.Sparkline.Localization.Strings">
       <summary>
@@ -13979,6 +13883,107 @@
       <param name="disposing">
         マネージリソースとアンマネージリソースの両方を解放する場合は、<c>true</c>。アンマネージリソースのみを解放する場合は、<c>false</c>
       </param>
+    </member>
+    <member name="T:C1.Win.C1Themes.BaseStyle">
+      <summary>
+        基本スタイル。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.BaseStyle.Name">
+      <summary>
+        スタイル名を取得または設定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.BaseStyle.ToString">
+      <summary>
+        現在のオブジェクトを表す文字列を返します。
+      </summary>
+      <returns></returns>
+    </member>
+    <member name="T:C1.Win.C1Themes.BaseTheme">
+      <summary>
+        基本テーマ。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Themes.BaseTheme.Name">
+      <summary>
+        テーマ名を取得します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.BaseTheme.ToString">
+      <summary>
+        現在のオブジェクトを表す文字列を返します。
+      </summary>
+      <returns></returns>
+    </member>
+    <member name="T:C1.Win.C1Themes.BaseThemeProvider">
+      <summary>
+        基本 ThemeProvider。
+      </summary>
+    </member>
+    <member name="E:C1.Win.C1Themes.BaseThemeProvider.PropertyChanged">
+      <summary>
+        プロパティの変更時に発生します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.BaseThemeProvider.OnPropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.C1Themes.BaseThemeProvider.PropertyChanged" /> イベントを発生させます。
+      </summary>
+      <param name="sender">
+        <see cref="T:System.Object" /> イベントの送信元。
+      </param>
+      <param name="e">
+        イベントデータを含む <see cref="T:System.ComponentModel.PropertyChangedEventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Themes.BaseThemeProvider.Dispose(System.Boolean)">
+      <summary>
+        すべてのアンマネージリソースを解放します。
+      </summary>
+      <param name="disposing"></param>
+    </member>
+    <member name="M:C1.Win.C1Themes.BaseThemeProvider.Dispose">
+      <summary>
+        すべてのアンマネージリソースを解放します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Themes.StyledPropertyCollection">
+      <summary>
+        <see cref="T:C1.Win.C1Themes.StyledProperty" /> オブジェクトの閉じたコレクション。
+      </summary>
+    </member>
+    <member name="E:C1.Win.C1Themes.StyledPropertyCollection.PropertyChanged">
+      <summary>
+        プロパティの変更時に発生します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Themes.StyledPropertyCollection.OnPropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+      <summary>
+        <see cref="E:C1.Win.C1Themes.StyledPropertyCollection.PropertyChanged" /> イベントを発生させます。
+      </summary>
+      <param name="sender">
+        <see cref="T:System.Object" /> イベントの送信元。
+      </param>
+      <param name="e">
+        イベントデータを含む <see cref="T:System.ComponentModel.PropertyChangedEventArgs" />。
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Themes.StyledPropertyCollection.Dispose(System.Boolean)">
+      <summary>
+        すべてのアンマネージリソースを解放します。
+      </summary>
+      <param name="disposing"></param>
+    </member>
+    <member name="M:C1.Win.C1Themes.StyledPropertyCollection.Dispose">
+      <summary>
+        すべてのアンマネージリソースを解放します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1FlexGrid.ClearFlags.Filter">
+      <summary>
+        対応する列のフィルタをクリアします。
+      </summary>
     </member>
   </members>
 </doc>

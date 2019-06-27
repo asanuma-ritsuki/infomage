@@ -80,21 +80,9 @@
       <param name="name">検索するエントリの名前。</param>
       <returns>コレクションが指定された名前のエントリを含む場合は true、それ以外の場合は false。</returns>
     </member>
-    <member name="M:C1.C1Zip.C1ZipEntryCollection.Contains(C1.C1Zip.C1ZipEntry)">
-      <summary>コレクションがエントリを含むかどうかを決定します。</summary>
-      <param name="entry">検索するエントリのエントリ。</param>
-      <returns>コレクションがエントリを含む場合は true、それ以外の場合は false。</returns>
-    </member>
     <member name="M:C1.C1Zip.C1ZipEntryCollection.IndexOf(System.String)">
       <summary>指定した名前を持つエントリのインデックスを取得します。</summary>
       <param name="name">検索するエントリの名前。</param>
-      <returns>コレクション内のエントリのインデックス。見つからなかった場合は -１。</returns>
-    </member>
-    <member name="M:C1.C1Zip.C1ZipEntryCollection.IndexOf(C1.C1Zip.C1ZipEntry)">
-      <summary>コレクション内のエントリのインデックスを取得します。</summary>
-      <param name="entry">
-        検索する <see cref="T:C1.C1Zip.C1ZipEntry" />。
-      </param>
       <returns>コレクション内のエントリのインデックス。見つからなかった場合は -１。</returns>
     </member>
     <member name="M:C1.C1Zip.C1ZipEntryCollection.Add(System.String)">
@@ -213,15 +201,6 @@
       <param name="useMemory">メモリストリームまたは一時ファイルを使用するかどうか。</param>
       <returns>データを zip ファイルに書き込むために使用できるストリーム。 エントリはストリームが閉じるまで追加されません。</returns>
     </member>
-    <member name="P:C1.C1Zip.C1ZipEntryCollection.Count">
-      <summary>zip ファイル内のエントリ数を取得します。</summary>
-    </member>
-    <member name="P:C1.C1Zip.C1ZipEntryCollection.Item(System.Int32)">
-      <summary>
-        インデックスに基づいて
-        <see cref="T:C1.C1Zip.C1ZipEntry" />を取得します。
-      </summary>
-    </member>
     <member name="P:C1.C1Zip.C1ZipEntryCollection.Item(System.String)">
       <summary>
         エントリ名に基づいて
@@ -242,7 +221,8 @@
       </remarks>
       <example>
         以下のコードは、"source.zip" という名前の zip ファイルを作成し、拡張子が "cs" であるすべてのファイルを zip ファイルに追加します。
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           // zip ファイルおよび圧縮するファイルのパスを取得します
           string path = Application.ExecutablePath;
           int pos = path.IndexOf(@"\bin");
@@ -262,7 +242,9 @@
             Console.WriteLine("{0} {1:#,##0} {2:#,##0}", 
               ze.FileName, ze.SizeUncompressed, ze.SizeCompressed);
           }
-          ]]></code></example>
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="M:C1.C1Zip.C1ZipFile.#ctor">
       <summary>
@@ -338,7 +320,8 @@
         <para>1) Visual Studio のプロジェクトノード上で右クリックし、[追加]－[既存の項目]メニューを選択します。</para>
         <para>2) zip ファイルを選択し、プロジェクトに追加します。</para>
         <para>3) 新たに追加されたファイルを選択し、プロパティのビルドアクションを"埋め込まれたリソース"に変更します。</para>
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           // アプリケーションのリソースからストリームを取得します
           System.Reflection.Assembly a = this.GetType().Assembly;
           using (Stream stream = a.GetManifestResourceStream("MyApp.test.zip"))
@@ -359,7 +342,8 @@
               }
             }
           }
-          ]]></code>
+          ]]>
+        </code>
       </example>
     </member>
     <member name="M:C1.C1Zip.C1ZipFile.Create(System.IO.Stream)">
@@ -371,7 +355,8 @@
       <example>
         以下のコードは、メモリストリーム上に新しい
         <see cref="T:C1.C1Zip.C1ZipFile" />を作成します。 それからそこにファイルをいくつか追加します。最後に、たとえばデータベースに格納できるように、zip 圧縮されたデータをバイト配列として取得します。
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           // ストリームに zip を作成します
           MemoryStream msZip = new MemoryStream();
           C1ZipFile zip = new C1ZipFile(msZip, true);
@@ -384,7 +369,9 @@
           
           // zip 圧縮されたデータをバイト配列として取り出します
           byte[] zipData = msZip.ToArray();
-          ]]></code></example>
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="M:C1.C1Zip.C1ZipFile.Close">
       <summary>
@@ -434,7 +421,8 @@
       </remarks>
       <example>
         以下のコードは、zip ファイルを開気、いくつかのエントリを追加して、ファイルを閉じます。
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           C1ZipFile zip = new C1ZipFile();
           zip.Open(myzipfile);
           try
@@ -447,7 +435,9 @@
           {
             zip.CloseBatch();
           }
-          ]]></code></example>
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="M:C1.C1Zip.C1ZipFile.CloseBatch">
       <summary>
@@ -463,7 +453,8 @@
       <remarks>このイベントでは、ユーザーの判断でプログレスバーなどの UI 要素を更新したり操作をキャンセルしたりできます。</remarks>
       <example>
         以下のコードでは、アプリケーションがファイルを圧縮している間、出力ウィンドウにメッセージを出力します。
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           private void Compress()
           {
             // zip ファイルを作成します
@@ -484,7 +475,9 @@
             Console.WriteLine("{0} を圧縮中です：{1:p0}", 
               e.FileName, e.Position/(float)e.FileLength);
           }
-          ]]></code></example>
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="P:C1.C1Zip.C1ZipFile.FileName">
       <summary>現在開いている zip ファイルの名前を取得します。</summary>
@@ -627,7 +620,8 @@
       </remarks>
       <example>
         以下のコードは、メモリストリーム上に保存されている文字列を圧縮解除します。
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           public string ExpandString(byte[] buffer)
           {
             // メモリストリーム内のバッファを返します
@@ -640,7 +634,9 @@
             StreamReader reader = new StreamReader(sr);
             return reader.ReadToEnd();
           }
-          ]]></code></example>
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="M:C1.C1Zip.C1ZStreamReader.#ctor(System.IO.Stream)">
       <summary>
@@ -820,7 +816,8 @@
       </remarks>
       <example>
         以下のコードは、メモリストリーム内の文字列を圧縮します。
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           public byte[] CompressString(string str)
           {
             // メモリストリームを開きます
@@ -839,7 +836,9 @@
             // メモリバッファを返します
             return ms.ToArray();
           }
-          ]]></code></example>
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="M:C1.C1Zip.C1ZStreamWriter.#ctor(System.IO.Stream)">
       <summary>
@@ -1245,6 +1244,36 @@
     </member>
     <member name="T:C1.C1Zip.ZLib.ZStreamException">
       <summary>ZStream の使用中に発生するエラーを表します。</summary>
+    </member>
+    <member name="P:C1.C1Zip.C1ZipEntry.CompressionRatio">
+      <summary>
+        このエントリに適用される圧縮率を取得します。
+      </summary>
+    </member>
+    <member name="T:C1.C1Zip.ZipEncoding">
+      <summary>
+        エントリの名前とコメントに使用されるエンコーディング。
+        デフォルトのエンコードは <see cref="P:System.Text.Encoding.UTF8" /> です。
+      </summary>
+      <remarks>
+        このクラスは圧縮には影響しません。エントリの名前とコメントのエンコードとデコードに
+        使用されるだけです。
+
+        ZIP 形式の初期のバージョンは UTF-8 をサポートしていませんでした。そのため、古い zip ユーティリティはこの形式を認識しない場合があります。
+        下位互換性が必要な場合は、Encoding プロパティを他の値に変更してください。
+
+        論理的には Encoding.Default が正しい選択に思えますが、万国のロケールには機能しません。
+        代わりに、現在の OEMCodePage を使用してエンコードを作成する必要があります。
+        これにより、ファイル名にアクセント文字や万国の文字を使用できます。
+        たとえば、Windows に付属する zip と同様に、"Еland.txt"、"Дiti.txt"、
+        "Wьrth.txt" などの名前を使用できます。
+      </remarks>
+    </member>
+    <member name="P:C1.C1Zip.ZipEncoding.Encoding">
+      <summary>
+        エントリ名とコメントに使用されるエンコーディングを取得または設定します。
+        デフォルトのエンコードは <see cref="P:System.Text.Encoding.UTF8" /> です。
+      </summary>
     </member>
   </members>
 </doc>

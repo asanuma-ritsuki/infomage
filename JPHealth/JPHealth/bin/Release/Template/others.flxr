@@ -86,10 +86,10 @@ FROM
 		AND T1.所属事業所コード = T4.局所コード
 WHERE
 	T1.帳票種別ID = 0
-	AND T1.ロットID = '20180914114755' 
+	AND T1.ロットID = '20190509132754' 
 	--AND (T2.ラベル連番 BETWEEN 674 AND 674)
-	AND T1.会社コード = '2001'
-	AND T1.所属事業所コード = '030260'
+	AND T1.会社コード = '6001'
+	AND T1.所属事業所コード = '6001'
 	--AND T2.重量ヘッダ = 'F'
 ORDER BY
 	T2.ラベル連番
@@ -156,9 +156,9 @@ ORDER BY
         <Name>会社名Ctl</Name>
         <Section>Detail</Section>
         <Left>264</Left>
-        <Top>1005</Top>
-        <Width>3723</Width>
-        <Height>225</Height>
+        <Top>820</Top>
+        <Width>4472</Width>
+        <Height>450</Height>
         <AutoHeight>CanShrink</AutoHeight>
         <Align>LeftMiddle</Align>
         <Text>
@@ -169,7 +169,7 @@ ORDER BY
         <Name>局所名Ctl</Name>
         <Section>Detail</Section>
         <Left>263</Left>
-        <Top>1230</Top>
+        <Top>1300</Top>
         <Width>3723</Width>
         <Height>225</Height>
         <AutoHeight>CanShrink</AutoHeight>
@@ -284,7 +284,7 @@ ORDER BY
         <Name>Field4</Name>
         <Section>Detail</Section>
         <Left>363</Left>
-        <Top>90</Top>
+        <Top>0</Top>
         <Width>1165</Width>
         <Height>270</Height>
         <Align>LeftMiddle</Align>
@@ -296,9 +296,9 @@ ORDER BY
         <Name>Field5</Name>
         <Section>Detail</Section>
         <Left>120</Left>
-        <Top>360</Top>
+        <Top>300</Top>
         <Width>4616</Width>
-        <Height>555</Height>
+        <Height>500</Height>
         <Text>
           <Expression>住所</Expression>
         </Text>
@@ -307,9 +307,9 @@ ORDER BY
         <Name>Field6</Name>
         <Section>Detail</Section>
         <Left>120</Left>
-        <Top>81</Top>
+        <Top>0</Top>
         <Width>243</Width>
-        <Height>279</Height>
+        <Height>270</Height>
         <Align>CenterMiddle</Align>
         <Text>
           <Value sys="string">〒</Value>
@@ -2764,6 +2764,334 @@ FROM
           <Expression>通数</Expression>
         </Text>
         <Format>#,##0</Format>
+      </TextField>
+    </Fields>
+  </Report>
+  <Report ref="1">
+    <Name>ラベル_20190510</Name>
+    <DataSourceName>ラベル</DataSourceName>
+    <ReportInfo>
+      <Author>Administrator</Author>
+    </ReportInfo>
+    <Layout>
+      <Width>4916</Width>
+      <Margin>1022.4</Margin>
+      <MarginTop>1195.2</MarginTop>
+      <MarginRight>1022.4</MarginRight>
+      <MarginBottom>1195.2</MarginBottom>
+      <Orientation>Portrait</Orientation>
+      <Columns>2</Columns>
+      <PaperSize>A4</PaperSize>
+      <LabelSpacingX>141</LabelSpacingX>
+    </Layout>
+    <Font>
+      <Name>ＭＳ Ｐゴシック</Name>
+      <Size>9.75</Size>
+      <GdiCharSet>128</GdiCharSet>
+    </Font>
+    <DataSources>
+      <DataSource>
+        <Name>Main</Name>
+        <DataProvider>OLEDB</DataProvider>
+        <ConnectionString>Provider=SQLOLEDB;Password=intra_intra;Persist Security Info=True;User ID=sa;Initial Catalog=JPHealth;Data Source=JPSERV\INTRASQL</ConnectionString>
+        <RecordSource>/****** SSMS の SelectTopNRows コマンドのスクリプト  ******/
+SELECT 
+	ROW_NUMBER() OVER (PARTITION BY 1 ORDER BY T2.重量ヘッダ DESC, T1.会社コード, T1.所属事業所コード) AS 連番,
+	T1.ロットID,
+	T1.会社コード,
+	T4.会社名,
+	T1.所属事業所コード,
+	T4.局所名,
+	T4.郵便番号,
+	T4.住所,
+	T1.QR,
+	T2.重量ヘッダ,
+	T3.備考
+FROM
+	T_印刷ソート AS T1 INNER JOIN
+	T_印刷管理 AS T2 ON T1.ロットID = T2.ロットID
+		AND T1.会社コード = T2.会社コード
+		AND T1.所属事業所コード = T2.所属事業所コード
+		AND T1.印刷ID = T2.印刷ID INNER JOIN
+	M_重量ヘッダ AS T3 ON T2.重量ヘッダ = T3.重量ヘッダ INNER JOIN
+	M_局所 AS T4 ON T1.会社コード = T4.会社コード
+		AND T1.所属事業所コード = T4.局所コード
+WHERE
+	T1.帳票種別ID = 0
+ORDER BY
+	T2.重量ヘッダ DESC,
+	T1.会社コード,
+	T1.所属事業所コード
+</RecordSource>
+      </DataSource>
+      <DataSource>
+        <Name>ラベル</Name>
+        <DataProvider>OLEDB</DataProvider>
+        <ConnectionString>Provider=SQLOLEDB.1;Password=intra_intra;Persist Security Info=True;User ID=sa;Initial Catalog=JPHealth;Data Source=INTRA-PDC00\INTRASQL</ConnectionString>
+        <RecordSource>SELECT 
+	T1.ロットID,
+	T1.会社コード,
+	T4.会社名,
+	T1.所属事業所コード,
+	T4.局所名,
+	T4.郵便番号,
+	T4.住所,
+	T1.QR,
+	T2.重量ヘッダ,
+	T3.備考 AS 封筒サイズ,
+	T2.ラベル連番,
+	T1.分数
+FROM
+	T_印刷ソート AS T1 INNER JOIN
+	T_印刷管理 AS T2 ON T1.ロットID = T2.ロットID
+		AND T1.会社コード = T2.会社コード
+		AND T1.所属事業所コード = T2.所属事業所コード
+		AND T1.印刷ID = T2.印刷ID INNER JOIN
+	M_重量ヘッダ AS T3 ON T2.重量ヘッダ = T3.重量ヘッダ INNER JOIN
+	M_局所 AS T4 ON T1.会社コード = T4.会社コード
+		AND T1.所属事業所コード = T4.局所コード
+WHERE
+	T1.帳票種別ID = 0
+	AND T1.ロットID = '20190509132754' 
+	--AND (T2.ラベル連番 BETWEEN 674 AND 674)
+	AND T1.会社コード = '6001'
+	AND T1.所属事業所コード = '6001'
+	--AND T2.重量ヘッダ = 'F'
+ORDER BY
+	T2.ラベル連番
+</RecordSource>
+      </DataSource>
+    </DataSources>
+    <Sections>
+      <Section>
+        <Name>Detail</Name>
+        <SubSections>
+          <SubSection>
+            <Border>
+              <Left>
+                <Width>10</Width>
+              </Left>
+              <Top>
+                <Width>10</Width>
+              </Top>
+              <Right>
+                <Width>10</Width>
+              </Right>
+              <Bottom>
+                <Width>10</Width>
+              </Bottom>
+            </Border>
+            <Height>2400</Height>
+          </SubSection>
+        </SubSections>
+        <Type>Detail</Type>
+      </Section>
+      <Section>
+        <Name>Header</Name>
+        <SubSections>
+          <SubSection />
+        </SubSections>
+        <Type>Header</Type>
+      </Section>
+      <Section>
+        <Name>Footer</Name>
+        <SubSections>
+          <SubSection>
+            <Height>12</Height>
+          </SubSection>
+        </SubSections>
+        <Type>Footer</Type>
+      </Section>
+      <Section>
+        <Name>PageHeader</Name>
+        <SubSections>
+          <SubSection />
+        </SubSections>
+        <Type>PageHeader</Type>
+      </Section>
+      <Section>
+        <Name>PageFooter</Name>
+        <SubSections>
+          <SubSection />
+        </SubSections>
+        <Type>PageFooter</Type>
+      </Section>
+    </Sections>
+    <Fields>
+      <TextField>
+        <Name>会社名Ctl</Name>
+        <Section>Detail</Section>
+        <Left>264</Left>
+        <Top>1005</Top>
+        <Width>4472</Width>
+        <Height>225</Height>
+        <AutoHeight>CanShrink</AutoHeight>
+        <Align>LeftMiddle</Align>
+        <Text>
+          <Expression>会社名</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>局所名Ctl</Name>
+        <Section>Detail</Section>
+        <Left>263</Left>
+        <Top>1230</Top>
+        <Width>3723</Width>
+        <Height>225</Height>
+        <AutoHeight>CanShrink</AutoHeight>
+        <Align>RightMiddle</Align>
+        <Text>
+          <Expression>局所名</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>備考Ctl</Name>
+        <Section>Detail</Section>
+        <Left>4218</Left>
+        <Top>1377</Top>
+        <Width>582</Width>
+        <Height>201</Height>
+        <AutoHeight>CanShrink</AutoHeight>
+        <Align>RightMiddle</Align>
+        <Text>
+          <Expression>封筒サイズ</Expression>
+        </Text>
+      </TextField>
+      <BarCodeField>
+        <Name>QRCode</Name>
+        <Section>Detail</Section>
+        <Left>4200</Left>
+        <Top>1662</Top>
+        <Width>600</Width>
+        <Height>600</Height>
+        <Text>
+          <Expression>QR</Expression>
+        </Text>
+        <BarCodeType>QRCode</BarCodeType>
+        <BarcodeOptions>
+          <TextAlign>Right</TextAlign>
+          <SizeOptions>
+            <NarrowWideRatio>0</NarrowWideRatio>
+            <SizeMode>Scale</SizeMode>
+            <BarHeight>300</BarHeight>
+          </SizeOptions>
+        </BarcodeOptions>
+        <Align>CenterMiddle</Align>
+        <Font>
+          <Name>Meiryo UI</Name>
+          <Size>6</Size>
+        </Font>
+      </BarCodeField>
+      <TextField>
+        <Name>QRテキスト</Name>
+        <Section>Detail</Section>
+        <Left>2670</Left>
+        <Top>2090</Top>
+        <Width>1430</Width>
+        <Height>172</Height>
+        <Align>RightMiddle</Align>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>6</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Expression>QR</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field1</Name>
+        <Section>Detail</Section>
+        <Left>120</Left>
+        <Top>1668</Top>
+        <Width>2550</Width>
+        <Height>624</Height>
+        <Align>CenterMiddle</Align>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>10.5</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Value sys="string">就業判定票在中(健康診断)</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field2</Name>
+        <Section>Detail</Section>
+        <Left>263</Left>
+        <Top>1520</Top>
+        <Width>3723</Width>
+        <Height>256</Height>
+        <Align>RightMiddle</Align>
+        <Text>
+          <Value sys="string">所属長様</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field3</Name>
+        <Section>Detail</Section>
+        <Left>2850</Left>
+        <Top>1894</Top>
+        <Width>440</Width>
+        <Height>172</Height>
+        <Align>LeftMiddle</Align>
+        <WordWrap>false</WordWrap>
+        <Font>
+          <Name>ＭＳ Ｐゴシック</Name>
+          <Size>6.75</Size>
+          <GdiCharSet>128</GdiCharSet>
+        </Font>
+        <Text>
+          <Expression>ラベル連番</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field4</Name>
+        <Section>Detail</Section>
+        <Left>363</Left>
+        <Top>90</Top>
+        <Width>1165</Width>
+        <Height>270</Height>
+        <Align>LeftMiddle</Align>
+        <Text>
+          <Expression>郵便番号</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field5</Name>
+        <Section>Detail</Section>
+        <Left>120</Left>
+        <Top>360</Top>
+        <Width>4616</Width>
+        <Height>555</Height>
+        <Text>
+          <Expression>住所</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field6</Name>
+        <Section>Detail</Section>
+        <Left>120</Left>
+        <Top>81</Top>
+        <Width>243</Width>
+        <Height>279</Height>
+        <Align>CenterMiddle</Align>
+        <Text>
+          <Value sys="string">〒</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field7</Name>
+        <Section>Detail</Section>
+        <Left>3290</Left>
+        <Top>1820</Top>
+        <Width>812</Width>
+        <Height>246</Height>
+        <Align>CenterMiddle</Align>
+        <Text>
+          <Expression>分数</Expression>
+        </Text>
       </TextField>
     </Fields>
   </Report>

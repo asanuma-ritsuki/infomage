@@ -221,7 +221,10 @@
                         strSQL &= "T1.視力判定, T1.聴力判定, T1.血圧判定, T1.尿糖判定, T1.尿蛋白判定, T1.血中脂質判定, T1.肝機能判定, "
                         strSQL &= "T1.腎機能判定, T1.尿酸判定, T1.血液判定, T1.血糖判定, T1.胸部X線判定結果, T1.心電図判定結果, "
                         strSQL &= "T1.総合成績判定, T1.就業区分, T1.胸部X線所見, T1.胸部X線判定, T1.心電図所見, T1.心電図判定, "
-                        strSQL &= "T1.既往歴, T1.自覚症状, T1.診察所見, T1.総合コメント, T1.産業医の意見, T1.QRコード, T4.ラベル連番 "
+                        strSQL &= "T1.既往歴, T1.自覚症状, T1.診察所見, T1.総合コメント, T1.産業医の意見, T1.QRコード, T4.ラベル連番, "
+                        '2019/06/11
+                        '3項目追加
+                        strSQL &= "T3.年度, ISNULL(T6.印影画像パス, '') AS 産業医印影, ISNULL(T7.印影画像パス, '') AS 判定医印影 "
                         strSQL &= "FROM T_判定票印刷 AS T1 INNER JOIN "
                         strSQL &= "T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID "
                         strSQL &= "AND T1.レコード番号 = T2.レコード番号 INNER JOIN "
@@ -230,7 +233,12 @@
                         strSQL &= "T_印刷管理 AS T4 ON T2.ロットID = T4.ロットID "
                         strSQL &= "AND T2.会社コード = T4.会社コード "
                         strSQL &= "AND T2.所属事業所コード = T4.所属事業所コード "
-                        strSQL &= "AND T2.印刷ID = T4.印刷ID "
+                        strSQL &= "AND T2.印刷ID = T4.印刷ID LEFT OUTER JOIN "
+                        '2019/06/11
+                        '3テーブル追加
+                        strSQL &= "T_医師 AS T5 ON T1.ロットID = T5.ロットID AND T1.レコード番号 = T5.レコード番号 LEFT OUTER JOIN "
+                        strSQL &= "M_産業医 AS T6 ON T5.産業医ID = T6.産業医ID LEFT OUTER JOIN "
+                        strSQL &= "M_判定医 AS T7 ON T5.判定医ID = T7.判定医ID "
                         strSQL &= "WHERE T1.ロットID = '" & Me.txtLotID.Text & "' "
                         strSQL &= "AND T1.システムID = '" & Me.C1FGridResult(iRow, "システムID") & "' "
                         strSQL &= "AND T2.会社コード = '" & Me.txtCompanyCode.Text & "' "
@@ -245,7 +253,13 @@
                         dt = sqlProcess.DB_SELECT_DATATABLE(strSQL)
                         If dt.Rows.Count > 0 Then
                             '印刷処理
-                            PrintProcess.Print(strSQL, PrintCategory.Checkup)
+                            '2019/6/11
+                            '年度が「2019」以降の場合は新テンプレートとする
+                            If CInt(dt.Rows(0)("年度")) >= 2019 Then
+                                PrintProcess.Print(strSQL, PrintCategory.Checkup,,, "result2019.flxr")
+                            Else
+                                PrintProcess.Print(strSQL, PrintCategory.Checkup)
+                            End If
                         End If
                     Case 5
                         'リーフレット

@@ -13908,7 +13908,7 @@ ORDER BY
         <Name>Field204</Name>
         <Section>Detail</Section>
         <Left>9372</Left>
-        <Top>10456</Top>
+        <Top>10455</Top>
         <Width>1729</Width>
         <Height>200</Height>
         <MarginLeft>50</MarginLeft>
@@ -13985,7 +13985,7 @@ ORDER BY
         </Background>
         <Section>Detail</Section>
         <Left>9372</Left>
-        <Top>10656</Top>
+        <Top>10655</Top>
         <Width>1201</Width>
         <Height>1200</Height>
         <MarginLeft>30</MarginLeft>
@@ -14021,7 +14021,7 @@ ORDER BY
         </Border>
         <Section>Detail</Section>
         <Left>10573</Left>
-        <Top>10656</Top>
+        <Top>10655</Top>
         <Width>1706</Width>
         <Height>1200</Height>
       </TextField>

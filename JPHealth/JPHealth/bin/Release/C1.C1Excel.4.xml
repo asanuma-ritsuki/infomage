@@ -190,7 +190,8 @@
         次のコードでは、
         <see cref="T:C1.C1Excel.C1XLBook" />を
         <see cref="T:System.IO.MemoryStream" />へ保存し、内容をクリアします。その後、ワークブックを同じストリームから再度ロードします。
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           // ワークブックを新しい MemoryStream へ保存します
           MemoryStream ms = new MemoryStream();
           _book.Save(ms);
@@ -200,7 +201,9 @@
           // MemoryStream から再度ロードします
           ms.Position = 0;
           _book.Load(ms);
-          ]]></code></example>
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="M:C1.C1Excel.C1XLBook.Save(System.IO.Stream,C1.C1Excel.FileFormat)">
       <summary>
@@ -491,7 +494,8 @@
           <see cref="P:C1.C1Excel.XLCell.Value" />　プロパティの値へ直接
           <see cref="P:C1.C1Excel.XLPictureShape.Image" />オブジェクトを設定します。ただし、配置とスケーリング引数を持つコンストラクタを用いて、コード内で
           <b>XLPictureShape</b>　オブジェクトを生成する方法も提供されています。
-        </para></remarks>
+        </para>
+      </remarks>
     </member>
     <member name="M:C1.C1Excel.XLPictureShape.#ctor(System.Drawing.Image,System.Int32,System.Int32)">
       <summary>
@@ -504,7 +508,8 @@
       <param name="y">セルに対する新しい図形の垂直位置を twips 単位で示します。</param>
       <example>
         次のコードを使用し、セルに画像を追加します。画像は元のサイズで左上端から 30twips の間隔でレンダリングされます:
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           // シートおよびセルを取得します
           XLSheet sheet = c1ExcelBook1.Sheets[0];
           XLCell  cell  = sheet[row, col];
@@ -514,7 +519,9 @@
           
           // XLPictureShape オブジェクトをセルの値として設定します
           cell.Value = pic;
-          ]]></code></example>
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="M:C1.C1Excel.XLPictureShape.#ctor(System.Drawing.Image,System.Int32,System.Int32,System.Int32,System.Int32)">
       <summary>
@@ -529,7 +536,8 @@
       <param name="height">画像の高さ（twips 単位）。</param>
       <example>
         次のコードを使用すると、セルに画像を追加できます。画像は長方形内に描画され、セルの中央に境界線より 60twip の間隔で表示されます:
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           // シートおよびセルを宣言します
           XLSheet sheet = c1ExcelBook1.Sheets[0];
           XLCell  cell  = sheet[row, col];
@@ -548,7 +556,9 @@
           
           // セルの Value プロパティへ XLPictureShape を設定します
           cell.Value = pic;
-          ]]></code></example>
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="M:C1.C1Excel.XLPictureShape.#ctor(System.Drawing.Image,System.Drawing.Rectangle)">
       <summary>
@@ -563,7 +573,8 @@
       </param>
       <example>
         次のコードを使用し、セルに画像を追加します。画像は長方形内に描画され、セルの中央に境界線から 60twip の間隔で表示されます:
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           // シートおよびセルを宣言します
           XLSheet sheet = c1ExcelBook1.Sheets[0];
           XLCell  cell  = sheet[row, col];
@@ -581,7 +592,9 @@
           
           // セルの Value プロパティへ XLPictureShape を設定します
           cell.Value = pic;
-          ]]></code></example>
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="M:C1.C1Excel.XLPictureShape.#ctor(System.Drawing.Image)">
       <summary>
@@ -610,7 +623,8 @@
       <remarks>本コンストラクタは、セル・画像サイズに基づいて画像の表示サイズ、位置、クリッピングなどを自動調整します。</remarks>
       <example>
         次のコードを使用し、セルに画像を追加します。この場合、画像はセルの中央に配置され、画像の縦横比 を保持し、セルのサイズに合わせて表示されます。
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           // シートおよびセルを取得します
           XLSheet sheet = c1ExcelBook1.Sheets[0];
           XLCell  cell  = sheet[row, col];
@@ -629,7 +643,9 @@
           
           // セルの Value プロパティに XLPictureShape を設定します
           cell.Value = pic;
-          ]]></code></example>
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="M:C1.C1Excel.XLPictureShape.#ctor(C1.C1Excel.XLSheet,System.Drawing.Image,System.Int32,System.Int32,System.Int32,System.Int32)">
       <summary>
@@ -1156,7 +1172,8 @@
       <example>
         たとえば、次のコードでは新規
         <see cref="T:C1.C1Excel.C1XLBook" />を作成して、10 × 10 のテーブルを持つ最初のシートを配置します：
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           C1XLBook book = new C1XLBook();
           XLSheet sheet = book.Sheets[0];
           for (int r = 0; r < 10; r++)
@@ -1168,7 +1185,9 @@
             }
           }
           book.Save(@"c:\temp\test.xls");
-          ]]></code></example>
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="M:C1.C1Excel.XLCell.Clone">
       <summary>値も含めてこのセルのコピーを作成します。</summary>
@@ -1190,14 +1209,17 @@
         <b>SetValue</b>メソッドを実行すると、セルの
         <b>Value</b>および
         <b>Style</b>プロパティを同時に設 定することが可能になります。このメソッドを使用すると、以下の例のようにメンテナンスの容易なコードを作成できます。
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           // セルの値およびスタイルを設定します (SetValue メソッドを使用)
           sheet[0,0].SetValue("Hello", styleBold);
           
           // セルの値およびスタイルを設定します (SetValue メソッドを使用せずに)
           sheet[0,0].Value = "Hello";
           sheet[0,0].Style = styleBold;
-          ]]></code></remarks>
+          ]]>
+        </code>
+      </remarks>
     </member>
     <member name="P:C1.C1Excel.XLCell.Value">
       <summary>セルに保持された値を取得または設定します。</summary>
@@ -2384,10 +2406,13 @@
       </remarks>
       <example>
         下のコードは、左、中央、および右の部分を含むヘッダを作成します。
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           PrintSettings ps = sheet.PrintSettings;
           ps.Header = "&LHeader Left&CHeader Center&RHeader Right";
-          ]]></code></example>
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="P:C1.C1Excel.XLPrintSettings.Footer">
       <summary>シートの印刷時にページフッタとして表示する文字列を取得または設定します。</summary>
@@ -2540,11 +2565,14 @@
       <remarks>コレクションには、コレクションからの行のカウント、列挙、追加、および削除を実行するメソッドが含まれます。</remarks>
       <example>
         シートのインデクサを用いると、行が自動的に生成できることに注意してください。たとえば次のコードでは、(3,3) の座標のセルを取得し、4つの行と4つの列が自動生成されます。
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           C1XLBook book = new C1XLBook();
           sheet = book.Sheets[0];
           XLCell cell   = sheet[3,3]; // 4行4列を作成します
-          ]]></code></example>
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="M:C1.C1Excel.XLRowCollection.Clear">
       <summary>コレクションからすべてのアイテムを削除します。</summary>
@@ -2665,11 +2693,14 @@
       </remarks>
       <example>
         シートのインデクサを用いると、行が自動的に生成できることに注意してください。たとえば次のコードでは、(3,3) の座標のセルを取得し、4つの行と4つの列が自動生成されます。
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           C1XLBook book  = new C1XLBook();
           XLSheet  sheet = book.Sheets[0];
           XLCell   cell  = sheet[3,3]; // 4行4列を作成します
-          ]]></code></example>
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="M:C1.C1Excel.XLColumnCollection.Clear">
       <summary>コレクションからすべてのアイテムを削除します。</summary>
@@ -2811,13 +2842,16 @@
       <summary>指定された行の後で強制的に改ページされるかどうかを取得または設定します。</summary>
       <example>
         次のコードは、シート上の10行目ごとに強制改ページを挿入し、他のすべての行で改ページをクリアします。
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           C1.C1Excel.XLSheet sheet = c1XLBook1.Sheets[0];
           for (int r = 0; r < sheet.Rows.Count; r++)
           {
             sheet.Rows[r].PageBreak = (r > 0 && r % 10 == 0);
           }
-          ]]></code></example>
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="P:C1.C1Excel.XLRow.Height">
       <summary>行の高さを twips 単位で取得または設定します。</summary>
@@ -2988,11 +3022,14 @@
         ブックのシートのコレクションを取得する
         <see cref="T:C1.C1Excel.C1XLBook" />の
         <see cref="P:C1.C1Excel.C1XLBook.Sheets" />プロパティを用います。たとえば、以下のコードではブック上の最初のシートへの参照を取得し、シート名を印刷します。
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           C1XLBook book = new C1XLBook();
           XLSheet sheet = book.Sheets[0];
           Debug.WriteLine(sheet.Name);
-          ]]></code></example>
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="M:C1.C1Excel.XLSheetCollection.Add">
       <summary>
@@ -3167,12 +3204,15 @@
         個々のシートを取得するため、
         <see cref="T:C1.C1Excel.C1XLBook" />の
         <see cref="P:C1.C1Excel.C1XLBook.Sheets" />インデクサを使用します。たとえば、以下のコードでは最初のシートへの参照を取得し、シート上の行および列の数を印刷します。
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           C1XLBook book = new C1XLBook();
           XLSheet sheet = book.Sheets[0];
           Debug.WriteLine("Sheet has {0} rows and {1} columns", 
             sheet.Rows.Count, sheet.Columns.Count);
-          ]]></code></example>
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="M:C1.C1Excel.XLSheet.Clone">
       <summary>このシートのコピーを生成します。</summary>
@@ -3186,7 +3226,8 @@
       </remarks>
       <example>
         以下のコードでは、テンプレート シートを含むブックをロード、シートを12枚コピー、テンプレート シートを削除し、最後に新しい名前でファイルを保存します。
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           // テンプレートシートを含むブックをロードします
           _c1xl.Load(@"c:\temp\template.xls");
           
@@ -3203,7 +3244,9 @@
           // テンプレートシートを削除し、新しい名前で保存します
           _c1xl.Sheets.Remove("Template");
           _c1xl.Save(@"C:\temp\expense_report.xls");
-          ]]></code></example>
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="M:C1.C1Excel.XLSheet.GetCell(System.Int32,System.Int32)">
       <summary>指定した座標にあるセルへの参照を取得します。セルが存在しなければ null を返します。</summary>
@@ -3402,7 +3445,8 @@
       </remarks>
       <example>
         以下のコードは、データエントリ シートを作成します。ほとんどのセルをロックし、データ入力用のセルだけを編集可能にします。
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           // 単一のロックされたシートから開始します
           _c1xl.Clear();
           XLSheet sheet = _c1xl.Sheets[0];
@@ -3425,7 +3469,9 @@
           
           // ブックを保存します
           _c1xl.Save(@"c:\temp\Protected.xls");
-          ]]></code></example>
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="P:C1.C1Excel.XLSheet.Visible">
       <summary>シートを表示にするかどうかを取得または設定します。</summary>
@@ -3468,11 +3514,14 @@
       </summary>
       <example>
         以下のコードは、シートのヘッダを生成し、向きを横長にします。
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           XLPrintSettings pp = sheet.PrintSettings();
           pp.Landscape = true;
           pp.Header = "&LLeft Header&CCenter Header&RRight Header";
-          ]]></code></example>
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="P:C1.C1Excel.XLSheet.Shapes">
       <summary>
@@ -4157,6 +4206,249 @@
     <member name="P:C1.C1Excel.XLSheet.CodeName">
       <summary>
         <see cref="T:C1.C1Excel.XLSheet" /> のコード名を取得または設定します。VBA 操作で必要です。
+      </summary>
+    </member>
+    <member name="T:C1.C1Excel.XLValidationType">
+      <summary>
+        値と組み合わせて実行される検証テストの種類を指定します。
+      </summary>
+    </member>
+    <member name="F:C1.C1Excel.XLValidationType.None">
+      <summary>このデータ検証を指定すると、すべての値の型が許容され、値の型や範囲のチェックは行われません。</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLValidationType.Whole">
+      <summary>このデータ検証を指定すると、整数値が指定された条件を満たしているかどうかがチェックされ、満たしている場合は、その値が許容されます。</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLValidationType.Decimal">
+      <summary>このデータ検証を指定すると、10 進値が指定された条件を満たしているかどうかがチェックされ、満たしている場合は、その値が許容されます。</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLValidationType.List">
+      <summary>このデータ検証を指定すると、値が値リスト内のいずれかの値と一致するかどうかがチェックされ、一致する場合は、その値が許容されます。</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLValidationType.Date">
+      <summary>このデータ検証を指定すると、日付値が指定された条件を満たしているかどうかがチェックされ、満たしている場合は、その値が許容されます。</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLValidationType.Time">
+      <summary>このデータ検証を指定すると、時刻値が指定された条件を満たしているかどうかがチェックされ、満たしている場合は、その値が許容されます。</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLValidationType.TextLength">
+      <summary>このデータ検証を指定すると、テキスト値の長さが指定された条件を満たしているかどうかがチェックされ、満たしている場合は、その値が許容されます。</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLValidationType.Custom">
+      <summary>このデータ検証を指定すると、カスタム式を使用してセルの値がチェックされます。</summary>
+    </member>
+    <member name="T:C1.C1Excel.XLComparisonOperator">
+      <summary>
+        比較演算子（セルタイプの書式設定の場合に適用可能）。
+      </summary>
+    </member>
+    <member name="F:C1.C1Excel.XLComparisonOperator.NoComparision">
+      <summary>条件付き書式設定なし。</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLComparisonOperator.Between">
+      <summary>「値が指定の範囲内にある」場合の条件付き書式設定。</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLComparisonOperator.NotBetween">
+      <summary>「値が指定の範囲外にある」場合の条件付き書式設定。</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLComparisonOperator.Equal">
+      <summary>「値が指定の値に等しい」場合の条件付き書式設定。</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLComparisonOperator.NotEqual">
+      <summary>「値が指定の値と等しくない」場合の条件付き書式設定。</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLComparisonOperator.GreaterThan">
+      <summary>「値が指定の値より大きい（GT）」場合の条件付き書式設定。</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLComparisonOperator.LessThan">
+      <summary>「値が指定の値より小さい（LT）」場合の条件付き書式設定。</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLComparisonOperator.GreaterThanOrEqual">
+      <summary>「値が指定の値以上である（GE）」場合の条件付き書式設定。</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLComparisonOperator.LessThanOrEqual">
+      <summary>「値が指定の値以下である（LE）」場合の条件付き書式設定。</summary>
+    </member>
+    <member name="T:C1.C1Excel.XLErrorStyle">
+      <summary>
+        エラースタイル（ステータス）。
+      </summary>
+    </member>
+    <member name="F:C1.C1Excel.XLErrorStyle.Stop">
+      <summary>エラーアラートで停止アイコンを使用ことを指定します。</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLErrorStyle.Warning">
+      <summary>エラーアラートで警告アイコンを使用ことを指定します。</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLErrorStyle.Information">
+      <summary>エラーアラートで情報アイコンを使用ことを指定します。</summary>
+    </member>
+    <member name="T:C1.C1Excel.IMEModeType">
+      <summary>
+        日本語入力ルールの説明を指定します。
+      </summary>
+    </member>
+    <member name="F:C1.C1Excel.IMEModeType.NoControl">
+      <summary>制御なし。</summary>
+    </member>
+    <member name="F:C1.C1Excel.IMEModeType.On">
+      <summary>モードオン。</summary>
+    </member>
+    <member name="F:C1.C1Excel.IMEModeType.Off">
+      <summary>オフ（英語モード）。</summary>
+    </member>
+    <member name="F:C1.C1Excel.IMEModeType.Disabled">
+      <summary>無効。</summary>
+    </member>
+    <member name="F:C1.C1Excel.IMEModeType.Hiragana">
+      <summary>ひらがな。</summary>
+    </member>
+    <member name="F:C1.C1Excel.IMEModeType.FullKatakana">
+      <summary>カタカナ。</summary>
+    </member>
+    <member name="F:C1.C1Excel.IMEModeType.HalfKatakana">
+      <summary>半角カタカナ。</summary>
+    </member>
+    <member name="F:C1.C1Excel.IMEModeType.FullAlpha">
+      <summary>全角英数字。</summary>
+    </member>
+    <member name="F:C1.C1Excel.IMEModeType.HalfAlpha">
+      <summary>半角英数字。</summary>
+    </member>
+    <member name="F:C1.C1Excel.IMEModeType.FullHangul">
+      <summary>全角ハングル。</summary>
+    </member>
+    <member name="F:C1.C1Excel.IMEModeType.HalfHangul">
+      <summary>ハングル。</summary>
+    </member>
+    <member name="T:C1.C1Excel.XLDataValidationRangeCollection">
+      <summary>
+        条件付き書式設定範囲コレクション。
+      </summary>
+    </member>
+    <member name="P:C1.C1Excel.XLDataValidationRangeCollection.DataValidation">
+      <summary>条件付き書式設定オブジェクトを取得します。</summary>
+    </member>
+    <member name="P:C1.C1Excel.XLDataValidationRangeCollection.ToughRecalc">
+      <summary>セルの外観がかなりの処理を必要とするかどうかを決定します。</summary>
+    </member>
+    <member name="M:C1.C1Excel.XLDataValidationRangeCollection.ToString">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="T:C1.C1Excel.XLDataValidation">
+      <summary>
+        データ検証。
+      </summary>
+    </member>
+    <member name="M:C1.C1Excel.XLDataValidation.#ctor(C1.C1Excel.C1XLBook)">
+      <summary>
+        初期化データ検証オブジェクト。
+      </summary>
+      <param name="book"></param>
+    </member>
+    <member name="P:C1.C1Excel.XLDataValidation.Book">
+      <summary>親ワークブックを取得します。</summary>
+    </member>
+    <member name="P:C1.C1Excel.XLDataValidation.ValidationType">
+      <summary></summary>
+    </member>
+    <member name="P:C1.C1Excel.XLDataValidation.Operator">
+      <summary></summary>
+    </member>
+    <member name="P:C1.C1Excel.XLDataValidation.AllowBlank">
+      <summary></summary>
+    </member>
+    <member name="P:C1.C1Excel.XLDataValidation.ShowInputMessage">
+      <summary></summary>
+    </member>
+    <member name="P:C1.C1Excel.XLDataValidation.ShowErrorMessage">
+      <summary></summary>
+    </member>
+    <member name="P:C1.C1Excel.XLDataValidation.HideDropDown">
+      <summary></summary>
+    </member>
+    <member name="P:C1.C1Excel.XLDataValidation.ErrorStyle">
+      <summary></summary>
+    </member>
+    <member name="P:C1.C1Excel.XLDataValidation.ErrorTitle">
+      <summary></summary>
+    </member>
+    <member name="P:C1.C1Excel.XLDataValidation.Error">
+      <summary></summary>
+    </member>
+    <member name="P:C1.C1Excel.XLDataValidation.PromptTitle">
+      <summary></summary>
+    </member>
+    <member name="P:C1.C1Excel.XLDataValidation.Prompt">
+      <summary></summary>
+    </member>
+    <member name="P:C1.C1Excel.XLDataValidation.IMEMode">
+      <summary></summary>
+    </member>
+    <member name="P:C1.C1Excel.XLDataValidation.FirstFormula">
+      <summary>
+        このデータ検証の 1 番目の式を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Excel.XLDataValidation.SecondFormula">
+      <summary>
+        このデータ検証の 2 番目の式を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Excel.XLDataValidation.Ranges">
+      <summary>データ検証範囲のコレクション。</summary>
+    </member>
+    <member name="M:C1.C1Excel.XLDataValidation.Clone">
+      <summary>
+        現在のインスタンスをコピーした新しい <see cref="T:C1.C1Excel.XLDataValidation" /> オブジェクトを作成します。
+      </summary>
+      <returns>
+        現在のインスタンスをコピーした新しい <see cref="T:C1.C1Excel.XLDataValidation" /> オブジェクト。
+      </returns>
+    </member>
+    <member name="T:C1.C1Excel.XLDataValidationCollection">
+      <summary>
+        条件付き書式設定範囲のコレクション。
+      </summary>
+    </member>
+    <member name="P:C1.C1Excel.XLDataValidationCollection.Sheet">
+      <summary>条件付き書式設定オブジェクトを取得します。</summary>
+    </member>
+    <member name="P:C1.C1Excel.XLDataValidationCollection.DisablePrompts">
+      <summary>この検証の無効プロンプトを取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Excel.XLDataValidationCollection.XWindow">
+      <summary>この検証の X ウィンドウ座標を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Excel.XLDataValidationCollection.YWindow">
+      <summary>この検証の Y ウィンドウ座標を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Excel.XLDataValidationCollection.ObjectId">
+      <summary>オブジェクト識別子を取得または設定します。</summary>
+    </member>
+    <member name="P:C1.C1Excel.XLSheet.DataValidations">
+      <summary>
+        現在のワークブックの <see cref="T:C1.C1Excel.XLDataValidation" /> オブジェクトのコレクションを取得します。
+      </summary>
+    </member>
+    <member name="M:C1.C1Excel.XLStyle.ColorFromIndex(System.Int32)">
+      <summary>
+        標準パレット色を取得します。
+      </summary>
+      <param name="index"></param>
+      <returns></returns>
+    </member>
+    <member name="M:C1.C1Excel.XLStyle.IndexFromColor(System.Drawing.Color)">
+      <summary>
+        RGB 空間内の最も近い色を検索します。
+      </summary>
+      <param name="color"></param>
+      <returns></returns>
+    </member>
+    <member name="P:C1.C1Excel.XLStyle.IsAutoBackColor">
+      <summary>
+        この <see cref="T:C1.C1Excel.XLStyle" /> の背景色が自動的かどうかを取得します。
       </summary>
     </member>
   </members>

@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{207A62A5-39E1-44E1-B29D-C64DF67338A0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CS_Sample</RootNamespace>
+    <AssemblyName>CS_Sample</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="備忘録\01_Mainメソッドと標準出力・標準エラー出力.cs" />
+    <Compile Include="備忘録\02_コマンドライン引数.cs" />
+    <Compile Include="備忘録\03_標準入力の読み取り.cs" />
+    <Compile Include="備忘録\04_プログラムの終了とステータスコード.cs" />
+    <Compile Include="備忘録\05_組み込み型とリテラル表記.cs" />
+    <Compile Include="備忘録\06_文字列リテラルと逐語的リテラル文字列.cs" />
+    <Compile Include="備忘録\07_文字列補間.cs" />
+    <Compile Include="備忘録\08_配列.cs" />
+    <Compile Include="備忘録\09_算術演算子.cs" />
+    <Compile Include="備忘録\10_シフト演算子.cs" />
+    <Compile Include="備忘録\11_比較演算子.cs" />
+    <Compile Include="備忘録\12_等値演算子.cs" />
+    <Compile Include="備忘録\13_is／as演算子とキャスト式.cs" />
+    <Compile Include="備忘録\14_論理演算子.cs" />
+    <Compile Include="備忘録\15_条件演算子、null合算演算子.cs" />
+    <Compile Include="備忘録\16_null条件演算子.cs" />
+    <Compile Include="備忘録\17_nameof演算子.cs" />
+    <Compile Include="備忘録\18_ifステートメント.cs" />
+    <Compile Include="備忘録\19_switchステートメント.cs" />
+    <Compile Include="備忘録\20_whileとdoステートメント.cs" />
+    <Compile Include="備忘録\21_forとforeachステートメント.cs" />
+    <Compile Include="備忘録\22_breakとcontinueステートメント.cs" />
+    <Compile Include="備忘録\23_名前空間宣言と完全修飾子.cs" />
+    <Compile Include="備忘録\24_usingディレクティブ.cs" />
+    <Compile Include="備忘録\25_クラス.cs" />
+    <Compile Include="備忘録\26_静的クラス.cs" />
+    <Compile Include="備忘録\27_部分クラス.cs" />
+    <Compile Include="備忘録\28_ジェネリクスの型パラメーター.cs" />
+    <Compile Include="備忘録\29_アクセス修飾子と入れ子クラス.cs" />
+    <Compile Include="備忘録\30_定数とstatic readonlyフィールド.cs" />
+    <Compile Include="備忘録\31_メソッドの宣言とアクセス修飾子.cs" />
+    <Compile Include="備忘録\32_refパラメーターとoutパラメーター.cs" />
+    <Compile Include="備忘録\33_パラメーター配列.cs" />
+    <Compile Include="備忘録\34_省略可能なパラメーター.cs" />
+    <Compile Include="備忘録\35_拡張メソッド.cs" />
+    <Compile Include="備忘録\36_プロパティの宣言.cs" />
+    <Compile Include="備忘録\37_自動実装プロパティ.cs" />
+    <Compile Include="備忘録\38_イベントの定義と呼び出し.cs" />
+    <Compile Include="備忘録\39_インデクサーの定義.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

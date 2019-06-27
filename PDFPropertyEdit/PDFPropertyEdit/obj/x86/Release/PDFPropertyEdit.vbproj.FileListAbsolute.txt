@@ -13,3 +13,5 @@ C:\GitHub\infomage\PDFPropertyEdit\PDFPropertyEdit\obj\x86\Release\PDFPropertyEd
 C:\GitHub\infomage\PDFPropertyEdit\PDFPropertyEdit\bin\x86\Release\exiftool.exe
 C:\GitHub\infomage\PDFPropertyEdit\PDFPropertyEdit\bin\x86\Release\Magick.NET-Q16-AnyCPU.dll
 C:\GitHub\infomage\PDFPropertyEdit\PDFPropertyEdit\bin\x86\Release\Magick.NET-Q16-AnyCPU.xml
+C:\GitHub\infomage\PDFPropertyEdit\PDFPropertyEdit\obj\x86\Release\PDFPropertyEdit.vbproj.CoreCompileInputs.cache
+C:\GitHub\infomage\PDFPropertyEdit\PDFPropertyEdit\obj\x86\Release\PDFPropertyEdit.vbproj.CopyComplete

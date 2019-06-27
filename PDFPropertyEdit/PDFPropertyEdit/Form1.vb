@@ -188,26 +188,44 @@ Public Class Form1
 				MessageBox.Show("CSVファイルを指定してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
 				Exit Sub
 			End If
-			If MessageBox.Show("指定されたCSVファイルの値をもとにPDFの文書プロパティを書き換えます" & vbNewLine & "よろしいですか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then
-				Exit Sub
+
+			If Me.cmbExtension.SelectedIndex = 0 Then
+				If MessageBox.Show("指定されたCSVファイルの値をもとにPDFの文書プロパティを書き換えます" & vbNewLine & "よろしいですか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then
+					Exit Sub
+				End If
+			Else
+				If MessageBox.Show("指定されたCSVファイルの値をもとにTIFのプロパティを書き換えます" & vbNewLine & "よろしいですか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then
+					Exit Sub
+				End If
 			End If
 
 			blnCancel = False
 			Me.btnStart.Enabled = False
 			Me.btnStop.Enabled = True
 			Dim iRecCount As Integer = 0
-			Dim iTotalCount As Integer = 0
+            Dim iTotalCount As Integer = 0
+            Dim enc As System.Text.Encoding = System.Text.Encoding.GetEncoding("Shift-JIS")
 
-			'トータルカウントの取得
-			Using parser As New CSVParser(Me.txtCSVFile.Text, System.Text.Encoding.GetEncoding("Shift-JIS"))
-				parser.Delimiter = ","
-				parser.HasFieldsEnclosedInQuotes = True
+            'トータルカウントの取得、及び全角文字が使用されていないかチェック
+            '1、2項目目に全角が含まれていないかチェックする
+            Using parser As New CSVParser(Me.txtCSVFile.Text, System.Text.Encoding.GetEncoding("Shift-JIS"))
+                parser.Delimiter = ","
+                parser.HasFieldsEnclosedInQuotes = True
 				parser.TrimWhiteSpace = False
 				While Not parser.EndOfData
 					iTotalCount += 1
-					parser.ReadFields()
-				End While
-			End Using
+                    Dim row As String() = parser.ReadFields()
+                    '文字数とバイト数が合致していれば全て半角文字
+                    If Not row(0).Length = enc.GetByteCount(row(0)) Then
+                        MessageBox.Show("ファイルパスに全角文字が含まれています" & vbNewLine & "全角文字を除去して再度実行してください(" & iTotalCount & ")", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                    End If
+                    If Not row(1).Length = enc.GetByteCount(row(1)) Then
+                        MessageBox.Show("保存先フォルダに全角文字が含まれています" & vbNewLine & "全角文字を除去して再度実行してください(" & iTotalCount & ")", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                    End If
+                End While
+            End Using
 
 			Me.ProgressBar1.Maximum = iTotalCount
 			Me.lblProgress.Text = "0 / " & iTotalCount
@@ -228,52 +246,8 @@ Public Class Form1
 					End If
 
 					Dim row As String() = parser.ReadFields()
-					If row.Count = 5 Then
-						'4項目の場合はTIF確定
-						'Using bmp As New Bitmap(row(0))
-						'	'タイトル
-						'	Dim pi As Imaging.PropertyItem = bmp.GetPropertyItem(40091)
-						'	pi.Value = System.Text.Encoding.Unicode.GetBytes(row(2))
-						'	bmp.SetPropertyItem(pi)
-						'	'件名
-						'	pi = bmp.GetPropertyItem(40095)
-						'	pi.Value = System.Text.Encoding.Unicode.GetBytes(row(3))
-						'	bmp.SetPropertyItem(pi)
-						'	'作成者
-						'	pi = bmp.GetPropertyItem(40093)
-						'	pi.Value = System.Text.Encoding.Unicode.GetBytes(row(4))
-						'	bmp.SetPropertyItem(pi)
-						'	bmp.Save(row(1))
-						'	bmp.Dispose()
-						'End Using
-
-						''Magick.NETを使用してEXIF情報を操作する
-						'Using image As New MagickImage(row(0))
-						'	Dim profile As New ExifProfile()
-						'	'profile.SetValue(ExifTag.ImageDescription, System.Text.Encoding.Unicode.GetBytes(row(2)))
-						'	profile.SetValue(ExifTag.ImageDescription, row(2))
-						'	profile.SetValue(ExifTag.XPSubject, System.Text.Encoding.Unicode.GetBytes(row(3)))
-						'	'profile.SetValue(ExifTag.Artist, System.Text.Encoding.Unicode.GetBytes(row(4)))
-						'	profile.SetValue(ExifTag.Artist, row(4))
-						'	image.AddProfile(profile)
-						'	image.Write(row(1))
-						'End Using
-
-						'Using image2 As New MagickImage(row(1))
-						'	Dim myMagickExif As ExifProfile = image2.GetExifProfile()
-						'	If Not myMagickExif Is Nothing Then
-						'		Dim str As String = ""
-						'		For Each exifValue In myMagickExif.Values
-						'			str &= exifValue.Tag & "（"
-						'			str &= exifValue.DataType & "）"
-						'			str &= exifValue.ToString() & "\n"
-						'		Next
-						'		MessageBox.Show(str)
-						'	End If
-						'End Using
-
-					Else
-						'それ以外はPDF
+					If Me.cmbExtension.SelectedIndex = 0 Then
+						'PDF
 						Dim reader As New PdfReader(row(0))
 						Dim strOutFile As String = row(1) & "\" & System.IO.Path.GetFileName(row(0))
 						If Not System.IO.Directory.Exists(row(1)) Then
@@ -311,7 +285,116 @@ Public Class Form1
 						stamper.Close()
 						reader.Close()
 
+					Else
+						'TIF
+						'BOM無しUTF-8で書き込む(上書き)
+						Using sw As New System.IO.StreamWriter(Application.StartupPath & "\convert.csv", False)
+							'ヘッダの書き込み
+							Dim strWriteLine As String = Chr(34) & "SourceFile" & Chr(34) & "," &
+							Chr(34) & "Artist" & Chr(34) & "," &
+							Chr(34) & "Title" & Chr(34)
+							'Chr(34) & "XPSubject" & Chr(34) & "," &
+							'Chr(34) & "Make" & Chr(34) & "," &
+							'Chr(34) & "Model" & Chr(34) & "," &
+							'Chr(34) & "Software" & Chr(34)
+							sw.WriteLine(strWriteLine)
+							strWriteLine = Chr(34) & row(0) & Chr(34) & "," &
+								Chr(34) & row(3) & Chr(34) & "," &
+								Chr(34) & row(2) & Chr(34)
+							'Chr(34) & " " & Chr(34) & "," &
+							'Chr(34) & " " & Chr(34) & "," &
+							'Chr(34) & " " & Chr(34) & "," &
+							'Chr(34) & " " & Chr(34)
+							sw.WriteLine(strWriteLine)
+						End Using
+						'コマンドライン実行
+						StartProcess(row(1))
 					End If
+
+					'If row.Count = 5 Then
+					'	'4項目の場合はTIF確定
+					'	'Using bmp As New Bitmap(row(0))
+					'	'	'タイトル
+					'	'	Dim pi As Imaging.PropertyItem = bmp.GetPropertyItem(40091)
+					'	'	pi.Value = System.Text.Encoding.Unicode.GetBytes(row(2))
+					'	'	bmp.SetPropertyItem(pi)
+					'	'	'件名
+					'	'	pi = bmp.GetPropertyItem(40095)
+					'	'	pi.Value = System.Text.Encoding.Unicode.GetBytes(row(3))
+					'	'	bmp.SetPropertyItem(pi)
+					'	'	'作成者
+					'	'	pi = bmp.GetPropertyItem(40093)
+					'	'	pi.Value = System.Text.Encoding.Unicode.GetBytes(row(4))
+					'	'	bmp.SetPropertyItem(pi)
+					'	'	bmp.Save(row(1))
+					'	'	bmp.Dispose()
+					'	'End Using
+
+					'	''Magick.NETを使用してEXIF情報を操作する
+					'	'Using image As New MagickImage(row(0))
+					'	'	Dim profile As New ExifProfile()
+					'	'	'profile.SetValue(ExifTag.ImageDescription, System.Text.Encoding.Unicode.GetBytes(row(2)))
+					'	'	profile.SetValue(ExifTag.ImageDescription, row(2))
+					'	'	profile.SetValue(ExifTag.XPSubject, System.Text.Encoding.Unicode.GetBytes(row(3)))
+					'	'	'profile.SetValue(ExifTag.Artist, System.Text.Encoding.Unicode.GetBytes(row(4)))
+					'	'	profile.SetValue(ExifTag.Artist, row(4))
+					'	'	image.AddProfile(profile)
+					'	'	image.Write(row(1))
+					'	'End Using
+
+					'	'Using image2 As New MagickImage(row(1))
+					'	'	Dim myMagickExif As ExifProfile = image2.GetExifProfile()
+					'	'	If Not myMagickExif Is Nothing Then
+					'	'		Dim str As String = ""
+					'	'		For Each exifValue In myMagickExif.Values
+					'	'			str &= exifValue.Tag & "（"
+					'	'			str &= exifValue.DataType & "）"
+					'	'			str &= exifValue.ToString() & "\n"
+					'	'		Next
+					'	'		MessageBox.Show(str)
+					'	'	End If
+					'	'End Using
+
+					'Else
+					'	''それ以外はPDF
+					'	'Dim reader As New PdfReader(row(0))
+					'	'Dim strOutFile As String = row(1) & "\" & System.IO.Path.GetFileName(row(0))
+					'	'If Not System.IO.Directory.Exists(row(1)) Then
+					'	'	My.Computer.FileSystem.CreateDirectory(row(1))
+					'	'End If
+					'	'Dim stamper As New PdfStamper(reader, New FileStream(strOutFile, FileMode.Create))
+					'	'Dim newInfo As Dictionary(Of String, String) = reader.Info
+					'	''タイトル
+					'	'If newInfo.ContainsKey("Title") Then
+					'	'	newInfo("Title") = row(2)
+					'	'Else
+					'	'	newInfo.Add("Title", row(2))
+					'	'End If
+					'	''作成者
+					'	'If newInfo.ContainsKey("Author") Then
+					'	'	newInfo("Author") = row(3)
+					'	'Else
+					'	'	newInfo.Add("Author", row(3))
+					'	'End If
+					'	''サブタイトル
+					'	'If newInfo.ContainsKey("Subject") Then
+					'	'	newInfo("Subject") = row(4)
+					'	'Else
+					'	'	newInfo.Add("Subject", row(4))
+					'	'End If
+					'	''キーワード
+					'	'If newInfo.ContainsKey("Keywords") Then
+					'	'	newInfo("Keywords") = row(5)
+					'	'Else
+					'	'	newInfo.Add("Keywords", row(5))
+					'	'End If
+					'	'stamper.MoreInfo = newInfo
+
+					'	'stamper.FormFlattening = True
+					'	'stamper.Close()
+					'	'reader.Close()
+
+					'End If
 
 					Me.ProgressBar1.Value += 1
 					Me.lblProgress.Text = Me.ProgressBar1.Value & " / " & iTotalCount
@@ -555,6 +638,7 @@ Public Class Form1
 		Me.txtCSVFile.Enabled = Not Me.RadioButton1.Checked
 		Me.btnStop.Enabled = False
 
+		Me.cmbExtension.SelectedIndex = 0
 		Me.cmbTIFTitle.SelectedIndex = 0
 		Me.lblProgress.Text = "0 / 0"
 
@@ -585,10 +669,11 @@ Public Class Form1
 		p.StartInfo.RedirectStandardInput = False
 		'ウィンドウを表示しないようにする
 		p.StartInfo.CreateNoWindow = True
-		'コマンドラインを指定（"/c"は実行後閉じるために必要）
-		p.StartInfo.Arguments = "/c " & Application.StartupPath & "\exiftool.exe -overwrite_original -csv=convert.csv " & strParentPath
-		p.Start()
-		Dim strResults As String = p.StandardOutput.ReadToEnd()
+        'コマンドラインを指定（"/c"は実行後閉じるために必要）
+        p.StartInfo.Arguments = "/c " & Application.StartupPath & "\exiftool.exe -overwrite_original -csv=convert.csv " & strParentPath
+        'p.StartInfo.Arguments = "/c " & Application.StartupPath & "\exiftool.exe -overwrite_original -csv=convert.csv " & strParentPath
+        p.Start()
+        Dim strResults As String = p.StandardOutput.ReadToEnd()
 		'プロセス終了まで待機する
 		'WaitForExitはReadToEndの後である必要がある
 		'(親プロセス、子プロセスでブロック防止の為)

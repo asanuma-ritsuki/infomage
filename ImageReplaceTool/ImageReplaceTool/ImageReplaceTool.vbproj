@@ -71,12 +71,23 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Stacked_books.ico</ApplicationIcon>
+    <ApplicationIcon>f_f_object_128_s512_f_object_128_2nbg.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="C1.Win.4, Version=4.0.20183.338, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL" />
     <Reference Include="c1.win.c1flexgrid.4, Version=4.0.20183.338, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="c1.win.c1ribbon.4, Version=4.0.20183.338, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="Interop.IWshRuntimeLibrary">
+      <HintPath>.\Interop.IWshRuntimeLibrary.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Leadtools, Version=17.5.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86" />
+    <Reference Include="Leadtools.Codecs, Version=17.5.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86" />
+    <Reference Include="Leadtools.Codecs.Cmp, Version=17.5.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86" />
+    <Reference Include="Leadtools.Codecs.Tif, Version=17.5.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86" />
+    <Reference Include="Leadtools.Drawing, Version=17.5.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86" />
+    <Reference Include="Leadtools.Pdf, Version=17.5.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86" />
+    <Reference Include="Leadtools.WinForms, Version=17.5.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -103,13 +114,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\CElement.vb" />
+    <Compile Include="Class\clsLoginUser.vb" />
     <Compile Include="Class\clsWinApp.vb" />
     <Compile Include="Class\SQLProcess.vb" />
     <Compile Include="Class\XmlSettings.vb" />
+    <Compile Include="Custom Control\C1ThumbnailGrid.Designer.vb">
+      <DependentUpon>C1ThumbnailGrid.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Control\C1ThumbnailGrid.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Form\frmConnectionProperty.Designer.vb">
       <DependentUpon>frmConnectionProperty.vb</DependentUpon>
     </Compile>
     <Compile Include="Form\frmConnectionProperty.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmImageViewer.Designer.vb">
+      <DependentUpon>frmImageViewer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmImageViewer.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form\frmLogin.Designer.vb">
@@ -122,6 +146,12 @@
       <DependentUpon>frmMainMenu.vb</DependentUpon>
     </Compile>
     <Compile Include="Form\frmMainMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmManage.Designer.vb">
+      <DependentUpon>frmManage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmManage.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form\frmTempForm.Designer.vb">
@@ -151,11 +181,17 @@
     <EmbeddedResource Include="Form\frmConnectionProperty.resx">
       <DependentUpon>frmConnectionProperty.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmImageViewer.resx">
+      <DependentUpon>frmImageViewer.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\frmMainMenu.resx">
       <DependentUpon>frmMainMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmManage.resx">
+      <DependentUpon>frmManage.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\frmTempForm.resx">
       <DependentUpon>frmTempForm.vb</DependentUpon>
@@ -169,6 +205,12 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="LEAD175ImgSuite.lic">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="LEAD175PDFRead.lic">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -1096,6 +1138,7 @@
     <None Include="Resources\administrator.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="f_f_object_128_s512_f_object_128_2nbg.ico" />
     <None Include="Resources\Stacked_books.ico" />
     <Content Include="Stacked_books.ico" />
   </ItemGroup>

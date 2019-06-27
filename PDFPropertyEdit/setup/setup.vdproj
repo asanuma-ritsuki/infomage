@@ -98,6 +98,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
         "Release"
@@ -187,11 +195,6 @@
             "AssemblyAsmDisplayName" = "8:itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_3E653D474E9C321492DC8FA6598B5DD0"
-                    {
-                    "Name" = "8:itextsharp.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:itextsharp.dll"
             "TargetName" = "8:"
@@ -218,11 +221,6 @@
             "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_4B03CE67BE9190C83C68BC1AF309CFB7"
-                    {
-                    "Name" = "8:System.Net.Http.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
@@ -269,11 +267,6 @@
             "AssemblyAsmDisplayName" = "8:Magick.NET-Q16-AnyCPU, Version=7.5.0.0, Culture=neutral, PublicKeyToken=2004825badfa91ec, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_623973B930D5825A2D01AE537D6C299B"
-                    {
-                    "Name" = "8:Magick.NET-Q16-AnyCPU.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Magick.NET-Q16-AnyCPU.dll"
             "TargetName" = "8:"
@@ -349,15 +342,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:PDFPropertyEdit"
-        "ProductCode" = "8:{E9A5F789-7CB7-4361-B29D-BCCDE7BA3DCD}"
-        "PackageCode" = "8:{6E13B537-9DA3-46FA-8D32-4B90C51C3583}"
+        "ProductCode" = "8:{81A6F760-19B8-4D3E-9A3B-2E712953EEDA}"
+        "PackageCode" = "8:{1175B4E8-BDCC-4492-BE2E-85C1786F2780}"
         "UpgradeCode" = "8:{D1320A97-2C7E-4DDB-BD4F-8FB5196FA1CB}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.003"
+        "ProductVersion" = "8:1.0.005"
         "Manufacturer" = "8:Infomage"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

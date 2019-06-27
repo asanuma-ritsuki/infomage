@@ -1625,7 +1625,8 @@
         現在の <see cref="T:System.Object" /> と比較する <see cref="T:System.Object" />。
       </param>
       <returns>
-        指定された <see cref="T:System.Object" /> がこのインスタンスと等しい場合は <c>true</c>、そうでない場合は <c>false</c></returns>
+        指定された <see cref="T:System.Object" /> がこのインスタンスと等しい場合は <c>true</c>、そうでない場合は <c>false</c>
+      </returns>
     </member>
     <member name="M:C1.BarCode.MicroQRCodeOptions.GetHashCode">
       <summary>
@@ -1638,7 +1639,8 @@
         このインスタンスを表す <see cref="T:System.String" /> を返します。
       </summary>
       <returns>
-        このインスタンスを表す <see cref="T:System.String" /></returns>
+        このインスタンスを表す <see cref="T:System.String" />
+      </returns>
     </member>
     <member name="P:C1.BarCode.MicroQRCodeOptions.ErrorLevel">
       <summary>
@@ -1729,7 +1731,8 @@
         現在の <see cref="T:System.Object" /> と比較する <see cref="T:System.Object" />。
       </param>
       <returns>
-        指定された <see cref="T:System.Object" /> がこのインスタンスと等しい場合は <c>true</c>、そうでない場合は <c>false</c></returns>
+        指定された <see cref="T:System.Object" /> がこのインスタンスと等しい場合は <c>true</c>、そうでない場合は <c>false</c>
+      </returns>
     </member>
     <member name="M:C1.BarCode.MaxiCodeOptions.GetHashCode">
       <summary>
@@ -1741,7 +1744,8 @@
         このインスタンスを表す <see cref="T:System.String" /> を返します。
       </summary>
       <returns>
-        このインスタンスを表す <see cref="T:System.String" /></returns>
+        このインスタンスを表す <see cref="T:System.String" />
+      </returns>
     </member>
     <member name="P:C1.BarCode.MaxiCodeOptions.Mode">
       <summary>

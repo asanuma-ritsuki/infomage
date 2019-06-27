@@ -2118,7 +2118,36 @@
       <remarks>
         <para>
           次のアクションが利用可能です。
-          <list type="bullet"><item><term>Rotate - グラフ（3D 効果を持つグラフのみ）を回転します。</term></item><item><term>Scale - グラフのスケールを変更します。</term></item><item><term>Translate - グラフをスクロールします。</term></item><item><term>Zoom - 表示するグラフの枠領域を選択します。</term></item><item><term>Reset - デフォルトのビューにグラフをリセットします。</term></item><item><term>SetFreeRotation - フリー回転モードを設定します（デフォルト）。</term></item><item><term>SetRotationAxisX - X 軸を中心とした回転を設定します。</term></item><item><term>SetRotationAxisY - Y 軸を中心とした回転を設定します。</term></item><item><term>SetRotationAxisZ - Z 軸を中心とした回転を設定します。</term></item></list></para>
+          <list type="bullet">
+            <item>
+              <term>Rotate - グラフ（3D 効果を持つグラフのみ）を回転します。</term>
+            </item>
+            <item>
+              <term>Scale - グラフのスケールを変更します。</term>
+            </item>
+            <item>
+              <term>Translate - グラフをスクロールします。</term>
+            </item>
+            <item>
+              <term>Zoom - 表示するグラフの枠領域を選択します。</term>
+            </item>
+            <item>
+              <term>Reset - デフォルトのビューにグラフをリセットします。</term>
+            </item>
+            <item>
+              <term>SetFreeRotation - フリー回転モードを設定します（デフォルト）。</term>
+            </item>
+            <item>
+              <term>SetRotationAxisX - X 軸を中心とした回転を設定します。</term>
+            </item>
+            <item>
+              <term>SetRotationAxisY - Y 軸を中心とした回転を設定します。</term>
+            </item>
+            <item>
+              <term>SetRotationAxisZ - Z 軸を中心とした回転を設定します。</term>
+            </item>
+          </list>
+        </para>
       </remarks>
       <seealso cref="T:C1.Win.C1Chart3D.Interaction" />
     </member>

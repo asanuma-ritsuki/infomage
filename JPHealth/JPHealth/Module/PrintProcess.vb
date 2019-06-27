@@ -266,12 +266,21 @@ Module PrintProcess
 				Next
 			Next
 			WriteLstResult(lstResult, "リーフレット文字数チェック完了")
-			'==================================================
+            '==================================================
 
-			strSQL = "SELECT ロットID, 会社コード, 所属事業所コード FROM T_判定票管理 "
+            strSQL = "SELECT ロットID, 会社コード, 所属事業所コード FROM T_判定票管理 "
             strSQL &= "WHERE ロットID = '" & strLotID & "' "
             strSQL &= "GROUP BY ロットID, 会社コード, 所属事業所コード "
             strSQL &= "ORDER BY 会社コード, 所属事業所コード"
+            ''2019/04/23
+            ''[T_医師].[有効フラグ]が1またはNULLの場合のみ
+            'strSQL = "SELECT T1.ロットID, T1.会社コード, T1.所属事業所コード, T2.有効フラグ "
+            'strSQL &= "FROM T_判定票管理 AS T1 LEFT OUTER JOIN "
+            'strSQL &= "T_医師 AS T2 ON T1.ロットID = T2.ロットID AND T1.レコード番号 = T2.レコード番号 "
+            'strSQL &= "WHERE T1.ロットID = '" & strLotID & "' "
+            'strSQL &= "AND (T2.有効フラグ = 1 OR T2.有効フラグ IS NULL) "
+            'strSQL &= "GROUP BY T1.ロットID, T1.会社コード, T1.所属事業所コード, T2.有効フラグ "
+            'strSQL &= "ORDER BY T1.会社コード, T1.所属事業所コード"
             Dim dtOffice As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
 			Dim dblTemp As Decimal = 0
 			Dim iLeafletSeq As Integer = 0 'リーフレットシーケンス(0～63)で各リーフレットを回す
@@ -4074,27 +4083,10 @@ Module PrintProcess
                     '==================================================
                     '判定票印刷
                     '==================================================
-                    strSQL = "SELECT T1.ロットID, T1.レコード番号, T1.システムID, T1.氏名カナ, T1.氏名, T1.会社, T1.所属事業所, "
-                    strSQL &= "T1.所属部名, T1.所属課名, T1.役職名, T1.性別, T1.採用年月日, T1.生年月日, T1.受診年齢, T1.健診種別, T1.受診日, T1.身長, T1.体重, "
-                    strSQL &= "T1.体重記号, T1.体重上限, T1.体重下限, T1.BMI, T1.BMI記号, T1.BMI上限, T1.BMI下限, T1.腹囲, T1.腹囲記号, T1.腹囲上限, T1.腹囲下限, "
-                    strSQL &= "T1.視力裸眼右, T1.視力裸眼左, T1.視力矯正右, T1.視力矯正左, T1.聴力右1000, T1.聴力右4000, T1.聴力左1000, T1.聴力左4000, "
-                    strSQL &= "T1.聴力その他, T1.血圧1回収縮期, T1.血圧1回収縮期記号, T1.血圧1回収縮期上限, T1.血圧1回収縮期下限, "
-                    strSQL &= "T1.血圧1回拡張期, T1.血圧1回拡張期記号, T1.血圧1回拡張期上限, T1.血圧1回拡張期下限, T1.尿糖定性, T1.尿蛋白定性, "
-                    strSQL &= "T1.総コレステロール, T1.総コレステロール記号, T1.総コレステロール上限, T1.総コレステロール下限, "
-                    strSQL &= "T1.HDLコレステロール, T1.HDLコレステロール記号, T1.HDLコレステロール上限, T1.HDLコレステロール下限, "
-                    strSQL &= "T1.中性脂肪, T1.中性脂肪記号, T1.中性脂肪上限, T1.中性脂肪下限, "
-                    strSQL &= "T1.LDLコレステロール, T1.LDLコレステロール記号, T1.LDLコレステロール上限, T1.LDLコレステロール下限, "
-                    strSQL &= "T1.GOT, T1.GOT記号, T1.GOT上限, T1.GOT下限, T1.GPT, T1.GPT記号, T1.GPT上限, T1.GPT下限, "
-                    strSQL &= "T1.ガンマGTP, T1.ガンマGTP記号, T1.ガンマGTP上限, T1.ガンマGTP下限, "
-                    strSQL &= "T1.クレアチニン, T1.クレアチニン記号, T1.クレアチニン上限, T1.クレアチニン下限, "
-                    strSQL &= "T1.尿酸, T1.尿酸記号, T1.尿酸上限, T1.尿酸下限, T1.赤血球, T1.赤血球記号, T1.赤血球上限, T1.赤血球下限, "
-                    strSQL &= "T1.血色素量, T1.血色素量記号, T1.血色素量上限, T1.血色素量下限, "
-                    strSQL &= "T1.空腹時血糖, T1.空腹時血糖記号, T1.空腹時血糖上限, T1.空腹時血糖下限, "
-                    strSQL &= "T1.随時血糖, T1.随時血糖記号, T1.随時血糖上限, T1.随時血糖下限, T1.HbA1c, T1.HbA1c記号, T1.HbA1c上限, T1.HbA1c下限, "
-                    strSQL &= "T1.受診検査機関名称, T1.会場局名称, T1.総合判定, T1.健診実施医師名, T1.判定医師名, T1.判定日付, T1.視力判定, T1.聴力判定, "
-                    strSQL &= "T1.血圧判定, T1.尿糖判定, T1.尿蛋白判定, T1.血中脂質判定, T1.肝機能判定, T1.腎機能判定, T1.尿酸判定, T1.血液判定, "
-                    strSQL &= "T1.血糖判定, T1.胸部X線判定結果, T1.心電図判定結果, T1.総合成績判定, T1.就業区分, T1.胸部X線所見, T1.胸部X線判定, "
-                    strSQL &= "T1.心電図所見, T1.心電図判定, T1.既往歴, T1.自覚症状, T1.診察所見, T1.総合コメント, T1.産業医の意見, T1.QRコード, T4.ラベル連番 "
+                    '2019/04/24
+                    '1枚単位でテンプレートが変わる可能性があるためはじめにソート用のDataTableを作成して
+                    '1枚単位でプリントに飛ばす
+                    strSQL = "SELECT T1.ロットID, T1.レコード番号 "
                     strSQL &= "FROM T_判定票印刷 AS T1 INNER JOIN "
                     strSQL &= "T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID AND T1.レコード番号 = T2.レコード番号 INNER JOIN "
                     strSQL &= "T_判定票管理 AS T3 ON T1.ロットID = T3.ロットID AND T1.レコード番号 = T3.レコード番号 INNER JOIN "
@@ -4110,9 +4102,61 @@ Module PrintProcess
                     strSQL &= "CASE WHEN ISNULL(T1.所属課名, '') = '' THEN 1 ELSE 0 END, "
                     strSQL &= "T1.所属課名, T3.社員コード"
                     dt = sqlProcess.DB_SELECT_DATATABLE(strSQL)
+                    '1レコードずつ回す
+                    For i As Integer = 0 To dt.Rows.Count - 1
+                        strSQL = "SELECT T1.ロットID, T1.レコード番号, T1.システムID, T1.氏名カナ, T1.氏名, T1.会社, T1.所属事業所, "
+                        strSQL &= "T1.所属部名, T1.所属課名, T1.役職名, T1.性別, T1.採用年月日, T1.生年月日, T1.受診年齢, T1.健診種別, T1.受診日, T1.身長, T1.体重, "
+                        strSQL &= "T1.体重記号, T1.体重上限, T1.体重下限, T1.BMI, T1.BMI記号, T1.BMI上限, T1.BMI下限, T1.腹囲, T1.腹囲記号, T1.腹囲上限, T1.腹囲下限, "
+                        strSQL &= "T1.視力裸眼右, T1.視力裸眼左, T1.視力矯正右, T1.視力矯正左, T1.聴力右1000, T1.聴力右4000, T1.聴力左1000, T1.聴力左4000, "
+                        strSQL &= "T1.聴力その他, T1.血圧1回収縮期, T1.血圧1回収縮期記号, T1.血圧1回収縮期上限, T1.血圧1回収縮期下限, "
+                        strSQL &= "T1.血圧1回拡張期, T1.血圧1回拡張期記号, T1.血圧1回拡張期上限, T1.血圧1回拡張期下限, T1.尿糖定性, T1.尿蛋白定性, "
+                        strSQL &= "T1.総コレステロール, T1.総コレステロール記号, T1.総コレステロール上限, T1.総コレステロール下限, "
+                        strSQL &= "T1.HDLコレステロール, T1.HDLコレステロール記号, T1.HDLコレステロール上限, T1.HDLコレステロール下限, "
+                        strSQL &= "T1.中性脂肪, T1.中性脂肪記号, T1.中性脂肪上限, T1.中性脂肪下限, "
+                        strSQL &= "T1.LDLコレステロール, T1.LDLコレステロール記号, T1.LDLコレステロール上限, T1.LDLコレステロール下限, "
+                        strSQL &= "T1.GOT, T1.GOT記号, T1.GOT上限, T1.GOT下限, T1.GPT, T1.GPT記号, T1.GPT上限, T1.GPT下限, "
+                        strSQL &= "T1.ガンマGTP, T1.ガンマGTP記号, T1.ガンマGTP上限, T1.ガンマGTP下限, "
+                        strSQL &= "T1.クレアチニン, T1.クレアチニン記号, T1.クレアチニン上限, T1.クレアチニン下限, "
+                        strSQL &= "T1.尿酸, T1.尿酸記号, T1.尿酸上限, T1.尿酸下限, T1.赤血球, T1.赤血球記号, T1.赤血球上限, T1.赤血球下限, "
+                        strSQL &= "T1.血色素量, T1.血色素量記号, T1.血色素量上限, T1.血色素量下限, "
+                        strSQL &= "T1.空腹時血糖, T1.空腹時血糖記号, T1.空腹時血糖上限, T1.空腹時血糖下限, "
+                        strSQL &= "T1.随時血糖, T1.随時血糖記号, T1.随時血糖上限, T1.随時血糖下限, T1.HbA1c, T1.HbA1c記号, T1.HbA1c上限, T1.HbA1c下限, "
+                        strSQL &= "T1.受診検査機関名称, T1.会場局名称, T1.総合判定, T1.健診実施医師名, T1.判定医師名, T1.判定日付, T1.視力判定, T1.聴力判定, "
+                        strSQL &= "T1.血圧判定, T1.尿糖判定, T1.尿蛋白判定, T1.血中脂質判定, T1.肝機能判定, T1.腎機能判定, T1.尿酸判定, T1.血液判定, "
+                        strSQL &= "T1.血糖判定, T1.胸部X線判定結果, T1.心電図判定結果, T1.総合成績判定, T1.就業区分, T1.胸部X線所見, T1.胸部X線判定, "
+                        strSQL &= "T1.心電図所見, T1.心電図判定, T1.既往歴, T1.自覚症状, T1.診察所見, T1.総合コメント, T1.産業医の意見, T1.QRコード, T4.ラベル連番, "
+                        '2019/04/24
+                        '3項目追加
+                        strSQL &= "T3.年度, ISNULL(T6.印影画像パス, '') AS 産業医印影, ISNULL(T7.印影画像パス, '') AS 判定医印影 "
+                        strSQL &= "FROM T_判定票印刷 AS T1 INNER JOIN "
+                        strSQL &= "T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID AND T1.レコード番号 = T2.レコード番号 INNER JOIN "
+                        strSQL &= "T_判定票管理 AS T3 ON T1.ロットID = T3.ロットID AND T1.レコード番号 = T3.レコード番号 INNER JOIN "
+                        strSQL &= "T_印刷管理 AS T4 ON T2.ロットID = T4.ロットID AND T2.会社コード = T4.会社コード "
+                        strSQL &= "AND T2.所属事業所コード = T4.所属事業所コード AND T2.印刷ID = T4.印刷ID LEFT OUTER JOIN "
+                        '2019/04/24
+                        '3テーブル追加
+                        strSQL &= "T_医師 AS T5 ON T1.ロットID = T5.ロットID AND T1.レコード番号 = T5.レコード番号 LEFT OUTER JOIN "
+                        strSQL &= "M_産業医 AS T6 ON T5.産業医ID = T6.産業医ID LEFT OUTER JOIN "
+                        strSQL &= "M_判定医 AS T7 ON T5.判定医ID = T7.判定医ID "
+                        strSQL &= "WHERE T1.ロットID = '" & strLotID & "' "
+                        strSQL &= "AND T1.レコード番号 = " & dt.Rows(i)("レコード番号") & " "
+                        strSQL &= "AND T2.印刷ID = " & dtPrintManage.Rows(iRow)("印刷ID") & " "
+                        strSQL &= "AND T2.帳票種別ID = 4 "
+                        Dim dtPrint As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
+                        If dtPrint.Rows.Count > 0 Then
+                            '2019/05/07
+                            '年度が「2019」以降の場合は新テンプレートとする
+                            If CInt(dtPrint.Rows(0)("年度")) >= 2019 Then
+                                '印刷処理
+                                Print(strSQL, PrintCategory.Checkup, , , "result2019.flxr")
+                            Else
+                                '印刷処理
+                                Print(strSQL, PrintCategory.Checkup)
+                            End If
+
+                        End If
+                    Next
                     If dt.Rows.Count > 0 Then
-                        '印刷処理
-                        Print(strSQL, PrintCategory.Checkup)
                         '判定票印刷日時書き込み
                         WritePrintDate(strLotID, PrintCategory.Checkup, 0, dtPrintManage.Rows(iRow)("会社コード"), dtPrintManage.Rows(iRow)("所属事業所コード"), dtPrintManage.Rows(iRow)("印刷ID"))
                         '該当の会社コード、所属事業所コード、印刷IDすべてのチェックフラグを取り下げる
@@ -4125,6 +4169,59 @@ Module PrintProcess
                     End If
 
                     strHeaderSheet = dtPrintManage.Rows(iRow)("重量ヘッダ")
+
+
+                    'strSQL = "SELECT T1.ロットID, T1.レコード番号, T1.システムID, T1.氏名カナ, T1.氏名, T1.会社, T1.所属事業所, "
+                    'strSQL &= "T1.所属部名, T1.所属課名, T1.役職名, T1.性別, T1.採用年月日, T1.生年月日, T1.受診年齢, T1.健診種別, T1.受診日, T1.身長, T1.体重, "
+                    'strSQL &= "T1.体重記号, T1.体重上限, T1.体重下限, T1.BMI, T1.BMI記号, T1.BMI上限, T1.BMI下限, T1.腹囲, T1.腹囲記号, T1.腹囲上限, T1.腹囲下限, "
+                    'strSQL &= "T1.視力裸眼右, T1.視力裸眼左, T1.視力矯正右, T1.視力矯正左, T1.聴力右1000, T1.聴力右4000, T1.聴力左1000, T1.聴力左4000, "
+                    'strSQL &= "T1.聴力その他, T1.血圧1回収縮期, T1.血圧1回収縮期記号, T1.血圧1回収縮期上限, T1.血圧1回収縮期下限, "
+                    'strSQL &= "T1.血圧1回拡張期, T1.血圧1回拡張期記号, T1.血圧1回拡張期上限, T1.血圧1回拡張期下限, T1.尿糖定性, T1.尿蛋白定性, "
+                    'strSQL &= "T1.総コレステロール, T1.総コレステロール記号, T1.総コレステロール上限, T1.総コレステロール下限, "
+                    'strSQL &= "T1.HDLコレステロール, T1.HDLコレステロール記号, T1.HDLコレステロール上限, T1.HDLコレステロール下限, "
+                    'strSQL &= "T1.中性脂肪, T1.中性脂肪記号, T1.中性脂肪上限, T1.中性脂肪下限, "
+                    'strSQL &= "T1.LDLコレステロール, T1.LDLコレステロール記号, T1.LDLコレステロール上限, T1.LDLコレステロール下限, "
+                    'strSQL &= "T1.GOT, T1.GOT記号, T1.GOT上限, T1.GOT下限, T1.GPT, T1.GPT記号, T1.GPT上限, T1.GPT下限, "
+                    'strSQL &= "T1.ガンマGTP, T1.ガンマGTP記号, T1.ガンマGTP上限, T1.ガンマGTP下限, "
+                    'strSQL &= "T1.クレアチニン, T1.クレアチニン記号, T1.クレアチニン上限, T1.クレアチニン下限, "
+                    'strSQL &= "T1.尿酸, T1.尿酸記号, T1.尿酸上限, T1.尿酸下限, T1.赤血球, T1.赤血球記号, T1.赤血球上限, T1.赤血球下限, "
+                    'strSQL &= "T1.血色素量, T1.血色素量記号, T1.血色素量上限, T1.血色素量下限, "
+                    'strSQL &= "T1.空腹時血糖, T1.空腹時血糖記号, T1.空腹時血糖上限, T1.空腹時血糖下限, "
+                    'strSQL &= "T1.随時血糖, T1.随時血糖記号, T1.随時血糖上限, T1.随時血糖下限, T1.HbA1c, T1.HbA1c記号, T1.HbA1c上限, T1.HbA1c下限, "
+                    'strSQL &= "T1.受診検査機関名称, T1.会場局名称, T1.総合判定, T1.健診実施医師名, T1.判定医師名, T1.判定日付, T1.視力判定, T1.聴力判定, "
+                    'strSQL &= "T1.血圧判定, T1.尿糖判定, T1.尿蛋白判定, T1.血中脂質判定, T1.肝機能判定, T1.腎機能判定, T1.尿酸判定, T1.血液判定, "
+                    'strSQL &= "T1.血糖判定, T1.胸部X線判定結果, T1.心電図判定結果, T1.総合成績判定, T1.就業区分, T1.胸部X線所見, T1.胸部X線判定, "
+                    'strSQL &= "T1.心電図所見, T1.心電図判定, T1.既往歴, T1.自覚症状, T1.診察所見, T1.総合コメント, T1.産業医の意見, T1.QRコード, T4.ラベル連番 "
+                    'strSQL &= "FROM T_判定票印刷 AS T1 INNER JOIN "
+                    'strSQL &= "T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID AND T1.レコード番号 = T2.レコード番号 INNER JOIN "
+                    'strSQL &= "T_判定票管理 AS T3 ON T1.ロットID = T3.ロットID AND T1.レコード番号 = T3.レコード番号 INNER JOIN "
+                    'strSQL &= "T_印刷管理 AS T4 ON T2.ロットID = T4.ロットID AND T2.会社コード = T4.会社コード "
+                    'strSQL &= "AND T2.所属事業所コード = T4.所属事業所コード AND T2.印刷ID = T4.印刷ID "
+                    'strSQL &= "WHERE T1.ロットID = '" & strLotID & "' "
+                    'strSQL &= "AND T2.会社コード = '" & dtPrintManage.Rows(iRow)("会社コード") & "' "
+                    'strSQL &= "AND T2.所属事業所コード = '" & dtPrintManage.Rows(iRow)("所属事業所コード") & "' "
+                    'strSQL &= "AND T2.印刷ID = " & dtPrintManage.Rows(iRow)("印刷ID") & " "
+                    'strSQL &= "AND T2.帳票種別ID = 4 "
+                    'strSQL &= "ORDER BY CASE WHEN ISNULL(T1.所属部名, '') = '' THEN 1 ELSE 0 END, "
+                    'strSQL &= "T1.所属部名, "
+                    'strSQL &= "CASE WHEN ISNULL(T1.所属課名, '') = '' THEN 1 ELSE 0 END, "
+                    'strSQL &= "T1.所属課名, T3.社員コード"
+                    'dt = sqlProcess.DB_SELECT_DATATABLE(strSQL)
+                    'If dt.Rows.Count > 0 Then
+                    '    '印刷処理
+                    '    Print(strSQL, PrintCategory.Checkup)
+                    '    '判定票印刷日時書き込み
+                    '    WritePrintDate(strLotID, PrintCategory.Checkup, 0, dtPrintManage.Rows(iRow)("会社コード"), dtPrintManage.Rows(iRow)("所属事業所コード"), dtPrintManage.Rows(iRow)("印刷ID"))
+                    '    '該当の会社コード、所属事業所コード、印刷IDすべてのチェックフラグを取り下げる
+                    '    strSQL = "UPDATE T_印刷ソート SET チェックフラグ = 0 "
+                    '    strSQL &= "WHERE ロットID = '" & strLotID & "' "
+                    '    strSQL &= "AND 会社コード = '" & dtPrintManage.Rows(iRow)("会社コード") & "' "
+                    '    strSQL &= "AND 所属事業所コード = '" & dtPrintManage.Rows(iRow)("所属事業所コード") & "' "
+                    '    strSQL &= "AND 印刷ID = " & dtPrintManage.Rows(iRow)("印刷ID")
+                    '    sqlProcess.DB_UPDATE(strSQL)
+                    'End If
+
+                    'strHeaderSheet = dtPrintManage.Rows(iRow)("重量ヘッダ")
                     'Application.DoEvents()
                 Next
             Else
@@ -4308,27 +4405,10 @@ Module PrintProcess
                 '==================================================
                 '判定票印刷
                 '==================================================
-                strSQL = "SELECT T1.ロットID, T1.レコード番号, T1.システムID, T1.氏名カナ, T1.氏名, T1.会社, T1.所属事業所, "
-                strSQL &= "T1.所属部名, T1.所属課名, T1.役職名, T1.性別, T1.採用年月日, T1.生年月日, T1.受診年齢, T1.健診種別, T1.受診日, T1.身長, T1.体重, "
-                strSQL &= "T1.体重記号, T1.体重上限, T1.体重下限, T1.BMI, T1.BMI記号, T1.BMI上限, T1.BMI下限, T1.腹囲, T1.腹囲記号, T1.腹囲上限, T1.腹囲下限, "
-                strSQL &= "T1.視力裸眼右, T1.視力裸眼左, T1.視力矯正右, T1.視力矯正左, T1.聴力右1000, T1.聴力右4000, T1.聴力左1000, T1.聴力左4000, "
-                strSQL &= "T1.聴力その他, T1.血圧1回収縮期, T1.血圧1回収縮期記号, T1.血圧1回収縮期上限, T1.血圧1回収縮期下限, "
-                strSQL &= "T1.血圧1回拡張期, T1.血圧1回拡張期記号, T1.血圧1回拡張期上限, T1.血圧1回拡張期下限, T1.尿糖定性, T1.尿蛋白定性, "
-                strSQL &= "T1.総コレステロール, T1.総コレステロール記号, T1.総コレステロール上限, T1.総コレステロール下限, "
-                strSQL &= "T1.HDLコレステロール, T1.HDLコレステロール記号, T1.HDLコレステロール上限, T1.HDLコレステロール下限, "
-                strSQL &= "T1.中性脂肪, T1.中性脂肪記号, T1.中性脂肪上限, T1.中性脂肪下限, "
-                strSQL &= "T1.LDLコレステロール, T1.LDLコレステロール記号, T1.LDLコレステロール上限, T1.LDLコレステロール下限, "
-                strSQL &= "T1.GOT, T1.GOT記号, T1.GOT上限, T1.GOT下限, T1.GPT, T1.GPT記号, T1.GPT上限, T1.GPT下限, "
-                strSQL &= "T1.ガンマGTP, T1.ガンマGTP記号, T1.ガンマGTP上限, T1.ガンマGTP下限, "
-                strSQL &= "T1.クレアチニン, T1.クレアチニン記号, T1.クレアチニン上限, T1.クレアチニン下限, "
-                strSQL &= "T1.尿酸, T1.尿酸記号, T1.尿酸上限, T1.尿酸下限, T1.赤血球, T1.赤血球記号, T1.赤血球上限, T1.赤血球下限, "
-                strSQL &= "T1.血色素量, T1.血色素量記号, T1.血色素量上限, T1.血色素量下限, "
-                strSQL &= "T1.空腹時血糖, T1.空腹時血糖記号, T1.空腹時血糖上限, T1.空腹時血糖下限, "
-                strSQL &= "T1.随時血糖, T1.随時血糖記号, T1.随時血糖上限, T1.随時血糖下限, T1.HbA1c, T1.HbA1c記号, T1.HbA1c上限, T1.HbA1c下限, "
-                strSQL &= "T1.受診検査機関名称, T1.会場局名称, T1.総合判定, T1.健診実施医師名, T1.判定医師名, T1.判定日付, T1.視力判定, T1.聴力判定, "
-                strSQL &= "T1.血圧判定, T1.尿糖判定, T1.尿蛋白判定, T1.血中脂質判定, T1.肝機能判定, T1.腎機能判定, T1.尿酸判定, T1.血液判定, "
-                strSQL &= "T1.血糖判定, T1.胸部X線判定結果, T1.心電図判定結果, T1.総合成績判定, T1.就業区分, T1.胸部X線所見, T1.胸部X線判定, "
-                strSQL &= "T1.心電図所見, T1.心電図判定, T1.既往歴, T1.自覚症状, T1.診察所見, T1.総合コメント, T1.産業医の意見, T1.QRコード, T4.ラベル連番 "
+                '2019/04/24
+                '1枚単位でテンプレートが変わる可能性があるためはじめにソート用のDataTableを作成して
+                '1枚単位でプリントに飛ばす
+                strSQL = "SELECT T1.ロットID, T1.レコード番号 "
                 strSQL &= "FROM T_判定票印刷 AS T1 INNER JOIN "
                 strSQL &= "T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID AND T1.レコード番号 = T2.レコード番号 INNER JOIN "
                 strSQL &= "T_判定票管理 AS T3 ON T1.ロットID = T3.ロットID AND T1.レコード番号 = T3.レコード番号 INNER JOIN "
@@ -4344,9 +4424,61 @@ Module PrintProcess
                 strSQL &= "CASE WHEN ISNULL(T1.所属課名, '') = '' THEN 1 ELSE 0 END, "
                 strSQL &= "T1.所属課名, T3.社員コード"
                 dt = sqlProcess.DB_SELECT_DATATABLE(strSQL)
+                '1レコードずつ回す
+                For i As Integer = 0 To dt.Rows.Count - 1
+                    strSQL = "SELECT T1.ロットID, T1.レコード番号, T1.システムID, T1.氏名カナ, T1.氏名, T1.会社, T1.所属事業所, "
+                    strSQL &= "T1.所属部名, T1.所属課名, T1.役職名, T1.性別, T1.採用年月日, T1.生年月日, T1.受診年齢, T1.健診種別, T1.受診日, T1.身長, T1.体重, "
+                    strSQL &= "T1.体重記号, T1.体重上限, T1.体重下限, T1.BMI, T1.BMI記号, T1.BMI上限, T1.BMI下限, T1.腹囲, T1.腹囲記号, T1.腹囲上限, T1.腹囲下限, "
+                    strSQL &= "T1.視力裸眼右, T1.視力裸眼左, T1.視力矯正右, T1.視力矯正左, T1.聴力右1000, T1.聴力右4000, T1.聴力左1000, T1.聴力左4000, "
+                    strSQL &= "T1.聴力その他, T1.血圧1回収縮期, T1.血圧1回収縮期記号, T1.血圧1回収縮期上限, T1.血圧1回収縮期下限, "
+                    strSQL &= "T1.血圧1回拡張期, T1.血圧1回拡張期記号, T1.血圧1回拡張期上限, T1.血圧1回拡張期下限, T1.尿糖定性, T1.尿蛋白定性, "
+                    strSQL &= "T1.総コレステロール, T1.総コレステロール記号, T1.総コレステロール上限, T1.総コレステロール下限, "
+                    strSQL &= "T1.HDLコレステロール, T1.HDLコレステロール記号, T1.HDLコレステロール上限, T1.HDLコレステロール下限, "
+                    strSQL &= "T1.中性脂肪, T1.中性脂肪記号, T1.中性脂肪上限, T1.中性脂肪下限, "
+                    strSQL &= "T1.LDLコレステロール, T1.LDLコレステロール記号, T1.LDLコレステロール上限, T1.LDLコレステロール下限, "
+                    strSQL &= "T1.GOT, T1.GOT記号, T1.GOT上限, T1.GOT下限, T1.GPT, T1.GPT記号, T1.GPT上限, T1.GPT下限, "
+                    strSQL &= "T1.ガンマGTP, T1.ガンマGTP記号, T1.ガンマGTP上限, T1.ガンマGTP下限, "
+                    strSQL &= "T1.クレアチニン, T1.クレアチニン記号, T1.クレアチニン上限, T1.クレアチニン下限, "
+                    strSQL &= "T1.尿酸, T1.尿酸記号, T1.尿酸上限, T1.尿酸下限, T1.赤血球, T1.赤血球記号, T1.赤血球上限, T1.赤血球下限, "
+                    strSQL &= "T1.血色素量, T1.血色素量記号, T1.血色素量上限, T1.血色素量下限, "
+                    strSQL &= "T1.空腹時血糖, T1.空腹時血糖記号, T1.空腹時血糖上限, T1.空腹時血糖下限, "
+                    strSQL &= "T1.随時血糖, T1.随時血糖記号, T1.随時血糖上限, T1.随時血糖下限, T1.HbA1c, T1.HbA1c記号, T1.HbA1c上限, T1.HbA1c下限, "
+                    strSQL &= "T1.受診検査機関名称, T1.会場局名称, T1.総合判定, T1.健診実施医師名, T1.判定医師名, T1.判定日付, T1.視力判定, T1.聴力判定, "
+                    strSQL &= "T1.血圧判定, T1.尿糖判定, T1.尿蛋白判定, T1.血中脂質判定, T1.肝機能判定, T1.腎機能判定, T1.尿酸判定, T1.血液判定, "
+                    strSQL &= "T1.血糖判定, T1.胸部X線判定結果, T1.心電図判定結果, T1.総合成績判定, T1.就業区分, T1.胸部X線所見, T1.胸部X線判定, "
+                    strSQL &= "T1.心電図所見, T1.心電図判定, T1.既往歴, T1.自覚症状, T1.診察所見, T1.総合コメント, T1.産業医の意見, T1.QRコード, T4.ラベル連番, "
+                    '2019/04/24
+                    '3項目追加
+                    strSQL &= "T3.年度, ISNULL(T6.印影画像パス, '') AS 産業医印影, ISNULL(T7.印影画像パス, '') AS 判定医印影 "
+                    strSQL &= "FROM T_判定票印刷 AS T1 INNER JOIN "
+                    strSQL &= "T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID AND T1.レコード番号 = T2.レコード番号 INNER JOIN "
+                    strSQL &= "T_判定票管理 AS T3 ON T1.ロットID = T3.ロットID AND T1.レコード番号 = T3.レコード番号 INNER JOIN "
+                    strSQL &= "T_印刷管理個別 AS T4 ON T2.ロットID = T4.ロットID AND T2.会社コード = T4.会社コード "
+                    strSQL &= "AND T2.所属事業所コード = T4.所属事業所コード AND T2.印刷ID = T4.印刷ID LEFT OUTER JOIN "
+                    '2019/04/24
+                    '3テーブル追加
+                    strSQL &= "T_医師 AS T5 ON T1.ロットID = T5.ロットID AND T1.レコード番号 = T5.レコード番号 LEFT OUTER JOIN "
+                    strSQL &= "M_産業医 AS T6 ON T5.産業医ID = T6.産業医ID LEFT OUTER JOIN "
+                    strSQL &= "M_判定医 AS T7 ON T5.判定医ID = T7.判定医ID "
+                    strSQL &= "WHERE T1.ロットID = '" & strLotID & "' "
+                    strSQL &= "AND T1.レコード番号 = " & dt.Rows(i)("レコード番号")
+                    strSQL &= "AND T2.印刷ID = " & dtPrintManage.Rows(iRow)("印刷ID") & " "
+                    strSQL &= "AND T2.帳票種別ID = 4 "
+                    Dim dtPrint As DataTable = sqlProcess.DB_SELECT_DATATABLE(strSQL)
+                    If dtPrint.Rows.Count > 0 Then
+                        '2019/06/19
+                        '年度が「2019」以降の場合は新テンプレートとする
+                        If CInt(dtPrint.Rows(0)("年度")) >= 2019 Then
+                            '印刷処理
+                            Print(strSQL, PrintCategory.Checkup, , , "result2019.flxr")
+                        Else
+                            '印刷処理
+                            Print(strSQL, PrintCategory.Checkup)
+                        End If
+
+                    End If
+                Next
                 If dt.Rows.Count > 0 Then
-                    '印刷処理
-                    Print(strSQL, PrintCategory.Checkup)
                     '判定票印刷日時書き込み
                     WritePrintDate(strLotID, PrintCategory.Checkup, 0, dtPrintManage.Rows(iRow)("会社コード"), dtPrintManage.Rows(iRow)("所属事業所コード"), dtPrintManage.Rows(iRow)("印刷ID"))
                     '該当の会社コード、所属事業所コード、印刷IDすべてのチェックフラグを取り下げる
@@ -4359,6 +4491,59 @@ Module PrintProcess
                 End If
 
                 strHeaderSheet = dtPrintManage.Rows(iRow)("重量ヘッダ")
+
+
+                'strSQL = "SELECT T1.ロットID, T1.レコード番号, T1.システムID, T1.氏名カナ, T1.氏名, T1.会社, T1.所属事業所, "
+                'strSQL &= "T1.所属部名, T1.所属課名, T1.役職名, T1.性別, T1.採用年月日, T1.生年月日, T1.受診年齢, T1.健診種別, T1.受診日, T1.身長, T1.体重, "
+                'strSQL &= "T1.体重記号, T1.体重上限, T1.体重下限, T1.BMI, T1.BMI記号, T1.BMI上限, T1.BMI下限, T1.腹囲, T1.腹囲記号, T1.腹囲上限, T1.腹囲下限, "
+                'strSQL &= "T1.視力裸眼右, T1.視力裸眼左, T1.視力矯正右, T1.視力矯正左, T1.聴力右1000, T1.聴力右4000, T1.聴力左1000, T1.聴力左4000, "
+                'strSQL &= "T1.聴力その他, T1.血圧1回収縮期, T1.血圧1回収縮期記号, T1.血圧1回収縮期上限, T1.血圧1回収縮期下限, "
+                'strSQL &= "T1.血圧1回拡張期, T1.血圧1回拡張期記号, T1.血圧1回拡張期上限, T1.血圧1回拡張期下限, T1.尿糖定性, T1.尿蛋白定性, "
+                'strSQL &= "T1.総コレステロール, T1.総コレステロール記号, T1.総コレステロール上限, T1.総コレステロール下限, "
+                'strSQL &= "T1.HDLコレステロール, T1.HDLコレステロール記号, T1.HDLコレステロール上限, T1.HDLコレステロール下限, "
+                'strSQL &= "T1.中性脂肪, T1.中性脂肪記号, T1.中性脂肪上限, T1.中性脂肪下限, "
+                'strSQL &= "T1.LDLコレステロール, T1.LDLコレステロール記号, T1.LDLコレステロール上限, T1.LDLコレステロール下限, "
+                'strSQL &= "T1.GOT, T1.GOT記号, T1.GOT上限, T1.GOT下限, T1.GPT, T1.GPT記号, T1.GPT上限, T1.GPT下限, "
+                'strSQL &= "T1.ガンマGTP, T1.ガンマGTP記号, T1.ガンマGTP上限, T1.ガンマGTP下限, "
+                'strSQL &= "T1.クレアチニン, T1.クレアチニン記号, T1.クレアチニン上限, T1.クレアチニン下限, "
+                'strSQL &= "T1.尿酸, T1.尿酸記号, T1.尿酸上限, T1.尿酸下限, T1.赤血球, T1.赤血球記号, T1.赤血球上限, T1.赤血球下限, "
+                'strSQL &= "T1.血色素量, T1.血色素量記号, T1.血色素量上限, T1.血色素量下限, "
+                'strSQL &= "T1.空腹時血糖, T1.空腹時血糖記号, T1.空腹時血糖上限, T1.空腹時血糖下限, "
+                'strSQL &= "T1.随時血糖, T1.随時血糖記号, T1.随時血糖上限, T1.随時血糖下限, T1.HbA1c, T1.HbA1c記号, T1.HbA1c上限, T1.HbA1c下限, "
+                'strSQL &= "T1.受診検査機関名称, T1.会場局名称, T1.総合判定, T1.健診実施医師名, T1.判定医師名, T1.判定日付, T1.視力判定, T1.聴力判定, "
+                'strSQL &= "T1.血圧判定, T1.尿糖判定, T1.尿蛋白判定, T1.血中脂質判定, T1.肝機能判定, T1.腎機能判定, T1.尿酸判定, T1.血液判定, "
+                'strSQL &= "T1.血糖判定, T1.胸部X線判定結果, T1.心電図判定結果, T1.総合成績判定, T1.就業区分, T1.胸部X線所見, T1.胸部X線判定, "
+                'strSQL &= "T1.心電図所見, T1.心電図判定, T1.既往歴, T1.自覚症状, T1.診察所見, T1.総合コメント, T1.産業医の意見, T1.QRコード, T4.ラベル連番 "
+                'strSQL &= "FROM T_判定票印刷 AS T1 INNER JOIN "
+                'strSQL &= "T_印刷ソート AS T2 ON T1.ロットID = T2.ロットID AND T1.レコード番号 = T2.レコード番号 INNER JOIN "
+                'strSQL &= "T_判定票管理 AS T3 ON T1.ロットID = T3.ロットID AND T1.レコード番号 = T3.レコード番号 INNER JOIN "
+                'strSQL &= "T_印刷管理個別 AS T4 ON T2.ロットID = T4.ロットID AND T2.会社コード = T4.会社コード "
+                'strSQL &= "AND T2.所属事業所コード = T4.所属事業所コード AND T2.印刷ID = T4.印刷ID "
+                'strSQL &= "WHERE T1.ロットID = '" & strLotID & "' "
+                'strSQL &= "AND T2.会社コード = '" & dtPrintManage.Rows(iRow)("会社コード") & "' "
+                'strSQL &= "AND T2.所属事業所コード = '" & dtPrintManage.Rows(iRow)("所属事業所コード") & "' "
+                'strSQL &= "AND T2.印刷ID = " & dtPrintManage.Rows(iRow)("印刷ID") & " "
+                'strSQL &= "AND T2.帳票種別ID = 4 "
+                'strSQL &= "ORDER BY CASE WHEN ISNULL(T1.所属部名, '') = '' THEN 1 ELSE 0 END, "
+                'strSQL &= "T1.所属部名, "
+                'strSQL &= "CASE WHEN ISNULL(T1.所属課名, '') = '' THEN 1 ELSE 0 END, "
+                'strSQL &= "T1.所属課名, T3.社員コード"
+                'dt = sqlProcess.DB_SELECT_DATATABLE(strSQL)
+                'If dt.Rows.Count > 0 Then
+                '    '印刷処理
+                '    Print(strSQL, PrintCategory.Checkup)
+                '    '判定票印刷日時書き込み
+                '    WritePrintDate(strLotID, PrintCategory.Checkup, 0, dtPrintManage.Rows(iRow)("会社コード"), dtPrintManage.Rows(iRow)("所属事業所コード"), dtPrintManage.Rows(iRow)("印刷ID"))
+                '    '該当の会社コード、所属事業所コード、印刷IDすべてのチェックフラグを取り下げる
+                '    strSQL = "UPDATE T_印刷ソート SET チェックフラグ = 0 "
+                '    strSQL &= "WHERE ロットID = '" & strLotID & "' "
+                '    strSQL &= "AND 会社コード = '" & dtPrintManage.Rows(iRow)("会社コード") & "' "
+                '    strSQL &= "AND 所属事業所コード = '" & dtPrintManage.Rows(iRow)("所属事業所コード") & "' "
+                '    strSQL &= "AND 印刷ID = " & dtPrintManage.Rows(iRow)("印刷ID")
+                '    sqlProcess.DB_UPDATE(strSQL)
+                'End If
+
+                'strHeaderSheet = dtPrintManage.Rows(iRow)("重量ヘッダ")
 
             Next
 
@@ -5155,391 +5340,424 @@ Module PrintProcess
 
     End Sub
 
-	''' <summary>
-	''' 印刷処理
-	''' </summary>
-	''' <param name="strSQL"></param>
-	''' <param name="prtCategory"></param>
-	''' <param name="strLeafletPattern"></param>
-	''' <param name="strCompanyCode">会社コード</param>
-	''' <remarks>2018/10/02 かんぽ生命対応で会社コードオプションを追加</remarks>
-	Public Sub Print(ByVal strSQL As String, ByVal prtCategory As PrintCategory, Optional ByVal strLeafletPattern As String = "", Optional ByVal strCompanyCode As String = "")
+    ''' <summary>
+    ''' 印刷処理
+    ''' </summary>
+    ''' <param name="strSQL"></param>
+    ''' <param name="prtCategory"></param>
+    ''' <param name="strLeafletPattern"></param>
+    ''' <param name="strCompanyCode">会社コード</param>
+    ''' <param name="strPrintTemplate">印刷テンプレートファイル名</param>
+    ''' <remarks>2018/10/02 かんぽ生命対応で会社コードオプションを追加
+    '''          2019/04/24 2018年以前と2019年以降でテンプレートを分岐させる処理を追加</remarks>
+    Public Sub Print(ByVal strSQL As String, ByVal prtCategory As PrintCategory, Optional ByVal strLeafletPattern As String = "", Optional ByVal strCompanyCode As String = "", Optional ByVal strPrintTemplate As String = "result.flxr")
 
-		''==================================================
-		''デバッグ用(この囲み以外はコメントアウトする)
-		'Using sw As New System.IO.StreamWriter("C:\JPTemp\06_印刷\20180807-02\Print.txt", True, System.Text.Encoding.GetEncoding("Shift-JIS"))
-		'	Dim strWriteLine As String = ""
-		'	Select Case prtCategory
-		'		Case PrintCategory.Label
-		'			strWriteLine = "ラベル：" & strSQL
-		'		Case PrintCategory.WeightHeader
-		'			strWriteLine = "重量ヘッダ：" & strSQL
-		'		Case PrintCategory.WeightHeaderHand
-		'			strWriteLine = "重量ヘッダ手差し：" & strSQL
-		'		Case PrintCategory.CheckupList
-		'			strWriteLine = "対象者一覧：" & strSQL
-		'		Case PrintCategory.CheckupListIndividual
-		'			strWriteLine = "対象者一覧_個別：" & strSQL
-		'		Case PrintCategory.LeafletList
-		'			strWriteLine = "保健指導名簿：" & strSQL
-		'		Case PrintCategory.LeafletListIndividual
-		'			strWriteLine = "保健指導名簿_個別：" & strSQL
-		'		Case PrintCategory.Checkup
-		'			strWriteLine = "判定票：" & strSQL
-		'		Case PrintCategory.Leaflet
-		'			strWriteLine = "リーフレット：" & strLeafletPattern & "：" & strSQL
-		'	End Select
-		'	sw.WriteLine(strWriteLine)
-		'End Using
-		''ここまで
-		''==================================================
+        ''==================================================
+        ''デバッグ用(この囲み以外はコメントアウトする)
+        'Using sw As New System.IO.StreamWriter("C:\開発\MSiC\JP健診2017\E\JPTemp\02_Out\20190521\test.txt", True, System.Text.Encoding.GetEncoding("Shift-JIS"))
+        '    Select Case prtCategory
+        '        Case PrintCategory.Label
+        '            sw.WriteLine("ラベル" & vbTab & strSQL)
+        '        Case PrintCategory.WeightHeader
+        '            sw.WriteLine("重量ヘッダ" & vbTab & strSQL)
+        '        Case PrintCategory.WeightHeaderHand
+        '            sw.WriteLine("重量ヘッダ手封入" & vbTab & strSQL)
+        '        Case PrintCategory.CheckupList
+        '            sw.WriteLine("対象者一覧" & vbTab & strSQL)
+        '        Case PrintCategory.CheckupListIndividual
+        '            sw.WriteLine("対象者一覧（個別）" & vbTab & strSQL)
+        '        Case PrintCategory.LeafletList
+        '            sw.WriteLine("個人指導対象者名簿" & vbTab & strSQL)
+        '        Case PrintCategory.LeafletListIndividual
+        '            sw.WriteLine("個人指導対象者名簿（個別" & vbTab & strSQL)
+        '        Case PrintCategory.Checkup
+        '            sw.WriteLine("判定票" & vbTab & strSQL)
+        '        Case PrintCategory.Leaflet
+        '            sw.WriteLine("リーフレット" & vbTab & strSQL)
+        '    End Select
+        'End Using
+        ''ここまで
+        ''==================================================
 
-		Dim strConnectionString As String = ""
-		XmlSettings.LoadFromXmlFile()
-		Dim C1FlexReport1 As New C1FlexReport
+        Dim strConnectionString As String = ""
+        XmlSettings.LoadFromXmlFile()
+        Dim C1FlexReport1 As New C1FlexReport
 
-		'現在の通常使うプリンタ名を取得
-		Dim pd As New System.Drawing.Printing.PrintDocument
-		'プリンタ名の取得
-		'Finallyで通常使うプリンタを戻す
-		Dim strDefaultPrinter As String = pd.PrinterSettings.PrinterName
+        '現在の通常使うプリンタ名を取得
+        Dim pd As New System.Drawing.Printing.PrintDocument
+        'プリンタ名の取得
+        'Finallyで通常使うプリンタを戻す
+        Dim strDefaultPrinter As String = pd.PrinterSettings.PrinterName
 
-		Try
-			'接続文字列を作成する
-			strConnectionString = "Provider=SQLOLEDB.1;"
-			strConnectionString &= "Password=" & XmlSettings.Instance.Password & ";"
-			strConnectionString &= "Persist Security Info=True;"
-			strConnectionString &= "User ID=" & XmlSettings.Instance.UserID & ";"
-			strConnectionString &= "Initial Catalog=" & XmlSettings.Instance.InitialCatalog & ";"
-			strConnectionString &= "Data Source=" & XmlSettings.Instance.DataSource
-			'印刷オプションのインスタンス
-			Dim print_option As C1.Win.C1Document.C1PrintOptions = New C1.Win.C1Document.C1PrintOptions()
-			print_option.PrinterSettings = New System.Drawing.Printing.PrinterSettings()
+        Try
+            '接続文字列を作成する
+            strConnectionString = "Provider=SQLOLEDB.1;"
+            strConnectionString &= "Password=" & XmlSettings.Instance.Password & ";"
+            strConnectionString &= "Persist Security Info=True;"
+            strConnectionString &= "User ID=" & XmlSettings.Instance.UserID & ";"
+            strConnectionString &= "Initial Catalog=" & XmlSettings.Instance.InitialCatalog & ";"
+            strConnectionString &= "Data Source=" & XmlSettings.Instance.DataSource
+            '印刷オプションのインスタンス
+            Dim print_option As C1.Win.C1Document.C1PrintOptions = New C1.Win.C1Document.C1PrintOptions()
+            print_option.PrinterSettings = New System.Drawing.Printing.PrinterSettings()
 
-			'==================================================
-			''新コード
-			''プリンタドライバの切り替え
-			'SetDefaultPrinter(XmlSettings.Instance.Printer_Result)
-			'==================================================
+            '==================================================
+            ''新コード
+            ''プリンタドライバの切り替え
+            'SetDefaultPrinter(XmlSettings.Instance.Printer_Result)
+            '==================================================
 
-			Select Case prtCategory
+            Select Case prtCategory
 
-				Case PrintCategory.Label
-					'ラベル印刷
-					C1FlexReport1.Load(Application.StartupPath & "\Template\others.flxr", "ラベル")
-					'接続文字列、SQL文の設定
-					C1FlexReport1.DataSource.ConnectionString = strConnectionString
-					C1FlexReport1.DataSource.RecordSource = strSQL
-					C1FlexReport1.Render()
+                Case PrintCategory.Label
+                    'ラベル印刷
+                    C1FlexReport1.Load(Application.StartupPath & "\Template\others.flxr", "ラベル")
+                    '接続文字列、SQL文の設定
+                    C1FlexReport1.DataSource.ConnectionString = strConnectionString
+                    C1FlexReport1.DataSource.RecordSource = strSQL
+                    C1FlexReport1.Render()
 
-					'プリンタドライバの切り替え
-					'現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
-					If strDefaultPrinter <> XmlSettings.Instance.Printer_Label Then
-						SetDefaultPrinter(XmlSettings.Instance.Printer_Label)
-					End If
-					'印刷方向を縦向きにする
-					print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
-					'給紙トレイを変更する
-					'トレイのインデックスが0以上の場合のみトレイ変更する
-					If XmlSettings.Instance.LabelTray >= 0 Then
-						print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.LabelTray)    'トレイ1※対象者一覧のトレイと同一
-					End If
+                    'プリンタドライバの切り替え
+                    '現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
+                    If strDefaultPrinter <> XmlSettings.Instance.Printer_Label Then
+                        SetDefaultPrinter(XmlSettings.Instance.Printer_Label)
+                    End If
+                    '印刷方向を縦向きにする
+                    print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
+                    '給紙トレイを変更する
+                    'トレイのインデックスが0以上の場合のみトレイ変更する
+                    If XmlSettings.Instance.LabelTray >= 0 Then
+                        print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.LabelTray)    'トレイ1※対象者一覧のトレイと同一
+                    End If
 
-					isPrinting = True   '印刷中フラグを設定
-					C1FlexReport1.Print(print_option)   '印刷処理
+                    isPrinting = True   '印刷中フラグを設定
+                    C1FlexReport1.Print(print_option)   '印刷処理
 
-				Case PrintCategory.WeightHeader
-					'重量ヘッダ
-					C1FlexReport1.Load(Application.StartupPath & "\Template\others.flxr", "重量ヘッダ")
-					'接続文字列、SQL文の設定
-					C1FlexReport1.DataSource.ConnectionString = strConnectionString
-					C1FlexReport1.DataSource.RecordSource = strSQL
-					C1FlexReport1.Render()
+                Case PrintCategory.WeightHeader
+                    '重量ヘッダ
+                    C1FlexReport1.Load(Application.StartupPath & "\Template\others.flxr", "重量ヘッダ")
+                    '接続文字列、SQL文の設定
+                    C1FlexReport1.DataSource.ConnectionString = strConnectionString
+                    C1FlexReport1.DataSource.RecordSource = strSQL
+                    C1FlexReport1.Render()
 
-					''==================================================
-					''従来のコード
-					''プリンタドライバの切り替え
-					'SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
-					''印刷方向を縦向きにする
-					'print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
-					'==================================================
-					'プリンタドライバの切り替え
-					'現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
-					If strDefaultPrinter <> XmlSettings.Instance.Printer_Header Then
-						SetDefaultPrinter(XmlSettings.Instance.Printer_Header)
-					End If
-					'新コード
-					'給紙トレイを変更する
-					print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
-					'トレイのインデックスが0以上の場合のみトレイ変更する
-					If XmlSettings.Instance.HeaderTray >= 0 Then
-						print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.HeaderTray)    'トレイ1※対象者一覧のトレイと同一
-					End If
-					'==================================================
+                    ''==================================================
+                    ''従来のコード
+                    ''プリンタドライバの切り替え
+                    'SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
+                    ''印刷方向を縦向きにする
+                    'print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
+                    '==================================================
+                    'プリンタドライバの切り替え
+                    '現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
+                    If strDefaultPrinter <> XmlSettings.Instance.Printer_Header Then
+                        SetDefaultPrinter(XmlSettings.Instance.Printer_Header)
+                    End If
+                    '新コード
+                    '給紙トレイを変更する
+                    print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
+                    'トレイのインデックスが0以上の場合のみトレイ変更する
+                    If XmlSettings.Instance.HeaderTray >= 0 Then
+                        print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.HeaderTray)    'トレイ1※対象者一覧のトレイと同一
+                    End If
+                    '2019/05/22
+                    'モノクロ設定
+                    print_option.PrinterSettings.DefaultPageSettings.Color = False
 
-					isPrinting = True   '印刷中フラグを設定
-					C1FlexReport1.Print(print_option)   '印刷処理
+                    '==================================================
 
-				Case PrintCategory.WeightHeaderHand
-					'重量ヘッダ(手封入)
-					C1FlexReport1.Load(Application.StartupPath & "\Template\others.flxr", "重量ヘッダHAND")
-					'接続文字列、SQL文の設定
-					C1FlexReport1.DataSource.ConnectionString = strConnectionString
-					C1FlexReport1.DataSource.RecordSource = strSQL
-					C1FlexReport1.Render()
+                    isPrinting = True   '印刷中フラグを設定
+                    C1FlexReport1.Print(print_option)   '印刷処理
 
-					''==================================================
-					''従来のコード
-					''プリンタドライバの切り替え
-					'SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
-					''印刷方向を縦向きにする
-					'print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
-					'==================================================
-					'プリンタドライバの切り替え
-					'現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
-					If strDefaultPrinter <> XmlSettings.Instance.Printer_Header Then
-						SetDefaultPrinter(XmlSettings.Instance.Printer_Header)
-					End If
-					'新コード
-					'給紙トレイを変更する
-					print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
-					'トレイのインデックスが0以上の場合のみトレイ変更する
-					If XmlSettings.Instance.HeaderTray >= 0 Then
-						print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.HeaderTray)    'トレイ1※対象者一覧のトレイと同一
-					End If
-					'==================================================
+                Case PrintCategory.WeightHeaderHand
+                    '重量ヘッダ(手封入)
+                    C1FlexReport1.Load(Application.StartupPath & "\Template\others.flxr", "重量ヘッダHAND")
+                    '接続文字列、SQL文の設定
+                    C1FlexReport1.DataSource.ConnectionString = strConnectionString
+                    C1FlexReport1.DataSource.RecordSource = strSQL
+                    C1FlexReport1.Render()
 
-					isPrinting = True   '印刷中フラグを設定
-					C1FlexReport1.Print(print_option)   '印刷処理
+                    ''==================================================
+                    ''従来のコード
+                    ''プリンタドライバの切り替え
+                    'SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
+                    ''印刷方向を縦向きにする
+                    'print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
+                    '==================================================
+                    'プリンタドライバの切り替え
+                    '現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
+                    If strDefaultPrinter <> XmlSettings.Instance.Printer_Header Then
+                        SetDefaultPrinter(XmlSettings.Instance.Printer_Header)
+                    End If
+                    '新コード
+                    '給紙トレイを変更する
+                    print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
+                    'トレイのインデックスが0以上の場合のみトレイ変更する
+                    If XmlSettings.Instance.HeaderTray >= 0 Then
+                        print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.HeaderTray)    'トレイ1※対象者一覧のトレイと同一
+                    End If
+                    '2019/05/22
+                    'モノクロ設定
+                    print_option.PrinterSettings.DefaultPageSettings.Color = False
 
-				Case PrintCategory.CheckupList
-					'対象者一覧
-					C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "対象者一覧")
-					'接続文字列、SQL文の設定
-					C1FlexReport1.DataSource.ConnectionString = strConnectionString
-					C1FlexReport1.DataSource.RecordSource = strSQL
-					C1FlexReport1.Render()
+                    '==================================================
 
-					''==================================================
-					''従来のコード
-					''プリンタドライバの切り替え
-					'SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
-					''印刷方向を縦向きにする
-					'print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
-					'==================================================
-					'プリンタドライバの切り替え
-					'現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
-					If strDefaultPrinter <> XmlSettings.Instance.Printer_Sentlist Then
-						SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
-					End If
-					'新コード
-					'給紙トレイを変更する
-					print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
-					'トレイのインデックスが0以上の場合のみトレイ変更する
-					If XmlSettings.Instance.ResultTray >= 0 Then
-						print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.SentlistTray)    'トレイ1
-					End If
-					'==================================================
+                    isPrinting = True   '印刷中フラグを設定
+                    C1FlexReport1.Print(print_option)   '印刷処理
 
-					isPrinting = True   '印刷中フラグを設定
-					C1FlexReport1.Print(print_option)   '印刷処理
+                Case PrintCategory.CheckupList
+                    '対象者一覧
+                    C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "対象者一覧")
+                    '接続文字列、SQL文の設定
+                    C1FlexReport1.DataSource.ConnectionString = strConnectionString
+                    C1FlexReport1.DataSource.RecordSource = strSQL
+                    C1FlexReport1.Render()
 
-				Case PrintCategory.CheckupListIndividual
-					'対象者一覧個別
-					C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "対象者一覧_個別")
-					'接続文字列、SQL文の設定
-					C1FlexReport1.DataSource.ConnectionString = strConnectionString
-					C1FlexReport1.DataSource.RecordSource = strSQL
-					C1FlexReport1.Render()
+                    ''==================================================
+                    ''従来のコード
+                    ''プリンタドライバの切り替え
+                    'SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
+                    ''印刷方向を縦向きにする
+                    'print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
+                    '==================================================
+                    'プリンタドライバの切り替え
+                    '現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
+                    If strDefaultPrinter <> XmlSettings.Instance.Printer_Sentlist Then
+                        SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
+                    End If
+                    '新コード
+                    '給紙トレイを変更する
+                    print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
+                    'トレイのインデックスが0以上の場合のみトレイ変更する
+                    If XmlSettings.Instance.ResultTray >= 0 Then
+                        print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.SentlistTray)    'トレイ1
+                    End If
+                    '2019/05/22
+                    'モノクロ設定
+                    print_option.PrinterSettings.DefaultPageSettings.Color = False
 
-					''==================================================
-					''従来のコード
-					''プリンタドライバの切り替え
-					'SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
-					''印刷方向を縦向きにする
-					'print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
-					'==================================================
-					'プリンタドライバの切り替え
-					'現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
-					If strDefaultPrinter <> XmlSettings.Instance.Printer_Sentlist Then
-						SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
-					End If
-					'新コード
-					'給紙トレイを変更する
-					print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
-					'トレイのインデックスが0以上の場合のみトレイ変更する
-					If XmlSettings.Instance.ResultTray >= 0 Then
-						print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.SentlistTray)    'トレイ1
-					End If
-					'==================================================
+                    '==================================================
 
-					isPrinting = True   '印刷中フラグを設定
-					C1FlexReport1.Print(print_option)   '印刷処理
+                    isPrinting = True   '印刷中フラグを設定
+                    C1FlexReport1.Print(print_option)   '印刷処理
 
-				Case PrintCategory.LeafletList
-					'保健指導対象者名簿
-					'2018/10/02
-					'かんぽ生命かどうかの判断
-					If strCompanyCode = XmlSettings.Instance.KanpoCode Then
-						C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "保健指導名簿_かんぽ")
-					Else
-						C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "保健指導名簿")
-					End If
-					'接続文字列、SQL文の設定
-					C1FlexReport1.DataSource.ConnectionString = strConnectionString
-					C1FlexReport1.DataSource.RecordSource = strSQL
-					C1FlexReport1.Render()
+                Case PrintCategory.CheckupListIndividual
+                    '対象者一覧個別
+                    C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "対象者一覧_個別")
+                    '接続文字列、SQL文の設定
+                    C1FlexReport1.DataSource.ConnectionString = strConnectionString
+                    C1FlexReport1.DataSource.RecordSource = strSQL
+                    C1FlexReport1.Render()
 
-					'==================================================
-					''従来のコード
-					''プリンタドライバの切り替え
-					'SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
-					''印刷方向を縦向きにする
-					'print_option.PrinterSettings.DefaultPageSettings.Landscape = True  '横向き
-					'==================================================
-					'プリンタドライバの切り替え
-					'現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
-					If strDefaultPrinter <> XmlSettings.Instance.Printer_SentLeaflet Then
-						SetDefaultPrinter(XmlSettings.Instance.Printer_SentLeaflet)
-					End If
-					'新コード
-					'給紙トレイを変更する
-					print_option.PrinterSettings.DefaultPageSettings.Landscape = True  '横向き
-					'トレイのインデックスが0以上の場合のみトレイ変更する
-					If XmlSettings.Instance.SentLeafletTray >= 0 Then
-						print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.SentLeafletTray)    'トレイ1
-					End If
-					'==================================================
+                    ''==================================================
+                    ''従来のコード
+                    ''プリンタドライバの切り替え
+                    'SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
+                    ''印刷方向を縦向きにする
+                    'print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
+                    '==================================================
+                    'プリンタドライバの切り替え
+                    '現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
+                    If strDefaultPrinter <> XmlSettings.Instance.Printer_Sentlist Then
+                        SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
+                    End If
+                    '新コード
+                    '給紙トレイを変更する
+                    print_option.PrinterSettings.DefaultPageSettings.Landscape = False  '縦向き
+                    'トレイのインデックスが0以上の場合のみトレイ変更する
+                    If XmlSettings.Instance.ResultTray >= 0 Then
+                        print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.SentlistTray)    'トレイ1
+                    End If
+                    '2019/05/22
+                    'モノクロ設定
+                    print_option.PrinterSettings.DefaultPageSettings.Color = False
 
-					isPrinting = True   '印刷中フラグを設定
-					C1FlexReport1.Print(print_option)   '印刷処理
+                    '==================================================
 
-				Case PrintCategory.LeafletListIndividual
-					'保健指導対象者名簿個別
-					'2018/10/02
-					'かんぽ生命かどうかの判断
-					If strCompanyCode = XmlSettings.Instance.KanpoCode Then
-						C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "保健指導名簿_かんぽ_個別")
-					Else
-						C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "保健指導名簿_個別")
-					End If
-					'接続文字列、SQL文の設定
-					C1FlexReport1.DataSource.ConnectionString = strConnectionString
-					C1FlexReport1.DataSource.RecordSource = strSQL
-					C1FlexReport1.Render()
+                    isPrinting = True   '印刷中フラグを設定
+                    C1FlexReport1.Print(print_option)   '印刷処理
 
-					'==================================================
-					''従来のコード
-					''プリンタドライバの切り替え
-					'SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
-					''印刷方向を縦向きにする
-					'print_option.PrinterSettings.DefaultPageSettings.Landscape = True  '横向き
-					'==================================================
-					'プリンタドライバの切り替え
-					'現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
-					If strDefaultPrinter <> XmlSettings.Instance.Printer_SentLeaflet Then
-						SetDefaultPrinter(XmlSettings.Instance.Printer_SentLeaflet)
-					End If
-					'新コード
-					'給紙トレイを変更する
-					print_option.PrinterSettings.DefaultPageSettings.Landscape = True  '横向き
-					'トレイのインデックスが0以上の場合のみトレイ変更する
-					If XmlSettings.Instance.SentLeafletTray >= 0 Then
-						print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.SentLeafletTray)    'トレイ1
-					End If
-					'==================================================
+                Case PrintCategory.LeafletList
+                    '保健指導対象者名簿
+                    '2018/10/02
+                    'かんぽ生命かどうかの判断
+                    If strCompanyCode = XmlSettings.Instance.KanpoCode Then
+                        C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "保健指導名簿_かんぽ")
+                    Else
+                        C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "保健指導名簿")
+                    End If
+                    '接続文字列、SQL文の設定
+                    C1FlexReport1.DataSource.ConnectionString = strConnectionString
+                    C1FlexReport1.DataSource.RecordSource = strSQL
+                    C1FlexReport1.Render()
 
-					isPrinting = True   '印刷中フラグを設定
-					C1FlexReport1.Print(print_option)   '印刷処理
+                    '==================================================
+                    ''従来のコード
+                    ''プリンタドライバの切り替え
+                    'SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
+                    ''印刷方向を縦向きにする
+                    'print_option.PrinterSettings.DefaultPageSettings.Landscape = True  '横向き
+                    '==================================================
+                    'プリンタドライバの切り替え
+                    '現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
+                    If strDefaultPrinter <> XmlSettings.Instance.Printer_SentLeaflet Then
+                        SetDefaultPrinter(XmlSettings.Instance.Printer_SentLeaflet)
+                    End If
+                    '新コード
+                    '給紙トレイを変更する
+                    print_option.PrinterSettings.DefaultPageSettings.Landscape = True  '横向き
+                    'トレイのインデックスが0以上の場合のみトレイ変更する
+                    If XmlSettings.Instance.SentLeafletTray >= 0 Then
+                        print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.SentLeafletTray)    'トレイ1
+                    End If
+                    '2019/05/22
+                    'モノクロ設定
+                    print_option.PrinterSettings.DefaultPageSettings.Color = False
 
-				Case PrintCategory.Checkup
-					'判定票
-					C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "判定票")
-					'接続文字列、SQL文の設定
-					C1FlexReport1.DataSource.ConnectionString = strConnectionString
-					C1FlexReport1.DataSource.RecordSource = strSQL
-					C1FlexReport1.Render()
+                    '==================================================
 
-					''==================================================
-					''従来のコード
-					''プリンタドライバの切り替え
-					'SetDefaultPrinter(XmlSettings.Instance.Printer_Result)
-					''印刷方向を縦向きにする
-					'print_option.PrinterSettings.DefaultPageSettings.Landscape = True  '横向き
-					'==================================================
-					'プリンタドライバの切り替え
-					'現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
-					If strDefaultPrinter <> XmlSettings.Instance.Printer_Result Then
-						SetDefaultPrinter(XmlSettings.Instance.Printer_Result)
-					End If
-					'新コード
-					'給紙トレイを変更する
-					print_option.PrinterSettings.DefaultPageSettings.Landscape = True  '横向き
-					'トレイのインデックスが0以上の場合のみトレイ変更する
-					If XmlSettings.Instance.ResultTray >= 0 Then
-						print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.ResultTray)    '給紙台
-					End If
-					'==================================================
+                    isPrinting = True   '印刷中フラグを設定
+                    C1FlexReport1.Print(print_option)   '印刷処理
 
-					isPrinting = True   '印刷中フラグを設定
-					C1FlexReport1.Print(print_option)   '印刷処理
+                Case PrintCategory.LeafletListIndividual
+                    '保健指導対象者名簿個別
+                    '2018/10/02
+                    'かんぽ生命かどうかの判断
+                    If strCompanyCode = XmlSettings.Instance.KanpoCode Then
+                        C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "保健指導名簿_かんぽ_個別")
+                    Else
+                        C1FlexReport1.Load(Application.StartupPath & "\Template\result.flxr", "保健指導名簿_個別")
+                    End If
+                    '接続文字列、SQL文の設定
+                    C1FlexReport1.DataSource.ConnectionString = strConnectionString
+                    C1FlexReport1.DataSource.RecordSource = strSQL
+                    C1FlexReport1.Render()
 
-				Case PrintCategory.Leaflet
-					'リーフレット
-					'テンプレートの決定
-					Dim strReportCategory As String = "R_" & strLeafletPattern
-					C1FlexReport1.Load(Application.StartupPath & "\Template\leaflet.flxr", strReportCategory)
-					'接続文字列、SQL文の設定
-					C1FlexReport1.DataSource.ConnectionString = strConnectionString
-					C1FlexReport1.DataSource.RecordSource = strSQL
-					C1FlexReport1.Render()
+                    '==================================================
+                    ''従来のコード
+                    ''プリンタドライバの切り替え
+                    'SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
+                    ''印刷方向を縦向きにする
+                    'print_option.PrinterSettings.DefaultPageSettings.Landscape = True  '横向き
+                    '==================================================
+                    'プリンタドライバの切り替え
+                    '現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
+                    If strDefaultPrinter <> XmlSettings.Instance.Printer_SentLeaflet Then
+                        SetDefaultPrinter(XmlSettings.Instance.Printer_SentLeaflet)
+                    End If
+                    '新コード
+                    '給紙トレイを変更する
+                    print_option.PrinterSettings.DefaultPageSettings.Landscape = True  '横向き
+                    'トレイのインデックスが0以上の場合のみトレイ変更する
+                    If XmlSettings.Instance.SentLeafletTray >= 0 Then
+                        print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.SentLeafletTray)    'トレイ1
+                    End If
+                    '2019/05/22
+                    'モノクロ設定
+                    print_option.PrinterSettings.DefaultPageSettings.Color = False
 
-					'==================================================
-					''従来のコード
-					''プリンタドライバの切り替え
-					'SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
-					''印刷方向を縦向きにする
-					'print_option.PrinterSettings.DefaultPageSettings.Landscape = True  '横向き
-					'==================================================
-					'プリンタドライバの切り替え
-					'現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
-					If strDefaultPrinter <> XmlSettings.Instance.Printer_Leaflet Then
-						SetDefaultPrinter(XmlSettings.Instance.Printer_Leaflet)
-					End If
-					'新コード
-					'給紙トレイを変更する
-					print_option.PrinterSettings.DefaultPageSettings.Landscape = True  '横向き
-					'トレイのインデックスが0以上の場合のみトレイ変更する
-					If XmlSettings.Instance.LeafletTray >= 0 Then
-						print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.LeafletTray)    '給紙台
-					End If
-					'==================================================
+                    '==================================================
 
-					isPrinting = True   '印刷中フラグを設定
-					C1FlexReport1.Print(print_option)   '印刷処理
+                    isPrinting = True   '印刷中フラグを設定
+                    C1FlexReport1.Print(print_option)   '印刷処理
 
-			End Select
+                Case PrintCategory.Checkup
+                    '判定票
+                    '2019/04/24
+                    'テンプレートファイルの分岐を追加
+                    C1FlexReport1.Load(Application.StartupPath & "\Template\" & strPrintTemplate, "判定票")
+                    '接続文字列、SQL文の設定
+                    C1FlexReport1.DataSource.ConnectionString = strConnectionString
+                    C1FlexReport1.DataSource.RecordSource = strSQL
+                    C1FlexReport1.Render()
 
-		Catch ex As Exception
+                    ''==================================================
+                    ''従来のコード
+                    ''プリンタドライバの切り替え
+                    'SetDefaultPrinter(XmlSettings.Instance.Printer_Result)
+                    ''印刷方向を縦向きにする
+                    'print_option.PrinterSettings.DefaultPageSettings.Landscape = True  '横向き
+                    '==================================================
+                    'プリンタドライバの切り替え
+                    '現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
+                    If strDefaultPrinter <> XmlSettings.Instance.Printer_Result Then
+                        SetDefaultPrinter(XmlSettings.Instance.Printer_Result)
+                    End If
+                    '新コード
+                    '給紙トレイを変更する
+                    print_option.PrinterSettings.DefaultPageSettings.Landscape = True  '横向き
+                    'トレイのインデックスが0以上の場合のみトレイ変更する
+                    If XmlSettings.Instance.ResultTray >= 0 Then
+                        print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.ResultTray)    '給紙台
+                    End If
+                    '2019/05/22
+                    'カラー設定
+                    print_option.PrinterSettings.DefaultPageSettings.Color = True
+                    '==================================================
 
-			Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message & vbNewLine & ex.StackTrace)
-			MessageBox.Show("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    isPrinting = True   '印刷中フラグを設定
+                    C1FlexReport1.Print(print_option)   '印刷処理
 
-		Finally
+                Case PrintCategory.Leaflet
+                    'リーフレット
+                    'テンプレートの決定
+                    Dim strReportCategory As String = "R_" & strLeafletPattern
+                    C1FlexReport1.Load(Application.StartupPath & "\Template\leaflet.flxr", strReportCategory)
+                    '接続文字列、SQL文の設定
+                    C1FlexReport1.DataSource.ConnectionString = strConnectionString
+                    C1FlexReport1.DataSource.RecordSource = strSQL
+                    C1FlexReport1.Render()
 
-			C1FlexReport1.Clear()
-			''設定されていた通常使うプリンタに戻す
-			'SetDefaultPrinter(strDefaultPrinter)
+                    '==================================================
+                    ''従来のコード
+                    ''プリンタドライバの切り替え
+                    'SetDefaultPrinter(XmlSettings.Instance.Printer_Sentlist)
+                    ''印刷方向を縦向きにする
+                    'print_option.PrinterSettings.DefaultPageSettings.Landscape = True  '横向き
+                    '==================================================
+                    'プリンタドライバの切り替え
+                    '現在のプリンタドライバ名と同一の場合は切り替え処理を行わない
+                    If strDefaultPrinter <> XmlSettings.Instance.Printer_Leaflet Then
+                        SetDefaultPrinter(XmlSettings.Instance.Printer_Leaflet)
+                    End If
+                    '新コード
+                    '給紙トレイを変更する
+                    print_option.PrinterSettings.DefaultPageSettings.Landscape = True  '横向き
+                    'トレイのインデックスが0以上の場合のみトレイ変更する
+                    If XmlSettings.Instance.LeafletTray >= 0 Then
+                        print_option.PrinterSettings.DefaultPageSettings.PaperSource = print_option.PrinterSettings.PaperSources.Item(XmlSettings.Instance.LeafletTray)    '給紙台
+                    End If
+                    '2019/05/22
+                    'カラー設定
+                    print_option.PrinterSettings.DefaultPageSettings.Color = True
 
-		End Try
+                    '==================================================
 
-	End Sub
+                    isPrinting = True   '印刷中フラグを設定
+                    C1FlexReport1.Print(print_option)   '印刷処理
 
-	''' <summary>
-	''' 通常使うプリンタに設定する
-	''' </summary>
-	''' <param name="printerName"></param>
-	Private Sub SetDefaultPrinter(ByVal printerName As String)
+            End Select
+
+        Catch ex As Exception
+
+            Call OutputLogFile("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message & vbNewLine & ex.StackTrace)
+            MessageBox.Show("発生場所：" & Reflection.MethodBase.GetCurrentMethod.Name & vbNewLine & ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        Finally
+
+            C1FlexReport1.Clear()
+            ''設定されていた通常使うプリンタに戻す
+            'SetDefaultPrinter(strDefaultPrinter)
+
+        End Try
+
+    End Sub
+
+    ''' <summary>
+    ''' 通常使うプリンタに設定する
+    ''' </summary>
+    ''' <param name="printerName"></param>
+    Private Sub SetDefaultPrinter(ByVal printerName As String)
         'WshNetworkオブジェクトを作成する
         Dim t As Type = Type.GetTypeFromProgID("WScript.Network")
         Dim wshNetwork As Object = Activator.CreateInstance(t)
@@ -5761,10 +5979,10 @@ Module PrintProcess
 		arguments += String.Format("includes : {0}", includes) & vbCrLf
 
 		Try
-			Console.WriteLine("プリンタ : {0} の印刷開始を待機します(タイムアウト : {1} ms)" & vbCrLf & "引数 : {2}", printerName, timeOut, arguments)
+            'Console.WriteLine("プリンタ : {0} の印刷開始を待機します(タイムアウト : {1} ms)" & vbCrLf & "引数 : {2}", printerName, timeOut, arguments)
 
-			'プリンタのキューを取得し、指定されたジョブが開始されるまで待機
-			Using queue As PrintQueue = GetPrintQueue(printerName)
+            'プリンタのキューを取得し、指定されたジョブが開始されるまで待機
+            Using queue As PrintQueue = GetPrintQueue(printerName)
 				'タイムアウト計測用タイマ
 				Dim st As New Stopwatch()
 
@@ -5802,14 +6020,14 @@ Module PrintProcess
 						queue.Refresh()
 						Dim jobs As PrintJobInfoCollection = queue.GetPrintJobInfoCollection()
 
-						Console.WriteLine("ジョブの列挙を開始する")
+                        'Console.WriteLine("ジョブの列挙を開始する")
 
-						For Each job As Printing.PrintSystemJobInfo In jobs
+                        For Each job As Printing.PrintSystemJobInfo In jobs
 							If (job IsNot Nothing AndAlso job.Submitter = Environment.UserName) Then
-								Console.WriteLine("{0} : {1}", job.Name, job.JobStatus)
+                                'Console.WriteLine("{0} : {1}", job.Name, job.JobStatus)
 
-								'拡張しおよびファイル名に含まれる文字列から、監視対象のジョブを特定する
-								If (String.IsNullOrEmpty(extention) = True OrElse job.Name.ToLower.EndsWith(extention.ToLower) = True) Then
+                                '拡張しおよびファイル名に含まれる文字列から、監視対象のジョブを特定する
+                                If (String.IsNullOrEmpty(extention) = True OrElse job.Name.ToLower.EndsWith(extention.ToLower) = True) Then
 									Dim includesFound As Boolean = True
 									For Each match As String In includes
 										If (job.Name.Contains(match) = False) Then
@@ -5830,27 +6048,27 @@ Module PrintProcess
 
 								If (jobFound = True) Then
 									targetJob = job
-									Console.WriteLine("印刷対象のジョブ「{0}」が見つかりました。ステータス : {1}", job.Name, job.JobStatus)
-									Exit For
+                                    'Console.WriteLine("印刷対象のジョブ「{0}」が見つかりました。ステータス : {1}", job.Name, job.JobStatus)
+                                    Exit For
 								End If
 							End If
 						Next
-						Console.WriteLine("ジョブの列挙が終了しました")
-					End If
+                        'Console.WriteLine("ジョブの列挙が終了しました")
+                    End If
 
 					If (jobFound = True) Then
 						targetJob.Refresh()
-						Console.WriteLine("印刷対象のジョブ「{0}」を監視しています。ステータス : {1}", targetJob.Name, targetJob.JobStatus)
+                        'Console.WriteLine("印刷対象のジョブ「{0}」を監視しています。ステータス : {1}", targetJob.Name, targetJob.JobStatus)
 
-						If ((targetJob.JobStatus And PrintJobStatus.Retained) = PrintJobStatus.Retained OrElse
+                        If ((targetJob.JobStatus And PrintJobStatus.Retained) = PrintJobStatus.Retained OrElse
 								(targetJob.JobStatus And PrintJobStatus.Completed) = PrintJobStatus.Completed OrElse
 								(targetJob.JobStatus And PrintJobStatus.Deleted) = PrintJobStatus.Deleted
 								) Then
 							'印刷が開始された
 							printing = True
-							Console.WriteLine("プリンタ : {0} で {1} の印刷が開始されました。jobStatus : {2}", printerName, targetJob.Name, targetJob.JobStatus)
+                            'Console.WriteLine("プリンタ : {0} で {1} の印刷が開始されました。jobStatus : {2}", printerName, targetJob.Name, targetJob.JobStatus)
 
-						ElseIf ((targetJob.JobStatus And PrintJobStatus.Error) = PrintJobStatus.Error) Then
+                        ElseIf ((targetJob.JobStatus And PrintJobStatus.Error) = PrintJobStatus.Error) Then
 							Throw New ApplicationException("印刷中にエラーが発生しました")
 						ElseIf ((targetJob.JobStatus And PrintJobStatus.Spooling) = PrintJobStatus.Spooling) Then
 							spooling = True
@@ -5858,8 +6076,8 @@ Module PrintProcess
 							'一度Spooling状態となってからNoneになったジョブは、
 							'「スプール済みでプリンタの都合で待たされている」と判断できるため印刷開始とみなす
 							printing = True
-							Console.WriteLine("プリンタ : {0} で {1} の印刷が開始されました。JobStatus : {2}", printerName, targetJob.Name, targetJob.JobStatus)
-						End If
+                            'Console.WriteLine("プリンタ : {0} で {1} の印刷が開始されました。JobStatus : {2}", printerName, targetJob.Name, targetJob.JobStatus)
+                        End If
 
 					End If
 
@@ -5869,8 +6087,8 @@ Module PrintProcess
 
 		Catch ex As Exception
 
-			Console.WriteLine(ex)
-			Throw
+            'Console.WriteLine(ex)
+            Throw
 
 		End Try
 

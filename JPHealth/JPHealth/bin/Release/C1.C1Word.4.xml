@@ -11253,5 +11253,116 @@
     <member name="F:C1.C1Word.RtfListType.FullWidthBullet">
       <summary>全角ビュレット。</summary>
     </member>
+    <member name="T:C1.C1Word.Objects.RtfSdtContent">
+      <summary>
+        Word/RTF SDT コンテンツ。
+      </summary>
+    </member>
+    <member name="P:C1.C1Word.Objects.RtfSdtContent.Id">
+      <summary>
+        SDT 識別子を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Word.Objects.RtfSdtContent.SdtParagraph">
+      <summary>
+        段落プロパティの SDT オブジェクトを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Word.Objects.RtfSdtContent.SdtText">
+      <summary>
+        テキストプロパティの SDT オブジェクトを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Word.Objects.RtfSdtContent.SdtEndText">
+      <summary>
+        テキスト終了プロパティの SDT オブジェクトを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Word.Objects.RtfSdtContent.PartGallery">
+      <summary>
+        STD パーツギャラリー名を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Word.Objects.RtfSdtContent.PartUnique">
+      <summary>
+        STD パーツ一意名を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Word.Objects.RtfSdtContent.TocField">
+      <summary>
+        <see cref="T:C1.C1Word.Objects.RtfTocField" /> オブジェクトを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Word.Objects.RtfSdtContent.Alignment">
+      <summary>
+        この段落の水平方向の配置を取得または設定します。
+      </summary>
+      <value>段落の RTF 水平方向の配置。</value>
+    </member>
+    <member name="T:C1.C1Word.Objects.RtfComplexField">
+      <summary>
+        自動マクロ値 Word/RTF フィールドの共通（基本）フィールドクラス。
+      </summary>
+    </member>
+    <member name="P:C1.C1Word.Objects.RtfComplexField.SdtContent">
+      <summary>
+        このフィールドのコンテンツを取得します。
+      </summary>
+    </member>
+    <member name="T:C1.C1Word.Objects.RtfPageRefField">
+      <summary>
+        ページ参照 Word/RTF フィールド。
+      </summary>
+    </member>
+    <member name="M:C1.C1Word.Objects.RtfPageRefField.#ctor">
+      <summary>
+        ページ参照 Word/RTF フィールドを作成します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Word.Objects.RtfPageRefField.UniqueName">
+      <summary>
+        Word/RTF フィールドの一意名を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Word.Objects.RtfPageRefField.ValueText">
+      <summary>
+        値を表すテキスト文字列を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Word.Objects.RtfPageRefField.Value">
+      <summary>
+        値を表す内部オブジェクトを取得します。
+      </summary>
+    </member>
+    <member name="T:C1.C1Word.Objects.RtfTocField">
+      <summary>
+        目次（TOC）Word/RTF フィールド。
+      </summary>
+    </member>
+    <member name="M:C1.C1Word.Objects.RtfTocField.#ctor">
+      <summary>
+        ページ数 Word/RTF フィールドを作成します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Word.Objects.RtfTocField.UniqueName">
+      <summary>
+        Word/RTF フィールドの一意名を取得します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Word.Objects.RtfTocField.ValueText">
+      <summary>
+        値を表すテキスト文字列を取得または設定します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Word.Objects.RtfTocField.Value">
+      <summary>
+        値を表す内部オブジェクトを取得します。
+      </summary>
+    </member>
+    <member name="P:C1.C1Word.Objects.RtfObject.SdtOwner">
+      <summary>
+        このオブジェクトのオーナー Word/RTF SDT オブジェクトを取得します。
+      </summary>
+    </member>
   </members>
 </doc>

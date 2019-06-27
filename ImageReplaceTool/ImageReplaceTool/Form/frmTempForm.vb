@@ -15,7 +15,7 @@ Public Class frmTempForm
 	End Enum
 
 	Protected m_Context As AppContext = AppContext.GetInstance
-	'Protected m_LoginUser As LoginUser = LoginUser.GetInstance
+	Protected m_LoginUser As LoginUser = LoginUser.GetInstance
 	Private m_BackFormID As String = "frmMainMenu"
 
 #End Region

@@ -29,6 +29,8 @@ Partial Class frmTempForm
 		Me.RibbonSeparator1 = New C1.Win.C1Ribbon.RibbonSeparator()
 		Me.lblUser = New C1.Win.C1Ribbon.RibbonLabel()
 		Me.RibbonSeparator2 = New C1.Win.C1Ribbon.RibbonSeparator()
+		Me.lblManage = New C1.Win.C1Ribbon.RibbonLabel()
+		Me.RibbonSeparator4 = New C1.Win.C1Ribbon.RibbonSeparator()
 		Me.lblDate = New C1.Win.C1Ribbon.RibbonLabel()
 		Me.RibbonSeparator3 = New C1.Win.C1Ribbon.RibbonSeparator()
 		Me.btnBack = New C1.Win.C1Ribbon.RibbonButton()
@@ -45,6 +47,8 @@ Partial Class frmTempForm
 		Me.C1StatusBar1.Name = "C1StatusBar1"
 		Me.C1StatusBar1.RightPaneItems.Add(Me.lblUser)
 		Me.C1StatusBar1.RightPaneItems.Add(Me.RibbonSeparator2)
+		Me.C1StatusBar1.RightPaneItems.Add(Me.lblManage)
+		Me.C1StatusBar1.RightPaneItems.Add(Me.RibbonSeparator4)
 		Me.C1StatusBar1.RightPaneItems.Add(Me.lblDate)
 		Me.C1StatusBar1.RightPaneItems.Add(Me.RibbonSeparator3)
 		Me.C1StatusBar1.RightPaneItems.Add(Me.btnBack)
@@ -71,6 +75,15 @@ Partial Class frmTempForm
 		'
 		Me.RibbonSeparator2.Name = "RibbonSeparator2"
 		'
+		'lblManage
+		'
+		Me.lblManage.Name = "lblManage"
+		Me.lblManage.Text = "lblManage"
+		'
+		'RibbonSeparator4
+		'
+		Me.RibbonSeparator4.Name = "RibbonSeparator4"
+		'
 		'lblDate
 		'
 		Me.lblDate.Name = "lblDate"
@@ -86,6 +99,9 @@ Partial Class frmTempForm
 		Me.btnBack.Name = "btnBack"
 		Me.btnBack.SmallImage = Global.ImageReplaceTool.My.Resources.Resources.house_go
 		Me.btnBack.Text = "戻る"
+		'
+		'Timer1
+		'
 		'
 		'frmTempForm
 		'
@@ -112,4 +128,6 @@ Partial Class frmTempForm
 	Friend WithEvents RibbonSeparator3 As C1.Win.C1Ribbon.RibbonSeparator
 	Friend WithEvents btnBack As C1.Win.C1Ribbon.RibbonButton
 	Friend WithEvents Timer1 As Timer
+	Friend WithEvents lblManage As C1.Win.C1Ribbon.RibbonLabel
+	Friend WithEvents RibbonSeparator4 As C1.Win.C1Ribbon.RibbonSeparator
 End Class

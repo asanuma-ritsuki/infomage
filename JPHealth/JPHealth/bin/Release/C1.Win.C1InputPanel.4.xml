@@ -1866,12 +1866,13 @@
         次の例は、
         <see cref="E:C1.Win.C1InputPanel.InputComponent.Validating" />イベントを使用して、入力された値が 偶数でない場合に、
         <see cref="T:C1.Win.C1InputPanel.InputNumericBox" />のエラープロパティを 設定します。
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           private void inputNumericBox1_Validating(object sender, CancelEventArgs e)
           {
             if (inputNumericBox1.Value % 2 != 0)
             {
-              inputNumericBox1.ErrorText = "&lt;b&gt;偶数値&lt;/b&gt; を入力してください！";
+              inputNumericBox1.ErrorText = "<b>偶数値</b> を入力してください！";
               e.Cancel = true;
             }
             else
@@ -1879,7 +1880,9 @@
               inputNumericBox1.ErrorText = string.Empty;
             }
           }
-          ]]></code></example>
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="P:C1.Win.C1InputPanel.InputComponent.Tag">
       <summary>このコンポーネントに関連付けられているデータを含むオブジェクトを取得または設定します。</summary>
@@ -2970,10 +2973,11 @@
       </remarks>
       <example>
         次の例では、"A" タグを使用してハイパーリンクを作成しています。ユーザーがリンクをクリックすると、 イベントハンドラがメッセージボックスを表示します。
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           // InputHtmlLabel を構成します
-          inputHtmlLabel1.Text = "バージョン情報ダイアログを表示するには &lt;a href='about'&gt;&lt;b&gt;ここ&lt;/b&gt;&lt;/a&gt; をクリックしてください&lt;br&gt;" + 
-            "現在時刻を表示するには &lt;a href='time'&gt;&lt;b&gt;ここ&lt;/b&gt;&lt;/a&gt; をクリックしてください";
+          inputHtmlLabel1.Text = "バージョン情報ダイアログを表示するには <a href='about'><b>ここ</b></a> をクリックしてください<br>" + 
+            "現在時刻を表示するには <a href='time'><b>ここ</b></a> をクリックしてください";
           
           // イベントハンドラをアタッチします
           inputHtmlLabel1.LinkClicked += new LinkClickedEventHandler(inputHtmlLabel1_LinkClicked);
@@ -2994,7 +2998,9 @@
               }
             }
           }
-          ]]></code></example>
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="T:C1.Win.C1InputPanel.InputImage">
       <summary>
@@ -4706,6 +4712,21 @@
     </member>
     <member name="P:C1.Win.C1InputPanel.InputControlHost.SupportScrollAfterFocus">
       <summary>ホストされるコントロールがフォーカスを取得したときに、C1IputPanel がそのコントロールをスクロールするかどうかを示します。</summary>
+    </member>
+    <member name="F:C1.Win.C1InputPanel.StyleBrush.ScrollBarButtonDisabled">
+      <summary>
+        無効のスクロールボタンの背景。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1InputPanel.StyleColor.ScrollBarButtonDisabledBorder">
+      <summary>
+        無効のボタン状態のボタン境界線の色。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1InputPanel.StyleColor.ScrollBarArrowDisabled">
+      <summary>
+        無効のスクロールバーの矢印画像の色。
+      </summary>
     </member>
   </members>
 </doc>

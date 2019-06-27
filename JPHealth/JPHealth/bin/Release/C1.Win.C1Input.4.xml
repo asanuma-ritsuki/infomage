@@ -887,7 +887,8 @@
       <summary>コンボボックスのスタイルを取得または設定します。</summary>
       <remarks>
         DropDownStyle プロパティは、テキスト部分を編集できるかどうかを指定します。
-        <para>値が Default の場合、テキストは編集可能で、下矢印をクリックすると、ドロップダウンリストが表示されます。</para><para>値が DropDownList の場合、テキストは編集不可能で、コントロールの任意の部分をクリックすると、ドロップダウンリストが表示されます。</para>
+        <para>値が Default の場合、テキストは編集可能で、下矢印をクリックすると、ドロップダウンリストが表示されます。</para>
+        <para>値が DropDownList の場合、テキストは編集不可能で、コントロールの任意の部分をクリックすると、ドロップダウンリストが表示されます。</para>
       </remarks>
     </member>
     <member name="P:C1.Win.C1Input.C1DropDownControl.Image">
@@ -6666,6 +6667,764 @@
       <summary>
         数の入力時に小数部分が入力されない場合に、小数点を表示するかどうか示す値を取得または設定します。
       </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1ComboBox.DropDownWidth">
+      <summary>
+        コンボボックス内のドロップダウンボックスの幅を取得または設定します。
+      </summary>
+      <remarks>
+        自動サイズ変更を有効にするには、このプロパティを -1 に設定します。
+      </remarks>
+    </member>
+    <member name="M:C1.Win.C1Input.C1ComboBox.BeginInit">
+      <summary>
+        オブジェクトに初期化が開始されたことを通知します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.C1ComboBox.EndInit">
+      <summary>
+        オブジェクトに初期化が完了したことを通知します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1DateEdit.InitialField">
+      <summary>
+        コントロールが入力フォーカスを受け取ったときの日付時間フィールドの位置を指定します。デフォルト：<see cref="F:C1.Win.C1Input.DateTimeField.Manual" />.
+      </summary>
+      <remarks>
+        このプロパティが <see cref="F:C1.Win.C1Input.DateTimeField.Manual" /> に設定されている場合、コントロールは <see cref="P:C1.Win.C1Input.C1TextBox.InitialSelection" /> プロパティで定義される InitialSelection アルゴリズムを使用します。
+      </remarks>
+    </member>
+    <member name="M:C1.Win.C1Input.C1DateEdit.UpdateSelection">
+      <summary>
+        <see cref="P:C1.Win.C1Input.C1TextBox.InitialSelection" /> プロパティに従ってテキストの選択を更新します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.DateTimeField">
+      <summary>
+        <see cref="P:C1.Win.C1Input.C1DateEdit.InitialField" /> プロパティと <see cref="M:C1.Win.C1Input.C1TextBox.GoToField(C1.Win.C1Input.DateTimeField,System.Boolean)" /> メソッドで使用されます。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.DateTimeField.Manual">
+      <summary>
+        デフォルトの日時フィールドを使用します。
+      </summary>
+      <remarks>
+        <see cref="T:C1.Win.C1Input.C1DateEdit" /> は、この値を使用して、<see cref="P:C1.Win.C1Input.C1DateEdit.InitialField" /> プロパティの代わりに
+        <see cref="P:C1.Win.C1Input.C1TextBox.InitialSelection" /> を使用して最初の選択を指定します。
+      </remarks>
+    </member>
+    <member name="F:C1.Win.C1Input.DateTimeField.DayOfMonth">
+      <summary>
+        値の DayOfMonth 部分を含む日時フィールド。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.DateTimeField.Month">
+      <summary>
+        値の Month 部分を含む日時フィールド。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.DateTimeField.Year">
+      <summary>
+        値の Year 部分を含む日時フィールド。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.DateTimeField.Era">
+      <summary>
+        値の Era 部分を含む日時フィールド。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.DateTimeField.AMPM">
+      <summary>
+        値の AMPM 部分を含む日時フィールド。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.DateTimeField.Hour">
+      <summary>
+        値の Hour 部分を含む日時フィールド。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.DateTimeField.Minute">
+      <summary>
+        値の Minute 部分を含む日時フィールド。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.DateTimeField.Second">
+      <summary>
+        値の Second 部分を含む日時フィールド。
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.NumericEditCalculator.Font">
+      <summary>
+        コントロールによって表示されるテキストのフォントを取得または設定します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.NumericEditCalculator.OnFontChanged(System.EventArgs)">
+      <summary>
+        System.Windows.Forms.Control.FontChanged イベントを発生させます。
+      </summary>
+      <param name="e">イベントデータを含む System.EventArgs。</param>
+    </member>
+    <member name="P:C1.Win.C1Input.C1TextBox.Initialization">
+      <summary>
+        <see cref="M:System.ComponentModel.ISupportInitialize.BeginInit" /> メソッドが呼び出されたが、<see cref="M:System.ComponentModel.ISupportInitialize.EndInit" /> メソッドが呼び出されていないことを示す値を取得します。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.C1TextBox.GoToField(C1.Win.C1Input.DateTimeField,System.Boolean)">
+      <summary>
+        指定された日時フィールドに選択を移動します。<see cref="P:C1.Win.C1Input.C1TextBox.DataType" /> プロパティが <see cref="T:System.DateTime" /> に設定され、日時入力がアクティブな場合にのみ機能します。
+      </summary>
+      <param name="field">選択するフィールド。</param>
+      <param name="updateText">テキストを更新するかどうかを決定する値。</param>
+      <returns>成功した場合は true を返します。</returns>
+      <remarks>
+        値型が日時である場合に、<see cref="M:C1.Win.C1Input.C1TextBox.UpdateSelection" /> メソッドで使用して最初の選択をカスタマイズできます。
+      </remarks>
+    </member>
+    <member name="M:C1.Win.C1Input.C1TextBox.UpdateSelection">
+      <summary>
+        <see cref="P:C1.Win.C1Input.C1TextBox.InitialSelection" /> プロパティに従ってテキストの選択を更新します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.CharType">
+      <summary>
+        Unicode 文字のカテゴリを定義します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.CharType.OtherChar">
+      <summary>
+        文字が特定のカテゴリに属しないことを示します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.CharType.Control">
+      <summary>
+        文字が制御コードであることを示します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.CharType.Numeric">
+      <summary>
+        文字が数値であることを示します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.CharType.MathSymbol">
+      <summary>
+        文字が演算記号であることを示します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.CharType.Symbol">
+      <summary>
+        文字がシンボルであることを示します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.CharType.Punctuation">
+      <summary>
+        文字が句読点であることを示します。( オープンおよびクローズド )
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.CharType.Space">
+      <summary>
+        文字がスペース文字であることを示します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.CharType.UpperCase">
+      <summary>
+        文字が大文字であることを示します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.CharType.LowerCase">
+      <summary>
+        文字が小文字であることを示します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.CharType.Katakana">
+      <summary>
+        文字が日本語カタカナ文字であることを示します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.CharType.Hiragana">
+      <summary>
+        文字が日本語ひらがな文字であることを示します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.CharType.FarEastPunctation">
+      <summary>
+        文字が CJK 句読点であることを示します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.CharType.Hangul">
+      <summary>
+        文字がハングル文字であることを示します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.CharType.FullWidth">
+      <summary>
+        文字が全角であることを示します。
+      </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.CharHelper">
+      <summary>
+        日本語エンコーディングで動作する静的メソッドのセットを提供します。
+      </summary>
+      <example>
+        <see cref="E:System.Windows.Forms.Control.KeyPress" /> イベントハンドラで <see cref="T:C1.Win.C1Input.CharHelper" /> を使用して、入力を条件付きフィルタ処理する方法を示します。
+        <code>
+          <![CDATA[
+          private void c1TextBox1_KeyPress(object sender, KeyPressEventArgs e)
+          {
+            if (CharHelper.IsKatakana(e.KeyChar))
+            e.KeyChar = CharHelper.ToHiragana(e.KeyChar);
+          }
+          ]]>
+        </code>
+      </example>
+    </member>
+    <member name="F:C1.Win.C1Input.CharHelper.Null">
+      <summary>
+        null 文字を定義します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.CharHelper.Backspace">
+      <summary>
+        バックスペース制御文字を定義します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.CharHelper.Tab">
+      <summary>
+        タブ制御文字を定義します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.CharHelper.Space">
+      <summary>
+        スペース制御文字を定義します。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.CharHelper.MinValue">
+      <summary>
+        Char に設定できる最小値を表します。このフィールドは定数です。
+      </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.CharHelper.MaxValue">
+      <summary>
+        Char に設定できる最大値を表します。このフィールドは定数です。
+      </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.GetCharType(System.Char)">
+      <summary>
+        文字の種類を取得します。
+      </summary>
+      <param name="c">Unicode 文字。</param>
+      <returns>
+        c の文字の種類を表す CharType
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsCharOfType(System.Char,C1.Win.C1Input.CharType)">
+      <summary>
+        指定された文字が指定されたタイプかどうかを決定します。
+      </summary>
+      <param name="c">Unicode 文字。</param>
+      <param name="type">CharType タイプ。</param>
+      <returns>
+        指定された c と type の文字のタイプが一致する場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsMultiWidth(System.Char)">
+      <summary>
+        指定された Unicode 文字がマルチ幅文字として分類されるかどうかを決定します。
+      </summary>
+      <param name="c">Unicode 文字。</param>
+      <returns>
+        c がマルチ幅文字の場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsMultiWidth(System.String,System.Int32)">
+      <summary>
+        指定された文字列内の指定された位置にある文字がマルチ幅文字として分類されるかどうかを決定します。
+      </summary>
+      <param name="s">文字列。</param>
+      <param name="index">s 内の文字の位置</param>
+      <returns>
+        s 内の位置 index にある文字がマルチ幅文字である場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsFullWidth(System.Char)">
+      <summary>
+        指定された Unicode 文字が全角文字かどうかを決定します。通常、CJK 文字は全角と見なされます。
+      </summary>
+      <param name="c">Unicode 文字。</param>
+      <returns>
+        c が全角文字の場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsFullWidth(System.String,System.Int32)">
+      <summary>
+        指定された文字列内の指定された位置にある文字が全角文字であることを示します。通常、CJK 文字は全角と見なされます。
+      </summary>
+      <param name="s">文字列。</param>
+      <param name="index">s 内の文字の位置。</param>
+      <returns>
+        s 内の位置 index にある文字が全角文字である場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsOther(System.Char)">
+      <summary>
+        Unicode 文字が特定の文字に属さないかどうかを決定します。
+      </summary>
+      <param name="c">Unicode 文字。</param>
+      <returns>
+        c がカタカナ文字以外の場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsControl(System.Char)">
+      <summary>
+        指定された Unicode 文字が制御コードとして分類されるかどうかを決定します。
+      </summary>
+      <param name="c">Unicode 文字。</param>
+      <returns>
+        c が制御コードの場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsControl(System.String,System.Int32)">
+      <summary>
+        指定された文字列内の指定された位置にある文字が制御コードであることを示します。
+      </summary>
+      <param name="s">文字列。</param>
+      <param name="index">s 内の文字の位置。</param>
+      <returns>
+        s 内の位置 index にある文字が制御コードである場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsKatakana(System.Char)">
+      <summary>
+        指定された Unicode 文字がカタカナ文字に分類されるどうかを決定します。
+      </summary>
+      <param name="c">Unicode 文字。</param>
+      <returns>
+        c がカタカナ文字の場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsKatakana(System.String,System.Int32)">
+      <summary>
+        指定された文字列内の指定された位置にある文字がカタカナ文字であることを示します。
+      </summary>
+      <param name="s">文字列。</param>
+      <param name="index">s 内の文字の位置。</param>
+      <returns>
+        s 内の位置 index にある文字がカタカナ文字である場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsHiragana(System.Char)">
+      <summary>
+        指定された Unicode 文字がひらがな文字に分類されるどうかを決定します。
+      </summary>
+      <param name="c">Unicode 文字。</param>
+      <returns>
+        c がひらがな文字の場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsHiragana(System.String,System.Int32)">
+      <summary>
+        指定された文字列内の指定された位置にある文字がひらがな文字であることを示します。
+      </summary>
+      <param name="s">文字列。</param>
+      <param name="index">s 内の文字の位置。</param>
+      <returns>
+        s 内の位置 index にある文字がひらがな文字である場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsDigit(System.Char)">
+      <summary>
+        指定された Unicode 文字が数値として分類されるかどうかを決定します。
+      </summary>
+      <param name="c">Unicode 文字。</param>
+      <returns>
+        c が数字の場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsDigit(System.String,System.Int32)">
+      <summary>
+        指定された文字列内の指定された位置にある文字が数値であることを示します。
+      </summary>
+      <param name="s">文字列。</param>
+      <param name="index">s 内の文字の位置。</param>
+      <returns>
+        s 内の位置 index にある文字が数値である場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsPunctuation(System.Char)">
+      <summary>
+        指定された Unicode 文字が句読点文字として分類されるかどうかを決定します。
+      </summary>
+      <param name="c">Unicode 文字。</param>
+      <returns>
+        c が句読点文字の場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsPunctuation(System.String,System.Int32)">
+      <summary>
+        指定された文字列内の指定された位置にある文字が句読点文字であることを示します。
+      </summary>
+      <param name="s">文字列。</param>
+      <param name="index">s 内の文字の位置。</param>
+      <returns>
+        s 内の位置 index にある文字が句読点文字である場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsMathSymbol(System.Char)">
+      <summary>
+        指定された Unicode 文字が演算記号として分類されるかどうかを決定します。
+      </summary>
+      <param name="c">Unicode 文字。</param>
+      <returns>
+        c が演算文字の場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsMathSymbol(System.String,System.Int32)">
+      <summary>
+        指定された文字列内の指定された位置にある文字が演算記号であることを示します。
+      </summary>
+      <param name="s">文字列。</param>
+      <param name="index">s 内の文字の位置。</param>
+      <returns>
+        s 内の位置 index にある文字が演算文字である場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsSymbol(System.Char)">
+      <summary>
+        指定された Unicode 文字がシンボル文字として分類されるかどうかを決定します。
+      </summary>
+      <param name="c">Unicode 文字。</param>
+      <returns>
+        c がシンボル文字の場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsSymbol(System.String,System.Int32)">
+      <summary>
+        指定された文字列内の指定された位置にある文字がシンボル文字であることを示します。
+      </summary>
+      <param name="s">文字列。</param>
+      <param name="index">s 内の文字の位置。</param>
+      <returns>
+        s 内の位置 index にある文字がシンボル文字である場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsLower(System.Char)">
+      <summary>
+        指定された Unicode 文字が小文字に分類されるどうかを決定します。
+      </summary>
+      <param name="c">Unicode 文字。</param>
+      <returns>
+        c が小文字の場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsLower(System.String,System.Int32)">
+      <summary>
+        指定された文字列内の指定された位置にある文字が小文字であることを示します。
+      </summary>
+      <param name="s">文字列。</param>
+      <param name="index">s 内の文字の位置。</param>
+      <returns>
+        s 内の位置 index にある文字が小文字である場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsUpper(System.Char)">
+      <summary>
+        指定された Unicode 文字が大文字に分類されるどうかを決定します。
+      </summary>
+      <param name="c">Unicode 文字。</param>
+      <returns>
+        c が大文字の場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsUpper(System.String,System.Int32)">
+      <summary>
+        指定された文字列内の指定された位置にある文字が大文字であることを示します。
+      </summary>
+      <param name="s">文字列。</param>
+      <param name="index">s 内の文字の位置。</param>
+      <returns>
+        s 内の位置 index にある文字が大文字である場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsDigitOrSymbol(System.Char)">
+      <summary>
+        指定された Unicode 文字が数値または演算記号として分類されるかどうかを決定します。
+      </summary>
+      <param name="c">Unicode 文字。</param>
+      <returns>
+        c が数字またはシンボル文字の場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsDigitOrSymbol(System.String,System.Int32)">
+      <summary>
+        指定された文字列内の指定された位置にある文字が数値または演算記号であるかどうかを示します。
+      </summary>
+      <param name="s">文字列。</param>
+      <param name="index">s 内の文字の位置。</param>
+      <returns>
+        s 内の位置 index にある文字が数値または演算記号である場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsAlphabet(System.Char)">
+      <summary>
+        指定された Unicode 文字がアルファベット文字に分類されるどうかを決定します。
+      </summary>
+      <param name="c">Unicode 文字。</param>
+      <returns>
+        c がアルファベット文字の場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsAlphabet(System.String,System.Int32)">
+      <summary>
+        指定された文字列内の指定された位置にある文字がアルファベット文字であることを示します。
+      </summary>
+      <param name="s">文字列。</param>
+      <param name="index">s 内の文字の位置。</param>
+      <returns>
+        s 内の位置 index にある文字がアルファベット文字である場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsAlphaOrDigit(System.Char)">
+      <summary>
+        指定された Unicode 文字がアルファベット文字または数値に分類されるかどうかを決定します。
+      </summary>
+      <param name="c">Unicode 文字。</param>
+      <returns>
+        c がアルファベット文字または数字の場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsAlphaOrDigit(System.String,System.Int32)">
+      <summary>
+        指定された文字列内の指定された位置にある文字がアルファベット文字または数値であることを示します。
+      </summary>
+      <param name="s">文字列。</param>
+      <param name="index">s 内の文字の位置。</param>
+      <returns>
+        s 内の位置 index にある文字がアルファベット文字である場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsUpperKana(System.Char)">
+      <summary>
+        指定された Unicode 文字が大文字のかなとして分類されるかどうかを決定します。
+      </summary>
+      <param name="c">Unicode 文字。</param>
+      <returns>
+        c がかなの大文字の場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsBigKana(System.Char)">
+      <summary>
+        指定された Unicode 文字が大文字のかなとして分類されるかどうかを決定します。
+      </summary>
+      <param name="c">Unicode 文字。</param>
+      <returns>
+        c がかなの大文字の場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.IsLowerKana(System.Char)">
+      <summary>
+        指定された Unicode 文字が小文字（通常）のかなとして分類されるかどうかを決定します。
+      </summary>
+      <param name="c">Unicode 文字。</param>
+      <returns>
+        c がかなの小文字（通常）の場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.HasLowerKana(System.Char)">
+      <summary>
+        かなに小文字があるかどうかを決定します。
+      </summary>
+      <param name="c">Unicode 文字。</param>
+      <returns>
+        c に小文字のかながある場合は true、そうでない場合は false。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.ToFullWidth(System.Char)">
+      <summary>
+        可能であれば、指定された文字を全角文字に変換します。範囲は、基本ラテン文字、カタカナ、ハングル文字です。
+      </summary>
+      <param name="c">Unicode 文字。</param>
+      <returns>
+        c の全角文字。または、元の文字が返されます。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.ToFullWidth(System.Boolean@,System.Char[])">
+      <summary>
+        可能であれば、指定された文字を全角文字に変換します。このメソッドは、文字の配列を受け取る点で、もう 1 つのメソッドとは異なります。極東の国々では、複数の半角文字で 1 つの全角文字が構成される場合があります。
+      </summary>
+      <param name="c">文字の配列。</param>
+      <param name="processedAll">
+        Soundex 文字が処理される場合は <b>true</b>、そうでない場合は <b>false</b>。
+      </param>
+      <returns>
+        c の全角文字。または、元の文字が返されます。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.ToHalfWidth(System.Char)">
+      <summary>
+        Unicode 文字の値を対応する半角文字に変換します。範囲は、基本ラテン文字、カタカナ、ハングル文字です。
+      </summary>
+      <param name="c">Unicode 文字。</param>
+      <returns>
+        <para>c に対応する半角。</para>
+        <para>- または -</para>
+        <para>
+          c が既に半角であるか、マルチ幅文字でない場合は、元の c の値。
+        </para>
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.ToHalfWidthEx(System.Char)">
+      <summary>
+        可能であれば、指定された文字を半角文字に変換します。このメソッドは、正確な半角文字を返すという点で、ToHalfWidth メソッドとは異なります。極東の国々では、多くの場合、この結果が異なります。
+      </summary>
+      <param name="c">Unicode 文字。</param>
+      <returns>
+        c を半角形式で表す文字配列。多くの場合、この配列の要素は 1 つだけです。
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.ToKatakana(System.Char)">
+      <summary>
+        Unicode 文字の値を対応するカタカナに変換します。日本語のための特殊な文字処理です。
+      </summary>
+      <param name="c">Unicode 文字。</param>
+      <returns>
+        <para>c に対応するカタカナ。</para>
+        <para>- または -</para>
+        <para>
+          c が既にカタカナであるか、ひらがなではない場合は、元の c の値。
+        </para>
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.ToKatakana(System.Char,System.Boolean)">
+      <summary>
+        Unicode 文字の値をオプションの全角または半角の設定と同等のカタカナに変換します。日本語のための特殊な文字処理です。
+      </summary>
+      <param name="c">
+        Unicode 文字
+      </param>
+      <param name="fullWidth">
+        全角カタカナを返す場合は <b>true</b>、半角カタカナを返す場合は <b>false</b>。
+      </param>
+      <returns></returns>
+      <returns>
+        <para>c に対応するカタカナ。</para>
+        <para>- または -</para>
+        <para>
+          c が既にカタカナであるか、ひらがなではない場合は、元の c の値。
+        </para>
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.ToHiragana(System.Char)">
+      <summary>
+        Unicode 文字の値を対応するひらがなに変換します。日本語のための特殊な文字処理です。
+      </summary>
+      <param name="c">Unicode 文字。</param>
+      <returns>
+        <para>c に対応するひらがな。</para>
+        <para>- または -</para>
+        <para>
+          c が既にひらがなであるか、カタカナではない場合は、元の c の値。
+        </para>
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.ToAnsi(System.Char)">
+      <summary>
+        Unicode 文字の値を対応する ANSI 文字に変換します。
+      </summary>
+      <param name="c">Unicode 文字。</param>
+      <returns>
+        現在のカルチャで c に対応する ANSI 文字
+      </returns>
+      <remarks>
+        現在のカルチャを使用して、指定された Unicode 文字を ANSI 文字にエンコードします。
+      </remarks>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.ToAnsi(System.Char,System.Globalization.CultureInfo)">
+      <summary>
+        Unicode 文字の値を対応する ANSI 文字に変換します。
+      </summary>
+      <param name="c">Unicode 文字。</param>
+      <param name="culture">
+        CultureInfo オブジェクト。null 参照が渡された場合は、現在のカルチャが使用されます。
+      </param>
+      <returns>
+        指定されたカルチャを使用した、c に対応する ANSI 文字
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.ToSJIS(System.Char)">
+      <summary>
+        JIS（日本語エンコード）文字の値を対応する Shift-JIS 文字に変換します。
+      </summary>
+      <param name="c">JIS 文字。</param>
+      <returns>
+        <para>c に対応する Shift-JIS。</para>
+        <para>- または -</para>
+        <para>
+          c が全角文字でない場合は、元の c の値。
+        </para>
+      </returns>
+      <remarks>
+        <newpara>
+          JIS 文字を対応する Shift-JIS 文字に変換します（日本語で使用）。
+        </newpara>
+        <newpara>
+          このメソッドは、パラメータとして Unicode 文字を受け取らないことに注意してください。"ToJIS" メソッドから返される文字値を使用してください。
+        </newpara>
+      </remarks>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.ToJIS(System.Char)">
+      <summary>
+        Shift-JIS（日本語エンコード）文字の値を対応する JIS 文字に変換します。
+      </summary>
+      <param name="c">Shift-JIS 文字。</param>
+      <returns>
+        <para>c に対応する JIS。</para>
+        <para>- または -</para>
+        <para>
+          c が全角文字でない場合は、元の c の値。
+        </para>
+      </returns>
+      <remarks>
+        <newpara>
+          Shift-JIS 文字を対応する JIS 文字に変換します（日本語で使用）。
+        </newpara>
+        <newpara>
+          このメソッドは、パラメータとして Unicode 文字を受け取らないことに注意してください。"ToSJIS" メソッドから返される文字値を使用してください。
+        </newpara>
+      </remarks>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.FromAnsi(System.Char)">
+      <summary>
+        ANSI 文字の値を対応する Unicode 文字に変換します。
+      </summary>
+      <param name="c">ANSI 文字。</param>
+      <returns>
+        c に対応する Unicode 文字
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.FromAnsi(System.Char,System.Globalization.CultureInfo)">
+      <summary>
+        指定されたカルチャ情報を使用して、ANSI 文字の値を対応する Unicode 文字に変換します。
+      </summary>
+      <param name="c">ANSI 文字。</param>
+      <param name="culture">
+        CultureInfo オブジェクト。null 参照が渡された場合は、現在のカルチャが使用されます。
+      </param>
+      <returns>
+        指定されたカルチャを使用した、c に対応する Unicode 文字
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.ToUpperKana(System.Char)">
+      <summary>
+        小文字（通常）のかなを大文字に変換します。
+      </summary>
+      <param name="c">Unicode 文字。</param>
+      <returns>相当する大文字のかな。</returns>
+    </member>
+    <member name="M:C1.Win.C1Input.CharHelper.ToLowerKana(System.Char)">
+      <summary>
+        大文字のかなを小文字（通常）に変換します。
+      </summary>
+      <param name="c">Unicode 文字。</param>
+      <returns>相当する小文字のかな。</returns>
     </member>
   </members>
 </doc>

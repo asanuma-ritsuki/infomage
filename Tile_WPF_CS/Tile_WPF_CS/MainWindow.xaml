@@ -1,0 +1,88 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tile_WPF_CS"
+        xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml" x:Class="Tile_WPF_CS.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="300" Width="1000">
+	<Grid Height="190" Width="880">
+
+		<c1:C1Tile c1:C1TileService.PointerDownAnimation="True" Content="この文字" Height="150"
+				   HorizontalAlignment="Left" Margin="12,12,0,0" Name="c1Tile1" VerticalAlignment="Top"
+				   Width="230" FontSize="16" Background="White" HorizontalContentAlignment="Stretch"
+				   VerticalContentAlignment="Stretch" Padding="0">
+
+			<c1:C1Tile.ContentTemplate>
+				<DataTemplate>
+					<Border Background="BurlyWood">
+						<TextBlock Text="フォトギャラリー" VerticalAlignment="Center"
+								   HorizontalAlignment="Center"/>
+					</Border>
+				</DataTemplate>
+			</c1:C1Tile.ContentTemplate>
+			<c1:C1Tile.BackContentTemplate>
+				<DataTemplate>
+					<Border Background="DarkSeaGreen">
+						<StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+							<TextBlock Text="画像をクリックすると" Foreground="White"
+									   HorizontalAlignment="Center"/>
+							<TextBlock Text="拡大表示します" Foreground="White" HorizontalAlignment="Center"/>
+						</StackPanel>
+					</Border>
+				</DataTemplate>
+			</c1:C1Tile.BackContentTemplate>
+			
+		</c1:C1Tile>
+
+		<c1:C1SlideTile c1:C1TileService.PointerDownAnimation="True" Content="イメージギャラリー"
+						Height="150" HorizontalAlignment="Left" Margin="252,12,0,0" Name="c1SlideTile1"
+						VerticalAlignment="Top" Width="600" HorizontalContentAlignment="Stretch"
+						VerticalContentAlignment="Stretch" Padding="0">
+
+			<c1:C1SlideTile.ContentTemplate>
+				<DataTemplate>
+					<Border>
+						<Grid HorizontalAlignment="Left">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="200"/>
+								<ColumnDefinition Width="200"/>
+								<ColumnDefinition Width="200"/>
+							</Grid.ColumnDefinitions>
+
+							<Image Height="150" Grid.Column="0" HorizontalAlignment="Left" Name="Image1"
+								   Stretch="Fill" VerticalAlignment="Top" Width="200"
+								   Source="\\intra-pdc01\20181101_181041002_警視庁\12_entryimage\01\0001\0001_0000.jpg"
+								   MouseDown="Image_MouseDown"/>
+							<Image Height="150" Grid.Column="1" HorizontalAlignment="Left" Name="Image2"
+								   Stretch="Fill" VerticalAlignment="Top" Width="200"
+								   Source="\\intra-pdc01\20181101_181041002_警視庁\12_entryimage\01\0001\0001_0001.jpg"
+								   MouseDown="Image_MouseDown"/>
+
+							<Image Height="150" Grid.Column="2" HorizontalAlignment="Left" Name="Image3"
+								   Stretch="Fill" VerticalAlignment="Top" Width="200"
+								   Source="\\intra-pdc01\20181101_181041002_警視庁\12_entryimage\01\0001\0001_0002.jpg"
+								   MouseDown="Image_MouseDown"/>
+						</Grid>
+					</Border>
+				</DataTemplate>
+			</c1:C1SlideTile.ContentTemplate>
+
+			<c1:C1Tile.BackContentTemplate>
+				<DataTemplate>
+					<Border>
+						<Grid HorizontalAlignment="Left">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="200"/>
+								<ColumnDefinition Width="200"/>
+								<ColumnDefinition Width="200"/>
+							</Grid.ColumnDefinitions>
+						</Grid>
+					</Border>
+				</DataTemplate>
+			</c1:C1Tile.BackContentTemplate>
+		</c1:C1SlideTile>
+	</Grid>
+
+</Window>

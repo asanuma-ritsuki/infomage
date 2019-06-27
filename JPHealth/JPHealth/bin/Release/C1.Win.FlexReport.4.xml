@@ -874,7 +874,8 @@
           ［Cancel］ボタンは、コンポーネントがレポートをレンダリングしているかどうかをチェックし、
           <see cref="P:C1.Win.FlexReport.C1FlexReport.Cancel" />プロパティを true に設定します。
         </para>
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           _c1r.DoEvents = true;
           
           private void Render_Click(object sender, EventArgs e)
@@ -900,7 +901,8 @@
               Console.WriteLine("キャンセルするレポートはありません。");
             }
           }
-          ]]></code>
+          ]]>
+        </code>
       </example>
     </member>
     <member name="P:C1.Win.FlexReport.C1FlexReport.Cancel">
@@ -1251,18 +1253,21 @@
           式には、次のような単純な
           <b>VBScript</b>式を指定することもできます。
         </para>
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           Console.WriteLine(_c1r.Evaluate("2+2"));
           <i>4</i>
           
           Console.WriteLine(_c1r.Evaluate(" \"A\" &amp; \"B\" ");
           <i>AB</i>
-          ]]></code>
+          ]]>
+        </code>
         <para>
           また、
           <b>Report</b>オブジェクトやそのサブオブジェクトへの参照を入れることもできます。次に例を示します。
         </para>
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           Console.WriteLine(_c1r.Evaluate("Report.DataSource.RecordSource"));
           <i>SELECT * FROM Employees</i>
           
@@ -1271,19 +1276,22 @@
           
           Console.WriteLine(_c1r.Evaluate("Report.Fields(0).Name"));
           <i>FirstNameField</i>
-          ]]></code>
+          ]]>
+        </code>
         <para>
           さらに、データフィールド、
           <see cref="T:C1.Win.FlexReport.Field" />オブジェクト、および
           <see cref="T:C1.Win.FlexReport.Section" />オブジェクトは、名前で直接参照できます。
         </para>
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           Console.WriteLine(_c1r.Evaluate("FirstNameField.Value"));
           <i>Andrew</i>
           
           Console.WriteLine(_c1r.Evaluate("CategoryName"));
           <i>Beverages</i>
-          ]]></code>
+          ]]>
+        </code>
       </example>
     </member>
     <member name="M:C1.Win.FlexReport.C1FlexReport.Evaluate(System.String,C1.Win.FlexReport.IReportScriptContext)">
@@ -1455,12 +1463,15 @@
       </remarks>
       <example>
         次のコードは、レポートにデータがない場合に、そのレポートをキャンセルします。
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           private void c1r_NoData(object sender, EventArgs e)
           {
             _c1r.Cancel = true;
           }
-          ]]></code></example>
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="E:C1.Win.FlexReport.C1FlexReport.StartSection">
       <summary>
@@ -1943,20 +1954,23 @@
       <example>
         次のコードは、
         <c>Filter</c>プロパティを使用してデータソースにフィルタを適用する方法と、SQL 文で WHERE 句を使用してデータソースにフィルタを適用する方法を示します。
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           if (useFilterProperty)
           {
             // すべてのレコードをロードし、メモリ内でフィルタします
             _c1r.DataSource.RecordSource = "SELECT * from Employees";
-            _c1r.DataSource.Filter = "HireDate &gt;= '1/1/1993' AND Country = 'UK'";
+            _c1r.DataSource.Filter = "HireDate >= '1/1/1993' AND Country = 'UK'";
           }
           else
           {
             // 選択したレコードだけをロードします
             _c1r.DataSource.RecordSource = "SELECT * from Employees " + 
-              "WHERE HireDate &gt;= #1/1/1993# AND Country = 'UK'";
+              "WHERE HireDate >= #1/1/1993# AND Country = 'UK'";
           }
-          ]]></code></example>
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="P:C1.Win.FlexReport.DataSource.MaxRecords">
       <summary>レポートに入れるデータ行の最大数を取得または設定します（すべての行を入れる場合は 0）。</summary>
@@ -1999,7 +2013,8 @@
         <para>
           デフォルトは
           <b>IsolationLevel.ReadCommitted</b>です。
-        </para></summary>
+        </para>
+      </summary>
     </member>
     <member name="P:C1.Win.FlexReport.DataSource.CalculatedFields">
       <summary>
@@ -2044,7 +2059,8 @@
         <para>
           アセンブリにこのインタフェースをサポートする型が含まれる場合は、そのアセンブリと型をレポートのデータソースとして レポートデザイナで選択できます。その型の参照と レコードセットの初期化パラメータ（
           <see cref="P:C1.Win.FlexReport.IC1FlexReportExternalRecordset.Params" />を参照）が XML レポート定義ファイルに保存されます。レポートがロードされると、保存された情報に基づいて レコードセットオブジェクトが作成され、レポートのデータソースとして使用されます。
-        </para></summary>
+        </para>
+      </summary>
     </member>
     <member name="M:C1.Win.FlexReport.IC1FlexReportExternalRecordset.EditParams">
       <summary>このメソッドは、現在のレコードセットのパラメータを設定するために使用されます。たとえば、このメソッドを実装して、ユーザーがパラメータを 編集するためのダイアログを表示できます。</summary>
@@ -2165,14 +2181,17 @@
       <example>
         次のコードは、
         <i>UnitsInStock</i>フィールドの値が追加注文レベルを下回った場合に、そのフィールドのテキストの色を 変更するスクリプトです。
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           // スクリプトを作成します
           string script = "UnitsInStock.ForeColor = " + 
-            "IIF(UnitsInStock &lt; ReorderLevel, vbRed, vbBlack)";
+            "IIF(UnitsInStock < ReorderLevel, vbRed, vbBlack)";
           
           // スクリプトを詳細セクションに割り当てます
           _c1r.Sections.Detail.OnPrint = script;
-          ]]></code></example>
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="T:C1.Win.FlexReport.Chart.Chart2DArea">
       <summary>チャートのチャート領域を表します。</summary>
@@ -3632,7 +3651,8 @@
       <summary>ヒストグラムの区間の指定に使用する方法を取得または設定します。</summary>
       <remarks>
         区間境界は、さまざまな方法で決定できます。
-        <para>Automatic 法を使用する場合は、データの最大値と最小値を使用し、区間をデータ平均の 3 標準偏差内に収まるように制限して、区間の上限値と下限値が計算されます。区間数はオプションです。区間境界は均等になるように計算されます。</para><para>SemiAutomatic 法を使用する場合は、区間数と共に区間の上限値と下限値を指定します。区間境界は均等になるように計算されます。</para><para>XDataBoundaries 法を使用する場合は、データ系列の X 値を使用して各区間境界が 明示的に設定されます。X 値はソートされ、重複値は除外されます。結果の各昇順値を使用して、次の区間境界が決定されます。したがって、結果の 1 番目と 2 番目の X 値によって先頭の区間が定義され、後続の X 値によってそれぞれ次の区間の終わりが指定されます。N 個の区間を指定するには、N+1 個の一意の X 値が必要です。</para></remarks>
+        <para>Automatic 法を使用する場合は、データの最大値と最小値を使用し、区間をデータ平均の 3 標準偏差内に収まるように制限して、区間の上限値と下限値が計算されます。区間数はオプションです。区間境界は均等になるように計算されます。</para><para>SemiAutomatic 法を使用する場合は、区間数と共に区間の上限値と下限値を指定します。区間境界は均等になるように計算されます。</para><para>XDataBoundaries 法を使用する場合は、データ系列の X 値を使用して各区間境界が 明示的に設定されます。X 値はソートされ、重複値は除外されます。結果の各昇順値を使用して、次の区間境界が決定されます。したがって、結果の 1 番目と 2 番目の X 値によって先頭の区間が定義され、後続の X 値によってそれぞれ次の区間の終わりが指定されます。N 個の区間を指定するには、N+1 個の一意の X 値が必要です。</para>
+      </remarks>
     </member>
     <member name="P:C1.Win.FlexReport.Chart.ChartSeriesHistogram.IntervalNumber">
       <summary>ヒストグラム内の区間の数を取得または設定します。</summary>
@@ -5653,13 +5673,22 @@
       <summary>系列（または円グラフセグメント）ごとに、使用する色のコレクションを取得または設定します。</summary>
       <remarks>
         ColorGeneration が CustomByPalette に設定されている場合に使用できます。このコレクションは、セミコロンで区切られた色名のリストを含む文字列として 指定されます。次に例を示します。
-        <example>chartField.Palette = "Red;Green;Blue"</example></remarks>
+        <example>chartField.Palette = "Red;Green;Blue"</example>
+      </remarks>
     </member>
     <member name="P:C1.Win.FlexReport.ChartField.VisualizationType">
       <summary>チャートの視覚化タイプを指定する値を取得または設定します。</summary>
       <remarks>
         チャートフィールドには、2D および 3D チャートを定義するためのさまざまなプロパティセットがあります。
-        <list type="bullet"><item><description>2D チャート固有のプロパティ：ChartArea2D、ChartGroups2D、VisualEffects</description></item><item><description>3D チャート固有のプロパティ：ChartArea3D、ChartGroups3D</description></item></list></remarks>
+        <list type="bullet">
+          <item>
+            <description>2D チャート固有のプロパティ：ChartArea2D、ChartGroups2D、VisualEffects</description>
+          </item>
+          <item>
+            <description>3D チャート固有のプロパティ：ChartArea3D、ChartGroups3D</description>
+          </item>
+        </list>
+      </remarks>
     </member>
     <member name="P:C1.Win.FlexReport.ChartField.UseGrayscale">
       <summary>チャートを色ではなくグレースケールでレンダリングするかどうかを示す値を取得または設定します。</summary>
@@ -5997,7 +6026,8 @@
         <para>サブレポートに別のサブレポートを入れることもできます。ネストできるレポートの深さに決めれた制限はありません。ただし、レポートの循環参照は指定できません。つまり、レポートはサブレポートを介して自分自身を参照することは できません。</para>
       </remarks>
       <example>
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           // サブレポートをロードし、それをメインレポートのフィールドに割り当てます
           string sSub = "Sales By Category Subreport";
           c1Sub.Load("NWIND.XML", sSub);
@@ -6006,7 +6036,8 @@
           // メインレポートとサブレポートの接続を設定します
           c1rMain.Fields[sSub].Calculated = true;
           c1rMain.Fields[sSub].Text = "\"CategoryName = '\" &amp; [CategoryName] &amp; \"'\"";
-          ]]></code>
+          ]]>
+        </code>
       </example>
     </member>
     <member name="P:C1.Win.FlexReport.Field.Text">
@@ -6023,7 +6054,8 @@
       </remarks>
       <example>
         次のコードは 2 つのフィールドを作成します。1 つは「Sales Tax」というラベルを表示し、もう 1 つは データベースフィールド「Sales」に定数を乗算して税額を表示します。
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           // リテラルテキストを表示します
           _c1r.Field[0].Text = "Sales Tax";
           _c1r.Field[0].Calculated = false;
@@ -6031,7 +6063,9 @@
           // 計算値を表示します
           _c1r.Field[1].Text = "Sales * 0.085";
           _c1r.Field[1].Calculated = true;
-          ]]></code></example>
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="P:C1.Win.FlexReport.Field.Calculated">
       <summary>
@@ -6050,7 +6084,8 @@
       </remarks>
       <example>
         次のコードは 2 つのフィールドを作成します。1 つは「Sales Tax」というラベルを表示し、もう 1 つは データベースフィールド「Sales」に定数を乗算して税額を表示します。
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           // リテラルテキストを表示します
           _c1r.Field[0].Text = "Sales Tax";
           _c1r.Field[0].Calculated = false;
@@ -6058,7 +6093,9 @@
           // 計算値を表示します
           _c1r.Field[1].Text = "Sales * 0.085";
           _c1r.Field[1].Calculated = true;
-          ]]></code></example>
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="P:C1.Win.FlexReport.Field.HideDuplicates">
       <summary>連続するレコードで、重複する値を非表示にするかどうかを指定します。</summary>
@@ -6133,14 +6170,17 @@
       <example>
         次のコードは、
         <i>UnitsInStock</i>フィールドの値が追加注文レベルを下回った場合に、そのフィールドのテキストの色を 変更するスクリプトです。
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           // スクリプトを作成します
           string script = "UnitsInStock.ForeColor = " + 
-            "IIF(UnitsInStock &lt; ReorderLevel, vbRed, vbBlack)";
+            "IIF(UnitsInStock < ReorderLevel, vbRed, vbBlack)";
           
           // スクリプトを詳細セクションに割り当てます
           _c1r.Sections.Detail.OnPrint = script;
-          ]]></code></example>
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="P:C1.Win.FlexReport.Field.Format">
       <summary>フィールド値の書式設定に使用される文字列を取得または設定します。</summary>
@@ -6239,7 +6279,8 @@
         <para>
           デフォルトは
           <b>None</b>です。
-        </para></summary>
+        </para>
+      </summary>
     </member>
     <member name="P:C1.Win.FlexReport.Field.Shape">
       <summary>
@@ -6388,11 +6429,14 @@
         次のコードは、スクリプトをレポートの
         <see cref="F:C1.Win.FlexReport.SectionTypeEnum.Detail" />セクションに割り当てます。このスクリプトは、値に基づいてフィールドの
         <see cref="!:ForeColor" />プロパティを変更します。
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           _c1r.Sections.Fields["sampleField"].ForeColor = Color.Black;
           _c1r.Sections.Detail.OnFormat = 
-            "sampleField.ForeColor = iif(someValue &lt; 5, vbRed, vbBlack)";
-          ]]></code></example>
+            "sampleField.ForeColor = iif(someValue < 5, vbRed, vbBlack)";
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="P:C1.Win.FlexReport.FieldBase.Section">
       <summary>フィールドが属するセクションを取得または設定します。</summary>
@@ -6778,13 +6822,16 @@
       </remarks>
       <example>
         次のコードは、データソースに HireQuarter 列を追加する SQL 文を使用し、この新しい列に基づいてグループを ソートします。レポートには、従業員が四半期ごとの雇用時期に基づいてソートして表示されます。
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           string sql = "SELECT *, DATEPART('q', HireDate) AS HireQuarter " + 
             "FROM Employees";
           c1r.DataSource.RecordSource = sql;
           c1r.Groups[0].GroupBy = "HireQuarter";
           c1r.Groups[0].Sort = SortEnum.Ascending;
-          ]]></code></example>
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="P:C1.Win.FlexReport.Group.KeepTogether">
       <summary>グループが 1 ページに収められるかどうかを指定します。</summary>
@@ -7202,9 +7249,11 @@
         </para>
         <para>
           レポート内のセクションの総数は、
-          <code><![CDATA[
+          <code>
+            <![CDATA[
             5 + 2 * Groups.Count
-            ]]></code>になります。セクションを レポートに直接追加したり、レポートから直接削除することはできません。セクションの数は、グループの数の関数になります。
+            ]]>
+          </code>になります。セクションを レポートに直接追加したり、レポートから直接削除することはできません。セクションの数は、グループの数の関数になります。
         </para>
         <para>
           セクションは削除できませんが、
@@ -7264,9 +7313,11 @@
           <b>Fields</b>コレクションにフィールドを追加すると、そのフィールドは、そのコレクションを所有するセクションに 自動的に割り当てられます。たとえば、次のコードは、フィールドを
           <b>Detail</b>セクションに追加します。
         </para>
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           _c1r.Sections.Detail.Fields.Add("new field", "CompanyLogo", rc);
-          ]]></code>
+          ]]>
+        </code>
       </remarks>
     </member>
     <member name="P:C1.Win.FlexReport.Section.SubSections">
@@ -7346,7 +7397,8 @@
       <summary>
         マスターレポートのフッターセクションの場合にのみ、現在のセクションが詳細セクションの右下ではなく、ページの最後のページフッターのすぐ上に出力するかどうかを示す値を 取得または設定します。デフォルトは
         <b>false</b>です。
-        <para>このプロパティは、フッター以外のセクションまたはサブレポートのフッターでは 無視されます。</para></summary>
+        <para>このプロパティは、フッター以外のセクションまたはサブレポートのフッターでは 無視されます。</para>
+      </summary>
     </member>
     <member name="P:C1.Win.FlexReport.Section.UseColumnLayout">
       <summary>
@@ -7882,7 +7934,8 @@
       <summary>
         マスターレポートのサブセクションの場合にのみ、現在のサブセクションが詳細セクションの右下ではなく、ページの最後のページフッターのすぐ上に出力するかどうかを示す値を 取得または設定します。デフォルトは
         <b>false</b>です。
-        <para>このプロパティは、フッター以外のセクションまたはサブレポートのフッターでは 無視されます。</para></summary>
+        <para>このプロパティは、フッター以外のセクションまたはサブレポートのフッターでは 無視されます。</para>
+      </summary>
     </member>
     <member name="P:C1.Win.FlexReport.SubSection.Calculated">
       <summary>
@@ -8099,12 +8152,34 @@
       <summary>
         指定されたオブジェクトから
         <see cref="T:C1.Win.FlexReport.PictureHolder" />の新しいインスタンスを作成します。次のオブジェクトを指定できます。
-        <list type="bullet"><item><term>null 値</term><description>
+        <list type="bullet">
+          <item>
+            <term>null 値</term>
+            <description>
               空の
               <see cref="T:C1.Win.FlexReport.PictureHolder" />が作成されます。
-            </description></item><item><term>文字列</term><description>文字列は、1 つの式、ファイル、または URL を表します。</description></item><item><term><see cref="P:C1.Win.FlexReport.PictureHolder.Image" />オブジェクト。
-            </term></item><item><term><see cref="T:C1.Win.FlexReport.PictureHolder" />オブジェクト。
-            </term></item><item><term>バイト配列。</term><description>配列には画像データが含まれる必要があります。</description></item></list></summary>
+            </description>
+          </item>
+          <item>
+            <term>文字列</term>
+            <description>文字列は、1 つの式、ファイル、または URL を表します。</description>
+          </item>
+          <item>
+            <term>
+              <see cref="P:C1.Win.FlexReport.PictureHolder.Image" />オブジェクト。
+            </term>
+          </item>
+          <item>
+            <term>
+              <see cref="T:C1.Win.FlexReport.PictureHolder" />オブジェクト。
+            </term>
+          </item>
+          <item>
+            <term>バイト配列。</term>
+            <description>配列には画像データが含まれる必要があります。</description>
+          </item>
+        </list>
+      </summary>
       <param name="value">
         作成された
         <see cref="T:C1.Win.FlexReport.PictureHolder" />オブジェクトにデータを提供する値。
@@ -8422,15 +8497,18 @@
       </summary>
       <remarks>
         ここに示すコード例は、詳細セクションの OnFormat スクリプトで使用することにより、現在の詳細セクションがページ上に印刷される最後のものかどうかを判断することができます（テストでは、現在のセクションがページに収まり、次のセクションは収まらないことを確認します）。
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           h = Detail.RenderHeight
           ah = Report.AvailableHeight
-          if (h &lt; ah) and (2 * h &gt; ah) then
+          if (h < ah) and (2 * h > ah) then
             Detail.BackColor = RGB(255, 0, 0) ' 最後のページ
           else
             Detail.BackColor = RGB(255, 255, 255)
           endif
-          ]]></code></remarks>
+          ]]>
+        </code>
+      </remarks>
     </member>
     <member name="P:C1.Win.FlexReport.C1FlexReport.BehaviorOptions">
       <summary>
@@ -8571,30 +8649,40 @@
       <remarks>このプロパティを使用すると、サブレポートにデータがあるかどうかをチェックし、データがない場合はレンダリングを抑止できます。</remarks>
       <example>
         次のコードは、空のサブレポートを含むセクションを非表示にするスクリプトです。
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           rep.Sections.Detail.OnFormat = "Detail.Visible = fSubreport.SubreportHasData"
-          ]]></code>次のコードは、空のサブレポートを含むフィールドを非表示にし、代わりに別のフィールドを表示するスクリプトです。
-        <code><![CDATA[
+          ]]>
+        </code>次のコードは、空のサブレポートを含むフィールドを非表示にし、代わりに別のフィールドを表示するスクリプトです。
+        <code>
+          <![CDATA[
           rep.Sections.Detail.OnFormat = 
             "hasData = fSubreport.SubreportHasData\r\n" + 
             "fSubreport.Visible = hasData\r\n" + 
             "fNoData.Visible = Not hasData"
-          ]]></code></example>
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="P:C1.Win.FlexReport.SubreportField.SubreportHasData">
       <summary>サブレポートにデータがあるかどうかを返し、データがない場合はレンダリングを抑止します。</summary>
       <remarks>このプロパティを使用すると、サブレポートにデータがあるかどうかをチェックし、データがない場合はレンダリングを抑止できます。</remarks>
       <example>
         次のコードは、空のサブレポートを含むセクションを非表示にするスクリプトです。
-        <code><![CDATA[
+        <code>
+          <![CDATA[
           rep.Sections.Detail.OnFormat = "Detail.Visible = fSubreport.SubreportHasData"
-          ]]></code>次のコードは、空のサブレポートを含むフィールドを非表示にし、代わりに別のフィールドを表示するスクリプトです。
-        <code><![CDATA[
+          ]]>
+        </code>次のコードは、空のサブレポートを含むフィールドを非表示にし、代わりに別のフィールドを表示するスクリプトです。
+        <code>
+          <![CDATA[
           rep.Sections.Detail.OnFormat = 
             "hasData = fSubreport.SubreportHasData\r\n" + 
             "fSubreport.Visible = hasData\r\n" + 
             "fNoData.Visible = Not hasData"
-          ]]></code></example>
+          ]]>
+        </code>
+      </example>
     </member>
     <member name="P:C1.Win.FlexReport.Chart.Chart3DData.UnboundData">
       <summary>非連結データセットを取得します。</summary>
@@ -8999,9 +9087,11 @@
     <member name="P:C1.Win.FlexReport.Field.LineSpacing">
       <summary>
         フィールド内のテキストの行スペーシングをパーセント単位で取得または設定します。デフォルトは 100 で、通常の行スペーシングです。
-        <para><see cref="P:C1.Win.FlexReport.Field.RTF" />が
+        <para>
+          <see cref="P:C1.Win.FlexReport.Field.RTF" />が
           <b>true</b>の場合、このプロパティは無視されます。
-        </para></summary>
+        </para>
+      </summary>
     </member>
     <member name="P:C1.Win.FlexReport.Field.TextAngle">
       <summary>フィールド内でテキストを回転させる角度を取得または設定します（バーコードを含む）。</summary>
@@ -9516,7 +9606,8 @@
         <para>
           空の文字列は、
           <see cref="!:FlexChartFieldBase.DataSource" />が使用されることを意味します。
-        </para></summary>
+        </para>
+      </summary>
     </member>
     <member name="P:C1.Win.FlexReport.FlexChart.Series.XExpression">
       <summary>X データの取得に使用される式を取得または設定します。</summary>
@@ -9714,7 +9805,8 @@
       <summary>
         スクリプトを実行する
         <see cref="T:C1.Win.FlexReport.ReportLinkTargetBase" />を記述します。
-        <para>ビュー内のハイパーリンクをクリックすると、指定されたスクリプトが実行され、レポートが再生成されます。</para><para>データソースがまだ開いていないときにスクリプトが実行されるので、フィールドの値は利用できません。</para><para>このスクリプトは、レポートパラメータの値、レポートフィールドのプロパティ、セクションなどを変更するために使用できます。</para></summary>
+        <para>ビュー内のハイパーリンクをクリックすると、指定されたスクリプトが実行され、レポートが再生成されます。</para><para>データソースがまだ開いていないときにスクリプトが実行されるので、フィールドの値は利用できません。</para><para>このスクリプトは、レポートパラメータの値、レポートフィールドのプロパティ、セクションなどを変更するために使用できます。</para>
+      </summary>
     </member>
     <member name="M:C1.Win.FlexReport.ReportLinkTargetScript.#ctor">
       <summary>
@@ -9935,6 +10027,12 @@
         GDI/GDI+ 関数を使用する際、<see cref="T:C1.Win.FlexReport.C1FlexReport" /> オブジェクトのレイアウトの測定/計算に使用される <see cref="T:System.Drawing.Graphics" /> を提供するために使用されるデバイスのタイプを取得または設定します。
         このプロパティが <see cref="F:C1.Win.C1Document.MeasurementDevice.Printer" /> に設定されている場合、
         <see cref="P:C1.Win.FlexReport.C1FlexReport.MeasurementPrinterName" /> でプリンタを指定します。
+      </summary>
+    </member>
+    <member name="P:C1.Win.FlexReport.BehaviorOptions.AddOperatorAsInC1Report">
+      <summary>
+        ADD スクリプト演算子を C1Report 内と同様に機能させるかどうかを示す値を取得または設定します。
+        デフォルトは false です。これを true に設定すると、C1Report との互換性が向上します。
       </summary>
     </member>
   </members>

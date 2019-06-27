@@ -1,0 +1,610 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\OpenCvSharp3-AnyCPU.3.4.1.20180319\build\OpenCvSharp3-AnyCPU.props" Condition="Exists('..\packages\OpenCvSharp3-AnyCPU.3.4.1.20180319\build\OpenCvSharp3-AnyCPU.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{020EA014-390D-4C98-B87D-FA5D2831B5D8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>InTools.My.MyApplication</StartupObject>
+    <RootNamespace>InTools</RootNamespace>
+    <AssemblyName>InTools</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>\\hydra\99_システムGr\01_toolbox\InTools_テスト版\ClickOnce\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>InTools.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>InTools.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\InTools.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DocumentationFile>InTools.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DocumentationFile>InTools.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>723AACA7A72E362BACA41D72BDEF112AE656EDB2</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DocumentationFile>InTools.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DocumentationFile>InTools.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.OCR, Version=17.6.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.OCR.17.6.0\lib\net45\Aspose.OCR.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.C1Pdf.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.C1Report.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.C1Zip.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.Win.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.Win.BarCode.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.Win.C1Chart.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.Win.C1Chart3D.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.Win.C1Command.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.Win.C1Document.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.Win.C1DX.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.Win.C1FlexGrid.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.Win.C1FlexGrid.ImportExport.4, Version=4.0.20183.338, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1Input.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.Win.C1Report.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.Win.C1Ribbon.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.Win.FlexChart.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.Win.FlexReport.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.Win.ImportServices.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.WPF.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.WPF.BarCode.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.WPF.Document.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.WPF.DX.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.WPF.Excel.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.WPF.FlexChart.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.WPF.ImportServices.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.WPF.Pdf.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.WPF.Word.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="C1.WPF.Zip.4">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.12.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.12\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Leadtools, Version=17.5.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907" />
+    <Reference Include="Leadtools.Codecs, Version=17.5.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907" />
+    <Reference Include="Leadtools.Codecs.Cmp, Version=17.5.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86" />
+    <Reference Include="Leadtools.Codecs.J2k, Version=17.5.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86" />
+    <Reference Include="Leadtools.Codecs.Tif, Version=17.5.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86" />
+    <Reference Include="Leadtools.Drawing, Version=17.5.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907" />
+    <Reference Include="Leadtools.Pdf, Version=17.5.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86" />
+    <Reference Include="Leadtools.WinForms, Version=17.5.4.0, Culture=neutral, PublicKeyToken=9cf889f53ea9b907, processorArchitecture=x86" />
+    <Reference Include="Magick.NET-Q16-AnyCPU, Version=7.0.0.0, Culture=neutral, PublicKeyToken=2004825badfa91ec, processorArchitecture=MSIL">
+      <HintPath>..\packages\Magick.NET-Q16-AnyCPU.7.0.6.601\lib\net40\Magick.NET-Q16-AnyCPU.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack-Core.1.1.0.0\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack-Shell.1.1.0.0\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.ShellExtensions, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack-Shell.1.1.0.0\lib\Microsoft.WindowsAPICodePack.ShellExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCvSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenCvSharp3-AnyCPU.3.4.1.20180319\lib\net40\OpenCvSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCvSharp.Blob, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenCvSharp3-AnyCPU.3.4.1.20180319\lib\net40\OpenCvSharp.Blob.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCvSharp.Extensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenCvSharp3-AnyCPU.3.4.1.20180319\lib\net40\OpenCvSharp.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCvSharp.UserInterface, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenCvSharp3-AnyCPU.3.4.1.20180319\lib\net40\OpenCvSharp.UserInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="ReachFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="zxing, Version=0.16.4.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ZXing.Net.0.16.4\lib\net45\zxing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.4.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ZXing.Net.0.16.4\lib\net45\zxing.presentation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class\ButtonEX.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Class\clsLogicalStringComparer.vb" />
+    <Compile Include="Class\clsWinApp.vb" />
+    <Compile Include="Class\SQLProcess.vb" />
+    <Compile Include="Class\XmlSettings.vb" />
+    <Compile Include="Form\GetPath\frmGetPath.Designer.vb">
+      <DependentUpon>frmGetPath.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\GetPath\frmGetPath.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Recovery\frmSearchOption.designer.vb">
+      <DependentUpon>frmSearchOption.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Recovery\frmSearchOption.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Recovery\frmRecovery.Designer.vb">
+      <DependentUpon>frmRecovery.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Recovery\frmRecovery.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\BCRead\frmBCRead.Designer.vb">
+      <DependentUpon>frmBCRead.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\BCRead\frmBCRead.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\ScanLogChk\frmScanLogOption.designer.vb">
+      <DependentUpon>frmScanLogOption.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\ScanLogChk\frmScanLogOption.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Remove\frmRemove.Designer.vb">
+      <DependentUpon>frmRemove.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Remove\frmRemove.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\ScanLogChk\frmScanLogChk.Designer.vb">
+      <DependentUpon>frmScanLogChk.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\ScanLogChk\frmScanLogChk.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Converter\frmOption.designer.vb">
+      <DependentUpon>frmOption.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Converter\frmOption.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Converter\frmConverter.Designer.vb">
+      <DependentUpon>frmConverter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Converter\frmConverter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Disk\frmDiskSize.designer.vb">
+      <DependentUpon>frmDiskSize.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Disk\frmDiskSize.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Disk\frmExtention.designer.vb">
+      <DependentUpon>frmExtention.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Disk\frmExtention.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Disk\frmDisk.designer.vb">
+      <DependentUpon>frmDisk.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Disk\frmDisk.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmMenu.Designer.vb">
+      <DependentUpon>frmMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmSQLSetting.designer.vb">
+      <DependentUpon>frmSQLSetting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmSQLSetting.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\OCR\frmOCR.Designer.vb">
+      <DependentUpon>frmOCR.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\OCR\frmOCR.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Alibi\frmAlibi.Designer.vb">
+      <DependentUpon>frmAlibi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Alibi\frmAlibi.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Rename\frmRename.Designer.vb">
+      <DependentUpon>frmRename.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Rename\frmRename.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\OpenCheck\frmOpenCheck.Designer.vb">
+      <DependentUpon>frmOpenCheck.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\OpenCheck\frmOpenCheck.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\DefaultModule.vb" />
+    <Compile Include="Module\ReadBC.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Form\GetPath\frmGetPath.resx">
+      <DependentUpon>frmGetPath.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Recovery\frmSearchOption.resx">
+      <DependentUpon>frmSearchOption.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Recovery\frmRecovery.resx">
+      <DependentUpon>frmRecovery.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\BCRead\frmBCRead.resx">
+      <DependentUpon>frmBCRead.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\ScanLogChk\frmScanLogOption.resx">
+      <DependentUpon>frmScanLogOption.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Remove\frmRemove.resx">
+      <DependentUpon>frmRemove.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\ScanLogChk\frmScanLogChk.resx">
+      <DependentUpon>frmScanLogChk.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Converter\frmOption.resx">
+      <DependentUpon>frmOption.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Converter\frmConverter.resx">
+      <DependentUpon>frmConverter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Disk\frmDiskSize.resx">
+      <DependentUpon>frmDiskSize.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Disk\frmExtention.resx">
+      <DependentUpon>frmExtention.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Disk\frmDisk.resx">
+      <DependentUpon>frmDisk.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmMenu.resx">
+      <DependentUpon>frmMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmSQLSetting.resx">
+      <DependentUpon>frmSQLSetting.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\OCR\frmOCR.resx">
+      <DependentUpon>frmOCR.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Alibi\frmAlibi.resx">
+      <DependentUpon>frmAlibi.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Rename\frmRename.resx">
+      <DependentUpon>frmRename.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\OpenCheck\frmOpenCheck.resx">
+      <DependentUpon>frmOpenCheck.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="InTools_TemporaryKey.pfx" />
+    <None Include="License\LEAD175ImgSuite.lic">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Report\Report_Alibi.flxr">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Menu1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left_paper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\List.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0086-recyclebin_full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0076-picture_search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gnome-color-chooser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gnome-session-switch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OCR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DiskMaker.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DISK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OpenCheck.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\List.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rename.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\under_arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GhostScript\gsdll32.dll" />
+    <Content Include="GhostScript\gsdll64.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GhostScript\gswin32.exe" />
+    <Content Include="GhostScript\gswin64.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\view_list_tree.png" />
+    <None Include="Resources\更新履歴.txt" />
+    <None Include="Resources\menu_bg.jpg" />
+    <None Include="Resources\transform_rotate_270.png" />
+    <None Include="Resources\transform_rotate_180.png" />
+    <None Include="Resources\transform_rotate_90.png" />
+    <None Include="Resources\barcode.png" />
+    <None Include="Resources\entry.png" />
+    <None Include="Resources\rotate.png" />
+    <None Include="Resources\Flag_red.png" />
+    <None Include="Resources\DiskMaker_ICON.png" />
+    <None Include="Resources\recovery.png" />
+    <None Include="Resources\InTools.ico" />
+    <None Include="Resources\convert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Alibi_Temp\" />
+    <Folder Include="BCRead_Temp\" />
+    <Folder Include="Cnv_Temp\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 および x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>このプロジェクトは、このコンピューター上にない NuGet パッケージを参照しています。それらのパッケージをダウンロードするには、[NuGet パッケージの復元] を使用します。詳細については、http://go.microsoft.com/fwlink/?LinkID=322105 を参照してください。見つからないファイルは {0} です。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\OpenCvSharp3-AnyCPU.3.4.1.20180319\build\OpenCvSharp3-AnyCPU.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\OpenCvSharp3-AnyCPU.3.4.1.20180319\build\OpenCvSharp3-AnyCPU.props'))" />
+  </Target>
+</Project>

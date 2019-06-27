@@ -24,6 +24,7 @@ Partial Class Form1
 	Private Sub InitializeComponent()
 		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+		Me.Label14 = New System.Windows.Forms.Label()
 		Me.txtTIFTargetPath = New System.Windows.Forms.TextBox()
 		Me.Label13 = New System.Windows.Forms.Label()
 		Me.cmbTIFTitle = New System.Windows.Forms.ComboBox()
@@ -56,13 +57,14 @@ Partial Class Form1
 		Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
 		Me.ProgressBar1 = New System.Windows.Forms.ToolStripProgressBar()
 		Me.lblProgress = New System.Windows.Forms.ToolStripStatusLabel()
-		Me.Label14 = New System.Windows.Forms.Label()
+		Me.cmbExtension = New System.Windows.Forms.ComboBox()
 		Me.GroupBox1.SuspendLayout()
 		Me.StatusStrip1.SuspendLayout()
 		Me.SuspendLayout()
 		'
 		'GroupBox1
 		'
+		Me.GroupBox1.Controls.Add(Me.cmbExtension)
 		Me.GroupBox1.Controls.Add(Me.Label14)
 		Me.GroupBox1.Controls.Add(Me.txtTIFTargetPath)
 		Me.GroupBox1.Controls.Add(Me.Label13)
@@ -100,6 +102,16 @@ Partial Class Form1
 		Me.GroupBox1.TabIndex = 0
 		Me.GroupBox1.TabStop = False
 		Me.GroupBox1.Text = "設定"
+		'
+		'Label14
+		'
+		Me.Label14.AutoSize = True
+		Me.Label14.ForeColor = System.Drawing.Color.Red
+		Me.Label14.Location = New System.Drawing.Point(204, 390)
+		Me.Label14.Name = "Label14"
+		Me.Label14.Size = New System.Drawing.Size(274, 17)
+		Me.Label14.TabIndex = 30
+		Me.Label14.Text = "※対象フォルダは日本語を含まないようにしてください"
 		'
 		'txtTIFTargetPath
 		'
@@ -269,7 +281,7 @@ Partial Class Form1
 		Me.txtCSVFile.AllowDrop = True
 		Me.txtCSVFile.Location = New System.Drawing.Point(144, 348)
 		Me.txtCSVFile.Name = "txtCSVFile"
-		Me.txtCSVFile.Size = New System.Drawing.Size(472, 24)
+		Me.txtCSVFile.Size = New System.Drawing.Size(366, 24)
 		Me.txtCSVFile.TabIndex = 8
 		'
 		'txtKeyword
@@ -380,15 +392,15 @@ Partial Class Form1
 		Me.lblProgress.Size = New System.Drawing.Size(78, 17)
 		Me.lblProgress.Text = "99999 / 99999"
 		'
-		'Label14
+		'cmbExtension
 		'
-		Me.Label14.AutoSize = True
-		Me.Label14.ForeColor = System.Drawing.Color.Red
-		Me.Label14.Location = New System.Drawing.Point(204, 390)
-		Me.Label14.Name = "Label14"
-		Me.Label14.Size = New System.Drawing.Size(274, 17)
-		Me.Label14.TabIndex = 30
-		Me.Label14.Text = "※対象フォルダは日本語を含まないようにしてください"
+		Me.cmbExtension.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+		Me.cmbExtension.FormattingEnabled = True
+		Me.cmbExtension.Items.AddRange(New Object() {"pdf", "tif"})
+		Me.cmbExtension.Location = New System.Drawing.Point(516, 348)
+		Me.cmbExtension.Name = "cmbExtension"
+		Me.cmbExtension.Size = New System.Drawing.Size(96, 25)
+		Me.cmbExtension.TabIndex = 31
 		'
 		'Form1
 		'
@@ -445,4 +457,5 @@ Partial Class Form1
 	Friend WithEvents txtTIFTargetPath As TextBox
 	Friend WithEvents Label13 As Label
 	Friend WithEvents Label14 As Label
+	Friend WithEvents cmbExtension As ComboBox
 End Class

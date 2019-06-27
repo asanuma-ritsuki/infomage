@@ -344,6 +344,13 @@ PDFPropertyEdit
  <param name="sender"></param>
  <param name="e"></param>
 </member>
+<member name="M:PDFPropertyEdit.Form1.Form1_FormClosing(System.Object,System.Windows.Forms.FormClosingEventArgs)">
+ <summary>
+ フォームクロージング時
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
 <member name="M:PDFPropertyEdit.Form1.Initialize">
  <summary>
  初期化処理
@@ -353,6 +360,192 @@ PDFPropertyEdit
  <summary>
  所定のコマンドラインを実行する
  </summary>
+</member>
+<member name="P:PDFPropertyEdit.XmlSettings.LocationX">
+ <summary>
+ フォーム位置X
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:PDFPropertyEdit.XmlSettings.LocationY">
+ <summary>
+ フォーム位置Y
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:PDFPropertyEdit.XmlSettings.SizeX">
+ <summary>
+ サイズ幅
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:PDFPropertyEdit.XmlSettings.SizeY">
+ <summary>
+ サイズ高さ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:PDFPropertyEdit.XmlSettings.State">
+ <summary>
+ 最大化・最小化状態
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:PDFPropertyEdit.XmlSettings.ApplicationName">
+ <summary>
+ アプリケーション名
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:PDFPropertyEdit.XmlSettings.DataSource">
+ <summary>
+ DataSource
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:PDFPropertyEdit.XmlSettings.InitialCatalog">
+ <summary>
+ InitialCatalog
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:PDFPropertyEdit.XmlSettings.UserID">
+ <summary>
+ UserID
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:PDFPropertyEdit.XmlSettings.Password">
+ <summary>
+ Password
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:PDFPropertyEdit.XmlSettings.TablePrefix">
+ <summary>
+ INTRA-PDC00接続時の接頭語入出力
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:PDFPropertyEdit.XmlSettings.TargetPath">
+ <summary>
+ PDF対象フォルダ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:PDFPropertyEdit.XmlSettings.OutPath">
+ <summary>
+ PDF出力フォルダ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:PDFPropertyEdit.XmlSettings.Title">
+ <summary>
+ PDFタイトル
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:PDFPropertyEdit.XmlSettings.Author">
+ <summary>
+ PDF作成者
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:PDFPropertyEdit.XmlSettings.SubTitle">
+ <summary>
+ サブタイトル
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:PDFPropertyEdit.XmlSettings.Keywords">
+ <summary>
+ PDFキーワード
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:PDFPropertyEdit.XmlSettings.CSVFile">
+ <summary>
+ CSVファイル
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:PDFPropertyEdit.XmlSettings.TIFTargetPath">
+ <summary>
+ TIF対象フォルダ
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:PDFPropertyEdit.XmlSettings.TIFSubject">
+ <summary>
+ 件名
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:PDFPropertyEdit.XmlSettings.TIFAuthor">
+ <summary>
+ TIF作成者
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:PDFPropertyEdit.XmlSettings.LoadFromXmlFile">
+ <summary>
+ 設定をXMLファイルから読み込み復元する
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:PDFPropertyEdit.XmlSettings.SaveToXmlFile">
+ <summary>
+ 現在の設定をXMLファイルに保存する
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:PDFPropertyEdit.XmlSettings.LoadFromBinaryFile">
+ <summary>
+ 設定をバイナリファイルから読み込み復元する
+ </summary>
+</member>
+<member name="M:PDFPropertyEdit.XmlSettings.SaveToBinaryFile">
+ <summary>
+ 現在の設定をバイナリファイルに保存する
+ </summary>
+</member>
+<member name="M:PDFPropertyEdit.XmlSettings.LoadFromRegistry">
+ <summary>
+ 設定をレジストリから読み込み復元する
+ </summary>
+</member>
+<member name="M:PDFPropertyEdit.XmlSettings.SaveToRegistry">
+ <summary>
+ 現在の設定をレジストリに保存する
+ </summary>
+</member>
+<member name="M:PDFPropertyEdit.XmlSettings.Dispose">
+ <summary>
+ インスタンスの内容を保存して解放する
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:PDFPropertyEdit.XmlSettings.GetSettingPath">
+ <summary>
+ XMLファイルの保存先を取得する
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:PDFPropertyEdit.XmlSettings.GetSettingRegistry">
+ <summary>
+ レジストリの保存先キーを取得する
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
 </member>
 </members>
 </doc>

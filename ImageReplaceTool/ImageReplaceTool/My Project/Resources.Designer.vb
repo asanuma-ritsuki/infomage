@@ -833,6 +833,16 @@ Namespace My.Resources
         '''<summary>
         '''  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
         '''</summary>
+        Friend ReadOnly Property f_f_object_128_s512_f_object_128_2nbg() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("f_f_object_128_s512_f_object_128_2nbg", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        '''</summary>
         Friend ReadOnly Property finish_and_merge() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("finish_and_merge", resourceCulture)
@@ -2666,16 +2676,6 @@ Namespace My.Resources
         Friend ReadOnly Property sport_golf() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("sport_golf", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
-        '''</summary>
-        Friend ReadOnly Property Stacked_books() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("Stacked_books", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
